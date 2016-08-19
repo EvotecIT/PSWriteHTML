@@ -1,10 +1,10 @@
 ﻿<#	
 	===========================================================================
-	 Created with: 	SAPIEN Technologies, Inc., PowerShell Studio 2016 v5.2.127
 	 Created on:   	8/3/2016 1:46 PM
 	 Created by:   	matt.quickenden
-	 Organization: 	
+	 Organization: 	Azure Cloud Enablement
 	 Filename:     	ReportHTML.psd1
+	 Instructions:	www.azurefieldnotes.com/2016/08/04/powershellhtmlreportingpart1/
 	 -------------------------------------------------------------------------
 	 Module Manifest
 	-------------------------------------------------------------------------
@@ -18,7 +18,7 @@
 ModuleToProcess = 'ReportHTML.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0.0'
+ModuleVersion = '1.0.0.3'
 
 # ID used to uniquely identify this module
 GUID = '13c25942-f436-44e1-b236-66e3ae11a8a0'
@@ -33,7 +33,7 @@ CompanyName = ''
 Copyright = '(c) 2016. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'Module description'
+Description = 'http://www.azurefieldnotes.com/2016/08/04/powershellhtmlreportingpart1/'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '2.0'
