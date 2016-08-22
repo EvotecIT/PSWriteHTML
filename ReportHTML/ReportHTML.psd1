@@ -18,7 +18,7 @@
 ModuleToProcess = 'ReportHTML.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0.4'
+ModuleVersion = '1.0.0.6'
 
 # ID used to uniquely identify this module
 GUID = '13c25942-f436-44e1-b236-66e3ae11a8a0'
@@ -33,7 +33,7 @@ CompanyName = ''
 Copyright = '(c) 2016. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'A module for creating HTML reports within PowerShell.  For more details see this four part blog series.  http://www.azurefieldnotes.com/2016/08/04/powershellhtmlreportingpart1/'
+Description = 'A module for creating HTML reports within PowerShell.  For more details see this four part blog series.  http://www.azurefieldnotes.com/2016/08/04/powershellhtmlreportingpart1'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '2.0'
