@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title></title>
+<style type="text/css">
+* {    
+    margin: 0px;
+    font-family: sans-serif;
+    font-size: 8pt;
+}
+
+body {
+    margin: 8px 5px 8px 5px; 
+}
+
+hr {
+    height: 4px; 
+    background-color: #337e94; 
+    border: 0px;
+}
+
+table {
+    table-layout: auto; 
+    width: 100%;
+    border-collapse: collapse;   
+}
+
+th {
+    vertical-align: top; 
+    text-align: left;
+    padding: 2px 5px 2px 5px;
+}
+
+td {
+    vertical-align: top; 
+    padding: 2px 5px 2px 5px;
+    border-top: 1px solid #bbbbbb;  
+}
+
+div.section {
+    padding-bottom: 12px;
+} 
+
+div.header {
+    border: 1px solid #bbbbbb; 
+    padding: 4px 5em 0px 5px; 
+    margin: 0px 0px -1px 0px;
+    height: 2em; 
+    width: 95%; 
+    font-weight: bold ;
+    color: #ffffff;
+    background-color: #337e94;
+}
+
+div.content { 
+    border: 1px solid #bbbbbb; 
+    padding: 4px 0px 5px 11px; 
+    margin: 0px 0px -1px 0px;
+    width: 95%; 
+    color: #000000; 
+    background-color: #f9f9f9;
+}
+
+div.reportname {
+    font-size: 12pt; 
+    font-weight: bold;
+}
+
+div.footer {
+    padding-right: 5em;
+    text-align: right; 
+}
+
+table.fixed {
+    table-layout: fixed; 
+}
+
+table.vertical {
+	table-layout: fixed; width 100px; 
+}
+
+td.clientlogo {
+    border: 0px;
+	padding-left: 0px;
+    vertical-align: middle;	
+}
+
+td.MainLogo {
+    border: 0px; 
+    padding-right: 5em;
+    text-align: right; 
+    vertical-align: middle;	
+}
+
+th.content { 
+    border-top: 1px solid #bbbbbb; 
+	width: 25%;
+}
+
+td.content { 
+	width: 75%;
+}
+
+td.groupby {
+	border-top: 3px double #bbbbbb;
+}
+
+.green {
+	background-color: #a1cda4;
+}
+
+.yellow {
+	background-color: #fffab1;
+}
+
+.red {
+	background-color: #f5a085;
+}
+
+.odd {
+	background-color: #D5D8DC;
+}
+
+.even {
+	background-color: #F7F9F9;
+}
+
+.header {
+	background-color: #616A6B; color: #F7F9F9;
+}
+
+div.column { width: 100%; float: left; }
+div.first{ border-right: 1px  grey solid; width: 49% }
+div.second{ margin-left: 10px;width: 49% }
+
+
+a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
+a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
+a.alink:hover {text-decoration:underline;font-size:130%}
+
+
+</style>
+
+<script type="text/javascript"> 
+function show(obj) {
+  document.getElementById(obj).style.display='block'; 
+  document.getElementById("hide_" + obj).style.display=''; 
+  document.getElementById("show_" + obj).style.display='none'; 
+} 
+function hide(obj) { 
+  document.getElementById(obj).style.display='none'; 
+  document.getElementById("hide_" + obj).style.display='none'; 
+  document.getElementById("show_" + obj).style.display=''; 
+} 
+</script> 
+
+</head>
+
+<body onload="hide();">
+
+<div class="section">
+    <div class="reportname"></div>
+    <hr />
+    <div>Report created on </div>
+</div>
