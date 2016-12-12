@@ -1,8 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-
-<head>
-<title></title>
 <style type="text/css">
 * {    
     margin: 0px;
@@ -139,24 +134,11 @@ a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
 a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
 a.alink:hover {text-decoration:underline;font-size:130%}
 
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
 
 </style>
-
-<script type="text/javascript"> 
-function show(obj) {
-  document.getElementById(obj).style.display='block'; 
-  document.getElementById("hide_" + obj).style.display=''; 
-  document.getElementById("show_" + obj).style.display='none'; 
-} 
-function hide(obj) { 
-  document.getElementById(obj).style.display='none'; 
-  document.getElementById("hide_" + obj).style.display='none'; 
-  document.getElementById("show_" + obj).style.display=''; 
-} 
-</script> 
-
-</head>
-
-<body onload="hide();">
-
-
