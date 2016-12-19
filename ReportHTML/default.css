@@ -13,6 +13,7 @@ hr {
     height: 4px; 
     background-color: #337e94; 
     border: 0px;
+	width: 99%;
 }
 
 table {
@@ -33,33 +34,59 @@ td {
     border-top: 1px solid #bbbbbb;  
 }
 
+div.pageTitle {
+    font-size: 14pt; 
+    font-weight: bold;
+	width: 100%;
+    display: block;
+    padding: 4px 1em 0px 2px; 
+    height: 2em; 
+}
+
+div.ReportCreated {	
+	text-align: right;
+	padding-right: 5em;
+}
+
+div.clientlogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+} 
+
+div.MainLogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+} 
+
 div.section {
+    border: 1px solid #bbbbbb; 
     padding-bottom: 12px;
+    display: inline-block;
+    margin: 5px;
+    width: 98%
 } 
 
 div.header {
-    border: 1px solid #bbbbbb; 
     padding: 4px 5em 0px 5px; 
-    margin: 0px 0px -1px 0px;
+    margin: 0px 0px 0px 0px;
     height: 2em; 
-    width: 95%; 
     font-weight: bold ;
     color: #ffffff;
     background-color: #337e94;
 }
 
-div.content { 
-    border: 1px solid #bbbbbb; 
+div.content {   
     padding: 4px 0px 5px 11px; 
-    margin: 0px 0px -1px 0px;
+    margin: 0px 0px 0px 0px;
     width: 95%; 
     color: #000000; 
     background-color: #f9f9f9;
-}
-
-div.reportname {
-    font-size: 12pt; 
-    font-weight: bold;
 }
 
 div.footer {
@@ -126,7 +153,7 @@ td.groupby {
 }
 
 div.column { width: 100%; float: left; }
-div.first{ border-right: 1px  grey solid; width: 49% }
+div.first{ width: 49% }
 div.second{ margin-left: 10px;width: 49% }
 
 
