@@ -171,7 +171,7 @@ div.second{ margin-left: 10px;width: 49% }
 
 a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
 a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
-a.alink:hover {text-decoration:underline;font-size:120%}
+a.alink:hover {text-decoration:underline;font-size:130%}
 
 table.sortable thead {
     background-color:#eee;

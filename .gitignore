@@ -3,3 +3,6 @@ Dump/reload.ps1
 Dump/test.ps1
 Dump/Doco.ps1
 Dump/remove.ps1
+ReportHTML.zip
+ReportHTML/ReportClass.psm1
+ReportHTML/DataReport.ps1
