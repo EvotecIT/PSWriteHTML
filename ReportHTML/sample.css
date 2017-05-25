@@ -165,9 +165,33 @@ td.groupby {
 }
 
 div.column { width: 100%; float: left; }
-div.first{ width: 49% }
-div.second{ margin-left: 10px;width: 49% }
+div.first { width: 49% }
+div.second { margin-left: 10px;width: 49% }
 
+div.oneoftwo { width: 49% }
+div.twooftwo { margin-left: 10px;width: 49% }
+
+div.oneofthree { width: 32% }
+div.twoofthree { margin-left: 10px;width: 32% }
+div.threeofthree { margin-left: 10px;width: 32% }
+
+div.oneoffour { width: 24% }
+div.twooffour { margin-left: 10px;width: 24% }
+div.threeoffour { margin-left: 10px;width: 24% }
+div.fouroffour { margin-left: 10px;width: 24% }
+
+div.oneoffive { width: 19% }
+div.twooffive { margin-left: 10px;width: 19% }
+div.threeoffive { margin-left: 10px;width: 19% }
+div.fouroffive { margin-left: 10px;width: 19% }
+div.fiveoffive { margin-left: 10px;width: 19% }
+
+div.oneofsix { width: 16% }
+div.twoofsix { margin-left: 10px;width: 16% }
+div.threeofsix { margin-left: 10px;width: 16% }
+div.fourofsix { margin-left: 10px;width: 16% }
+div.fiveofsix { margin-left: 10px;width: 16% }
+div.sixofsix { margin-left: 10px;width: 16% }
 
 a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
 a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}

@@ -3,7 +3,7 @@
     <html>
         <!-- Header -->
         <head>
-        <Title>ReportHTML 1.3.1.0, Cmdlets Usage, Help & Examples</Title>
+        <Title>ReportHTML 1.3.1.2, Cmdlets Usage, Help & Examples</Title>
             <!-- Styles -->
             
 <style type="text/css">
@@ -173,9 +173,26 @@ td.groupby {
 }
 
 div.column { width: 100%; float: left; }
-div.first{ width: 49% }
-div.second{ margin-left: 10px;width: 49% }
+div.first { width: 49% }
+div.second { margin-left: 10px;width: 49% }
 
+div.oneoftwo { width: 49% }
+div.twooftwo { margin-left: 10px;width: 49% }
+
+div.oneofthree { width: 32% }
+div.twoofthree { margin-left: 10px;width: 32% }
+div.threeofthree { margin-left: 10px;width: 32% }
+
+div.oneoffour { width: 24% }
+div.twooffour { margin-left: 10px;width: 24% }
+div.threeoffour { margin-left: 10px;width: 24% }
+div.fouroffour { margin-left: 10px;width: 24% }
+
+div.oneoffive { width: 19% }
+div.twooffive { margin-left: 10px;width: 19% }
+div.threeoffive { margin-left: 10px;width: 19% }
+div.fouroffive { margin-left: 10px;width: 19% }
+div.fiveoffive { margin-left: 10px;width: 19% }
 
 a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
 a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
@@ -12322,9 +12339,9 @@ ul.tab li a:focus, .active {background-color: #ccc;}
                 <td class="MainLogo"><img src="data:image/jpeg;base64,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" /></td>
             </tr>
             </tbody></table>
-            <div class="pageTitle">ReportHTML 1.3.1.0, Cmdlets Usage, Help & Examples</div>
+            <div class="pageTitle">ReportHTML 1.3.1.2, Cmdlets Usage, Help & Examples</div>
             <hr />
-            <div class="ReportCreated">Report created on Mar 31, 2017 08:19 PM</div>
+            <div class="ReportCreated">Report created on May 25, 2017 01:02 PM</div>
 <ul class="tab">
 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Welcome')" id="defaultOpen">Welcome</a></li>
 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Reports')">Reports</a></li>
@@ -12417,6 +12434,16 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     <a name="Version History / Change Log">Version History / Change Log</a>
 </div>
 <div class="content" style="background-color:#ffffff;"> <table><tbody>
+	<tr>
+	<th class="content">1.3.1.2</th>
+	<td class="content"></td>
+	</tr>
+</tbody></table><table><tbody>
+	<tr>
+	<th class="content">1.3.1.1</th>
+	<td class="content">minor fixes</td>
+	</tr>
+</tbody></table><table><tbody>
 	<tr>
 	<th class="content">1.3.1.0</th>
 	<td class="content">Sleeps removed from module, Axis Labels added to bar chart, few logic errors corrected.  Added Get-HTMLContentTableAadvanced</td>
@@ -12749,9 +12776,26 @@ td.groupby {
 }
 
 div.column { width: 100%; float: left; }
-div.first{ width: 49% }
-div.second{ margin-left: 10px;width: 49% }
+div.first { width: 49% }
+div.second { margin-left: 10px;width: 49% }
 
+div.oneoftwo { width: 49% }
+div.twooftwo { margin-left: 10px;width: 49% }
+
+div.oneofthree { width: 32% }
+div.twoofthree { margin-left: 10px;width: 32% }
+div.threeofthree { margin-left: 10px;width: 32% }
+
+div.oneoffour { width: 24% }
+div.twooffour { margin-left: 10px;width: 24% }
+div.threeoffour { margin-left: 10px;width: 24% }
+div.fouroffour { margin-left: 10px;width: 24% }
+
+div.oneoffive { width: 19% }
+div.twooffive { margin-left: 10px;width: 19% }
+div.threeoffive { margin-left: 10px;width: 19% }
+div.fouroffive { margin-left: 10px;width: 19% }
+div.fiveoffive { margin-left: 10px;width: 19% }
 
 a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
 a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
@@ -24900,7 +24944,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
             </tbody></table>
             <div class="pageTitle">ReportHTML</div>
             <hr />
-            <div class="ReportCreated">Report created on Mar 31, 2017 08:19 PM</div>
+            <div class="ReportCreated">Report created on May 25, 2017 01:02 PM</div>
 <div class="section">
 <div class="header">
     <a name=""></a>
@@ -25191,9 +25235,26 @@ td.groupby {
 }
 
 div.column { width: 100%; float: left; }
-div.first{ width: 49% }
-div.second{ margin-left: 10px;width: 49% }
+div.first { width: 49% }
+div.second { margin-left: 10px;width: 49% }
 
+div.oneoftwo { width: 49% }
+div.twooftwo { margin-left: 10px;width: 49% }
+
+div.oneofthree { width: 32% }
+div.twoofthree { margin-left: 10px;width: 32% }
+div.threeofthree { margin-left: 10px;width: 32% }
+
+div.oneoffour { width: 24% }
+div.twooffour { margin-left: 10px;width: 24% }
+div.threeoffour { margin-left: 10px;width: 24% }
+div.fouroffour { margin-left: 10px;width: 24% }
+
+div.oneoffive { width: 19% }
+div.twooffive { margin-left: 10px;width: 19% }
+div.threeoffive { margin-left: 10px;width: 19% }
+div.fouroffive { margin-left: 10px;width: 19% }
+div.fiveoffive { margin-left: 10px;width: 19% }
 
 a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
 a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
@@ -37342,7 +37403,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
             </tbody></table>
             <div class="pageTitle">Example 1</div>
             <hr />
-            <div class="ReportCreated">Report created on Mar 31, 2017 08:19 PM</div>
+            <div class="ReportCreated">Report created on May 25, 2017 01:02 PM</div>
     </div>
     </div>
     </div>
@@ -37545,9 +37606,26 @@ td.groupby {
 }
 
 div.column { width: 100%; float: left; }
-div.first{ width: 49% }
-div.second{ margin-left: 10px;width: 49% }
+div.first { width: 49% }
+div.second { margin-left: 10px;width: 49% }
 
+div.oneoftwo { width: 49% }
+div.twooftwo { margin-left: 10px;width: 49% }
+
+div.oneofthree { width: 32% }
+div.twoofthree { margin-left: 10px;width: 32% }
+div.threeofthree { margin-left: 10px;width: 32% }
+
+div.oneoffour { width: 24% }
+div.twooffour { margin-left: 10px;width: 24% }
+div.threeoffour { margin-left: 10px;width: 24% }
+div.fouroffour { margin-left: 10px;width: 24% }
+
+div.oneoffive { width: 19% }
+div.twooffive { margin-left: 10px;width: 19% }
+div.threeoffive { margin-left: 10px;width: 19% }
+div.fouroffive { margin-left: 10px;width: 19% }
+div.fiveoffive { margin-left: 10px;width: 19% }
 
 a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
 a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
@@ -49696,7 +49774,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
             </tbody></table>
             <div class="pageTitle">Example 2</div>
             <hr />
-            <div class="ReportCreated">Report created on Mar 31, 2017 08:19 PM</div>
+            <div class="ReportCreated">Report created on May 25, 2017 01:03 PM</div>
     </div>
     </div>
     </div>
@@ -49906,9 +49984,26 @@ td.groupby {
 }
 
 div.column { width: 100%; float: left; }
-div.first{ width: 49% }
-div.second{ margin-left: 10px;width: 49% }
+div.first { width: 49% }
+div.second { margin-left: 10px;width: 49% }
 
+div.oneoftwo { width: 49% }
+div.twooftwo { margin-left: 10px;width: 49% }
+
+div.oneofthree { width: 32% }
+div.twoofthree { margin-left: 10px;width: 32% }
+div.threeofthree { margin-left: 10px;width: 32% }
+
+div.oneoffour { width: 24% }
+div.twooffour { margin-left: 10px;width: 24% }
+div.threeoffour { margin-left: 10px;width: 24% }
+div.fouroffour { margin-left: 10px;width: 24% }
+
+div.oneoffive { width: 19% }
+div.twooffive { margin-left: 10px;width: 19% }
+div.threeoffive { margin-left: 10px;width: 19% }
+div.fouroffive { margin-left: 10px;width: 19% }
+div.fiveoffive { margin-left: 10px;width: 19% }
 
 a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
 a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
@@ -62057,7 +62152,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
             </tbody></table>
             <div class="pageTitle">Example 3</div>
             <hr />
-            <div class="ReportCreated">Report created on Mar 31, 2017 08:20 PM</div>
+            <div class="ReportCreated">Report created on May 25, 2017 01:03 PM</div>
     </div>
     </div>
     </div>
@@ -62260,9 +62355,26 @@ td.groupby {
 }
 
 div.column { width: 100%; float: left; }
-div.first{ width: 49% }
-div.second{ margin-left: 10px;width: 49% }
+div.first { width: 49% }
+div.second { margin-left: 10px;width: 49% }
 
+div.oneoftwo { width: 49% }
+div.twooftwo { margin-left: 10px;width: 49% }
+
+div.oneofthree { width: 32% }
+div.twoofthree { margin-left: 10px;width: 32% }
+div.threeofthree { margin-left: 10px;width: 32% }
+
+div.oneoffour { width: 24% }
+div.twooffour { margin-left: 10px;width: 24% }
+div.threeoffour { margin-left: 10px;width: 24% }
+div.fouroffour { margin-left: 10px;width: 24% }
+
+div.oneoffive { width: 19% }
+div.twooffive { margin-left: 10px;width: 19% }
+div.threeoffive { margin-left: 10px;width: 19% }
+div.fouroffive { margin-left: 10px;width: 19% }
+div.fiveoffive { margin-left: 10px;width: 19% }
 
 a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
 a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
@@ -74411,7 +74523,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
             </tbody></table>
             <div class="pageTitle">Example 4</div>
             <hr />
-            <div class="ReportCreated">Report created on Mar 31, 2017 08:20 PM</div>
+            <div class="ReportCreated">Report created on May 25, 2017 01:03 PM</div>
     </div>
     </div>
     </div>
@@ -74725,17 +74837,17 @@ $rpt += Get-HTMLContentClose  </pre></td>
     </div>
 <div class="section">
 <div class="header">
-    <a name="Hiding content">Hiding content</a> (<a id="show_1752738270" href="#" onclick="show('1752738270');" style="color: #ffffff;">Show</a><a id="hide_1752738270" href="#" onclick="hide('1752738270');" style="color: #ffffff; display:none;">Hide</a>)
+    <a name="Hiding content">Hiding content</a> (<a id="show_799648019" href="#" onclick="show('799648019');" style="color: #ffffff;">Show</a><a id="hide_799648019" href="#" onclick="hide('799648019');" style="color: #ffffff; display:none;">Hide</a>)
 </div>
-<div class="content" id="1752738270" style="display:none;background-color:#ffffff;"> 
+<div class="content" id="799648019" style="display:none;background-color:#ffffff;"> 
 <table class="sortable">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr><td>ApplicationFrameHost</td><td>3112</td><td>Normal</td><td>529</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>34775040</td><td>20115456</td><td>20115456</td></tr>
-<tr><td>BCompare</td><td>11744</td><td>Normal</td><td>330</td><td>4.1.9.21719</td><td>52260864</td><td>26066944</td><td>26066944</td></tr>
-<tr><td>Calculator</td><td>11408</td><td>Normal</td><td>438</td><td>10.1703.1703.01001</td><td>46682112</td><td>18780160</td><td>18780160</td></tr>
-<tr><td>CcmExec</td><td>5148</td><td>Normal</td><td>1259</td><td>5.00.8458.1000 (SCCM.161026-2255)</td><td>73117696</td><td>51511296</td><td>51511296</td></tr>
-<tr><td>CefSharp.BrowserSubprocess</td><td>8036</td><td>Normal</td><td>376</td><td>39.0.0.2</td><td>53194752</td><td>66109440</td><td>66109440</td></tr>
+<tr><td>Adobe CEF Helper</td><td>12752</td><td>Normal</td><td>531</td><td>4.0.0.185</td><td>125587456</td><td>85700608</td><td>85700608</td></tr>
+<tr><td>Adobe Desktop Service</td><td>12816</td><td>Normal</td><td>1087</td><td>4.0.1.188</td><td>62029824</td><td>75010048</td><td>75010048</td></tr>
+<tr><td>Adobe Installer</td><td>1484</td><td></td><td>204</td><td></td><td>9994240</td><td>3219456</td><td>3219456</td></tr>
+<tr><td>Adobe Installer</td><td>14248</td><td></td><td>208</td><td></td><td>9891840</td><td>3760128</td><td>3760128</td></tr>
+<tr><td>AdobeIPCBroker</td><td>13020</td><td>Normal</td><td>230</td><td>5.4.0.12</td><td>10452992</td><td>5169152</td><td>5169152</td></tr>
 </table>
 </table>
     </div>
@@ -74800,11 +74912,11 @@ $rpt+= Get-HTMLContentClose </pre></td>
 <table class="sortable">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr><td>ApplicationFrameHost</td><td>3112</td><td>Normal</td><td>529</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>34775040</td><td>20115456</td><td>20115456</td></tr>
-<tr><td>BCompare</td><td>11744</td><td>Normal</td><td>330</td><td>4.1.9.21719</td><td>52260864</td><td>26066944</td><td>26066944</td></tr>
-<tr><td>Calculator</td><td>11408</td><td>Normal</td><td>438</td><td>10.1703.1703.01001</td><td>46682112</td><td>18780160</td><td>18780160</td></tr>
-<tr><td>CcmExec</td><td>5148</td><td>Normal</td><td>1259</td><td>5.00.8458.1000 (SCCM.161026-2255)</td><td>73117696</td><td>51511296</td><td>51511296</td></tr>
-<tr><td>CefSharp.BrowserSubprocess</td><td>8036</td><td>Normal</td><td>376</td><td>39.0.0.2</td><td>53194752</td><td>66109440</td><td>66109440</td></tr>
+<tr><td>Adobe CEF Helper</td><td>12752</td><td>Normal</td><td>531</td><td>4.0.0.185</td><td>125587456</td><td>85700608</td><td>85700608</td></tr>
+<tr><td>Adobe Desktop Service</td><td>12816</td><td>Normal</td><td>1087</td><td>4.0.1.188</td><td>62029824</td><td>75010048</td><td>75010048</td></tr>
+<tr><td>Adobe Installer</td><td>1484</td><td></td><td>204</td><td></td><td>9994240</td><td>3219456</td><td>3219456</td></tr>
+<tr><td>Adobe Installer</td><td>14248</td><td></td><td>208</td><td></td><td>9891840</td><td>3760128</td><td>3760128</td></tr>
+<tr><td>AdobeIPCBroker</td><td>13020</td><td>Normal</td><td>230</td><td>5.4.0.12</td><td>10452992</td><td>5169152</td><td>5169152</td></tr>
 </table>
 </table>
     </div>
@@ -74833,7 +74945,226 @@ document.getElementById("defaultOpen").click();
 <h3> </h3>
 <div class="section">
 <div class="header">
-    <a name="Creating Columns in your Reports">Creating Columns in your Reports</a>
+    <a name="Dynamic Columns in your Reports (Recommended Method)">Dynamic Columns in your Reports (Recommended Method)</a>
+</div>
+<div class="content" style="background-color:#D0D0D0;"> 
+<div class="section">
+<div class="header">
+    <a name="Code">Code</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> 
+<table><tbody>
+	<tr>
+	<th class="content">Example</th>
+	<td class="content"><pre class="PowerShell"> $rpt += Get-HTMLContentOpen -HeaderText "Two Column Sample"
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 2
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "here"
+	$rpt += Get-HTMLColumnClose
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 2 -ColumnCount 2
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "There"
+	$rpt += Get-HTMLColumnClose
+$rpt += Get-HTMLContentclose
+
+$rpt += Get-HTMLContentOpen -HeaderText "Three Column Sample"
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 3
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "here"
+	$rpt += Get-HTMLColumnClose
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 2 -ColumnCount 3
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "There"
+	$rpt += Get-HTMLColumnClose
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 3 -ColumnCount 3
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "over"
+	$rpt += Get-HTMLColumnClose
+$rpt += Get-HTMLContentclose
+
+$rpt += Get-HTMLContentOpen -HeaderText "Four Column Sample"
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 4
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "here"
+	$rpt += Get-HTMLColumnClose
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 2 -ColumnCount 4
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "There"
+	$rpt += Get-HTMLColumnClose
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 3 -ColumnCount 4
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "over"
+	$rpt += Get-HTMLColumnClose
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 4 -ColumnCount 4
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "where"
+	$rpt += Get-HTMLColumnClose
+$rpt += Get-HTMLContentclose
+
+$rpt += Get-HTMLContentOpen -HeaderText "Five Column Sample"
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 5
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "here"
+	$rpt += Get-HTMLColumnClose
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 2 -ColumnCount 5
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "There"
+	$rpt += Get-HTMLColumnClose
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 3 -ColumnCount 5
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "over"
+	$rpt += Get-HTMLColumnClose
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 4 -ColumnCount 5
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "where"
+	$rpt += Get-HTMLColumnClose
+	$rpt += Get-HTMLColumnOpen -ColumnNumber 5 -ColumnCount 5
+	$rpt += Get-HTMLContentText -Heading "data" -Detail "why"
+	$rpt += Get-HTMLColumnClose
+$rpt += Get-HTMLContentclose </pre></td>
+	</tr>
+</tbody></table>
+    </div>
+    </div>
+<div class="section">
+<div class="header">
+    <a name="Output">Output</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> 
+<div class="section">
+<div class="header">
+    <a name="Two Column Sample">Two Column Sample</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> 
+<div class="oneoftwo column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">here</td>
+	</tr>
+</tbody></table>
+</div>
+<div class="twooftwo column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">there</td>
+	</tr>
+</tbody></table>
+</div>
+    </div>
+    </div>
+<div class="section">
+<div class="header">
+    <a name="Three Column Sample">Three Column Sample</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> 
+<div class="oneofthree column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">here</td>
+	</tr>
+</tbody></table>
+</div>
+<div class="twoofthree column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">there</td>
+	</tr>
+</tbody></table>
+</div>
+<div class="threeofthree column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">over</td>
+	</tr>
+</tbody></table>
+</div>
+    </div>
+    </div>
+<div class="section">
+<div class="header">
+    <a name="Four Column Sample">Four Column Sample</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> 
+<div class="oneoffour column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">here</td>
+	</tr>
+</tbody></table>
+</div>
+<div class="twooffour column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">there</td>
+	</tr>
+</tbody></table>
+</div>
+<div class="threeoffour column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">over</td>
+	</tr>
+</tbody></table>
+</div>
+<div class="fouroffour column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">where</td>
+	</tr>
+</tbody></table>
+</div>
+    </div>
+    </div>
+<div class="section">
+<div class="header">
+    <a name="Five Column Sample">Five Column Sample</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> 
+<div class="oneoffive column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">here</td>
+	</tr>
+</tbody></table>
+</div>
+<div class="twooffive column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">there</td>
+	</tr>
+</tbody></table>
+</div>
+<div class="threeoffive column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">over</td>
+	</tr>
+</tbody></table>
+</div>
+<div class="fouroffive column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">where</td>
+	</tr>
+</tbody></table>
+</div>
+<div class="fiveoffive column">
+<table><tbody>
+	<tr>
+	<th class="content">data</th>
+	<td class="content">why</td>
+	</tr>
+</tbody></table>
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+<div class="section">
+<div class="header">
+    <a name="Creating Columns in your Reports (Older Method)">Creating Columns in your Reports (Older Method)</a>
 </div>
 <div class="content" style="background-color:#D0D0D0;"> 
 <div class="section">
@@ -74881,11 +75212,11 @@ $rpt+= Get-HtmlContentClose </pre></td>
 <table class="sortable">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th></tr>
-<tr><td>reg</td><td>15436</td><td>Idle</td><td>37</td><td>10.0.14393.0 (rs1_release.160715-1616)</td></tr>
-<tr><td>RAVBg64</td><td>11980</td><td>BelowNormal</td><td>263</td><td>1, 0, 0, 226</td></tr>
-<tr><td>RtkAudioService64</td><td>1876</td><td>Normal</td><td>137</td><td>1, 0, 0, 68</td></tr>
-<tr><td>RTS3App</td><td>5704</td><td>Normal</td><td>3465</td><td>3.3.61216.61216</td></tr>
-<tr><td>RtkNGUI64</td><td>9612</td><td>Normal</td><td>357</td><td>1.0.506.1</td></tr>
+<tr><td>Secure System</td><td>532</td><td></td><td>0</td><td></td></tr>
+<tr><td>SearchUI</td><td>25100</td><td>Normal</td><td>883</td><td>10.0.14393.953 (rs1_release_inmarket.170303-1614)</td></tr>
+<tr><td>SearchProtocolHost</td><td>6792</td><td></td><td>319</td><td></td></tr>
+<tr><td>ShellExperienceHost</td><td>7188</td><td>Normal</td><td>2370</td><td>10.0.14393.447 (rs1_release_inmarket.161102-0100)</td></tr>
+<tr><td>SettingSyncHost</td><td>6592</td><td>BelowNormal</td><td>184</td><td>10.0.14393.1198 (rs1_release_sec.170427-1353)</td></tr>
 </table>
 </table>
     </div>
@@ -74900,11 +75231,11 @@ $rpt+= Get-HtmlContentClose </pre></td>
 <table class="sortable">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th></tr>
-<tr><td>conhost</td><td>8124</td><td>Normal</td><td>204</td><td>10.0.14393.0 (rs1_release.160715-1616)</td></tr>
-<tr><td>conhost</td><td>3704</td><td>Normal</td><td>85</td><td>10.0.14393.0 (rs1_release.160715-1616)</td></tr>
-<tr><td>conhost</td><td>15444</td><td>Idle</td><td>93</td><td>10.0.14393.0 (rs1_release.160715-1616)</td></tr>
-<tr><td>conhost</td><td>25300</td><td>Normal</td><td>203</td><td>10.0.14393.0 (rs1_release.160715-1616)</td></tr>
-<tr><td>conhost</td><td>16084</td><td>Normal</td><td>204</td><td>10.0.14393.0 (rs1_release.160715-1616)</td></tr>
+<tr><td>conhost</td><td>7216</td><td>Normal</td><td>84</td><td>10.0.14393.0 (rs1_release.160715-1616)</td></tr>
+<tr><td>com.docker.service</td><td>3548</td><td></td><td>1020</td><td></td></tr>
+<tr><td>conhost</td><td>19400</td><td>Normal</td><td>206</td><td>10.0.14393.0 (rs1_release.160715-1616)</td></tr>
+<tr><td>conhost</td><td>17648</td><td>BelowNormal</td><td>85</td><td>10.0.14393.0 (rs1_release.160715-1616)</td></tr>
+<tr><td>conhost</td><td>15532</td><td></td><td>92</td><td></td></tr>
 </table>
 </table>
     </div>
@@ -74971,16 +75302,16 @@ $rpt+= Get-HtmlContentClose  </pre></td>
 <table class="sortable">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr><td>ApplicationFrameHost</td><td>3112</td><td>Normal</td><td>529</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>34775040</td><td>20115456</td><td>20115456</td></tr>
-<tr><td>BCompare</td><td>11744</td><td>Normal</td><td>330</td><td>4.1.9.21719</td><td>52260864</td><td>26066944</td><td>26066944</td></tr>
-<tr><td>Calculator</td><td>11408</td><td>Normal</td><td>438</td><td>10.1703.1703.01001</td><td>46682112</td><td>18780160</td><td>18780160</td></tr>
-<tr><td>CcmExec</td><td>5148</td><td>Normal</td><td>1259</td><td>5.00.8458.1000 (SCCM.161026-2255)</td><td>73117696</td><td>51511296</td><td>51511296</td></tr>
-<tr><td>CefSharp.BrowserSubprocess</td><td>8036</td><td>Normal</td><td>376</td><td>39.0.0.2</td><td>53194752</td><td>66109440</td><td>66109440</td></tr>
-<tr><td>CefSharp.BrowserSubprocess</td><td>15832</td><td>Normal</td><td>372</td><td>39.0.0.2</td><td>39960576</td><td>46596096</td><td>46596096</td></tr>
-<tr><td>CefSharp.BrowserSubprocess</td><td>19832</td><td>Normal</td><td>380</td><td>39.0.0.2</td><td>52756480</td><td>61046784</td><td>61046784</td></tr>
-<tr><td>chrome</td><td>440</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>91688960</td><td>115359744</td><td>115359744</td></tr>
-<tr><td>chrome</td><td>1172</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>27869184</td><td>31178752</td><td>31178752</td></tr>
-<tr><td>chrome</td><td>1556</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>25202688</td><td>28590080</td><td>28590080</td></tr>
+<tr><td>Adobe CEF Helper</td><td>12752</td><td>Normal</td><td>531</td><td>4.0.0.185</td><td>125587456</td><td>85700608</td><td>85700608</td></tr>
+<tr><td>Adobe Desktop Service</td><td>12816</td><td>Normal</td><td>1087</td><td>4.0.1.188</td><td>62029824</td><td>75010048</td><td>75010048</td></tr>
+<tr><td>Adobe Installer</td><td>1484</td><td></td><td>204</td><td></td><td>9994240</td><td>3219456</td><td>3219456</td></tr>
+<tr><td>Adobe Installer</td><td>14248</td><td></td><td>208</td><td></td><td>9891840</td><td>3760128</td><td>3760128</td></tr>
+<tr><td>AdobeIPCBroker</td><td>13020</td><td>Normal</td><td>230</td><td>5.4.0.12</td><td>10452992</td><td>5169152</td><td>5169152</td></tr>
+<tr><td>AdobeUpdateService</td><td>3596</td><td></td><td>163</td><td></td><td>7491584</td><td>2166784</td><td>2166784</td></tr>
+<tr><td>AGSService</td><td>3564</td><td></td><td>262</td><td></td><td>13041664</td><td>4239360</td><td>4239360</td></tr>
+<tr><td>ApplicationFrameHost</td><td>14264</td><td>Normal</td><td>724</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>42917888</td><td>29810688</td><td>29810688</td></tr>
+<tr><td>browser_broker</td><td>14328</td><td>Normal</td><td>376</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>16842752</td><td>4366336</td><td>4366336</td></tr>
+<tr><td>Calculator</td><td>14584</td><td>Normal</td><td>424</td><td>10.1705.1705.10001</td><td>31444992</td><td>17518592</td><td>17518592</td></tr>
 </table>
 </table>
     </div>
@@ -75020,7 +75351,7 @@ $rpt+= Get-HtmlContentClose </pre></td>
     <a name="Processes">Processes</a>
 </div>
 <div class="content" style="background-color:#ffffff;"> 
-<table>  <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>                     <tr><td colspan="8" class="groupby">Normal</td></tr>   <tr><td></td><td>ApplicationFrameHost</td><td>3112</td><td>529</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>34775040</td><td>20115456</td><td>20115456</td></tr> <tr><td></td><td>BCompare</td><td>11744</td><td>330</td><td>4.1.9.21719</td><td>52260864</td><td>26066944</td><td>26066944</td></tr> <tr><td></td><td>Calculator</td><td>11408</td><td>438</td><td>10.1703.1703.01001</td><td>46682112</td><td>18780160</td><td>18780160</td></tr> <tr><td></td><td>CcmExec</td><td>5148</td><td>1259</td><td>5.00.8458.1000 (SCCM.161026-2255)</td><td>73117696</td><td>51511296</td><td>51511296</td></tr> <tr><td></td><td>CefSharp.BrowserSubprocess</td><td>8036</td><td>376</td><td>39.0.0.2</td><td>53194752</td><td>66109440</td><td>66109440</td></tr> <tr><td></td><td>CefSharp.BrowserSubprocess</td><td>15832</td><td>372</td><td>39.0.0.2</td><td>39960576</td><td>46596096</td><td>46596096</td></tr> <tr><td></td><td>CefSharp.BrowserSubprocess</td><td>19832</td><td>380</td><td>39.0.0.2</td><td>52756480</td><td>61046784</td><td>61046784</td></tr> <tr><td></td><td>chrome</td><td>440</td><td>240</td><td>57.0.2987.133</td><td>91688960</td><td>115359744</td><td>115359744</td></tr> <tr><td></td><td>chrome</td><td>1172</td><td>240</td><td>57.0.2987.133</td><td>27869184</td><td>31178752</td><td>31178752</td></tr> <tr><td></td><td>chrome</td><td>1556</td><td>240</td><td>57.0.2987.133</td><td>25202688</td><td>28590080</td><td>28590080</td></tr> <tr><td></td><td>chrome</td><td>2584</td><td>460</td><td>57.0.2987.133</td><td>504426496</td><td>299143168</td><td>299143168</td></tr> <tr><td></td><td>chrome</td><td>5768</td><td>245</td><td>57.0.2987.133</td><td>33120256</td><td>101941248</td><td>101941248</td></tr> <tr><td></td><td>chrome</td><td>6628</td><td>271</td><td>57.0.2987.133</td><td>25264128</td><td>37724160</td><td>37724160</td></tr> <tr><td></td><td>chrome</td><td>7452</td><td>132</td><td>57.0.2987.133</td><td>8781824</td><td>2060288</td><td>2060288</td></tr> <tr><td></td><td>chrome</td><td>9272</td><td>241</td><td>57.0.2987.133</td><td>40505344</td><td>88010752</td><td>88010752</td></tr> <tr><td></td><td>chrome</td><td>10296</td><td>5124</td><td>57.0.2987.133</td><td>617246720</td><td>465113088</td><td>465113088</td></tr> <tr><td colspan="8" class="groupby">Idle</td></tr>   <tr><td></td><td>chrome</td><td>4800</td><td>375</td><td>57.0.2987.133</td><td>111726592</td><td>214691840</td><td>214691840</td></tr> <tr><td></td><td>chrome</td><td>5340</td><td>348</td><td>57.0.2987.133</td><td>139206656</td><td>117665792</td><td>117665792</td></tr> <tr><td></td><td>chrome</td><td>5872</td><td>401</td><td>57.0.2987.133</td><td>197283840</td><td>206610432</td><td>206610432</td></tr> <tr><td></td><td>chrome</td><td>9768</td><td>260</td><td>57.0.2987.133</td><td>27709440</td><td>31494144</td><td>31494144</td></tr> </table>
+<table>  <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>                     <tr><td colspan="8" class="groupby"></td></tr>   <tr><td></td><td>Adobe Installer</td><td>1484</td><td>204</td><td></td><td>9994240</td><td>3219456</td><td>3219456</td></tr> <tr><td></td><td>Adobe Installer</td><td>14248</td><td>208</td><td></td><td>9891840</td><td>3760128</td><td>3760128</td></tr> <tr><td></td><td>AdobeUpdateService</td><td>3596</td><td>163</td><td></td><td>7491584</td><td>2166784</td><td>2166784</td></tr> <tr><td></td><td>AGSService</td><td>3564</td><td>262</td><td></td><td>13041664</td><td>4239360</td><td>4239360</td></tr> <tr><td></td><td>CcmExec</td><td>7152</td><td>1253</td><td></td><td>61485056</td><td>51752960</td><td>51752960</td></tr> <tr><td colspan="8" class="groupby">Normal</td></tr>   <tr><td></td><td>Adobe CEF Helper</td><td>12752</td><td>531</td><td>4.0.0.185</td><td>125587456</td><td>85700608</td><td>85700608</td></tr> <tr><td></td><td>Adobe Desktop Service</td><td>12816</td><td>1087</td><td>4.0.1.188</td><td>62029824</td><td>75010048</td><td>75010048</td></tr> <tr><td></td><td>AdobeIPCBroker</td><td>13020</td><td>230</td><td>5.4.0.12</td><td>10452992</td><td>5169152</td><td>5169152</td></tr> <tr><td></td><td>ApplicationFrameHost</td><td>14264</td><td>724</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>42917888</td><td>29810688</td><td>29810688</td></tr> <tr><td></td><td>browser_broker</td><td>14328</td><td>376</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>16842752</td><td>4366336</td><td>4366336</td></tr> <tr><td></td><td>Calculator</td><td>14584</td><td>424</td><td>10.1705.1705.10001</td><td>31444992</td><td>17518592</td><td>17518592</td></tr> <tr><td></td><td>CCLibrary</td><td>7804</td><td>49</td><td>2.9.4.940</td><td>3002368</td><td>618496</td><td>618496</td></tr> <tr><td></td><td>CCXProcess</td><td>13804</td><td>49</td><td>1.5.0.323</td><td>2916352</td><td>618496</td><td>618496</td></tr> <tr><td></td><td>chrome</td><td>2108</td><td>285</td><td>58.0.3029.110</td><td>26615808</td><td>37756928</td><td>37756928</td></tr> <tr><td></td><td>chrome</td><td>3316</td><td>267</td><td>58.0.3029.110</td><td>24485888</td><td>40759296</td><td>40759296</td></tr> <tr><td></td><td>chrome</td><td>3684</td><td>297</td><td>58.0.3029.110</td><td>47669248</td><td>114761728</td><td>114761728</td></tr> <tr><td></td><td>chrome</td><td>4664</td><td>236</td><td>58.0.3029.110</td><td>27553792</td><td>40763392</td><td>40763392</td></tr> <tr><td colspan="8" class="groupby">Idle</td></tr>   <tr><td></td><td>chrome</td><td>2116</td><td>355</td><td>58.0.3029.110</td><td>58900480</td><td>121425920</td><td>121425920</td></tr> <tr><td></td><td>chrome</td><td>2120</td><td>353</td><td>58.0.3029.110</td><td>104505344</td><td>128032768</td><td>128032768</td></tr> <tr><td></td><td>chrome</td><td>4884</td><td>417</td><td>58.0.3029.110</td><td>352645120</td><td>767315968</td><td>767315968</td></tr> </table>
     </div>
     </div>
     </div>
@@ -75063,10 +75394,10 @@ $rpt += Get-HtmlContentClose </pre></td>
 <table class="fixed">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr><td>ApplicationFrameHost</td><td>3112</td><td>Normal</td><td>529</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>34775040</td><td>20115456</td><td>20115456</td></tr>
-<tr><td>BCompare</td><td>11744</td><td>Normal</td><td>330</td><td>4.1.9.21719</td><td>52260864</td><td>26066944</td><td>26066944</td></tr>
-<tr><td>Calculator</td><td>11408</td><td>Normal</td><td>438</td><td>10.1703.1703.01001</td><td>46682112</td><td>18780160</td><td>18780160</td></tr>
-<tr><td>CcmExec</td><td>5148</td><td>Normal</td><td>1259</td><td>5.00.8458.1000 (SCCM.161026-2255)</td><td>73117696</td><td>51511296</td><td>51511296</td></tr>
+<tr><td>Adobe CEF Helper</td><td>12752</td><td>Normal</td><td>531</td><td>4.0.0.185</td><td>125587456</td><td>85700608</td><td>85700608</td></tr>
+<tr><td>Adobe Desktop Service</td><td>12816</td><td>Normal</td><td>1087</td><td>4.0.1.188</td><td>62029824</td><td>75010048</td><td>75010048</td></tr>
+<tr><td>Adobe Installer</td><td>1484</td><td></td><td>204</td><td></td><td>9994240</td><td>3219456</td><td>3219456</td></tr>
+<tr><td>Adobe Installer</td><td>14248</td><td></td><td>208</td><td></td><td>9891840</td><td>3760128</td><td>3760128</td></tr>
 </table>
 </table>
 <table><tbody>
@@ -75078,14 +75409,14 @@ $rpt += Get-HtmlContentClose </pre></td>
 <table class="fixed">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr><td>WmiPrvSE</td><td>4176</td><td>Normal</td><td>122</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>7495680</td><td>2670592</td><td>2670592</td></tr>
-<tr><td>WmiPrvSE</td><td>4772</td><td>Normal</td><td>197</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>12378112</td><td>5529600</td><td>5529600</td></tr>
-<tr><td>WmiPrvSE</td><td>5520</td><td>Normal</td><td>353</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>17117184</td><td>6688768</td><td>6688768</td></tr>
-<tr><td>WmiPrvSE</td><td>6704</td><td>Normal</td><td>295</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>13529088</td><td>4472832</td><td>4472832</td></tr>
-<tr><td>WmiPrvSE</td><td>9800</td><td>Normal</td><td>157</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>8126464</td><td>3158016</td><td>3158016</td></tr>
-<tr><td>WmiPrvSE</td><td>19112</td><td>Normal</td><td>175</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>11108352</td><td>4915200</td><td>4915200</td></tr>
-<tr><td>WUDFHost</td><td>1308</td><td>High</td><td>381</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>13991936</td><td>26775552</td><td>26775552</td></tr>
-<tr><td>WUDFHost</td><td>3056</td><td>Normal</td><td>396</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>9076736</td><td>3260416</td><td>3260416</td></tr>
+<tr><td>WmiPrvSE</td><td>6688</td><td></td><td>209</td><td></td><td>12533760</td><td>5615616</td><td>5615616</td></tr>
+<tr><td>WmiPrvSE</td><td>7448</td><td></td><td>159</td><td></td><td>8531968</td><td>3366912</td><td>3366912</td></tr>
+<tr><td>WmiPrvSE</td><td>9352</td><td></td><td>323</td><td></td><td>16846848</td><td>6836224</td><td>6836224</td></tr>
+<tr><td>WmiPrvSE</td><td>12244</td><td></td><td>295</td><td></td><td>13680640</td><td>4304896</td><td>4304896</td></tr>
+<tr><td>WmiPrvSE</td><td>19408</td><td></td><td>177</td><td></td><td>11239424</td><td>4919296</td><td>4919296</td></tr>
+<tr><td>WmiPrvSE</td><td>19604</td><td></td><td>128</td><td></td><td>7823360</td><td>3313664</td><td>3313664</td></tr>
+<tr><td>WUDFHost</td><td>1652</td><td></td><td>370</td><td></td><td>14528512</td><td>26566656</td><td>26566656</td></tr>
+<tr><td>WUDFHost</td><td>3020</td><td></td><td>394</td><td></td><td>9089024</td><td>3256320</td><td>3256320</td></tr>
 </table>
 </table>
     </div>
@@ -75131,16 +75462,16 @@ Save-HTMLReport -ReportContent $rpt -ShowReport </pre></td>
 <table class="sortable">
 
 <tr><th>Name</th><th>Handles</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th></tr>
-<tr><td>ApplicationFrameHost</td><td>529</td><td>34775040</td><td>20115456</td><td>20115456</td></tr>
-<tr><td>BCompare</td><td>330</td><td>52260864</td><td>26066944</td><td>26066944</td></tr>
-<tr><td>Calculator</td><td>438</td><td>46682112</td><td>18780160</td><td>18780160</td></tr>
-<tr><td>CcmExec</td><td>1259</td><td>73117696</td><td>51511296</td><td>51511296</td></tr>
-<tr><td>CefSharp.BrowserSubprocess</td><td>376</td><td>53194752</td><td>66109440</td><td>66109440</td></tr>
+<tr><td>Adobe CEF Helper</td><td>531</td><td>125587456</td><td>85700608</td><td>85700608</td></tr>
+<tr><td>Adobe Desktop Service</td><td>1087</td><td>62029824</td><td>75010048</td><td>75010048</td></tr>
+<tr><td>Adobe Installer</td><td>204</td><td>9994240</td><td>3219456</td><td>3219456</td></tr>
+<tr><td>Adobe Installer</td><td>208</td><td>9891840</td><td>3760128</td><td>3760128</td></tr>
+<tr><td>AdobeIPCBroker</td><td>230</td><td>10452992</td><td>5169152</td><td>5169152</td></tr>
 
 <tfoot>
 
 
-<tr class="totalrow"><td class="totalrow">count:5</td><td class="totalrow">count:5</td><td class="totalrow">sum:260030464</td><td class="totalrow">sum:182583296</td><td class="totalrow">avg:36516659.2</td></tr>
+<tr class="totalrow"><td class="totalrow">count:5</td><td class="totalrow">count:5</td><td class="totalrow">sum:217956352</td><td class="totalrow">sum:172859392</td><td class="totalrow">avg:34571878.4</td></tr>
 
 
 
@@ -75158,6 +75489,11 @@ Save-HTMLReport -ReportContent $rpt -ShowReport </pre></td>
     <a name="Table With array in column">Table With array in column</a>
 </div>
 <div class="content" style="background-color:#D0D0D0;"> 
+<div class="section">
+<div class="header">
+    <a name="Example">Example</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> 
 <table><tbody>
 	<tr>
 	<th class="content">Code</th>
@@ -75172,6 +75508,8 @@ $rpt += get-htmlclosepage
 Save-HTMLReport -ReportContent $rpt -ShowReport </pre></td>
 	</tr>
 </tbody></table>
+    </div>
+    </div>
 <div class="section">
 <div class="header">
     <a name="Example">Example</a>
@@ -75259,26 +75597,26 @@ $rpt+= Get-HtmlContentClose </pre></td>
 <table class="sortable">
 
 <tr class="header"><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr class="odd"><td>ApplicationFrameHost</td><td>3112</td><td>Normal</td><td>529</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>34775040</td><td>20115456</td><td>20115456</td></tr>
-<tr class="even"><td>BCompare</td><td>11744</td><td>Normal</td><td>330</td><td>4.1.9.21719</td><td>52260864</td><td>26066944</td><td>26066944</td></tr>
-<tr class="odd"><td>Calculator</td><td>11408</td><td>Normal</td><td>438</td><td>10.1703.1703.01001</td><td>46682112</td><td>18780160</td><td>18780160</td></tr>
-<tr class="even"><td>CcmExec</td><td>5148</td><td>Normal</td><td>1259</td><td>5.00.8458.1000 (SCCM.161026-2255)</td><td>73117696</td><td>51511296</td><td>51511296</td></tr>
-<tr class="odd"><td>CefSharp.BrowserSubprocess</td><td>8036</td><td>Normal</td><td>376</td><td>39.0.0.2</td><td>53194752</td><td>66109440</td><td>66109440</td></tr>
-<tr class="even"><td>CefSharp.BrowserSubprocess</td><td>15832</td><td>Normal</td><td>372</td><td>39.0.0.2</td><td>39960576</td><td>46596096</td><td>46596096</td></tr>
-<tr class="odd"><td>CefSharp.BrowserSubprocess</td><td>19832</td><td>Normal</td><td>380</td><td>39.0.0.2</td><td>52756480</td><td>61046784</td><td>61046784</td></tr>
-<tr class="even"><td>chrome</td><td>440</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>91688960</td><td>115359744</td><td>115359744</td></tr>
-<tr class="odd"><td>chrome</td><td>1172</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>27869184</td><td>31178752</td><td>31178752</td></tr>
-<tr class="even"><td>chrome</td><td>1556</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>25202688</td><td>28590080</td><td>28590080</td></tr>
-<tr class="odd"><td>chrome</td><td>2584</td><td>Normal</td><td>460</td><td>57.0.2987.133</td><td>504426496</td><td>299143168</td><td>299143168</td></tr>
-<tr class="even"><td>chrome</td><td>4800</td><td>Idle</td><td>375</td><td>57.0.2987.133</td><td>111726592</td><td>214691840</td><td>214691840</td></tr>
-<tr class="odd"><td>chrome</td><td>5340</td><td>Idle</td><td>348</td><td>57.0.2987.133</td><td>139206656</td><td>117665792</td><td>117665792</td></tr>
-<tr class="even"><td>chrome</td><td>5768</td><td>Normal</td><td>245</td><td>57.0.2987.133</td><td>33120256</td><td>101941248</td><td>101941248</td></tr>
-<tr class="odd"><td>chrome</td><td>5872</td><td>Idle</td><td>401</td><td>57.0.2987.133</td><td>197283840</td><td>206610432</td><td>206610432</td></tr>
-<tr class="even"><td>chrome</td><td>6628</td><td>Normal</td><td>271</td><td>57.0.2987.133</td><td>25264128</td><td>37724160</td><td>37724160</td></tr>
-<tr class="odd"><td>chrome</td><td>7452</td><td>Normal</td><td>132</td><td>57.0.2987.133</td><td>8781824</td><td>2060288</td><td>2060288</td></tr>
-<tr class="even"><td>chrome</td><td>9272</td><td>Normal</td><td>241</td><td>57.0.2987.133</td><td>40505344</td><td>88010752</td><td>88010752</td></tr>
-<tr class="odd"><td>chrome</td><td>9768</td><td>Idle</td><td>260</td><td>57.0.2987.133</td><td>27709440</td><td>31494144</td><td>31494144</td></tr>
-<tr class="even"><td>chrome</td><td>10296</td><td>Normal</td><td>5124</td><td>57.0.2987.133</td><td>617246720</td><td>465113088</td><td>465113088</td></tr>
+<tr class="odd"><td>Adobe CEF Helper</td><td>12752</td><td>Normal</td><td>531</td><td>4.0.0.185</td><td>125587456</td><td>85700608</td><td>85700608</td></tr>
+<tr class="even"><td>Adobe Desktop Service</td><td>12816</td><td>Normal</td><td>1087</td><td>4.0.1.188</td><td>62029824</td><td>75010048</td><td>75010048</td></tr>
+<tr class="odd"><td>Adobe Installer</td><td>1484</td><td></td><td>204</td><td></td><td>9994240</td><td>3219456</td><td>3219456</td></tr>
+<tr class="even"><td>Adobe Installer</td><td>14248</td><td></td><td>208</td><td></td><td>9891840</td><td>3760128</td><td>3760128</td></tr>
+<tr class="odd"><td>AdobeIPCBroker</td><td>13020</td><td>Normal</td><td>230</td><td>5.4.0.12</td><td>10452992</td><td>5169152</td><td>5169152</td></tr>
+<tr class="even"><td>AdobeUpdateService</td><td>3596</td><td></td><td>163</td><td></td><td>7491584</td><td>2166784</td><td>2166784</td></tr>
+<tr class="odd"><td>AGSService</td><td>3564</td><td></td><td>262</td><td></td><td>13041664</td><td>4239360</td><td>4239360</td></tr>
+<tr class="even"><td>ApplicationFrameHost</td><td>14264</td><td>Normal</td><td>724</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>42917888</td><td>29810688</td><td>29810688</td></tr>
+<tr class="odd"><td>browser_broker</td><td>14328</td><td>Normal</td><td>376</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>16842752</td><td>4366336</td><td>4366336</td></tr>
+<tr class="even"><td>Calculator</td><td>14584</td><td>Normal</td><td>424</td><td>10.1705.1705.10001</td><td>31444992</td><td>17518592</td><td>17518592</td></tr>
+<tr class="odd"><td>CCLibrary</td><td>7804</td><td>Normal</td><td>49</td><td>2.9.4.940</td><td>3002368</td><td>618496</td><td>618496</td></tr>
+<tr class="even"><td>CcmExec</td><td>7152</td><td></td><td>1253</td><td></td><td>61485056</td><td>51752960</td><td>51752960</td></tr>
+<tr class="odd"><td>CCXProcess</td><td>13804</td><td>Normal</td><td>49</td><td>1.5.0.323</td><td>2916352</td><td>618496</td><td>618496</td></tr>
+<tr class="even"><td>chrome</td><td>2108</td><td>Normal</td><td>285</td><td>58.0.3029.110</td><td>26615808</td><td>37756928</td><td>37756928</td></tr>
+<tr class="odd"><td>chrome</td><td>2116</td><td>Idle</td><td>355</td><td>58.0.3029.110</td><td>58900480</td><td>121425920</td><td>121425920</td></tr>
+<tr class="even"><td>chrome</td><td>2120</td><td>Idle</td><td>353</td><td>58.0.3029.110</td><td>104505344</td><td>128032768</td><td>128032768</td></tr>
+<tr class="odd"><td>chrome</td><td>3316</td><td>Normal</td><td>267</td><td>58.0.3029.110</td><td>24485888</td><td>40759296</td><td>40759296</td></tr>
+<tr class="even"><td>chrome</td><td>3684</td><td>Normal</td><td>297</td><td>58.0.3029.110</td><td>47669248</td><td>114761728</td><td>114761728</td></tr>
+<tr class="odd"><td>chrome</td><td>4664</td><td>Normal</td><td>236</td><td>58.0.3029.110</td><td>27553792</td><td>40763392</td><td>40763392</td></tr>
+<tr class="even"><td>chrome</td><td>4884</td><td>Idle</td><td>417</td><td>58.0.3029.110</td><td>352645120</td><td>767315968</td><td>767315968</td></tr>
 </table>
 </table>
     </div>
@@ -75326,46 +75664,46 @@ $rpt += Get-HtmlContentClose </pre></td>
 <table class="sortable">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr class="green"><td>chrome</td><td>7452</td><td>Normal</td><td>132</td><td>57.0.2987.133</td><td>8781824</td><td>2060288</td><td>2060288</td></tr>
-<tr class="green"><td>chrome</td><td>12200</td><td>Normal</td><td>210</td><td>57.0.2987.133</td><td>17211392</td><td>13037568</td><td>13037568</td></tr>
-<tr class="green"><td>chrome</td><td>1172</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>27869184</td><td>31178752</td><td>31178752</td></tr>
-<tr class="green"><td>chrome</td><td>440</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>91688960</td><td>115359744</td><td>115359744</td></tr>
-<tr class="green"><td>chrome</td><td>1556</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>25202688</td><td>28590080</td><td>28590080</td></tr>
-<tr class="green"><td>chrome</td><td>14984</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>22478848</td><td>27676672</td><td>27676672</td></tr>
-<tr class="green"><td>chrome</td><td>15856</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>26316800</td><td>29188096</td><td>29188096</td></tr>
-<tr class="green"><td>chrome</td><td>14552</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>21340160</td><td>25374720</td><td>25374720</td></tr>
-<tr class="green"><td>chrome</td><td>10740</td><td>Normal</td><td>240</td><td>57.0.2987.133</td><td>26353664</td><td>30179328</td><td>30179328</td></tr>
-<tr class="green"><td>chrome</td><td>9272</td><td>Normal</td><td>241</td><td>57.0.2987.133</td><td>40505344</td><td>88010752</td><td>88010752</td></tr>
-<tr class="green"><td>chrome</td><td>5768</td><td>Normal</td><td>245</td><td>57.0.2987.133</td><td>33120256</td><td>101941248</td><td>101941248</td></tr>
-<tr class="green"><td>chrome</td><td>16732</td><td>Normal</td><td>250</td><td>57.0.2987.133</td><td>22429696</td><td>28389376</td><td>28389376</td></tr>
-<tr class="yellow"><td>chrome</td><td>11732</td><td>Idle</td><td>259</td><td>57.0.2987.133</td><td>24969216</td><td>31199232</td><td>31199232</td></tr>
-<tr class="yellow"><td>chrome</td><td>9768</td><td>Idle</td><td>260</td><td>57.0.2987.133</td><td>27709440</td><td>31494144</td><td>31494144</td></tr>
-<tr class="yellow"><td>chrome</td><td>15032</td><td>Normal</td><td>268</td><td>57.0.2987.133</td><td>115195904</td><td>48549888</td><td>48549888</td></tr>
-<tr class="yellow"><td>chrome</td><td>15216</td><td>Idle</td><td>268</td><td>57.0.2987.133</td><td>59236352</td><td>45834240</td><td>45834240</td></tr>
-<tr class="yellow"><td>chrome</td><td>16612</td><td>Normal</td><td>271</td><td>57.0.2987.133</td><td>22962176</td><td>30445568</td><td>30445568</td></tr>
-<tr class="yellow"><td>chrome</td><td>6628</td><td>Normal</td><td>271</td><td>57.0.2987.133</td><td>25264128</td><td>37724160</td><td>37724160</td></tr>
-<tr class="yellow"><td>chrome</td><td>14772</td><td>Normal</td><td>279</td><td>57.0.2987.133</td><td>27111424</td><td>32391168</td><td>32391168</td></tr>
-<tr class="yellow"><td>chrome</td><td>14288</td><td>Normal</td><td>280</td><td>57.0.2987.133</td><td>294727680</td><td>297287680</td><td>297287680</td></tr>
-<tr class="yellow"><td>chrome</td><td>17648</td><td>Normal</td><td>286</td><td>57.0.2987.133</td><td>34164736</td><td>50176000</td><td>50176000</td></tr>
-<tr class="yellow"><td>chrome</td><td>17596</td><td>Idle</td><td>311</td><td>57.0.2987.133</td><td>61947904</td><td>90873856</td><td>90873856</td></tr>
-<tr class="yellow"><td>BCompare</td><td>11744</td><td>Normal</td><td>330</td><td>4.1.9.21719</td><td>52260864</td><td>26066944</td><td>26066944</td></tr>
-<tr class="yellow"><td>chrome</td><td>13144</td><td>Idle</td><td>343</td><td>57.0.2987.133</td><td>58691584</td><td>107376640</td><td>107376640</td></tr>
-<tr class="yellow"><td>chrome</td><td>5340</td><td>Idle</td><td>348</td><td>57.0.2987.133</td><td>139206656</td><td>117665792</td><td>117665792</td></tr>
-<tr class="yellow"><td>chrome</td><td>13596</td><td>Idle</td><td>352</td><td>57.0.2987.133</td><td>43937792</td><td>152670208</td><td>152670208</td></tr>
-<tr class="yellow"><td>chrome</td><td>16808</td><td>Normal</td><td>354</td><td>57.0.2987.133</td><td>85970944</td><td>114987008</td><td>114987008</td></tr>
-<tr class="yellow"><td>CefSharp.BrowserSubprocess</td><td>15832</td><td>Normal</td><td>372</td><td>39.0.0.2</td><td>39960576</td><td>46596096</td><td>46596096</td></tr>
-<tr class="yellow"><td>chrome</td><td>4800</td><td>Idle</td><td>375</td><td>57.0.2987.133</td><td>111726592</td><td>214691840</td><td>214691840</td></tr>
-<tr class="yellow"><td>CefSharp.BrowserSubprocess</td><td>8036</td><td>Normal</td><td>376</td><td>39.0.0.2</td><td>53194752</td><td>66109440</td><td>66109440</td></tr>
-<tr class="yellow"><td>CefSharp.BrowserSubprocess</td><td>19832</td><td>Normal</td><td>380</td><td>39.0.0.2</td><td>52756480</td><td>61046784</td><td>61046784</td></tr>
-<tr class="yellow"><td>chrome</td><td>14812</td><td>Normal</td><td>383</td><td>57.0.2987.133</td><td>76029952</td><td>119758848</td><td>119758848</td></tr>
-<tr class="red"><td>chrome</td><td>5872</td><td>Idle</td><td>401</td><td>57.0.2987.133</td><td>197283840</td><td>206610432</td><td>206610432</td></tr>
-<tr class="red"><td>Calculator</td><td>11408</td><td>Normal</td><td>438</td><td>10.1703.1703.01001</td><td>46682112</td><td>18780160</td><td>18780160</td></tr>
-<tr class="red"><td>chrome</td><td>11976</td><td>Idle</td><td>459</td><td>57.0.2987.133</td><td>113049600</td><td>415531008</td><td>415531008</td></tr>
-<tr class="red"><td>chrome</td><td>2584</td><td>Normal</td><td>460</td><td>57.0.2987.133</td><td>504426496</td><td>299143168</td><td>299143168</td></tr>
-<tr class="red"><td>chrome</td><td>15404</td><td>Normal</td><td>492</td><td>57.0.2987.133</td><td>79286272</td><td>111144960</td><td>111144960</td></tr>
-<tr class="red"><td>ApplicationFrameHost</td><td>3112</td><td>Normal</td><td>529</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>34775040</td><td>20115456</td><td>20115456</td></tr>
-<tr class="red"><td>CcmExec</td><td>5148</td><td>Normal</td><td>1259</td><td>5.00.8458.1000 (SCCM.161026-2255)</td><td>73117696</td><td>51511296</td><td>51511296</td></tr>
-<tr class="red"><td>chrome</td><td>10296</td><td>Normal</td><td>5124</td><td>57.0.2987.133</td><td>617246720</td><td>465113088</td><td>465113088</td></tr>
+<tr class="green"><td>CCXProcess</td><td>13804</td><td>Normal</td><td>49</td><td>1.5.0.323</td><td>2916352</td><td>618496</td><td>618496</td></tr>
+<tr class="green"><td>CCLibrary</td><td>7804</td><td>Normal</td><td>49</td><td>2.9.4.940</td><td>3002368</td><td>618496</td><td>618496</td></tr>
+<tr class="green"><td>chrome</td><td>11424</td><td>Normal</td><td>131</td><td>58.0.3029.110</td><td>8896512</td><td>2039808</td><td>2039808</td></tr>
+<tr class="green"><td>AdobeUpdateService</td><td>3596</td><td></td><td>163</td><td></td><td>7491584</td><td>2166784</td><td>2166784</td></tr>
+<tr class="green"><td>Adobe Installer</td><td>1484</td><td></td><td>204</td><td></td><td>9994240</td><td>3219456</td><td>3219456</td></tr>
+<tr class="green"><td>Adobe Installer</td><td>14248</td><td></td><td>208</td><td></td><td>9891840</td><td>3760128</td><td>3760128</td></tr>
+<tr class="green"><td>AdobeIPCBroker</td><td>13020</td><td>Normal</td><td>230</td><td>5.4.0.12</td><td>10452992</td><td>5169152</td><td>5169152</td></tr>
+<tr class="green"><td>chrome</td><td>6760</td><td>Normal</td><td>236</td><td>58.0.3029.110</td><td>24350720</td><td>31567872</td><td>31567872</td></tr>
+<tr class="green"><td>chrome</td><td>10580</td><td>Normal</td><td>236</td><td>58.0.3029.110</td><td>24027136</td><td>29478912</td><td>29478912</td></tr>
+<tr class="green"><td>chrome</td><td>5264</td><td>Normal</td><td>236</td><td>58.0.3029.110</td><td>23900160</td><td>29777920</td><td>29777920</td></tr>
+<tr class="green"><td>chrome</td><td>4664</td><td>Normal</td><td>236</td><td>58.0.3029.110</td><td>27553792</td><td>40763392</td><td>40763392</td></tr>
+<tr class="green"><td>chrome</td><td>9580</td><td>Normal</td><td>237</td><td>58.0.3029.110</td><td>77107200</td><td>108695552</td><td>108695552</td></tr>
+<tr class="green"><td>chrome</td><td>6484</td><td>Normal</td><td>244</td><td>58.0.3029.110</td><td>48279552</td><td>64434176</td><td>64434176</td></tr>
+<tr class="green"><td>chrome</td><td>8620</td><td>Normal</td><td>246</td><td>58.0.3029.110</td><td>22663168</td><td>28499968</td><td>28499968</td></tr>
+<tr class="yellow"><td>AGSService</td><td>3564</td><td></td><td>262</td><td></td><td>13041664</td><td>4239360</td><td>4239360</td></tr>
+<tr class="yellow"><td>chrome</td><td>7208</td><td>Idle</td><td>262</td><td>58.0.3029.110</td><td>45408256</td><td>31784960</td><td>31784960</td></tr>
+<tr class="yellow"><td>chrome</td><td>8884</td><td>Normal</td><td>267</td><td>58.0.3029.110</td><td>23130112</td><td>28635136</td><td>28635136</td></tr>
+<tr class="yellow"><td>chrome</td><td>3316</td><td>Normal</td><td>267</td><td>58.0.3029.110</td><td>24485888</td><td>40759296</td><td>40759296</td></tr>
+<tr class="yellow"><td>chrome</td><td>6924</td><td>Idle</td><td>274</td><td>58.0.3029.110</td><td>77709312</td><td>62832640</td><td>62832640</td></tr>
+<tr class="yellow"><td>chrome</td><td>13572</td><td>Normal</td><td>276</td><td>58.0.3029.110</td><td>37232640</td><td>64593920</td><td>64593920</td></tr>
+<tr class="yellow"><td>chrome</td><td>8772</td><td>Idle</td><td>284</td><td>58.0.3029.110</td><td>169558016</td><td>338886656</td><td>338886656</td></tr>
+<tr class="yellow"><td>chrome</td><td>2108</td><td>Normal</td><td>285</td><td>58.0.3029.110</td><td>26615808</td><td>37756928</td><td>37756928</td></tr>
+<tr class="yellow"><td>chrome</td><td>10368</td><td>Normal</td><td>292</td><td>58.0.3029.110</td><td>35016704</td><td>63561728</td><td>63561728</td></tr>
+<tr class="yellow"><td>chrome</td><td>3684</td><td>Normal</td><td>297</td><td>58.0.3029.110</td><td>47669248</td><td>114761728</td><td>114761728</td></tr>
+<tr class="yellow"><td>chrome</td><td>6492</td><td>Idle</td><td>311</td><td>58.0.3029.110</td><td>58515456</td><td>163950592</td><td>163950592</td></tr>
+<tr class="yellow"><td>chrome</td><td>9328</td><td>Idle</td><td>350</td><td>58.0.3029.110</td><td>97390592</td><td>204836864</td><td>204836864</td></tr>
+<tr class="yellow"><td>chrome</td><td>2120</td><td>Idle</td><td>353</td><td>58.0.3029.110</td><td>104505344</td><td>128032768</td><td>128032768</td></tr>
+<tr class="yellow"><td>chrome</td><td>12776</td><td>Idle</td><td>354</td><td>58.0.3029.110</td><td>149172224</td><td>335298560</td><td>335298560</td></tr>
+<tr class="yellow"><td>chrome</td><td>2116</td><td>Idle</td><td>355</td><td>58.0.3029.110</td><td>58900480</td><td>121425920</td><td>121425920</td></tr>
+<tr class="yellow"><td>chrome</td><td>12136</td><td>Normal</td><td>363</td><td>58.0.3029.110</td><td>142426112</td><td>179847168</td><td>179847168</td></tr>
+<tr class="yellow"><td>browser_broker</td><td>14328</td><td>Normal</td><td>376</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>16842752</td><td>4366336</td><td>4366336</td></tr>
+<tr class="yellow"><td>chrome</td><td>9160</td><td>Normal</td><td>379</td><td>58.0.3029.110</td><td>107921408</td><td>180269056</td><td>180269056</td></tr>
+<tr class="red"><td>chrome</td><td>4884</td><td>Idle</td><td>417</td><td>58.0.3029.110</td><td>352645120</td><td>767315968</td><td>767315968</td></tr>
+<tr class="red"><td>Calculator</td><td>14584</td><td>Normal</td><td>424</td><td>10.1705.1705.10001</td><td>31444992</td><td>17518592</td><td>17518592</td></tr>
+<tr class="red"><td>chrome</td><td>10620</td><td>Normal</td><td>478</td><td>58.0.3029.110</td><td>8581120</td><td>2174976</td><td>2174976</td></tr>
+<tr class="red"><td>Adobe CEF Helper</td><td>12752</td><td>Normal</td><td>531</td><td>4.0.0.185</td><td>125587456</td><td>85700608</td><td>85700608</td></tr>
+<tr class="red"><td>ApplicationFrameHost</td><td>14264</td><td>Normal</td><td>724</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>42917888</td><td>29810688</td><td>29810688</td></tr>
+<tr class="red"><td>Adobe Desktop Service</td><td>12816</td><td>Normal</td><td>1087</td><td>4.0.1.188</td><td>62029824</td><td>75010048</td><td>75010048</td></tr>
+<tr class="red"><td>CcmExec</td><td>7152</td><td></td><td>1253</td><td></td><td>61485056</td><td>51752960</td><td>51752960</td></tr>
+<tr class="red"><td>chrome</td><td>11252</td><td>Normal</td><td>5357</td><td>58.0.3029.110</td><td>371982336</td><td>367235072</td><td>367235072</td></tr>
 </table>
 </table>
     </div>
@@ -75768,16 +76106,16 @@ save-htmlreport -reportcontent $rpt -showreport  </pre></td>
     <a name="Simple Example">Simple Example</a>
 </div>
 <div class="content" style="background-color:#ffffff;"> 
-<canvas id="DWMCKgkJLolt" width="500" height="400"></canvas>
+<canvas id="msqDyENpMgSP" width="500" height="400"></canvas>
 <script>
-var ctx = document.getElementById("DWMCKgkJLolt");
-var DWMCKgkJLolt = new Chart(ctx, {
+var ctx = document.getElementById("msqDyENpMgSP");
+var msqDyENpMgSP = new Chart(ctx, {
 	type: 'pie',
 	data:	{
-		labels: ["chrome","svchost","WmiPrvSE","conhost","RAVBg64"],
+		labels: ["chrome","svchost","WmiPrvSE","slack","Teams"],
 		datasets: [{
 			label: 'Data',
-			data: [49,18,8,6,4],
+			data: [51,19,9,5,5],
 			backgroundColor: ['rgba(161, 103, 74, 0.5)','rgba(166, 58, 80, 0.5)','rgba(186, 110, 110, 0.5)','rgba(171, 155, 150, 0.5)','rgba(240, 231, 216, 0.5)'],
 			hoverBackgroundColor:  ['rgba(161, 103, 74, 1)','rgba(166, 58, 80, 1)','rgba(186, 110, 110, 1)','rgba(171, 155, 150, 1)','rgba(240, 231, 216, 1)'],
 			borderWidth: 1
@@ -75851,18 +76189,18 @@ save-htmlreport -reportcontent $rpt -showreport  </pre></td>
     <a name="Advanced Example">Advanced Example</a>
 </div>
 <div class="content" style="background-color:#ffffff;"> 
-<canvas id="AobeCNLXvITu" width="250" height="250"></canvas>
+<canvas id="WgJXbwpniqUe" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("AobeCNLXvITu");
-var AobeCNLXvITu = new Chart(ctx, {
+var ctx = document.getElementById("WgJXbwpniqUe");
+var WgJXbwpniqUe = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
-		labels: ["chrome","svchost","WmiPrvSE","conhost","RAVBg64"],
+		labels: ["chrome","svchost","WmiPrvSE","slack","Teams"],
 		datasets: [{
 			label: 'Data',
-			data: [49,18,8,6,4],
-			backgroundColor: ['rgba(77,45,68,0.7)','rgba(88,162,114,0.7)','rgba(85,40,61,0.7)','rgba(86,0,215,0.7)','rgba(78,167,149,0.7)'],
-			hoverBackgroundColor:  ['rgba(77,45,68,1)','rgba(88,162,114,1)','rgba(85,40,61,1)','rgba(86,0,215,1)','rgba(78,167,149,1)'],
+			data: [51,19,9,5,5],
+			backgroundColor: ['rgba(150,75,214,0.7)','rgba(157,49,131,0.7)','rgba(151,162,83,0.7)','rgba(148,203,97,0.7)','rgba(151,96,48,0.7)'],
+			hoverBackgroundColor:  ['rgba(150,75,214,1)','rgba(157,49,131,1)','rgba(151,162,83,1)','rgba(148,203,97,1)','rgba(151,96,48,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -75918,16 +76256,16 @@ save-htmlreport -reportcontent $rpt -showreport  </pre></td>
     <a name="Simple Bar Example">Simple Bar Example</a>
 </div>
 <div class="content" style="background-color:#ffffff;"> 
-<canvas id="sbvrDSVEgPmH" width="500" height="400"></canvas>
+<canvas id="eNCADxSdtGHf" width="500" height="400"></canvas>
 <script>
-var ctx = document.getElementById("sbvrDSVEgPmH");
-var sbvrDSVEgPmH = new Chart(ctx, {
+var ctx = document.getElementById("eNCADxSdtGHf");
+var eNCADxSdtGHf = new Chart(ctx, {
 	type: 'bar',
 	data:	{
-		labels: ["chrome","svchost","WmiPrvSE","conhost","RAVBg64","dllhost","powershell","CefSharp.BrowserSubprocess"],
+		labels: ["chrome","svchost","WmiPrvSE","slack","Teams","conhost","RAVBg64","nvcontainer"],
 		datasets: [{
 			label: 'Data',
-			data: [49,18,8,6,4,3,3,3],
+			data: [51,19,9,5,5,5,4,2],
 			backgroundColor: ['rgba(232, 247, 238, 0.8)','rgba(190, 168, 167, 0.8)','rgba(102, 63, 70, 0.8)','rgba(60, 54, 42, 0.8)','rgba(201, 214, 234, 0.8)','rgba(201, 153, 190, 0.8)','rgba(54, 12, 54, 0.8)','rgba(138, 54, 78, 0.8)'],
 			borderColor:  ['rgba(232, 247, 238, 1)','rgba(190, 168, 167, 1)','rgba(102, 63, 70, 1)','rgba(60, 54, 42, 1)','rgba(201, 214, 234, 1)','rgba(201, 153, 190, 1)','rgba(54, 12, 54, 1)','rgba(138, 54, 78, 1)'],
 			hoverBackgroundColor:  ['rgba(232, 247, 238, 1)','rgba(190, 168, 167, 1)','rgba(102, 63, 70, 1)','rgba(60, 54, 42, 1)','rgba(201, 214, 234, 1)','rgba(201, 153, 190, 1)','rgba(54, 12, 54, 1)','rgba(138, 54, 78, 1)'],
@@ -76153,6 +76491,7 @@ document.getElementById("defaultOpen").click();
 <a class="alink" href="#Get-HTMLColumn1of2">Get-HTMLColumn1of2</a><BR>
 <a class="alink" href="#Get-HTMLColumn2of2">Get-HTMLColumn2of2</a><BR>
 <a class="alink" href="#Get-HTMLColumnClose">Get-HTMLColumnClose</a><BR>
+<a class="alink" href="#Get-HTMLColumnOpen">Get-HTMLColumnOpen</a><BR>
 <a class="alink" href="#Get-HTMLAnchorLink">Get-HTMLAnchorLink</a><BR>
 <a class="alink" href="#Get-HTMLAnchor">Get-HTMLAnchor</a><BR>
 <a class="alink" href="#Get-HTMLTabHeader">Get-HTMLTabHeader</a><BR>
@@ -76732,6 +77071,47 @@ Get-HTMLColorSchemes [[-SchemePath] <string>] [<CommonParameters>]
 </div>
 <div class="content" style="background-color:#ffffff;"> 
 <table class="fixed">  <tr class="header"><th>ParameterSet</th><th>Name</th><th>Type</th><th>IsMandatory</th><th>Pipeline</th></tr>    <tr class="header"><td colspan="6" class="groupby">Default</td></tr>   <tr class="odd"><td></td><td>InformationAction</td><td>ActionPreference</td><td>False</td><td>False</td></tr> <tr class="even"><td></td><td>InformationVariable</td><td>String</td><td>False</td><td>False</td></tr> <tr class="odd"><td></td><td>PipelineVariable</td><td>String</td><td>False</td><td>False</td></tr> </table>
+    </div>
+    </div>
+    </div>
+    </div>
+<a class="alink" href="#Top">Back To Function List</a>
+<a name="Get-HTMLColumnOpen"></a>
+<div class="section">
+<div class="header">
+    <a name="Get-HTMLColumnOpen">Get-HTMLColumnOpen</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> 
+<table><tbody>
+	<tr>
+	<th class="content">Name</th>
+	<td class="content">Get-HTMLColumnOpen</td>
+	</tr>
+</tbody></table>
+<table><tbody>
+	<tr>
+	<th class="content">Synopsis</th>
+	<td class="content">Dynamic Column Creation</td>
+	</tr>
+</tbody></table>
+<table><tbody>
+	<tr>
+	<th class="content">Remarks</th>
+	<td class="content"></td>
+	</tr>
+</tbody></table>
+<table><tbody>
+	<tr>
+	<th class="content">Examples</th>
+	<td class="content"></td>
+	</tr>
+</tbody></table>
+<div class="section">
+<div class="header">
+    <a name="Functions Parameters">Functions Parameters</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> 
+<table class="fixed">  <tr class="header"><th>ParameterSet</th><th>Name</th><th>Type</th><th>IsMandatory</th><th>Pipeline</th></tr>      <tr class="header"><td colspan="6" class="groupby">Default</td></tr>   <tr class="odd"><td></td><td>ColumnNumber</td><td>Int32</td><td>True</td><td>False</td></tr> <tr class="even"><td></td><td>ColumnCount</td><td>Int32</td><td>True</td><td>False</td></tr> <tr class="odd"><td></td><td>InformationAction</td><td>ActionPreference</td><td>False</td><td>False</td></tr> <tr class="even"><td></td><td>InformationVariable</td><td>String</td><td>False</td><td>False</td></tr> <tr class="odd"><td></td><td>PipelineVariable</td><td>String</td><td>False</td><td>False</td></tr> </table>
     </div>
     </div>
     </div>
