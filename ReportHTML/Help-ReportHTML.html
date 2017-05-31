@@ -12398,7 +12398,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
             </tbody></table>
             <div class="pageTitle">ReportHTML 1.3.2.2, Cmdlets Usage, Help & Examples</div>
             <hr />
-            <div class="ReportCreated">Report created on May 30, 2017 09:44 PM</div>
+            <div class="ReportCreated">Report created on May 30, 2017 09:58 PM</div>
 <ul class="tab">
 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Welcome')" id="defaultOpen">Welcome</a></li>
 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Reports')">Reports</a></li>
@@ -25159,7 +25159,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
             </tbody></table>
             <div class="pageTitle">ReportHTML</div>
             <hr />
-            <div class="ReportCreated">Report created on May 30, 2017 09:44 PM</div>
+            <div class="ReportCreated">Report created on May 30, 2017 09:58 PM</div>
 <div class="section">
 <div class="header">
     <a name=""></a>
@@ -37675,7 +37675,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
             </tbody></table>
             <div class="pageTitle">Example 1</div>
             <hr />
-            <div class="ReportCreated">Report created on May 30, 2017 09:44 PM</div>
+            <div class="ReportCreated">Report created on May 30, 2017 09:58 PM</div>
     </div>
     </div>
     </div>
@@ -50103,7 +50103,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
             </tbody></table>
             <div class="pageTitle">Example 2</div>
             <hr />
-            <div class="ReportCreated">Report created on May 30, 2017 09:44 PM</div>
+            <div class="ReportCreated">Report created on May 30, 2017 09:58 PM</div>
     </div>
     </div>
     </div>
@@ -62538,7 +62538,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
             </tbody></table>
             <div class="pageTitle">Example 3</div>
             <hr />
-            <div class="ReportCreated">Report created on May 30, 2017 09:44 PM</div>
+            <div class="ReportCreated">Report created on May 30, 2017 09:58 PM</div>
     </div>
     </div>
     </div>
@@ -62556,7 +62556,13 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 <table><tbody>
 	<tr>
 	<th class="content">Use Base 64 code</th>
-	<td class="content"><pre class="PowerShell"> $OurLogos = Get-HTMLLogos <BR>$YourLogos = get-htmlLogos -LogoPath c:\YourPath\ <br>$Base64Logo = $OurLogos.get_item("Corporate") <BR>Get-HTMLOpenPage -TitleText "Example 2" -LeftLogoName Blank -RightLogoString $Base64Logo </pre></td>
+	<td class="content"><pre class="PowerShell"> $OurLogos = Get-HTMLLogos <BR>$YourLogos = get-htmlLogos -LogoPath c:\YourPath\ <br>$Base64Logo = $OurLogos.get_item("PowerShell") <BR>Get-HTMLOpenPage -TitleText "Example 4" -LeftLogoName Blank -RightLogoString $Base64Logo </pre></td>
+	</tr>
+</tbody></table>
+<table><tbody>
+	<tr>
+	<th class="content">Base64 String</th>
+	<td class="content">data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBGRXhpZgAATU0AKgAAAAgABAESAAMAAAABAAEAAFEQAAEAA....and so on and so on</td>
 	</tr>
 </tbody></table>
     </div>
@@ -74961,12 +74967,12 @@ ul.tab li a:focus, .active {background-color: #ccc;}
                         <table><tbody>
             <tr>
                 <td class="clientlogo"><img src="" /></td>
-                <td class="MainLogo"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAwADAAAD/4QBmRXhpZgAATU0AKgAAAAgABgESAAMAAAABAAEAAAMBAAUAAAABAAAAVgMDAAEAAAABAAAAAFEQAAEAAAABAQAAAFERAAQAAAABAAAdhlESAAQAAAABAAAdhgAAAAAAAYagAACxj//bAEMAAgEBAgEBAgICAgICAgIDBQMDAwMDBgQEAwUHBgcHBwYHBwgJCwkICAoIBwcKDQoKCwwMDAwHCQ4PDQwOCwwMDP/bAEMBAgICAwMDBgMDBgwIBwgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEIAFACNwMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AP38ooooAKKKKACmvyvFEhwhrxf9sj47H4U+B10vTbho9e15GjhZD81pCOHm9jztX3JP8JrswOCq4vERw9Fe9J/8O/Rbnm5xm2HyzB1MdiXaMFf17JebeiO++Hfxe0P4n6rrVro919ok0G6+y3HTDHnDof4kJDAH1U11lfnj8CPijcfBjxnY6xbK0lvGDBd26HHn25I3KPcYDD3UetfoFoGt2niTRbW/sLiO6s7yMTQyocrIjcg1WZ4WOGxVShF3UW19xnkOYTx2XUMZUVnUjGTS2V1excooorhPWCiiigAooooAKCcCisnx340074ceCdY8QavMLfS9DsptQvJT/wAs4YkLufwVTQB8fftpf8FwPAP7Fvx8v/h7qHhHxZ4m1TS7WCe8uNLe1EEDyrvER8yVW3hCrHjHzivKP+Imr4cf9Eu+JH/f3T//AI/X5N/G34uah+0B8aPFvjrVt39oeL9XudVkUnPkLI5McI/2Y4vLjHsgrmc4q+U53UfQ/cL9mz/g4B+HX7Rvx38L+BI/BPjTw7ceKbz7Bb3+oSWZtoZSjFA/lzM3zMAgwDywr72U5FfynaVrl94W1iy1XS5ja6ppdzFe2Uw6xTxOJI2/BlBr+nX9mD456f8AtMfs8eDfH2mbVtfFekwagY1bd9nlZR5sJP8AejkDofdDSaNKcr7neUUUVJoFFGa+Y/8AgpN/wUx8L/8ABPn4dwyTQR+IPHWtIRomgJNsMo5BuZ2AJjt0I5ONzthVGclQD3r4o/Fvwz8E/CM2v+Ltf0jw3otucSXmo3SW8QbBIUFiNzEA4UZJxwDXw18cv+DjX4OfD65ms/B2h+LPiFdRsVFxbwpp2nsR/wBNZj5hHusTCvyM/aV/ak8efte/EGTxL8QPEN1rl6rN9ktidllpaE58u3hHyxr2zyzfxMxrgKrlMZVex+mviD/g5t8YXNw39k/B3wzZw/wi88Sz3LfjttoxUeif8HNnjSCZf7S+D3hW8hz8wtvEdxbsfput3FfmcMGlIp2I9pI/Y74S/wDBy38OfENzHb+NPh34w8JmQgG40+4g1i1jz1LH91Lj6RE+1foR8Jvijovxv+GPh/xj4cujfaB4nsIdT064MbRmaCVA6MVYBlJUjggEV/LSD8wr+j7/AIJbH/jXB8Df+xJ0r/0lSk0a05NvU3P24P2wdJ/YZ+AF98Qdb0XVte0+xvLWza005olndp5RGpBkZVwCcnJ6V8X/APETV8OM/wDJL/iP/wB/dP8A/j9eqf8ABwV/yjX13/sO6R/6WR1+ECD5R9KEtBVJNPQ/Yv8A4iavhx/0S74kf9/dP/8Aj9H/ABE1fDj/AKJd8SP+/un/APx+vx1zRmnyke0kfsV/xE1fDj/ol3xI/wC/un//AB+u2/Zw/wCC/vgX9pL48+FPAOnfD3x1pd94svxYQXd5JZGC3YqzbnCTFsfKegJr8P8AdXvX/BLY5/4KM/Br/sY0/wDRMtHKEakmz+j7PNBOBSZy34U2aVYkZnIVVUsSegAqDoMe88e6bZeMLbQpJiuo3cZkjj2nbjBPLdASFPFbSjBNeGalYXXiLw3rHjuFSbuHVUurPj5vs0J8sge2OT/umvadD1WLXdJt76Bg0N5EkyEejAGmTF3IvE/iW38J6TJe3S3DQxlVIhiaV+SAMKoJ71zK/HvQwP8AU61/4LJv/ia7ajOKQ9TiT8fNCA/1OtccnOmzcf8AjtaNj8VtJ1Hwhda7E1z/AGbZ58yRoGBOODtH8WCccd81kfFfXLrXdTtvCOkytHe6ovmXkyn/AI9LUfeP1boPr7ipPilolv4b+BuqWNnGIbW1s/LjQdhuHJ9z1PuTTFqdlpuoR6tp0F1DuMNxGsqEjBKkZHFTVleBf+RK0j/ryh/9AFatIoy18YWb+LZNEDSf2hHbi6K7Dt8snGd3TOe1ZfiT4u6T4T1ttOuvtz3axrKyQWrzYVs4Pyg+lY9p/wAnKXf/AGBV/wDRgo03/k5HUP8AsCxf+jKZPMy1/wANAeHY2Xzm1K1jY48yewljQfiVrrtM1S31mwjurWaK4tphlJI23Kw6dfrkVJc26XcLRyKskbjayOu5WHoRXnPw2tl8I/FvxJoNp8ul+VFfQRZ+WFmC7gPTJJ/ACkGq3N7XfjLovh/XbjTZ/wC0JLq02+asNnJMF3KGHKg9iKqn4+aHj/U61/4LJv8A4mqvgg4+O/jL/rla/wDota9AoBXZV0nU49b023uoRIsdwiyoJEKNgjIyDyD7GrVFB6UFEd1dR2du8s0kcUcY3M7sFVR6knpXHzfHfQ3uGisY9T1hozh2sLN5kU/73ArIlgb44eN7yCZm/wCEV0OXymiUlRqNwBzuI/hX0+nrXothp8OmWscNvFHBDGNqxxqFVR7AUE3vscrpPxs0fUtWt7CaPUtNvLqQRRRXtm8PmMegBxjn61tXnjCz0/xPZaPK0n27UI3khUIdpCDJye1aU9utxt3qrBSGAYZwR0I9xXCeKOPj94T/AOvO6/8AQTQGqO/pC2CKWuF+L3ie+e403w3pEnk6przlTOOttCv33/IH8jjnFBRpeIvi/oXhnUms5LqS7vuf9GtImuJR7ELnH41Qf49aTZsPt1jrulxk4827sHSMfUjOK2/A/gPT/AelLbWEKruAMsxH7ydu7Mev4dq2ZohMhVgrIwIZSMgigWpBpGsWuu2KXVncQ3NvIMrJEwZWqr4h8YWXhi9063u2kWTVJxbW+1C25z2Pp9a4TxHpy/BTxfa6xpy+T4f1aYW+o2i/6uFz92VB29wPTHfi/wDGNt3iTwUe39sx4x+FAuY9AFNYc06mv2+tBRmeF/GNj4vivHsWkdbG5a0l3IVxIoBIGeo+Yc1z7/HvQVnmjVdUmMMjROYrCWRQwOCMgEVS/Z8/5B/iT/sPXH/oEdL+z2ceH9c/7Ddz/JKCeZsuR/H/AMNeesdxdXViW+6bu0khU/iR7V1umarb6xaLcWs8NxBJ914nDKfxFOuLSO+tmjmjjmikBDJIoZWHuDXmXjDRf+FJaxD4g0ZWi0e4mWHVNPXJjwxwJUHYj0+g6GgNUep0U2CVZoEdGDI4DKw6EHoaKCh1FFFABRmimu3ymgDJ8e+N9N+HXg7Udc1a4+z6fpcJnmfqcDsB3YnAA7kivzj+IHxfvvjJ46vte1H5JL1/3UGdy2sQ+5EP90dfUknvXbf8FIv2p18a+PF8A6NdZ0nw7Nu1V42+W7vB0j91iBOR3c/7ArwLRNX+7+dfsHBeR/VaH1ysvfmtPKP/AAd/Sx/NPitxQ8fiv7Nwz/dUnrbaU9n8o7Lzv5HczX/2Wy9+a+hP2Af2kls9dfwDq1x+6ui02jSO3CPy0lv/AMC++vuHHcV8r6nq0y2qNJDJCkyeZA7/AHbiPcyeYv8As70kX6o1cveeKrjSNRhvLO5mtLy0mWeCeJtrwyKcqynsQQDX53nlpZhWt/NL8z9y4Ri4ZJhIyWvs4f8ApKP2NU5Wlryn9jz9pa0/ab+D1rq+6KPWtPIs9Yt148m5VQSwHZHB3r7HHUGvVq8M+kCiiigAooooACcV8Lf8HAv7SP8Awpf9iH/hF7Kfy9Y+J2opoihWw8dkime6k/3dqRxH3uF7Zr7nkbC1+Dv/AAXq/aOHxv8A267rw7Z3Pn6P8NLJdGRVPyC8kxLdEc9QTFGT1zFjtTRNSVkfFK8LXr0/7O00X/BP23+LH2P/AFnxFbw6bjHzNanTt68/3RcRsP8AecV4/dXC21vJIwZljUsQoyTj0r909S/4J7un/BD5fhM1iq+KYvC8euzRbfm/toYv3UHqSJsxA91AHFWzCMbn4XffFfsn/wAG3X7Ro8Y/ATxd8Mby4LXngbUF1Gwjdv8AlyvS7EKPRbiOYkDp5o9a/Gq2l8+BXHRwGH419Pf8Ee/2iP8Ahmz/AIKA+DL64uGg0jxUz+F9Ty21DHdFfKZv924SA59Nw70MKbsz+h4dKKRBhaWszpOB/ad/aC0P9lj4DeJ/iB4gLNpfhmza6eKMgSXUn3Y4Uz/E7lVHu1fzZ/tA/HnxL+098ZfEHjrxdeNd634guWnZd5aKxiyfKtYQT8sMSkIo9iTliSf0w/4OXP2gJodM+Hfwss7hkhvJpvE+rRqf9aIswWqHvt3PO5B43RxntX5QAYWqiYVJa2Ed1RCc7QBkn0r7e/4J3f8ABErxl+2Poll4x8X39x4D+Ht6glsZFiD6rraHo8MbDbFCeokkyWBBVCpD1xX/AAR5/Yptf21P2ure11+zF14I8F2o1vXI3GY71t4W2s245Er7mYHgpBIO4r+g21tY7KBIoUWOKNQiIi7VRRwAAOgHpTkwpwvqz5P+Gn/BEH9mv4daXFDN8P4fE9zGuHutdvZ7x5TjklCwiH4IK6HxB/wSA/Zp8R27RyfB3wfZ7hjdp0Ulgw/GFkNfSdFRc25Ufmv+0j/wbgeAfFVhcXfwv8Uax4N1VVLQ2WpsdS02Vuysx/fRg/3gzY/unpX2p+w/8JNZ+AP7Hnwz8D+IlsxrvhLw5ZaRf/ZJjNbmaGFY2MbkAshK5BIBwRkA8V6pRQJRSd0fEv8AwcFf8o19d/7Dukf+lkdfhAn3B9K/d/8A4OCv+Ua+u/8AYd0j/wBLI6/CBPuD6VcdjKrufSn/AASL+A/hP9pL9u7w/wCEPHGjx+IPDt9pWpXE1lJNJCryRQho23RsrcHng1+v/wDw5U/Zh/6JTYf+DXUP/j9flf8A8EG+f+Cm/hT/ALAmr/8ApOK/fZfu0m3cqmlY+Wf+HKn7MP8A0Sqx/wDBrqH/AMfrd+GP/BJ/9n34N/ELR/Ffhn4c2el+INAuBd2F4uo3sjW8oBAYK8xU8E8EEc19E0ZpXZpyoaoxxXH/ABz8RSaL4Dmt7Un7dq0i2FuAedznDH8Fz+OK7FjgV5d4vtb34jfGGOx0+7js18LQrO0zw+cqzvggbcgE7cfTFIJHdaF4StdI8G2+i7Va3htBauMff+XDH8Tk/U1y3wD1CTTtJ1Hw7ctm58P3bQDPeIklT/P8CKujwn4zP/M22f8A4Kk/+Krm10/Uvht8YNN1DVNQjv4vEStY3E0cAgUOAPLyoOM8KM+maaFsesZrH8c+L7XwP4autSuvmjt1wiD70rnhVHuTj9TWsWCfgK85sP8Ai73xH+2N83h3w3KUt1P3by6HV8d1Xt+HqaRTfY1vhP4PuNLs7jWNW/ea7rjefcsf+WKfwRD0CjHHrx2qb44/8km13/r2/qK6tRgVzXxgsX1H4Z67DGu5msnIHrgZ/pQT0NHwL/yJWkf9eUP/AKAK1awfhdqUerfDrRJ423K1lED7EKFI/Agit7NBS2PP7T/k5S7/AOwKv/owVmaz4vsPBf7QF9dalM8MMmkRRqVieQlt5PRQT2NaeiH+0f2idalj5XT9Mht5D/tsQ+PyNGnJv/aQ1Dd/0BYv/RlUZ/5llvj7od3L9n01dQ1bUGGUtYLR1kf/AL7CgD39M1L8M/B1/aanqmvayscWra0y7oI23LaxIMIme5wBnH61J8WPAn/CUeHGuLFfJ1rTv9IsrhPldXXnbkc4bGMdM4q/8N/GS+OvBtlqSjbJMpSZP+ecqkqwx25GR7EVJXXU4iDxPN4Z+OPix4dJ1PVjNHbKVs0VjHiJOW3Eda6I/Fq+A/5E3xV/35i/+Lqn4I4+O/jL/rla/wDota9AphG9hlvL50KsVZCwB2nqvsah1m6Nlo93Mv3oYXcY9lJqzUd3At1ayRN92RSh+h4pFHE/s6WiwfCmwm6yXks08h/vMZGGT+AAruq87/Z8vzpui33h24+S+0G6kRkPUxs25WH4k/mPWvRA2aCY7Aelef8Aif8A5L74T/687r/0E16ATXn/AIo/5L74T/687r/0E00Ej0A9K87sP9P/AGk75pOfsGkRpED/AA7mycf99GvQ26V5x4omHg747aTqk3yWOuWp06SQ9ElUkrn6/KKAkejJ9wU6mo2RTicUiji/2hIFm+EOsbsbo1jdT6ESJ0/l+NY3j2Zpl+HMj8s9/bkn1JVavftAX32/w7Z+H7f95fa/dRwog67FcMzH2GBz9ar/ABriXQYPCFz0ttL1aBXYjoox/QGqIkej0jdvrSIc5+tKzBFyeAOSaks8+/Z8/wCQf4k/7D1x/wCgR0fs+f8AIA1z/sN3P/oKU79nlWk8NatdY/dahrFzNEf7yfKufzU0n7Pg/wCJBrn/AGG7n/0FKDOPQ7+P7tc18Z7dLn4Va8r9Fs3cfVfmH6gV0qcLXC/HjV2k8KLodriXUfEEq2kEQPO0sC7H/ZAGCfemty5bG/8ADG4e6+HmiySHczWceSf90UVp6JpqaNo9rZx8x2sSxKcdQoxRSGi1RRRQAN92vAf+Cgn7W0P7KvwXaWyuIx4s8SF7HRIsBmjfb+8uSp/hiUg85Bdowc7q9r8Y+LtM8CeFdS1rWb6DTdK0m2ku7y6mO2O3iQFmcn0ABr8QP2rf2s9Q/a4+OmpeLLoXFrpo/wBF0axkJzY2ak7AR2kf774/iYjoBX1XCeR/2hiueov3cNX5vovn18vkfD8dcSf2XgeSi/3tTSPkusvl08/RjtI1t3k8ySSSSSRi7u7bmkYnJZiepJJJPcnNeu/s1/BfxB+018Q4/Dfh5prOOFVl1fWEjDR6FbtnEnzAqZ3wRFGQdzAsRsRzXIfsZfsm+Lv2w/F9xZ6H/wASrw/pUipq/iCeLfDZMeRDCp4nuCvOwfLGNpkK741k/Wz4DfAPw1+zh8PrXw14VsDaWFufMmmkbzLm/mIAeeeTrJI2OSeAMAAKAB91xNxTDAxeGwzvV/CP/B7L5vsflPBfAFTM6kcdj1agndJ7z/8Ate767LuvF/2y/wBiG38bfBfRF8A6bHZ654Ds/sml2CyYGpWIUbrNnc8yZVXjkkbO/cCwEshP5t61ru8yAiaNo5GjkjljaOSF1JDI6MAyOpBBVgCCMEZr9wWXeMV8pft7f8E37H9oiG78VeDfsuh+PlTdOrnZZ+IQBhVnx9yYAYWYDJHyuGUIU/H1UbfvH9F8iStHY+HP2Ov2vpP2T/jha6zcTTHwzqQWz12BBu3QZyswXqXiJLDHJUuv8VfsTpepW+r6bb3VncQ3VrdRLNBNC4eOZGAKsrDgqQQQRwQa/n08f22peDPEeo6NrVjeaTrGkzta3tjdLtmtZV6qwBIPYhlJVgQyllIJ/QX/AIIn/tyL4u0ub4OeIrzOqaPC934allb/AI+rNceZagn+KLIZFHJjLY4jNOcdLjifodRQpytFZFBRRRQBxn7Q/wAZdO/Z4+B3izxzqu02PhXS59RdC23ziiEpGD6u21R7sK/mG8ReJ9S8ceJ9U13WLh7zWNdvJtSv7h/vT3E8jSyufq7Ma/Yr/g4//aTXwX+zx4Y+GOn3O3UfHWoi+1FEf5l060IfDDqBJcNCB6iOQetfjTniqiYVZa2Pav8AgnN8BD+0v+3B8OfCclr9q059VTUtTQ/d+x2v7+XPsdir7lwO9f0mLyvcc5r8iP8Ag2x+Cdqvi74jfFLUnt4fslvD4Y0lpXVeXYXF2wz7JaKD/vjua/Wv/hJtN/6CFj/3/X/GiRdPY/m0/wCCgH7Pf/DLP7aHxE8EwW/2XSrHVpLzSYxkqthc/v7dQTyQiP5efWM15B5ksDpJbyyW9xC4kilQ4aF1OVcH1DAEe4r9NP8Ag5L+CtrafEP4ffE/Tfs80OtQS+G9TlhdWxPEDPbbsHOWj+0j/tkPUZ/MsHNUtjGSsz+lz9hX9otP2rP2RvAHjxpI2vtc0iE6oqAAQ38Y8q6QAdlnSQD1XB7165X5X/8ABtT+0b/aHhzx98J765ZrjSpU8TaRE3/PtLthuQvsswiY/wDXcV+qFZs6Iu6ufgb/AMF7PGD+Kf8AgpV4jtSzNHoGkabp6DP3cwmdv1mr45PSvq3/AILfWElh/wAFPPiI0isouodNmjJGNy/YYVz+akV8pHpWhzy+Jn7K/wDBtV8P4NL/AGYPHniYRqLrXvE32NpP4jHbW8e1foGmc/8AAq/SOvzv/wCDbbxRBf8A7GfivS1ZftGleLbiSVc8hZbeBl4/4CfyNfohUS3OiHwoKKKKRQUUUUAfEv8AwcFf8o19d/7Dukf+lkdfhAn3B9K/d/8A4OCv+Ua+u/8AYd0j/wBLI6/CBPuD6VcdjCrudX8FPjj4u/Zw+Itt4u8C65N4b8SWcEttDfxW0Fw0ccq7ZFCTI6fMvGSuR1BBr2r/AIfGftRf9Fk1n/wS6T/8iV4L8Pvht4j+LviqLQfCeg6x4l1ueN5o7DTLR7q5kRBl2CICSFHJPbIr0L/h398ev+iK/FH/AMJu6/8AiKZC5uh3H/D4z9qL/osms/8Agl0n/wCRK+2P+CFP7d/xh/as/aV8aaH8RvHl/wCK9J03wwt9a20+n2VusM5ukTeDBDGxO0kYJI56Zr87/wDh398ev+iK/FH/AMJu6/8AiK+7v+Dff9mP4lfA79qPxzqXjbwD4w8I6deeFUtbe61jSprOGaX7XG3lqzqAW2gnA7Ck7WLjzX1P1qu5mt7aR442lZFLBF6uQOAPrXH/AAX8KXuhaLe32rQtDq2sXb3NwjMGZBuIVSQSOnPHrXaFsCvKtW0m+8afGzV9NXXNY022tbKGdFtbhlXJCg8Zx3zxUGsj1WuT+MvhCbxp4IuLe0QtqFqy3VphgD5iHgc8cgsOfWsv/hSV1/0OHij/AMCjXUeDPDUnhTSDayahfamxkMnnXb75MHHy59BimG+5zfj/AFDxNqPw2t4NP0u6/tbUoVjuwskYa0GMPyWxuPIBGeOfSq/hfXta8I6Fa6fZ+BdQjgtUCLm+gyx7seepOSfrXP8Awt+KV5pPi68sdYnmm0vUL+aC1uZnLiCYN/q8nopBHHQH2zXsmc0wWupxf/CxfEn/AEI+of8AgdB/jW54c1a88R6TMdS0ibS3ZjH5EsqymRMcnK8c5Ix7Vrk84rhPgHql1q2garJdXNxctHqcyKZZC5VQBgDJ6D0qQ6lHS9F8RfBu5uLfTbA6/wCHZJGlhhSUJc2eeSoB+8M+mfwOavzfEXxHrULQ6X4R1C3uG4E2oyJDDFnuRnLY9BXdFsCvGvFfxE1K3+J0msQ3Nx/wj+jX0WmTRK58uUsreY5XocEkZ/2Vpg9D0L4beBm8F6fcNdXH27VNRlNxe3OMCRz0CjsoHArPsvD19D8cb3VGtnGnzaVHAs+RtLh8lcZz09sV2UbKyDadwxwR3rjP2g9SuNH+Fl9cWlxNa3EckAWSKQxuAZUBwRzyDigHsdnngVw3gzw1qHgr4ja1bw2jt4f1bF5DIGXbbzYG9CM7uTnoMY21Wsvgvd3VlDJ/wmHihfMQNj7UeMjNZ9zf698Fdc0/+0NUm1zw7fzCBpLgfv7Vj0OeSfXGSMA9KQepaki17wp8WPEOp2vh261W11JYEieK4ijHyxoD9456gj8K1v8AhYniT/oSNQ/8DoP8am+OWoTaX8K9XuLWea3njRCkkTlGXMidCORW94UkaXwxp0kjM0klrEzMxyWJUZJNMPId4d1K51bRobi8sZNNuJN2+2kdXaPDEDJXg5AB49ausNymlryvW9KvvGXxv1PS11vWNNtbexinRbW4ZVzwDxnHekNux0Xjr4b3Gq61Drmh3S6br9uuzzGXMV2n9yQf1xnp6DFWP4j+I9LQRan4O1CSZf8AlpYSpNE/uOcj8ajPwPusf8jh4o/8CjXUeDfC0nhPSTayahfao3mmTzrt98mDj5c+gx+tMWpj6X4w8Sa/qdqI/DTabYtIDPPfXCiQR552xrk7vrWf8Q9P1i1+Juh61p+jz6tDp9tNHIkcqR8vwOWI9c1i/BL4g3UvjvVtJ1C6nuFup5ns2mkL7WjY7kXPQbcHHtXrQbd0o2COqOK/4WL4k/6EfUP/AAOg/wAat3Ok/wDC0/CFxa67pFxpXmSFUjaZZJEIAKyqy9DkkY9iDwa6onFcB+0D43m8M+D/ALLZSyR6hqZKRtE21440G6Rweo+UYz2z7Ugei1E07U/GHw/h+y3mm/8ACUWMIxFd2sqx3OzsHjb7xA9Mk+tTt8SvEWqq0em+DdSSYjh76VIIk9zzk/Qc1f0O9mm+D9vcNNK1w2lGQylyXLeVndnrn3ri/hj8O7/xx4G0/VJvFniSGW7RiyJdsVGHZe5z2pi16HXeCfh1dWWuSa7r10moa5Knlq0a7YbOP+5GP5nqfxOdjxv4RtvHPhu5026yI7hfldfvRMOVcfQ/n071zKfBK6jlVv8AhL/FDbWBwbo4OD0NP/aC1O60j4dvNaXFxazfaYgJIpCjAEnjI7Uh7LUq6L4m8W+ArRdP1TQbjXobf93DfWEis0ijpuQ859/59afq+r+KviNZNY2WjzeHbK6BjuL29dTMqHhhHGuTuPIyePcVqfCj4gN4w0iS3vl+z61preTewkYORwHA9G9uhz7V1wOaYW0M/wAM6BbeFdBtdOs08u3s0Eag9T6k+5OT+Ned+ALjxJ8PrbU7X/hE76+W61Ga7SVLuFBtbAHBbP8ADn8a2P2h9UutI8Aeba3Fxayfa4l3wyGNsHORkHOK0vGPw7m8XajDcR67rWlrHCI/KtJtiPyTuPvzj8KPUHuUZfFfjPWDssvC1vprNx51/fIyp77UyTVvwZ8OW0XVpNY1a8bVtemTy/tLJtjt0/55xL0Vffqfzrh/il4L1DwB4fhvIfFPiS4ea6jt9sl0wADZyeD7V0x+B90f+Zw8Uf8AgUaBa3O9TgYoqj4a0VvD2j29m91c3zW6lTPO26STnOWP6UUizQprPjjvinHpXgP/AAUa/ba039hT9mvU/FUjWtx4ividO8OafK3/AB+3zqdpK5yY4xmR8Y+VcZBYVth8PUr1Y0aSvKTsvVmGKxNPD0pV6ztGKu36Hx1/wXI/bt+16xD8E/DV6jQ25jvfFc8L8s/3oLHIPbiWQe8Q/vCvz80ia/1m7sdN0kQyaxrV7baXpyzf6o3VzOlvBv8A9gSSIW6fKDXA3XjLUPFniC+1bVr6bUtW1a5kvb28nbMl3PIxeSRu2WYk8YA6AAcVueH/AB3P4C1zRPEtvayahceEtY0/xAlpH9+8+xXcV0Yl/wBp1iZR7sK/e8tytZdgfq9DWSTd+8rb/f8AgfzZm2YPNc0WIxWkXJK3aN9vuu35ts/ow/Z4+A2g/sz/AAe0HwT4dikXTdDtxD502DPeynmW4lIADSyOWdiABluAAAB3FYHw1+I+h/F7wFo/irw1qlrrHh/xDaR6hp19btuiuoJFDIyn3B6HkHg4Ird3ivwGpKcpuVTdvW/fqf0tSjCMFGn8KWltrDqa671xR5oPr+VKXwM1Bofm5/wX9/Z3sdP8IeGfi7p0KwajBfxeHNcKDAu7eYP9lmb/AG45gIwepW5IJOxMfl34d+LetfCjx1pPibw7qDabr2g3aX1jcryI5UII3DPzIfusvRlYjvX6of8ABxb+0NpPhj9nbwt8M47q3m8R+MNcttXktVYNJaadZMZmuGAOVVrgQRKT94s+M7Wx+NOr6q07bVOT9a6Ke2pMtz+lD9h39rjRf22P2ddD8daOYoZrqP7Nqtgr7m0y+jAE0B74DfMpP3kZTxnFevV/Pv8A8Edf2+2/Yg/aVWz12+W3+HfjySKw1wzNiHTZgSLe/wAn7oQsUkPQxvk/6tcf0DI4kGV5BGQR3rGcbMpDqQmlryH9vL9o1f2UP2R/HXjoSRx3uj6Y404OR+8vJcRW6gHr+9dTjvipA/EH/gsR+0f/AMNL/t9+M7i2nE+jeDZf+EV04g5Ui0d1nYHOMG5M2COCADXzGwyKbG0khZpZGmmkJeSRzlpHPLMT3JJJJ966j4K/CfVPjz8Y/C/gnRdg1TxVqUOm27uCyQmRsNIwHO1Fyxx2U1ocm7OZjlkjXbHNNGuc4SVlH6GnfaJ/+fm6/wC/7/41+kx/4NnPiEx4+KHgz/wWXP8A8VR/xDN/EL/oqHgv/wAFlz/8VRdFezkfmw8sko2yTTSLnOHkZhn1wT/nNJX6Uf8AEM58Qh1+KHgv/wAFlz/8VXwD8ePg/qn7PPxv8W+A9aKSap4R1SbTZ5Y1KpcBSDHMgPIWSNkkGecOKNBOLW56V/wTO/aI/wCGWv25fh/4qmn8jS5b7+x9VJbCmzu8QuW5HCOY5OeAYge1f0iKcrX8od3brdQPG2dsilGwcHBGOK/o+/4JgftKN+1X+w74B8U3dyt1rkOnrpWtsDyb+1xDM59PMKiQDsJBUyNKUuh+ZP8Awcc/Cafwn+2L4a8XCNhZeMPDywCTHytPZylXX6hJoj9CK/PvqK/fn/gtZ+xlcftdfsdXc2h2cl54x8B3B17SIok3S3irGy3Fqo6nzIiSAOrxR+lfgHDKJEBGcNyCRTWxNRWZ94f8EAP2uLP4B/tVal4H1y8is9A+J9rHb200pwsOqwMTbqSSAqyxvNHnBy4hHev3LDZNfyjgsjq6NJHJGwdHRirIwOQwI5BBwQRyCK/Vb/gnd/wcA2ejeG9P8H/Hhrzz7NBBbeMbeAz/AGhBwv22JAX8wDrLGpDYyyg5JUkVTn0Z+sVFeZfDf9tL4Q/F+wjuPDHxP8A62kiB9lrrts80YIzh49+9G9VYAjuBV7xp+1b8L/h1ZmfxB8SPAWhw/wB/UPEFpbL+byCpNrnf5or4X/aT/wCC/vwR+DtjPD4Pur74oa2uVji0hTDYhueWupAEK+8YfI6Zr6f/AGOvjTqH7R37Kvw98fapZ2en6j4y0C01i4tbQs0Fs88SyFELfMVG7GTycZ46UC5k9j5u/wCDgr/lGvrv/Yd0j/0sjr8IE+4PpX7v/wDBwV/yjX13/sO6R/6WR1+ECfcH0q47GNXc+w/+CDZx/wAFN/Cf/YE1f/0nFfvsv3a/nz/4IoeO9D+G3/BRXwzrHiPWtI8P6Tb6Nqsct7qd5HaW8bNAoVTJIwUEnoM5Nft6v7bXwZx/yVz4Y/8AhU2P/wAdpPcunsen01k3CvM/+G2vgz/0Vz4Y/wDhU2P/AMdpD+258F1HPxd+GA/7mmx/+O1Jpc9NcYSvPfDZ/wCMjvEHtpkP/slegLMlxbrJGyyRyAMrKcqwPQg15Pf+GrrxP8fNchtNWvNHkjsIHMtsBukGEG0+1MmXQ9aU4oBy/wCFcD/wqPWz/wAzxr3/AHyP8a7Hw1pM2haNb2txeTahNCpD3M3+sl5Jyfzx+FIZ5j8NPBtr488EeKdOusqsmrzNHIv3oHGNrj6fqMiuj+EnjW6na48O60dmuaN8jE/8vUQ4WQevGMnvkHvVX9ngZ07xF/2F5v6Vd+Lfgm6vxb69ouU17RfnhwP+PiPndGR34Jx9SO9UyY7XR2pOWWvPf2dP+Rc1n/sKzfyWun8AeN7Xx94at9Qt/lZvlmiJ+aCQdVP9PUEVzH7On/Iuaz/2FZv/AGWpH1R1Pj7xRH4M8FahqT9bWIlPdydqD8WIrlfC/wAMftPwKk0m5U/bNWha7lY9fPb51/LCj8Kp/HPXLS+8S+H/AA/d3dvZ2Us4vb6WWQIixpkqCT03EHHqcV1q/FzwqEC/8JDooA6Yu04/WmGjZT+CHieTxN8PrJpv+PyxzZ3KnqrIcDP1Xaap/tKf8kf1H/rrB/6OSsX4deJtP0z40a1Y6dfWt5puvL9st2glEipMBl1yOAfvnHoBW3+0i2PhBqB/6a2//o5KOovsnZaQcaTa/wDXJP5CvPvjner4sutJ8LWbLNqN1eJPMq8m2iXJLt/d6k8+nvUtn8C/tenwt/wlHihVkjU7RdLgZHT7tZUvhnWPgFbS6pYyW2saTuDXyS26x3gQkZbzBy2PckAdgMkMHe2p0vx9XZ8HNaXsscYH/f1K6Pwn/wAippf/AF6xf+grXKfGjVYdd+BWpXls/mW91bwyxt6q0iEV1fhP/kVNL/69Yv8A0FaB/aNKvO9F/wCTlNa/7BcX/steiHkV5JrHhy68TftAatBaateaPJHp8LmW2HzOOBtPt3/CkgketbhQTxXA/wDCotb/AOh417/vlf8AGuv8MaTNoWhW9rcXtxqU0IIa5mH7yXLE8/TOPwpFHiun6LPL4M1jXLFT/aPhzX5ryPHVo8JvX6Y5PsD617Z4b1238S6FaahbMGhvIhKuO2eo/A5H4Vw/wBiWfR/EkbKGV9YnVlPQgquad8IZm8E+KdY8IXDN5dq5vdOLdXgc8gewP67qqRnHQ9CfkdcV434jc+Pn8aeIj81jpNhNpmnHsTtPmOPc5Iz6MPSu5+M3iyTw14Lkjs/m1LVGFlZqPveZJ8uQPUA5+uKzvEfhSPwR8AtR0uPH+j6bJvb++5BLN+LE0kVLXQv6B/yRS3/7A5/9FVD+z2cfB/RP+ucn/o16n0A4+Ctv/wBgg/8AoquL+Enw61TXvh1pd1b+KtW06GZG228KjZHh2HHPfGfxp9AXQ9h3ivP/ANpc/wDFspP+vqH/ANCq3o/ww1fTdWtbmbxhrV5HBIHeCRRsmA6qeehqn+0uMfDKT/r6h/nUhL4WQ/Enw9deGry18ZaNGWvLCJV1CAdLy3AG4kf3lHf0AP8ADXceGfEtp4r0G21CzkElvdJuU9we4PuDwasWaB7JOM/IOPX5RXmoLfArx3t+ZfCmvy5yfu6fcH19FP8AL/d5A2ND9pn/AJJsv/X7D/WvQIf9Uv0Fee/tKSeZ8NFIO7/TITkd+tehQ/6pfoKA6nn/AO0n/wAiTY/9hKH/ANmr0KvPf2k/+RJsf+wlD/7NXoVALdhRRRQUV9U1e10TTbi8vLiCzs7SJp5555BHFBGoLM7McBVABJJ4Ar+cv/gqJ/wUFm/b7/aguta0+aYeBfC4l0zwpA4ZQ9uWBkuyhxte4ZFbkZCJEDypFft3/wAFIv2XfHn7ZP7NN98OfBHjTS/AcfiKVYdcv7uwkvJLmwwS9rGqSR7fMbaHYk5QOuPnyPzitf8Ag1p8cW/X41eFW/7le4/+Sq+54OxGW4OUsXjKiU9oqzdl1eier29PU+H4wwuY42CwuEheG8ndavot+m/r6H526XqWCOa6bSNTIKkHBznOa+/rT/g2H8cW2P8Ai83hVv8AuWLj/wCSq1LP/g2m8a2v/NYfC5/7lmf/AOSq+/8A9bso/wCfy+6X+R+Z1OC84e1F/fH/ADPnH9jP/goT8Vv2HrefT/Aup6PqnhS8laeTwx4hhlmsLeViWeS1kiZZLVnJJZQHjJOdgOSfYvjj/wAFovjR8cPB15pi/wDCM/DfSJoWF03h557rUpk2nKrdzbBCp/6Zw7/SRa9AtP8Ag3H8Z2uP+LueGGx/1Lc//wAk171+xv8A8ERfDvwC8aWvibxx4jHjzVtLlWbT7KKw+x6ZbupyskiM8jzODgjLKoI+6Tg18/jc04a5ni3FTnvZJ6vzukvmz28HlfFzprAqTp09rtx0Xk03L5I4n/gp78V/in+yl8Hv2cPEmg6/rWg6xpGmzaVrEpPnQXN61nZsI7qN8rNn7PcnDc8MQVbmvB/EX/Bw/wDGpPCrWNr4R+FlvqzDb/axW/kiXj7wsvMHI64NyR9elfrJ8dvgJ4Y/aT+F+peD/GGmJqmi6oo8xN2ySFxyssbjlJFPIYfqCRX5rfEr/g2t1a+8S3DeFfjBaw6K7boItZ8PtPeQjP3XkhnjSQjj5hGmf7vc/lvPGTbaP2WEOSKiuh+Z3xm+M3ib45fETVfFfjDXr/xJ4m1pla7v7sgMVXOyONFASKFMnbGgCrk9SSTyAXBzX6an/g2M8bFs/wDC5PCuf+xYuP8A5Ko/4hjfG3/RZPCv/hMXH/yVV88SuVn5kyosiMrAMpBBB6EV+2X/AAQP/wCCgX/C/Pg3J8KfFF4H8Y/D2zQadLK+ZNV0lcJG3u8B2xPzkq0TckmvAz/wbGeNiP8AksnhX/wmLj/5KrsPgB/wb/fFb9mb40eHfHvhX41+EoNd8NXQuYA/hm5EVyhBWSCTF1kxyIWRgOzZ6gUpSi0Cuj9WCcCvyl/4OVP2j2XTPh/8JbG4X/SpH8Uayin5tseYbND7Fmncg94oz9P1ZGa/NL9uH/ghj8QP2zP2pPFXxEuPiz4b0221mWKPTtPl8Pzztp9pFGqRxFxcqGOQzkhQMueKwW4Tu1ZH46196f8ABvB8Bn+Jf7auqeM7q1Mmk/DnRXlSQj5V1C7YQwD8IVvG9QQhr0A/8GyHjbH/ACWTwr/4TFx/8lV9z/8ABLr/AIJ4t/wTw+DOteH73XbLxNrniHV21G81G1sms42QRrHFEEZ3b5FVjkt1c8CncyhTd7s+nF+6KWgcCipNwI3CvxI/4OLvgIvw6/a90Hxxaw+XafELSMTsFwGvLPbE+fcwyQf98+1ftvXzT/wVD/4J+f8ADw/4FaX4Zs9csvDOuaHrMWrWGp3NibtEAR4poSiujbXSTs33kQ4OKcdyZxurH87oORX6gf8ABtZ+0l/Zfjjx58JL2RvL1K1HirSst8qvE0dvdIP9oiS3cAckK57HFIf8GyHjUf8ANZPCv/hMXH/yVXpX7Hv/AAQc+IP7JP7TPhD4iWfxb8NXx8OXhkubSPw/PC17bOjRzQ7/ALSwXdGxAJBAIBwcU2zKMZJ3P06xuH61+QH/AAWI/wCCN2qeHPE2sfFz4Q6NcappOqTyX3iPw3YxF57GZyzy3lsg5eJmJZ4lG5SSygqSq/sAOBTcbqSNpRTWp/KLDcLOgZGV1PcHNPYc1/QL+2D/AMEY/gx+17qd1rU2l3ngrxZeMZJdZ8OtHbvcyHOWmhZWhlJJyzFQ5/vd6+Ffih/wbV/E7w9dSt4R+IHg/wAUWef3a6haT6Vc49wpmQntncufQdq5jB02j837jT4bo5khjkPYsgOKbFptvbvuSGFG9VQA19qXH/BAf9pSG4KroXhOVc4Dr4hiAx64K5re8H/8G7vx/wDEE6rqV14D0GP+J59VkuNv4RRHP507k8sj4UU8/jX9H/8AwS2P/GuD4G/9iTpX/pLHXxh8Cv8Ag2e0TSr2G8+JfxM1LXY1wz6Z4esF02En+61xK0sjr/uLEfev0n+E/wAMNG+CXwy8P+D/AA3Z/YPD/hmwh0zTrfzGkMNvEgRFLMSzEKBySSamRrTi1qz5H/4OCv8AlGvrv/Yd0j/0sjr8IE+4PpX9H/8AwUi/Y91L9un9lzUvh7pevWXhq6vtQsr1b67s2u40EEyyFfLV0JLBcZ3cV+eY/wCDY7xoP+ayeFf/AAmLj/5KojsKpFt6H5lvCsilWUMp7EZpn2GH/njF/wB8Cv05/wCIZDxt/wBFk8K/+Excf/JVH/EMh42/6LJ4V/8ACYuP/kqquRySPzG+ww/88Yv++BUGoWUItJP3MX3f7gr9QP8AiGQ8bf8ARZPCv/hMXH/yVUdx/wAGxXjaeFl/4XJ4VG4Y/wCRYuP/AJKoug9nI/XPwb/yJukj/pyh/wDQFrkPDhx+0dr/AP2DIf8A2Su50LTW0fRbK1ZhI1rAkJYDAYqoGcfhXIeI/hJqWpeNrrWtN8RSaRNdxJCypaCQ7VAHUuOuM9Kg6JHcJzS/xVwP/CrvFX/Q+Xf/AIAL/wDF10Xgnw3qnhu0mj1LWpdbkkcMjvCIvKGOnBOfWgW5zH7PHGn+If8AsLzf0r0Q9K5z4eeAj4Ct9Qj+1favt9493nyvL8vd/D1OcevH0ro6THHRWPMvFVpJ8HPHA8RWcbHQdVdYtUt1HFu56TAfX9SR3GJ/2dZlPhbV5FYGNtVmYN2IwpzXfappkOsWE9rcRLNBcIY3RujKetcp4Z+E0nhLwNqui2eqMDqDyNHcNB81urALjG75iAOuRz2oFy2d0YHw10W0+JvivxF4i1G1hvLWa4FpZLKgZRGgxkA/h+JNdp/wrbQB/wAwXTf+/C1N4F8Hw+B/CtnpcMnmraJgybdplYklmxzjJJ47VsUwUdNTy74z+DrbwdpOn+ItIsre1m0S8SWUQoF8yMkA5x74H0Jq98f9Qj1j4H3VzC26K5+zSofVWlQiu38QaNH4i0W6sJhmC8haF/owIrk5/g/Nd/CVfCs2reZ5bLsuzbchFlEgUpv5xjbnPSgHE7DRz/xKbX/rin/oIrnfjLrtvonw21d7hl/0i2e2jQ9ZHcbQAPxz9AayY/hX4pijVV8d3SqoAAGnrwB/wOptE+CMMWsw6lreqX3iK9tzui+0fLDEfUR88/U4oDXYxfFWkTaF+yw1rcBlmjsod4PVSZUOPwzivQvCJz4U0v8A69Iv/QVqv4/8If8ACc+ELzSftH2X7YFBl2eZtw6t93Iz0x171y9v8J/FFpbxwx+OrqOOJQiKNPX5QBgD79MNmehFsGvO9FP/ABkprX/YLi/mtXtG+HXiTT9Xtbi58Z3V5bwyB5IDZKgmUdVJ38Z9ai8S/CPUtV8b3Ouab4ik0ia6gSBlS0Eh2r7lx1x6Ug1Z3dIWANcD/wAKu8Vf9D5d/wDgvX/4uuh8E+GtU8OW86alrUutPI4ZHeAReUMcjgnOaQ0zmv2eeNN8Rf8AYZm/ktL8bLGbQpNL8W2ik3GhzBZ1H/LS2c4YH6Z/DJPaug+HngM+A7fUI/tX2r7fePd58ry/L3Y+Xqc4x14+lbWqWEeq6dNazIJIbhGikU/xKwIP86fUXLpY4DS5V+JvxhN4n77R/C8Ki3IOVluJFBLf8BBx7Fa6P4wD/i12vf8AXjL/ACqX4ceAoPh14Zj02GRptrtJJKy7WlZj1IyegwPotXPGXh7/AISzwtf6b532f7dA0Pm7N/l5GM4yM/TIpBrYxNB/5Ipb/wDYHP8A6KqH9nr/AJI/on/XOT/0a9ben+FWsPBUej+du8uz+yedsxn5du7bn8cZ/GuO0T4KeIPDulQ2Vn42uLe2txhI109cLk5P8fqSaroGqPSi2K89/aXOfhjJ/wBfUP8A6Eacfhd4rI/5Hy7/APBev/xdbXxA+H7+PvB66VJe/Z3Dxu1x5W/cV6/LkdfrxUhq0dBp/wDx5x/7q/yFVPFXhm08X6DdaffR77e5TafVD1DD3B5H0q7bReRCq/3QBn1wMVJQUfP/AI81y90TwTceEdYYve6XcwyWc5/5e7bJCn6jp+nbn36E5iX6CuV+KPwptviZYQo8v2O6tX3RXIj8whT95SMjIP14PNdVGu1MUyYqx59+0oceCbL/ALCUP/s1eh1znxK8Bt8Q9Fhs/tX2PyblLjf5XmZ254xkdc9a6MdKQ+twooooGf/Z" /></td>
+                <td class="MainLogo"><img src="data:image/jpeg;base64,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" /></td>
             </tr>
             </tbody></table>
             <div class="pageTitle">Example 4</div>
             <hr />
-            <div class="ReportCreated">Report created on May 30, 2017 09:44 PM</div>
+            <div class="ReportCreated">Report created on May 30, 2017 09:58 PM</div>
     </div>
     </div>
     </div>
@@ -75280,17 +75286,17 @@ $rpt += Get-HTMLContentClose  </pre></td>
     </div>
 <div class="section">
 <div class="header">
-    <a name="Hiding content">Hiding content</a> (<a id="show_610359401" href="#" onclick="show('610359401');" style="color: #ffffff;">Show</a><a id="hide_610359401" href="#" onclick="hide('610359401');" style="color: #ffffff; display:none;">Hide</a>)
+    <a name="Hiding content">Hiding content</a> (<a id="show_1789074138" href="#" onclick="show('1789074138');" style="color: #ffffff;">Show</a><a id="hide_1789074138" href="#" onclick="hide('1789074138');" style="color: #ffffff; display:none;">Hide</a>)
 </div>
-<div class="content" id="610359401" style="display:none;background-color:#ffffff;"> 
+<div class="content" id="1789074138" style="display:none;background-color:#ffffff;"> 
 <table class="sortable">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42549248</td><td>71700480</td><td>71700480</td></tr>
-<tr><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1220</td><td>4.0.1.188</td><td>49831936</td><td>84889600</td><td>84889600</td></tr>
-<tr><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4767744</td><td>6270976</td><td>6270976</td></tr>
-<tr><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2469888</td><td>2428928</td><td>2428928</td></tr>
-<tr><td>AGSService</td><td>3396</td><td></td><td>265</td><td></td><td>8613888</td><td>5337088</td><td>5337088</td></tr>
+<tr><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42500096</td><td>71700480</td><td>71700480</td></tr>
+<tr><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1221</td><td>4.0.1.188</td><td>49639424</td><td>84926464</td><td>84926464</td></tr>
+<tr><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4939776</td><td>6275072</td><td>6275072</td></tr>
+<tr><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2568192</td><td>2428928</td><td>2428928</td></tr>
+<tr><td>AGSService</td><td>3396</td><td></td><td>265</td><td></td><td>8626176</td><td>5337088</td><td>5337088</td></tr>
 </table>
 </table>
     </div>
@@ -75355,11 +75361,11 @@ $rpt+= Get-HTMLContentClose </pre></td>
 <table class="sortable">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42549248</td><td>71700480</td><td>71700480</td></tr>
-<tr><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1220</td><td>4.0.1.188</td><td>49831936</td><td>84889600</td><td>84889600</td></tr>
-<tr><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4767744</td><td>6270976</td><td>6270976</td></tr>
-<tr><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2469888</td><td>2428928</td><td>2428928</td></tr>
-<tr><td>AGSService</td><td>3396</td><td></td><td>265</td><td></td><td>8613888</td><td>5337088</td><td>5337088</td></tr>
+<tr><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42500096</td><td>71700480</td><td>71700480</td></tr>
+<tr><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1221</td><td>4.0.1.188</td><td>49639424</td><td>84926464</td><td>84926464</td></tr>
+<tr><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4939776</td><td>6275072</td><td>6275072</td></tr>
+<tr><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2568192</td><td>2428928</td><td>2428928</td></tr>
+<tr><td>AGSService</td><td>3396</td><td></td><td>265</td><td></td><td>8626176</td><td>5337088</td><td>5337088</td></tr>
 </table>
 </table>
     </div>
@@ -75656,7 +75662,7 @@ $rpt+= Get-HtmlContentClose </pre></td>
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th></tr>
 <tr><td>NvBackend</td><td>8952</td><td>Normal</td><td>282</td><td>20.16.6.0</td></tr>
-<tr><td>notepad++</td><td>25992</td><td>Normal</td><td>563</td><td>7.41</td></tr>
+<tr><td>notepad++</td><td>25992</td><td>Normal</td><td>503</td><td>7.41</td></tr>
 <tr><td>notepad</td><td>26604</td><td>Normal</td><td>184</td><td>10.0.14393.0 (rs1_release.160715-1616)</td></tr>
 <tr><td>nvtray</td><td>8084</td><td>Normal</td><td>151</td><td>7.17.13.6942</td></tr>
 <tr><td>nvwmi64</td><td>5700</td><td></td><td>181</td><td></td></tr>
@@ -75745,15 +75751,15 @@ $rpt+= Get-HtmlContentClose  </pre></td>
 <table class="sortable">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42549248</td><td>71700480</td><td>71700480</td></tr>
-<tr><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1220</td><td>4.0.1.188</td><td>49831936</td><td>84889600</td><td>84889600</td></tr>
-<tr><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4767744</td><td>6270976</td><td>6270976</td></tr>
-<tr><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2469888</td><td>2428928</td><td>2428928</td></tr>
-<tr><td>AGSService</td><td>3396</td><td></td><td>265</td><td></td><td>8613888</td><td>5337088</td><td>5337088</td></tr>
-<tr><td>ApplicationFrameHost</td><td>8216</td><td>Normal</td><td>652</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>15462400</td><td>27176960</td><td>27176960</td></tr>
-<tr><td>audiodg</td><td>11812</td><td></td><td>242</td><td></td><td>11370496</td><td>14999552</td><td>14999552</td></tr>
-<tr><td>AvanadeMobileMediaReminderClient</td><td>7124</td><td>Normal</td><td>388</td><td>1.0.0.0</td><td>11997184</td><td>41820160</td><td>41820160</td></tr>
-<tr><td>browser_broker</td><td>4844</td><td>Normal</td><td>406</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>11939840</td><td>5693440</td><td>5693440</td></tr>
+<tr><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42500096</td><td>71700480</td><td>71700480</td></tr>
+<tr><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1221</td><td>4.0.1.188</td><td>49639424</td><td>84926464</td><td>84926464</td></tr>
+<tr><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4939776</td><td>6275072</td><td>6275072</td></tr>
+<tr><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2568192</td><td>2428928</td><td>2428928</td></tr>
+<tr><td>AGSService</td><td>3396</td><td></td><td>265</td><td></td><td>8626176</td><td>5337088</td><td>5337088</td></tr>
+<tr><td>ApplicationFrameHost</td><td>8216</td><td>Normal</td><td>723</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>22515712</td><td>29593600</td><td>29593600</td></tr>
+<tr><td>audiodg</td><td>11812</td><td></td><td>247</td><td></td><td>12120064</td><td>15081472</td><td>15081472</td></tr>
+<tr><td>AvanadeMobileMediaReminderClient</td><td>7124</td><td>Normal</td><td>388</td><td>1.0.0.0</td><td>12136448</td><td>41820160</td><td>41820160</td></tr>
+<tr><td>browser_broker</td><td>4844</td><td>Normal</td><td>413</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>13402112</td><td>5816320</td><td>5816320</td></tr>
 <tr><td>Calculator</td><td>16672</td><td>Normal</td><td>415</td><td>10.1705.1705.10001</td><td>4517888</td><td>14123008</td><td>14123008</td></tr>
 </table>
 </table>
@@ -75794,7 +75800,7 @@ $rpt+= Get-HtmlContentClose </pre></td>
     <a name="Processes">Processes</a>
 </div>
 <div class="content" style="background-color:#ffffff;"> 
-<table>  <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>                     <tr><td colspan="8" class="groupby"></td></tr>   <tr><td></td><td>AdobeUpdateService</td><td>3148</td><td>171</td><td></td><td>2469888</td><td>2428928</td><td>2428928</td></tr> <tr><td></td><td>AGSService</td><td>3396</td><td>265</td><td></td><td>8613888</td><td>5337088</td><td>5337088</td></tr> <tr><td></td><td>audiodg</td><td>11812</td><td>242</td><td></td><td>11370496</td><td>14999552</td><td>14999552</td></tr> <tr><td></td><td>CcmExec</td><td>10888</td><td>1245</td><td></td><td>31412224</td><td>54321152</td><td>54321152</td></tr> <tr><td colspan="8" class="groupby">Normal</td></tr>   <tr><td></td><td>Adobe CEF Helper</td><td>11712</td><td>362</td><td>4.0.0.185</td><td>42549248</td><td>71700480</td><td>71700480</td></tr> <tr><td></td><td>Adobe Desktop Service</td><td>11676</td><td>1220</td><td>4.0.1.188</td><td>49831936</td><td>84889600</td><td>84889600</td></tr> <tr><td></td><td>AdobeIPCBroker</td><td>10940</td><td>233</td><td>5.4.0.12</td><td>4767744</td><td>6270976</td><td>6270976</td></tr> <tr><td></td><td>ApplicationFrameHost</td><td>8216</td><td>652</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>15462400</td><td>27176960</td><td>27176960</td></tr> <tr><td></td><td>AvanadeMobileMediaReminderClient</td><td>7124</td><td>388</td><td>1.0.0.0</td><td>11997184</td><td>41820160</td><td>41820160</td></tr> <tr><td></td><td>browser_broker</td><td>4844</td><td>406</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>11939840</td><td>5693440</td><td>5693440</td></tr> <tr><td></td><td>Calculator</td><td>16672</td><td>415</td><td>10.1705.1705.10001</td><td>4517888</td><td>14123008</td><td>14123008</td></tr> <tr><td></td><td>CCLibrary</td><td>13244</td><td>56</td><td>2.9.4.940</td><td>909312</td><td>765952</td><td>765952</td></tr> <tr><td></td><td>CCXProcess</td><td>11376</td><td>56</td><td>1.5.0.323</td><td>811008</td><td>753664</td><td>753664</td></tr> <tr><td></td><td>chrome</td><td>1548</td><td>297</td><td>58.0.3029.110</td><td>36749312</td><td>136544256</td><td>136544256</td></tr> <tr><td></td><td>chrome</td><td>2852</td><td>730</td><td>58.0.3029.110</td><td>2592768</td><td>2179072</td><td>2179072</td></tr> <tr><td></td><td>chrome</td><td>3632</td><td>394</td><td>58.0.3029.110</td><td>47378432</td><td>259842048</td><td>259842048</td></tr> <tr><td colspan="8" class="groupby">Idle</td></tr>   <tr><td></td><td>chrome</td><td>256</td><td>949</td><td>58.0.3029.110</td><td>69861376</td><td>251244544</td><td>251244544</td></tr> <tr><td></td><td>chrome</td><td>1972</td><td>336</td><td>58.0.3029.110</td><td>88125440</td><td>202735616</td><td>202735616</td></tr> <tr><td></td><td>chrome</td><td>2012</td><td>322</td><td>58.0.3029.110</td><td>49020928</td><td>133033984</td><td>133033984</td></tr> <tr><td></td><td>chrome</td><td>3704</td><td>329</td><td>58.0.3029.110</td><td>57995264</td><td>139853824</td><td>139853824</td></tr> </table>
+<table>  <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>                     <tr><td colspan="8" class="groupby"></td></tr>   <tr><td></td><td>AdobeUpdateService</td><td>3148</td><td>171</td><td></td><td>2568192</td><td>2428928</td><td>2428928</td></tr> <tr><td></td><td>AGSService</td><td>3396</td><td>265</td><td></td><td>8626176</td><td>5337088</td><td>5337088</td></tr> <tr><td></td><td>audiodg</td><td>11812</td><td>247</td><td></td><td>12120064</td><td>15081472</td><td>15081472</td></tr> <tr><td></td><td>CcmExec</td><td>10888</td><td>1205</td><td></td><td>34197504</td><td>54333440</td><td>54333440</td></tr> <tr><td colspan="8" class="groupby">Normal</td></tr>   <tr><td></td><td>Adobe CEF Helper</td><td>11712</td><td>362</td><td>4.0.0.185</td><td>42500096</td><td>71700480</td><td>71700480</td></tr> <tr><td></td><td>Adobe Desktop Service</td><td>11676</td><td>1221</td><td>4.0.1.188</td><td>49639424</td><td>84926464</td><td>84926464</td></tr> <tr><td></td><td>AdobeIPCBroker</td><td>10940</td><td>233</td><td>5.4.0.12</td><td>4939776</td><td>6275072</td><td>6275072</td></tr> <tr><td></td><td>ApplicationFrameHost</td><td>8216</td><td>723</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>22515712</td><td>29593600</td><td>29593600</td></tr> <tr><td></td><td>AvanadeMobileMediaReminderClient</td><td>7124</td><td>388</td><td>1.0.0.0</td><td>12136448</td><td>41820160</td><td>41820160</td></tr> <tr><td></td><td>browser_broker</td><td>4844</td><td>413</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>13402112</td><td>5816320</td><td>5816320</td></tr> <tr><td></td><td>Calculator</td><td>16672</td><td>415</td><td>10.1705.1705.10001</td><td>4517888</td><td>14123008</td><td>14123008</td></tr> <tr><td></td><td>CCLibrary</td><td>13244</td><td>56</td><td>2.9.4.940</td><td>864256</td><td>765952</td><td>765952</td></tr> <tr><td></td><td>CCXProcess</td><td>11376</td><td>56</td><td>1.5.0.323</td><td>794624</td><td>753664</td><td>753664</td></tr> <tr><td></td><td>chrome</td><td>1548</td><td>297</td><td>58.0.3029.110</td><td>36855808</td><td>136667136</td><td>136667136</td></tr> <tr><td></td><td>chrome</td><td>2852</td><td>730</td><td>58.0.3029.110</td><td>2654208</td><td>2179072</td><td>2179072</td></tr> <tr><td></td><td>chrome</td><td>3632</td><td>396</td><td>58.0.3029.110</td><td>193253376</td><td>269750272</td><td>269750272</td></tr> <tr><td colspan="8" class="groupby">Idle</td></tr>   <tr><td></td><td>chrome</td><td>256</td><td>949</td><td>58.0.3029.110</td><td>71901184</td><td>252162048</td><td>252162048</td></tr> <tr><td></td><td>chrome</td><td>1972</td><td>336</td><td>58.0.3029.110</td><td>136347648</td><td>201453568</td><td>201453568</td></tr> <tr><td></td><td>chrome</td><td>2012</td><td>325</td><td>58.0.3029.110</td><td>105558016</td><td>138756096</td><td>138756096</td></tr> <tr><td></td><td>chrome</td><td>3704</td><td>329</td><td>58.0.3029.110</td><td>72925184</td><td>140099584</td><td>140099584</td></tr> </table>
     </div>
     </div>
     </div>
@@ -75837,10 +75843,10 @@ $rpt += Get-HtmlContentClose </pre></td>
 <table class="fixed">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42549248</td><td>71700480</td><td>71700480</td></tr>
-<tr><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1220</td><td>4.0.1.188</td><td>49831936</td><td>84889600</td><td>84889600</td></tr>
-<tr><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4767744</td><td>6270976</td><td>6270976</td></tr>
-<tr><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2469888</td><td>2428928</td><td>2428928</td></tr>
+<tr><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42500096</td><td>71700480</td><td>71700480</td></tr>
+<tr><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1221</td><td>4.0.1.188</td><td>49639424</td><td>84926464</td><td>84926464</td></tr>
+<tr><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4939776</td><td>6275072</td><td>6275072</td></tr>
+<tr><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2568192</td><td>2428928</td><td>2428928</td></tr>
 </table>
 </table>
 <table><tbody>
@@ -75852,14 +75858,14 @@ $rpt += Get-HtmlContentClose </pre></td>
 <table class="fixed">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr><td>WmiPrvSE</td><td>5516</td><td></td><td>154</td><td></td><td>3739648</td><td>2928640</td><td>2928640</td></tr>
-<tr><td>WmiPrvSE</td><td>7632</td><td></td><td>207</td><td></td><td>6144000</td><td>4849664</td><td>4849664</td></tr>
-<tr><td>WmiPrvSE</td><td>9528</td><td></td><td>190</td><td></td><td>5775360</td><td>5726208</td><td>5726208</td></tr>
-<tr><td>WmiPrvSE</td><td>17440</td><td></td><td>122</td><td></td><td>3551232</td><td>2953216</td><td>2953216</td></tr>
-<tr><td>WUDFHost</td><td>1420</td><td></td><td>342</td><td></td><td>2215936</td><td>26120192</td><td>26120192</td></tr>
-<tr><td>WUDFHost</td><td>15336</td><td></td><td>729</td><td></td><td>48451584</td><td>82722816</td><td>82722816</td></tr>
-<tr><td>WUDFHost</td><td>19348</td><td></td><td>203</td><td></td><td>2498560</td><td>1589248</td><td>1589248</td></tr>
-<tr><td>ZeroConfigService</td><td>3376</td><td></td><td>289</td><td></td><td>4747264</td><td>4931584</td><td>4931584</td></tr>
+<tr><td>WmiPrvSE</td><td>5516</td><td></td><td>154</td><td></td><td>3788800</td><td>3018752</td><td>3018752</td></tr>
+<tr><td>WmiPrvSE</td><td>7632</td><td></td><td>207</td><td></td><td>6209536</td><td>4849664</td><td>4849664</td></tr>
+<tr><td>WmiPrvSE</td><td>9528</td><td></td><td>194</td><td></td><td>5955584</td><td>5910528</td><td>5910528</td></tr>
+<tr><td>WmiPrvSE</td><td>17440</td><td></td><td>122</td><td></td><td>3780608</td><td>2953216</td><td>2953216</td></tr>
+<tr><td>WUDFHost</td><td>1420</td><td></td><td>342</td><td></td><td>2248704</td><td>26120192</td><td>26120192</td></tr>
+<tr><td>WUDFHost</td><td>15336</td><td></td><td>729</td><td></td><td>48508928</td><td>82722816</td><td>82722816</td></tr>
+<tr><td>WUDFHost</td><td>19348</td><td></td><td>202</td><td></td><td>2826240</td><td>1556480</td><td>1556480</td></tr>
+<tr><td>ZeroConfigService</td><td>3376</td><td></td><td>289</td><td></td><td>4804608</td><td>4935680</td><td>4935680</td></tr>
 </table>
 </table>
     </div>
@@ -75905,16 +75911,16 @@ Save-HTMLReport -ReportContent $rpt -ShowReport </pre></td>
 <table class="sortable">
 
 <tr><th>Name</th><th>Handles</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th></tr>
-<tr><td>Adobe CEF Helper</td><td>362</td><td>42549248</td><td>71700480</td><td>71700480</td></tr>
-<tr><td>Adobe Desktop Service</td><td>1220</td><td>49831936</td><td>84889600</td><td>84889600</td></tr>
-<tr><td>AdobeIPCBroker</td><td>233</td><td>4767744</td><td>6270976</td><td>6270976</td></tr>
-<tr><td>AdobeUpdateService</td><td>171</td><td>2469888</td><td>2428928</td><td>2428928</td></tr>
-<tr><td>AGSService</td><td>265</td><td>8613888</td><td>5337088</td><td>5337088</td></tr>
+<tr><td>Adobe CEF Helper</td><td>362</td><td>42500096</td><td>71700480</td><td>71700480</td></tr>
+<tr><td>Adobe Desktop Service</td><td>1221</td><td>49639424</td><td>84926464</td><td>84926464</td></tr>
+<tr><td>AdobeIPCBroker</td><td>233</td><td>4939776</td><td>6275072</td><td>6275072</td></tr>
+<tr><td>AdobeUpdateService</td><td>171</td><td>2568192</td><td>2428928</td><td>2428928</td></tr>
+<tr><td>AGSService</td><td>265</td><td>8626176</td><td>5337088</td><td>5337088</td></tr>
 
 <tfoot>
 
 
-<tr class="totalrow"><td class="totalrow">count:5</td><td class="totalrow">count:5</td><td class="totalrow">sum:108232704</td><td class="totalrow">sum:170627072</td><td class="totalrow">avg:34125414.4</td></tr>
+<tr class="totalrow"><td class="totalrow">count:5</td><td class="totalrow">count:5</td><td class="totalrow">sum:108273664</td><td class="totalrow">sum:170668032</td><td class="totalrow">avg:34133606.4</td></tr>
 
 
 
@@ -76040,26 +76046,26 @@ $rpt+= Get-HtmlContentClose </pre></td>
 <table class="sortable">
 
 <tr class="header"><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr class="odd"><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42549248</td><td>71700480</td><td>71700480</td></tr>
-<tr class="even"><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1220</td><td>4.0.1.188</td><td>49831936</td><td>84889600</td><td>84889600</td></tr>
-<tr class="odd"><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4767744</td><td>6270976</td><td>6270976</td></tr>
-<tr class="even"><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2469888</td><td>2428928</td><td>2428928</td></tr>
-<tr class="odd"><td>AGSService</td><td>3396</td><td></td><td>265</td><td></td><td>8613888</td><td>5337088</td><td>5337088</td></tr>
-<tr class="even"><td>ApplicationFrameHost</td><td>8216</td><td>Normal</td><td>652</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>15462400</td><td>27176960</td><td>27176960</td></tr>
-<tr class="odd"><td>audiodg</td><td>11812</td><td></td><td>242</td><td></td><td>11370496</td><td>14999552</td><td>14999552</td></tr>
-<tr class="even"><td>AvanadeMobileMediaReminderClient</td><td>7124</td><td>Normal</td><td>388</td><td>1.0.0.0</td><td>11997184</td><td>41820160</td><td>41820160</td></tr>
-<tr class="odd"><td>browser_broker</td><td>4844</td><td>Normal</td><td>406</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>11939840</td><td>5693440</td><td>5693440</td></tr>
+<tr class="odd"><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42500096</td><td>71700480</td><td>71700480</td></tr>
+<tr class="even"><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1221</td><td>4.0.1.188</td><td>49639424</td><td>84926464</td><td>84926464</td></tr>
+<tr class="odd"><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4939776</td><td>6275072</td><td>6275072</td></tr>
+<tr class="even"><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2568192</td><td>2428928</td><td>2428928</td></tr>
+<tr class="odd"><td>AGSService</td><td>3396</td><td></td><td>265</td><td></td><td>8626176</td><td>5337088</td><td>5337088</td></tr>
+<tr class="even"><td>ApplicationFrameHost</td><td>8216</td><td>Normal</td><td>723</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>22515712</td><td>29593600</td><td>29593600</td></tr>
+<tr class="odd"><td>audiodg</td><td>11812</td><td></td><td>247</td><td></td><td>12120064</td><td>15081472</td><td>15081472</td></tr>
+<tr class="even"><td>AvanadeMobileMediaReminderClient</td><td>7124</td><td>Normal</td><td>388</td><td>1.0.0.0</td><td>12136448</td><td>41820160</td><td>41820160</td></tr>
+<tr class="odd"><td>browser_broker</td><td>4844</td><td>Normal</td><td>413</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>13402112</td><td>5816320</td><td>5816320</td></tr>
 <tr class="even"><td>Calculator</td><td>16672</td><td>Normal</td><td>415</td><td>10.1705.1705.10001</td><td>4517888</td><td>14123008</td><td>14123008</td></tr>
-<tr class="odd"><td>CCLibrary</td><td>13244</td><td>Normal</td><td>56</td><td>2.9.4.940</td><td>909312</td><td>765952</td><td>765952</td></tr>
-<tr class="even"><td>CcmExec</td><td>10888</td><td></td><td>1245</td><td></td><td>31412224</td><td>54321152</td><td>54321152</td></tr>
-<tr class="odd"><td>CCXProcess</td><td>11376</td><td>Normal</td><td>56</td><td>1.5.0.323</td><td>811008</td><td>753664</td><td>753664</td></tr>
-<tr class="even"><td>chrome</td><td>256</td><td>Idle</td><td>949</td><td>58.0.3029.110</td><td>69861376</td><td>251244544</td><td>251244544</td></tr>
-<tr class="odd"><td>chrome</td><td>1548</td><td>Normal</td><td>297</td><td>58.0.3029.110</td><td>36749312</td><td>136544256</td><td>136544256</td></tr>
-<tr class="even"><td>chrome</td><td>1972</td><td>Idle</td><td>336</td><td>58.0.3029.110</td><td>88125440</td><td>202735616</td><td>202735616</td></tr>
-<tr class="odd"><td>chrome</td><td>2012</td><td>Idle</td><td>322</td><td>58.0.3029.110</td><td>49020928</td><td>133033984</td><td>133033984</td></tr>
-<tr class="even"><td>chrome</td><td>2852</td><td>Normal</td><td>730</td><td>58.0.3029.110</td><td>2592768</td><td>2179072</td><td>2179072</td></tr>
-<tr class="odd"><td>chrome</td><td>3632</td><td>Normal</td><td>394</td><td>58.0.3029.110</td><td>47378432</td><td>259842048</td><td>259842048</td></tr>
-<tr class="even"><td>chrome</td><td>3704</td><td>Idle</td><td>329</td><td>58.0.3029.110</td><td>57995264</td><td>139853824</td><td>139853824</td></tr>
+<tr class="odd"><td>CCLibrary</td><td>13244</td><td>Normal</td><td>56</td><td>2.9.4.940</td><td>864256</td><td>765952</td><td>765952</td></tr>
+<tr class="even"><td>CcmExec</td><td>10888</td><td></td><td>1205</td><td></td><td>34197504</td><td>54333440</td><td>54333440</td></tr>
+<tr class="odd"><td>CCXProcess</td><td>11376</td><td>Normal</td><td>56</td><td>1.5.0.323</td><td>794624</td><td>753664</td><td>753664</td></tr>
+<tr class="even"><td>chrome</td><td>256</td><td>Idle</td><td>949</td><td>58.0.3029.110</td><td>71901184</td><td>252162048</td><td>252162048</td></tr>
+<tr class="odd"><td>chrome</td><td>1548</td><td>Normal</td><td>297</td><td>58.0.3029.110</td><td>36855808</td><td>136667136</td><td>136667136</td></tr>
+<tr class="even"><td>chrome</td><td>1972</td><td>Idle</td><td>336</td><td>58.0.3029.110</td><td>136347648</td><td>201453568</td><td>201453568</td></tr>
+<tr class="odd"><td>chrome</td><td>2012</td><td>Idle</td><td>325</td><td>58.0.3029.110</td><td>105558016</td><td>138756096</td><td>138756096</td></tr>
+<tr class="even"><td>chrome</td><td>2852</td><td>Normal</td><td>730</td><td>58.0.3029.110</td><td>2654208</td><td>2179072</td><td>2179072</td></tr>
+<tr class="odd"><td>chrome</td><td>3632</td><td>Normal</td><td>396</td><td>58.0.3029.110</td><td>193253376</td><td>269750272</td><td>269750272</td></tr>
+<tr class="even"><td>chrome</td><td>3704</td><td>Idle</td><td>329</td><td>58.0.3029.110</td><td>72925184</td><td>140099584</td><td>140099584</td></tr>
 </table>
 </table>
     </div>
@@ -76107,46 +76113,46 @@ $rpt += Get-HtmlContentClose </pre></td>
 <table class="sortable">
 
 <tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>Handles</th><th>FileVersion</th><th>WorkingSet</th><th>PrivateMemorySize</th><th>PagedMemorySize</th></tr>
-<tr class="green"><td>CCXProcess</td><td>11376</td><td>Normal</td><td>56</td><td>1.5.0.323</td><td>811008</td><td>753664</td><td>753664</td></tr>
-<tr class="green"><td>CCLibrary</td><td>13244</td><td>Normal</td><td>56</td><td>2.9.4.940</td><td>909312</td><td>765952</td><td>765952</td></tr>
-<tr class="green"><td>chrome</td><td>8948</td><td>Normal</td><td>131</td><td>58.0.3029.110</td><td>3223552</td><td>2072576</td><td>2072576</td></tr>
-<tr class="green"><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2469888</td><td>2428928</td><td>2428928</td></tr>
-<tr class="green"><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4767744</td><td>6270976</td><td>6270976</td></tr>
-<tr class="green"><td>chrome</td><td>5608</td><td>Normal</td><td>235</td><td>58.0.3029.110</td><td>20078592</td><td>32612352</td><td>32612352</td></tr>
-<tr class="green"><td>chrome</td><td>9300</td><td>Normal</td><td>235</td><td>58.0.3029.110</td><td>27435008</td><td>173936640</td><td>173936640</td></tr>
-<tr class="green"><td>chrome</td><td>9324</td><td>Normal</td><td>235</td><td>58.0.3029.110</td><td>21929984</td><td>42180608</td><td>42180608</td></tr>
-<tr class="green"><td>chrome</td><td>9352</td><td>Normal</td><td>236</td><td>58.0.3029.110</td><td>67821568</td><td>332472320</td><td>332472320</td></tr>
-<tr class="green"><td>audiodg</td><td>11812</td><td></td><td>242</td><td></td><td>11370496</td><td>14999552</td><td>14999552</td></tr>
-<tr class="green"><td>chrome</td><td>9360</td><td>Normal</td><td>243</td><td>58.0.3029.110</td><td>23945216</td><td>49729536</td><td>49729536</td></tr>
-<tr class="green"><td>chrome</td><td>9336</td><td>Normal</td><td>243</td><td>58.0.3029.110</td><td>39890944</td><td>61378560</td><td>61378560</td></tr>
-<tr class="yellow"><td>chrome</td><td>5568</td><td>Idle</td><td>259</td><td>58.0.3029.110</td><td>29167616</td><td>48971776</td><td>48971776</td></tr>
-<tr class="yellow"><td>AGSService</td><td>3396</td><td></td><td>265</td><td></td><td>8613888</td><td>5337088</td><td>5337088</td></tr>
-<tr class="yellow"><td>chrome</td><td>5952</td><td>Normal</td><td>267</td><td>58.0.3029.110</td><td>57298944</td><td>128053248</td><td>128053248</td></tr>
-<tr class="yellow"><td>chrome</td><td>9232</td><td>Idle</td><td>271</td><td>58.0.3029.110</td><td>57610240</td><td>129937408</td><td>129937408</td></tr>
-<tr class="yellow"><td>chrome</td><td>9368</td><td>Normal</td><td>275</td><td>58.0.3029.110</td><td>18485248</td><td>54906880</td><td>54906880</td></tr>
-<tr class="yellow"><td>chrome</td><td>5724</td><td>Normal</td><td>278</td><td>58.0.3029.110</td><td>37093376</td><td>126119936</td><td>126119936</td></tr>
-<tr class="yellow"><td>chrome</td><td>6460</td><td>Idle</td><td>279</td><td>58.0.3029.110</td><td>72646656</td><td>160145408</td><td>160145408</td></tr>
-<tr class="yellow"><td>chrome</td><td>5552</td><td>Idle</td><td>294</td><td>58.0.3029.110</td><td>72536064</td><td>160608256</td><td>160608256</td></tr>
-<tr class="yellow"><td>chrome</td><td>1548</td><td>Normal</td><td>297</td><td>58.0.3029.110</td><td>36749312</td><td>136544256</td><td>136544256</td></tr>
-<tr class="yellow"><td>chrome</td><td>8676</td><td>Normal</td><td>310</td><td>58.0.3029.110</td><td>94310400</td><td>122589184</td><td>122589184</td></tr>
-<tr class="yellow"><td>chrome</td><td>2012</td><td>Idle</td><td>322</td><td>58.0.3029.110</td><td>49020928</td><td>133033984</td><td>133033984</td></tr>
-<tr class="yellow"><td>chrome</td><td>3704</td><td>Idle</td><td>329</td><td>58.0.3029.110</td><td>57995264</td><td>139853824</td><td>139853824</td></tr>
-<tr class="yellow"><td>chrome</td><td>9344</td><td>Normal</td><td>331</td><td>58.0.3029.110</td><td>21217280</td><td>290697216</td><td>290697216</td></tr>
-<tr class="yellow"><td>chrome</td><td>1972</td><td>Idle</td><td>336</td><td>58.0.3029.110</td><td>88125440</td><td>202735616</td><td>202735616</td></tr>
-<tr class="yellow"><td>chrome</td><td>5912</td><td>Idle</td><td>340</td><td>58.0.3029.110</td><td>82284544</td><td>189632512</td><td>189632512</td></tr>
-<tr class="yellow"><td>chrome</td><td>5060</td><td>Idle</td><td>347</td><td>58.0.3029.110</td><td>418287616</td><td>632516608</td><td>632516608</td></tr>
-<tr class="yellow"><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42549248</td><td>71700480</td><td>71700480</td></tr>
-<tr class="yellow"><td>AvanadeMobileMediaReminderClient</td><td>7124</td><td>Normal</td><td>388</td><td>1.0.0.0</td><td>11997184</td><td>41820160</td><td>41820160</td></tr>
-<tr class="yellow"><td>chrome</td><td>3632</td><td>Normal</td><td>394</td><td>58.0.3029.110</td><td>47378432</td><td>259842048</td><td>259842048</td></tr>
-<tr class="red"><td>browser_broker</td><td>4844</td><td>Normal</td><td>406</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>11939840</td><td>5693440</td><td>5693440</td></tr>
+<tr class="green"><td>CCXProcess</td><td>11376</td><td>Normal</td><td>56</td><td>1.5.0.323</td><td>794624</td><td>753664</td><td>753664</td></tr>
+<tr class="green"><td>CCLibrary</td><td>13244</td><td>Normal</td><td>56</td><td>2.9.4.940</td><td>864256</td><td>765952</td><td>765952</td></tr>
+<tr class="green"><td>chrome</td><td>8948</td><td>Normal</td><td>131</td><td>58.0.3029.110</td><td>3211264</td><td>2072576</td><td>2072576</td></tr>
+<tr class="green"><td>AdobeUpdateService</td><td>3148</td><td></td><td>171</td><td></td><td>2568192</td><td>2428928</td><td>2428928</td></tr>
+<tr class="green"><td>AdobeIPCBroker</td><td>10940</td><td>Normal</td><td>233</td><td>5.4.0.12</td><td>4939776</td><td>6275072</td><td>6275072</td></tr>
+<tr class="green"><td>chrome</td><td>9324</td><td>Normal</td><td>235</td><td>58.0.3029.110</td><td>21794816</td><td>42303488</td><td>42303488</td></tr>
+<tr class="green"><td>chrome</td><td>9300</td><td>Normal</td><td>235</td><td>58.0.3029.110</td><td>141438976</td><td>178507776</td><td>178507776</td></tr>
+<tr class="green"><td>chrome</td><td>5608</td><td>Normal</td><td>235</td><td>58.0.3029.110</td><td>20164608</td><td>32641024</td><td>32641024</td></tr>
+<tr class="green"><td>chrome</td><td>9352</td><td>Normal</td><td>236</td><td>58.0.3029.110</td><td>85729280</td><td>344797184</td><td>344797184</td></tr>
+<tr class="green"><td>chrome</td><td>9360</td><td>Normal</td><td>243</td><td>58.0.3029.110</td><td>24293376</td><td>49893376</td><td>49893376</td></tr>
+<tr class="green"><td>chrome</td><td>9336</td><td>Normal</td><td>243</td><td>58.0.3029.110</td><td>26517504</td><td>62705664</td><td>62705664</td></tr>
+<tr class="green"><td>audiodg</td><td>11812</td><td></td><td>247</td><td></td><td>12120064</td><td>15081472</td><td>15081472</td></tr>
+<tr class="yellow"><td>chrome</td><td>5568</td><td>Idle</td><td>259</td><td>58.0.3029.110</td><td>29011968</td><td>48971776</td><td>48971776</td></tr>
+<tr class="yellow"><td>AGSService</td><td>3396</td><td></td><td>265</td><td></td><td>8626176</td><td>5337088</td><td>5337088</td></tr>
+<tr class="yellow"><td>chrome</td><td>9232</td><td>Idle</td><td>271</td><td>58.0.3029.110</td><td>58183680</td><td>128335872</td><td>128335872</td></tr>
+<tr class="yellow"><td>chrome</td><td>9368</td><td>Normal</td><td>275</td><td>58.0.3029.110</td><td>18599936</td><td>54906880</td><td>54906880</td></tr>
+<tr class="yellow"><td>chrome</td><td>5724</td><td>Normal</td><td>278</td><td>58.0.3029.110</td><td>37097472</td><td>126119936</td><td>126119936</td></tr>
+<tr class="yellow"><td>chrome</td><td>6460</td><td>Idle</td><td>279</td><td>58.0.3029.110</td><td>66158592</td><td>160657408</td><td>160657408</td></tr>
+<tr class="yellow"><td>chrome</td><td>5552</td><td>Idle</td><td>294</td><td>58.0.3029.110</td><td>67244032</td><td>160645120</td><td>160645120</td></tr>
+<tr class="yellow"><td>chrome</td><td>1548</td><td>Normal</td><td>297</td><td>58.0.3029.110</td><td>36855808</td><td>136667136</td><td>136667136</td></tr>
+<tr class="yellow"><td>chrome</td><td>8676</td><td>Normal</td><td>310</td><td>58.0.3029.110</td><td>50937856</td><td>121995264</td><td>121995264</td></tr>
+<tr class="yellow"><td>chrome</td><td>2012</td><td>Idle</td><td>325</td><td>58.0.3029.110</td><td>105558016</td><td>138756096</td><td>138756096</td></tr>
+<tr class="yellow"><td>chrome</td><td>3704</td><td>Idle</td><td>329</td><td>58.0.3029.110</td><td>72925184</td><td>140099584</td><td>140099584</td></tr>
+<tr class="yellow"><td>chrome</td><td>9344</td><td>Normal</td><td>331</td><td>58.0.3029.110</td><td>21344256</td><td>290697216</td><td>290697216</td></tr>
+<tr class="yellow"><td>chrome</td><td>5952</td><td>Normal</td><td>335</td><td>58.0.3029.110</td><td>321216512</td><td>295059456</td><td>295059456</td></tr>
+<tr class="yellow"><td>chrome</td><td>1972</td><td>Idle</td><td>336</td><td>58.0.3029.110</td><td>136347648</td><td>201453568</td><td>201453568</td></tr>
+<tr class="yellow"><td>chrome</td><td>5912</td><td>Idle</td><td>340</td><td>58.0.3029.110</td><td>70553600</td><td>189878272</td><td>189878272</td></tr>
+<tr class="yellow"><td>Adobe CEF Helper</td><td>11712</td><td>Normal</td><td>362</td><td>4.0.0.185</td><td>42500096</td><td>71700480</td><td>71700480</td></tr>
+<tr class="yellow"><td>chrome</td><td>5060</td><td>Normal</td><td>362</td><td>58.0.3029.110</td><td>478658560</td><td>671125504</td><td>671125504</td></tr>
+<tr class="yellow"><td>AvanadeMobileMediaReminderClient</td><td>7124</td><td>Normal</td><td>388</td><td>1.0.0.0</td><td>12136448</td><td>41820160</td><td>41820160</td></tr>
+<tr class="yellow"><td>chrome</td><td>3632</td><td>Normal</td><td>396</td><td>58.0.3029.110</td><td>193253376</td><td>269750272</td><td>269750272</td></tr>
+<tr class="red"><td>browser_broker</td><td>4844</td><td>Normal</td><td>413</td><td>11.00.14393.1198 (rs1_release_sec.170427-1353)</td><td>13402112</td><td>5816320</td><td>5816320</td></tr>
 <tr class="red"><td>Calculator</td><td>16672</td><td>Normal</td><td>415</td><td>10.1705.1705.10001</td><td>4517888</td><td>14123008</td><td>14123008</td></tr>
-<tr class="red"><td>chrome</td><td>7912</td><td>Idle</td><td>463</td><td>58.0.3029.110</td><td>208285696</td><td>978038784</td><td>978038784</td></tr>
-<tr class="red"><td>ApplicationFrameHost</td><td>8216</td><td>Normal</td><td>652</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>15462400</td><td>27176960</td><td>27176960</td></tr>
-<tr class="red"><td>chrome</td><td>2852</td><td>Normal</td><td>730</td><td>58.0.3029.110</td><td>2592768</td><td>2179072</td><td>2179072</td></tr>
-<tr class="red"><td>chrome</td><td>256</td><td>Idle</td><td>949</td><td>58.0.3029.110</td><td>69861376</td><td>251244544</td><td>251244544</td></tr>
-<tr class="red"><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1220</td><td>4.0.1.188</td><td>49831936</td><td>84889600</td><td>84889600</td></tr>
-<tr class="red"><td>CcmExec</td><td>10888</td><td></td><td>1245</td><td></td><td>31412224</td><td>54321152</td><td>54321152</td></tr>
-<tr class="red"><td>chrome</td><td>5432</td><td>Normal</td><td>8026</td><td>58.0.3029.110</td><td>406110208</td><td>504254464</td><td>504254464</td></tr>
+<tr class="red"><td>chrome</td><td>7912</td><td>Idle</td><td>463</td><td>58.0.3029.110</td><td>425455616</td><td>979591168</td><td>979591168</td></tr>
+<tr class="red"><td>ApplicationFrameHost</td><td>8216</td><td>Normal</td><td>723</td><td>10.0.14393.0 (rs1_release.160715-1616)</td><td>22515712</td><td>29593600</td><td>29593600</td></tr>
+<tr class="red"><td>chrome</td><td>2852</td><td>Normal</td><td>730</td><td>58.0.3029.110</td><td>2654208</td><td>2179072</td><td>2179072</td></tr>
+<tr class="red"><td>chrome</td><td>256</td><td>Idle</td><td>949</td><td>58.0.3029.110</td><td>71901184</td><td>252162048</td><td>252162048</td></tr>
+<tr class="red"><td>CcmExec</td><td>10888</td><td></td><td>1205</td><td></td><td>34197504</td><td>54333440</td><td>54333440</td></tr>
+<tr class="red"><td>Adobe Desktop Service</td><td>11676</td><td>Normal</td><td>1221</td><td>4.0.1.188</td><td>49639424</td><td>84926464</td><td>84926464</td></tr>
+<tr class="red"><td>chrome</td><td>5432</td><td>Normal</td><td>8071</td><td>58.0.3029.110</td><td>409743360</td><td>493322240</td><td>493322240</td></tr>
 </table>
 </table>
     </div>
@@ -76549,16 +76555,16 @@ save-htmlreport -reportcontent $rpt -showreport  </pre></td>
     <a name="Simple Example">Simple Example</a>
 </div>
 <div class="content" style="background-color:#ffffff;"> 
-<canvas id="BgQGkOlfwhMS" width="500" height="400"></canvas>
+<canvas id="ARcrhBWJGEkQ" width="500" height="400"></canvas>
 <script>
-var ctx = document.getElementById("BgQGkOlfwhMS");
-var BgQGkOlfwhMS = new Chart(ctx, {
+var ctx = document.getElementById("ARcrhBWJGEkQ");
+var ARcrhBWJGEkQ = new Chart(ctx, {
 	type: 'pie',
 	data:	{
 		labels: ["chrome","svchost","MicrosoftEdgeCP","WmiPrvSE","conhost"],
 		datasets: [{
 			label: 'Data',
-			data: [87,18,12,8,7],
+			data: [87,18,13,8,7],
 			backgroundColor: ['rgba(161, 103, 74, 0.5)','rgba(166, 58, 80, 0.5)','rgba(186, 110, 110, 0.5)','rgba(171, 155, 150, 0.5)','rgba(240, 231, 216, 0.5)'],
 			hoverBackgroundColor:  ['rgba(161, 103, 74, 1)','rgba(166, 58, 80, 1)','rgba(186, 110, 110, 1)','rgba(171, 155, 150, 1)','rgba(240, 231, 216, 1)'],
 			borderWidth: 1
@@ -76632,18 +76638,18 @@ save-htmlreport -reportcontent $rpt -showreport  </pre></td>
     <a name="Advanced Example">Advanced Example</a>
 </div>
 <div class="content" style="background-color:#ffffff;"> 
-<canvas id="wTXcjMgZHLyB" width="250" height="250"></canvas>
+<canvas id="dBuMJIvyoPwA" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("wTXcjMgZHLyB");
-var wTXcjMgZHLyB = new Chart(ctx, {
+var ctx = document.getElementById("dBuMJIvyoPwA");
+var dBuMJIvyoPwA = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["chrome","svchost","MicrosoftEdgeCP","WmiPrvSE","conhost"],
 		datasets: [{
 			label: 'Data',
-			data: [87,18,12,8,7],
-			backgroundColor: ['rgba(117,85,29,0.7)','rgba(126,46,198,0.7)','rgba(121,110,3,0.7)','rgba(126,177,196,0.7)','rgba(119,178,74,0.7)'],
-			hoverBackgroundColor:  ['rgba(117,85,29,1)','rgba(126,46,198,1)','rgba(121,110,3,1)','rgba(126,177,196,1)','rgba(119,178,74,1)'],
+			data: [87,18,13,8,7],
+			backgroundColor: ['rgba(85,34,250,0.7)','rgba(84,211,229,0.7)','rgba(73,247,173,0.7)','rgba(78,4,179,0.7)','rgba(78,39,13,0.7)'],
+			hoverBackgroundColor:  ['rgba(85,34,250,1)','rgba(84,211,229,1)','rgba(73,247,173,1)','rgba(78,4,179,1)','rgba(78,39,13,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -76699,16 +76705,16 @@ save-htmlreport -reportcontent $rpt -showreport  </pre></td>
     <a name="Simple Bar Example">Simple Bar Example</a>
 </div>
 <div class="content" style="background-color:#ffffff;"> 
-<canvas id="tLQwrRBXKliu" width="500" height="400"></canvas>
+<canvas id="MRWUwuiBLzPe" width="500" height="400"></canvas>
 <script>
-var ctx = document.getElementById("tLQwrRBXKliu");
-var tLQwrRBXKliu = new Chart(ctx, {
+var ctx = document.getElementById("MRWUwuiBLzPe");
+var MRWUwuiBLzPe = new Chart(ctx, {
 	type: 'bar',
 	data:	{
 		labels: ["chrome","svchost","MicrosoftEdgeCP","WmiPrvSE","conhost","Teams","GitHub Desktop","RAVBg64"],
 		datasets: [{
 			label: 'Data',
-			data: [87,18,12,8,7,4,3,3],
+			data: [87,18,13,8,7,4,3,3],
 			backgroundColor: ['rgba(232, 247, 238, 0.8)','rgba(190, 168, 167, 0.8)','rgba(102, 63, 70, 0.8)','rgba(60, 54, 42, 0.8)','rgba(201, 214, 234, 0.8)','rgba(201, 153, 190, 0.8)','rgba(54, 12, 54, 0.8)','rgba(138, 54, 78, 0.8)'],
 			borderColor:  ['rgba(232, 247, 238, 1)','rgba(190, 168, 167, 1)','rgba(102, 63, 70, 1)','rgba(60, 54, 42, 1)','rgba(201, 214, 234, 1)','rgba(201, 153, 190, 1)','rgba(54, 12, 54, 1)','rgba(138, 54, 78, 1)'],
 			hoverBackgroundColor:  ['rgba(232, 247, 238, 1)','rgba(190, 168, 167, 1)','rgba(102, 63, 70, 1)','rgba(60, 54, 42, 1)','rgba(201, 214, 234, 1)','rgba(201, 153, 190, 1)','rgba(54, 12, 54, 1)','rgba(138, 54, 78, 1)'],
