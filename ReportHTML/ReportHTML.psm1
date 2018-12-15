@@ -229,7 +229,7 @@ Function Get-HTMLJavaScripts
 	foreach ($ScriptFile in $ScriptFiles) {
 		Write-Verbose "Generating Script Header from $ScriptFile"
         $ScriptHeaders += "`r`n" + '<script type="text/javascript">  '+ "`r`n"
-		$ScriptHeaders += Get-Content -Path $ScriptFile -ReadCount 0 -Delimiter "`r`n"
+		$ScriptHeaders += Get-Content -Path $ScriptFile -Delimiter "`r`n" -ReadCount 0
 		$ScriptHeaders += '</script> '
 	}
 
