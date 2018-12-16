@@ -27,7 +27,7 @@ $Report = New-GenericList
 
 $TabNames = 'Dashboard', 'Something'
 
-$Value = Get-HTMLOpenPage -TitleText $ReportTitle #-LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose
+$Value = Get-HTMLOpenPage -TitleText $ReportTitle -HideLogos #-LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName

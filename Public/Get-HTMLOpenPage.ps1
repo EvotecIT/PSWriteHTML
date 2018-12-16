@@ -55,7 +55,6 @@ Function Get-HTMLOpenPage {
         }
         if (!([String]::IsNullOrEmpty($LogoPath))) {
             $LogoSources = Get-HTMLLogos -logopath $LogoPath
-
         }
 
 
