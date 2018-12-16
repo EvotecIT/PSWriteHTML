@@ -55,12 +55,6 @@ Function New-HTMLReportOptions
         [String]
 		$ReportPath
     )
-
-    if($LogoSources -eq $null)
-    {
-		$LogoSources = get-htmllogos -Logopath $LogoPath
-    }
-
 	if($ColorSchemes -eq $null)
     {
 		$ColorSchemes=Get-HTMLColorSchemes -SchemePath $ColorSchemePath
@@ -69,13 +63,14 @@ Function New-HTMLReportOptions
 	{
 		$LogoSources = Get-HTMLLogos -LogoPath $LogoPath
 	}
-    $ScriptHeaderContent=Get-HTMLJavaScripts -ScriptPath $ScriptPath
-    $CSSFiles = Get-HTMLCSS -CSSPath $CSSPath
-	get-content ($CSSFiles | ? {$_.name -eq "$CSSName.css"}).fullname | ForEach-Object{$StyleHeaderContent  += "`r`n" + $_  }
+	$ScriptHeaderContent=Get-HTMLJavaScripts -ScriptPath $ScriptPath
 
+	$StyleHeaderContent = Get-HTMLCSS -Builtin
 
-    $Options=New-Object psobject -Property @{
-        Logos=$LogoSources;
+	$StyleHeaderContent += Get-HTMLCSS -CSSPath $CSSPath -CSSName $CSSName
+
+    $Options= [PSCustomObject] @{
+        Logos= $LogoSources;
         ScriptContent=$ScriptHeaderContent;
         StyleContent=$StyleHeaderContent;
         ColorSchemes=$ColorSchemes;
@@ -83,22 +78,7 @@ Function New-HTMLReportOptions
 	set-variable -Name GlobalColorSchemes -Value $ColorSchemes -Scope Global
     if ([string]::IsNullOrEmpty($SaveOptionsPath)) {
 		Write-Output $Options
-	}
-
-    if(![string]::IsNullOrEmpty($SaveOptionsPath))
-    {
-        if([String]::IsNullOrEmpty($SaveOptionsPath))
-        {
-            if([string]::IsNullOrEmpty($PSScriptRoot))
-            {
-                $SaveOptionsPath=$PSCmdlet.SessionState.Path.CurrentLocation.Path
-            }
-            else
-            {
-                $SaveOptionsPath=$PSScriptRoot
-            }
-        }
-
+	} else {
         Write-Verbose "Saving Report CSS to $SaveOptionsPath"
         $StyleHeaderContent|Set-Content -Path (Join-Path $SaveOptionsPath default.css)
         Write-Verbose "Saving Report Color Schemes to $SaveOptionsPath"
@@ -130,8 +110,7 @@ Function Get-HTMLLogos
     param
     (
         [Parameter(Mandatory=$false)]
-        [String]
-        $LogoPath
+        [String] $LogoPath
     )
 	if([String]::IsNullOrEmpty($LogoPath))
 	{
@@ -150,8 +129,13 @@ Function Get-HTMLLogos
     $ImageFiles = Get-ChildItem -Path (join-path $LogoPath '\*') -Include *.jpg,*.png,*.bmp
     foreach ($ImageFile in $ImageFiles)
     {
-        Write-Verbose "Importing base64 for $($ImageFile.Name) from $ScriptPath"
-		$LogoSources.Add($ImageFile.BaseName,'data:image/jpeg;base64,' + [Convert]::ToBase64String((Get-Content $ImageFile.FullName -Encoding Byte)))
+		if ($ImageFile.Extension -eq '.jpg') {
+			$FileType = 'jpeg'
+		} else {
+			$FileType = $ImageFile.Extension.Replace('.','')
+		}
+		Write-Verbose "Converting $($ImageFile.FullName) to base64 ($FileType)"
+		$LogoSources.Add($ImageFile.BaseName,"data:image/$FileType;base64," + [Convert]::ToBase64String((Get-Content $ImageFile.FullName -Encoding Byte)))
     }
 	Write-Output $LogoSources
 
@@ -173,33 +157,59 @@ Function Get-HTMLCSS
         $CSSPath,
 		[Parameter(Mandatory=$false)]
         [String]
-		$CSSName
-    )
-    if([String]::IsNullOrEmpty($CSSPath))
-    {
-        if([string]::IsNullOrEmpty($PSScriptRoot))
-        {
-            $CSSPath=$PSCmdlet.SessionState.Path.CurrentLocation.Path
-        }
-        else
-        {
-            $CSSPath=$PSScriptRoot
-        }
-    }
+		$CSSName,
+
+		[switch] $Builtin
+	)
+
+	if ($Builtin) {
+		$CSSPath="$PSScriptRoot\CSS\StylesAlways"
+	} else {
+		if([String]::IsNullOrEmpty($CSSPath))
+		{
+			$CSSPath="$PSScriptRoot\CSS\Styles"
+		}
+	}
     Write-Verbose "Retrieving *.css from $CSSPath"
+
+
 	$CSSFiles = @((get-childitem $CSSPath -Filter '*.css'))
-	if ([string]::IsNullOrEmpty($CSSName))
-	{
-		Write-Verbose "CSS - 2Load $($CssFiles -join ',') "
-		Write-Output $CSSFiles
+
+	if (-not $Builtin) {
+		$CssFiles =	$CSSFiles | Where-Object { $_.BaseName -eq $CSSName }
 	}
-	Else
-	{
-		Write-Verbose "CSS - 1Load $($CSSFiles | ? {$_.basename -eq $CSSName}).fullname) "
-		get-content ($CSSFiles | ? {$_.basename -eq $CSSName}).fullname
+	#if ([string]::IsNullOrEmpty($CSSName))
+	#{
+#		Write-Verbose "CSS - 2Load $($CssFiles -join ',') "
+#		Write-Output $CSSFiles
+#	}
+#	Else
+#	{
+#		Write-Verbose "CSS - 1Load $($CSSFiles | ? {$_.basename -eq $CSSName}).fullname) "
+#		get-content ($CSSFiles | ? {$_.basename -eq $CSSName}).fullname
+
+#	}
+	$CSSHeaders = @()
+	foreach ($CssFile in $CSSFiles) {
+		#$CSSHeaders += "`r`n" + '<script type="text/javascript">  '+ "`r`n"
+		$CSSHeaders += '<style type="text/css">'
+		if ($CssFile -like '*.min.*') {
+			Write-Verbose "Generating Style Header from - $($CssFile.FullName) (minified file)"
+
+			$CSSHeaders += Get-Content -Path $CssFile.FullName #-Delimiter "`r`n"
+
+		} else {
+			Write-Verbose "Generating Style Header from - $($CssFile.FullName) (from non-minified file (adding delimiter))"
+			$CSSHeaders += Get-Content -Path $CssFile.FullName -Delimiter "`r`n"
+		}
+		$CSSHeaders += '</style>'
+		#$CSSHeaders += '</script> '
+	}
+	Write-Output $CSSHeaders
 
 
-	}
+
+	#get-content ($CSSFiles | ? {$_.name -eq "$CSSName.css"}).fullname | ForEach-Object{$StyleHeaderContent  += "`r`n" + $_  }
 }
 
 Function Get-HTMLJavaScripts
@@ -227,8 +237,7 @@ Function Get-HTMLJavaScripts
         }
     }
     Write-Verbose "Retrieving *.js from $ScriptPath"
-	$ScriptFiles = @((get-childitem $ScriptPath -Filter '*.js' ).fullname)
-
+	$ScriptFiles = @((get-childitem $ScriptPath -Filter '*.js' ).Fullname)
 	$ScriptHeaders = @()
 	foreach ($ScriptFile in $ScriptFiles) {
 		$ScriptHeaders += "`r`n" + '<script type="text/javascript">  '+ "`r`n"
@@ -564,6 +573,21 @@ if ($hideTitle.ispresent -eq $false)
 {
 $HtmlContent += "        <Title>$TitleText</Title>"
 }
+
+
+# Replace PNG / JPG files in Styles
+
+if ($null -ne $Options.StyleContent) {
+
+	Write-Verbose "Logos: $($Options.Logos.Keys -join ',')"
+	foreach ($Logo in $Options.Logos.Keys) {
+		$Search = "../images/$Logo.png"
+		$Replace = $Options.Logos[$Logo]
+
+		$Options.StyleContent = ($Options.StyleContent).Replace($Search, $Replace)
+	}
+}
+
 
 $HtmlContent += @"
             <!-- Styles -->
