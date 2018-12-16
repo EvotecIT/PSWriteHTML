@@ -61,12 +61,12 @@ Function New-HTMLReportOptions
 	}
     if ($LogoSources -eq $null)
 	{
-		$LogoSources = Get-HTMLLogos -LogoPath $LogoPath
+		$LogoSources = Get-HTMLLogos -Builtin
+		$LogoSources += Get-HTMLLogos -LogoPath $LogoPath
 	}
 	$ScriptHeaderContent=Get-HTMLJavaScripts -ScriptPath $ScriptPath
 
 	$StyleHeaderContent = Get-HTMLCSS -Builtin
-
 	$StyleHeaderContent += Get-HTMLCSS -CSSPath $CSSPath -CSSName $CSSName
 
     $Options= [PSCustomObject] @{
@@ -110,23 +110,21 @@ Function Get-HTMLLogos
     param
     (
         [Parameter(Mandatory=$false)]
-        [String] $LogoPath
+		[String] $LogoPath,
+
+		[switch] $Builtin
     )
-	if([String]::IsNullOrEmpty($LogoPath))
-	{
-	    if([string]::IsNullOrEmpty($PSScriptRoot))
-	    {
-	        $LogoPath=$PSCmdlet.SessionState.Path.CurrentLocation.Path
-	    }
-	    else
-	    {
-	        $LogoPath = $PSScriptRoot
-			#$LogoPath = 'C:\Users\matt.quickenden\Documents\GitHub\AzureFieldNotes\ReportHTML\ReportHTML'
-        }
-    }
+	if ($Builtin) {
+		$LogoPath = "$PSScriptRoot\Resources\Images"
+	} else {
+		if([String]::IsNullOrEmpty($LogoPath))
+		{
+			return @{}
+		}
+	}
 
 	$LogoSources = @{}
-    $ImageFiles = Get-ChildItem -Path (join-path $LogoPath '\*') -Include *.jpg,*.png,*.bmp
+    $ImageFiles = Get-ChildItem -Path (join-path $LogoPath '\*') -Include *.jpg,*.png,*.bmp -Recurse
     foreach ($ImageFile in $ImageFiles)
     {
 		if ($ImageFile.Extension -eq '.jpg') {
@@ -163,11 +161,11 @@ Function Get-HTMLCSS
 	)
 
 	if ($Builtin) {
-		$CSSPath="$PSScriptRoot\CSS\StylesAlways"
+		$CSSPath="$PSScriptRoot\Resources\CSS\StylesAlways"
 	} else {
 		if([String]::IsNullOrEmpty($CSSPath))
 		{
-			$CSSPath="$PSScriptRoot\CSS\Styles"
+			$CSSPath="$PSScriptRoot\Resources\CSS\Styles"
 		}
 	}
     Write-Verbose "Retrieving *.css from $CSSPath"
@@ -227,26 +225,19 @@ Function Get-HTMLJavaScripts
     )
     if([String]::IsNullOrEmpty($ScriptPath))
     {
-        if([string]::IsNullOrEmpty($PSScriptRoot))
-        {
-            $ScriptPath=$PSCmdlet.SessionState.Path.CurrentLocation.Path
-        }
-        else
-        {
-            $ScriptPath=$PSScriptRoot
-        }
+    	$ScriptPath="$PSScriptRoot\Resources\JS"
     }
     Write-Verbose "Retrieving *.js from $ScriptPath"
-	$ScriptFiles = @((get-childitem $ScriptPath -Filter '*.js' ).Fullname)
+	$ScriptFiles = @((get-childitem $ScriptPath -Filter '*.js' -Recurse))
 	$ScriptHeaders = @()
 	foreach ($ScriptFile in $ScriptFiles) {
 		$ScriptHeaders += "`r`n" + '<script type="text/javascript">  '+ "`r`n"
 		if ($ScriptFile -like '*.min.*') {
-			Write-Verbose "Generating Script Header from minified file - $ScriptFile"
-			$ScriptHeaders += Get-Content -Path $ScriptFile #-Delimiter "`r`n"
+			Write-Verbose "Generating Script Header from minified file - $($ScriptFile.Fullname)"
+			$ScriptHeaders += Get-Content -Path $ScriptFile.Fullname #-Delimiter "`r`n"
 		} else {
-			Write-Verbose "Generating Script Header from non-minified file (adding delimiter) $ScriptFile"
-			$ScriptHeaders += Get-Content -Path $ScriptFile -Delimiter "`r`n"
+			Write-Verbose "Generating Script Header from non-minified file (adding delimiter) $($ScriptFile.Fullname)"
+			$ScriptHeaders += Get-Content -Path $ScriptFile.Fullname -Delimiter "`r`n"
 		}
 		$ScriptHeaders += '</script> '
 	}
@@ -263,18 +254,11 @@ Function Get-HTMLColorSchemes
     )
     if([String]::IsNullOrEmpty($SchemePath))
     {
-        if([string]::IsNullOrEmpty($PSScriptRoot))
-        {
-            $SchemePath=$PSCmdlet.SessionState.Path.CurrentLocation.Path
-        }
-        else
-        {
-            $SchemePath=$PSScriptRoot
-        }
-    }
+        $SchemePath= "$PSScriptRoot\Resources\ColorSchemas"
+     }
     $Schemes=@{}
     Write-Verbose "Retrieving *.rcs from $SchemePath"
-    $SchemeFiles = @(get-childitem $SchemePath -Filter '*.rcs' )
+    $SchemeFiles = @(get-childitem $SchemePath -Filter '*.rcs' -Recurse )
     foreach ($SchemeFile in $SchemeFiles)
     {
         $SchemeContent=Import-Csv -Delimiter ';' -Path $SchemeFile.FullName
