@@ -1,0 +1,304 @@
+* {
+    margin: 0px;
+    font-family: sans-serif;
+    font-size: 8pt;
+}
+
+body {
+    margin: 8px 5px 8px 5px;
+}
+
+h1 {
+	margin: 8px 5px 8px 5px;
+    font-family: sans-serif;
+    font-size: 18pt;
+	border-bottom: 2px solid #bbbbbb;
+}
+
+h2 {
+	 margin: 8px 5px 8px 5px;
+    font-family: sans-serif;
+    font-size: 16pt;
+	border-bottom: 2px solid #bbbbbb;
+}
+
+h3 {
+	margin: 8px 5px 8px 5px;
+    font-family: sans-serif;
+    font-size: 14pt;
+	border-bottom: 1px solid #bbbbbb;
+}
+
+h4 {
+	margin: 8px 5px 8px 5px;
+    font-family: sans-serif;
+    font-size: 12pt;
+	border-bottom: 1px solid #bbbbbb;
+}
+
+h5 {
+	margin: 8px 5px 8px 5px;
+    font-family: sans-serif;
+    font-size: 10pt;
+	border-bottom: 1px solid #bbbbbb;
+}
+
+h6 {
+	margin: 8px 5px 8px 5px;
+    font-family: sans-serif;
+    font-size: 8pt;
+	border-bottom: 1px solid #bbbbbb;
+}
+
+h7 {
+    font-family: sans-serif;
+    font-size: 10pt;
+}
+
+
+hr {
+    height: 4px;
+    background-color: #337e94;
+    border: 0px;
+	width: 99%;
+}
+
+table {
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    vertical-align: top;
+    text-align: left;
+    padding: 2px 5px 2px 5px;
+}
+
+td {
+    vertical-align: top;
+    padding: 2px 5px 2px 5px;
+    border-top: 1px solid #bbbbbb;
+}
+
+tr.totalrow {
+    border-top: thick double
+}
+
+td.totalrow {
+    vertical-align: Bottom;
+    text-align: left;
+    font-size: 8pt;
+    font-weight: bold;
+    padding: 2px 5px 2px 5px;
+}
+
+div.pageTitle {
+    font-size: 14pt;
+    font-weight: bold;
+	width: 100%;
+    display: block;
+    padding: 4px 1em 0px 2px;
+    height: 2em;
+}
+
+div.ReportCreated {
+	text-align: right;
+	padding-right: 5em;
+}
+
+div.clientlogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+}
+
+div.MainLogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+}
+
+div.section {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 12px;
+    display: inline-block;
+    margin: 5px;
+    width: 98%
+}
+
+div.header {
+    padding: 4px 5em 0px 5px;
+    margin: 0px 0px 0px 0px;
+    height: 2em;
+    font-weight: bold ;
+    color: #ffffff;
+    background-color: #337e94;
+}
+
+div.content {
+    padding: 4px 0px 5px 11px;
+    margin: 0px 0px 0px 0px;
+    width: 95%;
+    color: #000000;
+    background-color: #f9f9f9;
+}
+
+div.footer {
+    padding-right: 5em;
+    text-align: right;
+}
+
+table.fixed {
+    table-layout: fixed;
+}
+
+table.vertical {
+	table-layout: fixed; width: 100px;
+}
+
+td.clientlogo {
+    border: 0px;
+	padding-left: 0px;
+    vertical-align: middle;
+}
+
+td.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+th.content {
+    border-top: 1px solid #bbbbbb;
+	width: 25%;
+}
+
+td.content {
+	width: 75%;
+}
+
+td.groupby {
+	border-top: 3px double #bbbbbb;
+}
+
+.green {
+	background-color: #a1cda4;
+}
+
+.yellow {
+	background-color: #fffab1;
+}
+
+.red {
+	background-color: #f5a085;
+}
+
+.odd {
+	background-color: #D5D8DC;
+}
+
+.even {
+	background-color: #F7F9F9;
+}
+
+.header {
+	background-color: #616A6B; color: #F7F9F9;
+}
+
+div.column { width: 100%; float: left; }
+div.first { width: 49% }
+div.second { margin-left: 10px;width: 49% }
+
+div.oneoftwo { width: 49% }
+div.twooftwo { margin-left: 10px;width: 49% }
+
+div.oneofthree { width: 32% }
+div.twoofthree { margin-left: 10px;width: 32% }
+div.threeofthree { margin-left: 10px;width: 32% }
+
+div.oneoffour { width: 24% }
+div.twooffour { margin-left: 10px;width: 24% }
+div.threeoffour { margin-left: 10px;width: 24% }
+div.fouroffour { margin-left: 10px;width: 24% }
+
+div.oneoffive { width: 19% }
+div.twooffive { margin-left: 10px;width: 19% }
+div.threeoffive { margin-left: 10px;width: 19% }
+div.fouroffive { margin-left: 10px;width: 19% }
+div.fiveoffive { margin-left: 10px;width: 19% }
+
+div.oneofsix { width: 16% }
+div.twoofsix { margin-left: 10px;width: 16% }
+div.threeofsix { margin-left: 10px;width: 16% }
+div.fourofsix { margin-left: 10px;width: 16% }
+div.fiveofsix { margin-left: 10px;width: 16% }
+div.sixofsix { margin-left: 10px;width: 16% }
+
+
+a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
+a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
+a.alink:hover {text-decoration:underline;font-size:130%}
+
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+
+/* Style the list */
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.PowerShell {
+  color: #EEEDF0;
+  background-color: #012456;
+  font-family: consolas;
+  font-size: 0.99em;
+  padding: .30em;
+  padding-top: 0.25em;
+  padding-right: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.25em;
+}
