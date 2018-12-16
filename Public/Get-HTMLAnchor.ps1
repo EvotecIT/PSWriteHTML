@@ -1,6 +1,5 @@
-Function Get-HTMLAnchor
-{
-<#
+Function Get-HTMLAnchor {
+    <#
 	.SYNOPSIS
 		creates an Anchor
 		.PARAMETER AnchorName
@@ -9,11 +8,11 @@ Function Get-HTMLAnchor
     [CmdletBinding()]
     Param
     (
-	    [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [String]
         $AnchorName
     )
 
-	$Anchor = '<a name="' + $AnchorName + '"></a>'
-	Write-Output $Anchor
+    $Anchor = '<a name="' + $AnchorName + '"></a>'
+    Write-Output $Anchor
 }

@@ -42,7 +42,7 @@ Function Get-HTMLContentOpen {
 </div>
 <div class="content" id="$RandomNumber" style="display:none;background-color:$($bgColorCode);">
 "@
-    }elseif ($CanCollapse) {
+    } elseif ($CanCollapse) {
         $RandomNumber = Get-Random
         $Report = @"
 <div class="section">

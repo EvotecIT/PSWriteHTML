@@ -1,11 +1,10 @@
-Function Get-HTMLColumnClose
-{
-<#
+Function Get-HTMLColumnClose {
+    <#
 	.SYNOPSIS
 		Closing Div Tag
 #>
     [CmdletBinding()]
     param()
-	$report = '</div>'
-	return $report
+    $report = '</div>'
+    return $report
 }

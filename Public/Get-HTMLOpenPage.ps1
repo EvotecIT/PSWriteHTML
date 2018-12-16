@@ -1,6 +1,5 @@
-Function Get-HTMLOpenPage
-{
-<#
+Function Get-HTMLOpenPage {
+    <#
 	.SYNOPSIS
 		Get's HTML for the header of the HTML report
     .PARAMETER TitleText
@@ -12,80 +11,72 @@ Function Get-HTMLOpenPage
         This function will Append .css extension
 #>
     [alias('Get-HTMLPageOpen')]
-    [CmdletBinding(DefaultParameterSetName='options')]
+    [CmdletBinding(DefaultParameterSetName = 'options')]
     param
     (
-        [Parameter(Mandatory=$false,ParameterSetName='options')]
-        [Parameter(Mandatory=$false,ParameterSetName='explicit')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
         [String]$TitleText,
-        [Parameter(Mandatory=$false,ParameterSetName='explicit')]
-	    [String]$CSSPath,
-        [Parameter(Mandatory=$false,ParameterSetName='explicit')]
-	    [String]$CSSName = "default",
-	    [Parameter(Mandatory=$false,ParameterSetName='explicit')]
-	    [String]$ScriptPath,
-        [Parameter(Mandatory=$false,ParameterSetName='explicit')]
-	    [String]$ColorSchemePath,
-	    [Parameter(Mandatory=$false,ParameterSetName='explicit')]
-	    [String]$LogoPath,
-		[Parameter(Mandatory=$false,ParameterSetName='explicit')]
-	    [string]$LeftLogoName = "Sample",
-	    [Parameter(Mandatory=$false,ParameterSetName='explicit')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
+        [String]$CSSPath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
+        [String]$CSSName = "default",
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
+        [String]$ScriptPath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
+        [String]$ColorSchemePath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
+        [String]$LogoPath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
+        [string]$LeftLogoName = "Sample",
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
         [string]$RightLogoName = "Alternate",
-	    [Parameter(Mandatory=$false,ParameterSetName='explicit')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
         [string]$LeftLogoString,
-	    [Parameter(Mandatory=$false,ParameterSetName='explicit')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
         [string]$RightLogoString,
-        [Parameter(Mandatory=$false,ParameterSetName='options')]
-	    [Parameter(Mandatory=$false,ParameterSetName='explicit')]
-	    [switch]$HideLogos,
-        [Parameter(Mandatory=$false,ParameterSetName='options')]
-	    [Parameter(Mandatory=$false,ParameterSetName='explicit')]
-	    [switch]$HideTitle,
-        [Parameter(Mandatory=$false,ParameterSetName='options')]
-	    [Parameter(Mandatory=$false,ParameterSetName='explicit')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
+        [switch]$HideLogos,
+        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
+        [switch]$HideTitle,
+        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
         [switch]$NoScript,
-        [Parameter(Mandatory=$false,ParameterSetName='options')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
         [PSobject]$Options,
-		[Parameter(Mandatory=$false,ParameterSetName='explicit')]
-	    [string]$PrimaryColorHex
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
+        [string]$PrimaryColorHex
     )
 
-    if($PSCmdlet.ParameterSetName -eq 'options')
-    {
-        if($Options -eq $null)
-        {
-            $Options=New-HTMLReportOptions
+    if ($PSCmdlet.ParameterSetName -eq 'options') {
+        if ($Options -eq $null) {
+            $Options = New-HTMLReportOptions
         }
-    }
-    else
-    {
-        if([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false)
-        {
-            $LogoSources=@{}
-            if([String]::IsNullOrEmpty($RightLogoString) -eq $false)
-            {
-                $LogoSources.Add($RightLogoName,$RightLogoString)
+    } else {
+        if ([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
+            $LogoSources = @{}
+            if ([String]::IsNullOrEmpty($RightLogoString) -eq $false) {
+                $LogoSources.Add($RightLogoName, $RightLogoString)
             }
-            if([String]::IsNullOrEmpty($LeftLogoString) -eq $false)
-            {
-                $LogoSources.Add($LeftLogoName,$LeftLogoString)
+            if ([String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
+                $LogoSources.Add($LeftLogoName, $LeftLogoString)
             }
         }
-		if(!([String]::IsNullOrEmpty($LogoPath))){
-			$LogoSources = Get-HTMLLogos -logopath $LogoPath
+        if (!([String]::IsNullOrEmpty($LogoPath))) {
+            $LogoSources = Get-HTMLLogos -logopath $LogoPath
 
-		}
+        }
 
 
-        $Options=New-HTMLReportOptions -LogoSources $LogoSources -CSSName $CSSName `
+        $Options = New-HTMLReportOptions -LogoSources $LogoSources -CSSName $CSSName `
             -CSSPath $CSSPath -ScriptPath $ScriptPath -ColorSchemePath $ColorSchemePath
     }
-    if($HideLogos.IsPresent -eq $false)
-    {
-        $Leftlogo=$Options.Logos[$LeftLogoName]
-        $Rightlogo=$Options.Logos[$RightLogoName]
-        $LogoContent=@"
+    if ($HideLogos.IsPresent -eq $false) {
+        $Leftlogo = $Options.Logos[$LeftLogoName]
+        $Rightlogo = $Options.Logos[$RightLogoName]
+        $LogoContent = @"
             <table><tbody>
             <tr>
                 <td class="clientlogo"><img src="$Leftlogo" /></td>
@@ -95,7 +86,7 @@ Function Get-HTMLOpenPage
 "@
     }
 
-$HtmlContent=@"
+    $HtmlContent = @"
     <!DOCTYPE HTML>
     <!--- This page was autogenerated $CurrentDate By $env:USERNAME -->
     <html>
@@ -103,27 +94,26 @@ $HtmlContent=@"
         <head>
 
 "@
-if ($hideTitle.ispresent -eq $false)
-{
-$HtmlContent += "        <Title>$TitleText</Title>"
-}
+    if ($hideTitle.ispresent -eq $false) {
+        $HtmlContent += "        <Title>$TitleText</Title>"
+    }
 
 
-# Replace PNG / JPG files in Styles
+    # Replace PNG / JPG files in Styles
 
-if ($null -ne $Options.StyleContent) {
+    if ($null -ne $Options.StyleContent) {
 
-	Write-Verbose "Logos: $($Options.Logos.Keys -join ',')"
-	foreach ($Logo in $Options.Logos.Keys) {
-		$Search = "../images/$Logo.png"
-		$Replace = $Options.Logos[$Logo]
+        Write-Verbose "Logos: $($Options.Logos.Keys -join ',')"
+        foreach ($Logo in $Options.Logos.Keys) {
+            $Search = "../images/$Logo.png"
+            $Replace = $Options.Logos[$Logo]
 
-		$Options.StyleContent = ($Options.StyleContent).Replace($Search, $Replace)
-	}
-}
+            $Options.StyleContent = ($Options.StyleContent).Replace($Search, $Replace)
+        }
+    }
 
 
-$HtmlContent += @"
+    $HtmlContent += @"
             <!-- Styles -->
             $($Options.StyleContent)
             <!-- Scripts -->
@@ -132,9 +122,8 @@ $HtmlContent += @"
         <!-- Body -->
         <body onload="hide();">
 "@
-if ($hideTitle.ispresent -eq $false)
-{
-$HtmlContent += @"
+    if ($hideTitle.ispresent -eq $false) {
+        $HtmlContent += @"
 
 			<!-- Report Header -->
             $LogoContent
@@ -143,18 +132,14 @@ $HtmlContent += @"
             <div class="ReportCreated">Report created on $(Get-Date -format "MMM d, yyyy hh:mm tt")</div>
 
 "@
-}
-    if (!([string]::IsNullOrEmpty($PrimaryColorHex)))
-	{
-		if ($PrimaryColorHex.Length -eq 7)
-		{
-			$HtmlContent = $HtmlContent -replace '#337E94', $PrimaryColorHex
-		}
-		else
-		{
-			Write-Warning '$PrimaryColorHex must be 7 characters with hash eg "#337E94"'
-		}
-	}
+    }
+    if (!([string]::IsNullOrEmpty($PrimaryColorHex))) {
+        if ($PrimaryColorHex.Length -eq 7) {
+            $HtmlContent = $HtmlContent -replace '#337E94', $PrimaryColorHex
+        } else {
+            Write-Warning '$PrimaryColorHex must be 7 characters with hash eg "#337E94"'
+        }
+    }
 
-	Write-Output $HtmlContent
+    Write-Output $HtmlContent
 }

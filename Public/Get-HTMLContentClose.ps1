@@ -1,14 +1,13 @@
-Function Get-HTMLContentClose
-{
-<#
+Function Get-HTMLContentClose {
+    <#
 	.SYNOPSIS
 		Closes an HTML section
 #>
     [CmdletBinding()]
     param()
-	$Report = @"
+    $Report = @"
     </div>
     </div>
 "@
-	Return $Report
+    Return $Report
 }

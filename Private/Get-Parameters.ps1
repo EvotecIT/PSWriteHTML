@@ -1,5 +1,9 @@
 function Get-Parameters {
-    Param ( $Cmdlet, [switch]$ShowCommon, [switch]$Full )
+    Param (
+        $Cmdlet,
+        [switch]$ShowCommon,
+        [switch]$Full
+    )
     $command = Get-Command $Cmdlet -ea silentlycontinue
 
     # resolve aliases (an alias can point to another alias)

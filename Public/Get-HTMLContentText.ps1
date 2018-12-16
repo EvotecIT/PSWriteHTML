@@ -1,6 +1,5 @@
-Function Get-HTMLContentText
-{
-<#
+Function Get-HTMLContentText {
+    <#
 	.SYNOPSIS
 		Creates an HTML entry with heading and detail
 	    .PARAMETER Heading
@@ -11,10 +10,10 @@ Function Get-HTMLContentText
     [CmdletBinding()]
     param
     (
-        [Parameter(Mandatory=$false)]
-	    [String]
+        [Parameter(Mandatory = $false)]
+        [String]
         $Heading,
-	    [Parameter(Mandatory=$false)]
+        [Parameter(Mandatory = $false)]
         [String]
         $Detail
     )
@@ -28,7 +27,7 @@ Function Get-HTMLContentText
 </tbody></table>
 "@
     $Report = $Report -replace 'URL01NEW', '<a target="_blank" href="'
-	$Report = $Report -replace 'URL01', '<a href="'
+    $Report = $Report -replace 'URL01', '<a href="'
     $Report = $Report -replace 'URL02', '">'
     $Report = $Report -replace 'URL03', '</a>'
     Return $Report

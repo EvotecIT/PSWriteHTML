@@ -1,30 +1,27 @@
-Function Get-HTMLColorSchemes
-{
+Function Get-HTMLColorSchemes {
     [CmdletBinding()]
-	param
+    param
     (
-        [Parameter(Mandatory=$false)]
+        [Parameter(Mandatory = $false)]
         [String]$SchemePath
     )
-    if([String]::IsNullOrEmpty($SchemePath))
-    {
-        $SchemePath= "$((Get-Item $PSScriptRoot).Parent.FullName)\\Resources\ColorSchemas"
-     }
-    $Schemes=@{}
+    if ([String]::IsNullOrEmpty($SchemePath)) {
+        $SchemePath = "$((Get-Item $PSScriptRoot).Parent.FullName)\\Resources\ColorSchemas"
+    }
+    $Schemes = @{}
     Write-Verbose "Retrieving *.rcs from $SchemePath"
     $SchemeFiles = @(Get-ChildItem $SchemePath -Filter '*.rcs' -Recurse )
-    foreach ($SchemeFile in $SchemeFiles)
-    {
-        $SchemeContent=Import-Csv -Delimiter ';' -Path $SchemeFile.FullName
-        $Schemes.Add($SchemeFile.BaseName,$SchemeContent)
+    foreach ($SchemeFile in $SchemeFiles) {
+        $SchemeContent = Import-Csv -Delimiter ';' -Path $SchemeFile.FullName
+        $Schemes.Add($SchemeFile.BaseName, $SchemeContent)
     }
-    $Schemes.add('Generated1',(GenerateRandomColorScheme -NumberOfSchemes 80))
-	$Schemes.add('Generated2',(GenerateRandomColorScheme -NumberOfSchemes 80))
-	$Schemes.add('Generated3',(GenerateRandomColorScheme -NumberOfSchemes 80))
-	$Schemes.add('Generated4',(GenerateRandomColorScheme -NumberOfSchemes 80))
-	$Schemes.add('Generated5',(GenerateRandomColorScheme -NumberOfSchemes 80))
-	$Schemes.add('Generated6',(GenerateRandomColorScheme -NumberOfSchemes 80))
-	$Schemes.add('Generated7',(GenerateRandomColorScheme -NumberOfSchemes 80))
-	$Schemes.add('Generated8',(GenerateRandomColorScheme -NumberOfSchemes 80))
-	Write-Output $Schemes
+    $Schemes.add('Generated1', (Get-RandomColorScheme -NumberOfSchemes 80))
+    $Schemes.add('Generated2', (Get-RandomColorScheme -NumberOfSchemes 80))
+    $Schemes.add('Generated3', (Get-RandomColorScheme -NumberOfSchemes 80))
+    $Schemes.add('Generated4', (Get-RandomColorScheme -NumberOfSchemes 80))
+    $Schemes.add('Generated5', (Get-RandomColorScheme -NumberOfSchemes 80))
+    $Schemes.add('Generated6', (Get-RandomColorScheme -NumberOfSchemes 80))
+    $Schemes.add('Generated7', (Get-RandomColorScheme -NumberOfSchemes 80))
+    $Schemes.add('Generated8', (Get-RandomColorScheme -NumberOfSchemes 80))
+    Write-Output $Schemes
 }

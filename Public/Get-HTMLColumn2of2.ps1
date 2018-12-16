@@ -1,6 +1,5 @@
-Function Get-HTMLColumn2of2
-{
-<#
+Function Get-HTMLColumn2of2 {
+    <#
 	.SYNOPSIS
 		adds a row colour field to the array of object for processing with htmltable
 	    .PARAMETER PieChartObject
@@ -11,6 +10,6 @@ Function Get-HTMLColumn2of2
 #>
     [CmdletBinding()]
     param()
-	$report = '<div class="second column">'
-	return $report
+    $report = '<div class="second column">'
+    return $report
 }
