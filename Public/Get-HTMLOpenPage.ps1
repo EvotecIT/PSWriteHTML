@@ -62,7 +62,6 @@ Function Get-HTMLOpenPage {
             $LogoSources = Get-HTMLLogos -logopath $LogoPath
         }
 
-
         $Options = New-HTMLReportOptions -LogoSources $LogoSources -CSSName $CSSName `
             -CSSPath $CSSPath -ScriptPath $ScriptPath -ColorSchemePath $ColorSchemePath
     }
@@ -78,6 +77,19 @@ Function Get-HTMLOpenPage {
             </tbody></table>
 "@
     }
+    # Replace PNG / JPG files in Styles
+
+    if ($null -ne $Options.StyleContent) {
+
+        Write-Verbose "Logos: $($Options.Logos.Keys -join ',')"
+        foreach ($Logo in $Options.Logos.Keys) {
+            $Search = "../images/$Logo.png"
+            $Replace = $Options.Logos[$Logo]
+
+            $Options.StyleContent = ($Options.StyleContent).Replace($Search, $Replace)
+        }
+    }
+
     $HtmlContent = New-GenericList
 
     if ($AddAuthor) {
@@ -99,21 +111,6 @@ Function Get-HTMLOpenPage {
     if ($HideTitle -eq $false) {
         $HtmlContent.Add( "        <Title>$TitleText</Title>")
     }
-
-
-    # Replace PNG / JPG files in Styles
-
-    if ($null -ne $Options.StyleContent) {
-
-        Write-Verbose "Logos: $($Options.Logos.Keys -join ',')"
-        foreach ($Logo in $Options.Logos.Keys) {
-            $Search = "../images/$Logo.png"
-            $Replace = $Options.Logos[$Logo]
-
-            $Options.StyleContent = ($Options.StyleContent).Replace($Search, $Replace)
-        }
-    }
-
 
     $HtmlContent.Add(@"
             <!-- Styles -->
