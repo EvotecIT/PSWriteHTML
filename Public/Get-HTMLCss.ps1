@@ -20,11 +20,12 @@ Function Get-HTMLCSS
 	)
 
 	if ($Builtin) {
-		$CSSPath="$PSScriptRoot\Resources\CSS\StylesAlways"
+		$CSSPath="$((get-item $PSScriptRoot).Parent.FullName)\Resources\CSS\StylesAlways"
+
 	} else {
 		if([String]::IsNullOrEmpty($CSSPath))
 		{
-			$CSSPath="$PSScriptRoot\Resources\CSS\Styles"
+			$CSSPath="$((get-item $PSScriptRoot).Parent.FullName)\Resources\CSS\Styles"
 		}
 	}
     Write-Verbose "Retrieving *.css from $CSSPath"

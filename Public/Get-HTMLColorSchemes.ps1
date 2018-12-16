@@ -8,11 +8,11 @@ Function Get-HTMLColorSchemes
     )
     if([String]::IsNullOrEmpty($SchemePath))
     {
-        $SchemePath= "$PSScriptRoot\Resources\ColorSchemas"
+        $SchemePath= "$((Get-Item $PSScriptRoot).Parent.FullName)\\Resources\ColorSchemas"
      }
     $Schemes=@{}
     Write-Verbose "Retrieving *.rcs from $SchemePath"
-    $SchemeFiles = @(get-childitem $SchemePath -Filter '*.rcs' -Recurse )
+    $SchemeFiles = @(Get-ChildItem $SchemePath -Filter '*.rcs' -Recurse )
     foreach ($SchemeFile in $SchemeFiles)
     {
         $SchemeContent=Import-Csv -Delimiter ';' -Path $SchemeFile.FullName

@@ -14,7 +14,7 @@ Function Get-HTMLLogos
 		[switch] $Builtin
     )
 	if ($Builtin) {
-		$LogoPath = "$PSScriptRoot\Resources\Images"
+		$LogoPath = "$((get-item $PSScriptRoot).Parent.FullName)\Resources\Images"
 	} else {
 		if([String]::IsNullOrEmpty($LogoPath))
 		{
