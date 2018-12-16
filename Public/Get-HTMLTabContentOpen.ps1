@@ -5,13 +5,15 @@ Function Get-HTMLTabContentOpen {
         [Parameter(Mandatory = $true)]
         [String]
         $TabName,
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [String]
         $TabHeading
     )
     $TabContent = @()
     $TabContent += '<div id="' + $TabName + '" class="tabcontent">'
 
-    $TabContent += "<h7>$TabHeading</h7>"
+    if (-not [string]::IsNullOrWhiteSpace($TabHeading)) {
+        $TabContent += "<h7>$TabHeading</h7>"
+    }
     write-output $TabContent
 }

@@ -39,10 +39,12 @@ Function Get-HTMLOpenPage {
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$PrimaryColorHex,
 
         [switch] $AddAuthor,
-        [string] $Author
+        [string] $Author,
+        [switch] $HideDate,
+        [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss'
     )
 
-    [string] $CurrentDate = Get-Date -format "MMM d, yyyy hh:mm tt"
+    [string] $CurrentDate = (Get-Date).ToString($DateFormat) #Get-Date #-format "MMM d, yyyy hh:mm tt"
 
     if ($PSCmdlet.ParameterSetName -eq 'options') {
         if ($Options -eq $null) {
@@ -121,17 +123,21 @@ Function Get-HTMLOpenPage {
         <!-- Body -->
         <body onload="hide();">
 "@)
-    if ($hideTitle.ispresent -eq $false) {
+    if (-not $HideTitle) {
         $HtmlContent.Add(@"
 
 			<!-- Report Header -->
             $LogoContent
             <div class="pageTitle">$TitleText</div>
             <hr />
-            <div class="ReportCreated">Report created on $($CurrentDate)</div>
-
 "@)
     }
+    if (-not $HideDate) {
+        $HtmlContent.Add(@"
+            <div class="ReportCreated">Report created on $($CurrentDate)</div>
+"@)
+    }
+
     if (!([string]::IsNullOrEmpty($PrimaryColorHex))) {
         if ($PrimaryColorHex.Length -eq 7) {
             $HtmlContent = $HtmlContent -replace '#337E94', $PrimaryColorHex
