@@ -27,7 +27,7 @@ $Report = New-GenericList
 
 $TabNames = 'Dashboard', 'Something'
 
-$Value = Get-HTMLOpenPage -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose
+$Value = Get-HTMLOpenPage -TitleText $ReportTitle #-LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
@@ -45,6 +45,15 @@ $Report.Add($(Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter))
 $Report.Add($(Get-HTMLContentClose))
 $Report.Add($(Get-HTMLColumnClose))
 $Report.Add($(Get-HTMLContentClose))
+$Report.Add($(Get-HTMLContentOpen -HeaderText "Groups 1"))
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 3))
+$Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
+$Report.Add($(Get-HTMLColumnClose))
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 2 -ColumnCount 3))
+$Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
+$Report.Add($(Get-HTMLColumnClose))
+$Report.Add($(Get-HTMLContentClose))
+
 
 Save-HTMLReport -ReportContent $Report -ShowReport -ReportName $ReportName -ReportPath $ReportSavePath
 
