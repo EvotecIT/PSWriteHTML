@@ -2,11 +2,10 @@ Function Get-HTMLColorSchemes {
     [CmdletBinding()]
     param
     (
-        [Parameter(Mandatory = $false)]
-        [String]$SchemePath
+        [Parameter(Mandatory = $false)][String]$SchemePath
     )
     if ([String]::IsNullOrEmpty($SchemePath)) {
-        $SchemePath = "$((Get-Item $PSScriptRoot).Parent.FullName)\\Resources\ColorSchemas"
+        $SchemePath = "$PSScriptRoot\..\Resources\ColorSchemas"
     }
     $Schemes = @{}
     Write-Verbose "Retrieving *.rcs from $SchemePath"

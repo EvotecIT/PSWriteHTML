@@ -11,7 +11,7 @@ Function Get-HTMLJavaScripts {
         $ScriptPath
     )
     if ([String]::IsNullOrEmpty($ScriptPath)) {
-        $ScriptPath = "$((get-item $PSScriptRoot).Parent.FullName)\Resources\JS"
+        $ScriptPath = "$PSScriptRoot\..\Resources\JS"
     }
     Write-Verbose "Retrieving *.js from $ScriptPath"
     $ScriptFiles = @((get-childitem $ScriptPath -Filter '*.js' -Recurse))
