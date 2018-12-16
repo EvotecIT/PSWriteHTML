@@ -190,11 +190,15 @@ Function Get-HTMLCSS
 	$CSSFiles = @((get-childitem $CSSPath -Filter '*.css'))
 	if ([string]::IsNullOrEmpty($CSSName))
 	{
+		Write-Verbose "CSS - 2Load $($CssFiles -join ',') "
 		Write-Output $CSSFiles
 	}
 	Else
 	{
+		Write-Verbose "CSS - 1Load $($CSSFiles | ? {$_.basename -eq $CSSName}).fullname) "
 		get-content ($CSSFiles | ? {$_.basename -eq $CSSName}).fullname
+
+
 	}
 }
 
@@ -227,14 +231,17 @@ Function Get-HTMLJavaScripts
 
 	$ScriptHeaders = @()
 	foreach ($ScriptFile in $ScriptFiles) {
-		Write-Verbose "Generating Script Header from $ScriptFile"
-        $ScriptHeaders += "`r`n" + '<script type="text/javascript">  '+ "`r`n"
-		$ScriptHeaders += Get-Content -Path $ScriptFile -Delimiter "`r`n" -ReadCount 0
+		$ScriptHeaders += "`r`n" + '<script type="text/javascript">  '+ "`r`n"
+		if ($ScriptFile -like '*.min.*') {
+			Write-Verbose "Generating Script Header from minified file - $ScriptFile"
+			$ScriptHeaders += Get-Content -Path $ScriptFile #-Delimiter "`r`n"
+		} else {
+			Write-Verbose "Generating Script Header from non-minified file (adding delimiter) $ScriptFile"
+			$ScriptHeaders += Get-Content -Path $ScriptFile -Delimiter "`r`n"
+		}
 		$ScriptHeaders += '</script> '
 	}
-
 	Write-Output $ScriptHeaders
-
 }
 
 Function Get-HTMLColorSchemes
