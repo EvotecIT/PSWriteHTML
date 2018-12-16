@@ -12,15 +12,11 @@ Function Get-HTMLContentOpen {
     [CmdletBinding()]
     Param
     (
-        [Parameter(Mandatory = $false)]
-        [string]$HeaderText,
-        [Parameter(Mandatory = $false)]
-        [switch]$IsHidden,
-        [Parameter(Mandatory = $false)]
-        [string]$Anchor,
-        [Parameter(Mandatory = $false)]
-        [validateset(1, 2, 3, 4, 5, 6)]
-        [int]$BackgroundShade
+        [Parameter(Mandatory = $false)][string]$HeaderText,
+        [Parameter(Mandatory = $false)][switch]$IsHidden,
+        [Parameter(Mandatory = $false)][string]$Anchor,
+        [Parameter(Mandatory = $false)][validateset(1, 2, 3, 4, 5, 6)][int]$BackgroundShade,
+        [Parameter(Mandatory = $false)][switch] $CanCollapse
     )
 
     switch ($BackgroundShade) {
@@ -45,6 +41,15 @@ Function Get-HTMLContentOpen {
     <a name="$($HeaderText)">$($HeaderText)</a> (<a id="show_$RandomNumber" href="#" onclick="show('$RandomNumber');" style="color: #ffffff;">Show</a><a id="hide_$RandomNumber" href="#" onclick="hide('$RandomNumber');" style="color: #ffffff; display:none;">Hide</a>)
 </div>
 <div class="content" id="$RandomNumber" style="display:none;background-color:$($bgColorCode);">
+"@
+    }elseif ($CanCollapse) {
+        $RandomNumber = Get-Random
+        $Report = @"
+<div class="section">
+<div class="header">
+    <a name="$($HeaderText)">$($HeaderText)</a> (<a id="show_$RandomNumber" href="#" onclick="show('$RandomNumber');" style="color: #ffffff; display:none;">Show</a><a id="hide_$RandomNumber" href="#" onclick="hide('$RandomNumber');" style="color: #ffffff; ">Hide</a>)
+</div>
+<div class="content" id="$RandomNumber" style="background-color:$($bgColorCode);">
 "@
     } else {
         $Report = @"
