@@ -30,12 +30,12 @@ Function Get-HTMLContentDataTable {
         [switch]$DisableSelect
 
     )
-    if ($DisablePaging -eq $true)	{$Paging = 'false'} else {$Paging = 'true'}
-    if ($DisableOrdering -eq $true) {$Ordering = 'false'} else {$Ordering = 'true'}
-    if ($DisableInfo -eq $true) {$Info = 'false'} else {$Info = 'true'}
-    if ($DisableColumnReorder -eq $true) { $ColumnReorder = 'false' } else { $ColumnReorder = 'true' }
-    if ($DisableResponsiveTable -eq $true) { $ResponsiveTable = 'false' } else { $ResponsiveTable = 'true' }
-    if ($DisableSelect -eq $true) { $Select = 'false' } else { $Select = 'true' }
+    if ($DisablePaging)	{$Paging = 'false'} else {$Paging = 'true'}
+    if ($DisableOrdering) {$Ordering = 'false'} else {$Ordering = 'true'}
+    if ($DisableInfo) {$Info = 'false'} else {$Info = 'true'}
+    if ($DisableColumnReorder) { $ColumnReorder = 'false' } else { $ColumnReorder = 'true' }
+    if ($DisableResponsiveTable) { $ResponsiveTable = 'false' } else { $ResponsiveTable = 'true' }
+    if ($DisableSelect) { $Select = 'false' } else { $Select = 'true' }
 
     $DTInstance = ( -join ((65..90) + (97..122) | Get-Random -Count 8 | % {[char]$_})).tolower()
 
