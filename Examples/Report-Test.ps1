@@ -24,14 +24,18 @@ $ReportTitle = 'Test'
 #$ReportName = ("$Day - $Month - $Year - AD Report")
 
 
+$ReportName = 'MyReport'
+$ReportPath = $PSScriptRoot
+
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
+$Allusers = Get-AdUser -Filter *
 
 $Report = New-GenericList
 
 $TabNames = 'Dashboard', 'Something'
 
-$Report.Add($(Get-HTMLOpenPage -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideDate)) #-LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose
+$Report.Add($(Get-HTMLOpenPage -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideDate -CSSName 'Sample')) #-LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose
 $Report.Add($(Get-HTMLTabHeader -TabNames $TabNames))
 $Report.Add($(Get-HTMLTabContentOpen -TabName 'Dashboard'))
 $Report.Add($(Get-HTMLContentOpen -HeaderText "Groups"))
@@ -47,17 +51,23 @@ $Report.Add($(Get-HTMLContentClose))
 $Report.Add($(Get-HTMLColumnClose))
 $Report.Add($(Get-HTMLContentClose))
 $Report.Add($(Get-HTMLContentOpen -HeaderText "Groups 1"))
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 3))
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 1))
 $Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
 $Report.Add($(Get-HTMLColumnClose))
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 2 -ColumnCount 3))
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 1))
 $Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
 $Report.Add($(Get-HTMLColumnClose))
 $Report.Add($(Get-HTMLContentClose))
+
+$Report.Add($(Get-HTMLContentOpen -HeaderText "Groups 2"))
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 1))
+$Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
+$Report.Add($(Get-HTMLColumnClose))
+$Report.Add($(Get-HTMLContentClose))
+
 $Report.Add($(Get-HTMLTabContentClose))
 
-
-Save-HTMLReport -ReportContent $Report -ShowReport -ReportName $ReportName -ReportPath $ReportSavePath
+Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath -ShowReport
 
 
 Stop-TimeLog -Time $Time -Option OneLiner
