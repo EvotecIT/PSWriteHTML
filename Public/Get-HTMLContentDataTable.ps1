@@ -24,12 +24,18 @@ Function Get-HTMLContentDataTable {
         [Parameter(Mandatory = $false, ValueFromPipeline = $false)]
         [switch]$DisableInfo,
         [Parameter(Mandatory = $false, ValueFromPipeline = $false)]
-        [switch]$HideFooter
+        [switch]$HideFooter,
+        [switch]$DisableColumnReorder,
+        [switch]$DisableResponsiveTable,
+        [switch]$DisableSelect
 
     )
-    if ($DisablePaging -eq $true)	{$Paging = 'false'} 	else {$Paging = 'true'}
-    if ($DisableOrdering -eq $true) {$Ordering = 'false'} 	else {$Ordering = 'true'}
-    if ($DisableInfo -eq $true) {$Info = 'false'} 		else {$Info = 'true'}
+    if ($DisablePaging -eq $true)	{$Paging = 'false'} else {$Paging = 'true'}
+    if ($DisableOrdering -eq $true) {$Ordering = 'false'} else {$Ordering = 'true'}
+    if ($DisableInfo -eq $true) {$Info = 'false'} else {$Info = 'true'}
+    if ($DisableColumnReorder -eq $true) { $ColumnReorder = 'false' } else { $ColumnReorder = 'true' }
+    if ($DisableResponsiveTable -eq $true) { $ResponsiveTable = 'false' } else { $ResponsiveTable = 'true' }
+    if ($DisableSelect -eq $true) { $Select = 'false' } else { $Select = 'true' }
 
     $DTInstance = ( -join ((65..90) + (97..122) | Get-Random -Count 8 | % {[char]$_})).tolower()
 
@@ -42,14 +48,16 @@ Function Get-HTMLContentDataTable {
     $TableHeader += $DTInstance
     $TableHeader += @"
 ').DataTable({
-		"paging":   $($Paging),
+		"paging":     $($Paging),
 		"pagingType": "full_numbers",
 		"lengthMenu": [[$PagingOptions -1], [$PagingOptions "All"]],
-        "ordering": $($Ordering),
-        "info":     $($Info),
-         "columns": [
+        "ordering":   $($Ordering),
+        "info":       $($Info),
+        "colReorder": $($ColumnReorder),
+        "responsive": { details: $($ResponsiveTable) },
+        "select":     $($Select),
+        "columns":    [
 "@
-
     $ArraryHeader = $ArrayOfObjects | ConvertTo-Html -Fragment
     $HeadersText = ($ArraryHeader[2] -replace '<tr>', '' -replace '<th>', '' -replace '</tr>', '')
     $ColumnHeaders = ($HeadersText.substring(0, $HeadersText.Length - 5)) -split '</th>'
