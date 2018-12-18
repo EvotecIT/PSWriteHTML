@@ -22,7 +22,7 @@ Following JS Framework is intergrated as part of this module. It was downloaded 
     - [x] AutoFill Excel-like click and drag copying and filling of data.v2.3.2
     - [x] Buttons A common framework for user interaction buttons.v1.5.4
     - [x] Column visibility End user buttons to control column visibility.v1.5.4
-    - [] Flash export Create Excel, PDF, CSV files and copy data from the table. For legacy browsers.v1.5.4
+    - [ ] Flash export Create Excel, PDF, CSV files and copy data from the table. For legacy browsers.v1.5.4
     - [x] HTML5 export Copy to clipboard and create Excel, PDF and CSV files from the table's data.v1.5.4
         - [ ] JSZip Required for the Excel HTML5 export button.v2.5.0
         - [ ] pdfmake Required for the PDF HTML5 export button.v0.1.36
