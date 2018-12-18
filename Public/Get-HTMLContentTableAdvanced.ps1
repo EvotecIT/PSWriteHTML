@@ -17,7 +17,7 @@ Function Get-HTMLContentTableAdvanced {
         $datarow = ''
         $headerrow = ''
 
-        $properties = $object | Get-Member -MemberType Properties | Select -ExpandProperty Name
+        $properties = $object | Get-Member -MemberType Properties | Select-Object -ExpandProperty Name
 
         foreach ($prop in $properties) {
             #$prop = $properties[0]

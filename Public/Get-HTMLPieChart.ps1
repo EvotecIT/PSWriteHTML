@@ -53,7 +53,7 @@ Function Get-HTMLPieChart {
     $CJSData += "		datasets: [{" + "`n"
     $CJSData += "			label: '$($chartobject.DataDefinition.datasetname)'," + "`n"
     $ofs = ","
-    $CJSData += "			data: [" + "$($DataSet | % {$_.($ChartObject.DataDefinition.DataValueColumnName)})" + "]," + "`n"
+    $CJSData += "			data: [" + "$($DataSet | Foreach-Object {$_.($ChartObject.DataDefinition.DataValueColumnName)})" + "]," + "`n"
     $ofs = "','"
     $CJSData += "			backgroundColor: ['" + "$($ChartColorScheme.Background)" + "']," + "`n"
     $CJSData += "			hoverBackgroundColor:  ['" + "$($ChartColorScheme.border)" + "']," + "`n"

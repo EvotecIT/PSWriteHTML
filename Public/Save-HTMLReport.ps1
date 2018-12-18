@@ -35,7 +35,7 @@ Function Save-HTMLReport {
 
     $ReportName = $ReportName.replace('.html', '')
     if ($ReportName -eq $null -or $ReportName -eq "") {
-        $ReportName = -join ((65..90) + (97..122) | Get-Random -Count 12 | ForEach-Object {[char]$_})
+        $ReportName = Get-RandomStringName -Size 12
     }
     $rptFile = join-path $ReportPath ($ReportName.replace(" ", "") + ".html")
     Write-Verbose "Generating Report File at $rptFile"

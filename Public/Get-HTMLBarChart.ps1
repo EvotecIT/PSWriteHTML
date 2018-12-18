@@ -20,10 +20,10 @@ Function Get-HTMLBarChart {
         if ($Options -eq $null) {
             #Write-Verbose "Default Colour Schemes selected, selecting $($ChartObject.ChartStyle.ColorSchemeName)"
             #$ColorSchemes =	Get-HTMLColorSchemes
-            $ChartColorScheme = $GlobalColorSchemes.($ChartObject.ChartStyle.ColorSchemeName) | select -First $DataCount
+            $ChartColorScheme = $GlobalColorSchemes.($ChartObject.ChartStyle.ColorSchemeName) | Select-Object -First $DataCount
         } else {
             Write-Verbose "Options Colour Schemes selected, selecting $($ChartObject.ChartStyle.ColorSchemeName)"
-            $ChartColorScheme = $Options.ColorSchemes.($ChartObject.ChartStyle.ColorSchemeName) | select -First $DataCount
+            $ChartColorScheme = $Options.ColorSchemes.($ChartObject.ChartStyle.ColorSchemeName) | Select-Object -First $DataCount
         }
         if ($ChartColorScheme.Count -lt $DataCount) {
             Write-Warning ("Colorscheme " + $ChartObject.ChartStyle.ColorSchemeName + " only has " + $ChartColorScheme.Count + " schemes, you have $DataCount Records. Generating one for you" )
