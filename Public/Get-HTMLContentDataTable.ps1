@@ -37,7 +37,7 @@ Function Get-HTMLContentDataTable {
     if ($DisableResponsiveTable) { $ResponsiveTable = 'false' } else { $ResponsiveTable = 'true' }
     if ($DisableSelect) { $Select = 'false' } else { $Select = 'true' }
 
-    $DTInstance = ( -join ((65..90) + (97..122) | Get-Random -Count 8 | % {[char]$_})).tolower()
+    [string] $DTInstance = Get-RandomStringName -Size 8
 
     $TableHeader = @'
 <script>
@@ -48,6 +48,13 @@ Function Get-HTMLContentDataTable {
     $TableHeader += $DTInstance
     $TableHeader += @"
 ').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
 		"paging":     $($Paging),
 		"pagingType": "full_numbers",
 		"lengthMenu": [[$PagingOptions -1], [$PagingOptions "All"]],

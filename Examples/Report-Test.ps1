@@ -24,7 +24,7 @@ $ReportTitle = 'Test'
 #$ReportName = ("$Day - $Month - $Year - AD Report")
 
 
-$ReportName = 'MyReport1'
+$ReportName = 'MyReport3'
 $ReportPath = $PSScriptRoot
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
@@ -96,7 +96,7 @@ $Report.Add($(Get-HTMLContentClose))
 
 $Report.Add($(Get-HTMLTabContentClose))
 
-Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath -ShowReport
+Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath #-ShowReport
 
 
 Stop-TimeLog -Time $Time -Option OneLiner
