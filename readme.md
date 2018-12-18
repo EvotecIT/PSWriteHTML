@@ -41,7 +41,7 @@ Following JS Framework is intergrated as part of this module. It was downloaded 
 
 JSZip and PDFMake are not downloaded as part of this package. They fail to import properly hence they are not bundled as one minified version.
 
-### Additionally separatly following JS frameowrks are loaded:
+### Additionally separately following JS frameworks are loaded:
 
 - [x] Downloaded from https://github.com/Stuk/jszip
     - [x] JSZip Required for the Excel HTML5 export button.v2.5.0
