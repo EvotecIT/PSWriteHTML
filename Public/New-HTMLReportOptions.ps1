@@ -34,7 +34,10 @@ Function New-HTMLReportOptions {
         [Parameter(Mandatory = $false, ParameterSetName = 'NoSave')]
         [Parameter(Mandatory = $false, ParameterSetName = 'Save')]
         [String]
-        $ReportPath
+        $ReportPath,
+
+        [switch] $UseCssLinks,
+        [switch] $UseStyleLinks
     )
     if ($ColorSchemes -eq $null) {
         $ColorSchemes = Get-HTMLColorSchemes -SchemePath $ColorSchemePath
@@ -43,10 +46,18 @@ Function New-HTMLReportOptions {
         $LogoSources = Get-HTMLLogos -Builtin
         $LogoSources += Get-HTMLLogos -LogoPath $LogoPath
     }
-    $ScriptHeaderContent = Get-HTMLJavaScripts -ScriptPath $ScriptPath
 
-    $StyleHeaderContent = Get-HTMLCSS -Builtin
-    $StyleHeaderContent += Get-HTMLCSS -CSSPath $CSSPath -CSSName $CSSName
+    $ScriptHeaderContent = New-GenericList -Type [string]
+    if ($UseCssLinks) {
+        $ScriptHeaderContent.Add((Get-HTMLJavaScripts -UseLinks:$UseCssLinks -ScriptPath $ScriptPath))
+    } else {
+        $ScriptHeaderContent.Add((Get-HTMLJavaScripts -ScriptPath $ScriptPath))
+    }
+
+    $StyleHeaderContent = New-GenericList -Type [string]
+    $StyleHeaderContent.Add((Get-HTMLCSS -Builtin -UseLinks:$UseStyleLinks))
+    $StyleHeaderContent.Add((Get-HTMLCSS -CSSPath $CSSPath -CSSName $CSSName))
+
 
     $Options = [PSCustomObject] @{
         Logos         = $LogoSources;

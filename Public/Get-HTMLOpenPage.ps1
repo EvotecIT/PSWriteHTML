@@ -41,14 +41,16 @@ Function Get-HTMLOpenPage {
         [switch] $AddAuthor,
         [string] $Author,
         [switch] $HideDate,
-        [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss'
+        [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss',
+        [switch] $UseCssLinks,
+        [switch] $UseStyleLinks
     )
 
     [string] $CurrentDate = (Get-Date).ToString($DateFormat) #Get-Date #-format "MMM d, yyyy hh:mm tt"
 
     if ($PSCmdlet.ParameterSetName -eq 'options') {
         if ($Options -eq $null) {
-            $Options = New-HTMLReportOptions
+            $Options = New-HTMLReportOptions -UseCssLinks:$UseCssLinks -UseStyleLinks:$UseStyleLinks
         }
     } else {
         if ([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
@@ -64,8 +66,7 @@ Function Get-HTMLOpenPage {
             $LogoSources = Get-HTMLLogos -logopath $LogoPath
         }
 
-        $Options = New-HTMLReportOptions -LogoSources $LogoSources -CSSName $CSSName `
-            -CSSPath $CSSPath -ScriptPath $ScriptPath -ColorSchemePath $ColorSchemePath
+        $Options = New-HTMLReportOptions -LogoSources $LogoSources -CSSName $CSSName -CSSPath $CSSPath -ScriptPath $ScriptPath -ColorSchemePath $ColorSchemePath -UseCssLinks:$UseCssLinks -UseStyleLinks:$UseStyleLinks
     }
     if ($HideLogos -eq $false) {
         $Leftlogo = $Options.Logos[$LeftLogoName]

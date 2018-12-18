@@ -24,7 +24,7 @@ $ReportTitle = 'Test'
 #$ReportName = ("$Day - $Month - $Year - AD Report")
 
 
-$ReportName = 'MyReport3'
+$ReportName = 'MyReport4'
 $ReportPath = $PSScriptRoot
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
@@ -35,7 +35,7 @@ $Report = New-GenericList
 
 $TabNames = 'Dashboard', 'Something'
 
-$Report.Add($(Get-HTMLOpenPage -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideDate -CSSName 'Sample')) #-LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose
+$Report.Add($(Get-HTMLOpenPage -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideDate -CSSName 'Sample' -UseCssLinks -UseStyleLinks)) #-LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose
 $Report.Add($(Get-HTMLTabHeader -TabNames $TabNames))
 $Report.Add($(Get-HTMLTabContentOpen -TabName 'Dashboard'))
 $Report.Add($(Get-HTMLContentOpen -HeaderText "Groups"))
@@ -96,7 +96,7 @@ $Report.Add($(Get-HTMLContentClose))
 
 $Report.Add($(Get-HTMLTabContentClose))
 
-Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath #-ShowReport
+Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath -ShowReport
 
 
 Stop-TimeLog -Time $Time -Option OneLiner
