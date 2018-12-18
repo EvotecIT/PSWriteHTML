@@ -2,6 +2,8 @@
 
 `PSWriteHTML` is fork of `ReportHTML` module. I've forked `ReportHTML` due to it being outdated and not really maintained anymore. I also wanted to address some problems it has and possibly add more features. As it stands currently `PSWriteHTML` is replacement for `ReportHTML` but in next days/weeks/months most likely it will be totally different module.
 
+Since PSWriteHTML currently uses same commands those commands will need to be renamed to prevent clashing with ReportHTML.
+
 ## Advantages over ReportHTML:
 - faster report building (from 20+ seconds to 2seconds)
 - updated libraries
@@ -32,7 +34,7 @@ Following JS Framework is intergrated as part of this module. It was downloaded 
     - [x] FixedHeader Sticky header and / or footer for the table.v3.1.4
     - [x] KeyTable Keyboard navigation of cells in a table, just like a spreadsheet.v2.5.0
     - [x] Responsive Dynamically show and hide columns based on the browser size.v2.2.2
-    - [x] owGroup Show similar data grouped together by a custom data point.v1.1.0
+    - [x] RowGroup Show similar data grouped together by a custom data point.v1.1.0
     - [x] RowReorder Click-and-drag reordering of rows.v1.2.4
     - [x] Scroller Virtual rendering of a scrolling table for large data sets.v1.5.0
     - [x] Select Adds row, column and cell selection abilities to a table.v1.2.6
