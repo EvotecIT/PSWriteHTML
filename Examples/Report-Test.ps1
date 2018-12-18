@@ -24,7 +24,7 @@ $ReportTitle = 'Test'
 #$ReportName = ("$Day - $Month - $Year - AD Report")
 
 
-$ReportName = 'MyReport'
+$ReportName = 'MyReport1'
 $ReportPath = $PSScriptRoot
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
@@ -39,7 +39,6 @@ $Report.Add($(Get-HTMLOpenPage -TitleText $ReportTitle -HideLogos -Verbose -AddA
 $Report.Add($(Get-HTMLTabHeader -TabNames $TabNames))
 $Report.Add($(Get-HTMLTabContentOpen -TabName 'Dashboard'))
 $Report.Add($(Get-HTMLContentOpen -HeaderText "Groups"))
-$Report.Add($(Get-HTMLColumn1of2))
 $Report.Add($(Get-HTMLContentOpen -BackgroundShade 1 -HeaderText 'Domain Administrators' -CanCollapse ))
 $Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
 $Report.Add($(Get-HTMLContentClose))
@@ -64,6 +63,36 @@ $Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 1))
 $Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
 $Report.Add($(Get-HTMLColumnClose))
 $Report.Add($(Get-HTMLContentClose))
+
+
+$Report.Add($(Get-HTMLContentOpen -HeaderText "Groups 3"))
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 6))
+$Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
+$Report.Add($(Get-HTMLColumnClose))
+
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 2 -ColumnCount 6))
+$Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
+$Report.Add($(Get-HTMLColumnClose))
+
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 3 -ColumnCount 6))
+$Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
+$Report.Add($(Get-HTMLColumnClose))
+
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 4 -ColumnCount 6))
+$Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
+$Report.Add($(Get-HTMLColumnClose))
+
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 5 -ColumnCount 6))
+$Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
+$Report.Add($(Get-HTMLColumnClose))
+
+
+$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 6 -ColumnCount 6))
+$Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
+$Report.Add($(Get-HTMLColumnClose))
+
+$Report.Add($(Get-HTMLContentClose))
+
 
 $Report.Add($(Get-HTMLTabContentClose))
 
