@@ -5,7 +5,7 @@
 ## Advantages over ReportHTML:
 - faster report building (from 20+ seconds to 2seconds)
 - updated libraries
-
+- bunch of different, new features
 
 Following external libaries and frameworks are in use. They make `PSWriteHTML` what it is now. This list is dynamic and doesn't cover everything yet.
 
