@@ -5,7 +5,7 @@
 Since PSWriteHTML currently uses same commands those commands will need to be renamed to prevent clashing with ReportHTML.
 
 ## Advantages over ReportHTML:
-- faster report building (from 20+ seconds to 2seconds)
+- faster report building (from 20+ seconds to 0-2 seconds)
 - updated libraries
 - bunch of different, new features
 
@@ -47,3 +47,5 @@ JSZip and PDFMake are not downloaded as part of this package. They fail to impor
     - [x] JSZip Required for the Excel HTML5 export button.v2.5.0
 - [x] DataTables Package https://datatables.net/download/ but with separate file
     - [x] pdfmake Required for the PDF HTML5 export button.v0.1.36
+- [x] ChartJS Package - https://github.com/chartjs/Chart.js/releases
+    - [x] ChartJS - version 2.7.3 (required for charts)
