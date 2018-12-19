@@ -1,28 +1,9 @@
 
 Import-Module PSWriteHTML -Force
 
-
 $Time = Start-TimeLog
 
 $ReportTitle = 'Test'
-
-
-#$ReportSavePath = "$($Env:TEMP)\test.html"
-
-#Dashboard Report
-#$FinalReport = New-Object 'System.Collections.Generic.List[System.Object]'
-#$FinalReport.Add($(Get-HTMLOpenPage -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo))
-#$FinalReport.Add($(Get-HTMLTabHeader -TabNames $tabarray))
-#$FinalReport.Add($(Get-HTMLTabContentopen -TabName $tabarray[0] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
-#$FinalReport.Add($(Get-HTMLContentOpen -HeaderText "Company Information"))
-#$FinalReport.Add($(Get-HTMLContentTable $CompanyInfoTable))
-#$FinalReport.Add($(Get-HTMLContentClose))
-
-#$Day = (Get-Date).Day
-#$Month = (Get-Date).Month
-#$Year = (Get-Date).Year
-#$ReportName = ("$Day - $Month - $Year - AD Report")
-
 
 $ReportName = 'MyReport0'
 $ReportPath = $PSScriptRoot
@@ -95,7 +76,6 @@ $Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
 $Report.Add($(Get-HTMLColumnClose))
 
 $Report.Add($(Get-HTMLContentClose))
-
 
 $Report.Add($(Get-HTMLTabContentClose))
 

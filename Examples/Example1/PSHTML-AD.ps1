@@ -65,7 +65,7 @@ param (
     #Location the report will be saved to
 
     [Parameter(ValueFromPipeline = $true, HelpMessage = "Enter desired directory path to save; Default: C:\Automation\")]
-    [String]$ReportSavePath = "C:\Automation\",
+    [String]$ReportSavePath = "C:\Support\GitHub\PSWriteHTML\Examples\Example1",
     #Find users that have not logged in X Amount of days, this sets the days
 
     [Parameter(ValueFromPipeline = $true, HelpMessage = "Users that have not logged on in more than [X] days. amount of days; Default: 30")]
@@ -1506,7 +1506,7 @@ $PieObjectGroupProtection.DataDefinition.DataValueColumnName = 'Count'
 
 #Dashboard Report
 $FinalReport = New-Object 'System.Collections.Generic.List[System.Object]'
-$FinalReport.Add($(Get-HTMLOpenPage -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo))
+$FinalReport.Add($(Get-HTMLOpenPage -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -UseCssLinks -UseStyleLinks))
 $FinalReport.Add($(Get-HTMLTabHeader -TabNames $tabarray))
 $FinalReport.Add($(Get-HTMLTabContentopen -TabName $tabarray[0] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
 $FinalReport.Add($(Get-HTMLContentOpen -HeaderText "Company Information"))
@@ -1722,4 +1722,4 @@ $Month = (Get-Date).Month
 $Year = (Get-Date).Year
 $ReportName = ("$Day - $Month - $Year - AD Report")
 
-Save-HTMLReport -ReportContent $FinalReport -ShowReport -ReportName $ReportName -ReportPath $ReportSavePath
+Save-HTMLReport -ReportContent $FinalReport -ShowReport -ReportName 'PSHTML-AD' -ReportPath $ReportSavePath
