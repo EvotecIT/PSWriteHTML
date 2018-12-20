@@ -135,7 +135,8 @@ Function Get-HTMLPage {
         $HTML.Add('</head>')
         $HTML.Add('')
         $HTML.Add('<!-- Body -->')
-        $HTML.Add('<body onload="hide();">')
+        #$HTML.Add('<body onload="hide();">')
+        $HTML.Add('<body>')
 
         if (-not $HideTitle) {
             $HTML.Add("<!-- Report Header -->")
