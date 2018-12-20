@@ -1582,7 +1582,7 @@ $FinalReport.Add($(Get-HTMLTab -Close))
 #Groups Report
 $FinalReport.Add($(Get-HTMLTab -Open -TabName $tabarray[1] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
 $FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Groups Overivew"))
-$FinalReport.Add($(Get-HTMLContentTable $TOPGroupsTable -HideFooter))
+$FinalReport.Add($(Get-HTMLContentDataTable $TOPGroupsTable -HideFooter))
 $FinalReport.Add($(Get-HTMLContent -Close))
 
 $FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Active Directory Groups"))
@@ -1637,7 +1637,7 @@ $FinalReport.Add($(Get-HTMLTab -Close))
 $FinalReport.Add($(Get-HTMLTab -Open -TabName $tabarray[3] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
 
 $FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Users Overivew"))
-$FinalReport.Add($(Get-HTMLContentTable $TOPUserTable -HideFooter))
+$FinalReport.Add($(Get-HTMLContentDataTable $TOPUserTable -HideFooter))
 $FinalReport.Add($(Get-HTMLContent -Close))
 
 $FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Active Directory Users"))
@@ -1696,7 +1696,7 @@ $FinalReport.Add($(Get-HTMLTab -Close))
 $FinalReport.Add($(Get-HTMLTab -Open -TabName $tabarray[5] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
 
 $FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Computers Overivew"))
-$FinalReport.Add($(Get-HTMLContentTable $TOPComputersTable -HideFooter))
+$FinalReport.Add($(Get-HTMLContentDataTable $TOPComputersTable -HideFooter))
 $FinalReport.Add($(Get-HTMLContent -Close))
 
 $FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Computers"))

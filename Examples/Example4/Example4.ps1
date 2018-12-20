@@ -4,7 +4,7 @@ $Time = Start-TimeLog
 
 $ReportTitle = 'Test'
 
-$ReportName = 'Example3'
+$ReportName = 'Example4'
 $ReportPath = $PSScriptRoot
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
@@ -20,13 +20,13 @@ $Report.Add($(Get-HTMLTabHeader -TabNames $TabNames))
 $Report.Add($(Get-HTMLTab -Open -TabName 'Dashboard'))
 $Report.Add($(Get-HTMLContent -Open -HeaderText "Groups"))
 $Report.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText 'Domain Administrators' -CanCollapse ))
-$Report.Add($(Get-HTMLContentDataTable -Object $DomainAdminTable -HideFooter))
+$Report.Add($(Get-HTMLContentTable $DomainAdminTable -Verbose))
 $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLTab -Close))
 $Report.Add($(Get-HTMLPage -Close))
 
-Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath #-ShowReport
+Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath -ShowReport
 
 
 Stop-TimeLog -Time $Time -Option OneLiner

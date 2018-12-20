@@ -5,6 +5,7 @@ Function Get-HTMLContentTableAdvanced {
 
 
 #>
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory = $True, ValueFromPipeline = $True)]
         [Array]$ArrayOfObjects
