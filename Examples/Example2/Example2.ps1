@@ -5,7 +5,7 @@ $Time = Start-TimeLog
 
 $ReportTitle = 'Test'
 
-$ReportName = 'MyReport0'
+$ReportName = 'Example2'
 $ReportPath = $PSScriptRoot
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
@@ -24,13 +24,14 @@ $Report.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText 'Domain Admin
 $Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
 $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLContent -Close))
-$Report.Add($(Get-HTMLColumn -Close))
 
-$Report.Add($(Get-HTMLContent -Open -HeaderText 'Enterprise Administrators' -CanCollapse -BackgroundShade 5) )
+$Report.Add($(Get-HTMLContent -Open -HeaderText 'Test Group' -CanCollapse -BackgroundShade 1) )
+
 $Report.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))
+$Report.Add($(Get-HTMLContent -Open -HeaderText 'Enterprise Administrators') )
 $Report.Add($(Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter))
-$Report.Add($(Get-HTMLColumn -Close))
 $Report.Add($(Get-HTMLContent -Close))
+$Report.Add($(Get-HTMLColumn -Close))
 
 $Report.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2))
 $Report.Add($(Get-HTMLContent -Open -HeaderText 'Enterprise Administrators') )
