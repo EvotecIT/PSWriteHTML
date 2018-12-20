@@ -299,6 +299,31 @@ div.sixofsix {
     width: 16%;
 }
 
+@media screen and (max-width: 800px) {
+    div.oneoftwo,
+    div.twooftwo,
+    div.oneofthree,
+    div.twoofthree,
+    div.threeofthree,
+    div.oneoffour,
+    div.twooffour,
+    div.threeoffour,
+    div.fouroffour,
+    div.oneoffive,
+    div.twooffive,
+    div.threeoffive,
+    div.fouroffive,
+    div.fiveoffive,
+    div.oneofsix,
+    div.threeofsix,
+    div.fourofsix,
+    div.fiveofsix,
+    div.sixofsix {
+        margin-left: 0px;
+        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+}
+
 a.alink:link {
     color: #007bff;
     text-decoration: none;
