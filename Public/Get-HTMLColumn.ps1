@@ -1,13 +1,4 @@
 Function Get-HTMLColumnOpen {
-    <#
-	.SYNOPSIS
-		Dynamic Column Creation
-	    .PARAMETER NumberOf
-			This is a current column number
-		.PARAMETER ColumnTotal
-			Total Number of columns
-
-#>
     [CmdletBinding()]
     param
     (

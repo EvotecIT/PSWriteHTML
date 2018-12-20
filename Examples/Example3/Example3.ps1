@@ -15,15 +15,16 @@ $Report = New-GenericList
 
 $TabNames = 'Dashboard', 'Something'
 
-$Report.Add($(Get-HTMLOpenPage -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideDate -CSSName 'Sample' -UseCssLinks -UseStyleLinks))
+$Report.Add($(Get-HTMLPage -Open -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -UseCssLinks -UseStyleLinks -Verbose))
 $Report.Add($(Get-HTMLTabHeader -TabNames $TabNames))
-$Report.Add($(Get-HTMLTabContentOpen -TabName 'Dashboard'))
-$Report.Add($(Get-HTMLContentOpen -HeaderText "Groups"))
-$Report.Add($(Get-HTMLContentOpen -BackgroundShade 1 -HeaderText 'Domain Administrators' -CanCollapse ))
+$Report.Add($(Get-HTMLTab -Open -TabName 'Dashboard'))
+$Report.Add($(Get-HTMLContent -Open -HeaderText "Groups"))
+$Report.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText 'Domain Administrators' -CanCollapse ))
 $Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
-$Report.Add($(Get-HTMLContentClose))
-$Report.Add($(Get-HTMLColumnClose))
-$Report.Add($(Get-HTMLTabContentClose))
+$Report.Add($(Get-HTMLContent -Close))
+$Report.Add($(Get-HTMLContent -Close))
+$Report.Add($(Get-HTMLTab -Close))
+$Report.Add($(Get-HTMLPage -Close))
 
 Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath #-ShowReport
 

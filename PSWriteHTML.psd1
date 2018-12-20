@@ -70,16 +70,13 @@ RequiredModules = @('PSSharedGoods')
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = 'Get-HTMLAnchor', 'Get-HTMLAnchorLink', 'Get-HTMLBarChart', 
-               'Get-HTMLBarChartObject', 'Get-HTMLClosePage', 'Get-HTMLCodeBlock', 
-               'Get-HTMLColorSchemes', 'Get-HTMLColumn1of2', 'Get-HTMLColumn2of2', 
-               'Get-HTMLColumnClose', 'Get-HTMLColumnOpen', 'Get-HTMLContentClose', 
-               'Get-HTMLContentDataTable', 'Get-HTMLContentOpen', 
-               'Get-HTMLContentTable', 'Get-HTMLContentTableAdvanced', 
-               'Get-HTMLContentText', 'Get-HTMLHeading', 'Get-HTMLOpenPage', 
-               'Get-HTMLPieChart', 'Get-HTMLPieChartObject', 
-               'Get-HTMLPowerShellSyntax', 'Get-HTMLSpan', 'Get-HTMLTabContentClose', 
-               'Get-HTMLTabContentOpen', 'Get-HTMLTabHeader', 
-               'New-HTMLReportOptions', 'Save-HTMLReport', 'Set-TableRowColor'
+               'Get-HTMLBarChartObject', 'Get-HTMLCodeBlock', 'Get-HTMLColumnOpen', 
+               'Get-HTMLContent', 'Get-HTMLContentDataTable', 'Get-HTMLContentTable', 
+               'Get-HTMLContentTableAdvanced', 'Get-HTMLContentText', 
+               'Get-HTMLHeading', 'Get-HTMLPage', 'Get-HTMLPieChart', 
+               'Get-HTMLPieChartObject', 'Get-HTMLPowerShellSyntax', 'Get-HTMLSpan', 
+               'Get-HTMLTab', 'Get-HTMLTabHeader', 'Save-HTMLReport', 
+               'Set-TableRowColor'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -88,7 +85,7 @@ CmdletsToExport = @()
 # VariablesToExport = @()
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-AliasesToExport = 'Get-HTMLPageClose', 'Get-HTMLPageOpen'
+AliasesToExport = @()
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()
