@@ -78,6 +78,8 @@ td {
     vertical-align: top;
     padding: 2px 5px 2px 5px;
     border-top: 1px solid #bbbbbb;
+    height: 16px;
+    vertical-align: middle;
 }
 
 tr.totalrow {
