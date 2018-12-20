@@ -216,13 +216,6 @@ div.column {
     width: 100%;
     float: left;
 }
-div.first {
-    width: 49%;
-}
-div.second {
-    margin-left: 10px;
-    width: 49%;
-}
 
 div.oneoftwo {
     width: 49%;
