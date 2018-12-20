@@ -55,7 +55,7 @@ $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLContent -Open -HeaderText "Groups 2"))
 
 $Report.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 1))
-$Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
+$Report.Add($(Get-HTMLContentDataTable $Allusers))
 $Report.Add($(Get-HTMLColumn -Close))
 
 $Report.Add($(Get-HTMLContent -Close))
