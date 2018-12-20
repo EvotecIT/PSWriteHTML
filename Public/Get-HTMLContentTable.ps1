@@ -11,6 +11,7 @@ Function Get-HTMLContentTable {
 		.PARAMETER Column Totals
 		    an Array of headers from that exist in the array of objects to be summed up
 #>
+    [CmdletBinding()]
     param(
         [Array]$ArrayOfObjects,
         [String]$GroupBy,
@@ -22,6 +23,7 @@ Function Get-HTMLContentTable {
 
     )
     if ($GroupBy -eq '') {
+        Write-Verbose "Get-HTMLContentTable - Running this option 1"
         $Report = $ArrayOfObjects | ConvertTo-Html -Fragment
         $Report = $Report -replace '<col/>', "" -replace '<colgroup>', "" -replace '</colgroup>', ""
         $Report = $Report -replace "<tr>(.*)<td>Green</td></tr>", "<tr class=`"green`">`$+</tr>"
@@ -32,17 +34,23 @@ Function Get-HTMLContentTable {
         $Report = $Report -replace "<tr>(.*)<td>None</td></tr>", "<tr>`$+</tr>"
         $Report = $Report -replace '<th>RowColor</th>', ''
 
-        if ($Fixed.IsPresent) {
+        if ($Fixed) {
             $Report = $Report -replace '<table>', '<table class="fixed">'
         } else {
-            if (!($NoSortableHeader)) {	$Report = $Report -replace '<table>', '<table class="sortable">' }
+            if (!($NoSortableHeader)) {
+                $Report = $Report -replace '<table>', '<table class="sortable">'
+            }
         }
     } else {
+        Write-Verbose "Get-HTMLContentTable - Running this option 2"
         $NumberOfColumns = ($ArrayOfObjects | Get-Member -MemberType NoteProperty  | Select-Object Name).Count
         $Groupings = @()
         $ArrayOfObjects | Select-Object $GroupBy -Unique  | Sort-Object $GroupBy | ForEach-Object { $Groupings += [String]$_.$GroupBy}
-        if ($Fixed.IsPresent) {	$Report = '<table class="fixed">' }
-        else { $Report = '<table>' }
+        if ($Fixed) {
+            $Report = '<table class="fixed">'
+        } else {
+            $Report = '<table>'
+        }
         $GroupHeader = $ArrayOfObjects | ConvertTo-Html -Fragment
         $GroupHeader = $GroupHeader -replace '<col/>', "" -replace '<colgroup>', "" -replace '</colgroup>', "" -replace '<table>', "" -replace '</table>', "" -replace "<td>.+?</td>" -replace "<tr></tr>", ""
         $GroupHeader = $GroupHeader -replace '<th>RowColor</th>', ''
@@ -61,6 +69,8 @@ Function Get-HTMLContentTable {
         }
 
     }
+
+    # Not sure what that is for, must be something that ReportHTML guy was using - will be removed
     $Report = $Report -replace 'URL01NEW', '<a target="_blank" href="'
     $Report = $Report -replace 'URL01', '<a href="'
     $Report = $Report -replace 'URL02', '">'
@@ -71,7 +81,8 @@ Function Get-HTMLContentTable {
     }
 
     if ($ColumnTotals.count -gt 0 -or $ColumnAverages.count -gt 0 -or $ColumnCounts.count -gt 0 ) {
-        $Report = $Report -replace "</table>", ""
+        Write-Verbose "Get-HTMLContentTable - Running this option 3"
+
         $TableFooter = $ArrayOfObjects | ConvertTo-Html -Fragment
         $TableFooter = $TableFooter -replace '<col/>', "" -replace '<colgroup>', "" -replace '</colgroup>', "" -replace '<table>', "" -replace '</table>', "" -replace "<td>.+?</td>" -replace "<tr></tr>", ""
         $TableFooter = $TableFooter -replace '<th>RowColor</th>', ''
@@ -94,14 +105,13 @@ Function Get-HTMLContentTable {
 
         $TableFooter = $TableFooter -replace '<th>', '<td class="totalrow">' -replace "</th>", '</td>'
         $TableFooter = $TableFooter -replace '<tr>', '<tr class="totalrow">'
+
+        $Report = $Report -replace "</table>", ""
         $Report += "<tfoot>"
         $Report += $TableFooter
         $Report += "</tfoot>"
+        # We need to close the table because we removed closing to add TableFooters.
+        $Report += "</table>"
     }
-
-
-    $Report += "</table>"
-
-
     return $Report
 }
