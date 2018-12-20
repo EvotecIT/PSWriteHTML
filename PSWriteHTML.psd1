@@ -70,7 +70,7 @@ RequiredModules = @('PSSharedGoods')
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = 'Get-HTMLAnchor', 'Get-HTMLAnchorLink', 'Get-HTMLBarChart', 
-               'Get-HTMLBarChartObject', 'Get-HTMLCodeBlock', 'Get-HTMLColumnOpen', 
+               'Get-HTMLBarChartObject', 'Get-HTMLCodeBlock', 'Get-HTMLColumn', 
                'Get-HTMLContent', 'Get-HTMLContentDataTable', 'Get-HTMLContentTable', 
                'Get-HTMLContentTableAdvanced', 'Get-HTMLContentText', 
                'Get-HTMLHeading', 'Get-HTMLPage', 'Get-HTMLPieChart', 

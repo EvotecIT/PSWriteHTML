@@ -2,10 +2,9 @@ Function Get-HTMLColumn {
     [CmdletBinding()]
     param
     (
-
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [int]$ColumnNumber = 1,
-        [Parameter(Mandatory = false, ParameterSetName = 'open')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [int]$ColumnCount = 1,
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [switch] $Open,
