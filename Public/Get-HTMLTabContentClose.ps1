@@ -1,6 +1,6 @@
 Function Get-HTMLTabContentClose {
     $tabclose = @()
-    $tabclose += "</p>"
+    #$tabclose += "</p>"
     $tabclose += '</div>'
     $tabclose += @"
 <script>
