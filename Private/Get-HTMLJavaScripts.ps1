@@ -21,6 +21,7 @@ Function Get-HTMLJavaScripts {
         foreach ($Link in $Links) {
             [string] $HTMLLink = '<script type="text/javascript" src="**Link**"></script>'.Replace('**Link**', $Link)
             $ScriptHeaders.Add($HTMLLink)
+            $ScriptHeaders.Add("`r`n")
         }
         # Only some links are available online, so some static resources need to be put in. Maybe there is a way to put on CDN.
         # For now we need to reload this function again.
@@ -34,7 +35,9 @@ Function Get-HTMLJavaScripts {
         $ScriptFiles = @((get-childitem $ScriptPath -Filter '*.js' -Recurse))
 
         foreach ($ScriptFile in $ScriptFiles) {
-            $ScriptHeaders.Add("`r`n" + '<script type="text/javascript">  ' + "`r`n")
+            $ScriptHeaders.Add("`r`n")
+            $ScriptHeaders.Add('<script type="text/javascript">')
+            $ScriptHeaders.Add("`r`n")
             if ($ScriptFile -like '*.min.*') {
                 Write-Verbose "Generating Script Header from minified file - $($ScriptFile.Fullname)"
                 $ScriptHeaders.Add((Get-Content -Path $ScriptFile.Fullname))
@@ -43,6 +46,7 @@ Function Get-HTMLJavaScripts {
                 $ScriptHeaders.Add((Get-Content -Path $ScriptFile.Fullname -Delimiter "`r`n"))
             }
             $ScriptHeaders.Add('</script>')
+            $ScriptHeaders.Add("`r`n")
         }
     }
     Write-Output $ScriptHeaders

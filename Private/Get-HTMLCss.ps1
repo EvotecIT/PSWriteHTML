@@ -24,6 +24,7 @@ Function Get-HTMLCSS {
             foreach ($Link in $Links) {
                 [string] $HTMLLink = '<link rel="stylesheet" type="text/css" href="**Link**"/>'.Replace('**Link**', $Link)
                 $CSSHeaders.Add($HTMLLink)
+                $CSSHeaders.Add("`r`n")
             }
             return $CSSHeaders
 
@@ -46,6 +47,7 @@ Function Get-HTMLCSS {
 
     foreach ($CssFile in $CSSFiles) {
         $CSSHeaders.Add('<style type="text/css">')
+        $CSSHeaders.Add("`r`n")
         if ($CssFile -like '*.min.*') {
             Write-Verbose "Generating Style Header from - $($CssFile.FullName) (minified file)"
             $CSSHeaders.Add((Get-Content -Path $CssFile.FullName))
@@ -53,7 +55,8 @@ Function Get-HTMLCSS {
             Write-Verbose "Generating Style Header from - $($CssFile.FullName) (from non-minified file (adding delimiter))"
             $CSSHeaders.Add((Get-Content -Path $CssFile.FullName -Delimiter "`r`n"))
         }
-        $CSSHeaders.Add('</style>')
+        $CSSHeaders.Add("</style>")
+        $CSSHeaders.Add("`r`n")
 
     }
     Write-Output $CSSHeaders
