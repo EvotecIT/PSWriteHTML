@@ -16,68 +16,72 @@ $Report = New-GenericList
 
 $TabNames = 'Dashboard', 'Something'
 
-$Report.Add($(Get-HTMLOpenPage -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideDate -CSSName 'Sample' -UseCssLinks -UseStyleLinks)) #-LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose
+$Report.Add($(Get-HTMLPage -Open -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideDate -UseCssLinks -UseStyleLinks)) #-LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose
 $Report.Add($(Get-HTMLTabHeader -TabNames $TabNames))
-$Report.Add($(Get-HTMLTabContentOpen -TabName 'Dashboard'))
-$Report.Add($(Get-HTMLContentOpen -HeaderText "Groups"))
-$Report.Add($(Get-HTMLContentOpen -BackgroundShade 1 -HeaderText 'Domain Administrators' -CanCollapse ))
+$Report.Add($(Get-HTMLTab -Open -TabName 'Dashboard'))
+$Report.Add($(Get-HTMLContent -Open -HeaderText "Groups"))
+$Report.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText 'Domain Administrators' -CanCollapse ))
 $Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
-$Report.Add($(Get-HTMLContentClose))
-$Report.Add($(Get-HTMLColumnClose))
+$Report.Add($(Get-HTMLContent -Close))
+$Report.Add($(Get-HTMLContent -Close))
+$Report.Add($(Get-HTMLColumn -Close))
 
-$Report.Add($(Get-HTMLContentOpen -HeaderText 'Enterprise Administrators' -CanCollapse -BackgroundShade 5) )
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 2))
+$Report.Add($(Get-HTMLContent -Open -HeaderText 'Enterprise Administrators' -CanCollapse -BackgroundShade 5) )
+$Report.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))
 $Report.Add($(Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter))
-$Report.Add($(Get-HTMLColumnClose))
-$Report.Add($(Get-HTMLContentClose))
-$Report.Add($(Get-HTMLContentOpen -HeaderText 'Enterprise Administrators') )
+$Report.Add($(Get-HTMLColumn -Close))
+$Report.Add($(Get-HTMLContent -Close))
+
+$Report.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2))
+$Report.Add($(Get-HTMLContent -Open -HeaderText 'Enterprise Administrators') )
 $Report.Add($(Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter))
-$Report.Add($(Get-HTMLContentClose))
-$Report.Add($(Get-HTMLColumnClose))
-$Report.Add($(Get-HTMLContentClose))
+$Report.Add($(Get-HTMLContent -Close))
+$Report.Add($(Get-HTMLColumn -Close))
 
 
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 2 -ColumnCount 2))
+$Report.Add($(Get-HTMLContent -Open -HeaderText "Groups 1"))
 
-
-$Report.Add($(Get-HTMLColumnClose))
-
-$Report.Add($(Get-HTMLContentOpen -HeaderText "Groups 1"))
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 1))
+$Report.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 1))
 $Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
-$Report.Add($(Get-HTMLColumnClose))
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 1))
+$Report.Add($(Get-HTMLColumn -Close))
+
+$Report.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 1))
 $Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
-$Report.Add($(Get-HTMLColumnClose))
-$Report.Add($(Get-HTMLContentClose))
+$Report.Add($(Get-HTMLColumn -Close))
 
-$Report.Add($(Get-HTMLContentOpen -HeaderText "Groups 2"))
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 1))
+$Report.Add($(Get-HTMLContent -Close))
+
+$Report.Add($(Get-HTMLContent -Open -HeaderText "Groups 2"))
+
+$Report.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 1))
 $Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
-$Report.Add($(Get-HTMLColumnClose))
-$Report.Add($(Get-HTMLContentClose))
+$Report.Add($(Get-HTMLColumn -Close))
+
+$Report.Add($(Get-HTMLContent -Close))
 
 
-$Report.Add($(Get-HTMLContentOpen -HeaderText "Groups 3"))
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 1 -ColumnCount 4))
+$Report.Add($(Get-HTMLContent -Open -HeaderText "Groups 3"))
+
+$Report.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 4))
 $Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
-$Report.Add($(Get-HTMLColumnClose))
+$Report.Add($(Get-HTMLColumn -Close))
 
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 2 -ColumnCount 4))
+$Report.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 4))
 $Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
-$Report.Add($(Get-HTMLColumnClose))
+$Report.Add($(Get-HTMLColumn -Close))
 
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 3 -ColumnCount 4))
+$Report.Add($(Get-HTMLColumn -Open -ColumnNumber 3 -ColumnCount 4))
 $Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
-$Report.Add($(Get-HTMLColumnClose))
+$Report.Add($(Get-HTMLColumn -Close))
 
-$Report.Add($(Get-HTMLColumnOpen -ColumnNumber 4 -ColumnCount 4))
+$Report.Add($(Get-HTMLColumn -Open -ColumnNumber 4 -ColumnCount 4))
 $Report.Add($(Get-HTMLContentDataTable $Allusers -HideFooter))
-$Report.Add($(Get-HTMLColumnClose))
+$Report.Add($(Get-HTMLColumn -Close))
 
-$Report.Add($(Get-HTMLContentClose))
+$Report.Add($(Get-HTMLContent -Close))
 
-$Report.Add($(Get-HTMLTabContentClose))
+$Report.Add($(Get-HTMLTab -Close))
+$Report.Add($(Get-HTMLPage -Close))
 
 Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath -ShowReport
 

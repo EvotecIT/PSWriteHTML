@@ -3,39 +3,64 @@ Function Get-HTMLPage {
     param
     (
         [Parameter(Mandatory = $false, ParameterSetName = 'options')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$TitleText,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$CSSPath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$CSSName = "default",
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$ScriptPath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$ColorSchemePath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$LogoPath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$LeftLogoName = "Sample",
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$RightLogoName = "Alternate",
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$LeftLogoString,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$RightLogoString,
 
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'options')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][switch]$HideLogos,
 
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'options')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][switch]$HideTitle,
 
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'options')]
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][switch]$NoScript,
 
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [Parameter(Mandatory = $false, ParameterSetName = 'options')][PSobject]$Options,
         [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$PrimaryColorHex,
 
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [switch] $AddAuthor,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [string] $Author,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [switch] $HideDate,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss',
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [switch] $UseCssLinks,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [switch] $UseStyleLinks,
-
-
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
         [switch] $Open,
+
+
+        [Parameter(Mandatory = $false, ParameterSetName = 'close')]
         [switch] $Close,
+        [Parameter(Mandatory = $false, ParameterSetName = 'close')]
         [String]$FooterText # For closing param
     )
 

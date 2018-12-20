@@ -1,12 +1,15 @@
-Function Get-HTMLColumnOpen {
+Function Get-HTMLColumn {
     [CmdletBinding()]
     param
     (
-        [Parameter(Mandatory = $true)]
-        [int]$ColumnNumber,
-        [Parameter(Mandatory = $true)]
-        [int]$ColumnCount,
+
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [int]$ColumnNumber = 1,
+        [Parameter(Mandatory = false, ParameterSetName = 'open')]
+        [int]$ColumnCount = 1,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [switch] $Open,
+        [Parameter(Mandatory = $false, ParameterSetName = 'close')]
         [switch] $Close
     )
     $HTML = New-GenericList -Type [string]
