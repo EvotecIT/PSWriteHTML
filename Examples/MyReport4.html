@@ -5,94 +5,96 @@
                 <head>
         <Title>Test</Title>
             <!-- Styles -->
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"/> <style type="text/css"> * {
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"/> <style type="text/css">
+
+            * {
      margin: 0px;
      font-family: sans-serif;
      font-size: 8pt;
  }
- 
+
  body {
      margin: 8px 5px 8px 5px;
  }
- 
- 
+
+
  h1 {
  	margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 18pt;
  	border-bottom: 2px solid #bbbbbb;
  }
- 
+
  h2 {
  	 margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 16pt;
  	border-bottom: 2px solid #bbbbbb;
  }
- 
+
  h3 {
  	margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 14pt;
  	border-bottom: 1px solid #bbbbbb;
  }
- 
+
  h4 {
  	margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 12pt;
  	border-bottom: 1px solid #bbbbbb;
  }
- 
+
  h5 {
  	margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 10pt;
  	border-bottom: 1px solid #bbbbbb;
  }
- 
+
  h6 {
  	margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 8pt;
  	border-bottom: 1px solid #bbbbbb;
  }
- 
+
  h7 {
      font-family: sans-serif;
      font-size: 10pt;
  }
- 
- 
+
+
  hr {
      height: 4px;
      background-color: #FFA500;
      border: 0px;
  	width: 99%;
  }
- 
+
  table {
      table-layout: auto;
      width: 100%;
      border-collapse: collapse;
  }
- 
+
  th {
      vertical-align: top;
      text-align: left;
      padding: 2px 5px 2px 5px;
  }
- 
+
  td {
      vertical-align: top;
      padding: 2px 5px 2px 5px;
      border-top: 1px solid #bbbbbb;
  }
- 
+
  tr.totalrow {
      border-top: thick double
  }
- 
+
  td.totalrow {
      vertical-align: Bottom;
      text-align: left;
@@ -100,7 +102,7 @@
      font-weight: bold;
      padding: 2px 5px 2px 5px;
  }
- 
+
  div.pageTitle {
      font-size: 14pt;
      font-weight: bold;
@@ -109,12 +111,12 @@
      padding: 4px 1em 0px 2px;
      height: 2em;
  }
- 
+
  div.ReportCreated {
  	text-align: right;
  	padding-right: 5em;
  }
- 
+
  div.clientlogo {
      border: 0px;
      vertical-align: middle;
@@ -122,7 +124,7 @@
      display: inline-block;
      width: 50%;
  }
- 
+
  div.MainLogo {
      border: 0px;
      vertical-align: middle;
@@ -130,7 +132,7 @@
      display: inline-block;
      width: 50%;
  }
- 
+
  div.section {
      border: 1px solid #bbbbbb;
      padding-bottom: 12px;
@@ -138,7 +140,7 @@
      margin: 5px;
      width: 98%
  }
- 
+
  div.header {
      padding: 4px 5em 0px 5px;
      margin: 0px 0px 0px 0px;
@@ -147,7 +149,7 @@
      color: #ffffff;
      background-color: #FFA500;
  }
- 
+
  div.content {
      padding: 4px 0px 5px 11px;
      margin: 0px 0px 0px 0px;
@@ -155,111 +157,111 @@
      color: #000000;
      background-color: #f9f9f9;
  }
- 
+
  div.footer {
      padding-right: 5em;
      text-align: right;
  }
- 
+
  table.fixed {
      table-layout: fixed;
  }
- 
+
  table.vertical {
  	table-layout: fixed; width: 100px;
  }
- 
+
  td.clientlogo {
      border: 0px;
  	padding-left: 0px;
      vertical-align: middle;
  }
- 
+
  td.MainLogo {
      border: 0px;
      padding-right: 5em;
      text-align: right;
      vertical-align: middle;
  }
- 
+
  th.content {
      border-top: 1px solid #bbbbbb;
  	width: 25%;
  }
- 
+
  td.content {
  	width: 75%;
  }
- 
+
  td.groupby {
  	border-top: 3px double #bbbbbb;
  }
- 
+
  .green {
  	background-color: #a1cda4;
  }
- 
+
  .yellow {
  	background-color: #fffab1;
  }
- 
+
  .red {
  	background-color: #f5a085;
  }
- 
+
  .odd {
  	background-color: #D5D8DC;
  }
- 
+
  .even {
  	background-color: #F7F9F9;
  }
- 
+
  .header {
  	background-color: #616A6B; color: #F7F9F9;
  }
- 
+
  div.column { width: 100%; float: left; }
  div.first { width: 49% }
  div.second { margin-left: 10px;width: 49% }
- 
+
  div.oneoftwo { width: 49% }
  div.twooftwo { margin-left: 10px;width: 49% }
- 
+
  div.oneofthree { width: 32% }
  div.twoofthree { margin-left: 10px;width: 32% }
  div.threeofthree { margin-left: 10px;width: 32% }
- 
+
  div.oneoffour { width: 24% }
  div.twooffour { margin-left: 10px;width: 24% }
  div.threeoffour { margin-left: 10px;width: 24% }
  div.fouroffour { margin-left: 10px;width: 24% }
- 
+
  div.oneoffive { width: 19% }
  div.twooffive { margin-left: 10px;width: 19% }
  div.threeoffive { margin-left: 10px;width: 19% }
  div.fouroffive { margin-left: 10px;width: 19% }
  div.fiveoffive { margin-left: 10px;width: 19% }
- 
+
  div.oneofsix { width: 16% }
  div.twoofsix { margin-left: 10px;width: 16% }
  div.threeofsix { margin-left: 10px;width: 16% }
  div.fourofsix { margin-left: 10px;width: 16% }
  div.fiveofsix { margin-left: 10px;width: 16% }
  div.sixofsix { margin-left: 10px;width: 16% }
- 
+
  a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
  a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
  a.alink:hover {text-decoration:underline;font-size:130%}
- 
+
  table.sortable thead {
      background-color:#eee;
      color:#666666;
      font-weight: bold;
      cursor: default;
  }
- 
- 
+
+
  /* Style the list */
  ul.tab {
      list-style-type: none;
@@ -269,10 +271,10 @@
      border: 1px solid #ccc;
      background-color: #f1f1f1;
  }
- 
+
  /* Float the list items side by side */
  ul.tab li {float: left;}
- 
+
  /* Style the links inside the list items */
  ul.tab li a {
      display: inline-block;
@@ -283,13 +285,13 @@
      transition: 0.3s;
      font-size: 14px;
  }
- 
+
  /* Change background color of links on hover */
  ul.tab li a:hover {background-color: #ddd;}
- 
+
  /* Create an active/current tablink class */
  ul.tab li a:focus, .active {background-color: #ccc;}
- 
+
  /* Style the tab content */
  .tabcontent {
      display: none;
@@ -297,7 +299,7 @@
      border: 1px solid #ccc;
      border-top: none;
  }
- 
+
  .PowerShell {
    color: #EEEDF0;
    background-color: #012456;
@@ -311,21 +313,21 @@
  }
  </style>
             <!-- Scripts -->
-            <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script> 
-<script type="text/javascript">  
+            <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+<script type="text/javascript">
  function show(obj) {
-   document.getElementById(obj).style.display='block'; 
-   document.getElementById("hide_" + obj).style.display=''; 
-   document.getElementById("show_" + obj).style.display='none'; 
- } 
- function hide(obj) { 
-   document.getElementById(obj).style.display='none'; 
-   document.getElementById("hide_" + obj).style.display='none'; 
-   document.getElementById("show_" + obj).style.display=''; 
- }  </script> 
-<script type="text/javascript">  
+   document.getElementById(obj).style.display='block';
+   document.getElementById("hide_" + obj).style.display='';
+   document.getElementById("show_" + obj).style.display='none';
+ }
+ function hide(obj) {
+   document.getElementById(obj).style.display='none';
+   document.getElementById("hide_" + obj).style.display='none';
+   document.getElementById("show_" + obj).style.display='';
+ }  </script>
+<script type="text/javascript">
  var stIsIE = /*@cc_on!@*/false;
- 
+
  sorttable = {
    init: function() {
      // quit if this function has already been called
@@ -334,19 +336,19 @@
      arguments.callee.done = true;
      // kill the timer
      if (_timer) clearInterval(_timer);
- 
+
      if (!document.createElement || !document.getElementsByTagName) return;
- 
+
      sorttable.DATE_RE = /^(\d\d?)[\/\.-](\d\d?)[\/\.-]((\d\d)?\d\d)$/;
- 
+
      forEach(document.getElementsByTagName('table'), function(table) {
        if (table.className.search(/\bsortable\b/) != -1) {
          sorttable.makeSortable(table);
        }
      });
- 
+
    },
- 
+
    makeSortable: function(table) {
      if (table.getElementsByTagName('thead').length == 0) {
        // table doesn't have a tHead. Since it should have, create one and
@@ -357,9 +359,9 @@
      }
      // Safari doesn't support table.tHead, sigh
      if (table.tHead == null) table.tHead = table.getElementsByTagName('thead')[0];
- 
+
      if (table.tHead.rows.length != 1) return; // can't cope with two header rows
- 
+
      // Sorttable v1 put rows with a class of "sortbottom" at the bottom (as
      // "total" rows, for example). This is B&R, since what you're supposed
      // to do is put them in a tfoot. So, if there are sortbottom rows,
@@ -381,7 +383,7 @@
        }
        delete sortbottomrows;
      }
- 
+
      // work through each column and calculate its type
      headrow = table.tHead.rows[0].cells;
      for (var i=0; i<headrow.length; i++) {
@@ -398,7 +400,7 @@
  	      headrow[i].sorttable_columnindex = i;
  	      headrow[i].sorttable_tbody = table.tBodies[0];
  	      dean_addEvent(headrow[i],"click", sorttable.innerSortFunction = function(e) {
- 
+
            if (this.className.search(/\bsorttable_sorted\b/) != -1) {
              // if we're already sorted by this column, just
              // reverse the table, which is quicker
@@ -425,7 +427,7 @@
              this.appendChild(sortfwdind);
              return;
            }
- 
+
            // remove sorttable_sorted classes
            theadrow = this.parentNode;
            forEach(theadrow.childNodes, function(cell) {
@@ -438,13 +440,13 @@
            if (sortfwdind) { sortfwdind.parentNode.removeChild(sortfwdind); }
            sortrevind = document.getElementById('sorttable_sortrevind');
            if (sortrevind) { sortrevind.parentNode.removeChild(sortrevind); }
- 
+
            this.className += ' sorttable_sorted';
            sortfwdind = document.createElement('span');
            sortfwdind.id = "sorttable_sortfwdind";
            sortfwdind.innerHTML = stIsIE ? '&nbsp<font face="webdings">6</font>' : '&nbsp;&#x25BE;';
            this.appendChild(sortfwdind);
- 
+
  	        // build an array to sort. This is a Schwartzian transform thing,
  	        // i.e., we "decorate" each row with the actual sort key,
  	        // sort based on the sort keys, and then put the rows back in order
@@ -459,25 +461,25 @@
  	        //sorttable.shaker_sort(row_array, this.sorttable_sortfunction);
  	        /* and comment out this one */
  	        row_array.sort(this.sorttable_sortfunction);
- 
+
  	        tb = this.sorttable_tbody;
  	        for (var j=0; j<row_array.length; j++) {
  	          tb.appendChild(row_array[j][1]);
  	        }
- 
+
  	        delete row_array;
  	      });
  	    }
      }
    },
- 
+
    guessType: function(table, column) {
      // guess the type of a column based on its first non-blank row
      sortfn = sorttable.sort_alpha;
      for (var i=0; i<table.tBodies[0].rows.length; i++) {
        text = sorttable.getInnerText(table.tBodies[0].rows[i].cells[column]);
        if (text != '') {
-         if (text.match(/^-?[£$¤]?[\d,.]+%?$/)) {
+         if (text.match(/^-?[ï¿½$ï¿½]?[\d,.]+%?$/)) {
            return sorttable.sort_numeric;
          }
          // check for a date: dd/mm/yyyy or dd/mm/yy
@@ -503,19 +505,19 @@
      }
      return sortfn;
    },
- 
+
    getInnerText: function(node) {
      // gets the text we want to use for sorting for a cell.
      // strips leading and trailing whitespace.
      // this is *not* a generic getInnerText function; it's special to sorttable.
      // for example, you can override the cell text with a customkey attribute.
      // it also gets .value for <input> fields.
- 
+
      if (!node) return "";
- 
+
      hasInputs = (typeof node.getElementsByTagName == 'function') &&
                   node.getElementsByTagName('input').length;
- 
+
      if (node.getAttribute("sorttable_customkey") != null) {
        return node.getAttribute("sorttable_customkey");
      }
@@ -550,7 +552,7 @@
        }
      }
    },
- 
+
    reverse: function(tbody) {
      // reverse the rows in a tbody
      newrows = [];
@@ -562,7 +564,7 @@
      }
      delete newrows;
    },
- 
+
    /* sort functions
       each sort function takes two parameters, a and b
       you are comparing a[0] and b[0] */
@@ -608,7 +610,7 @@
      if (dt1<dt2) return -1;
      return 1;
    },
- 
+
    shaker_sort: function(list, comp_func) {
      // A stable sort function to allow multi-level sorting of data
      // see: http://en.wikipedia.org/wiki/Cocktail_sort
@@ -616,7 +618,7 @@
      var b = 0;
      var t = list.length - 1;
      var swap = true;
- 
+
      while(swap) {
          swap = false;
          for(var i = b; i < t; ++i) {
@@ -626,9 +628,9 @@
              }
          } // for
          t--;
- 
+
          if (!swap) break;
- 
+
          for(var i = t; i > b; --i) {
              if ( comp_func(list[i], list[i-1]) < 0 ) {
                  var q = list[i]; list[i] = list[i-1]; list[i-1] = q;
@@ -636,22 +638,22 @@
              }
          } // for
          b++;
- 
+
      } // while(swap)
    }
  }
- 
+
  /* ******************************************************************
     Supporting functions: bundled here to avoid depending on a library
     ****************************************************************** */
- 
+
  // Dean Edwards/Matthias Miller/John Resig
- 
+
  /* for Mozilla/Opera9 */
  if (document.addEventListener) {
      document.addEventListener("DOMContentLoaded", sorttable.init, false);
  }
- 
+
  /* for Internet Explorer */
  /*@cc_on @*/
  /*@if (@_win32)
@@ -663,7 +665,7 @@
          }
      };
  /*@end @*/
- 
+
  /* for Safari */
  if (/WebKit/i.test(navigator.userAgent)) { // sniff
      var _timer = setInterval(function() {
@@ -672,15 +674,15 @@
          }
      }, 10);
  }
- 
+
  /* for other browsers */
  window.onload = sorttable.init;
- 
+
  // written by Dean Edwards, 2005
  // with input from Tino Zijdel, Matthias Miller, Diego Perini
- 
+
  // http://dean.edwards.name/weblog/2005/10/add-event/
- 
+
  function dean_addEvent(element, type, handler) {
  	if (element.addEventListener) {
  		element.addEventListener(type, handler, false);
@@ -706,7 +708,7 @@
  };
  // a counter used to create unique IDs
  dean_addEvent.guid = 1;
- 
+
  function removeEvent(element, type, handler) {
  	if (element.removeEventListener) {
  		element.removeEventListener(type, handler, false);
@@ -717,7 +719,7 @@
  		}
  	}
  };
- 
+
  function handleEvent(event) {
  	var returnValue = true;
  	// grab the event object (IE uses a global event object)
@@ -733,7 +735,7 @@
  	}
  	return returnValue;
  };
- 
+
  function fixEvent(event) {
  	// add W3C standard event methods
  	event.preventDefault = fixEvent.preventDefault;
@@ -746,14 +748,14 @@
  fixEvent.stopPropagation = function() {
    this.cancelBubble = true;
  }
- 
+
  // Dean's forEach: http://dean.edwards.name/base/forEach.js
  /*
  	forEach, version 1.0
  	Copyright 2006, Dean Edwards
  	License: http://www.opensource.org/licenses/mit-license.php
  */
- 
+
  // array-like enumeration
  if (!Array.forEach) { // mozilla already supports this
  	Array.forEach = function(array, block, context) {
@@ -762,7 +764,7 @@
  		}
  	};
  }
- 
+
  // generic enumeration
  Function.prototype.forEach = function(object, block, context) {
  	for (var key in object) {
@@ -771,14 +773,14 @@
  		}
  	}
  };
- 
+
  // character enumeration
  String.forEach = function(string, block, context) {
  	Array.forEach(string.split(""), function(chr, index) {
  		block.call(context, chr, index, string);
  	});
  };
- 
+
  // globally resolve forEach enumeration
  var forEach = function(object, block, context) {
  	if (object) {
@@ -800,24 +802,24 @@
  		resolve.forEach(object, block, context);
  	}
  };
- </script> 
-<script type="text/javascript">  
+ </script>
+<script type="text/javascript">
  function openTab(evt, tabName) {
      // Declare all variables
      var i, tabcontent, tablinks;
- 
+
      // Get all elements with class="tabcontent" and hide them
      tabcontent = document.getElementsByClassName("tabcontent");
      for (i = 0; i < tabcontent.length; i++) {
          tabcontent[i].style.display = "none";
      }
- 
+
      // Get all elements with class="tablinks" and remove the class "active"
      tablinks = document.getElementsByClassName("tablinks");
      for (i = 0; i < tablinks.length; i++) {
          tablinks[i].className = tablinks[i].className.replace(" active", "");
      }
- 
+
      // Show the current tab, and add an "active" class to the link that opened the tab
      document.getElementById(tabName).style.display = "block";
      evt.currentTarget.className += " active";
@@ -828,7 +830,7 @@
         <body onload="hide();">
 
 			<!-- Report Header -->
-            
+
             <div class="pageTitle">Test</div>
             <hr />
 <ul class="tab">

@@ -1,9 +1,12 @@
-            <html>
-                <!-- Header -->
-                <head>
-        <Title>Active Directory Report</Title>
-            <!-- Styles -->
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"/> <style type="text/css"> * {
+<!DOCTYPE HTML>
+<html>
+<!-- Header -->
+<head>
+<Title>Active Directory Report</Title>
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"/> 
+ <style type="text/css"> 
+ * {
      margin: 0px;
      font-family: sans-serif;
      font-size: 8pt;
@@ -14,45 +17,45 @@
  }
  
  h1 {
- 	margin: 8px 5px 8px 5px;
+     margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 18pt;
- 	border-bottom: 2px solid #bbbbbb;
+     border-bottom: 2px solid #bbbbbb;
  }
  
  h2 {
- 	 margin: 8px 5px 8px 5px;
+     margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 16pt;
- 	border-bottom: 2px solid #bbbbbb;
+     border-bottom: 2px solid #bbbbbb;
  }
  
  h3 {
- 	margin: 8px 5px 8px 5px;
+     margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 14pt;
- 	border-bottom: 1px solid #bbbbbb;
+     border-bottom: 1px solid #bbbbbb;
  }
  
  h4 {
- 	margin: 8px 5px 8px 5px;
+     margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 12pt;
- 	border-bottom: 1px solid #bbbbbb;
+     border-bottom: 1px solid #bbbbbb;
  }
  
  h5 {
- 	margin: 8px 5px 8px 5px;
+     margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 10pt;
- 	border-bottom: 1px solid #bbbbbb;
+     border-bottom: 1px solid #bbbbbb;
  }
  
  h6 {
- 	margin: 8px 5px 8px 5px;
+     margin: 8px 5px 8px 5px;
      font-family: sans-serif;
      font-size: 8pt;
- 	border-bottom: 1px solid #bbbbbb;
+     border-bottom: 1px solid #bbbbbb;
  }
  
  h7 {
@@ -60,12 +63,11 @@
      font-size: 10pt;
  }
  
- 
  hr {
      height: 4px;
      background-color: #337e94;
      border: 0px;
- 	width: 99%;
+     width: 99%;
  }
  
  table {
@@ -87,7 +89,7 @@
  }
  
  tr.totalrow {
-     border-top: thick double
+     border-top: thick double;
  }
  
  td.totalrow {
@@ -101,15 +103,15 @@
  div.pageTitle {
      font-size: 14pt;
      font-weight: bold;
- 	width: 100%;
+     width: 100%;
      display: block;
      padding: 4px 1em 0px 2px;
      height: 2em;
  }
  
  div.ReportCreated {
- 	text-align: right;
- 	padding-right: 5em;
+     text-align: right;
+     padding-right: 5em;
  }
  
  div.clientlogo {
@@ -133,14 +135,14 @@
      padding-bottom: 12px;
      display: inline-block;
      margin: 5px;
-     width: 98%
+     width: 98%;
  }
  
  div.header {
      padding: 4px 5em 0px 5px;
      margin: 0px 0px 0px 0px;
      height: 2em;
-     font-weight: bold ;
+     font-weight: bold;
      color: #ffffff;
      background-color: #337e94;
  }
@@ -163,12 +165,13 @@
  }
  
  table.vertical {
- 	table-layout: fixed; width: 100px;
+     table-layout: fixed;
+     width: 100px;
  }
  
  td.clientlogo {
      border: 0px;
- 	padding-left: 0px;
+     padding-left: 0px;
      vertical-align: middle;
  }
  
@@ -181,82 +184,155 @@
  
  th.content {
      border-top: 1px solid #bbbbbb;
- 	width: 25%;
+     width: 25%;
  }
  
  td.content {
- 	width: 75%;
+     width: 75%;
  }
  
  td.groupby {
- 	border-top: 3px double #bbbbbb;
+     border-top: 3px double #bbbbbb;
  }
  
  .green {
- 	background-color: #a1cda4;
+     background-color: #a1cda4;
  }
  
  .yellow {
- 	background-color: #fffab1;
+     background-color: #fffab1;
  }
  
  .red {
- 	background-color: #f5a085;
+     background-color: #f5a085;
  }
  
  .odd {
- 	background-color: #D5D8DC;
+     background-color: #d5d8dc;
  }
  
  .even {
- 	background-color: #F7F9F9;
+     background-color: #f7f9f9;
  }
  
  .header {
- 	background-color: #616A6B; color: #F7F9F9;
+     background-color: #616a6b;
+     color: #f7f9f9;
  }
  
- div.column { width: 100%; float: left; }
- div.first { width: 49% }
- div.second { margin-left: 10px;width: 49% }
+ div.column {
+     width: 100%;
+     float: left;
+ }
+ div.first {
+     width: 49%;
+ }
+ div.second {
+     margin-left: 10px;
+     width: 49%;
+ }
  
- div.oneoftwo { width: 49% }
- div.twooftwo { margin-left: 10px;width: 49% }
+ div.oneoftwo {
+     width: 49%;
+ }
+ div.twooftwo {
+     margin-left: 10px;
+     width: 49%;
+ }
  
- div.oneofthree { width: 32% }
- div.twoofthree { margin-left: 10px;width: 32% }
- div.threeofthree { margin-left: 10px;width: 32% }
+ div.oneofthree {
+     width: 32%;
+ }
+ div.twoofthree {
+     margin-left: 10px;
+     width: 32%;
+ }
+ div.threeofthree {
+     margin-left: 10px;
+     width: 32%;
+ }
  
- div.oneoffour { width: 24% }
- div.twooffour { margin-left: 10px;width: 24% }
- div.threeoffour { margin-left: 10px;width: 24% }
- div.fouroffour { margin-left: 10px;width: 24% }
+ div.oneoffour {
+     width: 24%;
+ }
+ div.twooffour {
+     margin-left: 10px;
+     width: 24%;
+ }
+ div.threeoffour {
+     margin-left: 10px;
+     width: 24%;
+ }
+ div.fouroffour {
+     margin-left: 10px;
+     width: 24%;
+ }
  
- div.oneoffive { width: 19% }
- div.twooffive { margin-left: 10px;width: 19% }
- div.threeoffive { margin-left: 10px;width: 19% }
- div.fouroffive { margin-left: 10px;width: 19% }
- div.fiveoffive { margin-left: 10px;width: 19% }
+ div.oneoffive {
+     width: 19%;
+ }
+ div.twooffive {
+     margin-left: 10px;
+     width: 19%;
+ }
+ div.threeoffive {
+     margin-left: 10px;
+     width: 19%;
+ }
+ div.fouroffive {
+     margin-left: 10px;
+     width: 19%;
+ }
+ div.fiveoffive {
+     margin-left: 10px;
+     width: 19%;
+ }
  
- div.oneofsix { width: 16% }
- div.twoofsix { margin-left: 10px;width: 16% }
- div.threeofsix { margin-left: 10px;width: 16% }
- div.fourofsix { margin-left: 10px;width: 16% }
- div.fiveofsix { margin-left: 10px;width: 16% }
- div.sixofsix { margin-left: 10px;width: 16% }
+ div.oneofsix {
+     width: 16%;
+ }
+ div.twoofsix {
+     margin-left: 10px;
+     width: 16%;
+ }
+ div.threeofsix {
+     margin-left: 10px;
+     width: 16%;
+ }
+ div.fourofsix {
+     margin-left: 10px;
+     width: 16%;
+ }
+ div.fiveofsix {
+     margin-left: 10px;
+     width: 16%;
+ }
+ div.sixofsix {
+     margin-left: 10px;
+     width: 16%;
+ }
  
- 
- a.alink:link {color:#007BFF;text-decoration:none;font-size:120%}
- a.alink:visited {color:#FF8400;text-decoration:none;font-size:120%}
- a.alink:hover {text-decoration:underline;font-size:130%}
+ a.alink:link {
+     color: #007bff;
+     text-decoration: none;
+     font-size: 120%;
+ }
+ a.alink:visited {
+     color: #ff8400;
+     text-decoration: none;
+     font-size: 120%;
+ }
+ a.alink:hover {
+     text-decoration: underline;
+     font-size: 130%;
+ }
  
  table.sortable thead {
-     background-color:#eee;
-     color:#666666;
+     background-color: #eee;
+     color: #666666;
      font-weight: bold;
      cursor: default;
  }
- 
  
  /* Style the list */
  ul.tab {
@@ -269,7 +345,9 @@
  }
  
  /* Float the list items side by side */
- ul.tab li {float: left;}
+ ul.tab li {
+     float: left;
+ }
  
  /* Style the links inside the list items */
  ul.tab li a {
@@ -283,10 +361,15 @@
  }
  
  /* Change background color of links on hover */
- ul.tab li a:hover {background-color: #ddd;}
+ ul.tab li a:hover {
+     background-color: #ddd;
+ }
  
  /* Create an active/current tablink class */
- ul.tab li a:focus, .active {background-color: #ccc;}
+ ul.tab li a:focus,
+ .active {
+     background-color: #ccc;
+ }
  
  /* Style the tab content */
  .tabcontent {
@@ -297,19 +380,26 @@
  }
  
  .PowerShell {
-   color: #EEEDF0;
-   background-color: #012456;
-   font-family: consolas;
-   font-size: 0.99em;
-   padding: .30em;
-   padding-top: 0.25em;
-   padding-right: 0.25em;
-   padding-bottom: 0.25em;
-   padding-left: 0.25em;
- } </style>
-            <!-- Scripts -->
-            <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script> 
-<script type="text/javascript">  
+     color: #eeedf0;
+     background-color: #012456;
+     font-family: consolas;
+     font-size: 0.99em;
+     padding: 0.3em;
+     padding-top: 0.25em;
+     padding-right: 0.25em;
+     padding-bottom: 0.25em;
+     padding-left: 0.25em;
+ }
+ </style> 
+
+<!-- Scripts -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"></script> 
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script> 
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script> 
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script> 
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script> 
+ 
+ <script type="text/javascript"> 
  function show(obj) {
    document.getElementById(obj).style.display='block'; 
    document.getElementById("hide_" + obj).style.display=''; 
@@ -320,7 +410,8 @@
    document.getElementById("hide_" + obj).style.display='none'; 
    document.getElementById("show_" + obj).style.display=''; 
  }  </script> 
-<script type="text/javascript">  
+ 
+ <script type="text/javascript"> 
  var stIsIE = /*@cc_on!@*/false;
  
  sorttable = {
@@ -798,7 +889,8 @@
  	}
  };
  </script> 
-<script type="text/javascript">  
+ 
+ <script type="text/javascript"> 
  function openTab(evt, tabName) {
      // Declare all variables
      var i, tabcontent, tablinks;
@@ -819,21 +911,22 @@
      document.getElementById(tabName).style.display = "block";
      evt.currentTarget.className += " active";
  }
- </script>
-        </head>
-        <!-- Body -->
-        <body onload="hide();">
+ </script> 
 
-			<!-- Report Header -->
-                        <table><tbody>
+</head>
+
+<!-- Body -->
+<body onload="hide();">
+<!-- Report Header -->
+            <table><tbody>
             <tr>
                 <td class="clientlogo"><img src="" /></td>
                 <td class="MainLogo"><img src="https://www.psmpartners.com/wp-content/uploads/2017/10/porcaro-stolarek-mete.png" /></td>
             </tr>
             </tbody></table>
-            <div class="pageTitle">Active Directory Report</div>
-            <hr />
-            <div class="ReportCreated">Report created on 2018-12-19 20:28:15</div>
+<div class="pageTitle">Active Directory Report</div>
+<hr />
+<div class="ReportCreated">Report created on 2018-12-20 13:33:18</div>
 <ul class="tab">
 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Dashboard')" id="defaultOpen">Dashboard</a></li>
 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Groups')">Groups</a></li>
@@ -843,7 +936,7 @@
 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Computers')">Computers</a></li>
 </ul>
 <div id="Dashboard" class="tabcontent">
-<h7>Report: 12-19-2018</h7>
+<h7>Report: 12-20-2018</h7>
 <div class="section">
 <div class="header">
     <a name="Company Information">Company Information</a>
@@ -870,7 +963,7 @@
 <div class="content" style="background-color:#F8F8F8;">
 <script>
  $(document).ready(function() {
-     $('#2zgql1b3').DataTable({
+     $('#sawlopxq').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -889,7 +982,7 @@
         "columns":    [{ "data": "Name" },{ "data": "Enabled" },{ "data": "Type" }]
      });
  } );
-</script><table id="2zgql1b3" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Type</th></tr></thead><tbody> <tr><td>Administrator</td><td>True</td><td>user</td></tr> <tr><td>Administrator Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>GDS-TestGroup3</td><td></td><td>group</td></tr> </tbody> </table>
+</script><table id="sawlopxq" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Type</th></tr></thead><tbody> <tr><td>Administrator</td><td>True</td><td>user</td></tr> <tr><td>Administrator Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>GDS-TestGroup3</td><td></td><td>group</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -901,7 +994,7 @@
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#5o8ia6qs').DataTable({
+     $('#sgq2p45c').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -920,7 +1013,7 @@
         "columns":    [{ "data": "Name" },{ "data": "Enabled" },{ "data": "Type" }]
      });
  } );
-</script><table id="5o8ia6qs" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Type</th></tr></thead><tbody> <tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>Administrator</td><td>True</td><td>user</td></tr> </tbody> </table>
+</script><table id="sgq2p45c" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Type</th></tr></thead><tbody> <tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>Administrator</td><td>True</td><td>user</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -939,7 +1032,7 @@
 <div class="content" style="background-color:#F8F8F8;">
 <script>
  $(document).ready(function() {
-     $('#c5yaj02v').DataTable({
+     $('#0q4px3vn').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -958,7 +1051,7 @@
         "columns":    [{ "data": "Name" },{ "data": "Enabled" },{ "data": "Operating System" },{ "data": "Modified Date" },{ "data": "Password Last Set" },{ "data": "Protect from Deletion" }]
      });
  } );
-</script><table id="c5yaj02v" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr></thead><tbody> <tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>02.12.2018 10:34:05</td><td>09.11.2018 17:26:20</td><td>False</td></tr> </tbody> </table>
+</script><table id="0q4px3vn" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr></thead><tbody> <tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>02.12.2018 10:34:05</td><td>09.11.2018 17:26:20</td><td>False</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -970,7 +1063,7 @@
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#m5age8no').DataTable({
+     $('#zophkef6').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -989,7 +1082,7 @@
         "columns":    [{ "data": "Name" },{ "data": "UserPrincipalName" },{ "data": "Enabled" },{ "data": "Protected from Deletion" },{ "data": "Last Logon" },{ "data": "Email Address" }]
      });
  } );
-</script><table id="m5age8no" class="display compact"><thead>  <tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th></tr></thead><tbody> <tr><td>Guest</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr> <tr><td>DefaultAccount</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr> <tr><td>krbtgt</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr> <tr><td>EVOTECPL$</td><td></td><td>True</td><td>False</td><td>Never</td><td></td></tr> <tr><td>Exchange Online-ApplicationAccount</td><td>Exchange_Online-ApplicationAccount@ad.evotec.xyz</td><td>True</td><td>False</td><td>Never</td><td></td></tr> <tr><td>Microsoft Exchange Approval Assistant</td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td></tr> <tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td></tr> <tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@ad.evotec.xyz</td></tr> <tr><td>Discovery Search Mailbox</td><td>DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td></tr> <tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td></tr> <tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td></tr> <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td>False</td><td>02.12.2018 23:53:44</td><td></td></tr> </tbody> </table>
+</script><table id="zophkef6" class="display compact"><thead>  <tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th></tr></thead><tbody> <tr><td>Guest</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr> <tr><td>DefaultAccount</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr> <tr><td>krbtgt</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr> <tr><td>EVOTECPL$</td><td></td><td>True</td><td>False</td><td>Never</td><td></td></tr> <tr><td>Exchange Online-ApplicationAccount</td><td>Exchange_Online-ApplicationAccount@ad.evotec.xyz</td><td>True</td><td>False</td><td>Never</td><td></td></tr> <tr><td>Microsoft Exchange Approval Assistant</td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td></tr> <tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td></tr> <tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@ad.evotec.xyz</td></tr> <tr><td>Discovery Search Mailbox</td><td>DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td></tr> <tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td></tr> <tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td></tr> <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td>False</td><td>02.12.2018 23:53:44</td><td></td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -1002,7 +1095,7 @@
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#zpvo6frx').DataTable({
+     $('#kczr4ui0').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1021,7 +1114,7 @@
         "columns":    [{ "data": "Name" },{ "data": "Object Type" },{ "data": "When Changed" }]
      });
  } );
-</script><table id="zpvo6frx" class="display compact"><thead>  <tr><th>Name</th><th>Object Type</th><th>When Changed</th></tr></thead><tbody> <tr><td>AD1</td><td>computer</td><td>17.12.2018 08:43:04</td></tr> <tfoot><tr><th>Name</th><th>Object Type</th><th>When Changed</th></tr></tfoot></tbody> </table>
+</script><table id="kczr4ui0" class="display compact"><thead>  <tr><th>Name</th><th>Object Type</th><th>When Changed</th></tr></thead><tbody> <tr><td>EVO1</td><td>computer</td><td>20.12.2018 01:03:01</td></tr> <tfoot><tr><th>Name</th><th>Object Type</th><th>When Changed</th></tr></tfoot></tbody> </table>
     </div>
     </div>
 <div class="section">
@@ -1037,7 +1130,7 @@
 <div class="content" style="background-color:#F8F8F8;">
 <script>
  $(document).ready(function() {
-     $('#l987yg4o').DataTable({
+     $('#0geit38o').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1056,7 +1149,7 @@
         "columns":    [{ "data": "Name" },{ "data": "Days Until Password Expires" }]
      });
  } );
-</script><table id="l987yg4o" class="display compact"><thead>  <tr><th>Name</th><th>Days Until Password Expires</th></tr></thead><tbody> <tr><td>EVOTECPL$</td><td>-12</td></tr> <tr><td>Special Test User</td><td>-67</td></tr> <tr><td>Some Mailbox</td><td>-50</td></tr> <tr><td>My User</td><td>-4</td></tr> <tr><td>My User 2</td><td>5</td></tr> </tbody> </table>
+</script><table id="0geit38o" class="display compact"><thead>  <tr><th>Name</th><th>Days Until Password Expires</th></tr></thead><tbody> <tr><td>EVOTECPL$</td><td>-13</td></tr> <tr><td>Special Test User</td><td>-68</td></tr> <tr><td>Some Mailbox</td><td>-51</td></tr> <tr><td>My User</td><td>-4</td></tr> <tr><td>My User 2</td><td>4</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -1068,7 +1161,7 @@
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#37k8ycbn').DataTable({
+     $('#2rnpgzlh').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1087,7 +1180,7 @@
         "columns":    [{ "data": "*" }]
      });
  } );
-</script><table id="37k8ycbn" class="display compact"><thead>  <tr><th>*</th></tr></thead><tbody> <tr><td>Information: No Users were found to expire soon</td></tr> </tbody> </table>
+</script><table id="2rnpgzlh" class="display compact"><thead>  <tr><th>*</th></tr></thead><tbody> <tr><td>Information: No Users were found to expire soon</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -1106,7 +1199,7 @@
 <div class="content" style="background-color:#F8F8F8;">
 <script>
  $(document).ready(function() {
-     $('#4wol1ruc').DataTable({
+     $('#g9slmyvi').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1125,7 +1218,7 @@
         "columns":    [{ "data": "Name" },{ "data": "UserPrincipalName" },{ "data": "Enabled" },{ "data": "Protected from Deletion" },{ "data": "Last Logon" },{ "data": "Password Never Expires" },{ "data": "Days Until Password Expires" }]
      });
  } );
-</script><table id="4wol1ruc" class="display compact"><thead>  <tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr></thead><tbody> <tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td>20.05.2018 16:15:39</td><td>True</td><td>N/A</td></tr> <tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td>17.09.2018 20:40:45</td><td>False</td><td>-50</td></tr> </tbody> </table>
+</script><table id="g9slmyvi" class="display compact"><thead>  <tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr></thead><tbody> <tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td>20.05.2018 16:15:39</td><td>True</td><td>N/A</td></tr> <tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td>17.09.2018 20:40:45</td><td>False</td><td>-51</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -1137,7 +1230,7 @@
 <div class="content" style="background-color:#F8F8F8;">
 <script>
  $(document).ready(function() {
-     $('#42tix5yp').DataTable({
+     $('#g7zyr5sq').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1156,7 +1249,7 @@
         "columns":    [{ "data": "*" }]
      });
  } );
-</script><table id="42tix5yp" class="display compact"><thead>  <tr><th>*</th></tr></thead><tbody> <tr><td>Information: No new users have been recently created</td></tr> </tbody> </table>
+</script><table id="g7zyr5sq" class="display compact"><thead>  <tr><th>*</th></tr></thead><tbody> <tr><td>Information: No new users have been recently created</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -1169,7 +1262,7 @@
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#d0jr9bom').DataTable({
+     $('#yu9mseg4').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1188,7 +1281,7 @@
         "columns":    [{ "data": "Time" },{ "data": "Type" },{ "data": "Message" }]
      });
  } );
-</script><table id="d0jr9bom" class="display compact"><thead>  <tr><th>Time</th><th>Type</th><th>Message</th></tr></thead><tbody> <tr><td>19.12.2018 20:28:05</td><td>FailureAudit</td><td>An account failed to log on.
+</script><table id="yu9mseg4" class="display compact"><thead>  <tr><th>Time</th><th>Type</th><th>Message</th></tr></thead><tbody> <tr><td>20.12.2018 13:33:07</td><td>FailureAudit</td><td>An account failed to log on.
 
 Subject:
 	Security ID:		S-1-0-0
@@ -1200,7 +1293,7 @@ Logon Type:			3
 
 Account For Which Logon Failed:
 	Security ID:		S-1-0-0
-	Account Name:		???
+	Account Name:		SERWER
 	Account Domain:		
 
 Failure Information:
@@ -1214,7 +1307,7 @@ Process Information:
 
 Network Information:
 	Workstation Name:	-
-	Source Network Address:	185.156.177.110
+	Source Network Address:	95.154.21.104
 	Source Port:		0
 
 Detailed Authentication Information:
@@ -1237,7 +1330,7 @@ The Network Information fields indicate where a remote logon request originated.
 The authentication information fields provide detailed information about this specific logon request.
 	- Transited services indicate which intermediate services have participated in this logon request.
 	- Package name indicates which sub-protocol was used among the NTLM protocols.
-	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr> <tr><td>19.12.2018 20:28:00</td><td>FailureAudit</td><td>An account failed to log on.
+	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr> <tr><td>20.12.2018 13:33:06</td><td>FailureAudit</td><td>An account failed to log on.
 
 Subject:
 	Security ID:		S-1-0-0
@@ -1249,140 +1342,7 @@ Logon Type:			3
 
 Account For Which Logon Failed:
 	Security ID:		S-1-0-0
-	Account Name:		ADMINISTRATOR
-	Account Domain:		
-
-Failure Information:
-	Failure Reason:		%%2313
-	Status:			0xc000006d
-	Sub Status:		0xc000006a
-
-Process Information:
-	Caller Process ID:	0x0
-	Caller Process Name:	-
-
-Network Information:
-	Workstation Name:	-
-	Source Network Address:	95.154.38.34
-	Source Port:		0
-
-Detailed Authentication Information:
-	Logon Process:		NtLmSsp 
-	Authentication Package:	NTLM
-	Transited Services:	-
-	Package Name (NTLM only):	-
-	Key Length:		0
-
-This event is generated when a logon request fails. It is generated on the computer where access was attempted.
-
-The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
-
-The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
-
-The Process Information fields indicate which account and process on the system requested the logon.
-
-The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
-
-The authentication information fields provide detailed information about this specific logon request.
-	- Transited services indicate which intermediate services have participated in this logon request.
-	- Package name indicates which sub-protocol was used among the NTLM protocols.
-	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr> <tr><td>19.12.2018 20:28:00</td><td>SuccessAudit</td><td>An account was successfully logged on.
-
-Subject:
-	Security ID:		S-1-5-18
-	Account Name:		EVO1$
-	Account Domain:		EVOTEC
-	Logon ID:		0x3e7
-
-Logon Information:
-	Logon Type:		4
-	Restricted Admin Mode:	-
-	Virtual Account:		%%1843
-	Elevated Token:		%%1842
-
-Impersonation Level:		%%1833
-
-New Logon:
-	Security ID:		S-1-5-21-853615985-2870445339-3163598659-1105
-	Account Name:		przemyslaw.klys
-	Account Domain:		EVOTEC
-	Logon ID:		0x47f0b40
-	Linked Logon ID:		0x0
-	Network Account Name:	-
-	Network Account Domain:	-
-	Logon GUID:		{2404026e-91e3-6780-9f99-dd9d090f3071}
-
-Process Information:
-	Process ID:		0x798
-	Process Name:		C:\Windows\System32\svchost.exe
-
-Network Information:
-	Workstation Name:	EVO1
-	Source Network Address:	-
-	Source Port:		-
-
-Detailed Authentication Information:
-	Logon Process:		Advapi  
-	Authentication Package:	Negotiate
-	Transited Services:	-
-	Package Name (NTLM only):	-
-	Key Length:		0
-
-This event is generated when a logon session is created. It is generated on the computer that was accessed.
-
-The subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
-
-The logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).
-
-The New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.
-
-The network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
-
-The impersonation level field indicates the extent to which a process in the logon session can impersonate.
-
-The authentication information fields provide detailed information about this specific logon request.
-	- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.
-	- Transited services indicate which intermediate services have participated in this logon request.
-	- Package name indicates which sub-protocol was used among the NTLM protocols.
-	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr> <tr><td>19.12.2018 20:28:00</td><td>SuccessAudit</td><td>A logon was attempted using explicit credentials.
-
-Subject:
-	Security ID:		S-1-5-18
-	Account Name:		EVO1$
-	Account Domain:		EVOTEC
-	Logon ID:		0x3e7
-	Logon GUID:		{00000000-0000-0000-0000-000000000000}
-
-Account Whose Credentials Were Used:
-	Account Name:		przemyslaw.klys
-	Account Domain:		EVOTEC
-	Logon GUID:		{2404026e-91e3-6780-9f99-dd9d090f3071}
-
-Target Server:
-	Target Server Name:	localhost
-	Additional Information:	localhost
-
-Process Information:
-	Process ID:		0x798
-	Process Name:		C:\Windows\System32\svchost.exe
-
-Network Information:
-	Network Address:	-
-	Port:			-
-
-This event is generated when a process attempts to log on an account by explicitly specifying that account’s credentials.  This most commonly occurs in batch-type configurations such as scheduled tasks, or when using the RUNAS command.</td></tr> <tr><td>19.12.2018 20:27:59</td><td>FailureAudit</td><td>An account failed to log on.
-
-Subject:
-	Security ID:		S-1-0-0
-	Account Name:		-
-	Account Domain:		-
-	Logon ID:		0x0
-
-Logon Type:			3
-
-Account For Which Logon Failed:
-	Security ID:		S-1-0-0
-	Account Name:		TREVOR
+	Account Name:		WILBUR
 	Account Domain:		
 
 Failure Information:
@@ -1419,7 +1379,7 @@ The Network Information fields indicate where a remote logon request originated.
 The authentication information fields provide detailed information about this specific logon request.
 	- Transited services indicate which intermediate services have participated in this logon request.
 	- Package name indicates which sub-protocol was used among the NTLM protocols.
-	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr> <tr><td>19.12.2018 20:27:55</td><td>FailureAudit</td><td>An account failed to log on.
+	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr> <tr><td>20.12.2018 13:33:02</td><td>FailureAudit</td><td>An account failed to log on.
 
 Subject:
 	Security ID:		S-1-0-0
@@ -1431,7 +1391,56 @@ Logon Type:			3
 
 Account For Which Logon Failed:
 	Security ID:		S-1-0-0
-	Account Name:		ADMIN
+	Account Name:		ADMINISTRATOR
+	Account Domain:		
+
+Failure Information:
+	Failure Reason:		%%2313
+	Status:			0xc000006d
+	Sub Status:		0xc000006a
+
+Process Information:
+	Caller Process ID:	0x0
+	Caller Process Name:	-
+
+Network Information:
+	Workstation Name:	-
+	Source Network Address:	185.156.177.110
+	Source Port:		0
+
+Detailed Authentication Information:
+	Logon Process:		NtLmSsp 
+	Authentication Package:	NTLM
+	Transited Services:	-
+	Package Name (NTLM only):	-
+	Key Length:		0
+
+This event is generated when a logon request fails. It is generated on the computer where access was attempted.
+
+The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
+
+The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
+
+The Process Information fields indicate which account and process on the system requested the logon.
+
+The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
+
+The authentication information fields provide detailed information about this specific logon request.
+	- Transited services indicate which intermediate services have participated in this logon request.
+	- Package name indicates which sub-protocol was used among the NTLM protocols.
+	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr> <tr><td>20.12.2018 13:33:01</td><td>FailureAudit</td><td>An account failed to log on.
+
+Subject:
+	Security ID:		S-1-0-0
+	Account Name:		-
+	Account Domain:		-
+	Logon ID:		0x0
+
+Logon Type:			3
+
+Account For Which Logon Failed:
+	Security ID:		S-1-0-0
+	Account Name:		ZUZANNA
 	Account Domain:		
 
 Failure Information:
@@ -1445,7 +1454,105 @@ Process Information:
 
 Network Information:
 	Workstation Name:	-
-	Source Network Address:	87.237.203.116
+	Source Network Address:	195.154.80.84
+	Source Port:		0
+
+Detailed Authentication Information:
+	Logon Process:		NtLmSsp 
+	Authentication Package:	NTLM
+	Transited Services:	-
+	Package Name (NTLM only):	-
+	Key Length:		0
+
+This event is generated when a logon request fails. It is generated on the computer where access was attempted.
+
+The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
+
+The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
+
+The Process Information fields indicate which account and process on the system requested the logon.
+
+The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
+
+The authentication information fields provide detailed information about this specific logon request.
+	- Transited services indicate which intermediate services have participated in this logon request.
+	- Package name indicates which sub-protocol was used among the NTLM protocols.
+	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr> <tr><td>20.12.2018 13:33:01</td><td>FailureAudit</td><td>An account failed to log on.
+
+Subject:
+	Security ID:		S-1-0-0
+	Account Name:		-
+	Account Domain:		-
+	Logon ID:		0x0
+
+Logon Type:			3
+
+Account For Which Logon Failed:
+	Security ID:		S-1-0-0
+	Account Name:		ADMINISTRATOR
+	Account Domain:		
+
+Failure Information:
+	Failure Reason:		%%2313
+	Status:			0xc000006d
+	Sub Status:		0xc000006a
+
+Process Information:
+	Caller Process ID:	0x0
+	Caller Process Name:	-
+
+Network Information:
+	Workstation Name:	-
+	Source Network Address:	95.154.23.62
+	Source Port:		0
+
+Detailed Authentication Information:
+	Logon Process:		NtLmSsp 
+	Authentication Package:	NTLM
+	Transited Services:	-
+	Package Name (NTLM only):	-
+	Key Length:		0
+
+This event is generated when a logon request fails. It is generated on the computer where access was attempted.
+
+The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
+
+The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
+
+The Process Information fields indicate which account and process on the system requested the logon.
+
+The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
+
+The authentication information fields provide detailed information about this specific logon request.
+	- Transited services indicate which intermediate services have participated in this logon request.
+	- Package name indicates which sub-protocol was used among the NTLM protocols.
+	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr> <tr><td>20.12.2018 13:33:00</td><td>FailureAudit</td><td>An account failed to log on.
+
+Subject:
+	Security ID:		S-1-0-0
+	Account Name:		-
+	Account Domain:		-
+	Logon ID:		0x0
+
+Logon Type:			3
+
+Account For Which Logon Failed:
+	Security ID:		S-1-0-0
+	Account Name:		ZDALNY
+	Account Domain:		
+
+Failure Information:
+	Failure Reason:		%%2313
+	Status:			0xc000006d
+	Sub Status:		0xc0000064
+
+Process Information:
+	Caller Process ID:	0x0
+	Caller Process Name:	-
+
+Network Information:
+	Workstation Name:	-
+	Source Network Address:	109.74.13.161
 	Source Port:		0
 
 Detailed Authentication Information:
@@ -1485,14 +1592,13 @@ The authentication information fields provide detailed information about this sp
 </table>
     </div>
     </div>
-</p>
 </div>
 <script>
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
 <div id="Groups" class="tabcontent">
-<h7>Report: 12-19-2018</h7>
+<h7>Report: 12-20-2018</h7>
 <div class="section">
 <div class="header">
     <a name="Groups Overivew">Groups Overivew</a>
@@ -1501,7 +1607,7 @@ document.getElementById("defaultOpen").click();
 <table class="sortable">
 
 <tr><th>Total Groups</th><th>Mail-Enabled Security Groups</th><th>Security Groups</th><th>Distribution Groups</th></tr>
-<tr><td>73</td><td>0</td><td>71</td><td>2</td></tr>
+<tr><td>73</td><td>0</td><td>71</td><td></td></tr>
 </table>
 </table>
     </div>
@@ -1513,7 +1619,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#bcwmda5o').DataTable({
+     $('#uf28wnsy').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1532,7 +1638,7 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "Name" },{ "data": "Type" },{ "data": "Members" },{ "data": "Managed By" },{ "data": "E-mail Address" },{ "data": "Protected from Deletion" },{ "data": "Default AD Group" }]
      });
  } );
-</script><table id="bcwmda5o" class="display compact"><thead>  <tr><th>Name</th><th>Type</th><th>Members</th><th>Managed By</th><th>E-mail Address</th><th>Protected from Deletion</th><th>Default AD Group</th></tr></thead><tbody> <tr><td>Administrators</td><td>Security Group</td><td>Administrator, Enterprise Admins, Domain Admins</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Users</td><td>Security Group</td><td>INTERACTIVE, Authenticated Users, Domain Users</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Guests</td><td>Security Group</td><td>Guest, Domain Guests</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Print Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Backup Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Replicator</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Remote Desktop Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Network Configuration Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Performance Monitor Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Performance Log Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Distributed COM Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>IIS_IUSRS</td><td>Security Group</td><td>IUSR</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Cryptographic Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Event Log Readers</td><td>Security Group</td><td>EVO1</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Certificate Service DCOM Access</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>RDS Remote Access Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>RDS Endpoint Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>RDS Management Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Hyper-V Administrators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Access Control Assistance Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Remote Management Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>System Managed Accounts Group</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Storage Replica Administrators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Domain Computers</td><td>Security Group</td><td>Test4, Test2, EX2013X3, ADCONNECT, TestingDSInstall, Test5, DESKTOP-CQESSGI, EX2016X1, EVO1, EX2013X2, EX2013X1, DESKTOP-68J4BAT</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Domain Controllers</td><td>Security Group</td><td>AD2, AD1</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Schema Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Enterprise Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Cert Publishers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Domain Admins</td><td>Security Group</td><td>Przemyslaw Klys, GDS-TestGroup3, Administrator, Administrator Przemyslaw Klys</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Domain Users</td><td>Security Group</td><td>Skipped Domain Users Membership</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Domain Guests</td><td>Security Group</td><td>Guest</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Group Policy Creator Owners</td><td>Security Group</td><td>Administrator</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>RAS and IAS Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Server Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Account Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Pre-Windows 2000 Compatible Access</td><td>Security Group</td><td>Authenticated Users</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Incoming Forest Trust Builders</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Windows Authorization Access Group</td><td>Security Group</td><td>ENTERPRISE DOMAIN CONTROLLERS, Exchange Servers</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Terminal Server License Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Allowed RODC Password Replication Group</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Denied RODC Password Replication Group</td><td>Security Group</td><td>Enterprise Admins, Schema Admins, Domain Controllers, Cert Publishers, Read-only Domain Controllers, Group Policy Creator Owners, Domain Admins</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Read-only Domain Controllers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Enterprise Read-only Domain Controllers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Cloneable Domain Controllers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Protected Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Key Admins</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Enterprise Key Admins</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>DnsAdmins</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>DnsUpdateProxy</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>GDS-TestGroup1</td><td>Security Group</td><td>Administrator, Domain Admins, Administrator Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr> <tr><td>GDS-TestGroup2</td><td>Distribution Group</td><td>Administrator Przemyslaw Klys, Domain Admins, Administrator</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr> <tr><td>GDS-TestGroup3</td><td>Security Group</td><td>GDS-TestGroup2</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr> <tr><td>GDS-TestGroup4</td><td>Security Group</td><td>Administrator, Administrator Przemyslaw Klys</td><td>Administrator Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr> <tr><td>Organization Management</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Recipient Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>View-Only Organization Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Public Folder Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>UM Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Help Desk</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Records Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Discovery Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Server Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Delegated Setup</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Hygiene Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Compliance Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Exchange Servers</td><td>Security Group</td><td>Exchange Install Domain Servers, EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Exchange Trusted Subsystem</td><td>Security Group</td><td>EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Managed Availability Servers</td><td>Security Group</td><td>Exchange Servers, EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Exchange Windows Permissions</td><td>Security Group</td><td>Exchange Trusted Subsystem</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>ExchangeLegacyInterop</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Exchange Install Domain Servers</td><td>Security Group</td><td>EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>GDS-TestGroup5</td><td>Distribution Group</td><td>Test User Test, Service Task Scheduler, Przemyslaw Klys, New n. New, Some Mailbox, Expiration Date Test, Special Test User</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Disabled Users</td><td>Security Group</td><td>My User</td><td></td><td></td><td>False</td><td>False</td></tr> </tbody> </table>
+</script><table id="uf28wnsy" class="display compact"><thead>  <tr><th>Name</th><th>Type</th><th>Members</th><th>Managed By</th><th>E-mail Address</th><th>Protected from Deletion</th><th>Default AD Group</th></tr></thead><tbody> <tr><td>Administrators</td><td>Security Group</td><td>Domain Admins, Enterprise Admins, Administrator</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Users</td><td>Security Group</td><td>Domain Users, INTERACTIVE, Authenticated Users</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Guests</td><td>Security Group</td><td>Guest, Domain Guests</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Print Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Backup Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Replicator</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Remote Desktop Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Network Configuration Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Performance Monitor Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Performance Log Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Distributed COM Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>IIS_IUSRS</td><td>Security Group</td><td>IUSR</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Cryptographic Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Event Log Readers</td><td>Security Group</td><td>EVO1</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Certificate Service DCOM Access</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>RDS Remote Access Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>RDS Endpoint Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>RDS Management Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Hyper-V Administrators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Access Control Assistance Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Remote Management Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>System Managed Accounts Group</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Storage Replica Administrators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Domain Computers</td><td>Security Group</td><td>Test4, Test2, EX2013X3, ADCONNECT, TestingDSInstall, Test5, DESKTOP-CQESSGI, EX2016X1, EVO1, EX2013X2, EX2013X1, DESKTOP-68J4BAT</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Domain Controllers</td><td>Security Group</td><td>AD1, AD2</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Schema Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Enterprise Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Cert Publishers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Domain Admins</td><td>Security Group</td><td>Przemyslaw Klys, GDS-TestGroup3, Administrator, Administrator Przemyslaw Klys</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Domain Users</td><td>Security Group</td><td>Skipped Domain Users Membership</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Domain Guests</td><td>Security Group</td><td>Guest</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Group Policy Creator Owners</td><td>Security Group</td><td>Administrator</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>RAS and IAS Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Server Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Account Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Pre-Windows 2000 Compatible Access</td><td>Security Group</td><td>Authenticated Users</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Incoming Forest Trust Builders</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Windows Authorization Access Group</td><td>Security Group</td><td>ENTERPRISE DOMAIN CONTROLLERS, Exchange Servers</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Terminal Server License Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Allowed RODC Password Replication Group</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Denied RODC Password Replication Group</td><td>Security Group</td><td>Schema Admins, Domain Admins, Cert Publishers, Enterprise Admins, Read-only Domain Controllers, Domain Controllers, Group Policy Creator Owners</td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Read-only Domain Controllers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Enterprise Read-only Domain Controllers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Cloneable Domain Controllers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Protected Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Key Admins</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>Enterprise Key Admins</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>DnsAdmins</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>DnsUpdateProxy</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr> <tr><td>GDS-TestGroup1</td><td>Security Group</td><td>Domain Admins, Administrator, Administrator Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr> <tr><td>GDS-TestGroup2</td><td>Distribution Group</td><td>Administrator Przemyslaw Klys, Administrator, Domain Admins</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr> <tr><td>GDS-TestGroup3</td><td>Security Group</td><td>GDS-TestGroup2</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr> <tr><td>GDS-TestGroup4</td><td>Security Group</td><td>Administrator, Administrator Przemyslaw Klys</td><td>Administrator Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr> <tr><td>Organization Management</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Recipient Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>View-Only Organization Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Public Folder Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>UM Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Help Desk</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Records Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Discovery Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Server Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Delegated Setup</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Hygiene Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Compliance Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Exchange Servers</td><td>Security Group</td><td>Exchange Install Domain Servers, EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Exchange Trusted Subsystem</td><td>Security Group</td><td>EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Managed Availability Servers</td><td>Security Group</td><td>Exchange Servers, EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Exchange Windows Permissions</td><td>Security Group</td><td>Exchange Trusted Subsystem</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>ExchangeLegacyInterop</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Exchange Install Domain Servers</td><td>Security Group</td><td>EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>GDS-TestGroup5</td><td>Distribution Group</td><td>Test User Test, Service Task Scheduler, Przemyslaw Klys, New n. New, Some Mailbox, Expiration Date Test, Special Test User</td><td></td><td></td><td>False</td><td>False</td></tr> <tr><td>Disabled Users</td><td>Security Group</td><td>My User</td><td></td><td></td><td>False</td><td>False</td></tr> </tbody> </table>
     </div>
     </div>
 <div class="first column">
@@ -1543,7 +1649,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#F8F8F8;">
 <script>
  $(document).ready(function() {
-     $('#lj27bkfy').DataTable({
+     $('#b40sqkhd').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1562,7 +1668,7 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "Name" },{ "data": "Enabled" },{ "data": "Type" }]
      });
  } );
-</script><table id="lj27bkfy" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Type</th></tr></thead><tbody> <tr><td>Administrator</td><td>True</td><td>user</td></tr> <tr><td>Administrator Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>GDS-TestGroup3</td><td></td><td>group</td></tr> </tbody> </table>
+</script><table id="b40sqkhd" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Type</th></tr></thead><tbody> <tr><td>Administrator</td><td>True</td><td>user</td></tr> <tr><td>Administrator Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>GDS-TestGroup3</td><td></td><td>group</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -1574,7 +1680,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#9vhqjadb').DataTable({
+     $('#q3oxkf9r').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1593,7 +1699,7 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "Name" },{ "data": "Enabled" },{ "data": "Type" }]
      });
  } );
-</script><table id="9vhqjadb" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Type</th></tr></thead><tbody> <tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>Administrator</td><td>True</td><td>user</td></tr> </tbody> </table>
+</script><table id="q3oxkf9r" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Type</th></tr></thead><tbody> <tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr> <tr><td>Administrator</td><td>True</td><td>user</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -1603,18 +1709,18 @@ document.getElementById("defaultOpen").click();
 </div>
 <div class="content" style="background-color:#ffffff;">
 <div class="oneoffour column">
-<canvas id="hauJcEPnKbeL" width="250" height="250"></canvas>
+<canvas id="URQZCuDbdqhI" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("hauJcEPnKbeL");
-var hauJcEPnKbeL = new Chart(ctx, {
+var ctx = document.getElementById("URQZCuDbdqhI");
+var URQZCuDbdqhI = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Mail-Enabled Security Groups","Security Groups","Distribution Groups"],
 		datasets: [{
 			label: 'Data',
 			data: [0,71,2],
-			backgroundColor: ['rgba(135,87,85,0.7)','rgba(224,86,214,0.7)','rgba(230,84,192,0.7)'],
-			hoverBackgroundColor:  ['rgba(135,87,85,1)','rgba(224,86,214,1)','rgba(230,84,192,1)'],
+			backgroundColor: ['rgba(64,100,100,0.7)','rgba(142,109,76,0.7)','rgba(242,96,233,0.7)'],
+			hoverBackgroundColor:  ['rgba(64,100,100,1)','rgba(142,109,76,1)','rgba(242,96,233,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -1636,10 +1742,10 @@ var hauJcEPnKbeL = new Chart(ctx, {
  </script>
 </div>
 <div class="twooffour column">
-<canvas id="PawtlGQELgjf" width="250" height="250"></canvas>
+<canvas id="drgQHqELxchj" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("PawtlGQELgjf");
-var PawtlGQELgjf = new Chart(ctx, {
+var ctx = document.getElementById("drgQHqELxchj");
+var drgQHqELxchj = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Default Groups","Custom Groups"],
@@ -1669,18 +1775,18 @@ var PawtlGQELgjf = new Chart(ctx, {
  </script>
 </div>
 <div class="threeoffour column">
-<canvas id="DwCBzslOQWfL" width="250" height="250"></canvas>
+<canvas id="iafcPWxzoRdp" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("DwCBzslOQWfL");
-var DwCBzslOQWfL = new Chart(ctx, {
+var ctx = document.getElementById("iafcPWxzoRdp");
+var iafcPWxzoRdp = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["With Members","No Members"],
 		datasets: [{
 			label: 'Data',
 			data: [27,45],
-			backgroundColor: ['rgba(104,68,133,0.7)','rgba(98,85,50,0.7)'],
-			hoverBackgroundColor:  ['rgba(104,68,133,1)','rgba(98,85,50,1)'],
+			backgroundColor: ['rgba(197,52,180,0.7)','rgba(189,103,196,0.7)'],
+			hoverBackgroundColor:  ['rgba(197,52,180,1)','rgba(189,103,196,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -1702,18 +1808,18 @@ var DwCBzslOQWfL = new Chart(ctx, {
  </script>
 </div>
 <div class="fouroffour column">
-<canvas id="uagZTWrPDUqB" width="250" height="250"></canvas>
+<canvas id="jYprcgkwUZLz" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("uagZTWrPDUqB");
-var uagZTWrPDUqB = new Chart(ctx, {
+var ctx = document.getElementById("jYprcgkwUZLz");
+var jYprcgkwUZLz = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Protected","Not Protected"],
 		datasets: [{
 			label: 'Data',
 			data: [0,73],
-			backgroundColor: ['rgba(13,116,117,0.7)','rgba(83,125,61,0.7)'],
-			hoverBackgroundColor:  ['rgba(13,116,117,1)','rgba(83,125,61,1)'],
+			backgroundColor: ['rgba(55,143,52,0.7)','rgba(64,238,219,0.7)'],
+			hoverBackgroundColor:  ['rgba(55,143,52,1)','rgba(64,238,219,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -1736,14 +1842,13 @@ var uagZTWrPDUqB = new Chart(ctx, {
 </div>
     </div>
     </div>
-</p>
 </div>
 <script>
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
 <div id="Organizational Units" class="tabcontent">
-<h7>Report: 12-19-2018</h7>
+<h7>Report: 12-20-2018</h7>
 <div class="section">
 <div class="header">
     <a name="Organizational Units">Organizational Units</a>
@@ -1751,7 +1856,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#9jf6sn7d').DataTable({
+     $('#qbrcnge7').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1770,7 +1875,7 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "Name" },{ "data": "Linked GPOs" },{ "data": "Modified Date" },{ "data": "Protected from Deletion" }]
      });
  } );
-</script><table id="9jf6sn7d" class="display compact"><thead>  <tr><th>Name</th><th>Linked GPOs</th><th>Modified Date</th><th>Protected from Deletion</th></tr></thead><tbody> <tr><td>Domain Controllers</td><td>DC | Event Log Audit Rules, DC | Event Log Settings, Default Domain Controllers Policy</td><td>20.05.2018 23:20:04</td><td>False</td></tr> <tr><td>Production</td><td>None</td><td>27.05.2018 00:16:19</td><td>True</td></tr> <tr><td>Groups</td><td>None</td><td>27.05.2018 00:16:36</td><td>True</td></tr> <tr><td>SecurityGroups</td><td>None</td><td>27.05.2018 00:16:36</td><td>True</td></tr> <tr><td>Users</td><td>None</td><td>16.07.2018 13:54:34</td><td>True</td></tr> <tr><td>Microsoft Exchange Security Groups</td><td>None</td><td>05.08.2018 09:54:36</td><td>False</td></tr> <tr><td>Users-Offboarded</td><td>None</td><td>05.08.2018 12:07:12</td><td>True</td></tr> <tr><td>Computers</td><td>ALL | Bitlocker Settings, COMPUTERS | Enable Sets</td><td>08.08.2018 17:24:43</td><td>False</td></tr> <tr><td>Servers</td><td>ALL | Bitlocker Settings</td><td>24.08.2018 10:05:33</td><td>True</td></tr> <tr><td>Contacts</td><td>None</td><td>26.08.2018 09:46:19</td><td>True</td></tr> <tr><td>Users-O365</td><td>Users | Synced Office 365 Users</td><td>19.11.2018 22:54:44</td><td>True</td></tr> </tbody> </table>
+</script><table id="qbrcnge7" class="display compact"><thead>  <tr><th>Name</th><th>Linked GPOs</th><th>Modified Date</th><th>Protected from Deletion</th></tr></thead><tbody> <tr><td>Domain Controllers</td><td>DC | Event Log Audit Rules, DC | Event Log Settings, Default Domain Controllers Policy</td><td>20.05.2018 23:20:04</td><td>False</td></tr> <tr><td>Production</td><td>None</td><td>27.05.2018 00:16:19</td><td>True</td></tr> <tr><td>Groups</td><td>None</td><td>27.05.2018 00:16:36</td><td>True</td></tr> <tr><td>SecurityGroups</td><td>None</td><td>27.05.2018 00:16:36</td><td>True</td></tr> <tr><td>Users</td><td>None</td><td>16.07.2018 13:54:34</td><td>True</td></tr> <tr><td>Microsoft Exchange Security Groups</td><td>None</td><td>05.08.2018 09:54:36</td><td>False</td></tr> <tr><td>Users-Offboarded</td><td>None</td><td>05.08.2018 12:07:12</td><td>True</td></tr> <tr><td>Computers</td><td>ALL | Bitlocker Settings, COMPUTERS | Enable Sets</td><td>08.08.2018 17:24:43</td><td>False</td></tr> <tr><td>Servers</td><td>ALL | Bitlocker Settings</td><td>24.08.2018 10:05:33</td><td>True</td></tr> <tr><td>Contacts</td><td>None</td><td>26.08.2018 09:46:19</td><td>True</td></tr> <tr><td>Users-O365</td><td>Users | Synced Office 365 Users</td><td>19.11.2018 22:54:44</td><td>True</td></tr> </tbody> </table>
     </div>
     </div>
 <div class="section">
@@ -1779,18 +1884,18 @@ document.getElementById("defaultOpen").click();
 </div>
 <div class="content" style="background-color:#ffffff;">
 <div class="oneoftwo column">
-<canvas id="cvxKRwozOjDt" width="250" height="250"></canvas>
+<canvas id="EQleibMqISpd" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("cvxKRwozOjDt");
-var cvxKRwozOjDt = new Chart(ctx, {
+var ctx = document.getElementById("EQleibMqISpd");
+var EQleibMqISpd = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["OUs with no GPO's linked","OUs with GPO's linked"],
 		datasets: [{
 			label: 'Data',
 			data: [7,4],
-			backgroundColor: ['rgba(150,171,209,0.7)','rgba(147,118,233,0.7)'],
-			hoverBackgroundColor:  ['rgba(150,171,209,1)','rgba(147,118,233,1)'],
+			backgroundColor: ['rgba(141,61,92,0.7)','rgba(20,63,126,0.7)'],
+			hoverBackgroundColor:  ['rgba(141,61,92,1)','rgba(20,63,126,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -1812,18 +1917,18 @@ var cvxKRwozOjDt = new Chart(ctx, {
  </script>
 </div>
 <div class="twooftwo column">
-<canvas id="KgwsAkCJIbtq" width="250" height="250"></canvas>
+<canvas id="JRNrFBWqYuAD" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("KgwsAkCJIbtq");
-var KgwsAkCJIbtq = new Chart(ctx, {
+var ctx = document.getElementById("JRNrFBWqYuAD");
+var JRNrFBWqYuAD = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Protected","Not Protected"],
 		datasets: [{
 			label: 'Data',
 			data: [8,3],
-			backgroundColor: ['rgba(71,184,17,0.7)','rgba(76,127,115,0.7)'],
-			hoverBackgroundColor:  ['rgba(71,184,17,1)','rgba(76,127,115,1)'],
+			backgroundColor: ['rgba(179,164,250,0.7)','rgba(181,57,199,0.7)'],
+			hoverBackgroundColor:  ['rgba(179,164,250,1)','rgba(181,57,199,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -1846,14 +1951,13 @@ var KgwsAkCJIbtq = new Chart(ctx, {
 </div>
     </div>
     </div>
-</p>
 </div>
 <script>
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
 <div id="Users" class="tabcontent">
-<h7>Report: 12-19-2018</h7>
+<h7>Report: 12-20-2018</h7>
 <div class="section">
 <div class="header">
     <a name="Users Overivew">Users Overivew</a>
@@ -1874,7 +1978,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#076jptlz').DataTable({
+     $('#m9ln6goi').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1893,7 +1997,7 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "Name" },{ "data": "UserPrincipalName" },{ "data": "Enabled" },{ "data": "Protected from Deletion" },{ "data": "Last Logon" },{ "data": "Email Address" },{ "data": "Account Expiration" },{ "data": "Change Password Next Logon" },{ "data": "Password Last Set" },{ "data": "Password Never Expires" },{ "data": "Days Until Password Expires" }]
      });
  } );
-</script><table id="076jptlz" class="display compact"><thead>  <tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th><th>Account Expiration</th><th>Change Password Next Logon</th><th>Password Last Set</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr></thead><tbody> <tr><td>Administrator</td><td>Administrator@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>Administrator@ad.evotec.xyz</td><td></td><td>False</td><td>19.05.2018 21:08:11</td><td>True</td><td>N/A</td></tr> <tr><td>Guest</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td></td><td>True</td><td>N/A</td></tr> <tr><td>DefaultAccount</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td></td><td>True</td><td>N/A</td></tr> <tr><td>krbtgt</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>True</td><td>20.05.2018 09:56:36</td><td>False</td><td>N/A</td></tr> <tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>20.05.2018 10:22:34</td><td>True</td><td>N/A</td></tr> <tr><td>Przemyslaw Klys</td><td>przemyslaw.klys@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>przemyslaw.klys@evotec.pl</td><td></td><td>False</td><td>20.05.2018 16:09:12</td><td>True</td><td>N/A</td></tr> <tr><td>Service Task Scheduler</td><td>svcTaskScheduler@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td>09.07.2018 18:29:52</td><td>True</td><td>N/A</td></tr> <tr><td>Test User Test</td><td>test@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td></td><td>False</td><td>User has never logged on</td></tr> <tr><td>New n. New</td><td>new@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>EVOTECPL$</td><td></td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>26.10.2018 00:23:28</td><td>False</td><td>-12</td></tr> <tr><td>Exchange Online-ApplicationAccount</td><td>Exchange_Online-ApplicationAccount@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td></td><td>False</td><td>User has never logged on</td></tr> <tr><td>Microsoft Exchange Approval Assistant</td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>Discovery Search Mailbox</td><td>DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>Special Test User</td><td>SpecialTestUser@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td>01.09.2018 12:00:04</td><td>False</td><td>-67</td></tr> <tr><td>Expiration Date Test</td><td>expiration@evotec.xyz</td><td>False</td><td>False</td><td></td><td>expiration@evotec.xyz</td><td>17.09.2018 00:00:00</td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td>HealthMailboxceaf9714b5e8497aabe5d8c7d390c762@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxceaf9714b5e8497aabe5d8c7d390c762@ad.evotec.xyz</td><td></td><td>False</td><td>22.10.2018 07:54:30</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td>HealthMailbox14193432ba1143fda716adf2892e98c6@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox14193432ba1143fda716adf2892e98c6@ad.evotec.xyz</td><td></td><td>False</td><td>22.10.2018 07:54:37</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td>HealthMailbox60155b13835f4e669b2fabf5b95dfd74@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox60155b13835f4e669b2fabf5b95dfd74@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:16</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td>HealthMailboxbb779b7f61384f1abd85a4cc2e793321@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxbb779b7f61384f1abd85a4cc2e793321@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:05</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td>HealthMailboxe03c754075c6456cac3e996649243352@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxe03c754075c6456cac3e996649243352@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:27</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td>HealthMailbox61f9b982483640bf8ce51c097113cc94@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox61f9b982483640bf8ce51c097113cc94@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:38</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td>HealthMailboxc57ed73ae291405da8589c3f2d9a94da@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxc57ed73ae291405da8589c3f2d9a94da@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:48</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td>HealthMailboxfcd7e01b1f1246449c76ee183185ee32@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxfcd7e01b1f1246449c76ee183185ee32@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:15</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td>HealthMailbox751984c8c5c54b849143e72fccb98a27@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox751984c8c5c54b849143e72fccb98a27@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:32</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:46</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td>HealthMailbox603739f5e90b43539922000fece40c6b@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox603739f5e90b43539922000fece40c6b@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:57</td><td>True</td><td>N/A</td></tr> <tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td></td><td>SomeMailbox@ad.evotec.xyz</td><td></td><td>True</td><td>17.09.2018 20:39:50</td><td>False</td><td>-50</td></tr> <tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td></td><td>False</td><td>24.11.2018 12:08:23</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td></td><td>False</td><td>24.11.2018 12:08:31</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:04</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:15</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td>HealthMailbox49c425434f14404789901106b55279ad@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox49c425434f14404789901106b55279ad@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:26</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td>HealthMailbox2d50e3005c484d25a609113593de2c33@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox2d50e3005c484d25a609113593de2c33@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:37</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:48</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:59</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:09</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:20</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:30</td><td>True</td><td>N/A</td></tr> <tr><td>My User</td><td>myuserPrincipal@evotec.pl</td><td>True</td><td>False</td><td></td><td>my.user2@evotec.pl</td><td></td><td>True</td><td>03.11.2018 18:05:01</td><td>False</td><td>-4</td></tr> <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>09.11.2018 17:54:07</td><td>True</td><td>N/A</td></tr> <tr><td>My User 2</td><td>myUser2@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>12.11.2018 21:23:59</td><td>False</td><td>5</td></tr> </tbody> </table>
+</script><table id="m9ln6goi" class="display compact"><thead>  <tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th><th>Account Expiration</th><th>Change Password Next Logon</th><th>Password Last Set</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr></thead><tbody> <tr><td>Administrator</td><td>Administrator@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>Administrator@ad.evotec.xyz</td><td></td><td>False</td><td>19.05.2018 21:08:11</td><td>True</td><td>N/A</td></tr> <tr><td>Guest</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td></td><td>True</td><td>N/A</td></tr> <tr><td>DefaultAccount</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td></td><td>True</td><td>N/A</td></tr> <tr><td>krbtgt</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>True</td><td>20.05.2018 09:56:36</td><td>False</td><td>N/A</td></tr> <tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>20.05.2018 10:22:34</td><td>True</td><td>N/A</td></tr> <tr><td>Przemyslaw Klys</td><td>przemyslaw.klys@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>przemyslaw.klys@evotec.pl</td><td></td><td>False</td><td>20.05.2018 16:09:12</td><td>True</td><td>N/A</td></tr> <tr><td>Service Task Scheduler</td><td>svcTaskScheduler@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td>09.07.2018 18:29:52</td><td>True</td><td>N/A</td></tr> <tr><td>Test User Test</td><td>test@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td></td><td>False</td><td>User has never logged on</td></tr> <tr><td>New n. New</td><td>new@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>EVOTECPL$</td><td></td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>26.10.2018 00:23:28</td><td>False</td><td>-13</td></tr> <tr><td>Exchange Online-ApplicationAccount</td><td>Exchange_Online-ApplicationAccount@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td></td><td>False</td><td>User has never logged on</td></tr> <tr><td>Microsoft Exchange Approval Assistant</td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>Discovery Search Mailbox</td><td>DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>Special Test User</td><td>SpecialTestUser@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td>01.09.2018 12:00:04</td><td>False</td><td>-68</td></tr> <tr><td>Expiration Date Test</td><td>expiration@evotec.xyz</td><td>False</td><td>False</td><td></td><td>expiration@evotec.xyz</td><td>17.09.2018 00:00:00</td><td>True</td><td></td><td>False</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td>HealthMailboxceaf9714b5e8497aabe5d8c7d390c762@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxceaf9714b5e8497aabe5d8c7d390c762@ad.evotec.xyz</td><td></td><td>False</td><td>22.10.2018 07:54:30</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td>HealthMailbox14193432ba1143fda716adf2892e98c6@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox14193432ba1143fda716adf2892e98c6@ad.evotec.xyz</td><td></td><td>False</td><td>22.10.2018 07:54:37</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td>HealthMailbox60155b13835f4e669b2fabf5b95dfd74@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox60155b13835f4e669b2fabf5b95dfd74@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:16</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td>HealthMailboxbb779b7f61384f1abd85a4cc2e793321@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxbb779b7f61384f1abd85a4cc2e793321@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:05</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td>HealthMailboxe03c754075c6456cac3e996649243352@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxe03c754075c6456cac3e996649243352@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:27</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td>HealthMailbox61f9b982483640bf8ce51c097113cc94@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox61f9b982483640bf8ce51c097113cc94@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:38</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td>HealthMailboxc57ed73ae291405da8589c3f2d9a94da@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxc57ed73ae291405da8589c3f2d9a94da@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:48</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td>HealthMailboxfcd7e01b1f1246449c76ee183185ee32@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxfcd7e01b1f1246449c76ee183185ee32@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:15</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td>HealthMailbox751984c8c5c54b849143e72fccb98a27@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox751984c8c5c54b849143e72fccb98a27@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:32</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:46</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td>HealthMailbox603739f5e90b43539922000fece40c6b@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox603739f5e90b43539922000fece40c6b@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:57</td><td>True</td><td>N/A</td></tr> <tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td></td><td>SomeMailbox@ad.evotec.xyz</td><td></td><td>True</td><td>17.09.2018 20:39:50</td><td>False</td><td>-51</td></tr> <tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td></td><td>False</td><td>24.11.2018 12:08:23</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td></td><td>False</td><td>24.11.2018 12:08:31</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:04</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:15</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td>HealthMailbox49c425434f14404789901106b55279ad@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox49c425434f14404789901106b55279ad@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:26</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td>HealthMailbox2d50e3005c484d25a609113593de2c33@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox2d50e3005c484d25a609113593de2c33@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:37</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:48</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:59</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:09</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:20</td><td>True</td><td>N/A</td></tr> <tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:30</td><td>True</td><td>N/A</td></tr> <tr><td>My User</td><td>myuserPrincipal@evotec.pl</td><td>True</td><td>False</td><td></td><td>my.user2@evotec.pl</td><td></td><td>True</td><td>03.11.2018 18:05:01</td><td>False</td><td>-4</td></tr> <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>09.11.2018 17:54:07</td><td>True</td><td>N/A</td></tr> <tr><td>My User 2</td><td>myUser2@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>12.11.2018 21:23:59</td><td>False</td><td>4</td></tr> </tbody> </table>
     </div>
     </div>
 <div class="section">
@@ -1909,7 +2013,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#F8F8F8;">
 <script>
  $(document).ready(function() {
-     $('#yhtw6kvr').DataTable({
+     $('#f2095sde').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1928,7 +2032,7 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "Name" },{ "data": "Days Until Password Expires" }]
      });
  } );
-</script><table id="yhtw6kvr" class="display compact"><thead>  <tr><th>Name</th><th>Days Until Password Expires</th></tr></thead><tbody> <tr><td>EVOTECPL$</td><td>-12</td></tr> <tr><td>Special Test User</td><td>-67</td></tr> <tr><td>Some Mailbox</td><td>-50</td></tr> <tr><td>My User</td><td>-4</td></tr> <tr><td>My User 2</td><td>5</td></tr> </tbody> </table>
+</script><table id="f2095sde" class="display compact"><thead>  <tr><th>Name</th><th>Days Until Password Expires</th></tr></thead><tbody> <tr><td>EVOTECPL$</td><td>-13</td></tr> <tr><td>Special Test User</td><td>-68</td></tr> <tr><td>Some Mailbox</td><td>-51</td></tr> <tr><td>My User</td><td>-4</td></tr> <tr><td>My User 2</td><td>4</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -1940,7 +2044,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#i461sac0').DataTable({
+     $('#zdupq451').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1959,7 +2063,7 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "*" }]
      });
  } );
-</script><table id="i461sac0" class="display compact"><thead>  <tr><th>*</th></tr></thead><tbody> <tr><td>Information: No Users were found to expire soon</td></tr> </tbody> </table>
+</script><table id="zdupq451" class="display compact"><thead>  <tr><th>*</th></tr></thead><tbody> <tr><td>Information: No Users were found to expire soon</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -1978,7 +2082,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#F8F8F8;">
 <script>
  $(document).ready(function() {
-     $('#tw20hfve').DataTable({
+     $('#8nfm93u2').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -1997,7 +2101,7 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "Name" },{ "data": "UserPrincipalName" },{ "data": "Enabled" },{ "data": "Protected from Deletion" },{ "data": "Last Logon" },{ "data": "Password Never Expires" },{ "data": "Days Until Password Expires" }]
      });
  } );
-</script><table id="tw20hfve" class="display compact"><thead>  <tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr></thead><tbody> <tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td>20.05.2018 16:15:39</td><td>True</td><td>N/A</td></tr> <tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td>17.09.2018 20:40:45</td><td>False</td><td>-50</td></tr> </tbody> </table>
+</script><table id="8nfm93u2" class="display compact"><thead>  <tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr></thead><tbody> <tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td>20.05.2018 16:15:39</td><td>True</td><td>N/A</td></tr> <tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td>17.09.2018 20:40:45</td><td>False</td><td>-51</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -2009,7 +2113,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#F8F8F8;">
 <script>
  $(document).ready(function() {
-     $('#l9mhu16o').DataTable({
+     $('#txg9kcv7').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -2028,7 +2132,7 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "*" }]
      });
  } );
-</script><table id="l9mhu16o" class="display compact"><thead>  <tr><th>*</th></tr></thead><tbody> <tr><td>Information: No new users have been recently created</td></tr> </tbody> </table>
+</script><table id="txg9kcv7" class="display compact"><thead>  <tr><th>*</th></tr></thead><tbody> <tr><td>Information: No new users have been recently created</td></tr> </tbody> </table>
     </div>
     </div>
 </div>
@@ -2040,18 +2144,18 @@ document.getElementById("defaultOpen").click();
 </div>
 <div class="content" style="background-color:#ffffff;">
 <div class="oneofthree column">
-<canvas id="SqdnwczuovZK" width="250" height="250"></canvas>
+<canvas id="YLgpaXHeiRBs" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("SqdnwczuovZK");
-var SqdnwczuovZK = new Chart(ctx, {
+var ctx = document.getElementById("YLgpaXHeiRBs");
+var YLgpaXHeiRBs = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Enabled","Disabled"],
 		datasets: [{
 			label: 'Data',
 			data: [22,23],
-			backgroundColor: ['rgba(132,242,181,0.7)','rgba(139,175,224,0.7)'],
-			hoverBackgroundColor:  ['rgba(132,242,181,1)','rgba(139,175,224,1)'],
+			backgroundColor: ['rgba(118,61,248,0.7)','rgba(195,59,132,0.7)'],
+			hoverBackgroundColor:  ['rgba(118,61,248,1)','rgba(195,59,132,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2073,18 +2177,18 @@ var SqdnwczuovZK = new Chart(ctx, {
  </script>
 </div>
 <div class="twoofthree column">
-<canvas id="VhQSwvfXruRq" width="250" height="250"></canvas>
+<canvas id="rjLcgCXDYqFG" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("VhQSwvfXruRq");
-var VhQSwvfXruRq = new Chart(ctx, {
+var ctx = document.getElementById("rjLcgCXDYqFG");
+var rjLcgCXDYqFG = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Password Expires","Password Never Expires"],
 		datasets: [{
 			label: 'Data',
 			data: [16,29],
-			backgroundColor: ['rgba(128,138,77,0.7)','rgba(158,152,193,0.7)'],
-			hoverBackgroundColor:  ['rgba(128,138,77,1)','rgba(158,152,193,1)'],
+			backgroundColor: ['rgba(137,254,20,0.7)','rgba(147,80,28,0.7)'],
+			hoverBackgroundColor:  ['rgba(137,254,20,1)','rgba(147,80,28,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2106,18 +2210,18 @@ var VhQSwvfXruRq = new Chart(ctx, {
  </script>
 </div>
 <div class="threeofthree column">
-<canvas id="MvLHoWPEcZNV" width="250" height="250"></canvas>
+<canvas id="bGKAXCUzQePi" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("MvLHoWPEcZNV");
-var MvLHoWPEcZNV = new Chart(ctx, {
+var ctx = document.getElementById("bGKAXCUzQePi");
+var bGKAXCUzQePi = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Protected","Not Protected"],
 		datasets: [{
 			label: 'Data',
 			data: [0,45],
-			backgroundColor: ['rgba(114,135,35,0.7)','rgba(121,9,73,0.7)'],
-			hoverBackgroundColor:  ['rgba(114,135,35,1)','rgba(121,9,73,1)'],
+			backgroundColor: ['rgba(68,130,151,0.7)','rgba(69,126,90,0.7)'],
+			hoverBackgroundColor:  ['rgba(68,130,151,1)','rgba(69,126,90,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2140,14 +2244,13 @@ var MvLHoWPEcZNV = new Chart(ctx, {
 </div>
     </div>
     </div>
-</p>
 </div>
 <script>
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
 <div id="Group Policy" class="tabcontent">
-<h7>Report: 12-19-2018</h7>
+<h7>Report: 12-20-2018</h7>
 <div class="section">
 <div class="header">
     <a name="Group Policies">Group Policies</a>
@@ -2155,7 +2258,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#rjbwpha5').DataTable({
+     $('#45sgr9c7').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -2174,17 +2277,16 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "Name" },{ "data": "Status" },{ "data": "Modified Date" },{ "data": "User Version" },{ "data": "Computer Version" }]
      });
  } );
-</script><table id="rjbwpha5" class="display compact"><thead>  <tr><th>Name</th><th>Status</th><th>Modified Date</th><th>User Version</th><th>Computer Version</th></tr></thead><tbody> <tr><td>ALL | Enable RDP</td><td>AllSettingsEnabled</td><td>07.08.2018 11:47:44</td><td>1</td><td>1</td></tr> <tr><td>ALL | PowerShell Settings</td><td>AllSettingsEnabled</td><td>16.06.2018 11:21:08</td><td>1</td><td>1</td></tr> <tr><td>COMPUTERS | Allow use of biometrics</td><td>AllSettingsEnabled</td><td>20.05.2018 22:51:22</td><td>0</td><td>1</td></tr> <tr><td>Default Domain Policy</td><td>AllSettingsEnabled</td><td>20.05.2018 08:59:46</td><td>0</td><td>3</td></tr> <tr><td>ALL | Bitlocker Settings</td><td>AllSettingsEnabled</td><td>07.08.2018 11:24:04</td><td>0</td><td>3</td></tr> <tr><td>DC | Event Log Settings</td><td>AllSettingsEnabled</td><td>25.06.2018 19:19:42</td><td>0</td><td>12</td></tr> <tr><td>DC | Event Log Audit Rules</td><td>AllSettingsEnabled</td><td>02.12.2018 08:42:10</td><td>0</td><td>6</td></tr> <tr><td>ALL | Firewall Settings</td><td>AllSettingsEnabled</td><td>07.08.2018 15:46:16</td><td>0</td><td>18</td></tr> <tr><td>COMPUTERS | Enable Sets</td><td>AllSettingsEnabled</td><td>11.06.2018 12:07:16</td><td>0</td><td>1</td></tr> <tr><td>Default Domain Controllers Policy</td><td>AllSettingsEnabled</td><td>05.08.2018 08:55:08</td><td>0</td><td>2</td></tr> <tr><td>Users | Synced Office 365 Users</td><td>AllSettingsEnabled</td><td>19.11.2018 22:54:44</td><td>0</td><td>0</td></tr> </tbody> </table>
+</script><table id="45sgr9c7" class="display compact"><thead>  <tr><th>Name</th><th>Status</th><th>Modified Date</th><th>User Version</th><th>Computer Version</th></tr></thead><tbody> <tr><td>ALL | Enable RDP</td><td>AllSettingsEnabled</td><td>07.08.2018 11:47:44</td><td>1</td><td>1</td></tr> <tr><td>ALL | PowerShell Settings</td><td>AllSettingsEnabled</td><td>16.06.2018 11:21:08</td><td>1</td><td>1</td></tr> <tr><td>COMPUTERS | Allow use of biometrics</td><td>AllSettingsEnabled</td><td>20.05.2018 22:51:22</td><td>0</td><td>1</td></tr> <tr><td>Default Domain Policy</td><td>AllSettingsEnabled</td><td>20.05.2018 08:59:46</td><td>0</td><td>3</td></tr> <tr><td>ALL | Bitlocker Settings</td><td>AllSettingsEnabled</td><td>07.08.2018 11:24:04</td><td>0</td><td>3</td></tr> <tr><td>DC | Event Log Settings</td><td>AllSettingsEnabled</td><td>25.06.2018 19:19:42</td><td>0</td><td>12</td></tr> <tr><td>DC | Event Log Audit Rules</td><td>AllSettingsEnabled</td><td>02.12.2018 08:42:10</td><td>0</td><td>6</td></tr> <tr><td>ALL | Firewall Settings</td><td>AllSettingsEnabled</td><td>07.08.2018 15:46:16</td><td>0</td><td>18</td></tr> <tr><td>COMPUTERS | Enable Sets</td><td>AllSettingsEnabled</td><td>11.06.2018 12:07:16</td><td>0</td><td>1</td></tr> <tr><td>Default Domain Controllers Policy</td><td>AllSettingsEnabled</td><td>05.08.2018 08:55:08</td><td>0</td><td>2</td></tr> <tr><td>Users | Synced Office 365 Users</td><td>AllSettingsEnabled</td><td>19.11.2018 22:54:44</td><td>0</td><td>0</td></tr> </tbody> </table>
     </div>
     </div>
-</p>
 </div>
 <script>
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
 <div id="Computers" class="tabcontent">
-<h7>Report: 12-19-2018</h7>
+<h7>Report: 12-20-2018</h7>
 <div class="section">
 <div class="header">
     <a name="Computers Overivew">Computers Overivew</a>
@@ -2205,7 +2307,7 @@ document.getElementById("defaultOpen").click();
 <div class="content" style="background-color:#ffffff;">
 <script>
  $(document).ready(function() {
-     $('#5e9hs0gc').DataTable({
+     $('#4o567pma').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -2224,7 +2326,7 @@ document.getElementById("defaultOpen").click();
         "columns":    [{ "data": "Name" },{ "data": "Enabled" },{ "data": "Operating System" },{ "data": "Modified Date" },{ "data": "Password Last Set" },{ "data": "Protect from Deletion" }]
      });
  } );
-</script><table id="5e9hs0gc" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr></thead><tbody> <tr><td>AD1</td><td>True</td><td>Windows Server 2016 Standard</td><td>17.12.2018 08:43:04</td><td>20.11.2018 18:30:13</td><td>False</td></tr> <tr><td>EVO1</td><td>True</td><td>Windows 10 Enterprise</td><td>15.12.2018 16:42:33</td><td>19.11.2018 17:42:49</td><td>False</td></tr> <tr><td>AD2</td><td>True</td><td>Windows Server 2016 Standard</td><td>10.12.2018 23:10:27</td><td>10.12.2018 23:10:27</td><td>False</td></tr> <tr><td>EX2016X1</td><td>True</td><td>Windows Server 2016 Standard</td><td>09.09.2018 11:41:14</td><td>07.06.2018 21:28:39</td><td>False</td></tr> <tr><td>DESKTOP-CQESSGI</td><td>True</td><td>Windows 10 Pro</td><td>22.11.2018 10:10:32</td><td>12.11.2018 07:39:11</td><td>False</td></tr> <tr><td>DESKTOP-68J4BAT</td><td>True</td><td>Windows 10 Pro N Insider Preview</td><td>18.11.2018 20:54:39</td><td>07.11.2018 15:07:21</td><td>False</td></tr> <tr><td>EX2013X1</td><td>True</td><td>Windows Server 2016 Standard</td><td>20.11.2018 15:49:15</td><td>20.11.2018 15:49:15</td><td>False</td></tr> <tr><td>EX2013X2</td><td>True</td><td>Windows Server 2016 Standard</td><td>26.08.2018 09:46:38</td><td>07.08.2018 17:10:18</td><td>False</td></tr> <tr><td>EX2013X3</td><td>True</td><td>Windows Server 2012 R2 Standard Evaluation</td><td>24.11.2018 08:23:51</td><td>24.11.2018 08:23:36</td><td>False</td></tr> <tr><td>Test2</td><td>True</td><td></td><td>15.09.2018 12:47:10</td><td>15.09.2018 12:36:25</td><td>False</td></tr> <tr><td>Test4</td><td>True</td><td></td><td>15.09.2018 12:53:01</td><td>15.09.2018 12:47:16</td><td>False</td></tr> <tr><td>Test5</td><td>False</td><td></td><td>02.10.2018 20:15:00</td><td>02.10.2018 20:15:00</td><td>False</td></tr> <tr><td>TestingDSInstall</td><td>True</td><td></td><td>01.10.2018 13:38:49</td><td>01.10.2018 13:38:49</td><td>False</td></tr> <tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>02.12.2018 10:34:05</td><td>09.11.2018 17:26:20</td><td>False</td></tr> </tbody> </table>
+</script><table id="4o567pma" class="display compact"><thead>  <tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr></thead><tbody> <tr><td>AD1</td><td>True</td><td>Windows Server 2016 Standard</td><td>17.12.2018 08:43:04</td><td>20.11.2018 18:30:13</td><td>False</td></tr> <tr><td>EVO1</td><td>True</td><td>Windows 10 Enterprise</td><td>20.12.2018 01:03:01</td><td>20.12.2018 01:02:49</td><td>False</td></tr> <tr><td>AD2</td><td>True</td><td>Windows Server 2016 Standard</td><td>10.12.2018 23:10:27</td><td>10.12.2018 23:10:27</td><td>False</td></tr> <tr><td>EX2016X1</td><td>True</td><td>Windows Server 2016 Standard</td><td>09.09.2018 11:41:14</td><td>07.06.2018 21:28:39</td><td>False</td></tr> <tr><td>DESKTOP-CQESSGI</td><td>True</td><td>Windows 10 Pro</td><td>22.11.2018 10:10:32</td><td>12.11.2018 07:39:11</td><td>False</td></tr> <tr><td>DESKTOP-68J4BAT</td><td>True</td><td>Windows 10 Pro N Insider Preview</td><td>18.11.2018 20:54:39</td><td>07.11.2018 15:07:21</td><td>False</td></tr> <tr><td>EX2013X1</td><td>True</td><td>Windows Server 2016 Standard</td><td>20.11.2018 15:49:15</td><td>20.11.2018 15:49:15</td><td>False</td></tr> <tr><td>EX2013X2</td><td>True</td><td>Windows Server 2016 Standard</td><td>26.08.2018 09:46:38</td><td>07.08.2018 17:10:18</td><td>False</td></tr> <tr><td>EX2013X3</td><td>True</td><td>Windows Server 2012 R2 Standard Evaluation</td><td>24.11.2018 08:23:51</td><td>24.11.2018 08:23:36</td><td>False</td></tr> <tr><td>Test2</td><td>True</td><td></td><td>15.09.2018 12:47:10</td><td>15.09.2018 12:36:25</td><td>False</td></tr> <tr><td>Test4</td><td>True</td><td></td><td>15.09.2018 12:53:01</td><td>15.09.2018 12:47:16</td><td>False</td></tr> <tr><td>Test5</td><td>False</td><td></td><td>02.10.2018 20:15:00</td><td>02.10.2018 20:15:00</td><td>False</td></tr> <tr><td>TestingDSInstall</td><td>True</td><td></td><td>01.10.2018 13:38:49</td><td>01.10.2018 13:38:49</td><td>False</td></tr> <tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>02.12.2018 10:34:05</td><td>09.11.2018 17:26:20</td><td>False</td></tr> </tbody> </table>
     </div>
     </div>
 <div class="section">
@@ -2233,18 +2335,18 @@ document.getElementById("defaultOpen").click();
 </div>
 <div class="content" style="background-color:#ffffff;">
 <div class="oneoftwo column">
-<canvas id="JZauDLPHtFGY" width="250" height="250"></canvas>
+<canvas id="yCrqQxaHJUpZ" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("JZauDLPHtFGY");
-var JZauDLPHtFGY = new Chart(ctx, {
+var ctx = document.getElementById("yCrqQxaHJUpZ");
+var yCrqQxaHJUpZ = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Protected","Not Protected"],
 		datasets: [{
 			label: 'Data',
 			data: [,14],
-			backgroundColor: ['rgba(120,86,14,0.7)','rgba(66,91,121,0.7)'],
-			hoverBackgroundColor:  ['rgba(120,86,14,1)','rgba(66,91,121,1)'],
+			backgroundColor: ['rgba(134,89,5,0.7)','rgba(130,101,21,0.7)'],
+			hoverBackgroundColor:  ['rgba(134,89,5,1)','rgba(130,101,21,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2266,18 +2368,18 @@ var JZauDLPHtFGY = new Chart(ctx, {
  </script>
 </div>
 <div class="twooftwo column">
-<canvas id="JmpSHbhXvIYU" width="250" height="250"></canvas>
+<canvas id="THqchgFVKGxL" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("JmpSHbhXvIYU");
-var JmpSHbhXvIYU = new Chart(ctx, {
+var ctx = document.getElementById("THqchgFVKGxL");
+var THqchgFVKGxL = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Enabled","Disabled"],
 		datasets: [{
 			label: 'Data',
 			data: [13,1],
-			backgroundColor: ['rgba(158,24,28,0.7)','rgba(155,182,56,0.7)'],
-			hoverBackgroundColor:  ['rgba(158,24,28,1)','rgba(155,182,56,1)'],
+			backgroundColor: ['rgba(185,95,71,0.7)','rgba(251,94,42,0.7)'],
+			hoverBackgroundColor:  ['rgba(185,95,71,1)','rgba(251,94,42,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2305,18 +2407,18 @@ var JmpSHbhXvIYU = new Chart(ctx, {
     <a name="Computers Operating System Breakdown">Computers Operating System Breakdown</a>
 </div>
 <div class="content" style="background-color:#ffffff;">
-<canvas id="nuXaoecEqGHr" width="500" height="400"></canvas>
+<canvas id="jNSCzXnpYJyo" width="500" height="400"></canvas>
 <script>
-var ctx = document.getElementById("nuXaoecEqGHr");
-var nuXaoecEqGHr = new Chart(ctx, {
+var ctx = document.getElementById("jNSCzXnpYJyo");
+var jNSCzXnpYJyo = new Chart(ctx, {
 	type: 'pie',
 	data:	{
 		labels: ["Windows 10","Windows Server 2012 R2","Windows Server 2016"],
 		datasets: [{
 			label: 'Data',
 			data: [3,1,6],
-			backgroundColor: ['rgba(232,179,191,0.7)','rgba(134,171,129,0.7)','rgba(8,174,177,0.7)'],
-			hoverBackgroundColor:  ['rgba(232,179,191,1)','rgba(134,171,129,1)','rgba(8,174,177,1)'],
+			backgroundColor: ['rgba(151,176,136,0.7)','rgba(155,107,80,0.7)','rgba(151,12,191,0.7)'],
+			hoverBackgroundColor:  ['rgba(151,176,136,1)','rgba(155,107,80,1)','rgba(151,12,191,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2338,7 +2440,6 @@ var nuXaoecEqGHr = new Chart(ctx, {
  </script>
     </div>
     </div>
-</p>
 </div>
 <script>
 // Get the element with id="defaultOpen" and click on it
