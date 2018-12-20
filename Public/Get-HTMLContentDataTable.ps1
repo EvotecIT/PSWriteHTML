@@ -14,7 +14,7 @@ Function Get-HTMLContentDataTable {
     param
     (
         [Parameter(Mandatory = $True, ValueFromPipeline = $True)]
-        [Array]$ArrayOfObjects,
+        [alias('ArrayOfObjects', 'DataTable', 'Table')][Array]$Object,
         [Parameter(Mandatory = $false, ValueFromPipeline = $false)]
         [switch]$DisablePaging,
         [Parameter(Mandatory = $false, ValueFromPipeline = $false)]
@@ -65,7 +65,7 @@ Function Get-HTMLContentDataTable {
         "select":     $($Select),
         "columns":    [
 "@
-    $ArraryHeader = $ArrayOfObjects | ConvertTo-Html -Fragment
+    $ArraryHeader = $Object | ConvertTo-Html -Fragment
     $HeadersText = ($ArraryHeader[2] -replace '<tr>', '' -replace '<th>', '' -replace '</tr>', '')
     $ColumnHeaders = ($HeadersText.substring(0, $HeadersText.Length - 5)) -split '</th>'
 
@@ -80,28 +80,65 @@ Function Get-HTMLContentDataTable {
 '@
     $TableHeader = $TableHeader.Replace(',]', ']')
 
-    $NumberOfColumns = ($ArrayOfObjects | Get-Member -MemberType NoteProperty  | Select-Object Name).Count
+    $NumberOfColumns = ($Object | Get-Member -MemberType NoteProperty  | Select-Object Name).Count
 
-    $Report = $ArrayOfObjects | ConvertTo-Html -Fragment
+    $Report = $Object | ConvertTo-Html -Fragment
+    <# Sample view of output
+
+    <table>
+    <colgroup><col/><col/><col/><col/></colgroup>
+    <tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+    <tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
+    </table>
+
+    When formatted:
+    <table>
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <tr>
+            <th>ForestMode</th>
+            <th>Name</th>
+            <th>RootDomain</th>
+            <th>SchemaMaster</th>
+        </tr>
+        <tr>
+            <td>Windows2012R2Forest</td>
+            <td>ad.evotec.xyz</td>
+            <td>ad.evotec.xyz</td>
+            <td>AD1.ad.evotec.xyz</td>
+        </tr>
+    </table>
+    #>
+
+    # Removes colgroup and col that is empty
     $Report = $Report -replace '<col/>', "" -replace '<colgroup>', "" -replace '</colgroup>', ""
+
+    # Connects Table Header with Table by replacing Table Tag with new tag and thead
     $Report = $Report -replace '<table>', ('<table id="' + $DTInstance + '" class="display compact"><thead>')
+
+    # This splits 1st row from the rest of the table making it table header, closes theader and opens up tbody
     $Report = $Report -replace '</th></tr>', '</th></tr></thead><tbody>'
-    $Report = $Report -replace "</table>", "LoadFooterHere</tbody>"
-    if ($HideFooter -eq $true) {
-        $Report = $Report -replace "LoadFooterHere", ""
-    } else {
+
+    # This closes body instead of table
+    $Report = $Report -replace "</table>", "</tbody>"
+    if (-not $HideFooter) {
+        # this fixes footer (column names at the bottom of table)
         $Footer = '<tfoot><tr>'
         foreach ($Header in $ColumnHeaders) {
             $Footer += '<th>' + $Header + '</th>'
         }
         $Footer += '</tr></tfoot>'
-        $Report = $Report -replace "LoadFooterHere", $Footer
+        $Report += $Footer  # $Report = $Report -replace "LoadFooterHere", $Footer
     }
 
-    $Report = $Report -replace 'URL01NEW', '<a target="_blank" href="'
-    $Report = $Report -replace 'URL01', '<a href="'
-    $Report = $Report -replace 'URL02', '">'
-    $Report = $Report -replace 'URL03', '</a>'
+    #$Report = $Report -replace 'URL01NEW', '<a target="_blank" href="'
+    #$Report = $Report -replace 'URL01', '<a href="'
+    #$Report = $Report -replace 'URL02', '">'
+    #$Report = $Report -replace 'URL03', '</a>'
 
     $Report += "</table>"
     return ($TableHeader + $Report)
