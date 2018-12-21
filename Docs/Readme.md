@@ -12,65 +12,65 @@ Locale: en-US
 
 ## PSWriteHTML Cmdlets
 ### [Get-HTMLAnchor](Get-HTMLAnchor.md)
-{{Manually Enter Get-HTMLAnchor Description Here}}
+creates an Anchor
 
 ### [Get-HTMLAnchorLink](Get-HTMLAnchorLink.md)
-{{Manually Enter Get-HTMLAnchorLink Description Here}}
+creates Hyperlink for an Anchor
 
 ### [Get-HTMLBarChart](Get-HTMLBarChart.md)
-{{Manually Enter Get-HTMLBarChart Description Here}}
+
 
 ### [Get-HTMLBarChartObject](Get-HTMLBarChartObject.md)
-{{Manually Enter Get-HTMLBarChartObject Description Here}}
+create a Bar chart object for use with Get-HTMLBarChart
 
 ### [Get-HTMLCodeBlock](Get-HTMLCodeBlock.md)
-{{Manually Enter Get-HTMLCodeBlock Description Here}}
+{{Fill in the Synopsis}}
 
 ### [Get-HTMLColumn](Get-HTMLColumn.md)
-{{Manually Enter Get-HTMLColumn Description Here}}
+{{Fill in the Synopsis}}
 
 ### [Get-HTMLContent](Get-HTMLContent.md)
-{{Manually Enter Get-HTMLContent Description Here}}
+Creates a section in HTML
 
 ### [Get-HTMLContentDataTable](Get-HTMLContentDataTable.md)
-{{Manually Enter Get-HTMLContentDataTable Description Here}}
+Creates an HTML 5 Data table from an array of objects
 
 ### [Get-HTMLContentTable](Get-HTMLContentTable.md)
-{{Manually Enter Get-HTMLContentTable Description Here}}
+Creates an HTML table from an array of objects
 
 ### [Get-HTMLContentTableAdvanced](Get-HTMLContentTableAdvanced.md)
-{{Manually Enter Get-HTMLContentTableAdvanced Description Here}}
+Code borrowed from https://www.powershellgallery.com/packages/EnhancedHTML2
 
 ### [Get-HTMLContentText](Get-HTMLContentText.md)
-{{Manually Enter Get-HTMLContentText Description Here}}
+Creates an HTML entry with heading and detail
 
 ### [Get-HTMLHeading](Get-HTMLHeading.md)
-{{Manually Enter Get-HTMLHeading Description Here}}
+{{Fill in the Synopsis}}
 
 ### [Get-HTMLPage](Get-HTMLPage.md)
-{{Manually Enter Get-HTMLPage Description Here}}
+{{Fill in the Synopsis}}
 
 ### [Get-HTMLPieChart](Get-HTMLPieChart.md)
-{{Manually Enter Get-HTMLPieChart Description Here}}
+
 
 ### [Get-HTMLPieChartObject](Get-HTMLPieChartObject.md)
-{{Manually Enter Get-HTMLPieChartObject Description Here}}
+create a Bar chart object for use with Get-HTMLBarChart
 
 ### [Get-HTMLPowerShellSyntax](Get-HTMLPowerShellSyntax.md)
-{{Manually Enter Get-HTMLPowerShellSyntax Description Here}}
+{{Fill in the Synopsis}}
 
 ### [Get-HTMLSpan](Get-HTMLSpan.md)
-{{Manually Enter Get-HTMLSpan Description Here}}
+{{Fill in the Synopsis}}
 
 ### [Get-HTMLTab](Get-HTMLTab.md)
-{{Manually Enter Get-HTMLTab Description Here}}
+{{Fill in the Synopsis}}
 
 ### [Get-HTMLTabHeader](Get-HTMLTabHeader.md)
-{{Manually Enter Get-HTMLTabHeader Description Here}}
+{{Fill in the Synopsis}}
 
 ### [Save-HTMLReport](Save-HTMLReport.md)
-{{Manually Enter Save-HTMLReport Description Here}}
+generation of  report and invokes the file to open
 
 ### [Set-TableRowColor](Set-TableRowColor.md)
-{{Manually Enter Set-TableRowColor Description Here}}
+adds a row colour field to the array of object for processing with htmltable
 
