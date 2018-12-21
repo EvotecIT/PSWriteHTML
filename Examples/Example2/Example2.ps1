@@ -4,9 +4,7 @@ Import-Module PSWriteHTML -Force
 $Time = Start-TimeLog
 
 $ReportTitle = 'Test'
-
-$ReportName = 'Example2'
-$ReportPath = $PSScriptRoot
+$ReportPath = "$PSScriptRoot\Example2.html"
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
@@ -84,7 +82,6 @@ $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLTab -Close))
 $Report.Add($(Get-HTMLPage -Close))
 
-Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath -ShowReport
-
+Save-HTML -HTML $Report -FilePath $ReportPath -ShowHTML
 
 Stop-TimeLog -Time $Time -Option OneLiner

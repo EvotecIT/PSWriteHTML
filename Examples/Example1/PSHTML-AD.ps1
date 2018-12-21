@@ -1722,6 +1722,6 @@ $FinalReport.Add($(Get-HTMLPage -Close))
 $Day = (Get-Date).Day
 $Month = (Get-Date).Month
 $Year = (Get-Date).Year
-$ReportName = ("$Day - $Month - $Year - AD Report")
+$ReportName = ("$Day - $Month - $Year - AD Report.html")
 
-Save-HTMLReport -ReportContent $FinalReport -ShowReport -ReportName 'PSHTML-AD' -ReportPath $ReportSavePath
+Save-HTML -HTML  $FinalReport -FilePath "$ReportSavePath\$ReportName" -ShowHTML

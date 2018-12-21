@@ -68,9 +68,6 @@ create a Bar chart object for use with Get-HTMLBarChart
 ### [Get-HTMLTabHeader](Get-HTMLTabHeader.md)
 {{Fill in the Synopsis}}
 
-### [Save-HTMLReport](Save-HTMLReport.md)
-generation of  report and invokes the file to open
-
 ### [Set-TableRowColor](Set-TableRowColor.md)
 adds a row colour field to the array of object for processing with htmltable
 
