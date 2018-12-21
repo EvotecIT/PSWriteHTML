@@ -1,9 +1,9 @@
 Function Get-HTMLAnchor {
     <#
 	.SYNOPSIS
-		creates an Anchor
-		.PARAMETER AnchorName
-			The Actual Anchor
+		Creates an Anchor
+    .PARAMETER AnchorName
+		The Actual Anchor
 #>
     [CmdletBinding()]
     Param
