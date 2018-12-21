@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-HTMLAnchor
 
 ## SYNOPSIS
-creates an Anchor
+Creates an Anchor
 
 ## SYNTAX
 

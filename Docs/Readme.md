@@ -12,7 +12,7 @@ Locale: en-US
 
 ## PSWriteHTML Cmdlets
 ### [Get-HTMLAnchor](Get-HTMLAnchor.md)
-creates an Anchor
+Creates an Anchor
 
 ### [Get-HTMLAnchorLink](Get-HTMLAnchorLink.md)
 creates Hyperlink for an Anchor
