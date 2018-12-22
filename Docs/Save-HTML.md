@@ -13,7 +13,7 @@ Short description
 ## SYNTAX
 
 ```
-Save-HTML [[-FilePath] <String>] [-HTML] <Array> [-ShowReport] [<CommonParameters>]
+Save-HTML [[-FilePath] <String>] [-HTML] <Array> [-ShowHTML] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -34,7 +34,7 @@ Parameter description
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: ReportPath
+Aliases:
 
 Required: False
 Position: 1
@@ -49,7 +49,7 @@ Parameter description
 ```yaml
 Type: Array
 Parameter Sets: (All)
-Aliases: ReportContent
+Aliases:
 
 Required: True
 Position: 2
@@ -58,8 +58,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ShowReport
-Parameter description
+### -ShowHTML
+{{Fill ShowHTML Description}}
 
 ```yaml
 Type: SwitchParameter
@@ -74,8 +74,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
