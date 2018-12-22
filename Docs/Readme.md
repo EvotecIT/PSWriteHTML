@@ -47,9 +47,6 @@ Creates an HTML entry with heading and detail
 ### [Get-HTMLHeading](Get-HTMLHeading.md)
 {{Fill in the Synopsis}}
 
-### [Get-HTMLPage](Get-HTMLPage.md)
-{{Fill in the Synopsis}}
-
 ### [Get-HTMLPieChart](Get-HTMLPieChart.md)
 
 
@@ -66,6 +63,9 @@ create a Bar chart object for use with Get-HTMLBarChart
 {{Fill in the Synopsis}}
 
 ### [Get-HTMLTabHeader](Get-HTMLTabHeader.md)
+{{Fill in the Synopsis}}
+
+### [New-HTML](New-HTML.md)
 {{Fill in the Synopsis}}
 
 ### [Save-HTML](Save-HTML.md)

@@ -13,7 +13,7 @@ $Report = New-GenericList
 
 $TabNames = 'Dashboard', 'Something'
 
-$Report.Add($(Get-HTMLPage -Open -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -UseCssLinks -UseStyleLinks -Verbose))
+$Report.Add($(New-HTML -Open -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -UseCssLinks -UseStyleLinks -Verbose))
 $Report.Add($(Get-HTMLTabHeader -TabNames $TabNames))
 $Report.Add($(Get-HTMLTab -Open -TabName 'Dashboard'))
 $Report.Add($(Get-HTMLContent -Open -HeaderText "Groups"))
@@ -22,8 +22,8 @@ $Report.Add($(Get-HTMLContentDataTable -Object $DomainAdminTable -HideFooter))
 $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLTab -Close))
-$Report.Add($(Get-HTMLPage -Close))
+$Report.Add($(New-HTML -Close))
 
-Save-HTML -HTML $Report -ReportPath $ReportPath -ShowHTML
+Save-HTML -HTML $Report -FilePath $ReportPath -ShowHTML
 
 Stop-TimeLog -Time $Time -Option OneLiner

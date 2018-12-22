@@ -73,9 +73,9 @@ FunctionsToExport = 'Get-HTMLAnchor', 'Get-HTMLAnchorLink', 'Get-HTMLBarChart',
                'Get-HTMLBarChartObject', 'Get-HTMLCodeBlock', 'Get-HTMLColumn', 
                'Get-HTMLContent', 'Get-HTMLContentDataTable', 'Get-HTMLContentTable', 
                'Get-HTMLContentTableAdvanced', 'Get-HTMLContentText', 
-               'Get-HTMLHeading', 'Get-HTMLPage', 'Get-HTMLPieChart', 
-               'Get-HTMLPieChartObject', 'Get-HTMLPowerShellSyntax', 'Get-HTMLSpan', 
-               'Get-HTMLTab', 'Get-HTMLTabHeader', 'Save-HTML', 'Set-TableRowColor'
+               'Get-HTMLHeading', 'Get-HTMLPieChart', 'Get-HTMLPieChartObject', 
+               'Get-HTMLPowerShellSyntax', 'Get-HTMLSpan', 'Get-HTMLTab', 
+               'Get-HTMLTabHeader', 'New-HTML', 'Save-HTML', 'Set-TableRowColor'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

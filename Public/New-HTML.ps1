@@ -1,4 +1,4 @@
-Function Get-HTMLPage {
+Function New-HTML {
     [CmdletBinding(DefaultParameterSetName = 'options')]
     param
     (

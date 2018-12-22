@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-HTMLPage
+# New-HTML
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
@@ -14,13 +14,13 @@ schema: 2.0.0
 
 ### options (Default)
 ```
-Get-HTMLPage [-TitleText <String>] [-HideLogos] [-HideTitle] [-NoScript] [-Options <PSObject>] [-Open]
+New-HTML [-TitleText <String>] [-HideLogos] [-HideTitle] [-NoScript] [-Options <PSObject>] [-Open]
  [<CommonParameters>]
 ```
 
 ### explicit
 ```
-Get-HTMLPage [-TitleText <String>] [-CSSPath <String>] [-CSSName <String>] [-ScriptPath <String>]
+New-HTML [-TitleText <String>] [-CSSPath <String>] [-CSSName <String>] [-ScriptPath <String>]
  [-ColorSchemePath <String>] [-LogoPath <String>] [-LeftLogoName <String>] [-RightLogoName <String>]
  [-LeftLogoString <String>] [-RightLogoString <String>] [-HideLogos] [-HideTitle] [-NoScript]
  [-PrimaryColorHex <String>] [-Open] [<CommonParameters>]
@@ -28,7 +28,7 @@ Get-HTMLPage [-TitleText <String>] [-CSSPath <String>] [-CSSName <String>] [-Scr
 
 ### open
 ```
-Get-HTMLPage [-TitleText <String>] [-CSSPath <String>] [-CSSName <String>] [-ScriptPath <String>]
+New-HTML [-TitleText <String>] [-CSSPath <String>] [-CSSName <String>] [-ScriptPath <String>]
  [-ColorSchemePath <String>] [-LogoPath <String>] [-LeftLogoName <String>] [-RightLogoName <String>]
  [-LeftLogoString <String>] [-RightLogoString <String>] [-HideLogos] [-HideTitle] [-NoScript]
  [-Options <PSObject>] [-AddAuthor] [-Author <String>] [-HideDate] [-DateFormat <String>] [-UseCssLinks]
@@ -37,7 +37,7 @@ Get-HTMLPage [-TitleText <String>] [-CSSPath <String>] [-CSSName <String>] [-Scr
 
 ### close
 ```
-Get-HTMLPage [-Close] [-FooterText <String>] [<CommonParameters>]
+New-HTML [-Close] [-FooterText <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
