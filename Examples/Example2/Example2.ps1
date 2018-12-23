@@ -23,7 +23,6 @@ $Report.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
 $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLContent -Close))
 
-
 $Report.Add($(Get-HTMLContent -Open -HeaderText 'Test Group' -CanCollapse -BackgroundShade 1) )
 
 $Report.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))

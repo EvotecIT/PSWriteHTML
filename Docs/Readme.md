@@ -56,9 +56,6 @@ create a Bar chart object for use with Get-HTMLBarChart
 ### [Get-HTMLPowerShellSyntax](Get-HTMLPowerShellSyntax.md)
 {{Fill in the Synopsis}}
 
-### [Get-HTMLSpan](Get-HTMLSpan.md)
-{{Fill in the Synopsis}}
-
 ### [Get-HTMLTab](Get-HTMLTab.md)
 {{Fill in the Synopsis}}
 

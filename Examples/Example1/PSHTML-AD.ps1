@@ -1506,7 +1506,7 @@ $PieObjectGroupProtection.DataDefinition.DataValueColumnName = 'Count'
 
 
 $FinalReport = New-Object 'System.Collections.Generic.List[System.Object]'
-$FinalReport.Add($(Get-HTMLPage -Open -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -UseCssLinks -UseStyleLinks))
+$FinalReport.Add($(New-HTML -Open -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -UseCssLinks -UseStyleLinks))
 $FinalReport.Add($(Get-HTMLTabHeader -TabNames $tabarray))
 #Dashboard Report
 $FinalReport.Add($(Get-HTMLTab -Open -TabName $tabarray[0] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
@@ -1717,11 +1717,11 @@ $FinalReport.Add($(Get-HTMLPieChart -ChartObject $PieObjectComputerObjOS -DataSe
 $FinalReport.Add($(Get-HTMLContent -Close))
 
 $FinalReport.Add($(Get-HTMLTab -Close))
-$FinalReport.Add($(Get-HTMLPage -Close))
+$FinalReport.Add($(New-HTML -Close))
 
 $Day = (Get-Date).Day
 $Month = (Get-Date).Month
 $Year = (Get-Date).Year
-$ReportName = ("$Day - $Month - $Year - AD Report.html")
+$ReportName = 'PSHTML-AD.html'
 
 Save-HTML -HTML  $FinalReport -FilePath "$ReportSavePath\$ReportName" -ShowHTML
