@@ -4,7 +4,6 @@ Function Get-HTMLHeading {
         [string]$headingText,
         [int]$headerSize
     )
-
     $headerString = "<h$headerSize>$headingText</h$headerSize>"
     return $headerString
 }

@@ -44,6 +44,19 @@ Function Get-HTMLJavaScripts {
             } else {
                 Write-Verbose "Generating Script Header from non-minified file (adding delimiter) $($ScriptFile.Fullname)"
                 $ScriptHeaders.Add((Get-Content -Path $ScriptFile.Fullname -Delimiter "`r`n"))
+                <#
+                $ScriptHeaders = New-Object System.Collections.Generic.List[System.Object]
+                foreach ($ScriptFile in $ScriptFiles) {
+                    Write-Verbose "Generating Script Header from $ScriptFile"
+                    $ScriptHeaders.Add(("`r`n" + '<script type="text/javascript">  '+ "`r`n"))
+                    $Content = Get-Content $ScriptFile
+                    foreach ($item in $Content) {
+                        $ScriptHeaders.Add("$item`r`n")
+                    }
+                    $ScriptHeaders.Add('</script> ')
+                }
+                $ScriptHeaders = $ScriptHeaders.ToArray()
+                #>
             }
             $ScriptHeaders.Add('</script>')
             $ScriptHeaders.Add("`r`n")

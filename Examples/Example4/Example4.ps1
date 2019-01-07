@@ -4,8 +4,7 @@ $Time = Start-TimeLog
 
 $ReportTitle = 'Test'
 
-$ReportName = 'Example4'
-$ReportPath = $PSScriptRoot
+$ReportPath = "$PSScriptRoot\Example4.html"
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
@@ -15,7 +14,7 @@ $Report = New-GenericList
 
 $TabNames = 'Dashboard', 'Something'
 
-$Report.Add($(Get-HTMLPage -Open -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -UseCssLinks -UseStyleLinks -Verbose))
+$Report.Add($(New-HTML -Open -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -UseCssLinks -UseStyleLinks -Verbose))
 $Report.Add($(Get-HTMLTabHeader -TabNames $TabNames))
 $Report.Add($(Get-HTMLTab -Open -TabName 'Dashboard'))
 $Report.Add($(Get-HTMLContent -Open -HeaderText "Groups"))
@@ -24,9 +23,9 @@ $Report.Add($(Get-HTMLContentTable $DomainAdminTable -Verbose))
 $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLTab -Close))
-$Report.Add($(Get-HTMLPage -Close))
+$Report.Add($(New-HTML -Close))
 
-Save-HTMLReport -ReportContent $Report -ReportName $ReportName -ReportPath $ReportPath -ShowReport
+Save-HTML -HTML $Report -FilePath $ReportPath -ShowHTML
 
 
 Stop-TimeLog -Time $Time -Option OneLiner

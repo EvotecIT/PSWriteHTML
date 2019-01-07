@@ -73,7 +73,7 @@ Function New-HTMLReportOptions {
         $StyleHeaderContent | Set-Content -Path (Join-Path $SaveOptionsPath default.css)
         Write-Verbose "Saving Report Color Schemes to $SaveOptionsPath"
         foreach ($SchemeName in $ColorSchemes.Keys) {
-            $ColorSchemes[$SchemeName] | ConvertTo-Csv  -NoTypeInformation -Delimiter ';' | ForEach-Object {$_.Replace('"', '')} | Out-File (Join-Path $SaveOptionsPath "$schemeName.rcs")
+            $ColorSchemes[$SchemeName] | ConvertTo-Csv -NoTypeInformation -Delimiter ';' | ForEach-Object {$_.Replace('"', '')} | Out-File (Join-Path $SaveOptionsPath "$schemeName.rcs")
         }
         foreach ($LogoSource in $LogoSources.keys) {
             [IO.File]::WriteAllBytes((Join-Path $SaveOptionsPath "$LogoSource.jpg"), [Convert]::FromBase64String($LogoSources[$LogoSource].split(',')[1]))

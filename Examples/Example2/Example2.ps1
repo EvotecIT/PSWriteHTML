@@ -88,6 +88,6 @@ $Report.Add($(Get-HTMLContent -Close))
 $Report.Add($(Get-HTMLTab -Close))
 $Report.Add($(New-HTML -Close))
 
-Save-HTML -HTML $Report -FilePath $ReportPath #-ShowHTML
+Save-HTML -HTML $Report -FilePath $ReportPath -ShowHTML
 
 Stop-TimeLog -Time $Time -Option OneLiner

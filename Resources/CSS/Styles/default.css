@@ -63,7 +63,7 @@ hr {
 }
 
 table {
-    table-layout: auto;
+    /* table-layout: auto; */
     width: 100%;
     border-collapse: collapse;
 }
@@ -124,6 +124,40 @@ div.MainLogo {
     width: 50%;
 }
 
+td.clientlogo {
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+td.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+td.logo {
+    border: 1px;
+    padding-right: 5em;
+    text-align: left;
+    vertical-align: middle;
+    width: 50%;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+div.logo {
+    vertical-align: middle;
+    text-align: right;
+    display: inline-block;
+    height: auto;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 div.section {
     border: 1px solid #bbbbbb;
     padding-bottom: 12px;
@@ -161,19 +195,6 @@ table.fixed {
 table.vertical {
     table-layout: fixed;
     width: 100px;
-}
-
-td.clientlogo {
-    border: 0px;
-    padding-left: 0px;
-    vertical-align: middle;
-}
-
-td.MainLogo {
-    border: 0px;
-    padding-right: 5em;
-    text-align: right;
-    vertical-align: middle;
 }
 
 th.content {
@@ -219,87 +240,131 @@ div.column {
     float: left;
 }
 
-div.oneoftwo {
-    width: 49%;
-}
-div.twooftwo {
-    margin-left: 10px;
-    width: 49%;
+@media screen and (min-width: 1200px) {
+    div.oneoftwo {
+        width: 49%;
+    }
+    div.twooftwo {
+        margin-left: 10px;
+        width: 49%;
+    }
+
+    div.oneofthree {
+        width: 32%;
+    }
+    div.twoofthree {
+        margin-left: 10px;
+        width: 32%;
+    }
+    div.threeofthree {
+        margin-left: 10px;
+        width: 32%;
+    }
+
+    div.oneoffour {
+        width: 24%;
+    }
+    div.twooffour {
+        margin-left: 10px;
+        width: 24%;
+    }
+    div.threeoffour {
+        margin-left: 10px;
+        width: 24%;
+    }
+    div.fouroffour {
+        margin-left: 10px;
+        width: 24%;
+    }
+
+    div.oneoffive {
+        width: 19%;
+    }
+    div.twooffive {
+        margin-left: 10px;
+        width: 19%;
+    }
+    div.threeoffive {
+        margin-left: 10px;
+        width: 19%;
+    }
+    div.fouroffive {
+        margin-left: 10px;
+        width: 19%;
+    }
+    div.fiveoffive {
+        margin-left: 10px;
+        width: 19%;
+    }
+
+    div.oneofsix {
+        width: 16%;
+    }
+    div.twoofsix {
+        margin-left: 10px;
+        width: 16%;
+    }
+    div.threeofsix {
+        margin-left: 10px;
+        width: 16%;
+    }
+    div.fourofsix {
+        margin-left: 10px;
+        width: 16%;
+    }
+    div.fiveofsix {
+        margin-left: 10px;
+        width: 16%;
+    }
+    div.sixofsix {
+        margin-left: 10px;
+        width: 16%;
+    }
 }
 
-div.oneofthree {
-    width: 32%;
-}
-div.twoofthree {
-    margin-left: 10px;
-    width: 32%;
-}
-div.threeofthree {
-    margin-left: 10px;
-    width: 32%;
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+    div.oneoftwo,
+    div.oneofthree,
+    div.oneoffour,
+    div.oneoffive,
+    div.oneofsix {
+        margin-left: 0px;
+        width: 50%;
+    }
+
+    div.twooftwo,
+    div.twoofthree,
+    div.twooffour,
+    div.twooffive,
+    div.twoofsix {
+        margin-left: 10px;
+        width: 50%;
+    }
+
+    div.threeofthree,
+    div.fiveoffive,
+    div.fiveofsix {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    div.threeoffour,
+    div.threeoffive,
+    div.threeofsix {
+        margin-left: 0px;
+        width: 50%;
+    }
+
+    div.fouroffour,
+    div.fouroffive,
+    div.fourofsix,
+    div.sixofsix {
+        margin-left: 10px;
+        width: 50%;
+    }
 }
 
-div.oneoffour {
-    width: 24%;
-}
-div.twooffour {
-    margin-left: 10px;
-    width: 24%;
-}
-div.threeoffour {
-    margin-left: 10px;
-    width: 24%;
-}
-div.fouroffour {
-    margin-left: 10px;
-    width: 24%;
-}
-
-div.oneoffive {
-    width: 19%;
-}
-div.twooffive {
-    margin-left: 10px;
-    width: 19%;
-}
-div.threeoffive {
-    margin-left: 10px;
-    width: 19%;
-}
-div.fouroffive {
-    margin-left: 10px;
-    width: 19%;
-}
-div.fiveoffive {
-    margin-left: 10px;
-    width: 19%;
-}
-
-div.oneofsix {
-    width: 16%;
-}
-div.twoofsix {
-    margin-left: 10px;
-    width: 16%;
-}
-div.threeofsix {
-    margin-left: 10px;
-    width: 16%;
-}
-div.fourofsix {
-    margin-left: 10px;
-    width: 16%;
-}
-div.fiveofsix {
-    margin-left: 10px;
-    width: 16%;
-}
-div.sixofsix {
-    margin-left: 10px;
-    width: 16%;
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
     div.oneoftwo,
     div.twooftwo,
     div.oneofthree,
@@ -315,6 +380,7 @@ div.sixofsix {
     div.fouroffive,
     div.fiveoffive,
     div.oneofsix,
+    div.twoofsix,
     div.threeofsix,
     div.fourofsix,
     div.fiveofsix,

@@ -34,11 +34,11 @@ Function Save-HTML {
     )
 
     if ([string]::IsNullOrEmpty($FilePath)) {
-        Write-Warning "ReportPath parameter $ReportPath is empty,using Temp"
+        Write-Warning "Save-HTMLReport - FilePath parameter $ReportPath is empty, using Temporary"
         $FilePath = Get-FileName -Temporary -Extension 'html'
     } else {
         if (Test-Path -Path $FilePath) {
-            Write-Warning 'Sasve-HTMLReport - Path already exists. Report will be overwritten.'
+            Write-Warning 'Save-HTMLReport - Path already exists. Report will be overwritten.'
         }
     }
     Write-Verbose "Saving HTML to file $FilePath"

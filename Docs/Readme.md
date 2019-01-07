@@ -11,6 +11,15 @@ Locale: en-US
 {{Manually Enter Description Here}}
 
 ## PSWriteHTML Cmdlets
+### [Add-HTMLHorizontalLine](Add-HTMLHorizontalLine.md)
+{{Fill in the Synopsis}}
+
+### [Add-HTMLSection](Add-HTMLSection.md)
+{{Fill in the Synopsis}}
+
+### [Add-Image](Add-Image.md)
+{{Fill in the Synopsis}}
+
 ### [Get-HTMLAnchor](Get-HTMLAnchor.md)
 Creates an Anchor
 
@@ -46,6 +55,12 @@ Creates an HTML entry with heading and detail
 
 ### [Get-HTMLHeading](Get-HTMLHeading.md)
 {{Fill in the Synopsis}}
+
+### [Get-HTMLLineChart](Get-HTMLLineChart.md)
+
+
+### [Get-HTMLLineChartObject](Get-HTMLLineChartObject.md)
+create a Line chart object for use with Get-HTMLLineChart
 
 ### [Get-HTMLPieChart](Get-HTMLPieChart.md)
 
