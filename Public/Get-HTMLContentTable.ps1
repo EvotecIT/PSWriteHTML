@@ -22,6 +22,21 @@ Function Get-HTMLContentTable {
         [Array]$ColumnTotals
 
     )
+
+	# save the advanced properties (objects) to a hashtable for later use
+	$AdvancedTypes = @{}
+	$ArrayOfObjects | ForEach-Object {
+		$obj = $_
+		$obj.PSObject.Properties | Where-Object {$_.TypeNameOfValue -eq 'System.Management.Automation.PSCustomObject'} | ForEach-Object {
+			$Key = [guid]::NewGuid().Guid -replace '-',''
+			$PropertyName = $_.Name
+			$o = $obj.$PropertyName
+			$AdvancedTypes[$Key] = $o
+			# the key will be put into a table which we can then later replace using the content of the object we just saved to that key
+			$obj.$PropertyName = $Key
+		}
+    }
+        
     if ($GroupBy -eq '') {
         Write-Verbose "Get-HTMLContentTable - Running this option 1"
         $Report = $ArrayOfObjects | ConvertTo-Html -Fragment
@@ -70,7 +85,16 @@ Function Get-HTMLContentTable {
 
     }
 
+    # replace the guids with html formatted tags
+	$AdvancedTypes.Keys | ForEach-Object{
+		$Key = $_
+		$Object = $AdvancedTypes[$Key]
+		$Report = $Report -replace $Key, (Format-Html -Object $Object)
+    }
+        
     # Not sure what that is for, must be something that ReportHTML guy was using - will be removed
+    # spaelling: it is because ConvertTo-Html will botch any existing html. Below is a very clumsy solution
+    # I have put my solution for this into this file.
     $Report = $Report -replace 'URL01NEW', '<a target="_blank" href="'
     $Report = $Report -replace 'URL01', '<a href="'
     $Report = $Report -replace 'URL02', '">'
