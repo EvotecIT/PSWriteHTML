@@ -2,59 +2,64 @@ Function New-HTML {
     [CmdletBinding(DefaultParameterSetName = 'options')]
     param
     (
-        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$TitleText,
-        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$CSSPath,
-        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$CSSName = "default",
-        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$ScriptPath,
-        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$ColorSchemePath,
-        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][String]$LogoPath,
-        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$LeftLogoName = "Sample",
-        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$RightLogoName = "Alternate",
-        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$LeftLogoString,
-        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$RightLogoString,
+        [String]$TitleText,
 
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][switch]$HideLogos,
+        [String]$CSSPath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [String]$CSSName = "default",
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [String]$ScriptPath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [String]$ColorSchemePath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [String]$LogoPath,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [string]$LeftLogoName = "Sample",
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [string]$RightLogoName = "Alternate",
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [string]$LeftLogoString,
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [string]$RightLogoString,
 
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][switch]$HideTitle,
+
+        [switch]$HideLogos,
 
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][switch]$NoScript,
+
+        [switch]$HideTitle,
 
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'options')][PSobject]$Options,
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')][string]$PrimaryColorHex,
+
+        [switch]$NoScript,
+
+        [Parameter(Mandatory = $false, ParameterSetName = 'open')]
+        [string]$PrimaryColorHex,
 
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [switch] $AddAuthor,
+
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [string] $Author,
+
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [switch] $HideDate,
+
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss',
+
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [switch] $UseCssLinks,
+
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
         [switch] $UseStyleLinks,
+
         [Parameter(Mandatory = $false, ParameterSetName = 'open')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'options')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'explicit')]
+
+
         [switch] $Open,
 
 
@@ -65,29 +70,22 @@ Function New-HTML {
     )
 
     if ($Open) {
-
         [string] $CurrentDate = (Get-Date).ToString($DateFormat) #Get-Date #-format "MMM d, yyyy hh:mm tt"
-
-        if ($PSCmdlet.ParameterSetName -eq 'options') {
-            if ($Options -eq $null) {
-                $Options = New-HTMLReportOptions -UseCssLinks:$UseCssLinks -UseStyleLinks:$UseStyleLinks
+        if ([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
+            $LogoSources = @{}
+            if ([String]::IsNullOrEmpty($RightLogoString) -eq $false) {
+                $LogoSources.Add($RightLogoName, $RightLogoString)
             }
-        } else {
-            if ([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
-                $LogoSources = @{}
-                if ([String]::IsNullOrEmpty($RightLogoString) -eq $false) {
-                    $LogoSources.Add($RightLogoName, $RightLogoString)
-                }
-                if ([String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
-                    $LogoSources.Add($LeftLogoName, $LeftLogoString)
-                }
+            if ([String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
+                $LogoSources.Add($LeftLogoName, $LeftLogoString)
             }
-            if (!([String]::IsNullOrEmpty($LogoPath))) {
-                $LogoSources = Get-HTMLLogos -logopath $LogoPath
-            }
-
-            $Options = New-HTMLReportOptions -LogoSources $LogoSources -CSSName $CSSName -CSSPath $CSSPath -ScriptPath $ScriptPath -ColorSchemePath $ColorSchemePath -UseCssLinks:$UseCssLinks -UseStyleLinks:$UseStyleLinks
         }
+        if (!([String]::IsNullOrEmpty($LogoPath))) {
+            $LogoSources = Get-HTMLLogos -logopath $LogoPath
+        }
+
+        $Options = New-HTMLReportOptions -LogoSources $LogoSources -CSSName $CSSName -CSSPath $CSSPath -ScriptPath $ScriptPath -ColorSchemePath $ColorSchemePath -UseCssLinks:$UseCssLinks -UseStyleLinks:$UseStyleLinks
+
         if ($HideLogos -eq $false) {
             $Leftlogo = $Options.Logos[$LeftLogoName]
             $Rightlogo = $Options.Logos[$RightLogoName]
