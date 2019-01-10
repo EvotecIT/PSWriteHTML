@@ -1,10 +1,8 @@
-Function Get-HTMLTabHeader {
+Function New-HTMLTabHeader {
+    [alias('Get-HTMLTabHeader')]
     [CmdletBinding()]
-    Param
-    (
-        [Parameter(Mandatory = $true)]
-        [Array]
-        $TabNames
+    Param (
+        [Parameter(Mandatory)][Array] $TabNames
     )
 
     $TabHeader = @()
