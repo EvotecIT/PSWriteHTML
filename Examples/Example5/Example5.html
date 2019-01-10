@@ -1,1045 +1,777 @@
-<HTML
-    ><!DOCTYPE html>
-    <html>
-        <!-- Header -->
-        <head>
-            <Title></Title>
-            <!-- Styles -->
-            <link
-                rel="stylesheet"
-                type="text/css"
-                href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"
-            />
-            <style type="text/css">
-                * {
-                    margin: 0px;
-                    font-family: sans-serif;
-                    font-size: 8pt;
-                }
-
-                body {
-                    margin: 8px 5px 8px 5px;
-                }
-
-                h1 {
-                    margin: 8px 5px 8px 5px;
-                    font-family: sans-serif;
-                    font-size: 18pt;
-                    border-bottom: 2px solid #bbbbbb;
-                }
-
-                h2 {
-                    margin: 8px 5px 8px 5px;
-                    font-family: sans-serif;
-                    font-size: 16pt;
-                    border-bottom: 2px solid #bbbbbb;
-                }
-
-                h3 {
-                    margin: 8px 5px 8px 5px;
-                    font-family: sans-serif;
-                    font-size: 14pt;
-                    border-bottom: 1px solid #bbbbbb;
-                }
-
-                h4 {
-                    margin: 8px 5px 8px 5px;
-                    font-family: sans-serif;
-                    font-size: 12pt;
-                    border-bottom: 1px solid #bbbbbb;
-                }
-
-                h5 {
-                    margin: 8px 5px 8px 5px;
-                    font-family: sans-serif;
-                    font-size: 10pt;
-                    border-bottom: 1px solid #bbbbbb;
-                }
-
-                h6 {
-                    margin: 8px 5px 8px 5px;
-                    font-family: sans-serif;
-                    font-size: 8pt;
-                    border-bottom: 1px solid #bbbbbb;
-                }
-
-                h7 {
-                    font-family: sans-serif;
-                    font-size: 10pt;
-                }
-
-                hr {
-                    height: 4px;
-                    background-color: #337e94;
-                    border: 0px;
-                    width: 99%;
-                }
-
-                table {
-                    /* table-layout: auto; */
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-
-                th {
-                    vertical-align: top;
-                    text-align: left;
-                    padding: 2px 5px 2px 5px;
-                }
-
-                td {
-                    vertical-align: top;
-                    padding: 2px 5px 2px 5px;
-                    border-top: 1px solid #bbbbbb;
-                    height: 16px;
-                    vertical-align: middle;
-                }
-
-                tr.totalrow {
-                    border-top: thick double;
-                }
-
-                td.totalrow {
-                    vertical-align: Bottom;
-                    text-align: left;
-                    font-size: 8pt;
-                    font-weight: bold;
-                    padding: 2px 5px 2px 5px;
-                }
-
-                div.pageTitle {
-                    font-size: 14pt;
-                    font-weight: bold;
-                    width: 100%;
-                    display: block;
-                    padding: 4px 1em 0px 2px;
-                    height: 2em;
-                }
-
-                div.ReportCreated {
-                    text-align: right;
-                    padding-right: 5em;
-                }
-
-                div.clientlogo {
-                    border: 0px;
-                    vertical-align: middle;
-                    text-align: left;
-                    display: inline-block;
-                    width: 50%;
-                }
-
-                div.MainLogo {
-                    border: 0px;
-                    vertical-align: middle;
-                    text-align: right;
-                    display: inline-block;
-                    width: 50%;
-                }
-
-                td.clientlogo {
-                    border: 0px;
-                    padding-left: 0px;
-                    vertical-align: middle;
-                }
-
-                td.MainLogo {
-                    border: 0px;
-                    padding-right: 5em;
-                    text-align: right;
-                    vertical-align: middle;
-                }
-
-                td.logo {
-                    border: 1px;
-                    padding-right: 5em;
-                    text-align: left;
-                    vertical-align: middle;
-                    width: 50%;
-                    max-height: 100%;
-                    max-width: 100%;
-                }
-
-                div.logo {
-                    vertical-align: middle;
-                    text-align: right;
-                    display: inline-block;
-                    height: auto;
-                    width: auto;
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: 50%;
-                }
-
-                div.section {
-                    border: 1px solid #bbbbbb;
-                    padding-bottom: 12px;
-                    display: inline-block;
-                    margin: 5px;
-                    width: 98%;
-                }
-
-                div.header {
-                    padding: 4px 5em 0px 5px;
-                    margin: 0px 0px 0px 0px;
-                    height: 2em;
-                    font-weight: bold;
-                    color: #ffffff;
-                    background-color: #337e94;
-                }
-
-                div.content {
-                    padding: 4px 0px 5px 11px;
-                    margin: 0px 0px 0px 0px;
-                    width: 95%;
-                    color: #000000;
-                    background-color: #f9f9f9;
-                }
-
-                div.footer {
-                    padding-right: 5em;
-                    text-align: right;
-                }
-
-                table.fixed {
-                    table-layout: fixed;
-                }
-
-                table.vertical {
-                    table-layout: fixed;
-                    width: 100px;
-                }
-
-                th.content {
-                    border-top: 1px solid #bbbbbb;
-                    width: 25%;
-                }
-
-                td.content {
-                    width: 75%;
-                }
-
-                td.groupby {
-                    border-top: 3px double #bbbbbb;
-                }
-
-                .green {
-                    background-color: #a1cda4;
-                }
-
-                .yellow {
-                    background-color: #fffab1;
-                }
-
-                .red {
-                    background-color: #f5a085;
-                }
-
-                .odd {
-                    background-color: #d5d8dc;
-                }
-
-                .even {
-                    background-color: #f7f9f9;
-                }
-
-                .header {
-                    background-color: #616a6b;
-                    color: #f7f9f9;
-                }
-
-                div.column {
-                    width: 100%;
-                    float: left;
-                }
-
-                @media screen and (min-width: 1200px) {
-                    div.oneoftwo {
-                        width: 49%;
-                    }
-                    div.twooftwo {
-                        margin-left: 10px;
-                        width: 49%;
-                    }
-
-                    div.oneofthree {
-                        width: 32%;
-                    }
-                    div.twoofthree {
-                        margin-left: 10px;
-                        width: 32%;
-                    }
-                    div.threeofthree {
-                        margin-left: 10px;
-                        width: 32%;
-                    }
-
-                    div.oneoffour {
-                        width: 24%;
-                    }
-                    div.twooffour {
-                        margin-left: 10px;
-                        width: 24%;
-                    }
-                    div.threeoffour {
-                        margin-left: 10px;
-                        width: 24%;
-                    }
-                    div.fouroffour {
-                        margin-left: 10px;
-                        width: 24%;
-                    }
-
-                    div.oneoffive {
-                        width: 19%;
-                    }
-                    div.twooffive {
-                        margin-left: 10px;
-                        width: 19%;
-                    }
-                    div.threeoffive {
-                        margin-left: 10px;
-                        width: 19%;
-                    }
-                    div.fouroffive {
-                        margin-left: 10px;
-                        width: 19%;
-                    }
-                    div.fiveoffive {
-                        margin-left: 10px;
-                        width: 19%;
-                    }
-
-                    div.oneofsix {
-                        width: 16%;
-                    }
-                    div.twoofsix {
-                        margin-left: 10px;
-                        width: 16%;
-                    }
-                    div.threeofsix {
-                        margin-left: 10px;
-                        width: 16%;
-                    }
-                    div.fourofsix {
-                        margin-left: 10px;
-                        width: 16%;
-                    }
-                    div.fiveofsix {
-                        margin-left: 10px;
-                        width: 16%;
-                    }
-                    div.sixofsix {
-                        margin-left: 10px;
-                        width: 16%;
-                    }
-                }
-
-                @media screen and (min-width: 601px) and (max-width: 1200px) {
-                    div.oneoftwo,
-                    div.oneofthree,
-                    div.oneoffour,
-                    div.oneoffive,
-                    div.oneofsix {
-                        margin-left: 0px;
-                        width: 50%;
-                    }
-
-                    div.twooftwo,
-                    div.twoofthree,
-                    div.twooffour,
-                    div.twooffive,
-                    div.twoofsix {
-                        margin-left: 10px;
-                        width: 50%;
-                    }
-
-                    div.threeofthree,
-                    div.fiveoffive,
-                    div.fiveofsix {
-                        margin-left: 0px;
-                        width: 100%;
-                    }
-
-                    div.threeoffour,
-                    div.threeoffive,
-                    div.threeofsix {
-                        margin-left: 0px;
-                        width: 50%;
-                    }
-
-                    div.fouroffour,
-                    div.fouroffive,
-                    div.fourofsix,
-                    div.sixofsix {
-                        margin-left: 10px;
-                        width: 50%;
-                    }
-                }
-
-                @media screen and (max-width: 600px) {
-                    div.oneoftwo,
-                    div.twooftwo,
-                    div.oneofthree,
-                    div.twoofthree,
-                    div.threeofthree,
-                    div.oneoffour,
-                    div.twooffour,
-                    div.threeoffour,
-                    div.fouroffour,
-                    div.oneoffive,
-                    div.twooffive,
-                    div.threeoffive,
-                    div.fouroffive,
-                    div.fiveoffive,
-                    div.oneofsix,
-                    div.twoofsix,
-                    div.threeofsix,
-                    div.fourofsix,
-                    div.fiveofsix,
-                    div.sixofsix {
-                        margin-left: 0px;
-                        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-                    }
-                }
-
-                a.alink:link {
-                    color: #007bff;
-                    text-decoration: none;
-                    font-size: 120%;
-                }
-                a.alink:visited {
-                    color: #ff8400;
-                    text-decoration: none;
-                    font-size: 120%;
-                }
-                a.alink:hover {
-                    text-decoration: underline;
-                    font-size: 130%;
-                }
-
-                table.sortable thead {
-                    background-color: #eee;
-                    color: #666666;
-                    font-weight: bold;
-                    cursor: default;
-                }
-
-                /* Style the list */
-                ul.tab {
-                    list-style-type: none;
-                    margin: 0;
-                    padding: 0;
-                    overflow: hidden;
-                    border: 1px solid #ccc;
-                    background-color: #f1f1f1;
-                }
-
-                /* Float the list items side by side */
-                ul.tab li {
-                    float: left;
-                }
-
-                /* Style the links inside the list items */
-                ul.tab li a {
-                    display: inline-block;
-                    color: black;
-                    text-align: center;
-                    padding: 10px 12px;
-                    text-decoration: none;
-                    transition: 0.3s;
-                    font-size: 14px;
-                }
-
-                /* Change background color of links on hover */
-                ul.tab li a:hover {
-                    background-color: #ddd;
-                }
-
-                /* Create an active/current tablink class */
-                ul.tab li a:focus,
-                .active {
-                    background-color: #ccc;
-                }
-
-                /* Style the tab content */
-                .tabcontent {
-                    display: none;
-                    padding: 6px 8px;
-                    border: 1px solid #ccc;
-                    border-top: none;
-                }
-
-                .PowerShell {
-                    color: #eeedf0;
-                    background-color: #012456;
-                    font-family: consolas;
-                    font-size: 0.99em;
-                    padding: 0.3em;
-                    padding-top: 0.25em;
-                    padding-right: 0.25em;
-                    padding-bottom: 0.25em;
-                    padding-left: 0.25em;
-                }
-            </style>
-            <!-- Scripts -->
-            <script
-                type="text/javascript"
-                src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"
-            ></script>
-            <script
-                type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"
-            ></script>
-            <script
-                type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"
-            ></script>
-            <script
-                type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"
-            ></script>
-            <script
-                type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"
-            ></script>
-
-            <script type="text/javascript">
-                function show(obj) {
-                    document.getElementById(obj).style.display = "block";
-                    document.getElementById("hide_" + obj).style.display = "";
-                    document.getElementById("show_" + obj).style.display =
-                        "none";
-                }
-                function hide(obj) {
-                    document.getElementById(obj).style.display = "none";
-                    document.getElementById("hide_" + obj).style.display =
-                        "none";
-                    document.getElementById("show_" + obj).style.display = "";
-                }
-            </script>
-
-            <script type="text/javascript">
-                //refresh page on browser resize
-                $(window).bind("resize", function(e) {
-                    if (window.RT) clearTimeout(window.RT);
-                    window.RT = setTimeout(function() {
-                        this.location.reload(
-                            false
-                        ); /* false to get page from cache */
-                    }, 200);
-                });
-            </script>
-
-            <script type="text/javascript">
-                // Takes a data URI and returns the Data URI corresponding to the resized image at the wanted size.
-                function resizedataURL(datas, wantedWidth, wantedHeight) {
-                    // We create an image to receive the Data URI
-                    var img = document.createElement("img");
-
-                    // When the event "onload" is triggered we can resize the image.
-                    img.onload = function() {
-                        // We create a canvas and get its context.
-                        var canvas = document.createElement("canvas");
-                        var ctx = canvas.getContext("2d");
-
-                        // We set the dimensions at the wanted size.
-                        canvas.width = wantedWidth;
-                        canvas.height = wantedHeight;
-
-                        // We resize the image with the canvas method drawImage();
-                        ctx.drawImage(this, 0, 0, wantedWidth, wantedHeight);
-
-                        var dataURI = canvas.toDataURL();
-
-                        /////////////////////////////////////////
-                        // Use and treat your Data URI here !! //
-                        /////////////////////////////////////////
-                    };
-
-                    // We put the Data URI in the image's src attribute
-                    img.src = datas;
-                }
-                // Use it like that : resizedataURL('yourDataURIHere', 50, 50);
-            </script>
-
-            <script type="text/javascript">
-                var stIsIE = /*@cc_on!@*/ false;
-
-                sorttable = {
-                    init: function() {
-                        // quit if this function has already been called
-                        if (arguments.callee.done) return;
-                        // flag this function so we don't do the same thing twice
-                        arguments.callee.done = true;
-                        // kill the timer
-                        if (_timer) clearInterval(_timer);
-
-                        if (
-                            !document.createElement ||
-                            !document.getElementsByTagName
-                        )
-                            return;
-
-                        sorttable.DATE_RE = /^(\d\d?)[\/\.-](\d\d?)[\/\.-]((\d\d)?\d\d)$/;
-
-                        forEach(
-                            document.getElementsByTagName("table"),
-                            function(table) {
-                                if (
-                                    table.className.search(/\bsortable\b/) != -1
-                                ) {
-                                    sorttable.makeSortable(table);
-                                }
-                            }
-                        );
-                    },
-
-                    makeSortable: function(table) {
-                        if (table.getElementsByTagName("thead").length == 0) {
-                            // table doesn't have a tHead. Since it should have, create one and
-                            // put the first table row in it.
-                            the = document.createElement("thead");
-                            the.appendChild(table.rows[0]);
-                            table.insertBefore(the, table.firstChild);
-                        }
-                        // Safari doesn't support table.tHead, sigh
-                        if (table.tHead == null)
-                            table.tHead = table.getElementsByTagName(
-                                "thead"
-                            )[0];
-
-                        if (table.tHead.rows.length != 1) return; // can't cope with two header rows
-
-                        // Sorttable v1 put rows with a class of "sortbottom" at the bottom (as
-                        // "total" rows, for example). This is B&R, since what you're supposed
-                        // to do is put them in a tfoot. So, if there are sortbottom rows,
-                        // for backwards compatibility, move them to tfoot (creating it if needed).
-                        sortbottomrows = [];
-                        for (var i = 0; i < table.rows.length; i++) {
-                            if (
-                                table.rows[i].className.search(
-                                    /\bsortbottom\b/
-                                ) != -1
-                            ) {
-                                sortbottomrows[sortbottomrows.length] =
-                                    table.rows[i];
-                            }
-                        }
-                        if (sortbottomrows) {
-                            if (table.tFoot == null) {
-                                // table doesn't have a tfoot. Create one.
-                                tfo = document.createElement("tfoot");
-                                table.appendChild(tfo);
-                            }
-                            for (var i = 0; i < sortbottomrows.length; i++) {
-                                tfo.appendChild(sortbottomrows[i]);
-                            }
-                            delete sortbottomrows;
-                        }
-
-                        // work through each column and calculate its type
-                        headrow = table.tHead.rows[0].cells;
-                        for (var i = 0; i < headrow.length; i++) {
-                            // manually override the type with a sorttable_type attribute
-                            if (
-                                !headrow[i].className.match(
-                                    /\bsorttable_nosort\b/
-                                )
-                            ) {
-                                // skip this col
-                                mtch = headrow[i].className.match(
-                                    /\bsorttable_([a-z0-9]+)\b/
-                                );
-                                if (mtch) {
-                                    override = mtch[1];
-                                }
-                                if (
-                                    mtch &&
-                                    typeof sorttable["sort_" + override] ==
-                                        "function"
-                                ) {
-                                    headrow[i].sorttable_sortfunction =
-                                        sorttable["sort_" + override];
-                                } else {
-                                    headrow[
-                                        i
-                                    ].sorttable_sortfunction = sorttable.guessType(
-                                        table,
-                                        i
-                                    );
-                                }
-                                // make it clickable to sort
-                                headrow[i].sorttable_columnindex = i;
-                                headrow[i].sorttable_tbody = table.tBodies[0];
-                                dean_addEvent(
-                                    headrow[i],
-                                    "click",
-                                    (sorttable.innerSortFunction = function(e) {
-                                        if (
-                                            this.className.search(
-                                                /\bsorttable_sorted\b/
-                                            ) != -1
-                                        ) {
-                                            // if we're already sorted by this column, just
-                                            // reverse the table, which is quicker
-                                            sorttable.reverse(
-                                                this.sorttable_tbody
-                                            );
-                                            this.className = this.className.replace(
-                                                "sorttable_sorted",
-                                                "sorttable_sorted_reverse"
-                                            );
-                                            this.removeChild(
-                                                document.getElementById(
-                                                    "sorttable_sortfwdind"
-                                                )
-                                            );
-                                            sortrevind = document.createElement(
-                                                "span"
-                                            );
-                                            sortrevind.id =
-                                                "sorttable_sortrevind";
-                                            sortrevind.innerHTML = stIsIE
-                                                ? '&nbsp<font face="webdings">5</font>'
-                                                : "&nbsp;&#x25B4;";
-                                            this.appendChild(sortrevind);
-                                            return;
-                                        }
-                                        if (
-                                            this.className.search(
-                                                /\bsorttable_sorted_reverse\b/
-                                            ) != -1
-                                        ) {
-                                            // if we're already sorted by this column in reverse, just
-                                            // re-reverse the table, which is quicker
-                                            sorttable.reverse(
-                                                this.sorttable_tbody
-                                            );
-                                            this.className = this.className.replace(
-                                                "sorttable_sorted_reverse",
-                                                "sorttable_sorted"
-                                            );
-                                            this.removeChild(
-                                                document.getElementById(
-                                                    "sorttable_sortrevind"
-                                                )
-                                            );
-                                            sortfwdind = document.createElement(
-                                                "span"
-                                            );
-                                            sortfwdind.id =
-                                                "sorttable_sortfwdind";
-                                            sortfwdind.innerHTML = stIsIE
-                                                ? '&nbsp<font face="webdings">6</font>'
-                                                : "&nbsp;&#x25BE;";
-                                            this.appendChild(sortfwdind);
-                                            return;
-                                        }
-
-                                        // remove sorttable_sorted classes
-                                        theadrow = this.parentNode;
-                                        forEach(theadrow.childNodes, function(
-                                            cell
-                                        ) {
-                                            if (cell.nodeType == 1) {
-                                                // an element
-                                                cell.className = cell.className.replace(
-                                                    "sorttable_sorted_reverse",
-                                                    ""
-                                                );
-                                                cell.className = cell.className.replace(
-                                                    "sorttable_sorted",
-                                                    ""
-                                                );
-                                            }
-                                        });
-                                        sortfwdind = document.getElementById(
-                                            "sorttable_sortfwdind"
-                                        );
-                                        if (sortfwdind) {
-                                            sortfwdind.parentNode.removeChild(
-                                                sortfwdind
-                                            );
-                                        }
-                                        sortrevind = document.getElementById(
-                                            "sorttable_sortrevind"
-                                        );
-                                        if (sortrevind) {
-                                            sortrevind.parentNode.removeChild(
-                                                sortrevind
-                                            );
-                                        }
-
-                                        this.className += " sorttable_sorted";
-                                        sortfwdind = document.createElement(
-                                            "span"
-                                        );
-                                        sortfwdind.id = "sorttable_sortfwdind";
-                                        sortfwdind.innerHTML = stIsIE
-                                            ? '&nbsp<font face="webdings">6</font>'
-                                            : "&nbsp;&#x25BE;";
-                                        this.appendChild(sortfwdind);
-
-                                        // build an array to sort. This is a Schwartzian transform thing,
-                                        // i.e., we "decorate" each row with the actual sort key,
-                                        // sort based on the sort keys, and then put the rows back in order
-                                        // which is a lot faster because you only do getInnerText once per row
-                                        row_array = [];
-                                        col = this.sorttable_columnindex;
-                                        rows = this.sorttable_tbody.rows;
-                                        for (var j = 0; j < rows.length; j++) {
-                                            row_array[row_array.length] = [
-                                                sorttable.getInnerText(
-                                                    rows[j].cells[col]
-                                                ),
-                                                rows[j]
-                                            ];
-                                        }
-                                        /* If you want a stable sort, uncomment the following line */
-                                        //sorttable.shaker_sort(row_array, this.sorttable_sortfunction);
-                                        /* and comment out this one */
-                                        row_array.sort(
-                                            this.sorttable_sortfunction
-                                        );
-
-                                        tb = this.sorttable_tbody;
-                                        for (
-                                            var j = 0;
-                                            j < row_array.length;
-                                            j++
-                                        ) {
-                                            tb.appendChild(row_array[j][1]);
-                                        }
-
-                                        delete row_array;
-                                    })
-                                );
-                            }
-                        }
-                    },
-
-                    guessType: function(table, column) {
-                        // guess the type of a column based on its first non-blank row
-                        sortfn = sorttable.sort_alpha;
-                        for (var i = 0; i < table.tBodies[0].rows.length; i++) {
-                            text = sorttable.getInnerText(
-                                table.tBodies[0].rows[i].cells[column]
-                            );
-                            if (text != "") {
-                                if (text.match(/^-?[£$¤]?[\d,.]+%?$/)) {
-                                    return sorttable.sort_numeric;
-                                }
-                                // check for a date: dd/mm/yyyy or dd/mm/yy
-                                // can have / or . or - as separator
-                                // can be mm/dd as well
-                                possdate = text.match(sorttable.DATE_RE);
-                                if (possdate) {
-                                    // looks like a date
-                                    first = parseInt(possdate[1]);
-                                    second = parseInt(possdate[2]);
-                                    if (first > 12) {
-                                        // definitely dd/mm
-                                        return sorttable.sort_ddmm;
-                                    } else if (second > 12) {
-                                        return sorttable.sort_mmdd;
-                                    } else {
-                                        // looks like a date, but we can't tell which, so assume
-                                        // that it's dd/mm (English imperialism!) and keep looking
-                                        sortfn = sorttable.sort_ddmm;
-                                    }
-                                }
-                            }
-                        }
-                        return sortfn;
-                    },
-
-                    getInnerText: function(node) {
-                        // gets the text we want to use for sorting for a cell.
-                        // strips leading and trailing whitespace.
-                        // this is *not* a generic getInnerText function; it's special to sorttable.
-                        // for example, you can override the cell text with a customkey attribute.
-                        // it also gets .value for <input> fields.
-
-                        if (!node) return "";
-
-                        hasInputs =
-                            typeof node.getElementsByTagName == "function" &&
-                            node.getElementsByTagName("input").length;
-
-                        if (node.getAttribute("sorttable_customkey") != null) {
-                            return node.getAttribute("sorttable_customkey");
-                        } else if (
-                            typeof node.textContent != "undefined" &&
-                            !hasInputs
-                        ) {
-                            return node.textContent.replace(/^\s+|\s+$/g, "");
-                        } else if (
-                            typeof node.innerText != "undefined" &&
-                            !hasInputs
-                        ) {
-                            return node.innerText.replace(/^\s+|\s+$/g, "");
-                        } else if (
-                            typeof node.text != "undefined" &&
-                            !hasInputs
-                        ) {
-                            return node.text.replace(/^\s+|\s+$/g, "");
-                        } else {
-                            switch (node.nodeType) {
-                                case 3:
-                                    if (
-                                        node.nodeName.toLowerCase() == "input"
-                                    ) {
-                                        return node.value.replace(
-                                            /^\s+|\s+$/g,
-                                            ""
-                                        );
-                                    }
-                                case 4:
-                                    return node.nodeValue.replace(
-                                        /^\s+|\s+$/g,
-                                        ""
-                                    );
-                                    break;
-                                case 1:
-                                case 11:
-                                    var innerText = "";
-                                    for (
-                                        var i = 0;
-                                        i < node.childNodes.length;
-                                        i++
-                                    ) {
-                                        innerText += sorttable.getInnerText(
-                                            node.childNodes[i]
-                                        );
-                                    }
-                                    return innerText.replace(/^\s+|\s+$/g, "");
-                                    break;
-                                default:
-                                    return "";
-                            }
-                        }
-                    },
-
-                    reverse: function(tbody) {
-                        // reverse the rows in a tbody
-                        newrows = [];
-                        for (var i = 0; i < tbody.rows.length; i++) {
-                            newrows[newrows.length] = tbody.rows[i];
-                        }
-                        for (var i = newrows.length - 1; i >= 0; i--) {
-                            tbody.appendChild(newrows[i]);
-                        }
-                        delete newrows;
-                    },
-
-                    /* sort functions
+<HTML><!DOCTYPE HTML> <html> <!-- Header --> <head> <Title></Title> <!-- Styles --> <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"/> 
+ <style type="text/css"> 
+ * {
+     margin: 0px;
+     font-family: sans-serif;
+     font-size: 8pt;
+ }
+ 
+ body {
+     margin: 8px 5px 8px 5px;
+ }
+ 
+ h1 {
+     margin: 8px 5px 8px 5px;
+     font-family: sans-serif;
+     font-size: 18pt;
+     border-bottom: 2px solid #bbbbbb;
+ }
+ 
+ h2 {
+     margin: 8px 5px 8px 5px;
+     font-family: sans-serif;
+     font-size: 16pt;
+     border-bottom: 2px solid #bbbbbb;
+ }
+ 
+ h3 {
+     margin: 8px 5px 8px 5px;
+     font-family: sans-serif;
+     font-size: 14pt;
+     border-bottom: 1px solid #bbbbbb;
+ }
+ 
+ h4 {
+     margin: 8px 5px 8px 5px;
+     font-family: sans-serif;
+     font-size: 12pt;
+     border-bottom: 1px solid #bbbbbb;
+ }
+ 
+ h5 {
+     margin: 8px 5px 8px 5px;
+     font-family: sans-serif;
+     font-size: 10pt;
+     border-bottom: 1px solid #bbbbbb;
+ }
+ 
+ h6 {
+     margin: 8px 5px 8px 5px;
+     font-family: sans-serif;
+     font-size: 8pt;
+     border-bottom: 1px solid #bbbbbb;
+ }
+ 
+ h7 {
+     font-family: sans-serif;
+     font-size: 10pt;
+ }
+ 
+ hr {
+     height: 4px;
+     background-color: #337e94;
+     border: 0px;
+     width: 99%;
+ }
+ 
+ table {
+     table-layout: auto;
+     width: 100%;
+     border-collapse: collapse;
+ }
+ 
+ th {
+     vertical-align: top;
+     text-align: left;
+     padding: 2px 5px 2px 5px;
+ }
+ 
+ td {
+     vertical-align: top;
+     padding: 2px 5px 2px 5px;
+     border-top: 1px solid #bbbbbb;
+     height: 16px;
+     vertical-align: middle;
+ }
+ 
+ tr.totalrow {
+     border-top: thick double;
+ }
+ 
+ td.totalrow {
+     vertical-align: Bottom;
+     text-align: left;
+     font-size: 8pt;
+     font-weight: bold;
+     padding: 2px 5px 2px 5px;
+ }
+ 
+ div.pageTitle {
+     font-size: 14pt;
+     font-weight: bold;
+     width: 100%;
+     display: block;
+     padding: 4px 1em 0px 2px;
+     height: 2em;
+ }
+ 
+ div.ReportCreated {
+     text-align: right;
+     padding-right: 5em;
+ }
+ 
+ div.clientlogo {
+     border: 0px;
+     vertical-align: middle;
+     text-align: left;
+     display: inline-block;
+     width: 50%;
+ }
+ 
+ div.MainLogo {
+     border: 0px;
+     vertical-align: middle;
+     text-align: right;
+     display: inline-block;
+     width: 50%;
+ }
+ 
+ div.section {
+     border: 1px solid #bbbbbb;
+     padding-bottom: 12px;
+     display: inline-block;
+     margin: 5px;
+     width: 98%;
+ }
+ 
+ div.header {
+     padding: 4px 5em 0px 5px;
+     margin: 0px 0px 0px 0px;
+     height: 2em;
+     font-weight: bold;
+     color: #ffffff;
+     background-color: #337e94;
+ }
+ 
+ div.content {
+     padding: 4px 0px 5px 11px;
+     margin: 0px 0px 0px 0px;
+     width: 95%;
+     color: #000000;
+     background-color: #f9f9f9;
+ }
+ 
+ div.footer {
+     padding-right: 5em;
+     text-align: right;
+ }
+ 
+ table.fixed {
+     table-layout: fixed;
+ }
+ 
+ table.vertical {
+     table-layout: fixed;
+     width: 100px;
+ }
+ 
+ td.clientlogo {
+     border: 0px;
+     padding-left: 0px;
+     vertical-align: middle;
+ }
+ 
+ td.MainLogo {
+     border: 0px;
+     padding-right: 5em;
+     text-align: right;
+     vertical-align: middle;
+ }
+ 
+ th.content {
+     border-top: 1px solid #bbbbbb;
+     width: 25%;
+ }
+ 
+ td.content {
+     width: 75%;
+ }
+ 
+ td.groupby {
+     border-top: 3px double #bbbbbb;
+ }
+ 
+ .green {
+     background-color: #a1cda4;
+ }
+ 
+ .yellow {
+     background-color: #fffab1;
+ }
+ 
+ .red {
+     background-color: #f5a085;
+ }
+ 
+ .odd {
+     background-color: #d5d8dc;
+ }
+ 
+ .even {
+     background-color: #f7f9f9;
+ }
+ 
+ .header {
+     background-color: #616a6b;
+     color: #f7f9f9;
+ }
+ 
+ div.column {
+     width: 100%;
+     float: left;
+ }
+ 
+ div.oneoftwo {
+     width: 49%;
+ }
+ div.twooftwo {
+     margin-left: 10px;
+     width: 49%;
+ }
+ 
+ div.oneofthree {
+     width: 32%;
+ }
+ div.twoofthree {
+     margin-left: 10px;
+     width: 32%;
+ }
+ div.threeofthree {
+     margin-left: 10px;
+     width: 32%;
+ }
+ 
+ div.oneoffour {
+     width: 24%;
+ }
+ div.twooffour {
+     margin-left: 10px;
+     width: 24%;
+ }
+ div.threeoffour {
+     margin-left: 10px;
+     width: 24%;
+ }
+ div.fouroffour {
+     margin-left: 10px;
+     width: 24%;
+ }
+ 
+ div.oneoffive {
+     width: 19%;
+ }
+ div.twooffive {
+     margin-left: 10px;
+     width: 19%;
+ }
+ div.threeoffive {
+     margin-left: 10px;
+     width: 19%;
+ }
+ div.fouroffive {
+     margin-left: 10px;
+     width: 19%;
+ }
+ div.fiveoffive {
+     margin-left: 10px;
+     width: 19%;
+ }
+ 
+ div.oneofsix {
+     width: 16%;
+ }
+ div.twoofsix {
+     margin-left: 10px;
+     width: 16%;
+ }
+ div.threeofsix {
+     margin-left: 10px;
+     width: 16%;
+ }
+ div.fourofsix {
+     margin-left: 10px;
+     width: 16%;
+ }
+ div.fiveofsix {
+     margin-left: 10px;
+     width: 16%;
+ }
+ div.sixofsix {
+     margin-left: 10px;
+     width: 16%;
+ }
+ 
+ a.alink:link {
+     color: #007bff;
+     text-decoration: none;
+     font-size: 120%;
+ }
+ a.alink:visited {
+     color: #ff8400;
+     text-decoration: none;
+     font-size: 120%;
+ }
+ a.alink:hover {
+     text-decoration: underline;
+     font-size: 130%;
+ }
+ 
+ table.sortable thead {
+     background-color: #eee;
+     color: #666666;
+     font-weight: bold;
+     cursor: default;
+ }
+ 
+ /* Style the list */
+ ul.tab {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+     border: 1px solid #ccc;
+     background-color: #f1f1f1;
+ }
+ 
+ /* Float the list items side by side */
+ ul.tab li {
+     float: left;
+ }
+ 
+ /* Style the links inside the list items */
+ ul.tab li a {
+     display: inline-block;
+     color: black;
+     text-align: center;
+     padding: 10px 12px;
+     text-decoration: none;
+     transition: 0.3s;
+     font-size: 14px;
+ }
+ 
+ /* Change background color of links on hover */
+ ul.tab li a:hover {
+     background-color: #ddd;
+ }
+ 
+ /* Create an active/current tablink class */
+ ul.tab li a:focus,
+ .active {
+     background-color: #ccc;
+ }
+ 
+ /* Style the tab content */
+ .tabcontent {
+     display: none;
+     padding: 6px 8px;
+     border: 1px solid #ccc;
+     border-top: none;
+ }
+ 
+ .PowerShell {
+     color: #eeedf0;
+     background-color: #012456;
+     font-family: consolas;
+     font-size: 0.99em;
+     padding: 0.3em;
+     padding-top: 0.25em;
+     padding-right: 0.25em;
+     padding-bottom: 0.25em;
+     padding-left: 0.25em;
+ }
+ </style> 
+ <!-- Scripts --> <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"></script> 
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script> 
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script> 
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script> 
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script> 
+ 
+ <script type="text/javascript"> 
+ function show(obj) {
+   document.getElementById(obj).style.display='block'; 
+   document.getElementById("hide_" + obj).style.display=''; 
+   document.getElementById("show_" + obj).style.display='none'; 
+ } 
+ function hide(obj) { 
+   document.getElementById(obj).style.display='none'; 
+   document.getElementById("hide_" + obj).style.display='none'; 
+   document.getElementById("show_" + obj).style.display=''; 
+ }  </script> 
+ 
+ <script type="text/javascript"> 
+ //refresh page on browser resize
+ $(window).bind("resize", function(e) {
+     if (window.RT) clearTimeout(window.RT);
+     window.RT = setTimeout(function() {
+         this.location.reload(false); /* false to get page from cache */
+     }, 200);
+ });
+ </script> 
+ 
+ <script type="text/javascript"> 
+ // Takes a data URI and returns the Data URI corresponding to the resized image at the wanted size.
+ function resizedataURL(datas, wantedWidth, wantedHeight) {
+     // We create an image to receive the Data URI
+     var img = document.createElement("img");
+ 
+     // When the event "onload" is triggered we can resize the image.
+     img.onload = function() {
+         // We create a canvas and get its context.
+         var canvas = document.createElement("canvas");
+         var ctx = canvas.getContext("2d");
+ 
+         // We set the dimensions at the wanted size.
+         canvas.width = wantedWidth;
+         canvas.height = wantedHeight;
+ 
+         // We resize the image with the canvas method drawImage();
+         ctx.drawImage(this, 0, 0, wantedWidth, wantedHeight);
+ 
+         var dataURI = canvas.toDataURL();
+ 
+         /////////////////////////////////////////
+         // Use and treat your Data URI here !! //
+         /////////////////////////////////////////
+     };
+ 
+     // We put the Data URI in the image's src attribute
+     img.src = datas;
+ }
+ // Use it like that : resizedataURL('yourDataURIHere', 50, 50);
+ </script> 
+ 
+ <script type="text/javascript"> 
+ var stIsIE = /*@cc_on!@*/false;
+ 
+ sorttable = {
+   init: function() {
+     // quit if this function has already been called
+     if (arguments.callee.done) return;
+     // flag this function so we don't do the same thing twice
+     arguments.callee.done = true;
+     // kill the timer
+     if (_timer) clearInterval(_timer);
+ 
+     if (!document.createElement || !document.getElementsByTagName) return;
+ 
+     sorttable.DATE_RE = /^(\d\d?)[\/\.-](\d\d?)[\/\.-]((\d\d)?\d\d)$/;
+ 
+     forEach(document.getElementsByTagName('table'), function(table) {
+       if (table.className.search(/\bsortable\b/) != -1) {
+         sorttable.makeSortable(table);
+       }
+     });
+ 
+   },
+ 
+   makeSortable: function(table) {
+     if (table.getElementsByTagName('thead').length == 0) {
+       // table doesn't have a tHead. Since it should have, create one and
+       // put the first table row in it.
+       the = document.createElement('thead');
+       the.appendChild(table.rows[0]);
+       table.insertBefore(the,table.firstChild);
+     }
+     // Safari doesn't support table.tHead, sigh
+     if (table.tHead == null) table.tHead = table.getElementsByTagName('thead')[0];
+ 
+     if (table.tHead.rows.length != 1) return; // can't cope with two header rows
+ 
+     // Sorttable v1 put rows with a class of "sortbottom" at the bottom (as
+     // "total" rows, for example). This is B&R, since what you're supposed
+     // to do is put them in a tfoot. So, if there are sortbottom rows,
+     // for backwards compatibility, move them to tfoot (creating it if needed).
+     sortbottomrows = [];
+     for (var i=0; i<table.rows.length; i++) {
+       if (table.rows[i].className.search(/\bsortbottom\b/) != -1) {
+         sortbottomrows[sortbottomrows.length] = table.rows[i];
+       }
+     }
+     if (sortbottomrows) {
+       if (table.tFoot == null) {
+         // table doesn't have a tfoot. Create one.
+         tfo = document.createElement('tfoot');
+         table.appendChild(tfo);
+       }
+       for (var i=0; i<sortbottomrows.length; i++) {
+         tfo.appendChild(sortbottomrows[i]);
+       }
+       delete sortbottomrows;
+     }
+ 
+     // work through each column and calculate its type
+     headrow = table.tHead.rows[0].cells;
+     for (var i=0; i<headrow.length; i++) {
+       // manually override the type with a sorttable_type attribute
+       if (!headrow[i].className.match(/\bsorttable_nosort\b/)) { // skip this col
+         mtch = headrow[i].className.match(/\bsorttable_([a-z0-9]+)\b/);
+         if (mtch) { override = mtch[1]; }
+ 	      if (mtch && typeof sorttable["sort_"+override] == 'function') {
+ 	        headrow[i].sorttable_sortfunction = sorttable["sort_"+override];
+ 	      } else {
+ 	        headrow[i].sorttable_sortfunction = sorttable.guessType(table,i);
+ 	      }
+ 	      // make it clickable to sort
+ 	      headrow[i].sorttable_columnindex = i;
+ 	      headrow[i].sorttable_tbody = table.tBodies[0];
+ 	      dean_addEvent(headrow[i],"click", sorttable.innerSortFunction = function(e) {
+ 
+           if (this.className.search(/\bsorttable_sorted\b/) != -1) {
+             // if we're already sorted by this column, just
+             // reverse the table, which is quicker
+             sorttable.reverse(this.sorttable_tbody);
+             this.className = this.className.replace('sorttable_sorted',
+                                                     'sorttable_sorted_reverse');
+             this.removeChild(document.getElementById('sorttable_sortfwdind'));
+             sortrevind = document.createElement('span');
+             sortrevind.id = "sorttable_sortrevind";
+             sortrevind.innerHTML = stIsIE ? '&nbsp<font face="webdings">5</font>' : '&nbsp;&#x25B4;';
+             this.appendChild(sortrevind);
+             return;
+           }
+           if (this.className.search(/\bsorttable_sorted_reverse\b/) != -1) {
+             // if we're already sorted by this column in reverse, just
+             // re-reverse the table, which is quicker
+             sorttable.reverse(this.sorttable_tbody);
+             this.className = this.className.replace('sorttable_sorted_reverse',
+                                                     'sorttable_sorted');
+             this.removeChild(document.getElementById('sorttable_sortrevind'));
+             sortfwdind = document.createElement('span');
+             sortfwdind.id = "sorttable_sortfwdind";
+             sortfwdind.innerHTML = stIsIE ? '&nbsp<font face="webdings">6</font>' : '&nbsp;&#x25BE;';
+             this.appendChild(sortfwdind);
+             return;
+           }
+ 
+           // remove sorttable_sorted classes
+           theadrow = this.parentNode;
+           forEach(theadrow.childNodes, function(cell) {
+             if (cell.nodeType == 1) { // an element
+               cell.className = cell.className.replace('sorttable_sorted_reverse','');
+               cell.className = cell.className.replace('sorttable_sorted','');
+             }
+           });
+           sortfwdind = document.getElementById('sorttable_sortfwdind');
+           if (sortfwdind) { sortfwdind.parentNode.removeChild(sortfwdind); }
+           sortrevind = document.getElementById('sorttable_sortrevind');
+           if (sortrevind) { sortrevind.parentNode.removeChild(sortrevind); }
+ 
+           this.className += ' sorttable_sorted';
+           sortfwdind = document.createElement('span');
+           sortfwdind.id = "sorttable_sortfwdind";
+           sortfwdind.innerHTML = stIsIE ? '&nbsp<font face="webdings">6</font>' : '&nbsp;&#x25BE;';
+           this.appendChild(sortfwdind);
+ 
+ 	        // build an array to sort. This is a Schwartzian transform thing,
+ 	        // i.e., we "decorate" each row with the actual sort key,
+ 	        // sort based on the sort keys, and then put the rows back in order
+ 	        // which is a lot faster because you only do getInnerText once per row
+ 	        row_array = [];
+ 	        col = this.sorttable_columnindex;
+ 	        rows = this.sorttable_tbody.rows;
+ 	        for (var j=0; j<rows.length; j++) {
+ 	          row_array[row_array.length] = [sorttable.getInnerText(rows[j].cells[col]), rows[j]];
+ 	        }
+ 	        /* If you want a stable sort, uncomment the following line */
+ 	        //sorttable.shaker_sort(row_array, this.sorttable_sortfunction);
+ 	        /* and comment out this one */
+ 	        row_array.sort(this.sorttable_sortfunction);
+ 
+ 	        tb = this.sorttable_tbody;
+ 	        for (var j=0; j<row_array.length; j++) {
+ 	          tb.appendChild(row_array[j][1]);
+ 	        }
+ 
+ 	        delete row_array;
+ 	      });
+ 	    }
+     }
+   },
+ 
+   guessType: function(table, column) {
+     // guess the type of a column based on its first non-blank row
+     sortfn = sorttable.sort_alpha;
+     for (var i=0; i<table.tBodies[0].rows.length; i++) {
+       text = sorttable.getInnerText(table.tBodies[0].rows[i].cells[column]);
+       if (text != '') {
+         if (text.match(/^-?[£$¤]?[\d,.]+%?$/)) {
+           return sorttable.sort_numeric;
+         }
+         // check for a date: dd/mm/yyyy or dd/mm/yy
+         // can have / or . or - as separator
+         // can be mm/dd as well
+         possdate = text.match(sorttable.DATE_RE)
+         if (possdate) {
+           // looks like a date
+           first = parseInt(possdate[1]);
+           second = parseInt(possdate[2]);
+           if (first > 12) {
+             // definitely dd/mm
+             return sorttable.sort_ddmm;
+           } else if (second > 12) {
+             return sorttable.sort_mmdd;
+           } else {
+             // looks like a date, but we can't tell which, so assume
+             // that it's dd/mm (English imperialism!) and keep looking
+             sortfn = sorttable.sort_ddmm;
+           }
+         }
+       }
+     }
+     return sortfn;
+   },
+ 
+   getInnerText: function(node) {
+     // gets the text we want to use for sorting for a cell.
+     // strips leading and trailing whitespace.
+     // this is *not* a generic getInnerText function; it's special to sorttable.
+     // for example, you can override the cell text with a customkey attribute.
+     // it also gets .value for <input> fields.
+ 
+     if (!node) return "";
+ 
+     hasInputs = (typeof node.getElementsByTagName == 'function') &&
+                  node.getElementsByTagName('input').length;
+ 
+     if (node.getAttribute("sorttable_customkey") != null) {
+       return node.getAttribute("sorttable_customkey");
+     }
+     else if (typeof node.textContent != 'undefined' && !hasInputs) {
+       return node.textContent.replace(/^\s+|\s+$/g, '');
+     }
+     else if (typeof node.innerText != 'undefined' && !hasInputs) {
+       return node.innerText.replace(/^\s+|\s+$/g, '');
+     }
+     else if (typeof node.text != 'undefined' && !hasInputs) {
+       return node.text.replace(/^\s+|\s+$/g, '');
+     }
+     else {
+       switch (node.nodeType) {
+         case 3:
+           if (node.nodeName.toLowerCase() == 'input') {
+             return node.value.replace(/^\s+|\s+$/g, '');
+           }
+         case 4:
+           return node.nodeValue.replace(/^\s+|\s+$/g, '');
+           break;
+         case 1:
+         case 11:
+           var innerText = '';
+           for (var i = 0; i < node.childNodes.length; i++) {
+             innerText += sorttable.getInnerText(node.childNodes[i]);
+           }
+           return innerText.replace(/^\s+|\s+$/g, '');
+           break;
+         default:
+           return '';
+       }
+     }
+   },
+ 
+   reverse: function(tbody) {
+     // reverse the rows in a tbody
+     newrows = [];
+     for (var i=0; i<tbody.rows.length; i++) {
+       newrows[newrows.length] = tbody.rows[i];
+     }
+     for (var i=newrows.length-1; i>=0; i--) {
+        tbody.appendChild(newrows[i]);
+     }
+     delete newrows;
+   },
+ 
+   /* sort functions
       each sort function takes two parameters, a and b
       you are comparing a[0] and b[0] */
-                    sort_numeric: function(a, b) {
-                        aa = parseFloat(a[0].replace(/[^0-9.-]/g, ""));
-                        if (isNaN(aa)) aa = 0;
-                        bb = parseFloat(b[0].replace(/[^0-9.-]/g, ""));
-                        if (isNaN(bb)) bb = 0;
-                        return aa - bb;
-                    },
-                    sort_alpha: function(a, b) {
-                        if (a[0] == b[0]) return 0;
-                        if (a[0] < b[0]) return -1;
-                        return 1;
-                    },
-                    sort_ddmm: function(a, b) {
-                        mtch = a[0].match(sorttable.DATE_RE);
-                        y = mtch[3];
-                        m = mtch[2];
-                        d = mtch[1];
-                        if (m.length == 1) m = "0" + m;
-                        if (d.length == 1) d = "0" + d;
-                        dt1 = y + m + d;
-                        mtch = b[0].match(sorttable.DATE_RE);
-                        y = mtch[3];
-                        m = mtch[2];
-                        d = mtch[1];
-                        if (m.length == 1) m = "0" + m;
-                        if (d.length == 1) d = "0" + d;
-                        dt2 = y + m + d;
-                        if (dt1 == dt2) return 0;
-                        if (dt1 < dt2) return -1;
-                        return 1;
-                    },
-                    sort_mmdd: function(a, b) {
-                        mtch = a[0].match(sorttable.DATE_RE);
-                        y = mtch[3];
-                        d = mtch[2];
-                        m = mtch[1];
-                        if (m.length == 1) m = "0" + m;
-                        if (d.length == 1) d = "0" + d;
-                        dt1 = y + m + d;
-                        mtch = b[0].match(sorttable.DATE_RE);
-                        y = mtch[3];
-                        d = mtch[2];
-                        m = mtch[1];
-                        if (m.length == 1) m = "0" + m;
-                        if (d.length == 1) d = "0" + d;
-                        dt2 = y + m + d;
-                        if (dt1 == dt2) return 0;
-                        if (dt1 < dt2) return -1;
-                        return 1;
-                    },
-
-                    shaker_sort: function(list, comp_func) {
-                        // A stable sort function to allow multi-level sorting of data
-                        // see: http://en.wikipedia.org/wiki/Cocktail_sort
-                        // thanks to Joseph Nahmias
-                        var b = 0;
-                        var t = list.length - 1;
-                        var swap = true;
-
-                        while (swap) {
-                            swap = false;
-                            for (var i = b; i < t; ++i) {
-                                if (comp_func(list[i], list[i + 1]) > 0) {
-                                    var q = list[i];
-                                    list[i] = list[i + 1];
-                                    list[i + 1] = q;
-                                    swap = true;
-                                }
-                            } // for
-                            t--;
-
-                            if (!swap) break;
-
-                            for (var i = t; i > b; --i) {
-                                if (comp_func(list[i], list[i - 1]) < 0) {
-                                    var q = list[i];
-                                    list[i] = list[i - 1];
-                                    list[i - 1] = q;
-                                    swap = true;
-                                }
-                            } // for
-                            b++;
-                        } // while(swap)
-                    }
-                };
-
-                /* ******************************************************************
+   sort_numeric: function(a,b) {
+     aa = parseFloat(a[0].replace(/[^0-9.-]/g,''));
+     if (isNaN(aa)) aa = 0;
+     bb = parseFloat(b[0].replace(/[^0-9.-]/g,''));
+     if (isNaN(bb)) bb = 0;
+     return aa-bb;
+   },
+   sort_alpha: function(a,b) {
+     if (a[0]==b[0]) return 0;
+     if (a[0]<b[0]) return -1;
+     return 1;
+   },
+   sort_ddmm: function(a,b) {
+     mtch = a[0].match(sorttable.DATE_RE);
+     y = mtch[3]; m = mtch[2]; d = mtch[1];
+     if (m.length == 1) m = '0'+m;
+     if (d.length == 1) d = '0'+d;
+     dt1 = y+m+d;
+     mtch = b[0].match(sorttable.DATE_RE);
+     y = mtch[3]; m = mtch[2]; d = mtch[1];
+     if (m.length == 1) m = '0'+m;
+     if (d.length == 1) d = '0'+d;
+     dt2 = y+m+d;
+     if (dt1==dt2) return 0;
+     if (dt1<dt2) return -1;
+     return 1;
+   },
+   sort_mmdd: function(a,b) {
+     mtch = a[0].match(sorttable.DATE_RE);
+     y = mtch[3]; d = mtch[2]; m = mtch[1];
+     if (m.length == 1) m = '0'+m;
+     if (d.length == 1) d = '0'+d;
+     dt1 = y+m+d;
+     mtch = b[0].match(sorttable.DATE_RE);
+     y = mtch[3]; d = mtch[2]; m = mtch[1];
+     if (m.length == 1) m = '0'+m;
+     if (d.length == 1) d = '0'+d;
+     dt2 = y+m+d;
+     if (dt1==dt2) return 0;
+     if (dt1<dt2) return -1;
+     return 1;
+   },
+ 
+   shaker_sort: function(list, comp_func) {
+     // A stable sort function to allow multi-level sorting of data
+     // see: http://en.wikipedia.org/wiki/Cocktail_sort
+     // thanks to Joseph Nahmias
+     var b = 0;
+     var t = list.length - 1;
+     var swap = true;
+ 
+     while(swap) {
+         swap = false;
+         for(var i = b; i < t; ++i) {
+             if ( comp_func(list[i], list[i+1]) > 0 ) {
+                 var q = list[i]; list[i] = list[i+1]; list[i+1] = q;
+                 swap = true;
+             }
+         } // for
+         t--;
+ 
+         if (!swap) break;
+ 
+         for(var i = t; i > b; --i) {
+             if ( comp_func(list[i], list[i-1]) < 0 ) {
+                 var q = list[i]; list[i] = list[i-1]; list[i-1] = q;
+                 swap = true;
+             }
+         } // for
+         b++;
+ 
+     } // while(swap)
+   }
+ }
+ 
+ /* ******************************************************************
     Supporting functions: bundled here to avoid depending on a library
     ****************************************************************** */
-
-                // Dean Edwards/Matthias Miller/John Resig
-
-                /* for Mozilla/Opera9 */
-                if (document.addEventListener) {
-                    document.addEventListener(
-                        "DOMContentLoaded",
-                        sorttable.init,
-                        false
-                    );
-                }
-
-                /* for Internet Explorer */
-                /*@cc_on @*/
-                /*@if (@_win32)
+ 
+ // Dean Edwards/Matthias Miller/John Resig
+ 
+ /* for Mozilla/Opera9 */
+ if (document.addEventListener) {
+     document.addEventListener("DOMContentLoaded", sorttable.init, false);
+ }
+ 
+ /* for Internet Explorer */
+ /*@cc_on @*/
+ /*@if (@_win32)
      document.write("<script id=__ie_onload defer src=javascript:void(0)><\/script>");
      var script = document.getElementById("__ie_onload");
      script.onreadystatechange = function() {
@@ -1048,1072 +780,215 @@
          }
      };
  /*@end @*/
-
-                /* for Safari */
-                if (/WebKit/i.test(navigator.userAgent)) {
-                    // sniff
-                    var _timer = setInterval(function() {
-                        if (/loaded|complete/.test(document.readyState)) {
-                            sorttable.init(); // call the onload handler
-                        }
-                    }, 10);
-                }
-
-                /* for other browsers */
-                window.onload = sorttable.init;
-
-                // written by Dean Edwards, 2005
-                // with input from Tino Zijdel, Matthias Miller, Diego Perini
-
-                // http://dean.edwards.name/weblog/2005/10/add-event/
-
-                function dean_addEvent(element, type, handler) {
-                    if (element.addEventListener) {
-                        element.addEventListener(type, handler, false);
-                    } else {
-                        // assign each event handler a unique ID
-                        if (!handler.$$guid)
-                            handler.$$guid = dean_addEvent.guid++;
-                        // create a hash table of event types for the element
-                        if (!element.events) element.events = {};
-                        // create a hash table of event handlers for each element/event pair
-                        var handlers = element.events[type];
-                        if (!handlers) {
-                            handlers = element.events[type] = {};
-                            // store the existing event handler (if there is one)
-                            if (element["on" + type]) {
-                                handlers[0] = element["on" + type];
-                            }
-                        }
-                        // store the event handler in the hash table
-                        handlers[handler.$$guid] = handler;
-                        // assign a global event handler to do all the work
-                        element["on" + type] = handleEvent;
-                    }
-                }
-                // a counter used to create unique IDs
-                dean_addEvent.guid = 1;
-
-                function removeEvent(element, type, handler) {
-                    if (element.removeEventListener) {
-                        element.removeEventListener(type, handler, false);
-                    } else {
-                        // delete the event handler from the hash table
-                        if (element.events && element.events[type]) {
-                            delete element.events[type][handler.$$guid];
-                        }
-                    }
-                }
-
-                function handleEvent(event) {
-                    var returnValue = true;
-                    // grab the event object (IE uses a global event object)
-                    event =
-                        event ||
-                        fixEvent(
-                            (
-                                (this.ownerDocument || this.document || this)
-                                    .parentWindow || window
-                            ).event
-                        );
-                    // get a reference to the hash table of event handlers
-                    var handlers = this.events[event.type];
-                    // execute each event handler
-                    for (var i in handlers) {
-                        this.$$handleEvent = handlers[i];
-                        if (this.$$handleEvent(event) === false) {
-                            returnValue = false;
-                        }
-                    }
-                    return returnValue;
-                }
-
-                function fixEvent(event) {
-                    // add W3C standard event methods
-                    event.preventDefault = fixEvent.preventDefault;
-                    event.stopPropagation = fixEvent.stopPropagation;
-                    return event;
-                }
-                fixEvent.preventDefault = function() {
-                    this.returnValue = false;
-                };
-                fixEvent.stopPropagation = function() {
-                    this.cancelBubble = true;
-                };
-
-                // Dean's forEach: http://dean.edwards.name/base/forEach.js
-                /*
+ 
+ /* for Safari */
+ if (/WebKit/i.test(navigator.userAgent)) { // sniff
+     var _timer = setInterval(function() {
+         if (/loaded|complete/.test(document.readyState)) {
+             sorttable.init(); // call the onload handler
+         }
+     }, 10);
+ }
+ 
+ /* for other browsers */
+ window.onload = sorttable.init;
+ 
+ // written by Dean Edwards, 2005
+ // with input from Tino Zijdel, Matthias Miller, Diego Perini
+ 
+ // http://dean.edwards.name/weblog/2005/10/add-event/
+ 
+ function dean_addEvent(element, type, handler) {
+ 	if (element.addEventListener) {
+ 		element.addEventListener(type, handler, false);
+ 	} else {
+ 		// assign each event handler a unique ID
+ 		if (!handler.$$guid) handler.$$guid = dean_addEvent.guid++;
+ 		// create a hash table of event types for the element
+ 		if (!element.events) element.events = {};
+ 		// create a hash table of event handlers for each element/event pair
+ 		var handlers = element.events[type];
+ 		if (!handlers) {
+ 			handlers = element.events[type] = {};
+ 			// store the existing event handler (if there is one)
+ 			if (element["on" + type]) {
+ 				handlers[0] = element["on" + type];
+ 			}
+ 		}
+ 		// store the event handler in the hash table
+ 		handlers[handler.$$guid] = handler;
+ 		// assign a global event handler to do all the work
+ 		element["on" + type] = handleEvent;
+ 	}
+ };
+ // a counter used to create unique IDs
+ dean_addEvent.guid = 1;
+ 
+ function removeEvent(element, type, handler) {
+ 	if (element.removeEventListener) {
+ 		element.removeEventListener(type, handler, false);
+ 	} else {
+ 		// delete the event handler from the hash table
+ 		if (element.events && element.events[type]) {
+ 			delete element.events[type][handler.$$guid];
+ 		}
+ 	}
+ };
+ 
+ function handleEvent(event) {
+ 	var returnValue = true;
+ 	// grab the event object (IE uses a global event object)
+ 	event = event || fixEvent(((this.ownerDocument || this.document || this).parentWindow || window).event);
+ 	// get a reference to the hash table of event handlers
+ 	var handlers = this.events[event.type];
+ 	// execute each event handler
+ 	for (var i in handlers) {
+ 		this.$$handleEvent = handlers[i];
+ 		if (this.$$handleEvent(event) === false) {
+ 			returnValue = false;
+ 		}
+ 	}
+ 	return returnValue;
+ };
+ 
+ function fixEvent(event) {
+ 	// add W3C standard event methods
+ 	event.preventDefault = fixEvent.preventDefault;
+ 	event.stopPropagation = fixEvent.stopPropagation;
+ 	return event;
+ };
+ fixEvent.preventDefault = function() {
+ 	this.returnValue = false;
+ };
+ fixEvent.stopPropagation = function() {
+   this.cancelBubble = true;
+ }
+ 
+ // Dean's forEach: http://dean.edwards.name/base/forEach.js
+ /*
  	forEach, version 1.0
  	Copyright 2006, Dean Edwards
  	License: http://www.opensource.org/licenses/mit-license.php
  */
-
-                // array-like enumeration
-                if (!Array.forEach) {
-                    // mozilla already supports this
-                    Array.forEach = function(array, block, context) {
-                        for (var i = 0; i < array.length; i++) {
-                            block.call(context, array[i], i, array);
-                        }
-                    };
-                }
-
-                // generic enumeration
-                Function.prototype.forEach = function(object, block, context) {
-                    for (var key in object) {
-                        if (typeof this.prototype[key] == "undefined") {
-                            block.call(context, object[key], key, object);
-                        }
-                    }
-                };
-
-                // character enumeration
-                String.forEach = function(string, block, context) {
-                    Array.forEach(string.split(""), function(chr, index) {
-                        block.call(context, chr, index, string);
-                    });
-                };
-
-                // globally resolve forEach enumeration
-                var forEach = function(object, block, context) {
-                    if (object) {
-                        var resolve = Object; // default
-                        if (object instanceof Function) {
-                            // functions have a "length" property
-                            resolve = Function;
-                        } else if (object.forEach instanceof Function) {
-                            // the object implements a custom forEach method so use that
-                            object.forEach(block, context);
-                            return;
-                        } else if (typeof object == "string") {
-                            // the object is a string
-                            resolve = String;
-                        } else if (typeof object.length == "number") {
-                            // the object is array-like
-                            resolve = Array;
-                        }
-                        resolve.forEach(object, block, context);
-                    }
-                };
-            </script>
-
-            <script type="text/javascript">
-                function openTab(evt, tabName) {
-                    // Declare all variables
-                    var i, tabcontent, tablinks;
-
-                    // Get all elements with class="tabcontent" and hide them
-                    tabcontent = document.getElementsByClassName("tabcontent");
-                    for (i = 0; i < tabcontent.length; i++) {
-                        tabcontent[i].style.display = "none";
-                    }
-
-                    // Get all elements with class="tablinks" and remove the class "active"
-                    tablinks = document.getElementsByClassName("tablinks");
-                    for (i = 0; i < tablinks.length; i++) {
-                        tablinks[i].className = tablinks[i].className.replace(
-                            " active",
-                            ""
-                        );
-                    }
-
-                    // Show the current tab, and add an "active" class to the link that opened the tab
-                    document.getElementById(tabName).style.display = "block";
-                    evt.currentTarget.className += " active";
-                }
-            </script>
-        </head>
-        <BODY
-            ><ul class="tab">
-                <li>
-                    <a
-                        href="javascript:void(0)"
-                        class="tablinks"
-                        onclick="openTab(event, 'Dashboard')"
-                        id="defaultOpen"
-                        >Dashboard</a
-                    >
-                </li>
-                <li>
-                    <a
-                        href="javascript:void(0)"
-                        class="tablinks"
-                        onclick="openTab(event, 'Other')"
-                        >Other</a
-                    >
-                </li>
-            </ul>
-            <div id="Dashboard" class="tabcontent">
-                <h7>Test</h7>
-                <div class="section">
-                    <div class="header"><a name="Content">Content</a></div>
-                    <div class="content" style="background-color:#ffffff;">
-                        <div class="oneoftwo column">
-                            <div class="section">
-                                <div class="header">
-                                    <a name="My text">My text</a> (<a
-                                        id="show_948220654"
-                                        href="#"
-                                        onclick="show('948220654');"
-                                        style="color: #ffffff; display:none;"
-                                        >Show</a
-                                    >
-                                    <a
-                                        id="hide_948220654"
-                                        href="#"
-                                        onclick="hide('948220654');"
-                                        style="color: #ffffff; "
-                                        >Hide</a
-                                    >)
-                                </div>
-                                <div
-                                    class="content"
-                                    id="948220654"
-                                    style="background-color:#ffffff;"
-                                >
-                                    <table class="sortable">
-                                        <tr>
-                                            <th>ForestMode</th>
-                                            <th>Name</th>
-                                            <th>RootDomain</th>
-                                            <th>SchemaMaster</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Windows2012R2Forest</td>
-                                            <td>ad.evotec.xyz</td>
-                                            <td>ad.evotec.xyz</td>
-                                            <td>AD1.ad.evotec.xyz</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="twooftwo column">
-                            <div class="section">
-                                <div class="header">
-                                    <a name="My text">My text</a> (<a
-                                        id="show_991745056"
-                                        href="#"
-                                        onclick="show('991745056');"
-                                        style="color: #ffffff; display:none;"
-                                        >Show</a
-                                    >
-                                    <a
-                                        id="hide_991745056"
-                                        href="#"
-                                        onclick="hide('991745056');"
-                                        style="color: #ffffff; "
-                                        >Hide</a
-                                    >)
-                                </div>
-                                <div
-                                    class="content"
-                                    id="991745056"
-                                    style="background-color:#ffffff;"
-                                >
-                                    <table class="sortable">
-                                        <tr>
-                                            <th>ForestMode</th>
-                                            <th>Name</th>
-                                            <th>RootDomain</th>
-                                            <th>SchemaMaster</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Windows2012R2Forest</td>
-                                            <td>ad.evotec.xyz</td>
-                                            <td>ad.evotec.xyz</td>
-                                            <td>AD1.ad.evotec.xyz</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="section">
-                            <div class="header">
-                                <a name="My text 2">My text 2</a> (<a
-                                    id="show_1193409680"
-                                    href="#"
-                                    onclick="show('1193409680');"
-                                    style="color: #ffffff; display:none;"
-                                    >Show</a
-                                >
-                                <a
-                                    id="hide_1193409680"
-                                    href="#"
-                                    onclick="hide('1193409680');"
-                                    style="color: #ffffff; "
-                                    >Hide</a
-                                >)
-                            </div>
-                            <div
-                                class="content"
-                                id="1193409680"
-                                style="background-color:#ffffff;"
-                            >
-                                <script>
-                                    $(document).ready(function() {
-                                        $("#d37rwv1i").DataTable({
-                                            dom: "Bfrtip",
-                                            buttons: [
-                                                "copyHtml5",
-                                                "excelHtml5",
-                                                "csvHtml5",
-                                                "pdfHtml5"
-                                            ],
-                                            paging: true,
-                                            pagingType: "full_numbers",
-                                            lengthMenu: [
-                                                [15, 25, 50, 100, -1],
-                                                [15, 25, 50, 100, "All"]
-                                            ],
-                                            ordering: true,
-                                            info: true,
-                                            colReorder: true,
-                                            responsive: { details: true },
-                                            select: true,
-                                            columns: [
-                                                { data: "Name" },
-                                                { data: "Surname" },
-                                                { data: "Enabled" },
-                                                { data: "DisplayName" }
-                                            ]
-                                        });
-                                    });
-                                </script>
-                                <table id="d37rwv1i" class="display compact">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Surname</th>
-                                            <th>Enabled</th>
-                                            <th>DisplayName</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Administrator</td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Guest</td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>DefaultAccount</td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>krbtgt</td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Administrator Przemyslaw Klys
-                                            </td>
-                                            <td>Klys</td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Przemyslaw Klys</td>
-                                            <td>Klys</td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Service Task Scheduler</td>
-                                            <td>Scheduler</td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Test User Test</td>
-                                            <td>Test</td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>New n. New</td>
-                                            <td>New</td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>EVOTECPL$</td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Exchange
-                                                Online-ApplicationAccount
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Microsoft Exchange Approval
-                                                Assistant
-                                            </td>
-                                            <td>
-                                                MSExchApproval
-                                                1f05a927-3be2-4fb9-aa03-b59fe3b56f4c
-                                            </td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Microsoft Exchange (offboarded)
-                                            </td>
-                                            <td>
-                                                SystemMailbox
-                                                bb558c35-97f1-4cb9-8ff7-d53741dc928c
-                                            </td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}
-                                            </td>
-                                            <td>
-                                                MsExchDiscovery
-                                                e0dc1c29-89c3-4034-b678-e6c29d823ed9
-                                            </td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Discovery Search Mailbox</td>
-                                            <td>
-                                                MsExchDiscoveryMailbox
-                                                D919BA05-46A6-415f-80AD-7E09334BB852
-                                            </td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Microsoft Exchange Migration
-                                            </td>
-                                            <td>
-                                                Migration.8f3e7716-2011-43e4-96b1-aba62d229136
-                                            </td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Microsoft Exchange Federation
-                                                Mailbox
-                                            </td>
-                                            <td>
-                                                FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042
-                                            </td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Special Test User</td>
-                                            <td>Test User</td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Expiration Date Test</td>
-                                            <td>Date Test</td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-Mailbox-Database-1527735546
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-001
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-003
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-002
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-004
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-005
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-006
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-007
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-008
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-009
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox-EX2013X3-010
-                                                (offboarded)
-                                            </td>
-                                            <td></td>
-                                            <td>False</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Some Mailbox</td>
-                                            <td>Mailbox</td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailboxb3289545c3e744818c6aeece7ab43c2a
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox5c21e4f881c0456cadd937c9f64a61da
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox49c425434f14404789901106b55279ad
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox2d50e3005c484d25a609113593de2c33
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox8d5e4ebac4be48c1957878877a544d1a
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailbox9bf79ab078f34b8da31862a98411a3f2
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailboxdcb7fda57f054f458ddc4592d90a209c
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8
-                                            </td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>My User</td>
-                                            <td>User</td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>MSOL_6f0d1d4965ec</td>
-                                            <td></td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>My User 2</td>
-                                            <td>User 2</td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Test Przemyslaw Klys</td>
-                                            <td>Klys</td>
-                                            <td>True</td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Surname</th>
-                                            <th>Enabled</th>
-                                            <th>DisplayName</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <script>
-                // Get the element with id="defaultOpen" and click on it
-                document.getElementById("defaultOpen").click();
-            </script>
-            <div id="Other" class="tabcontent">
-                <h7>Test 2</h7>
-                <div class="section">
-                    <div class="header">
-                        <a name="My other text">My other text</a>
-                    </div>
-                    <div class="content" style="background-color:#ffffff;">
-                        <table class="sortable">
-                            <tr>
-                                <th>Name</th>
-                                <th>Surname</th>
-                                <th>Enabled</th>
-                                <th>DisplayName</th>
-                            </tr>
-                            <tr>
-                                <td>Administrator</td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Guest</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>DefaultAccount</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>krbtgt</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Administrator Przemyslaw Klys</td>
-                                <td>Klys</td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Przemyslaw Klys</td>
-                                <td>Klys</td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Service Task Scheduler</td>
-                                <td>Scheduler</td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Test User Test</td>
-                                <td>Test</td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>New n. New</td>
-                                <td>New</td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>EVOTECPL$</td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Exchange Online-ApplicationAccount</td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Microsoft Exchange Approval Assistant</td>
-                                <td>
-                                    MSExchApproval
-                                    1f05a927-3be2-4fb9-aa03-b59fe3b56f4c
-                                </td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Microsoft Exchange (offboarded)</td>
-                                <td>
-                                    SystemMailbox
-                                    bb558c35-97f1-4cb9-8ff7-d53741dc928c
-                                </td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}
-                                </td>
-                                <td>
-                                    MsExchDiscovery
-                                    e0dc1c29-89c3-4034-b678-e6c29d823ed9
-                                </td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Discovery Search Mailbox</td>
-                                <td>
-                                    MsExchDiscoveryMailbox
-                                    D919BA05-46A6-415f-80AD-7E09334BB852
-                                </td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Microsoft Exchange Migration</td>
-                                <td>
-                                    Migration.8f3e7716-2011-43e4-96b1-aba62d229136
-                                </td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Microsoft Exchange Federation Mailbox</td>
-                                <td>
-                                    FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042
-                                </td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Special Test User</td>
-                                <td>Test User</td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Expiration Date Test</td>
-                                <td>Date Test</td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailbox-EX2013X3-Mailbox-Database-1527735546
-                                    (offboarded)
-                                </td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HealthMailbox-EX2013X3-001 (offboarded)</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HealthMailbox-EX2013X3-003 (offboarded)</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HealthMailbox-EX2013X3-002 (offboarded)</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HealthMailbox-EX2013X3-004 (offboarded)</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HealthMailbox-EX2013X3-005 (offboarded)</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HealthMailbox-EX2013X3-006 (offboarded)</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HealthMailbox-EX2013X3-007 (offboarded)</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HealthMailbox-EX2013X3-008 (offboarded)</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HealthMailbox-EX2013X3-009 (offboarded)</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HealthMailbox-EX2013X3-010 (offboarded)</td>
-                                <td></td>
-                                <td>False</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Some Mailbox</td>
-                                <td>Mailbox</td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailboxb3289545c3e744818c6aeece7ab43c2a
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailbox5c21e4f881c0456cadd937c9f64a61da
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailbox49c425434f14404789901106b55279ad
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailbox2d50e3005c484d25a609113593de2c33
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailbox8d5e4ebac4be48c1957878877a544d1a
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailbox9bf79ab078f34b8da31862a98411a3f2
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailboxdcb7fda57f054f458ddc4592d90a209c
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8
-                                </td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>My User</td>
-                                <td>User</td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>MSOL_6f0d1d4965ec</td>
-                                <td></td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>My User 2</td>
-                                <td>User 2</td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Test Przemyslaw Klys</td>
-                                <td>Klys</td>
-                                <td>True</td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <script>
-                // Get the element with id="defaultOpen" and click on it
-                document.getElementById("defaultOpen").click();
-            </script></BODY
-        >
-    </html>
-</HTML>
+ 
+ // array-like enumeration
+ if (!Array.forEach) { // mozilla already supports this
+ 	Array.forEach = function(array, block, context) {
+ 		for (var i = 0; i < array.length; i++) {
+ 			block.call(context, array[i], i, array);
+ 		}
+ 	};
+ }
+ 
+ // generic enumeration
+ Function.prototype.forEach = function(object, block, context) {
+ 	for (var key in object) {
+ 		if (typeof this.prototype[key] == "undefined") {
+ 			block.call(context, object[key], key, object);
+ 		}
+ 	}
+ };
+ 
+ // character enumeration
+ String.forEach = function(string, block, context) {
+ 	Array.forEach(string.split(""), function(chr, index) {
+ 		block.call(context, chr, index, string);
+ 	});
+ };
+ 
+ // globally resolve forEach enumeration
+ var forEach = function(object, block, context) {
+ 	if (object) {
+ 		var resolve = Object; // default
+ 		if (object instanceof Function) {
+ 			// functions have a "length" property
+ 			resolve = Function;
+ 		} else if (object.forEach instanceof Function) {
+ 			// the object implements a custom forEach method so use that
+ 			object.forEach(block, context);
+ 			return;
+ 		} else if (typeof object == "string") {
+ 			// the object is a string
+ 			resolve = String;
+ 		} else if (typeof object.length == "number") {
+ 			// the object is array-like
+ 			resolve = Array;
+ 		}
+ 		resolve.forEach(object, block, context);
+ 	}
+ };
+ </script> 
+ 
+ <script type="text/javascript"> 
+ function openTab(evt, tabName) {
+     // Declare all variables
+     var i, tabcontent, tablinks;
+ 
+     // Get all elements with class="tabcontent" and hide them
+     tabcontent = document.getElementsByClassName("tabcontent");
+     for (i = 0; i < tabcontent.length; i++) {
+         tabcontent[i].style.display = "none";
+     }
+ 
+     // Get all elements with class="tablinks" and remove the class "active"
+     tablinks = document.getElementsByClassName("tablinks");
+     for (i = 0; i < tablinks.length; i++) {
+         tablinks[i].className = tablinks[i].className.replace(" active", "");
+     }
+ 
+     // Show the current tab, and add an "active" class to the link that opened the tab
+     document.getElementById(tabName).style.display = "block";
+     evt.currentTarget.className += " active";
+ }
+ </script> 
+ </head> <BODY><ul class="tab"> 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Dashboard')" id="defaultOpen">Dashboard</a></li> 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Other')">Other</a></li> </ul> <div id="Dashboard" class="tabcontent"> <h7>Test</h7> <div class="section">
+<div class="header">
+    <a name="Content">Content</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> <div class="oneoftwo column"> <div class="section">
+<div class="header">
+    <a name="My text">My text</a> (<a id="show_1260227879" href="#" onclick="show('1260227879');" style="color: #ffffff; display:none;">Show</a>
+    <a id="hide_1260227879" href="#" onclick="hide('1260227879');" style="color: #ffffff; ">Hide</a>)
+</div>
+<div class="content" id="1260227879" style="background-color:#ffffff;"> <table class="sortable">  <tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr> <tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr> </table> </div></div> </div> <div class="twooftwo column"> <div class="section">
+<div class="header">
+    <a name="My text">My text</a> (<a id="show_2028568093" href="#" onclick="show('2028568093');" style="color: #ffffff; display:none;">Show</a>
+    <a id="hide_2028568093" href="#" onclick="hide('2028568093');" style="color: #ffffff; ">Hide</a>)
+</div>
+<div class="content" id="2028568093" style="background-color:#ffffff;"> <table class="sortable">  <tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr> <tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr> </table> </div></div> </div> <div class="section">
+<div class="header">
+    <a name="My text 2">My text 2</a> (<a id="show_427576271" href="#" onclick="show('427576271');" style="color: #ffffff; display:none;">Show</a>
+    <a id="hide_427576271" href="#" onclick="hide('427576271');" style="color: #ffffff; ">Hide</a>)
+</div>
+<div class="content" id="427576271" style="background-color:#ffffff;"> <script>
+ $(document).ready(function() {
+     $('#kj3mhgti').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
+		"paging":     true,
+		"pagingType": "full_numbers",
+		"lengthMenu": [[15,25, 50, 100, -1], [15,25, 50, 100, "All"]],
+        "ordering":   true,
+        "info":       true,
+        "colReorder": true,
+        "responsive": { details: true },
+        "select":     true,
+        "columns":    [{ "data": "Name" },{ "data": "Surname" },{ "data": "Enabled" },{ "data": "DisplayName" }]
+     });
+ } );
+</script><table id="kj3mhgti" class="display compact"><thead>  <tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody> <tr><td>Administrator</td><td></td><td>True</td><td></td></tr> <tr><td>Guest</td><td></td><td>False</td><td></td></tr> <tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr> <tr><td>krbtgt</td><td></td><td>False</td><td></td></tr> <tr><td>Administrator Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr> <tr><td>Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr> <tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr> <tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr> <tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr> <tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr> <tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr> <tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr> <tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr> <tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr> <tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr> <tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr> <tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr> <tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr> <tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr> <tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr> <tr><td>My User</td><td>User</td><td>True</td><td></td></tr> <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr> <tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr> <tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr> </tbody> <tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot> </table> </div></div> </div></div> </div> <script>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script> <div id="Other" class="tabcontent"> <h7>Test 2</h7> <div class="section">
+<div class="header">
+    <a name="My other text">My other text</a>
+</div>
+<div class="content" style="background-color:#ffffff;"> <table class="sortable">  <tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr> <tr><td>Administrator</td><td></td><td>True</td><td></td></tr> <tr><td>Guest</td><td></td><td>False</td><td></td></tr> <tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr> <tr><td>krbtgt</td><td></td><td>False</td><td></td></tr> <tr><td>Administrator Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr> <tr><td>Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr> <tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr> <tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr> <tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr> <tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr> <tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr> <tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr> <tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr> <tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr> <tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr> <tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr> <tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr> <tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr> <tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr> <tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr> <tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr> <tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr> <tr><td>My User</td><td>User</td><td>True</td><td></td></tr> <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr> <tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr> <tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr> </table> </div></div> </div> <script>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script></BODY></HTML>
