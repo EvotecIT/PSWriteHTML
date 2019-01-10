@@ -13,7 +13,7 @@ Function Get-HTMLContentTable {
 #>
     [CmdletBinding()]
     param(
-        [Array]$ArrayOfObjects,
+        [alias('ArrayOfObjects', 'Object', 'Table')][Array]$DataTable,
         [String]$GroupBy,
         [Array]$ColumnCounts,
         [Switch]$Fixed,
@@ -36,10 +36,10 @@ Function Get-HTMLContentTable {
 			$obj.$PropertyName = $Key
 		}
     }
-        
+
     if ($GroupBy -eq '') {
         Write-Verbose "Get-HTMLContentTable - Running this option 1"
-        $Report = $ArrayOfObjects | ConvertTo-Html -Fragment
+        $Report = $DataTable | ConvertTo-Html -Fragment
         $Report = $Report -replace '<col/>', "" -replace '<colgroup>', "" -replace '</colgroup>', ""
         $Report = $Report -replace "<tr>(.*)<td>Green</td></tr>", "<tr class=`"green`">`$+</tr>"
         $Report = $Report -replace "<tr>(.*)<td>Yellow</td></tr>", "<tr class=`"yellow`">`$+</tr>"
@@ -58,21 +58,21 @@ Function Get-HTMLContentTable {
         }
     } else {
         Write-Verbose "Get-HTMLContentTable - Running this option 2"
-        $NumberOfColumns = ($ArrayOfObjects | Get-Member -MemberType NoteProperty  | Select-Object Name).Count
+        $NumberOfColumns = ($DataTable | Get-Member -MemberType NoteProperty  | Select-Object Name).Count
         $Groupings = @()
-        $ArrayOfObjects | Select-Object $GroupBy -Unique  | Sort-Object $GroupBy | ForEach-Object { $Groupings += [String]$_.$GroupBy}
+        $DataTable | Select-Object $GroupBy -Unique  | Sort-Object $GroupBy | ForEach-Object { $Groupings += [String]$_.$GroupBy}
         if ($Fixed) {
             $Report = '<table class="fixed">'
         } else {
             $Report = '<table>'
         }
-        $GroupHeader = $ArrayOfObjects | ConvertTo-Html -Fragment
+        $GroupHeader = $DataTable | ConvertTo-Html -Fragment
         $GroupHeader = $GroupHeader -replace '<col/>', "" -replace '<colgroup>', "" -replace '</colgroup>', "" -replace '<table>', "" -replace '</table>', "" -replace "<td>.+?</td>" -replace "<tr></tr>", ""
         $GroupHeader = $GroupHeader -replace '<th>RowColor</th>', ''
         $Report += $GroupHeader
         foreach ($Group in $Groupings) {
             $Report += "<tr><td colspan=`"$NumberOfColumns`" class=`"groupby`">$Group</td></tr>"
-            $GroupBody = $ArrayOfObjects | Where-Object { [String]$($_.$GroupBy) -eq $Group } | Select-Object * -ExcludeProperty $GroupBy | ConvertTo-Html -Fragment
+            $GroupBody = $DataTable | Where-Object { [String]$($_.$GroupBy) -eq $Group } | Select-Object * -ExcludeProperty $GroupBy | ConvertTo-Html -Fragment
             $GroupBody = $GroupBody -replace '<col/>', "" -replace '<colgroup>', "" -replace '</colgroup>', "" -replace '<table>', "" -replace '</table>', "" -replace "<th>.+?</th>" -replace "<tr></tr>", "" -replace '<tr><td>', "<tr><td></td><td>"
             $GroupBody = $GroupBody -replace "<tr>(.*)<td>Green</td></tr>", "<tr class=`"green`">`$+</tr>"
             $GroupBody = $GroupBody -replace "<tr>(.*)<td>Yellow</td></tr>", "<tr class=`"yellow`">`$+</tr>"
@@ -91,7 +91,7 @@ Function Get-HTMLContentTable {
 		$Object = $AdvancedTypes[$Key]
 		$Report = $Report -replace $Key, (Format-Html -Object $Object)
     }
-        
+
     # Not sure what that is for, must be something that ReportHTML guy was using - will be removed
     # spaelling: it is because ConvertTo-Html will botch any existing html. Below is a very clumsy solution
     # I have put my solution for this into this file.
@@ -107,23 +107,23 @@ Function Get-HTMLContentTable {
     if ($ColumnTotals.count -gt 0 -or $ColumnAverages.count -gt 0 -or $ColumnCounts.count -gt 0 ) {
         Write-Verbose "Get-HTMLContentTable - Running this option 3"
 
-        $TableFooter = $ArrayOfObjects | ConvertTo-Html -Fragment
+        $TableFooter = $DataTable | ConvertTo-Html -Fragment
         $TableFooter = $TableFooter -replace '<col/>', "" -replace '<colgroup>', "" -replace '</colgroup>', "" -replace '<table>', "" -replace '</table>', "" -replace "<td>.+?</td>" -replace "<tr></tr>", ""
         $TableFooter = $TableFooter -replace '<th>RowColor</th>', ''
         #$ColumnTotal
         foreach ($ColumnTotal in $ColumnTotals) {
-            $TableFooter = $TableFooter -replace $ColumnTotal, ("sum:" + ($arrayofobjects | measure $ColumnTotal -Sum ).sum)
+            $TableFooter = $TableFooter -replace $ColumnTotal, ("sum:" + ($DataTable | measure $ColumnTotal -Sum ).sum)
         }
         #ColumnAverage
         foreach ($ColumnAverage in $ColumnAverages) {
-            $TableFooter = $TableFooter -replace $ColumnAverage, ("avg:" + ($arrayofobjects | measure $ColumnAverage -Average ).average)
+            $TableFooter = $TableFooter -replace $ColumnAverage, ("avg:" + ($DataTable | measure $ColumnAverage -Average ).average)
         }
         #ColumnCount
         foreach ($ColumnCount in $ColumnCounts) {
-            $TableFooter = $TableFooter -replace $ColumnCount, ("count:" + ($arrayofobjects | measure $ColumnCount).count)
+            $TableFooter = $TableFooter -replace $ColumnCount, ("count:" + ($DataTable | measure $ColumnCount).count)
         }
         #Cleanup
-        foreach ($Column in ($ArrayOfObjects | Get-Member )) {
+        foreach ($Column in ($DataTable | Get-Member )) {
             $TableFooter = $TableFooter -replace ("<th>" + $Column.Name + "</th>"), '<td></td>'
         }
 

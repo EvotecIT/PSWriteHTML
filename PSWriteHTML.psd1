@@ -71,14 +71,15 @@ RequiredModules = @('PSSharedGoods')
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = 'Add-HTMLHorizontalLine', 'Add-Image', 'Add-HTMLSection', 
                'Get-HTMLAnchor', 'Get-HTMLAnchorLink', 'Get-HTMLBarChart', 
-               'Get-HTMLBarChartObject', 'Get-HTMLCodeBlock', 'Get-HTMLColumn', 
-               'Get-HTMLContent', 'Get-HTMLContentDataTable', 'Get-HTMLContentTable', 
+               'Get-HTMLBarChartObject', 'Get-HTMLColumn', 'Get-HTMLContent', 
+               'Get-HTMLContentDataTable', 'Get-HTMLContentTable', 
                'Get-HTMLContentTableAdvanced', 'Get-HTMLContentText', 
                'Get-HTMLHeading', 'Get-HTMLLineChart', 'Get-HTMLLineChartObject', 
                'Get-HTMLPieChart', 'Get-HTMLPieChartObject', 
-               'Get-HTMLPowerShellSyntax', 'Get-HTMLTab', 'New-HTML', 'New-HTMLColumn', 
-               'New-HTMLContent', 'New-HtmlPage', 'New-HtmlTab', 'New-HTMLTabHeader', 
-               'Save-HTML', 'Set-TableRowColor'
+               'Get-HTMLPowerShellSyntax', 'Get-HTMLTab', 'New-HTML', 
+               'New-HTMLCodeBlock', 'New-HTMLColumn', 'New-HTMLContent', 
+               'New-HtmlPage', 'New-HtmlTab', 'New-HTMLTabHeader', 'Save-HTML', 
+               'Set-TableRowColor'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

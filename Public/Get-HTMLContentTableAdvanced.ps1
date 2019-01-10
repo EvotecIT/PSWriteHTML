@@ -8,13 +8,13 @@ Function Get-HTMLContentTableAdvanced {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory = $True, ValueFromPipeline = $True)]
-        [Array]$ArrayOfObjects
+        [alias('ArrayOfObjects', 'Object', 'Table')][Array]$DataTable
     )
 
     $out = ''
     $out += "<table>"
 
-    foreach ($object in $ArrayOfObjects) {
+    foreach ($object in $DataTable) {
         $datarow = ''
         $headerrow = ''
 

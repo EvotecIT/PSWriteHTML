@@ -12,6 +12,7 @@ Function New-HtmlPage {
         $HTML += Add-HTMLHead -UseStyleLinks:$UseStyleLinks -UseCssLinks:$UseCssLinks
         $HTML += "<BODY>"
         $HTML += Invoke-Command -ScriptBlock $ServiceData
+        $HTML += Get-JavaScript -FilePath "$PSScriptRoot\..\Resources\JS\Additional\LoadEnlighter.js"
         $HTML += "</BODY>"
     }
     End {

@@ -14,7 +14,7 @@ Function Get-HTMLContentDataTable {
     param
     (
         [Parameter(Mandatory = $True, ValueFromPipeline = $True)]
-        [alias('ArrayOfObjects', 'DataTable', 'Table')][Array]$Object,
+        [alias('ArrayOfObjects', 'Object', 'Table')][Array]$DataTable,
         [Parameter(Mandatory = $false, ValueFromPipeline = $false)]
         [switch]$DisablePaging,
         [Parameter(Mandatory = $false, ValueFromPipeline = $false)]
@@ -65,7 +65,7 @@ Function Get-HTMLContentDataTable {
         "select":     $($Select),
         "columns":    [
 "@
-    $ArraryHeader = $Object | ConvertTo-Html -Fragment
+    $ArraryHeader = $DataTable | ConvertTo-Html -Fragment
     $HeadersText = ($ArraryHeader[2] -replace '<tr>', '' -replace '<th>', '' -replace '</tr>', '')
     $ColumnHeaders = ($HeadersText.substring(0, $HeadersText.Length - 5)) -split '</th>'
 
@@ -80,9 +80,9 @@ Function Get-HTMLContentDataTable {
 '@
     $TableHeader = $TableHeader.Replace(',]', ']')
 
-    $NumberOfColumns = ($Object | Get-Member -MemberType NoteProperty  | Select-Object Name).Count
+    $NumberOfColumns = ($DataTable | Get-Member -MemberType NoteProperty  | Select-Object Name).Count
 
-    $Report = $Object | ConvertTo-Html -Fragment
+    $Report = $DataTable | ConvertTo-Html -Fragment
     <# Sample view of output
 
     <table>

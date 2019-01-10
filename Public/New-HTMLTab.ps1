@@ -2,8 +2,9 @@ function New-HtmlTab {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, Position = 0)][String] $TabName,
-        [Parameter(Mandatory = $false, Position = 1)][String]$TabHeading,
-        [Parameter(Mandatory = $false, Position = 2)][ValidateNotNull()][ScriptBlock] $TabData = $(Throw "No curly brace?)")
+        [Parameter(Mandatory = $false, Position = 1)][ValidateNotNull()][ScriptBlock] $TabData = $(Throw "No curly brace?)"),
+        [Parameter(Mandatory = $false, Position = 2)][String]$TabHeading
+
     )
     Begin {}
     Process {
@@ -16,13 +17,16 @@ function New-HtmlTab {
     }
     End {
         $HTML.Add('</div>')
+        <#
         $HTML.Add(@"
-<script>
+                <script>
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
 "@
         )
+#>
+        $HTML.Add((Get-JavaScript -FilePath "$PSScriptRoot\..\Resources\JS\Additional\LoadDefaultOpen.js"))
         return $HTML
     }
 }
