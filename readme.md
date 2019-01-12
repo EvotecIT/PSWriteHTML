@@ -2,7 +2,11 @@
 
 `PSWriteHTML` is fork of `ReportHTML` module. I've forked `ReportHTML` due to it being outdated and not really maintained anymore. I also wanted to address some problems it has and possibly add more features. As it stands currently `PSWriteHTML` is replacement for `ReportHTML` but in next days/weeks/months most likely it will be totally different module.
 
-Since PSWriteHTML currently uses same commands those commands will need to be renamed to prevent clashing with ReportHTML.
+**PSWriteHTML** is under renaming process where all commands may change their naming to:
+
+-   prevent clashing with ReportHTML
+-   add new functionality
+-   provide different (easier to read) coding style
 
 ## Advantages over ReportHTML:
 
