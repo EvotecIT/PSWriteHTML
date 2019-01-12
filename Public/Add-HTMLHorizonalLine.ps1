@@ -1,4 +1,5 @@
 function Add-HTMLHorizontalLine {
+    [CmdletBinding()]
     param(
 
     )
