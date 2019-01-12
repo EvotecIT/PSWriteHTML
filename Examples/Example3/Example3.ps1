@@ -13,7 +13,7 @@ $TabNames = 'Dashboard', 'Something'
 
 $ImageLink = 'https://evotec.xyz/wp-content/uploads/2015/05/Logo-evotec-012.png'
 
-$Report = New-HTML -TitleText $ReportTitle -AddAuthor -HideDate -RightLogoString $ImageLink -Verbose {
+$Report = New-HTML -TitleText $ReportTitle -AddAuthor -HideDate -RightLogoString $ImageLink -Verbose -UseStyleLinks -UseCssLinks {
     New-HTMLTabHeader -TabNames $TabNames
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent  -HeaderText "Groups" {
