@@ -1505,219 +1505,222 @@ $PieObjectGroupProtection.DataDefinition.DataNameColumnName = 'Name'
 $PieObjectGroupProtection.DataDefinition.DataValueColumnName = 'Count'
 
 
-$FinalReport = New-Object 'System.Collections.Generic.List[System.Object]'
-$FinalReport.Add($(New-HTML -Open -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -UseCssLinks -UseStyleLinks))
-$FinalReport.Add($(Get-HTMLTabHeader -TabNames $tabarray))
-#Dashboard Report
-$FinalReport.Add($(Get-HTMLTab -Open -TabName $tabarray[0] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Company Information"))
-$FinalReport.Add($(Get-HTMLContentTable $CompanyInfoTable))
-$FinalReport.Add($(Get-HTMLContent -Close))
+$FinalReport = New-HTMLPage  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -UseCssLinks -UseStyleLinks {
+    New-HTMLTabHeader -TabNames $tabarray
+    #Dashboard Report
+    New-HTMLTab  -TabName $tabarray[0] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
+        New-HTMLContent  -HeaderText "Company Information" {
+            Get-HTMLContentTable $CompanyInfoTable
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Groups"))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText 'Domain Administrators'))
-$FinalReport.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText 'Enterprise Administrators'))
-$FinalReport.Add($(Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Groups" {
+            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
+                New-HTMLContent  -BackgroundShade 1 -HeaderText 'Domain Administrators' {
+                    Get-HTMLContentDataTable $DomainAdminTable -HideFooter
+                }
+            }
+            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+                New-HTMLContent  -HeaderText 'Enterprise Administrators' {
+                    Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter
+                }
+            }
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Objects in Default OUs"))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText 'Computers'))
-$FinalReport.Add($(Get-HTMLContentDataTable $DefaultComputersinDefaultOUTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText 'Users'))
-$FinalReport.Add($(Get-HTMLContentDataTable $DefaultUsersinDefaultOUTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Objects in Default OUs" {
+            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
+                New-HTMLContent  -BackgroundShade 1 -HeaderText 'Computers' {
+                    Get-HTMLContentDataTable $DefaultComputersinDefaultOUTable -HideFooter
+                }
+            }
+            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+                New-HTMLContent  -HeaderText 'Users' {
+                    Get-HTMLContentDataTable $DefaultUsersinDefaultOUTable -HideFooter
+                }
+            }
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "AD Objects Modified in Last $ADModNumber Days"))
-$FinalReport.Add($(Get-HTMLContentDataTable $ADObjectTable))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "AD Objects Modified in Last $ADModNumber Days" {
+            Get-HTMLContentDataTable $ADObjectTable
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Expiring Items"))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText "Users with Passwords Expiring in less than $DaysUntilPWExpireINT days"))
-$FinalReport.Add($(Get-HTMLContentDataTable $PasswordExpireSoonTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText 'Accounts Expiring Soon'))
-$FinalReport.Add($(Get-HTMLContentDataTable $ExpiringAccountsTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Expiring Items" {
+            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
+                New-HTMLContent  -BackgroundShade 1 -HeaderText "Users with Passwords Expiring in less than $DaysUntilPWExpireINT days" {
+                    Get-HTMLContentDataTable $PasswordExpireSoonTable -HideFooter
+                }
+            }
+            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+                New-HTMLContent  -HeaderText 'Accounts Expiring Soon' {
+                    Get-HTMLContentDataTable $ExpiringAccountsTable -HideFooter
+                }
+            }
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Accounts"))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText "Users Haven't Logged on in $Days Days or more"))
-$FinalReport.Add($(Get-HTMLContentDataTable $userphaventloggedonrecentlytable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText "Accounts Created in $UserCreatedDays Days or Less"))
-$FinalReport.Add($(Get-HTMLContentDataTable $NewCreatedUsersTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Accounts" {
+            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
+                New-HTMLContent  -BackgroundShade 1 -HeaderText "Users Haven't Logged on in $Days Days or more" {
+                    Get-HTMLContentDataTable $userphaventloggedonrecentlytable -HideFooter
+                }
+            }
+            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+                New-HTMLContent  -BackgroundShade 1 -HeaderText "Accounts Created in $UserCreatedDays Days or Less" {
+                    Get-HTMLContentDataTable $NewCreatedUsersTable -HideFooter
+                }
+            }
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Security Logs"))
-$FinalReport.Add($(Get-HTMLContentDataTable $securityeventtable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Security Logs" {
+            Get-HTMLContentDataTable $securityeventtable -HideFooter
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "UPN Suffixes"))
-$FinalReport.Add($(Get-HTMLContentTable $DomainTable))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLTab -Close))
+        New-HTMLContent  -HeaderText "UPN Suffixes" {
+            Get-HTMLContentTable $DomainTable
+        }
+    }
 
-#Groups Report
-$FinalReport.Add($(Get-HTMLTab -Open -TabName $tabarray[1] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Groups Overivew"))
-$FinalReport.Add($(Get-HTMLContentDataTable $TOPGroupsTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
+    #Groups Report
+    New-HTMLTab  -TabName $tabarray[1] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
+        New-HTMLContent  -HeaderText "Groups Overivew" {
+            Get-HTMLContentDataTable $TOPGroupsTable -HideFooter
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Active Directory Groups"))
-$FinalReport.Add($(Get-HTMLContentDataTable $Table -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Active Directory Groups" {
+            Get-HTMLContentDataTable $Table -HideFooter
+        }
 
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2 ))
-$FinalReport.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText 'Domain Administrators'))
-$FinalReport.Add($(Get-HTMLContentDataTable $DomainAdminTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
+        New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
+            New-HTMLContent  -BackgroundShade 1 -HeaderText 'Domain Administrators' {
+                Get-HTMLContentDataTable $DomainAdminTable -HideFooter
+            }
+        }
 
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2 ))
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText 'Enterprise Administrators'))
-$FinalReport.Add($(Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
+        New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+            New-HTMLContent  -HeaderText 'Enterprise Administrators' {
+                Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter
+            }
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Active Directory Groups Chart"))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 4))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PieObjectGroupType -DataSet $GroupTypetable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 4))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PieObjectGroupType2 -DataSet $DefaultGrouptable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 3 -ColumnCount 4))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PieObjectGroupMembersType -DataSet $GroupMembershipTable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 4 -ColumnCount 4))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PieObjectGroupProtection -DataSet $GroupProtectionTable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLTab -Close))
+        New-HTMLContent  -HeaderText "Active Directory Groups Chart" {
+            New-HTMLColumn -ColumnNumber 1 -ColumnCount 4 {
+                Get-HTMLPieChart -ChartObject $PieObjectGroupType -DataSet $GroupTypetable
+            }
+            New-HTMLColumn -ColumnNumber 2 -ColumnCount 4 {
+                Get-HTMLPieChart -ChartObject $PieObjectGroupType2 -DataSet $DefaultGrouptable
+            }
+            New-HTMLColumn  -ColumnNumber 3 -ColumnCount 4 {
+                Get-HTMLPieChart -ChartObject $PieObjectGroupMembersType -DataSet $GroupMembershipTable
+            }
+            New-HTMLColumn -ColumnNumber 4 -ColumnCount 4 {
+                Get-HTMLPieChart -ChartObject $PieObjectGroupProtection -DataSet $GroupProtectionTable
+            }
+        }
+    }
 
-#Organizational Unit Report
-$FinalReport.Add($(Get-HTMLTab -Open -TabName $tabarray[2] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Organizational Units"))
-$FinalReport.Add($(Get-HTMLContentDataTable $OUTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
+    #Organizational Unit Report
+    New-HTMLTab -TabName $tabarray[2] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
+        New-HTMLContent  -HeaderText "Organizational Units" {
+            Get-HTMLContentDataTable $OUTable -HideFooter
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Organizational Units Charts"))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PieObjectOUGPOLinks -DataSet $OUGPOTable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PO12 -DataSet $OUProtectionTable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLTab -Close))
+        New-HTMLContent -HeaderText "Organizational Units Charts" {
+            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
+                Get-HTMLPieChart -ChartObject $PieObjectOUGPOLinks -DataSet $OUGPOTable
+            }
+            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+                Get-HTMLPieChart -ChartObject $PO12 -DataSet $OUProtectionTable
+            }
+        }
+    }
 
-#Users Report
-$FinalReport.Add($(Get-HTMLTab -Open -TabName $tabarray[3] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
+    #Users Report
+    New-HTMLTab -TabName $tabarray[3] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Users Overivew"))
-$FinalReport.Add($(Get-HTMLContentDataTable $TOPUserTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Users Overivew" {
+            Get-HTMLContentDataTable $TOPUserTable -HideFooter
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Active Directory Users"))
-$FinalReport.Add($(Get-HTMLContentDataTable $UserTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Active Directory Users" {
+            Get-HTMLContentDataTable $UserTable -HideFooter
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Expiring Items"))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText "Users with Passwords Expiring in less than $DaysUntilPWExpireINT days"))
-$FinalReport.Add($(Get-HTMLContentDataTable $PasswordExpireSoonTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText 'Accounts Expiring Soon'))
-$FinalReport.Add($(Get-HTMLContentDataTable $ExpiringAccountsTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Expiring Items" {
+            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
+                New-HTMLContent  -BackgroundShade 1 -HeaderText "Users with Passwords Expiring in less than $DaysUntilPWExpireINT days" {
+                    Get-HTMLContentDataTable $PasswordExpireSoonTable -HideFooter
+                }
+            }
+            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+                New-HTMLContent  -HeaderText 'Accounts Expiring Soon' {
+                    Get-HTMLContentDataTable $ExpiringAccountsTable -HideFooter
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Accounts"))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText "Users Haven't Logged on in $Days Days or more"))
-$FinalReport.Add($(Get-HTMLContentDataTable $userphaventloggedonrecentlytable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
+                }
+            }
+        }
 
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLContent -Open -BackgroundShade 1 -HeaderText "Accounts Created in $UserCreatedDays Days or Less"))
-$FinalReport.Add($(Get-HTMLContentDataTable $NewCreatedUsersTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Accounts" {
+            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
+                New-HTMLContent  -BackgroundShade 1 -HeaderText "Users Haven't Logged on in $Days Days or more" {
+                    Get-HTMLContentDataTable $userphaventloggedonrecentlytable -HideFooter
+                }
+            }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Users Charts"))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 3))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $EnabledDisabledUsersPieObject -DataSet $EnabledDisabledUsersTable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 3))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PWExpiresUsersTable -DataSet $PasswordExpirationTable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 3 -ColumnCount 3))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PieObjectProtectedUsers -DataSet $ProtectedUsersTable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLContent -Close))
 
-$FinalReport.Add($(Get-HTMLTab -Close))
 
-#GPO Report
-$FinalReport.Add($(Get-HTMLTab -Open -TabName $tabarray[4] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Group Policies"))
-$FinalReport.Add($(Get-HTMLContentDataTable $GPOTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
-$FinalReport.Add($(Get-HTMLTab -Close))
+            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+                New-HTMLContent  -BackgroundShade 1 -HeaderText "Accounts Created in $UserCreatedDays Days or Less" {
+                    Get-HTMLContentDataTable $NewCreatedUsersTable -HideFooter
+                }
+            }
 
-#Computers Report
-$FinalReport.Add($(Get-HTMLTab -Open -TabName $tabarray[5] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy))))
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Computers Overivew"))
-$FinalReport.Add($(Get-HTMLContentDataTable $TOPComputersTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
+        New-HTMLContent  -HeaderText "Users Charts" {
+            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 3 {
+                Get-HTMLPieChart -ChartObject $EnabledDisabledUsersPieObject -DataSet $EnabledDisabledUsersTable
+            }
+            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 3 {
+                Get-HTMLPieChart -ChartObject $PWExpiresUsersTable -DataSet $PasswordExpirationTable
+            }
+            New-HTMLColumn  -ColumnNumber 3 -ColumnCount 3 {
+                Get-HTMLPieChart -ChartObject $PieObjectProtectedUsers -DataSet $ProtectedUsersTable
+            }
+        }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Computers"))
-$FinalReport.Add($(Get-HTMLContentDataTable $ComputersTable -HideFooter))
-$FinalReport.Add($(Get-HTMLContent -Close))
+    }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Computers Charts"))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 1 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PieObjectComputersProtected -DataSet $ComputerProtectedTable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLColumn -Open -ColumnNumber 2 -ColumnCount 2))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PieObjectComputersEnabled -DataSet $ComputersEnabledTable))
-$FinalReport.Add($(Get-HTMLColumn -Close))
-$FinalReport.Add($(Get-HTMLContent -Close))
+    #GPO Report
+    New-HTMLTab -TabName $tabarray[4] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
+        New-HTMLContent -HeaderText "Group Policies" {
+            Get-HTMLContentDataTable $GPOTable -HideFooter
+        }
+    }
 
-$FinalReport.Add($(Get-HTMLContent -Open -HeaderText "Computers Operating System Breakdown"))
-$FinalReport.Add($(Get-HTMLPieChart -ChartObject $PieObjectComputerObjOS -DataSet $GraphComputerOS))
-$FinalReport.Add($(Get-HTMLContent -Close))
+    #Computers Report
+    New-HTMLTab -TabName $tabarray[5] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
 
-$FinalReport.Add($(Get-HTMLTab -Close))
-$FinalReport.Add($(New-HTML -Close))
+        New-HTMLContent -HeaderText "Computers Overivew" {
+            Get-HTMLContentDataTable $TOPComputersTable -HideFooter
+        }
+
+        New-HTMLContent  -HeaderText "Computers" {
+            Get-HTMLContentDataTable $ComputersTable -HideFooter
+        }
+
+        New-HTMLContent -HeaderText "Computers Charts" {
+            New-HTMLColumn -ColumnNumber 1 -ColumnCount 2 {
+                Get-HTMLPieChart -ChartObject $PieObjectComputersProtected -DataSet $ComputerProtectedTable
+            }
+            New-HTMLColumn -ColumnNumber 2 -ColumnCount 2 {
+                Get-HTMLPieChart -ChartObject $PieObjectComputersEnabled -DataSet $ComputersEnabledTable
+            }
+        }
+
+        New-HTMLContent -HeaderText "Computers Operating System Breakdown" {
+            Get-HTMLPieChart -ChartObject $PieObjectComputerObjOS -DataSet $GraphComputerOS
+        }
+
+    }
+}
 
 $Day = (Get-Date).Day
 $Month = (Get-Date).Month
