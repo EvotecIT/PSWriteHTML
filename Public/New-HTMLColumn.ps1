@@ -1,9 +1,9 @@
 Function New-HTMLColumn {
     [CmdletBinding()]
     param (
+        [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace with Content"),
         [int]$ColumnNumber = 1,
-        [int]$ColumnCount = 1,
-        [Parameter(Mandatory = $false, Position = 3)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace with Content")
+        [int]$ColumnCount = 1
     )
     Begin {
         $HTML = New-GenericList -Type [string]

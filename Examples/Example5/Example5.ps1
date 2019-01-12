@@ -83,7 +83,7 @@ $CodeBlocksXML = @'
 </building>
 '@
 
-$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
+$HTML = New-HtmlPage -UseCssLinks -UseStyleLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {

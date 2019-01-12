@@ -1,8 +1,8 @@
 function New-HtmlTab {
     [CmdletBinding()]
     param(
+        [Parameter(Mandatory = $false, Position = 1)][ValidateNotNull()][ScriptBlock] $HtmlData = $(Throw "No curly brace?)"),
         [Parameter(Mandatory, Position = 0)][String] $TabName,
-        [Parameter(Mandatory = $false, Position = 1)][ValidateNotNull()][ScriptBlock] $TabData = $(Throw "No curly brace?)"),
         [Parameter(Mandatory = $false, Position = 2)][String]$TabHeading
 
     )
@@ -13,7 +13,7 @@ function New-HtmlTab {
         if (-not [string]::IsNullOrWhiteSpace($TabHeading)) {
             $HTML.Add("<h7>$TabHeading</h7>")
         }
-        $HTML.Add((Invoke-Command -ScriptBlock $TabData))
+        $HTML.Add((Invoke-Command -ScriptBlock $HtmlData))
     }
     End {
         $HTML.Add('</div>')

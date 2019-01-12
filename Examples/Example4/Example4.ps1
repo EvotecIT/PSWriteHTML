@@ -17,7 +17,7 @@ $Report = New-HTMLPage -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText "Groups" {
             New-HTMLContent -BackgroundShade 1 -HeaderText 'Domain Administrators' -CanCollapse {
-                Get-HTMLContentTable -DataTable $DomainAdminTable -Verbose
+                Get-HTMLContentTable -DataTable $EnterpriseAdminTable -Verbose
             }
         }
     }
