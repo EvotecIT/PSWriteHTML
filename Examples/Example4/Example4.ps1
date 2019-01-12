@@ -15,7 +15,9 @@ $TabNames = 'Dashboard', 'Something'
 $Report = New-HTML -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -UseCssLinks -UseStyleLinks -Verbose {
     New-HTMLTabHeader -TabNames $TabNames
     New-HTMLTab -TabName 'Dashboard' {
+        New-HTMLHeading -Heading h3 -HeadingText 'This is a test'
         New-HTMLContent -HeaderText "Groups" {
+            New-HTMLHeading -Heading h3 -HeadingText 'This is a test'
             New-HTMLContent -BackgroundShade 1 -HeaderText 'Domain Administrators' -CanCollapse {
                 Get-HTMLContentTable -DataTable $EnterpriseAdminTable -Verbose
             }

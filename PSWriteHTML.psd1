@@ -74,9 +74,9 @@ FunctionsToExport = 'Add-HTMLHorizontalLine', 'Add-Image', 'Add-HTMLSection',
                'Get-HTMLBarChartObject', 'Get-HTMLColumn', 'Get-HTMLContent', 
                'Get-HTMLContentDataTable', 'Get-HTMLContentTable', 
                'Get-HTMLContentTableAdvanced', 'Get-HTMLContentText', 
-               'Get-HTMLHeading', 'Get-HTMLLineChart', 'Get-HTMLLineChartObject', 
-               'Get-HTMLPieChart', 'Get-HTMLPieChartObject', 'Get-HTMLTab', 'New-Html', 
-               'New-HTMLCodeBlock', 'New-HTMLColumn', 'New-HTMLContent', 'New-HtmlTab', 
+               'Get-HTMLLineChart', 'Get-HTMLLineChartObject', 'Get-HTMLPieChart', 
+               'Get-HTMLPieChartObject', 'New-Html', 'New-HTMLCodeBlock', 
+               'New-HTMLColumn', 'New-HTMLContent', 'New-HTMLHeading', 'New-HtmlTab', 
                'New-HTMLTabHeader', 'Save-HTML', 'Set-TableRowColor'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
