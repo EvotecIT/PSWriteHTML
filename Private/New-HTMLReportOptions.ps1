@@ -37,15 +37,23 @@ Function New-HTMLReportOptions {
         $ReportPath,
 
         [switch] $UseCssLinks,
-        [switch] $UseStyleLinks
+        [switch] $UseStyleLinks,
+
+        [string]$LeftLogoName = "Sample",
+        [string]$RightLogoName = "Alternate",
+        [string]$LeftLogoString,
+        [string]$RightLogoString
+
     )
     if ($ColorSchemes -eq $null) {
         $ColorSchemes = Get-HTMLColorSchemes -SchemePath $ColorSchemePath
     }
-    if ($LogoSources -eq $null) {
-        $LogoSources = Get-HTMLLogos -Builtin
-        $LogoSources += Get-HTMLLogos -LogoPath $LogoPath
-    }
+
+    $LogoSources = Get-HTMLLogos `
+        -RightLogoName $RightLogoName `
+        -LeftLogoName LeftLogoName  `
+        -LeftLogoString $LeftLogoString `
+        -RightLogoString $RightLogoString
 
     $ScriptHeaderContent = New-GenericList -Type [string]
     if ($UseCssLinks) {
@@ -60,10 +68,10 @@ Function New-HTMLReportOptions {
 
 
     $Options = [PSCustomObject] @{
-        Logos         = $LogoSources;
-        ScriptContent = $ScriptHeaderContent;
-        StyleContent  = $StyleHeaderContent;
-        ColorSchemes  = $ColorSchemes;
+        Logos         = $LogoSources
+        ScriptContent = $ScriptHeaderContent
+        StyleContent  = $StyleHeaderContent
+        ColorSchemes  = $ColorSchemes
     }
     set-variable -Name GlobalColorSchemes -Value $ColorSchemes -Scope Global
     if ([string]::IsNullOrEmpty($SaveOptionsPath)) {

@@ -8,19 +8,27 @@ Function Get-HTMLLogos {
     param
     (
         [Parameter(Mandatory = $false)]
-        [String] $LogoPath,
+        [string]$LeftLogoName = "Sample",
+        [string]$RightLogoName = "Alternate",
+        [string]$LeftLogoString,
+        [string]$RightLogoString
 
-        [switch] $Builtin
     )
-    if ($Builtin) {
-        $LogoPath = "$PSScriptRoot\..\Resources\Images"
-    } else {
-        if ([String]::IsNullOrEmpty($LogoPath)) {
-            return @{}
-        }
-    }
-
     $LogoSources = @{}
+    $LogoPath = @()
+
+    if ([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
+        if ([String]::IsNullOrEmpty($RightLogoString) -eq $false) {
+            $LogoSources.Add($RightLogoName, $RightLogoString)
+        }
+        if ([String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
+            $LogoSources.Add($LeftLogoName, $LeftLogoString)
+        }
+    } else {
+        $LogoPath += "$PSScriptRoot\..\Resources\Images\Other"
+    }
+    $LogoPath += "$PSScriptRoot\..\Resources\Images\DataTables"
+
     $ImageFiles = Get-ChildItem -Path (join-path $LogoPath '\*') -Include *.jpg, *.png, *.bmp -Recurse
     foreach ($ImageFile in $ImageFiles) {
         if ($ImageFile.Extension -eq '.jpg') {

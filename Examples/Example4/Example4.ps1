@@ -12,12 +12,15 @@ $Allusers = Get-AdUser -Filter *
 
 $TabNames = 'Dashboard', 'Something'
 
-$Report = New-HTMLPage -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -UseCssLinks -UseStyleLinks -Verbose {
+$Report = New-HTML -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -UseCssLinks -UseStyleLinks -Verbose {
     New-HTMLTabHeader -TabNames $TabNames
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText "Groups" {
             New-HTMLContent -BackgroundShade 1 -HeaderText 'Domain Administrators' -CanCollapse {
                 Get-HTMLContentTable -DataTable $EnterpriseAdminTable -Verbose
+            }
+            New-HTMLContent -BackgroundShade 1 -HeaderText 'Domain Administrators' -CanCollapse {
+                Get-HTMLContentDataTable -DataTable $EnterpriseAdminTable -Verbose
             }
         }
     }

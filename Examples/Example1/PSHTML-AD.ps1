@@ -123,7 +123,9 @@ If ($null -eq $Mod) {
     Write-Host "ReportHTML Module is not present, attempting to install it"
 
     Install-Module -Name PSWriteHTML -Force
-    Import-Module PSWriteHTML -ErrorAction SilentlyContinue
+    Import-Module PSWriteHTML -ErrorAction SilentlyContinue -Force
+} else {
+    Import-Module PSWriteHTML -Force
 }
 
 #Array of default Security Groups
@@ -1505,7 +1507,7 @@ $PieObjectGroupProtection.DataDefinition.DataNameColumnName = 'Name'
 $PieObjectGroupProtection.DataDefinition.DataValueColumnName = 'Count'
 
 
-$FinalReport = New-HTMLPage  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -UseCssLinks -UseStyleLinks {
+$FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose { #-UseCssLinks -UseStyleLinks  {
     New-HTMLTabHeader -TabNames $tabarray
     #Dashboard Report
     New-HTMLTab  -TabName $tabarray[0] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
