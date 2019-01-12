@@ -12,7 +12,7 @@ Since PSWriteHTML currently uses same commands those commands will need to be re
 
 Following external libaries and frameworks are in use. They make `PSWriteHTML` what it is now. This list is dynamic and doesn't cover everything yet.
 
-### External JS Framework
+### PSWriteHTML - External JS Framework - DataTables
 
 Following JS Framework is intergrated as part of this module. It was downloaded from https://datatables.net/download/ with following settings.
 
@@ -42,73 +42,74 @@ Following JS Framework is intergrated as part of this module. It was downloaded 
 
 JSZip and PDFMake are not downloaded as part of this package. They fail to import properly hence they are not bundled as one minified version.
 
-### Additionally separately following JS frameworks are loaded:
+-   [x] Extensions:
+    -   [x] Downloaded from https://github.com/Stuk/jszip
+        -   [x] JSZip Required for the Excel HTML5 export button.v2.5.0
+    -   [x] DataTables Package https://datatables.net/download/ but with separate file
+        -   [x] pdfmake Required for the PDF HTML5 export button.v0.1.36
+    -   [x] ChartJS Package - https://github.com/chartjs/Chart.js/releases
+        -   [x] ChartJS - version 2.7.3 (required for charts)
 
--   [x] Downloaded from https://github.com/Stuk/jszip
-    -   [x] JSZip Required for the Excel HTML5 export button.v2.5.0
--   [x] DataTables Package https://datatables.net/download/ but with separate file
-    -   [x] pdfmake Required for the PDF HTML5 export button.v0.1.36
--   [x] ChartJS Package - https://github.com/chartjs/Chart.js/releases
-    -   [x] ChartJS - version 2.7.3 (required for charts)
+### PSWriteHTML - External JS Framework -EnligherJS
 
-### PSWriteHTML - Library EnligherJS
+**PSWriteHTML** provides built-in EnligherJS JavaScript. This allows for **code blocks** support. Currently it uses Release Candidate version as it's first version to support **PowerShell highlighting** and many additional languages. It will be updated to new version
 
-PSWriteHTML preovides built-in EnligherJS JavaScript. This allows for code blocks support
+-   [x] Downloaded from https://github.com/EnlighterJS/EnlighterJS/tree/v3.0.0-RC1
 
-## Following languages are supported for New-HTMLCodeBlock
+#### Following languages are supported for New-HTMLCodeBlock
 
--   **Assembly** (assembly, asm)
--   **AVR Assembly** (avrassembly, avrasm)
--   **C/C++** (c,cpp, c++)
--   **C#** (csharp)
--   **CSS** (css)
--   **Cython** (cython)
--   **CordPro** (cordpro)
--   **diff** (diff)
--   **Dockerfile** (docker, dockerfile)
--   **Generic** (generic, standard) - default highlighting scheme
--   **Groovy** (groovy)
--   **Go** (go, golang)
--   **HTML** (html)
--   **Ini** (ini, conf)
--   **Java** (java)
--   **Javascript** (js, javascript, jquery, mootools, ext.js)
--   **JSON** (json)
--   **Kotlin** (kotlin)
--   **LESS** (less)
--   **LUA** (lua)
--   **Markdown** (gfm, md, markdown)
--   **Matlab/Octave** (octave, matlab)
--   **NSIS** (nsis)
--   **PHP** (php)
--   **Powerhsell** (powershell)
--   **Prolog** (prolog)
--   **Python** (py, python)
--   **RAW** (raw) - raw code without highlighting with EnlighterJS container styles!
--   **Ruby** (ruby)
--   **Rust** (rust)
--   **SCSS** (scss, sass)
--   **Shellscript** (shell, bash)
--   **SQL** (sql)
--   **Squirrel** (squirrel)
--   **Swift** (swift)
--   **Typescript** (typescript)
--   **VHDL** (vhdl)
--   **VisualBasic** (visualbasic, vb)
--   **XML** (xml)
--   **YAML** (yaml)
+-   [x] **Assembly** (assembly, asm)
+-   [x] **AVR Assembly** (avrassembly, avrasm)
+-   [x] **C/C++** (c,cpp, c++)
+-   [x] **C#** (csharp)
+-   [x] **CSS** (css)
+-   [x] **Cython** (cython)
+-   [x] **CordPro** (cordpro)
+-   [x] **diff** (diff)
+-   [x] **Dockerfile** (docker, dockerfile)
+-   [x] **Generic** (generic, standard) - default highlighting scheme
+-   [x] **Groovy** (groovy)
+-   [x] **Go** (go, golang)
+-   [x] **HTML** (html)
+-   [x] **Ini** (ini, conf)
+-   [x] **Java** (java)
+-   [x] **Javascript** (js, javascript, jquery, mootools, ext.js)
+-   [x] **JSON** (json)
+-   [x] **Kotlin** (kotlin)
+-   [x] **LESS** (less)
+-   [x] **LUA** (lua)
+-   [x] **Markdown** (gfm, md, markdown)
+-   [x] **Matlab/Octave** (octave, matlab)
+-   [x] **NSIS** (nsis)
+-   [x] **PHP** (php)
+-   [x] **Powerhsell** (powershell)
+-   [x] **Prolog** (prolog)
+-   [x] **Python** (py, python)
+-   [x] **RAW** (raw) - raw code without highlighting with EnlighterJS container styles!
+-   [x] **Ruby** (ruby)
+-   [x] **Rust** (rust)
+-   [x] **SCSS** (scss, sass)
+-   [x] **Shellscript** (shell, bash)
+-   [x] **SQL** (sql)
+-   [x] **Squirrel** (squirrel)
+-   [x] **Swift** (swift)
+-   [x] **Typescript** (typescript)
+-   [x] **VHDL** (vhdl)
+-   [x] **VisualBasic** (visualbasic, vb)
+-   [x] **XML** (xml)
+-   [x] **YAML** (yaml)
 
-## Following themes are supported for New-HTMLCodeBlock
+#### Following themes are supported for New-HTMLCodeBlock
 
--   **Enlighter** (enlighter, standard) - Enlighter`s default Theme
--   **Classic** (classic) - SyntaxHighlighter inspired
--   **Bootstrap** (bootstrap4) - Bootstrap 4 inpired themes, high contrast
--   **Beyond** (beyond) - BeyondTechnology Theme
--   **Godzilla** (godzilla) - A MDN inspired Theme
--   **Eclipse** (eclipse) - Eclipse inspired
--   **MooTwo** (mootwo) - Inspired by the MooTools Website
--   **Droide** (droide) - Modern, minimalistic
--   **Minimal** (minimal) - Bright, High contrast
--   **Atomic** (atomic) - Dark, Colorful
--   **Dracula** (dracula) - Dark, using official [draculatheme](https://draculatheme.com/) colorscheme
--   **Rowhammer** (rowhammer) - Light, Transparent, divided rows
+-   [x] **Enlighter** (enlighter, standard) - Enlighter`s default Theme
+-   [x] **Classic** (classic) - SyntaxHighlighter inspired
+-   [x] **Bootstrap** (bootstrap4) - Bootstrap 4 inpired themes, high contrast
+-   [x] **Beyond** (beyond) - BeyondTechnology Theme
+-   [x] **Godzilla** (godzilla) - A MDN inspired Theme
+-   [x] **Eclipse** (eclipse) - Eclipse inspired
+-   [x] **MooTwo** (mootwo) - Inspired by the MooTools Website
+-   [x] **Droide** (droide) - Modern, minimalistic
+-   [x] **Minimal** (minimal) - Bright, High contrast
+-   [x] **Atomic** (atomic) - Dark, Colorful
+-   [x] **Dracula** (dracula) - Dark, using official [draculatheme](https://draculatheme.com/) colorscheme
+-   [x] **Rowhammer** (rowhammer) - Light, Transparent, divided rows
