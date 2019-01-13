@@ -1,4 +1,4 @@
-function Add-Image {
+function Add-HTMLImage {
     <#
     .SYNOPSIS
 
@@ -28,7 +28,7 @@ function Add-Image {
     Parameter description
 
     .EXAMPLE
-    Add-Image -Source 'https://evotec.pl/image.png' -UrlLink 'https://evotc.pl/' -AlternativeText 'My other text' -Class 'otehr' -Width '100%'
+    Add-HTMLImage -Source 'https://evotec.pl/image.png' -UrlLink 'https://evotc.pl/' -AlternativeText 'My other text' -Class 'otehr' -Width '100%'
 
     .NOTES
     General notes
