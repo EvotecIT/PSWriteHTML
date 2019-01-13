@@ -69,14 +69,15 @@ RequiredModules = @('PSSharedGoods')
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Add-HTMLHorizontalLine', 'Add-Image', 'Get-HTMLAnchor', 
-               'Get-HTMLAnchorLink', 'Get-HTMLBarChart', 'Get-HTMLBarChartObject', 
-               'Get-HTMLContentDataTable', 'Get-HTMLContentTable', 
-               'Get-HTMLContentTableAdvanced', 'Get-HTMLContentText', 
-               'Get-HTMLLineChart', 'Get-HTMLLineChartObject', 'Get-HTMLPieChart', 
-               'Get-HTMLPieChartObject', 'New-Html', 'New-HTMLCodeBlock', 
-               'New-HTMLColumn', 'New-HTMLContent', 'New-HTMLHeading', 'New-HtmlTab', 
-               'New-HTMLTabHeader', 'Save-HTML', 'Set-TableRowColor'
+FunctionsToExport = 'Add-HTMLHorizontalLine', 'Add-HTMLImage', 'Get-HTMLBarChart', 
+               'Get-HTMLBarChartObject', 'Get-HTMLContentDataTable', 
+               'Get-HTMLContentTable', 'Get-HTMLContentTableAdvanced', 
+               'Get-HTMLContentText', 'Get-HTMLLineChart', 'Get-HTMLLineChartObject', 
+               'Get-HTMLPieChart', 'Get-HTMLPieChartObject', 'New-Html', 
+               'New-HTMLAnchor', 'Get-HTMLAnchorLink', 'Get-HTMLAnchor', 
+               'New-HTMLCodeBlock', 'New-HTMLColumn', 'New-HTMLContent', 
+               'New-HTMLHeading', 'New-HtmlTab', 'New-HTMLTabHeader', 'Save-HTML', 
+               'Set-TableRowColor'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
