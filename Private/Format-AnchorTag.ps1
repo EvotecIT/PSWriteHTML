@@ -2,9 +2,9 @@ function Format-AnchorTag {
     param (
         $Object
     )
-    
+
     $AnchorTag = ''
-    try {        
+    try {
         $href = $Object.url
         if($null -eq $href)
         {
@@ -16,7 +16,7 @@ function Format-AnchorTag {
         {
             $target = $Object.target
         }
-        
+
         # using url if no content is set
         $Content = $href
         if($null -ne $Object.Content)
@@ -29,7 +29,7 @@ function Format-AnchorTag {
             }
         }
 
-        $AnchorTag = '<a href="{0}" target="{1}">{2}</a>' -f $href, $target, $Content     
+        $AnchorTag = '<a href="{0}" target="{1}">{2}</a>' -f $href, $target, $Content
     }
     catch {
         Write-Warning "Failed to format anchor tag, error was $_"
