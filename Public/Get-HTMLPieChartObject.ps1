@@ -25,8 +25,7 @@ Function Get-HTMLPieChartObject {
 
     if ($ColorScheme -eq "Generated") {
         $thisColorScheme = 'Generated' + [string](Get-Random -Minimum 1 -Maximum 8)
-    } elseif (
-        $ColorScheme -eq "Random") {
+    } elseif ($ColorScheme -eq "Random") {
         $thisColorScheme = 'Random'
     } else {
         $thisColorScheme = 'ColorScheme2'
@@ -44,7 +43,7 @@ Function Get-HTMLPieChartObject {
     }
 
     $ChartObject = [PSCustomObject] @{
-        ObjectName     = -join ((65..90) + (97..122) | Get-Random -Count 12 | ForEach-Object {[char]$_})
+        ObjectName     = Get-RandomStringName -Size 12
         Title          = ""
         Size           = $ChartSize
         DataDefinition = $DataDefinition
