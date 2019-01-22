@@ -13,7 +13,7 @@ Creates an HTML table from an array of objects
 ## SYNTAX
 
 ```
-Get-HTMLContentTable [[-ArrayOfObjects] <Array>] [[-GroupBy] <String>] [[-ColumnCounts] <Array>] [-Fixed]
+Get-HTMLContentTable [[-DataTable] <Array>] [[-GroupBy] <String>] [[-ColumnCounts] <Array>] [-Fixed]
  [[-ColumnAverages] <Array>] [-NoSortableHeader] [[-ColumnTotals] <Array>] [<CommonParameters>]
 ```
 
@@ -31,13 +31,13 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -ArrayOfObjects
-An array of objects
+### -DataTable
+{{Fill DataTable Description}}
 
 ```yaml
 Type: Array
 Parameter Sets: (All)
-Aliases:
+Aliases: ArrayOfObjects, Object, Table
 
 Required: False
 Position: 1

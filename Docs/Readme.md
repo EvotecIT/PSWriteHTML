@@ -14,12 +14,6 @@ Locale: en-US
 ### [Add-HTMLHorizontalLine](Add-HTMLHorizontalLine.md)
 {{Fill in the Synopsis}}
 
-### [Add-HTMLSection](Add-HTMLSection.md)
-{{Fill in the Synopsis}}
-
-### [Add-Image](Add-Image.md)
-{{Fill in the Synopsis}}
-
 ### [Get-HTMLAnchor](Get-HTMLAnchor.md)
 Creates an Anchor
 
@@ -31,15 +25,6 @@ creates Hyperlink for an Anchor
 
 ### [Get-HTMLBarChartObject](Get-HTMLBarChartObject.md)
 create a Bar chart object for use with Get-HTMLBarChart
-
-### [Get-HTMLCodeBlock](Get-HTMLCodeBlock.md)
-{{Fill in the Synopsis}}
-
-### [Get-HTMLColumn](Get-HTMLColumn.md)
-{{Fill in the Synopsis}}
-
-### [Get-HTMLContent](Get-HTMLContent.md)
-Creates a section in HTML
 
 ### [Get-HTMLContentDataTable](Get-HTMLContentDataTable.md)
 Creates an HTML 5 Data table from an array of objects
@@ -53,9 +38,6 @@ Code borrowed from https://www.powershellgallery.com/packages/EnhancedHTML2
 ### [Get-HTMLContentText](Get-HTMLContentText.md)
 Creates an HTML entry with heading and detail
 
-### [Get-HTMLHeading](Get-HTMLHeading.md)
-{{Fill in the Synopsis}}
-
 ### [Get-HTMLLineChart](Get-HTMLLineChart.md)
 
 
@@ -68,16 +50,10 @@ create a Line chart object for use with Get-HTMLLineChart
 ### [Get-HTMLPieChartObject](Get-HTMLPieChartObject.md)
 create a Bar chart object for use with Get-HTMLBarChart
 
-### [Get-HTMLPowerShellSyntax](Get-HTMLPowerShellSyntax.md)
-{{Fill in the Synopsis}}
-
-### [Get-HTMLTab](Get-HTMLTab.md)
-{{Fill in the Synopsis}}
-
 ### [Get-HTMLTabHeader](Get-HTMLTabHeader.md)
 {{Fill in the Synopsis}}
 
-### [New-HTML](New-HTML.md)
+### [New-Html](New-Html.md)
 {{Fill in the Synopsis}}
 
 ### [Save-HTML](Save-HTML.md)

@@ -5,15 +5,15 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-HTMLAnchorLink
+# New-HTMLHeading
 
 ## SYNOPSIS
-creates Hyperlink for an Anchor
+{{Fill in the Synopsis}}
 
 ## SYNTAX
 
 ```
-Get-HTMLAnchorLink [-AnchorName] <String> [[-AnchorText] <String>] [<CommonParameters>]
+New-HTMLHeading [[-Heading] <String>] [[-HeadingText] <String>]
 ```
 
 ## DESCRIPTION
@@ -30,24 +30,24 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -AnchorName
-The Actual name of the Anchor (Hidden)
+### -Heading
+{{Fill Heading Description}}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
+Accepted values: h1, h2, h3, h4, h5, h6, h7
 
-Required: True
-Position: 1
+Required: False
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -AnchorText
-The HyperLink text. 
-Will default to $AnchorNname if not specified
+### -HeadingText
+{{Fill HeadingText Description}}
 
 ```yaml
 Type: String
@@ -55,19 +55,19 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
+
+### None
 
 ## OUTPUTS
 
+### System.Object
 ## NOTES
 
 ## RELATED LINKS

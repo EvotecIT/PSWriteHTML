@@ -13,7 +13,7 @@ Code borrowed from https://www.powershellgallery.com/packages/EnhancedHTML2
 ## SYNTAX
 
 ```
-Get-HTMLContentTableAdvanced [-ArrayOfObjects] <Array> [<CommonParameters>]
+Get-HTMLContentTableAdvanced [-DataTable] <Array> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,13 +30,13 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -ArrayOfObjects
-{{Fill ArrayOfObjects Description}}
+### -DataTable
+{{Fill DataTable Description}}
 
 ```yaml
 Type: Array
 Parameter Sets: (All)
-Aliases:
+Aliases: ArrayOfObjects, Object, Table
 
 Required: True
 Position: 1

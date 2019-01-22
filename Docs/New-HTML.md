@@ -5,39 +5,19 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTML
+# New-Html
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
 
 ## SYNTAX
 
-### options (Default)
 ```
-New-HTML [-TitleText <String>] [-HideLogos] [-HideTitle] [-NoScript] [-Options <PSObject>] [-Open]
- [<CommonParameters>]
-```
-
-### explicit
-```
-New-HTML [-TitleText <String>] [-CSSPath <String>] [-CSSName <String>] [-ScriptPath <String>]
- [-ColorSchemePath <String>] [-LogoPath <String>] [-LeftLogoName <String>] [-RightLogoName <String>]
- [-LeftLogoString <String>] [-RightLogoString <String>] [-HideLogos] [-HideTitle] [-NoScript]
- [-PrimaryColorHex <String>] [-Open] [<CommonParameters>]
-```
-
-### open
-```
-New-HTML [-TitleText <String>] [-CSSPath <String>] [-CSSName <String>] [-ScriptPath <String>]
- [-ColorSchemePath <String>] [-LogoPath <String>] [-LeftLogoName <String>] [-RightLogoName <String>]
- [-LeftLogoString <String>] [-RightLogoString <String>] [-HideLogos] [-HideTitle] [-NoScript]
- [-Options <PSObject>] [-AddAuthor] [-Author <String>] [-HideDate] [-DateFormat <String>] [-UseCssLinks]
- [-UseStyleLinks] [-Open] [<CommonParameters>]
-```
-
-### close
-```
-New-HTML [-Close] [-FooterText <String>] [<CommonParameters>]
+New-Html [[-HtmlData] <ScriptBlock>] [-UseCssLinks] [-UseStyleLinks] [-TitleText <String>] [-CSSPath <String>]
+ [-CSSName <String>] [-ScriptPath <String>] [-ColorSchemePath <String>] [-LogoPath <String>]
+ [-LeftLogoName <String>] [-RightLogoName <String>] [-LeftLogoString <String>] [-RightLogoString <String>]
+ [-HideLogos] [-HideTitle] [-NoScript] [-PrimaryColorHex <String>] [-AddAuthor] [-Author <String>] [-HideDate]
+ [-DateFormat <String>] [-FooterText <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -59,7 +39,7 @@ PS C:\> {{ Add example code here }}
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -74,7 +54,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -89,7 +69,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -104,22 +84,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: explicit, open
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Close
-{{Fill Close Description}}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: close
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -134,7 +99,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -149,7 +114,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -164,7 +129,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: close
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -179,7 +144,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -194,7 +159,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: options, explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -209,11 +174,26 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: options, explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HtmlData
+{{Fill HtmlData Description}}
+
+```yaml
+Type: ScriptBlock
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -224,7 +204,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -239,7 +219,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -254,7 +234,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -269,37 +249,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: options, explicit, open
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Open
-{{Fill Open Description}}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: options, explicit, open
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Options
-{{Fill Options Description}}
-
-```yaml
-Type: PSObject
-Parameter Sets: options, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -314,7 +264,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: explicit
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -329,7 +279,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -344,7 +294,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -359,7 +309,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -374,7 +324,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: options, explicit, open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -389,7 +339,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: open
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -404,7 +354,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: open
+Parameter Sets: (All)
 Aliases:
 
 Required: False

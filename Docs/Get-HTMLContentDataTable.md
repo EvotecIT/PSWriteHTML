@@ -13,7 +13,7 @@ Creates an HTML 5 Data table from an array of objects
 ## SYNTAX
 
 ```
-Get-HTMLContentDataTable [-Object] <Array> [-DisablePaging] [[-PagingOptions] <String>] [-DisableOrdering]
+Get-HTMLContentDataTable [-DataTable] <Array> [-DisablePaging] [[-PagingOptions] <String>] [-DisableOrdering]
  [-DisableInfo] [-HideFooter] [-DisableColumnReorder] [-DisableResponsiveTable] [-DisableSelect]
  [<CommonParameters>]
 ```
@@ -32,13 +32,13 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -Object
-{{Fill Object Description}}
+### -DataTable
+{{Fill DataTable Description}}
 
 ```yaml
 Type: Array
 Parameter Sets: (All)
-Aliases: ArrayOfObjects, DataTable, Table
+Aliases: ArrayOfObjects, Object, Table
 
 Required: True
 Position: 1
