@@ -14,6 +14,9 @@ Locale: en-US
 ### [Add-HTMLHorizontalLine](Add-HTMLHorizontalLine.md)
 {{Fill in the Synopsis}}
 
+### [Add-HTMLImage](Add-HTMLImage.md)
+
+
 ### [Get-HTMLAnchor](Get-HTMLAnchor.md)
 Creates an Anchor
 
@@ -54,6 +57,27 @@ create a Bar chart object for use with Get-HTMLBarChart
 {{Fill in the Synopsis}}
 
 ### [New-Html](New-Html.md)
+{{Fill in the Synopsis}}
+
+### [New-HTMLAnchor](New-HTMLAnchor.md)
+Short description
+
+### [New-HTMLCodeBlock](New-HTMLCodeBlock.md)
+{{Fill in the Synopsis}}
+
+### [New-HTMLColumn](New-HTMLColumn.md)
+{{Fill in the Synopsis}}
+
+### [New-HTMLContent](New-HTMLContent.md)
+Creates a section in HTML
+
+### [New-HTMLHeading](New-HTMLHeading.md)
+{{Fill in the Synopsis}}
+
+### [New-HtmlTab](New-HtmlTab.md)
+{{Fill in the Synopsis}}
+
+### [New-HTMLTabHeader](New-HTMLTabHeader.md)
 {{Fill in the Synopsis}}
 
 ### [Save-HTML](Save-HTML.md)
