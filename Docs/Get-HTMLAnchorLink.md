@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-HTMLAnchorLink
 
 ## SYNOPSIS
-creates Hyperlink for an Anchor
+Creates Hyperlink for an Anchor
 
 ## SYNTAX
 
@@ -17,16 +17,14 @@ Get-HTMLAnchorLink [-AnchorName] <String> [[-AnchorText] <String>] [<CommonParam
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Long description
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Get-HTMLAnchorLink -AnchorName 'test'
+```
 
 ## PARAMETERS
 
@@ -69,5 +67,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+General notes
 
 ## RELATED LINKS

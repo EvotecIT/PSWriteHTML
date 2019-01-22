@@ -12,77 +12,74 @@ Locale: en-US
 
 ## PSWriteHTML Cmdlets
 ### [Add-HTMLHorizontalLine](Add-HTMLHorizontalLine.md)
-{{Fill in the Synopsis}}
+{{Manually Enter Add-HTMLHorizontalLine Description Here}}
 
 ### [Add-HTMLImage](Add-HTMLImage.md)
-
+{{Manually Enter Add-HTMLImage Description Here}}
 
 ### [Get-HTMLAnchor](Get-HTMLAnchor.md)
-Creates an Anchor
+{{Manually Enter Get-HTMLAnchor Description Here}}
 
 ### [Get-HTMLAnchorLink](Get-HTMLAnchorLink.md)
-creates Hyperlink for an Anchor
+{{Manually Enter Get-HTMLAnchorLink Description Here}}
 
 ### [Get-HTMLBarChart](Get-HTMLBarChart.md)
-
+{{Manually Enter Get-HTMLBarChart Description Here}}
 
 ### [Get-HTMLBarChartObject](Get-HTMLBarChartObject.md)
-create a Bar chart object for use with Get-HTMLBarChart
+{{Manually Enter Get-HTMLBarChartObject Description Here}}
 
 ### [Get-HTMLContentDataTable](Get-HTMLContentDataTable.md)
-Creates an HTML 5 Data table from an array of objects
+{{Manually Enter Get-HTMLContentDataTable Description Here}}
 
 ### [Get-HTMLContentTable](Get-HTMLContentTable.md)
-Creates an HTML table from an array of objects
+{{Manually Enter Get-HTMLContentTable Description Here}}
 
 ### [Get-HTMLContentTableAdvanced](Get-HTMLContentTableAdvanced.md)
-Code borrowed from https://www.powershellgallery.com/packages/EnhancedHTML2
+{{Manually Enter Get-HTMLContentTableAdvanced Description Here}}
 
 ### [Get-HTMLContentText](Get-HTMLContentText.md)
-Creates an HTML entry with heading and detail
+{{Manually Enter Get-HTMLContentText Description Here}}
 
 ### [Get-HTMLLineChart](Get-HTMLLineChart.md)
-
+{{Manually Enter Get-HTMLLineChart Description Here}}
 
 ### [Get-HTMLLineChartObject](Get-HTMLLineChartObject.md)
-create a Line chart object for use with Get-HTMLLineChart
+{{Manually Enter Get-HTMLLineChartObject Description Here}}
 
 ### [Get-HTMLPieChart](Get-HTMLPieChart.md)
-
+{{Manually Enter Get-HTMLPieChart Description Here}}
 
 ### [Get-HTMLPieChartObject](Get-HTMLPieChartObject.md)
-create a Bar chart object for use with Get-HTMLBarChart
-
-### [Get-HTMLTabHeader](Get-HTMLTabHeader.md)
-{{Fill in the Synopsis}}
+{{Manually Enter Get-HTMLPieChartObject Description Here}}
 
 ### [New-Html](New-Html.md)
-{{Fill in the Synopsis}}
+{{Manually Enter New-Html Description Here}}
 
 ### [New-HTMLAnchor](New-HTMLAnchor.md)
-Short description
+{{Manually Enter New-HTMLAnchor Description Here}}
 
 ### [New-HTMLCodeBlock](New-HTMLCodeBlock.md)
-{{Fill in the Synopsis}}
+{{Manually Enter New-HTMLCodeBlock Description Here}}
 
 ### [New-HTMLColumn](New-HTMLColumn.md)
-{{Fill in the Synopsis}}
+{{Manually Enter New-HTMLColumn Description Here}}
 
 ### [New-HTMLContent](New-HTMLContent.md)
-Creates a section in HTML
+{{Manually Enter New-HTMLContent Description Here}}
 
 ### [New-HTMLHeading](New-HTMLHeading.md)
-{{Fill in the Synopsis}}
+{{Manually Enter New-HTMLHeading Description Here}}
 
 ### [New-HtmlTab](New-HtmlTab.md)
-{{Fill in the Synopsis}}
+{{Manually Enter New-HtmlTab Description Here}}
 
 ### [New-HTMLTabHeader](New-HTMLTabHeader.md)
-{{Fill in the Synopsis}}
+{{Manually Enter New-HTMLTabHeader Description Here}}
 
 ### [Save-HTML](Save-HTML.md)
-Short description
+{{Manually Enter Save-HTML Description Here}}
 
 ### [Set-TableRowColor](Set-TableRowColor.md)
-adds a row colour field to the array of object for processing with htmltable
+{{Manually Enter Set-TableRowColor Description Here}}
 

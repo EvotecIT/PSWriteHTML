@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-HTMLAnchor
 
 ## SYNOPSIS
-Creates an Anchor
+Creates an anchor
 
 ## SYNTAX
 
@@ -17,21 +17,19 @@ Get-HTMLAnchor [-AnchorName] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Long description
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+An example
+```
 
 ## PARAMETERS
 
 ### -AnchorName
-The Actual Anchor
+Parameter description
 
 ```yaml
 Type: String
@@ -53,5 +51,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+General notes
 
 ## RELATED LINKS
