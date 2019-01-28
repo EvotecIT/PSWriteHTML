@@ -1,39 +1,39 @@
 function Add-HTMLImage {
     <#
     .SYNOPSIS
-
-
+    Short description
+    
     .DESCRIPTION
     Long description
-
+    
     .PARAMETER Source
     Parameter description
-
+    
     .PARAMETER UrlLink
     Parameter description
-
+    
     .PARAMETER AlternativeText
     Parameter description
-
+    
     .PARAMETER Class
     Parameter description
-
+    
     .PARAMETER Target
     Parameter description
-
+    
     .PARAMETER Width
     Parameter description
-
+    
     .PARAMETER Height
     Parameter description
-
+    
     .EXAMPLE
     Add-HTMLImage -Source 'https://evotec.pl/image.png' -UrlLink 'https://evotc.pl/' -AlternativeText 'My other text' -Class 'otehr' -Width '100%'
-
+    
     .NOTES
     General notes
     #>
-
+    
     [CmdletBinding()]
     param(
         [string] $Source,

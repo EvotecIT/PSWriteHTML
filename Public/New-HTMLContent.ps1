@@ -39,7 +39,7 @@ Function New-HTMLContent {
 
     
         $HeaderStyle = "color: $TextHeaderColorFromRGB"
-        $Header = New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $TextHeaderColorFromRGB
+        $Header = New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
         $Show = New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
         $Hide = New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
 

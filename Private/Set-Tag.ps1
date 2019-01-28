@@ -3,33 +3,34 @@ function Set-Tag {
     param(
         [System.Collections.IDictionary] $HtmlObject
     )
-    $HTML = New-GenericList -Type [string]
-    $HTML.Add("<$($HtmlObject.Tag)")
+    #$HTML = New-GenericList -Type [string]
+    $HTML = [System.Text.StringBuilder]::new()
+    [void] $HTML.Append("<$($HtmlObject.Tag) ")
     foreach ($Property in $HtmlObject.Attributes.Keys) {
         $PropertyValue = $HtmlObject.Attributes[$Property]
         # skip adding properties that are empty
         if ($PropertyValue -ne '') {
-            $HTML.Add("$Property=`"$PropertyValue`"")
+            [void] $HTML.Append("$Property=`"$PropertyValue`"")
         }
     }
     if (($null -ne $HtmlObject.Value) -and ($HtmlObject.Value -ne '')) {
-        $HTML.Add(">")
+        [void] $HTML.Append(">")
         foreach ($Entry in $HtmlObject.Value) {
             if ($Entry -is [System.Collections.IDictionary]) {
                 [string] $NewObject = Set-Tag -HtmlObject ($Entry)
-                $HTML.Add($NewObject)
+                [void] $HTML.AppendLine($NewObject)
             } else {
-                $HTML.Add($Entry)
+                [void] $HTML.AppendLine([string] $Entry)
             }
 
         }
-        $HTML.Add("</$($HtmlObject.Tag)>")
+        [void] $HTML.Append("</$($HtmlObject.Tag)>")
     } else {
         if ($HtmlObject.SelfClosing) {
-            $HTML.Add("/>")
+            [void] $HTML.Append("/>")
         } else {
-            $HTML.Add("></$($HtmlObject.Tag)>")
+            [void] $HTML.Append("></$($HtmlObject.Tag)>")
         }
     }
-    $HTML
+    $HTML.ToString()
 }
