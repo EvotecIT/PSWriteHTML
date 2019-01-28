@@ -14,7 +14,6 @@ Function New-HTMLContent {
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace with Content"),
         [Parameter(Mandatory = $false)][string]$HeaderText,
         [Parameter(Mandatory = $false)][switch]$IsHidden,
-        [Parameter(Mandatory = $false)][string]$Anchor,
         [Parameter(Mandatory = $false)][validateset(1, 2, 3, 4, 5, 6)][int]$BackgroundShade,
         [Parameter(Mandatory = $false)][switch] $CanCollapse
     )
@@ -32,9 +31,6 @@ Function New-HTMLContent {
             default { $bgColorCode = "#ffffff" }
         }
 
-        if ([String]::IsNullOrEmpty($Anchor)) {
-            $InsertAnchor = 'name="' + $Anchor + '"'
-        }
         $RandomNumber = Get-Random
         if ($IsHidden) {
             $HTML.Add(@"
