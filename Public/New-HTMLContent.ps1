@@ -1,69 +1,76 @@
 Function New-HTMLContent {
-    <#
-	.SYNOPSIS
-		Creates a section in HTML
-	    .PARAMETER HeaderText
-			The heading for the section
-		.PARAMETER IsHidden
-		    Switch parameter to define if the section can collapse
-		.PARAMETER BackgroundShade
-		    An int for 1 to 6 that defines background shading
-#>
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace with Content"),
         [Parameter(Mandatory = $false)][string]$HeaderText,
         [Parameter(Mandatory = $false)][switch]$IsHidden,
-        [Parameter(Mandatory = $false)][validateset(1, 2, 3, 4, 5, 6)][int]$BackgroundShade,
+        [RGBColors]$HeaderTextColor = [RGBColors]::White,
+        [alias('BackgroundShade')][RGBColors]$BackgroundColor = [RGBColors]::White,
         [Parameter(Mandatory = $false)][switch] $CanCollapse
     )
-    Begin {
-        $HTML = New-GenericList -Type [string]
-    }
+    Begin {}
     Process {
-        switch ($BackgroundShade) {
-            1 { $bgColorCode = "#F8F8F8" }
-            2 { $bgColorCode = "#D0D0D0" }
-            3 { $bgColorCode = "#A8A8A8" }
-            4 { $bgColorCode = "#888888" }
-            5 { $bgColorCode = "#585858" }
-            6 { $bgColorCode = "#282828" }
-            default { $bgColorCode = "#ffffff" }
-        }
-
         $RandomNumber = Get-Random
-        if ($IsHidden) {
-            $HTML.Add(@"
-<div class="section">
-<div class="header">
-    <a name="$($HeaderText)">$($HeaderText)</a> (<a id="show_$RandomNumber" href="#" onclick="show('$RandomNumber');" style="color: #ffffff;">Show</a>
-    <a id="hide_$RandomNumber" href="#" onclick="hide('$RandomNumber');" style="color: #ffffff; display:none;">Hide</a>)
-</div>
-<div class="content" id="$RandomNumber" style="display:none;background-color:$($bgColorCode);">
-"@)
-        } elseif ($CanCollapse) {
-            $HTML.Add(@"
-<div class="section">
-<div class="header">
-    <a name="$($HeaderText)">$($HeaderText)</a> (<a id="show_$RandomNumber" href="#" onclick="show('$RandomNumber');" style="color: #ffffff; display:none;">Show</a>
-    <a id="hide_$RandomNumber" href="#" onclick="hide('$RandomNumber');" style="color: #ffffff; ">Hide</a>)
-</div>
-<div class="content" id="$RandomNumber" style="background-color:$($bgColorCode);">
-"@)
+        $TextHeaderColorFromRGB = ConvertFrom-Color -Color $HeaderTextColor
+        $BackGroundColorFromRGB = ConvertFrom-Color -Color $BackgroundColor
+
+        if ($CanCollapse) {
+            if ($IsHidden) {
+                $ShowStyle = "color: $TextHeaderColorFromRGB" # shows Show button
+                $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button 
+            } else {
+                $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
+                $HideStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button 
+            }
         } else {
-            $HTML.Add(@"
-<div class="section">
-<div class="header">
-    <a name="$($HeaderText)">$($HeaderText)</a>
-</div>
-<div class="content" style="background-color:$($bgColorCode);">
-"@)
+            if ($IsHidden) {
+                $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Show button
+                $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button 
+            } else {
+                $ShowStyle = "color: $TextHeaderColorFromRGB; display:none"  # hides Show button 
+                $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
+            }
+        }
+        if ($IsHidden) {
+            $DivContentStyle = "display:none;background-color:$BackGroundColorFromRGB;"
+        } else { 
+            $DivContentStyle = "background-color:$BackGroundColorFromRGB;"
         }
 
-        $HTML.Add((Invoke-Command -ScriptBlock $Content))
+    
+        $HeaderStyle = "color: $TextHeaderColorFromRGB"
+        $Header = New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $TextHeaderColorFromRGB
+        $Show = New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
+        $Hide = New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
+
+        $DivHeader = [Ordered] @{
+            Tag        = 'div'
+            Attributes = [ordered]@{
+                'class' = "header"
+            }
+            Value      = $Header, $Show, $Hide
+        }
+
+        $DivContent = [Ordered] @{
+            Tag         = 'div'
+            Attributes  = [ordered]@{
+                'id'    = $RandomNumber
+                'class' = "content"
+                'style' = $DivContentStyle 
+            }
+            Value       = Invoke-Command -ScriptBlock $Content
+            SelfClosing = $false
+        }
+
+        $DivSection = [Ordered] @{
+            Tag        = 'div'
+            Attributes = [ordered]@{
+                'class' = "section"
+            }
+            Value      = $DivHeader, $DivContent
+        }
+        $HTML = Set-Tag -HtmlObject $DivSection
+        return $Html
     }
-    End {
-        $HTML.Add('</div></div>')
-        return $HTML
-    }
+    
 }
