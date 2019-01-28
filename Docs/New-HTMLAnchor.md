@@ -13,8 +13,8 @@ Short description
 ## SYNTAX
 
 ```
-New-HTMLAnchor [[-Name] <String>] [[-Target] <String>] [[-Class] <String>] [[-HrefLink] <String>]
- [[-Text] <String>] [<CommonParameters>]
+New-HTMLAnchor [[-Name] <String>] [[-Id] <String>] [[-Target] <String>] [[-Class] <String>]
+ [[-HrefLink] <String>] [[-OnClick] <String>] [[-Style] <String>] [[-Text] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -47,6 +47,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Id
+Parameter description
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Target
 Target options: "_blank|_self|_parent|_top|framename"
 
@@ -56,7 +71,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -71,7 +86,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -83,10 +98,40 @@ Parameter description
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: Url, Link, UrlLink
+Aliases: Url, Link, UrlLink, Href
 
 Required: False
-Position: 4
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -OnClick
+Parameter description
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 6
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Style
+Parameter description
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -98,10 +143,10 @@ Parameter description
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: AnchorText
+Aliases: AnchorText, Value
 
 Required: False
-Position: 5
+Position: 8
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
