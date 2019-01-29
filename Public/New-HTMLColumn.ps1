@@ -2,23 +2,22 @@ Function New-HTMLColumn {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace with Content"),
-        [int]$ColumnNumber = 1,
-        [int]$ColumnCount = 1
+        [alias('ColumnCount')][ValidateSet('1', '2', '3', '4', '5', '6')][string] $Columns = 1
     )
-    Begin {
-        $HTML = New-GenericList -Type [string]
-    }
+    Begin {}
     Process {
-        $ColumnItem = [string]$ColumnNumber + "of" + [string]$ColumnCount
-        Write-Verbose $ColumnItem
-        $ColumnItem = $ColumnItem.replace('1', 'one').replace('2', 'two').replace('3', 'three').replace('4', 'four').replace('5', 'five').replace('6', 'six')
-        Write-Verbose $ColumnItem
-        $HTML.Add('<div class="' + $ColumnItem + ' column">')
-
-        $HTML.Add((Invoke-Command -ScriptBlock $Content))
+        $Class = $Columns.Replace('1', 'one').Replace('2', 'two').Replace('3', 'three').Replace('4', 'four').Replace('5', 'five').Replace('6', 'six')
+   
+        $DivColumn = [Ordered] @{
+            Tag        = 'div'
+            Attributes = [ordered]@{
+                'class' = "$Class column"
+            }
+            Value      = Invoke-Command -ScriptBlock $Content
+        }
+        $HTML = Set-Tag -HtmlObject $DivColumn
     }
     End {
-        $HTML.Add('</div>')
         return $HTML
     }
 }
