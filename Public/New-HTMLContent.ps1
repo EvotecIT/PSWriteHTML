@@ -3,10 +3,11 @@ Function New-HTMLContent {
     Param (
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace with Content"),
         [Parameter(Mandatory = $false)][string]$HeaderText,
-        [Parameter(Mandatory = $false)][switch]$IsHidden,
         [RGBColors]$HeaderTextColor = [RGBColors]::White,
+        [string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment = 'left',
         [alias('BackgroundShade')][RGBColors]$BackgroundColor = [RGBColors]::White,
-        [Parameter(Mandatory = $false)][switch] $CanCollapse
+        [Parameter(Mandatory = $false)][switch] $CanCollapse,
+        [Parameter(Mandatory = $false)][switch]$IsHidden
     )
     Begin {}
     Process {
@@ -37,8 +38,8 @@ Function New-HTMLContent {
             $DivContentStyle = "background-color:$BackGroundColorFromRGB;"
         }
 
-    
-        $HeaderStyle = "color: $TextHeaderColorFromRGB"
+        $DivHeaderStyle = "text-align: $HeaderTextAlignment;"
+        $HeaderStyle = "color: $TextHeaderColorFromRGB;"
         $Header = New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
         $Show = New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
         $Hide = New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
@@ -47,6 +48,7 @@ Function New-HTMLContent {
             Tag        = 'div'
             Attributes = [ordered]@{
                 'class' = "header"
+                'style' = $DivHeaderStyle
             }
             Value      = $Header, $Show, $Hide
         }
