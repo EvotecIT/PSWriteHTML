@@ -5,7 +5,7 @@
 }
 
 body {
-    margin: 8px 5px 8px 5px;
+    margin: 8px 10px 8px 10px;
 }
 
 h1 {
@@ -57,7 +57,7 @@ h7 {
 
 hr {
     height: 4px;
-    background-color: #337e94;
+    background-color: #007bff;
     border: 0px;
     width: 100%;
 }
@@ -126,10 +126,10 @@ div.MainLogo {
 
 div.section {
     border: 1px solid #bbbbbb;
-    padding-bottom: 12px;
+    padding-bottom: 0px;
     display: inline-block;
-    margin: 5px;
-    width: 98%;
+    /* margin: 5px; */
+    width: 100%;
 }
 
 div.header {
@@ -138,15 +138,18 @@ div.header {
     height: 2em;
     font-weight: bold;
     color: #ffffff;
-    background-color: #337e94;
+    background-color: #007bff;
 }
 
 div.content {
-    padding: 4px 0px 5px 11px;
-    margin: 0px 0px 0px 0px;
-    width: 95%;
+    /* padding: 4px 0px 5px 11px; */
+    /* margin: 0px 0px 0px 0px; */
+    width: 100%;
     color: #000000;
     background-color: #f9f9f9;
+    overflow: hidden; /* NEW */
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 div.footer {
@@ -215,88 +218,40 @@ td.groupby {
 }
 
 div.column {
-    width: 100%;
+    padding: 10px 10px 10px 10px;
+    /*  width: 100%; */
     float: left;
 }
 
-div.oneoftwo {
-    width: 49%;
-}
-div.twooftwo {
-    margin-left: 10px;
-    width: 49%;
-}
-
-div.oneofthree {
-    width: 32%;
-}
-div.twoofthree {
-    margin-left: 10px;
-    width: 32%;
-}
-div.threeofthree {
-    margin-left: 10px;
-    width: 32%;
+div.one {
+    box-sizing: border-box;
+    width: 100%;
+    /*  overflow: hidden;NEW 
+    overflow-x: hidden;
+    overflow-y: hidden;*/
 }
 
-div.oneoffour {
-    width: 24%;
-}
-div.twooffour {
-    margin-left: 10px;
-    width: 24%;
-}
-div.threeoffour {
-    margin-left: 10px;
-    width: 24%;
-}
-div.fouroffour {
-    margin-left: 10px;
-    width: 24%;
+div.two {
+    box-sizing: border-box;
+    width: calc(100% / 2);
 }
 
-div.oneoffive {
-    width: 19%;
-}
-div.twooffive {
-    margin-left: 10px;
-    width: 19%;
-}
-div.threeoffive {
-    margin-left: 10px;
-    width: 19%;
-}
-div.fouroffive {
-    margin-left: 10px;
-    width: 19%;
-}
-div.fiveoffive {
-    margin-left: 10px;
-    width: 19%;
+div.three {
+    box-sizing: border-box;
+    width: calc(100% / 3);
 }
 
-div.oneofsix {
-    width: 16%;
+div.four {
+    box-sizing: border-box;
+    width: calc(100% / 4);
 }
-div.twoofsix {
-    margin-left: 10px;
-    width: 16%;
+div.five {
+    box-sizing: border-box;
+    width: calc(100% / 5);
 }
-div.threeofsix {
-    margin-left: 10px;
-    width: 16%;
-}
-div.fourofsix {
-    margin-left: 10px;
-    width: 16%;
-}
-div.fiveofsix {
-    margin-left: 10px;
-    width: 16%;
-}
-div.sixofsix {
-    margin-left: 10px;
-    width: 16%;
+div.six {
+    box-sizing: border-box;
+    width: calc(100% / 6);
 }
 
 a.alink:link {
@@ -365,3 +320,53 @@ ul.tab li a:focus,
     border: 1px solid #ccc;
     border-top: none;
 }
+
+/* Adding CSS */
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+td.sorting_1::before {
+    background: #007bff !important;
+}
+td::before {
+    background: #007bff !important;
+}
+/* giving some spaces between tables being to close */
+
+/*
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+*/
+
+/* Adding CSS 
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+td.sorting1 {
+}
+*/
+/* Button in Table 
+td.sorting_1::before {
+    background: #007bff !important;
+}
+*/

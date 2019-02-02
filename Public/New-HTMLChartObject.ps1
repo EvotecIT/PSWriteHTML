@@ -1,11 +1,8 @@
-Function Get-HTMLPieChartObject {
+Function New-HTMLChartObject {
     [CmdletBinding()]
     param(
-        [ValidateSet("pie", "doughnut")]
-        [String]
-        $ChartType = 'pie',
-        [Parameter(Mandatory = $false)]
-        $ColorScheme
+        [ValidateSet("pie", "doughnut")][String] $ChartType = 'pie',
+        [Parameter(Mandatory = $false)] $ColorScheme
     )
 
     $ChartSize = [PSCustomObject] @{
@@ -39,7 +36,7 @@ Function Get-HTMLPieChartObject {
     }
 
     $ChartObject = [PSCustomObject] @{
-        ObjectName     = "Pie$(Get-RandomStringName -Size 12)"
+        ObjectName     = Get-RandomStringName -Size 12
         Title          = ""
         Size           = $ChartSize
         DataDefinition = $DataDefinition
@@ -48,3 +45,5 @@ Function Get-HTMLPieChartObject {
 
     return $ChartObject
 }
+
+Get-HTMLPieChartObject 

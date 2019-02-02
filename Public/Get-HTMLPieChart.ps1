@@ -100,3 +100,52 @@ Function Get-HTMLPieChart {
 
     write-output $CJS
 }
+
+<#
+<canvas
+    id="Piexy1fwn4hqjsa"
+    width="250"
+    height="250"
+></canvas>
+<script>
+    var ctx = document.getElementById(
+        "Piexy1fwn4hqjsa"
+    );
+    var Piexy1fwn4hqjsa = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: ["Members", "No Members"],
+            datasets: [
+                {
+                    label: "Data",
+                    data: [10, 5],
+                    backgroundColor: [
+                        "rgba(161,194,145,0.7)",
+                        "rgba(156,215,85,0.7)"
+                    ],
+                    hoverBackgroundColor: [
+                        "rgba(161,194,145,1)",
+                        "rgba(156,215,85,1)"
+                    ],
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: false,
+            legend: {
+                position: "bottom"
+            },
+            title: {
+                display: true,
+                text: "Group Membership"
+            }
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
+        }
+    });
+</script>
+
+#>

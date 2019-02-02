@@ -1,25 +1,13 @@
 Function Get-HTMLLineChartObject {
-    <#
-	.SYNOPSIS
-		create a Line chart object for use with Get-HTMLLineChart
-#>
     [CmdletBinding()]
     param(
-        [ValidateSet("line")]
-        [String]
-        $ChartType = 'line',
-        [Parameter(Mandatory = $false)]
-        $ColorScheme,
-        [Parameter(Mandatory = $false)]
-        [int]$Width = 500,
-        [Parameter(Mandatory = $false)]
-        [int]$Height = 400,
-        [Parameter(Mandatory = $false)]
-        [string]$DataCategoryName = 'x',
-        [Parameter(Mandatory = $false)]
-        [string]$DataSetName = 'y',
-        [Parameter(Mandatory = $false)]
-        [Array]$DataSetNames = @()
+        [ValidateSet("line")][String] $ChartType = 'line',
+        [Parameter(Mandatory = $false)]$ColorScheme,
+        [Parameter(Mandatory = $false)][int]$Width = 500,
+        [Parameter(Mandatory = $false)][int]$Height = 400,
+        [Parameter(Mandatory = $false)][string]$DataCategoryName = 'x',
+        [Parameter(Mandatory = $false)][string]$DataSetName = 'y',
+        [Parameter(Mandatory = $false)][Array]$DataSetNames = @()
     )
 
     $ChartSize = [PSCustomObject] @{
@@ -58,7 +46,7 @@ Function Get-HTMLLineChartObject {
     }
 
     $ChartObject = [PSCustomObject] @{
-        ObjectName     = Get-RandomStringName -Size 12
+        ObjectName     = "LineChart$(Get-RandomStringName -Size 12)"
         Title          = ""
         Size           = $ChartSize
         DataDefinition = $DataDefinition
