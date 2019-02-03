@@ -389,3 +389,14 @@ img {
 .container {
     padding: 2px 16px;
 }
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
