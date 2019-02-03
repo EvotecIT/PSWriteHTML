@@ -168,6 +168,7 @@
                     overflow: hidden; /* NEW */
                     overflow-x: hidden;
                     overflow-y: hidden;
+                    align-self: auto;
                 }
 
                 div.footer {
@@ -251,7 +252,8 @@
 
                 div.two {
                     box-sizing: border-box;
-                    width: calc(100% / 2);
+                    width: calc(100% / 2 - 20px);
+                    padding: 10px;
                 }
 
                 div.three {
@@ -388,6 +390,26 @@
      background: #007bff !important;
  }
  */
+
+                .card {
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                    transition: 0.3s;
+                    width: 40%;
+                    border-radius: 5px;
+                    margin: 5px;
+                }
+
+                .card:hover {
+                    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                }
+
+                img {
+                    border-radius: 5px 5px 0 0;
+                }
+
+                .container {
+                    padding: 2px 16px;
+                }
             </style>
             <!-- Scripts -->
             <script
@@ -416,7 +438,7 @@
             ></script>
             <script
                 type="text/javascript"
-                src="https://cdn.jsdelivr.net/npm/apexcharts"
+                src="https://cdn.jsdelivr.net/npm/apexcharts@latest"
             ></script>
 
             <script type="text/javascript">
@@ -1132,60 +1154,518 @@
             <div class="pageTitle"></div>
             <hr />
             <div class="ReportCreated">
-                Report created on 2019-02-02 21:04:13
+                Report created on 2019-02-03 13:10:22
             </div>
             <div class="section">
                 <div class="header" style="text-align: left;">
                     <a name="0 section" style="color: #ffffff;">0 section </a>
                     <a
-                        id="show_1697050815"
+                        id="show_468656332"
                         href="#"
-                        onclick="show('1697050815');"
+                        onclick="show('468656332');"
                         style="color: #ffffff; display:none"
                         >(Show)
                     </a>
                     <a
-                        id="hide_1697050815"
+                        id="hide_468656332"
                         href="#"
-                        onclick="hide('1697050815');"
+                        onclick="hide('468656332');"
                         style="color: #ffffff; display:none;"
                         >(Hide)
                     </a>
                 </div>
                 <div
-                    id="1697050815"
+                    id="468656332"
                     class="content"
                     style="background-color:#87ceeb;"
                 >
-                    <div class="one column"></div>
+                    <div class="one column card"></div>
                 </div>
             </div>
             <div class="section">
                 <div class="header" style="text-align: left;">
                     <a name="-1 section" style="color: #ffffff;">-1 section </a>
                     <a
-                        id="show_983393818"
+                        id="show_2033555903"
                         href="#"
-                        onclick="show('983393818');"
+                        onclick="show('2033555903');"
                         style="color: #ffffff; display:none;"
                         >(Show)
                     </a>
                     <a
-                        id="hide_983393818"
+                        id="hide_2033555903"
                         href="#"
-                        onclick="hide('983393818');"
+                        onclick="hide('2033555903');"
                         style="color: #ffffff;"
                         >(Hide)
                     </a>
                 </div>
                 <div
-                    id="983393818"
+                    id="2033555903"
                     class="content"
                     style="background-color:#ffffff;"
                 >
-                    <div class="one column"></div>
-                    <div class="one column"></div>
-                    <div class="one column"></div>
+                    <div class="one column card">
+                        <div id="ChartID-xsijhe8k"></div>
+                        <script>
+                            var options = {
+                                chart: {
+                                    height: 350,
+                                    type: "bar",
+                                    toolbar: {
+                                        show: true,
+                                        tools: {
+                                            download: true,
+                                            selection: true,
+                                            zoom: true,
+                                            zoomin: true,
+                                            zoomout: true,
+                                            pan: true,
+                                            reset: true
+                                        },
+                                        autoSelected: "zoom"
+                                    }
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: true
+                                    }
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    offsetX: -6,
+                                    style: {
+                                        fontSize: "12px",
+                                        colors: [null]
+                                    }
+                                },
+                                series: [
+                                    {
+                                        name: ["People count"],
+                                        data: [400, 430, 448]
+                                    }
+                                ],
+                                xaxis: {
+                                    type: "category",
+                                    categories: ["Poland", "Europe", "Germany"]
+                                },
+                                stroke: {
+                                    show: true,
+                                    curve: "straight",
+                                    width: 2,
+                                    colors: []
+                                },
+                                legend: {
+                                    position: "right",
+                                    offsetY: 100,
+                                    height: 230
+                                },
+                                title: {}
+                            };
+
+                            var chart = new ApexCharts(
+                                document.querySelector("#ChartID-xsijhe8k"),
+                                options
+                            );
+                            chart.render();
+                        </script>
+                        <div id="ChartID-2maojyvc"></div>
+                        <script>
+                            var options = {
+                                chart: {
+                                    height: 350,
+                                    type: "donut",
+                                    toolbar: {
+                                        show: true,
+                                        tools: {
+                                            download: true,
+                                            selection: true,
+                                            zoom: true,
+                                            zoomin: true,
+                                            zoomout: true,
+                                            pan: true,
+                                            reset: true
+                                        },
+                                        autoSelected: "zoom"
+                                    }
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: true
+                                    }
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    offsetX: -6,
+                                    style: {
+                                        fontSize: "12px",
+                                        colors: [null]
+                                    }
+                                },
+                                series: [400, 430, 448],
+                                labels: ["Poland", "Europe", "Germany"],
+                                xaxis: {
+                                    type: "category",
+                                    categories: ["Poland", "Europe", "Germany"]
+                                },
+                                stroke: {
+                                    show: true,
+                                    curve: "straight",
+                                    width: 2,
+                                    colors: []
+                                },
+                                legend: {
+                                    position: "right",
+                                    offsetY: 100,
+                                    height: 230
+                                },
+                                title: {}
+                            };
+
+                            var chart = new ApexCharts(
+                                document.querySelector("#ChartID-2maojyvc"),
+                                options
+                            );
+                            chart.render();
+                        </script>
+                        <div id="ChartID-o1fgbd2r"></div>
+                        <script>
+                            var options = {
+                                chart: {
+                                    height: 350,
+                                    type: "line",
+                                    toolbar: {
+                                        show: true,
+                                        tools: {
+                                            download: true,
+                                            selection: true,
+                                            zoom: true,
+                                            zoomin: true,
+                                            zoomout: true,
+                                            pan: true,
+                                            reset: true
+                                        },
+                                        autoSelected: "zoom"
+                                    }
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: true
+                                    }
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    offsetX: -6,
+                                    style: {
+                                        fontSize: "12px",
+                                        colors: [null]
+                                    }
+                                },
+                                series: [
+                                    {
+                                        name: "People count",
+                                        data: [400, 430, 448]
+                                    },
+                                    {
+                                        name: "People death",
+                                        data: [450, 0, 200]
+                                    }
+                                ],
+                                xaxis: {
+                                    type: "category",
+                                    categories: ["2015", "2016", "2017"]
+                                },
+                                stroke: {
+                                    show: true,
+                                    curve: "straight",
+                                    width: 2,
+                                    colors: ["#0000ff", "#008000"]
+                                },
+                                legend: {
+                                    position: "right",
+                                    offsetY: 100,
+                                    height: 230
+                                },
+                                title: {}
+                            };
+
+                            var chart = new ApexCharts(
+                                document.querySelector("#ChartID-o1fgbd2r"),
+                                options
+                            );
+                            chart.render();
+                        </script>
+                    </div>
+                    <div class="two column card">
+                        <div id="ChartID-vr06nh52"></div>
+                        <script>
+                            var options = {
+                                chart: {
+                                    height: 350,
+                                    type: "bar",
+                                    toolbar: {
+                                        show: true,
+                                        tools: {
+                                            download: true,
+                                            selection: true,
+                                            zoom: true,
+                                            zoomin: true,
+                                            zoomout: true,
+                                            pan: true,
+                                            reset: true
+                                        },
+                                        autoSelected: "zoom"
+                                    }
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: true
+                                    }
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    offsetX: -6,
+                                    style: {
+                                        fontSize: "12px",
+                                        colors: [null]
+                                    }
+                                },
+                                series: [
+                                    {
+                                        name: "People count in  2019",
+                                        data: [400, 430, 448]
+                                    },
+                                    {
+                                        name: "People count in 2018",
+                                        data: [420, 450, 448]
+                                    }
+                                ],
+                                xaxis: {
+                                    type: "category",
+                                    categories: ["Poland", "Europe", "Germany"]
+                                },
+                                stroke: {
+                                    show: true,
+                                    curve: "straight",
+                                    width: 2,
+                                    colors: []
+                                },
+                                legend: {
+                                    position: "right",
+                                    offsetY: 100,
+                                    height: 230
+                                },
+                                title: {}
+                            };
+
+                            var chart = new ApexCharts(
+                                document.querySelector("#ChartID-vr06nh52"),
+                                options
+                            );
+                            chart.render();
+                        </script>
+                    </div>
+                    <div class="two column card">
+                        <div id="ChartID-z2sv7kp5"></div>
+                        <script>
+                            var options = {
+                                chart: {
+                                    height: 350,
+                                    type: "line",
+                                    toolbar: {
+                                        show: true,
+                                        tools: {
+                                            download: true,
+                                            selection: true,
+                                            zoom: true,
+                                            zoomin: true,
+                                            zoomout: true,
+                                            pan: true,
+                                            reset: true
+                                        },
+                                        autoSelected: "zoom"
+                                    }
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false
+                                    }
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    offsetX: -6,
+                                    style: {
+                                        fontSize: "12px",
+                                        colors: [null]
+                                    }
+                                },
+                                series: [
+                                    {
+                                        name: ["Desktops"],
+                                        data: [
+                                            10,
+                                            41,
+                                            35,
+                                            51,
+                                            49,
+                                            62,
+                                            69,
+                                            91,
+                                            148
+                                        ]
+                                    }
+                                ],
+                                xaxis: {
+                                    type: "category",
+                                    categories: [
+                                        "Jan",
+                                        "Feb",
+                                        "Mar",
+                                        "Apr",
+                                        "May",
+                                        "Jun",
+                                        "Jul",
+                                        "Aug",
+                                        "Sep"
+                                    ]
+                                },
+                                stroke: {
+                                    show: true,
+                                    curve: "straight",
+                                    width: 2,
+                                    colors: ["#0000ff", "#008000"]
+                                },
+                                legend: {
+                                    position: "right",
+                                    offsetY: 100,
+                                    height: 230
+                                },
+                                title: {
+                                    text: "Product Trends by Month",
+                                    align: "left"
+                                }
+                            };
+
+                            var chart = new ApexCharts(
+                                document.querySelector("#ChartID-z2sv7kp5"),
+                                options
+                            );
+                            chart.render();
+                        </script>
+                    </div>
+                    <div class="one column card">
+                        <div id="ChartID-64wx5iar"></div>
+                        <script>
+                            var options = {
+                                chart: {
+                                    height: 350,
+                                    type: "bar",
+                                    toolbar: {
+                                        show: true,
+                                        tools: {
+                                            download: true,
+                                            selection: true,
+                                            zoom: true,
+                                            zoomin: true,
+                                            zoomout: true,
+                                            pan: true,
+                                            reset: true
+                                        },
+                                        autoSelected: "zoom"
+                                    }
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false
+                                    }
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    offsetX: -6,
+                                    style: {
+                                        fontSize: "12px",
+                                        colors: [null]
+                                    }
+                                },
+                                series: [
+                                    {
+                                        name: "Net Profit",
+                                        data: [
+                                            44,
+                                            55,
+                                            57,
+                                            56,
+                                            61,
+                                            58,
+                                            63,
+                                            60,
+                                            66
+                                        ]
+                                    },
+                                    {
+                                        name: "Revenue",
+                                        data: [
+                                            76,
+                                            85,
+                                            101,
+                                            98,
+                                            87,
+                                            105,
+                                            91,
+                                            114,
+                                            94
+                                        ]
+                                    },
+                                    {
+                                        name: "Free Cash Flow",
+                                        data: [
+                                            35,
+                                            41,
+                                            36,
+                                            26,
+                                            45,
+                                            48,
+                                            52,
+                                            53,
+                                            41
+                                        ]
+                                    }
+                                ],
+                                xaxis: {
+                                    type: "category",
+                                    categories: [
+                                        "Feb",
+                                        "Mar",
+                                        "Apr",
+                                        "May",
+                                        "Jun",
+                                        "Jul",
+                                        "Aug",
+                                        "Sep",
+                                        "Oct"
+                                    ]
+                                },
+                                stroke: {
+                                    show: true,
+                                    curve: "straight",
+                                    width: 2,
+                                    colors: []
+                                },
+                                legend: {
+                                    position: "right",
+                                    offsetY: 100,
+                                    height: 230
+                                },
+                                title: {}
+                            };
+
+                            var chart = new ApexCharts(
+                                document.querySelector("#ChartID-64wx5iar"),
+                                options
+                            );
+                            chart.render();
+                        </script>
+                    </div>
                 </div>
             </div>
             <script type="text/javascript">
