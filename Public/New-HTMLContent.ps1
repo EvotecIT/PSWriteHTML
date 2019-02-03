@@ -57,7 +57,7 @@ Function New-HTMLContent {
             Tag         = 'div'
             Attributes  = [ordered]@{
                 'id'    = $RandomNumber
-                'class' = "content"
+                'class' = "content card"
                 'style' = $DivContentStyle 
             }
             Value       = Invoke-Command -ScriptBlock $Content
@@ -67,7 +67,7 @@ Function New-HTMLContent {
         $DivSection = [Ordered] @{
             Tag        = 'div'
             Attributes = [ordered]@{
-                'class' = "section"
+                'class' = "section card"
             }
             Value      = $DivHeader, $DivContent
         }

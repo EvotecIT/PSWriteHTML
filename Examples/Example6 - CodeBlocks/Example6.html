@@ -1,4 +1,4 @@
-<HTML><!DOCTYPE HTML> <html> <!-- Header --> <head> <Title></Title> <!-- Styles --> <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"/> 
+<HTML><!-- Header --> <head> <Title></Title> <!-- Styles --> <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"/> 
  <link rel="stylesheet" type="text/css" href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css"/> 
  <style type="text/css"> 
  * {
@@ -8,7 +8,7 @@
  }
  
  body {
-     margin: 8px 5px 8px 5px;
+     margin: 8px 10px 8px 10px;
  }
  
  h1 {
@@ -60,7 +60,7 @@
  
  hr {
      height: 4px;
-     background-color: #337e94;
+     background-color: #007bff;
      border: 0px;
      width: 100%;
  }
@@ -129,10 +129,11 @@
  
  div.section {
      border: 1px solid #bbbbbb;
-     padding-bottom: 12px;
+     padding-bottom: 0px;
      display: inline-block;
      margin: 5px;
-     width: 98%;
+     width: calc(100% - 10px);
+ 
  }
  
  div.header {
@@ -141,15 +142,19 @@
      height: 2em;
      font-weight: bold;
      color: #ffffff;
-     background-color: #337e94;
+     background-color: #007bff;
  }
  
  div.content {
-     padding: 4px 0px 5px 11px;
-     margin: 0px 0px 0px 0px;
-     width: 95%;
+     /* padding: 4px 0px 5px 11px; */
+     /* margin: 0px 0px 0px 0px; */
+     width: calc(100% - 10px);
      color: #000000;
      background-color: #f9f9f9;
+     overflow: hidden; /* NEW */
+     overflow-x: hidden;
+     overflow-y: hidden;
+     margin: 5px;
  }
  
  div.footer {
@@ -218,88 +223,39 @@
  }
  
  div.column {
-     width: 100%;
+     box-sizing: border-box;
      float: left;
  }
  
- div.oneoftwo {
-     width: 49%;
- }
- div.twooftwo {
-     margin-left: 10px;
-     width: 49%;
- }
- 
- div.oneofthree {
-     width: 32%;
- }
- div.twoofthree {
-     margin-left: 10px;
-     width: 32%;
- }
- div.threeofthree {
-     margin-left: 10px;
-     width: 32%;
+ div.one {
+     width: calc(100% - 10px);
+     padding: 10px;
+     /*  overflow: hidden;NEW 
+     overflow-x: hidden;
+     overflow-y: hidden;*/
  }
  
- div.oneoffour {
-     width: 24%;
- }
- div.twooffour {
-     margin-left: 10px;
-     width: 24%;
- }
- div.threeoffour {
-     margin-left: 10px;
-     width: 24%;
- }
- div.fouroffour {
-     margin-left: 10px;
-     width: 24%;
+ div.two {
+     width: calc(100% / 2 - 10px);
+     padding: 10px;
  }
  
- div.oneoffive {
-     width: 19%;
- }
- div.twooffive {
-     margin-left: 10px;
-     width: 19%;
- }
- div.threeoffive {
-     margin-left: 10px;
-     width: 19%;
- }
- div.fouroffive {
-     margin-left: 10px;
-     width: 19%;
- }
- div.fiveoffive {
-     margin-left: 10px;
-     width: 19%;
+ div.three {
+     width: calc(100% / 3 - 10px);
+     padding: 10px;
  }
  
- div.oneofsix {
-     width: 16%;
+ div.four {
+     width: calc(100% / 4 - 10px);
+     padding: 10px;
  }
- div.twoofsix {
-     margin-left: 10px;
-     width: 16%;
+ div.five {
+     width: calc(100% / 5 - 10px);
+     padding: 10px;
  }
- div.threeofsix {
-     margin-left: 10px;
-     width: 16%;
- }
- div.fourofsix {
-     margin-left: 10px;
-     width: 16%;
- }
- div.fiveofsix {
-     margin-left: 10px;
-     width: 16%;
- }
- div.sixofsix {
-     margin-left: 10px;
-     width: 16%;
+ div.six {
+     width: calc(100% / 6 - 10px);
+     padding: 10px;
  }
  
  a.alink:link {
@@ -367,13 +323,96 @@
      padding: 6px 8px;
      border: 1px solid #ccc;
      border-top: none;
- } </style> 
+ }
+ 
+ /* Adding CSS */
+ a.paginate_button {
+     color: #000000 !important;
+     font-size: 10px;
+ }
+ 
+ a.current {
+     color: #000000 !important;
+ }
+ 
+ /* Added to make sure plus logo fits in */
+ td {
+     height: 27px;
+ }
+ 
+ /* Button in Table - giving it some colors */
+ td.sorting_1::before {
+     background: #007bff !important;
+ }
+ td::before {
+     background: #007bff !important;
+ }
+ /* giving some spaces between tables being to close */
+ 
+ /*
+ div.dataTables_wrapper {
+     padding: 10px 10px 10px 10px;
+ }
+ 
+ */
+ 
+ /* Adding CSS 
+ a.paginate_button {
+     color: #000000 !important;
+     font-size: 10px;
+ }
+ 
+ a.current {
+     color: #000000 !important;
+ }
+ 
+ td.sorting1 {
+ }
+ */
+ /* Button in Table 
+ td.sorting_1::before {
+     background: #007bff !important;
+ }
+ */
+ 
+ .card {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     transition: 0.3s;
+     width: 40%;
+     border-radius: 5px;
+     margin: 5px;
+ }
+ 
+ .card:hover {
+     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+ }
+ 
+ img {
+     border-radius: 5px 5px 0 0;
+ }
+ 
+ .container {
+     padding: 2px 16px;
+ }
+ 
+ .flex-grid {
+     display: flex;
+     flex-wrap: wrap;
+ }
+ 
+ .col {
+     padding: 20px;
+     margin: 1%;
+     flex: 1;
+ }
+ </style> 
  <!-- Scripts --> <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"></script> 
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script> 
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script> 
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script> 
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script> 
  <script type="text/javascript" src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js"></script> 
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script> 
  
  <script type="text/javascript"> 
  function show(obj) {
@@ -386,16 +425,6 @@
    document.getElementById("hide_" + obj).style.display='none';
    document.getElementById("show_" + obj).style.display='';
  } </script> 
- 
- <script type="text/javascript"> 
- //refresh page on browser resize
- $(window).bind("resize", function(e) {
-     if (window.RT) clearTimeout(window.RT);
-     window.RT = setTimeout(function() {
-         this.location.reload(false); /* false to get page from cache */
-     }, 200);
- });
- </script> 
  
  <script type="text/javascript"> 
  // Takes a data URI and returns the Data URI corresponding to the resized image at the wanted size.
@@ -930,11 +959,14 @@
      evt.currentTarget.className += " active";
  }
  </script> 
- </head> <!-- Body --> <body> <!-- Report Header -->  <div class="pageTitle"></div> <hr /><ul class="tab"> 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Coding')" id="defaultOpen">Coding</a></li> 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Other')">Other</a></li> </ul> <div id="Coding" class="tabcontent"> <div class="section">
-<div class="header">
-    <a name="This shows PowerShell Language">This shows PowerShell Language</a>
+ </head> <!-- Body --> <body> <!-- Report Header -->  <div class="pageTitle"></div><ul class="tab"> 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Coding')" id="defaultOpen">Coding</a></li> 		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Other')">Other</a></li> </ul> <div id="Coding" class="tabcontent"> <div class="section card"><div class="header"style="text-align: left;"><a name="This shows PowerShell Language"style="color: #ffffff;">This shows PowerShell Language
+</a>
+<a id="show_1671569229"href="#"onclick="show('1671569229');"style="color: #ffffff; display:none">(Show)
+</a>
+<a id="hide_1671569229"href="#"onclick="hide('1671569229');"style="color: #ffffff; display:none;">(Hide)
+</a>
 </div>
-<div class="content" style="background-color:#ffffff;"> <pre data-enlighter-language = "powershell" data-enlighter-theme = "godzilla" data-enlighter-group = "test123" data-enlighter-title = "PowerShell Code 1" data-enlighter-highlight = "2-5, 13" > 
+<div id="1671569229"class="content card"style="background-color:#ffffff;"><pre data-enlighter-language="powershell"data-enlighter-theme="godzilla"data-enlighter-group="test123"data-enlighter-title="PowerShell Code 1"data-enlighter-highlight="2-5, 13">
 $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
@@ -964,7 +996,9 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     }
 }
 Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
- </pre> <pre data-enlighter-language = "powershell" data-enlighter-group = "test123" data-enlighter-title = "PowerShell Code 2" > 
+
+</pre>
+<pre data-enlighter-language="powershell"data-enlighter-group="test123"data-enlighter-title="PowerShell Code 2">
 $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
@@ -994,21 +1028,33 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     }
 }
 Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
- </pre> </div></div> <div class="section">
-<div class="header">
-    <a name="This shows PowerShell Language">This shows PowerShell Language</a>
+
+</pre>
 </div>
-<div class="content" style="background-color:#ffffff;"> <pre data-enlighter-language = "javascript" data-enlighter-theme = "enlighter" data-enlighter-highlight = "2, 5" > //refresh page on browser resize
+</div> <div class="section card"><div class="header"style="text-align: left;"><a name="This shows PowerShell Language"style="color: #ffffff;">This shows PowerShell Language
+</a>
+<a id="show_474759240"href="#"onclick="show('474759240');"style="color: #ffffff; display:none">(Show)
+</a>
+<a id="hide_474759240"href="#"onclick="hide('474759240');"style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div id="474759240"class="content card"style="background-color:#ffffff;"><pre data-enlighter-language="javascript"data-enlighter-theme="enlighter"data-enlighter-highlight="2, 5">//refresh page on browser resize
 $(window).bind("resize", function(e) {
     if (window.RT) clearTimeout(window.RT);
     window.RT = setTimeout(function() {
         this.location.reload(false); /* false to get page from cache */
     }, 200);
-}); </pre> </div></div> <div class="section">
-<div class="header">
-    <a name="XML Language">XML Language</a>
+});
+</pre>
 </div>
-<div class="content" style="background-color:#ffffff;"> <pre data-enlighter-language = "xml" data-enlighter-highlight = "12, 19" > <!--?xml version="1.0" encoding="UTF-8"?-->
+</div> <div class="section card"><div class="header"style="text-align: left;"><a name="XML Language"style="color: #ffffff;">XML Language
+</a>
+<a id="show_1207222915"href="#"onclick="show('1207222915');"style="color: #ffffff; display:none">(Show)
+</a>
+<a id="hide_1207222915"href="#"onclick="hide('1207222915');"style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div id="1207222915"class="content card"style="background-color:#ffffff;"><pre data-enlighter-language="xml"data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
 <building name="GlobalDynamics Main Building"
     core:id="0xFA8A91C6617DFA1B" core:uid="0898213-123123123-1230898123" xmlns:core="http://www.xmlnamespace.tld">
   <core:group core:level="2">
@@ -1034,7 +1080,10 @@ $(window).bind("resize", function(e) {
       <x_room label="k89121">Lab01</x_room>
     </room>
   </core:group>
-</building> </pre> </div></div> </div> 
+</building>
+</pre>
+</div>
+</div> </div> 
  <script type="text/javascript"> 
  // Get the element with id="defaultOpen" and click on it
  document.getElementById("defaultOpen").click();
@@ -1057,6 +1106,6 @@ $(window).bind("resize", function(e) {
      indent: 2
  });
  </script> 
-</BODY><hr />        <!-- FOOTER -->
+</BODY>        <!-- FOOTER -->
         <div class="footer">Copyright &#169; 2019. All Rights Reserved.</div>
         <!-- END BODY --></HTML>

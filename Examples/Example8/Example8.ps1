@@ -45,11 +45,11 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
         New-HTMLColumn -ColumnCount 1 {
             
             $LineObject = Get-HTMLLineChartObject
-           # $LineObject.DataDefinition.DataCategoryName = '2012','2013'
+            # $LineObject.DataDefinition.DataCategoryName = '2012','2013'
             $LineObject.Title = "Group Membership"
             #$LineObject.Size.Height = 250
             #$LineObject.Size.width = 250
-            $LineObject.DataDefinition.DataSetNames = @('My','New','Hello')
+            $LineObject.DataDefinition.DataSetNames = @('My', 'New', 'Hello')
 
             #$PieObjectGroupMembersType.ChartStyle.ChartType = 'doughnut'
             #$PieObjectGroupMembersType.ChartStyle.ColorSchemeName = "ColorScheme4"
@@ -58,9 +58,9 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             #$PieObjectGroupMembersType.DataDefinition.DataNameColumnName = 'Name'
             #$PieObjectGroupMembersType.DataDefinition.DataValueColumnName = 'Count'
             $dataSet = New-Object 'System.Collections.Generic.List[System.Object]'
-           # $dataSet.Add( @{ my = 10; new =  20,30 ; hello = 30 } )
-           # $dataSet.Add( @{ my = 10; new =  20 ; hello = 30 } )
-            $dataSet.Add( @{ my = @(10,30,1,5); new =  @(20,50) ; hello = @(30,5,30) } )
+            # $dataSet.Add( @{ my = 10; new =  20,30 ; hello = 30 } )
+            # $dataSet.Add( @{ my = 10; new =  20 ; hello = 30 } )
+            $dataSet.Add( @{ my = @(10, 30, 1, 5); new = @(20, 50) ; hello = @(30, 5, 30) } )
             Get-HTMLLineChart -ChartObject $LineObject -DataSet $DataSet 
             
         }
@@ -78,9 +78,9 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             #$PieObjectGroupMembersType.DataDefinition.DataNameColumnName = 'Name'
             #$PieObjectGroupMembersType.DataDefinition.DataValueColumnName = 'Count'
             $dataSet = New-Object 'System.Collections.Generic.List[System.Object]'
-           # $dataSet.Add( @{ my = 10; new =  20,30 ; hello = 30 } )
-           # $dataSet.Add( @{ my = 10; new =  20 ; hello = 30 } )
-            $dataSet.Add( @{ my = @(10,30,1,5); new =  @(20,50) ; hello = @(30,5,30) } )
+            # $dataSet.Add( @{ my = 10; new =  20,30 ; hello = 30 } )
+            # $dataSet.Add( @{ my = 10; new =  20 ; hello = 30 } )
+            $dataSet.Add( @{ my = @(10, 30, 1, 5); new = @(20, 50) ; hello = @(30, 5, 30) } )
             Get-HTMLStackedChart -ChartObject $Stacked -DataSet $DataSet 
             
         }

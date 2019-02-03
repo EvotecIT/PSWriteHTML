@@ -1516,12 +1516,12 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         }
 
         New-HTMLContent  -HeaderText "Groups" {
-            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
-                New-HTMLContent  -BackgroundShade 1 -HeaderText 'Domain Administrators' {
+            New-HTMLColumn   -ColumnCount 2 {
+                New-HTMLContent   -HeaderText 'Domain Administrators' {
                     Get-HTMLContentDataTable $DomainAdminTable -HideFooter
                 }
             }
-            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+            New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent  -HeaderText 'Enterprise Administrators' {
                     Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter
                 }
@@ -1529,12 +1529,12 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         }
 
         New-HTMLContent  -HeaderText "Objects in Default OUs" {
-            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
-                New-HTMLContent  -BackgroundShade 1 -HeaderText 'Computers' {
+            New-HTMLColumn   -ColumnCount 2 {
+                New-HTMLContent   -HeaderText 'Computers' {
                     Get-HTMLContentDataTable $DefaultComputersinDefaultOUTable -HideFooter
                 }
             }
-            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+            New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent  -HeaderText 'Users' {
                     Get-HTMLContentDataTable $DefaultUsersinDefaultOUTable -HideFooter
                 }
@@ -1546,12 +1546,12 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         }
 
         New-HTMLContent  -HeaderText "Expiring Items" {
-            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
-                New-HTMLContent  -BackgroundShade 1 -HeaderText "Users with Passwords Expiring in less than $DaysUntilPWExpireINT days" {
+            New-HTMLColumn   -ColumnCount 2 {
+                New-HTMLContent   -HeaderText "Users with Passwords Expiring in less than $DaysUntilPWExpireINT days" {
                     Get-HTMLContentDataTable $PasswordExpireSoonTable -HideFooter
                 }
             }
-            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+            New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent  -HeaderText 'Accounts Expiring Soon' {
                     Get-HTMLContentDataTable $ExpiringAccountsTable -HideFooter
                 }
@@ -1559,13 +1559,13 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         }
 
         New-HTMLContent  -HeaderText "Accounts" {
-            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
-                New-HTMLContent  -BackgroundShade 1 -HeaderText "Users Haven't Logged on in $Days Days or more" {
+            New-HTMLColumn   -ColumnCount 2 {
+                New-HTMLContent   -HeaderText "Users Haven't Logged on in $Days Days or more" {
                     Get-HTMLContentDataTable $userphaventloggedonrecentlytable -HideFooter
                 }
             }
-            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
-                New-HTMLContent  -BackgroundShade 1 -HeaderText "Accounts Created in $UserCreatedDays Days or Less" {
+            New-HTMLColumn   -ColumnCount 2 {
+                New-HTMLContent   -HeaderText "Accounts Created in $UserCreatedDays Days or Less" {
                     Get-HTMLContentDataTable $NewCreatedUsersTable -HideFooter
                 }
             }
@@ -1590,29 +1590,29 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
             Get-HTMLContentDataTable $Table -HideFooter
         }
 
-        New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
-            New-HTMLContent  -BackgroundShade 1 -HeaderText 'Domain Administrators' {
+        New-HTMLColumn   -ColumnCount 2 {
+            New-HTMLContent   -HeaderText 'Domain Administrators' {
                 Get-HTMLContentDataTable $DomainAdminTable -HideFooter
             }
         }
 
-        New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+        New-HTMLColumn   -ColumnCount 2 {
             New-HTMLContent  -HeaderText 'Enterprise Administrators' {
                 Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter
             }
         }
 
         New-HTMLContent  -HeaderText "Active Directory Groups Chart" {
-            New-HTMLColumn -ColumnNumber 1 -ColumnCount 4 {
+            New-HTMLColumn  -ColumnCount 4 {
                 Get-HTMLPieChart -ChartObject $PieObjectGroupType -DataSet $GroupTypetable
             }
-            New-HTMLColumn -ColumnNumber 2 -ColumnCount 4 {
+            New-HTMLColumn  -ColumnCount 4 {
                 Get-HTMLPieChart -ChartObject $PieObjectGroupType2 -DataSet $DefaultGrouptable
             }
-            New-HTMLColumn  -ColumnNumber 3 -ColumnCount 4 {
+            New-HTMLColumn   -ColumnCount 4 {
                 Get-HTMLPieChart -ChartObject $PieObjectGroupMembersType -DataSet $GroupMembershipTable
             }
-            New-HTMLColumn -ColumnNumber 4 -ColumnCount 4 {
+            New-HTMLColumn  -ColumnCount 4 {
                 Get-HTMLPieChart -ChartObject $PieObjectGroupProtection -DataSet $GroupProtectionTable
             }
         }
@@ -1625,10 +1625,10 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         }
 
         New-HTMLContent -HeaderText "Organizational Units Charts" {
-            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
+            New-HTMLColumn   -ColumnCount 2 {
                 Get-HTMLPieChart -ChartObject $PieObjectOUGPOLinks -DataSet $OUGPOTable
             }
-            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+            New-HTMLColumn   -ColumnCount 2 {
                 Get-HTMLPieChart -ChartObject $PO12 -DataSet $OUProtectionTable
             }
         }
@@ -1646,12 +1646,12 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         }
 
         New-HTMLContent  -HeaderText "Expiring Items" {
-            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
-                New-HTMLContent  -BackgroundShade 1 -HeaderText "Users with Passwords Expiring in less than $DaysUntilPWExpireINT days" {
+            New-HTMLColumn   -ColumnCount 2 {
+                New-HTMLContent   -HeaderText "Users with Passwords Expiring in less than $DaysUntilPWExpireINT days" {
                     Get-HTMLContentDataTable $PasswordExpireSoonTable -HideFooter
                 }
             }
-            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
+            New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent  -HeaderText 'Accounts Expiring Soon' {
                     Get-HTMLContentDataTable $ExpiringAccountsTable -HideFooter
 
@@ -1660,16 +1660,16 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         }
 
         New-HTMLContent  -HeaderText "Accounts" {
-            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 2 {
-                New-HTMLContent  -BackgroundShade 1 -HeaderText "Users Haven't Logged on in $Days Days or more" {
+            New-HTMLColumn   -ColumnCount 2 {
+                New-HTMLContent   -HeaderText "Users Haven't Logged on in $Days Days or more" {
                     Get-HTMLContentDataTable $userphaventloggedonrecentlytable -HideFooter
                 }
             }
 
 
 
-            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 2 {
-                New-HTMLContent  -BackgroundShade 1 -HeaderText "Accounts Created in $UserCreatedDays Days or Less" {
+            New-HTMLColumn   -ColumnCount 2 {
+                New-HTMLContent   -HeaderText "Accounts Created in $UserCreatedDays Days or Less" {
                     Get-HTMLContentDataTable $NewCreatedUsersTable -HideFooter
                 }
             }
@@ -1677,13 +1677,13 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         }
 
         New-HTMLContent  -HeaderText "Users Charts" {
-            New-HTMLColumn  -ColumnNumber 1 -ColumnCount 3 {
+            New-HTMLColumn   -ColumnCount 3 {
                 Get-HTMLPieChart -ChartObject $EnabledDisabledUsersPieObject -DataSet $EnabledDisabledUsersTable
             }
-            New-HTMLColumn  -ColumnNumber 2 -ColumnCount 3 {
+            New-HTMLColumn   -ColumnCount 3 {
                 Get-HTMLPieChart -ChartObject $PWExpiresUsersTable -DataSet $PasswordExpirationTable
             }
-            New-HTMLColumn  -ColumnNumber 3 -ColumnCount 3 {
+            New-HTMLColumn   -ColumnCount 3 {
                 Get-HTMLPieChart -ChartObject $PieObjectProtectedUsers -DataSet $ProtectedUsersTable
             }
         }
@@ -1709,10 +1709,10 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         }
 
         New-HTMLContent -HeaderText "Computers Charts" {
-            New-HTMLColumn -ColumnNumber 1 -ColumnCount 2 {
+            New-HTMLColumn  -ColumnCount 2 {
                 Get-HTMLPieChart -ChartObject $PieObjectComputersProtected -DataSet $ComputerProtectedTable
             }
-            New-HTMLColumn -ColumnNumber 2 -ColumnCount 2 {
+            New-HTMLColumn  -ColumnCount 2 {
                 Get-HTMLPieChart -ChartObject $PieObjectComputersEnabled -DataSet $ComputersEnabledTable
             }
         }

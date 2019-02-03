@@ -128,8 +128,8 @@ div.section {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
     display: inline-block;
-    /* margin: 5px; */
-    width: 100%;
+    margin: 5px;
+    width: calc(100% - 10px);
 }
 
 div.header {
@@ -144,12 +144,13 @@ div.header {
 div.content {
     /* padding: 4px 0px 5px 11px; */
     /* margin: 0px 0px 0px 0px; */
-    width: 100%;
+    width: calc(100% - 10px);
     color: #000000;
     background-color: #f9f9f9;
     overflow: hidden; /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
+    margin: 5px;
 }
 
 div.footer {
@@ -218,40 +219,39 @@ td.groupby {
 }
 
 div.column {
-    padding: 10px 10px 10px 10px;
-    /*  width: 100%; */
+    box-sizing: border-box;
     float: left;
 }
 
 div.one {
-    box-sizing: border-box;
-    width: 100%;
+    width: calc(100% - 10px);
+    padding: 10px;
     /*  overflow: hidden;NEW 
     overflow-x: hidden;
     overflow-y: hidden;*/
 }
 
 div.two {
-    box-sizing: border-box;
-    width: calc(100% / 2);
+    width: calc(100% / 2 - 10px);
+    padding: 10px;
 }
 
 div.three {
-    box-sizing: border-box;
-    width: calc(100% / 3);
+    width: calc(100% / 3 - 10px);
+    padding: 10px;
 }
 
 div.four {
-    box-sizing: border-box;
-    width: calc(100% / 4);
+    width: calc(100% / 4 - 10px);
+    padding: 10px;
 }
 div.five {
-    box-sizing: border-box;
-    width: calc(100% / 5);
+    width: calc(100% / 5 - 10px);
+    padding: 10px;
 }
 div.six {
-    box-sizing: border-box;
-    width: calc(100% / 6);
+    width: calc(100% / 6 - 10px);
+    padding: 10px;
 }
 
 a.alink:link {
@@ -376,6 +376,7 @@ td.sorting_1::before {
     transition: 0.3s;
     width: 40%;
     border-radius: 5px;
+    margin: 5px;
 }
 
 .card:hover {

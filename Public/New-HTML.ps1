@@ -59,7 +59,7 @@ Function New-Html {
         if ($null -ne $FooterText) {
             $FooterText = "Copyright &#169; $([DateTime]::Now.Year). All Rights Reserved."
         }
-        $HTML += Add-HTMLHorizontalLine
+      #  $HTML += Add-HTMLHorizontalLine
         $HTML += @"
         <!-- FOOTER -->
         <div class="footer">$FooterText</div>

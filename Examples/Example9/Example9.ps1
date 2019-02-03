@@ -1,4 +1,5 @@
 Import-Module .\PSWriteHTML.psd1 -Force
+$Processes = Get-Process | Select -First 5
 
 $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
@@ -8,7 +9,14 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
         New-HTMLColumn -ColumnCount 1 {
-
+            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+        }
+        New-HTMLColumn -ColumnCount 2 {
+            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+        }
+        New-HTMLColumn -ColumnCount 2 {
+            $Processes = Get-Process | Select -First 5
+            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
         }
     }
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
@@ -51,6 +59,17 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             $DataName = "Net Profit", "Revenue", "Free Cash Flow"
             $DataCategories = "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"
             New-HTMLBarChart -Data $Data1, $Data2, $Data3 -DataNames $DataName -DataCategories $DataCategories -Horizontal $false
+        }
+    }
+    New-HTMLContent -HeaderText 'Section 3rd with 3 columns' {
+        New-HTMLColumn -ColumnCount 3 {
+            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+        }
+        New-HTMLColumn -ColumnCount 3 {
+            New-HTMLBarChart -Data @(400, 430, 448), @(450, 0, 200) -DataNames 'People count', 'People death' -DataCategories '2015', '2016', '2017' -Type 'line' -LineColor 'Blue', 'Green'
+        }
+        New-HTMLColumn -ColumnCount 3 {
+            New-HTMLBarChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
         }
     }
 }
