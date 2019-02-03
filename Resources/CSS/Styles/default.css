@@ -350,12 +350,10 @@ td::before {
 }
 /* giving some spaces between tables being to close */
 
-/*
+
 div.dataTables_wrapper {
     padding: 10px 10px 10px 10px;
 }
-
-*/
 
 /* Adding CSS 
 a.paginate_button {
