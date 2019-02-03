@@ -32,11 +32,11 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
 
             Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLColumn -ColumnCount 2 {
+        New-HTMLColumn -ColumnCount 2 -BackgroundColor Lime {
 
             Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLColumn -ColumnCount 2 {
+        New-HTMLColumn -ColumnCount 2 -BackgroundColor LimeGreen {
 
             Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
         }

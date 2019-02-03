@@ -5,7 +5,7 @@ Function New-HTMLContent {
         [Parameter(Mandatory = $false)][string]$HeaderText,
         [RGBColors]$HeaderTextColor = [RGBColors]::White,
         [string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment = 'left',
-        [alias('BackgroundShade')][RGBColors]$BackgroundColor = [RGBColors]::White,
+        [alias('BackgroundShade')][RGBColors]$BackgroundColor,
         [Parameter(Mandatory = $false)][switch] $CanCollapse,
         [Parameter(Mandatory = $false)][switch]$IsHidden
     )
@@ -13,8 +13,12 @@ Function New-HTMLContent {
     Process {
         $RandomNumber = Get-Random
         $TextHeaderColorFromRGB = ConvertFrom-Color -Color $HeaderTextColor
-        $BackGroundColorFromRGB = ConvertFrom-Color -Color $BackgroundColor
-
+        if ($null -ne $BackgroundColor) {
+            $BackGroundColorFromRGB = ConvertFrom-Color -Color $BackgroundColor
+            $BGStyleColor = "background-color:$BackGroundColorFromRGB;"
+        } else {
+            $BGStyleColor = ''
+        }
         if ($CanCollapse) {
             if ($IsHidden) {
                 $ShowStyle = "color: $TextHeaderColorFromRGB" # shows Show button
@@ -33,9 +37,9 @@ Function New-HTMLContent {
             }
         }
         if ($IsHidden) {
-            $DivContentStyle = "display:none;background-color:$BackGroundColorFromRGB;"
+            $DivContentStyle = "display:none;$BGStyleColor"
         } else { 
-            $DivContentStyle = "background-color:$BackGroundColorFromRGB;"
+            $DivContentStyle = $BGStyleColor
         }
 
         $DivHeaderStyle = "text-align: $HeaderTextAlignment;"
@@ -52,7 +56,7 @@ Function New-HTMLContent {
             }
             Value      = $Header, $Show, $Hide
         }
-
+        <#
         $DivContent = [Ordered] @{
             Tag         = 'div'
             Attributes  = [ordered]@{
@@ -63,13 +67,16 @@ Function New-HTMLContent {
             Value       = Invoke-Command -ScriptBlock $Content
             SelfClosing = $false
         }
+        #>
+        $ScriptContent = Invoke-Command -ScriptBlock $Content
 
         $DivSection = [Ordered] @{
             Tag        = 'div'
             Attributes = [ordered]@{
                 'class' = "section card"
+                'style' = $DivContentStyle 
             }
-            Value      = $DivHeader, $DivContent
+            Value      = $DivHeader, $ScriptContent
         }
         $HTML = Set-Tag -HtmlObject $DivSection
         return $Html

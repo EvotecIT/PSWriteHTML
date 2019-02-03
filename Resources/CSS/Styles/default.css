@@ -130,6 +130,9 @@ div.section {
     display: inline-block;
     margin: 5px;
     width: calc(100% - 10px);
+    overflow: hidden; /* NEW */
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 div.header {
@@ -140,18 +143,17 @@ div.header {
     color: #ffffff;
     background-color: #007bff;
 }
-
+/*
 div.content {
-    /* padding: 4px 0px 5px 11px; */
-    /* margin: 0px 0px 0px 0px; */
     width: calc(100% - 10px);
     color: #000000;
     background-color: #f9f9f9;
-    overflow: hidden; /* NEW */
+    overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
     margin: 5px;
 }
+*/
 
 div.footer {
     padding-right: 5em;
@@ -221,6 +223,9 @@ td.groupby {
 div.column {
     box-sizing: border-box;
     float: left;
+    overflow: hidden; /* NEW */
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 div.one {
