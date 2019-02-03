@@ -11,7 +11,7 @@ Function New-HTMLColumn {
         $DivColumn = [Ordered] @{
             Tag        = 'div'
             Attributes = [ordered]@{
-                'class' = "$Class column"
+                'class' = "$Class column card"
             }
             Value      = Invoke-Command -ScriptBlock $Content
         }
