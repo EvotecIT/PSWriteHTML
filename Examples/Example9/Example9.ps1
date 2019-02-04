@@ -1,6 +1,52 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 $Processes = Get-Process | Select -First 5
 
+$CodeBlock = @'
+
+$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
+    New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
+    New-HTMLTab -TabName 'Dashboard' {
+        New-HTMLContent -HeaderText 'Content' {
+            New-HTMLColumn -ColumnCount 2 {
+                New-HTMLContent -HeaderText 'My text' -CanCollapse {
+                    Get-HTMLContentTable -ArrayOfObjects $DomainAdminTable
+                }
+            }
+            New-HTMLColumn -ColumnCount 2 {
+                New-HTMLContent -HeaderText 'My text' -CanCollapse {
+                    Get-HTMLContentTable -ArrayOfObjects $DomainAdminTable
+                }
+            }
+            New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
+                Get-HTMLContentDataTable -ArrayOfObjects $EnterpriseAdminTable
+            }
+        }
+        New-HTMLContent -HeaderText 'This shows PowerShell Language' {
+            Get-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell'
+        }
+    }
+    New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
+        New-HTMLContent -HeaderText 'My other text' {
+            Get-HTMLContentTable -ArrayOfObjects $EnterpriseAdminTable
+        }
+    }
+}
+Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
+
+'@
+
+# Code Block for JS Code (Showing how <pre> tags work)
+$CodeBlockJS = @'
+//refresh page on browser resize
+$(window).bind("resize", function(e) {
+    if (window.RT) clearTimeout(window.RT);
+    window.RT = setTimeout(function() {
+        this.location.reload(false); /* false to get page from cache */
+    }, 200);
+});
+'@
+
+
 $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
     -RightLogoString $ReportOptions.AsDynamicHTML.Branding.Logo.RightLogo.ImageLink `
@@ -70,6 +116,14 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
         }
         New-HTMLColumn -ColumnCount 3 {
             New-HTMLBarChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
+        }
+    }
+    New-HTMLContent -HeaderText 'Anoteher' {
+        New-HTMLColumn -Columns 2 {
+            New-HTMLCodeBlock -Code $CodeBlockJS -Style 'JavaScript' -Theme enlighter -Highlight '2, 5'
+        }
+        New-HTMLColumn -Columns 2 {
+            New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Theme enlighter -Highlight '2, 5'
         }
     }
 }

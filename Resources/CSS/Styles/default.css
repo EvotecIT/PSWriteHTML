@@ -226,11 +226,12 @@ div.column {
     overflow: hidden; /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
+    padding: 2px;
 }
 
 div.one {
     width: calc(100% - 10px);
-    padding: 10px;
+    
     /*  overflow: hidden;NEW 
     overflow-x: hidden;
     overflow-y: hidden;*/
@@ -238,25 +239,25 @@ div.one {
 
 div.two {
     width: calc(100% / 2 - 10px);
-    padding: 10px;
+
 }
 
 div.three {
     width: calc(100% / 3 - 10px);
-    padding: 10px;
+  
 }
 
 div.four {
     width: calc(100% / 4 - 10px);
-    padding: 10px;
+    
 }
 div.five {
     width: calc(100% / 5 - 10px);
-    padding: 10px;
+  
 }
 div.six {
     width: calc(100% / 6 - 10px);
-    padding: 10px;
+
 }
 
 a.alink:link {

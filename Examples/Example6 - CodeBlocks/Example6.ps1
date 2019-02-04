@@ -9,12 +9,12 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLColumn -ColumnNumber 1 -ColumnCount 2 {
+            New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     Get-HTMLContentTable -ArrayOfObjects $DomainAdminTable
                 }
             }
-            New-HTMLColumn -ColumnNumber 2 -ColumnCount 2 {
+            New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     Get-HTMLContentTable -ArrayOfObjects $DomainAdminTable
                 }
