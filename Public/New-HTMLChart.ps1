@@ -70,7 +70,7 @@ function New-HTMLBarChart {
         }
         if ('bar', 'line' -contains $Type) {
             # Some types require a more complicated dataset
-            $Options.series = @( New-HTMLChartsDataSet -Data $Data -DataNames $DataNames )
+            $Options.series = @( New-HTMLChartDataSet -Data $Data -DataNames $DataNames )
         } else {
             # Some types of charts require simple data sets - in particular just array
             $Options.series = $Data

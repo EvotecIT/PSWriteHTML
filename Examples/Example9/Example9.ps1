@@ -68,26 +68,26 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
         New-HTMLColumn -ColumnCount 1 {
             # Standard Chart Bar 
-            New-HTMLBarChart -Data @(400, 430, 448) -DataNames 'People count' -DataCategories 'Poland', 'Europe', 'Germany'
+            New-HTMLChart -Data @(400, 430, 448) -DataNames 'People count' -DataCategories 'Poland', 'Europe', 'Germany'
 
-            New-HTMLBarChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
+            New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
 
-            New-HTMLBarChart -Data @(400, 430, 448), @(450, 0, 200) -DataNames 'People count', 'People death' -DataCategories '2015', '2016', '2017' -Type 'line' -LineColor 'Blue', 'Green'
+            New-HTMLChart -Data @(400, 430, 448), @(450, 0, 200) -DataNames 'People count', 'People death' -DataCategories '2015', '2016', '2017' -Type 'line' -LineColor 'Blue', 'Green'
 
-            # New-HTMLBarChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'column'
+            # New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'column'
         }
         New-HTMLColumn -ColumnCount 2 {
             $GroupedBar = @()
             $GroupedBar += 400, 430, 448
             $GroupedBar1 = @()
             $GroupedBar1 += 420, 450, 448
-            New-HTMLBarChart -Data $GroupedBar, $GroupedBar1 -DataNames 'People count in  2019', 'People count in 2018' -DataCategories 'Poland', 'Europe', 'Germany'
+            New-HTMLChart -Data $GroupedBar, $GroupedBar1 -DataNames 'People count in  2019', 'People count in 2018' -DataCategories 'Poland', 'Europe', 'Germany'
         }
         New-HTMLColumn -ColumnCount 2 {
             $Data = 10, 41, 35, 51, 49, 62, 69, 91, 148
             $DataName = "Desktops"
             $DataCategories = 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
-            New-HTMLBarChart `
+            New-HTMLChart `
                 -Data $Data `
                 -DataNames $DataName `
                 -DataCategories $DataCategories `
@@ -104,7 +104,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             $Data3 = 35, 41, 36, 26, 45, 48, 52, 53, 41
             $DataName = "Net Profit", "Revenue", "Free Cash Flow"
             $DataCategories = "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"
-            New-HTMLBarChart -Data $Data1, $Data2, $Data3 -DataNames $DataName -DataCategories $DataCategories -Horizontal $false
+            New-HTMLChart -Data $Data1, $Data2, $Data3 -DataNames $DataName -DataCategories $DataCategories -Horizontal $false
         }
     }
     New-HTMLContent -HeaderText 'Section 3rd with 3 columns' {
@@ -112,10 +112,10 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 3 {
-            New-HTMLBarChart -Data @(400, 430, 448), @(450, 0, 200) -DataNames 'People count', 'People death' -DataCategories '2015', '2016', '2017' -Type 'line' -LineColor 'Blue', 'Green'
+            New-HTMLChart -Data @(400, 430, 448), @(450, 0, 200) -DataNames 'People count', 'People death' -DataCategories '2015', '2016', '2017' -Type 'line' -LineColor 'Blue', 'Green'
         }
         New-HTMLColumn -ColumnCount 3 {
-            New-HTMLBarChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
+            New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
         }
     }
     New-HTMLContent -HeaderText 'Anoteher' {

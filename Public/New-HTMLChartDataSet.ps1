@@ -1,4 +1,4 @@
-function New-HTMLChartsDataSet {
+function New-HTMLChartDataSet {
     [CmdletBinding()]
     param(
         [Array] $Data,
@@ -18,7 +18,7 @@ function New-HTMLChartsDataSet {
                 }
             } else {
                 # rerun with just data (so it checks another if)
-                New-HTMLChartsDataSet -Data $Data
+                New-HTMLChartDataSet -Data $Data
             }
 
         } else {
@@ -51,7 +51,7 @@ function New-HTMLChartsDataSet {
             }
         }
     } else {
-        Write-Warning -Message "New-HTMLChartsDataSet - No Data provided. Unabled to create dataset."
+        Write-Warning -Message "New-HTMLChartDataSet - No Data provided. Unabled to create dataset."
         return @{}
     }
 }

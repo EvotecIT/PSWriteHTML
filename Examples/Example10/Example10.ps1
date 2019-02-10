@@ -1,5 +1,5 @@
 Import-Module .\PSWriteHTML.psd1 -Force
-$Processes = Get-Process | Select -First 5
+$Processes = Get-Process | Select -First 15
 
 $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
@@ -7,15 +7,21 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -UseCssLinks:$true `
     -UseStyleLinks:$true {
 
-    New-HTMLContent -HeaderText '0 section' {
-        New-HTMLColumn -ColumnCount 3 -BackgroundColor DarkSlateGray {
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+    New-HTMLTabHeader -TabNames 'Test', 'Test1', 'Test2'
+    New-HtmlTab -Name 'Test' {
+        New-HTMLContent -HeaderText '0 section' {
+            New-HTMLColumn -ColumnCount 3 {
+                Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            }
+            New-HTMLColumn -ColumnCount 3 {
+                New-HTMLContentData -DataTable $Processes -HideFooter
+            }
+            New-HTMLColumn -ColumnCount 3 {
+                New-HTMLContentData -DataTable $Processes -HideFooter -Simplify
+            }
         }
-        New-HTMLColumn -ColumnCount 3 {
-            
-        }
-        New-HTMLColumn -ColumnCount 3 -BackgroundColor LightSteelBlue {
-
+        New-HTMLColumn {
+        
         }
     }
 }

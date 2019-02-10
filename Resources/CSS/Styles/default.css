@@ -231,7 +231,7 @@ div.column {
 
 div.one {
     width: calc(100% - 10px);
-    
+
     /*  overflow: hidden;NEW 
     overflow-x: hidden;
     overflow-y: hidden;*/
@@ -239,25 +239,20 @@ div.one {
 
 div.two {
     width: calc(100% / 2 - 10px);
-
 }
 
 div.three {
     width: calc(100% / 3 - 10px);
-  
 }
 
 div.four {
     width: calc(100% / 4 - 10px);
-    
 }
 div.five {
     width: calc(100% / 5 - 10px);
-  
 }
 div.six {
     width: calc(100% / 6 - 10px);
-
 }
 
 a.alink:link {
@@ -273,6 +268,16 @@ a.alink:visited {
 a.alink:hover {
     text-decoration: underline;
     font-size: 130%;
+}
+
+table.sortable {
+    width: calc(100% - 10px);
+    margin: 5px;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    display: inline-block;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 table.sortable thead {
@@ -351,10 +356,25 @@ td::before {
 }
 /* giving some spaces between tables being to close */
 
-
 div.dataTables_wrapper {
     padding: 10px 10px 10px 10px;
 }
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+/*
+
+a.paginate_button {
+    color: blue !important;
+}
+
+input {
+    border-radius: 5px;
+}
+*/
 
 /* Adding CSS 
 a.paginate_button {
