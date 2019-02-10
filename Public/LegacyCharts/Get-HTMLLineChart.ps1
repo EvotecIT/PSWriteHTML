@@ -26,10 +26,10 @@ Function Get-HTMLLineChart {
         }
         if ($ChartColorScheme.Count -lt $DataCount) {
             Write-Warning ("Colorscheme " + $ChartObject.ChartStyle.ColorSchemeName + " only has " + $ChartColorScheme.Count + " schemes, you have $DataCount Records. Generating one for you" )			
-            $ChartColorScheme = GenerateRandomColorScheme -numberofschemes $DataCount
+            $ChartColorScheme = Get-RandomColorScheme -numberofschemes $DataCount
         }
     } else {
-        $ChartColorScheme = GenerateRandomColorScheme -numberofschemes $DataCount
+        $ChartColorScheme = Get-RandomColorScheme -numberofschemes $DataCount
     }
 
     $Labels = ""

@@ -4,7 +4,7 @@ Function New-HTMLContent {
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace with Content"),
         [Parameter(Mandatory = $false)][string]$HeaderText,
         [RGBColors]$HeaderTextColor = [RGBColors]::White,
-        [string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment = 'left',
+        [string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment = 'center',
         [alias('BackgroundShade')][RGBColors]$BackgroundColor,
         [Parameter(Mandatory = $false)][switch] $CanCollapse,
         [Parameter(Mandatory = $false)][switch]$IsHidden

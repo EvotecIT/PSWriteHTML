@@ -33,6 +33,8 @@ function New-HTMLAnchor {
     .EXAMPLE
     New-HTMLAnchor -Target _parent
 
+    New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style "color: #ffffff; display:none;" -Text 'Show' 
+
     Output:
     <a target = "_parent" />
     
@@ -51,22 +53,14 @@ function New-HTMLAnchor {
         [string] $Style,
         [alias('AnchorText', 'Value')][string] $Text
     )
-    [System.Collections.IDictionary] $Anchor = [Ordered] @{
-        Tag        = 'a'
-        Attributes = [ordered]@{
-            'id'      = $Id
-            'name'    = $Name
-            'class'   = $Class
-            'target'  = $Target
-            'href'    = $HrefLink
-            'onclick' = $OnClick
-            'style'   = $Style
-        }
-        Value      = $Text # if value is blank it will not be used
+    $Attributes = [ordered]@{
+        'id'      = $Id
+        'name'    = $Name
+        'class'   = $Class
+        'target'  = $Target
+        'href'    = $HrefLink
+        'onclick' = $OnClick
+        'style'   = $Style
     }
-    $HTML = Set-Tag -HtmlObject $Anchor
-    return $HTML
+    New-HTMLTag -Tag 'a' -Attributes $Attributes -Value $Text
 }
-
-#$Show = New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style "color: #ffffff; display:none;" -Text 'Show' 
-#$Show

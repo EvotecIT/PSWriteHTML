@@ -99,20 +99,16 @@ Function New-HTMLCodeBlock {
         data-enlighter-lineoffset (number) - Start value of line-numbering e.g. "5" to start with line 5 - attribute start of the ol tag is set | Block Content option
     #>
 
-    [System.Collections.IDictionary] $Builder = [Ordered] @{
-        Tag        = 'pre'
-        Attributes = [ordered]@{
-            'data-enlighter-language'    = "$Style".ToLower()
-            'data-enlighter-theme'       = "$Theme".ToLower()
-            'data-enlighter-group'       = "$Group".ToLower()
-            'data-enlighter-title'       = "$Title"
-            'data-enlighter-linenumbers' = "$ShowLineNumbers"
-            'data-enlighter-highlight'   = "$Highlight"
-            'data-enlighter-lineoffset'  = "$LineOffset".ToLower()
-        }
-        Value      = $Code
+    $Attributes = [ordered]@{
+        'data-enlighter-language'    = "$Style".ToLower()
+        'data-enlighter-theme'       = "$Theme".ToLower()
+        'data-enlighter-group'       = "$Group".ToLower()
+        'data-enlighter-title'       = "$Title"
+        'data-enlighter-linenumbers' = "$ShowLineNumbers"
+        'data-enlighter-highlight'   = "$Highlight"
+        'data-enlighter-lineoffset'  = "$LineOffset".ToLower()
     }
-    $HTML = Set-Tag -HtmlObject $Builder
-
-    return $HTML
+    New-HTMLTag -Tag 'pre' -Attributes $Attributes {
+        $Code
+    }
 }

@@ -31,12 +31,12 @@ Function Get-HTMLStackedChart
 		}
 		if ($ChartColorScheme.Count -lt $DataCount) {
 			Write-Warning ("Colorscheme " +  $ChartObject.ChartStyle.ColorSchemeName + " only has " + $ChartColorScheme.Count + " schemes, you have $DataCount Records. Generating one for you" )			
-			$ChartColorScheme = GenerateRandomColorScheme -numberofschemes $DataCount -ColorSwing (($DataCount/2)+8)
+			$ChartColorScheme = Get-RandomColorScheme -numberofschemes $DataCount -ColorSwing (($DataCount/2)+8)
 		}
 	}
 	else
 	{
-		$ChartColorScheme = GenerateRandomColorScheme -numberofschemes $DataCount -ColorSwing (($DataCount/2)+8)
+		$ChartColorScheme = Get-RandomColorScheme -numberofschemes $DataCount -ColorSwing (($DataCount/2)+8)
 	}
 		
 	$ofs = ','
