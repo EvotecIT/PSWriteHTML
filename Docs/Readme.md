@@ -44,6 +44,9 @@ Short description
 ### [New-HTMLAnchorLink](New-HTMLAnchorLink.md)
 Creates Hyperlink for an Anchor
 
+### [New-HTMLAnchorName](New-HTMLAnchorName.md)
+Creates an anchor
+
 ### [New-HTMLChart](New-HTMLChart.md)
 {{Fill in the Synopsis}}
 
