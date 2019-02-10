@@ -44,42 +44,17 @@ Function New-HTMLContent {
 
         $DivHeaderStyle = "text-align: $HeaderTextAlignment;"
         $HeaderStyle = "color: $TextHeaderColorFromRGB;"
-        $Header = New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
-        $Show = New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
-        $Hide = New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
 
-        $DivHeader = [Ordered] @{
-            Tag        = 'div'
-            Attributes = [ordered]@{
-                'class' = "header"
-                'style' = $DivHeaderStyle
+        New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "section card";  'style' = $DivContentStyle } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "header"; 'style' = $DivHeaderStyle  } -Value {
+                New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
+                New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
+                New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
             }
-            Value      = $Header, $Show, $Hide
-        }
-        <#
-        $DivContent = [Ordered] @{
-            Tag         = 'div'
-            Attributes  = [ordered]@{
-                'id'    = $RandomNumber
-                'class' = "content card"
-                'style' = $DivContentStyle 
-            }
-            Value       = Invoke-Command -ScriptBlock $Content
-            SelfClosing = $false
-        }
-        #>
-        $ScriptContent = Invoke-Command -ScriptBlock $Content
 
-        $DivSection = [Ordered] @{
-            Tag        = 'div'
-            Attributes = [ordered]@{
-                'class' = "section card"
-                'style' = $DivContentStyle 
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'collapsable'; id = $RandomNumber; } -Value {
+                Invoke-Command -ScriptBlock $Content
             }
-            Value      = $DivHeader, $ScriptContent
         }
-        $HTML = Set-Tag -HtmlObject $DivSection
-        return $Html
-    }
-    
+    }    
 }
