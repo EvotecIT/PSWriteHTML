@@ -62,5 +62,7 @@ function New-HTMLAnchor {
         'onclick' = $OnClick
         'style'   = $Style
     }
-    New-HTMLTag -Tag 'a' -Attributes $Attributes -Value $Text
+    New-HTMLTag -Tag 'a' -Attributes $Attributes {
+        $Text
+    }
 }
