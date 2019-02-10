@@ -1,4 +1,4 @@
-Function New-Html {
+Function New-HTML {
     [CmdletBinding()]
     param(
         [Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $HtmlData = $(Throw "Have you put the open curly brace on the next line?"),

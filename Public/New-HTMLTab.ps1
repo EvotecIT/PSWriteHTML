@@ -1,4 +1,4 @@
-function New-HtmlTab {
+function New-HTMLTab {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $HtmlData = $(Throw "No curly brace?)"),

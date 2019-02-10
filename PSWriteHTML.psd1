@@ -69,13 +69,13 @@ RequiredModules = @('PSSharedGoods')
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'New-Html', 'New-HTMLAnchor', 'Get-HTMLAnchorLink', 'Get-HTMLAnchor', 
-               'New-HTMLChart', 'New-HTMLChartDataSet', 'New-HTMLCodeBlock', 
-               'New-HTMLColumn', 'New-HTMLContent', 'New-HTMLHeading', 
-               'New-HTMLHorizontalLine', 'New-HTMLImage', 'New-HtmlTab', 
-               'New-HTMLTabHeader', 'New-HTMLTable', 'New-HTMLTag', 'Save-HTML', 
-               'Get-HTMLBarChart', 'Get-HTMLBarChartObject', 'Get-HTMLLineChart', 
-               'Get-HTMLLineChartObject', 'Get-HTMLPieChart', 
+FunctionsToExport = 'New-HTML', 'New-HTMLAnchor', 'New-HTMLAnchorLink', 
+               'New-HTMLAnchorName', 'New-HTMLChart', 'New-HTMLChartDataSet', 
+               'New-HTMLCodeBlock', 'New-HTMLColumn', 'New-HTMLContent', 
+               'New-HTMLHeading', 'New-HTMLHorizontalLine', 'New-HTMLImage', 
+               'New-HTMLTab', 'New-HTMLTabHeader', 'New-HTMLTable', 'New-HTMLTag', 
+               'Save-HTML', 'Get-HTMLBarChart', 'Get-HTMLBarChartObject', 
+               'Get-HTMLLineChart', 'Get-HTMLLineChartObject', 'Get-HTMLPieChart', 
                'Get-HTMLPieChartObject', 'Get-HTMLStackedChart', 
                'Get-HTMLStackedChartObject'
 

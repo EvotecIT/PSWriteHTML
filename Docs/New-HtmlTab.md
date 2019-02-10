@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HtmlTab
+# New-HTMLTab
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HtmlTab [[-HtmlData] <ScriptBlock>] [-Name] <String> [[-TabHeading] <String>] [<CommonParameters>]
+New-HTMLTab [[-HtmlData] <ScriptBlock>] [-Name] <String> [[-TabHeading] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -1,4 +1,4 @@
-Function Get-HTMLAnchor {
+Function New-HTMLAnchorName {
     <#
     .SYNOPSIS
     Creates an anchor

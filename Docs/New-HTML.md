@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-Html
+# New-HTML
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-Html [[-HtmlData] <ScriptBlock>] [-UseCssLinks] [-UseStyleLinks] [-TitleText <String>] [-CSSPath <String>]
+New-HTML [[-HtmlData] <ScriptBlock>] [-UseCssLinks] [-UseStyleLinks] [-TitleText <String>] [-CSSPath <String>]
  [-CSSName <String>] [-ScriptPath <String>] [-ColorSchemePath <String>] [-LogoPath <String>]
  [-LeftLogoName <String>] [-RightLogoName <String>] [-LeftLogoString <String>] [-RightLogoString <String>]
  [-HideLogos] [-HideTitle] [-NoScript] [-PrimaryColorHex <String>] [-AddAuthor] [-Author <String>] [-HideDate]

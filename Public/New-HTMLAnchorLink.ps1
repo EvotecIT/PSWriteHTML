@@ -1,4 +1,4 @@
-Function Get-HTMLAnchorLink {
+Function New-HTMLAnchorLink {
     <#
     .SYNOPSIS
     Creates Hyperlink for an Anchor

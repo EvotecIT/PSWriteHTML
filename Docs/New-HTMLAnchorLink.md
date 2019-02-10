@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-HTMLAnchorLink
+# New-HTMLAnchorLink
 
 ## SYNOPSIS
 Creates Hyperlink for an Anchor
@@ -13,7 +13,7 @@ Creates Hyperlink for an Anchor
 ## SYNTAX
 
 ```
-Get-HTMLAnchorLink [-AnchorName] <String> [[-AnchorText] <String>] [<CommonParameters>]
+New-HTMLAnchorLink [-AnchorName] <String> [[-AnchorText] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

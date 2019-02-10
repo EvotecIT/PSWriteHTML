@@ -11,12 +11,6 @@ Locale: {{ Update Locale }}
 {{Manually Enter Description Here}}
 
 ## PSWriteHTML Cmdlets
-### [Get-HTMLAnchor](Get-HTMLAnchor.md)
-Creates an anchor
-
-### [Get-HTMLAnchorLink](Get-HTMLAnchorLink.md)
-Creates Hyperlink for an Anchor
-
 ### [Get-HTMLBarChart](Get-HTMLBarChart.md)
 
 
@@ -41,11 +35,14 @@ create a Bar chart object for use with Get-HTMLBarChart
 ### [Get-HTMLStackedChartObject](Get-HTMLStackedChartObject.md)
 create a Stacked chart object for use with Get-HTMLStackedChart
 
-### [New-Html](New-Html.md)
+### [New-HTML](New-HTML.md)
 {{Fill in the Synopsis}}
 
 ### [New-HTMLAnchor](New-HTMLAnchor.md)
 Short description
+
+### [New-HTMLAnchorLink](New-HTMLAnchorLink.md)
+Creates Hyperlink for an Anchor
 
 ### [New-HTMLChart](New-HTMLChart.md)
 {{Fill in the Synopsis}}
@@ -71,7 +68,7 @@ Creates a section in HTML
 ### [New-HTMLImage](New-HTMLImage.md)
 Short description
 
-### [New-HtmlTab](New-HtmlTab.md)
+### [New-HTMLTab](New-HTMLTab.md)
 {{Fill in the Synopsis}}
 
 ### [New-HTMLTabHeader](New-HTMLTabHeader.md)

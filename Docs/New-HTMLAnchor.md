@@ -63,7 +63,7 @@ Accept wildcard characters: False
 ```
 
 ### -Target
-Target options: "_blank|_self|_parent|_top|framename"
+Parameter description
 
 ```yaml
 Type: String
@@ -78,7 +78,7 @@ Accept wildcard characters: False
 ```
 
 ### -Class
-{{Fill Class Description}}
+Parameter description
 
 ```yaml
 Type: String
