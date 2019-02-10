@@ -13,7 +13,7 @@ Short description
 ## SYNTAX
 
 ```
-Save-HTML [[-FilePath] <String>] [-HTML] <Array> [-ShowHTML] [<CommonParameters>]
+Save-HTML [[-FilePath] <String>] [-HTML] <Array> [-ShowHTML] [-Supress] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -60,6 +60,21 @@ Accept wildcard characters: False
 
 ### -ShowHTML
 {{Fill ShowHTML Description}}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Supress
+{{Fill Supress Description}}
 
 ```yaml
 Type: SwitchParameter

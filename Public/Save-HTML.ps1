@@ -25,12 +25,10 @@ Function Save-HTML {
     [CmdletBinding()]
     Param
     (
-        [Parameter(Mandatory = $false)]
-        [string]$FilePath,
-        [Parameter(Mandatory = $true)]
-        [Array] $HTML,
-        [Parameter(Mandatory = $false)]
-        [switch]$ShowHTML
+        [Parameter(Mandatory = $false)][string]$FilePath,
+        [Parameter(Mandatory = $true)][Array] $HTML,
+        [Parameter(Mandatory = $false)][switch]$ShowHTML,
+        [switch] $Supress
     )
     if ([string]::IsNullOrEmpty($FilePath)) {
         Write-Warning "Save-HTML - FilePath parameter $ReportPath is empty, using Temporary"
@@ -49,5 +47,7 @@ Function Save-HTML {
         #Start-Sleep -Seconds 1
         Invoke-Item $FilePath
     }
-    Write-Output $FilePath
+    if (-not $Supress) {
+        $FilePath
+    }
 }
