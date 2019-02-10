@@ -1,5 +1,5 @@
-function New-HTMLContentData {
-    [alias('Get-HTMLContentDataTable')]
+function New-HTMLTable {
+    [CmdletBinding()]
     param(
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
         [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5'),
@@ -15,7 +15,7 @@ function New-HTMLContentData {
         [switch]$DisableSelect,
         [switch]$DisableStateSave,
         [switch]$DisableSearch,
-        [string][ValidateSet('display', 'cell-border', 'compact', 'hover', 'nowrap', 'order-column', 'row-border', 'stripe')] $Style = @('display', 'compact'),
+        [string[]][ValidateSet('display', 'cell-border', 'compact', 'hover', 'nowrap', 'order-column', 'row-border', 'stripe')] $Style = @('display', 'compact'),
         [switch]$Simplify
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator

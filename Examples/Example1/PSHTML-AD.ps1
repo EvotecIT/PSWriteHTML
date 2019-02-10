@@ -1512,18 +1512,18 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
     #Dashboard Report
     New-HTMLTab  -TabName $tabarray[0] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
         New-HTMLContent  -HeaderText "Company Information" {
-            Get-HTMLContentTable $CompanyInfoTable
+            New-HTMLTable -Simplify $CompanyInfoTable
         }
 
         New-HTMLContent  -HeaderText "Groups" {
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent   -HeaderText 'Domain Administrators' {
-                    Get-HTMLContentDataTable $DomainAdminTable -HideFooter
+                    New-HTMLTable $DomainAdminTable -HideFooter
                 }
             }
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent  -HeaderText 'Enterprise Administrators' {
-                    Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter
+                    New-HTMLTable $EnterpriseAdminTable -HideFooter
                 }
             }
         }
@@ -1531,29 +1531,29 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         New-HTMLContent  -HeaderText "Objects in Default OUs" {
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent   -HeaderText 'Computers' {
-                    Get-HTMLContentDataTable $DefaultComputersinDefaultOUTable -HideFooter
+                    New-HTMLTable $DefaultComputersinDefaultOUTable -HideFooter
                 }
             }
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent  -HeaderText 'Users' {
-                    Get-HTMLContentDataTable $DefaultUsersinDefaultOUTable -HideFooter
+                    New-HTMLTable $DefaultUsersinDefaultOUTable -HideFooter
                 }
             }
         }
 
         New-HTMLContent  -HeaderText "AD Objects Modified in Last $ADModNumber Days" {
-            Get-HTMLContentDataTable $ADObjectTable
+            New-HTMLTable $ADObjectTable
         }
 
         New-HTMLContent  -HeaderText "Expiring Items" {
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent   -HeaderText "Users with Passwords Expiring in less than $DaysUntilPWExpireINT days" {
-                    Get-HTMLContentDataTable $PasswordExpireSoonTable -HideFooter
+                    New-HTMLTable $PasswordExpireSoonTable -HideFooter
                 }
             }
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent  -HeaderText 'Accounts Expiring Soon' {
-                    Get-HTMLContentDataTable $ExpiringAccountsTable -HideFooter
+                    New-HTMLTable $ExpiringAccountsTable -HideFooter
                 }
             }
         }
@@ -1561,44 +1561,44 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         New-HTMLContent  -HeaderText "Accounts" {
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent   -HeaderText "Users Haven't Logged on in $Days Days or more" {
-                    Get-HTMLContentDataTable $userphaventloggedonrecentlytable -HideFooter
+                    New-HTMLTable $userphaventloggedonrecentlytable -HideFooter
                 }
             }
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent   -HeaderText "Accounts Created in $UserCreatedDays Days or Less" {
-                    Get-HTMLContentDataTable $NewCreatedUsersTable -HideFooter
+                    New-HTMLTable $NewCreatedUsersTable -HideFooter
                 }
             }
         }
 
         New-HTMLContent  -HeaderText "Security Logs" {
-            Get-HTMLContentDataTable $securityeventtable -HideFooter
+            New-HTMLTable $securityeventtable -HideFooter
         }
 
         New-HTMLContent  -HeaderText "UPN Suffixes" {
-            Get-HTMLContentTable $DomainTable
+            New-HTMLTable -Simplify $DomainTable
         }
     }
 
     #Groups Report
     New-HTMLTab  -TabName $tabarray[1] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
         New-HTMLContent  -HeaderText "Groups Overivew" {
-            Get-HTMLContentDataTable $TOPGroupsTable -HideFooter
+            New-HTMLTable $TOPGroupsTable -HideFooter
         }
 
         New-HTMLContent  -HeaderText "Active Directory Groups" {
-            Get-HTMLContentDataTable $Table -HideFooter
+            New-HTMLTable $Table -HideFooter
         }
 
         New-HTMLColumn   -ColumnCount 2 {
             New-HTMLContent   -HeaderText 'Domain Administrators' {
-                Get-HTMLContentDataTable $DomainAdminTable -HideFooter
+                New-HTMLTable $DomainAdminTable -HideFooter
             }
         }
 
         New-HTMLColumn   -ColumnCount 2 {
             New-HTMLContent  -HeaderText 'Enterprise Administrators' {
-                Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter
+                New-HTMLTable $EnterpriseAdminTable -HideFooter
             }
         }
 
@@ -1621,7 +1621,7 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
     #Organizational Unit Report
     New-HTMLTab -TabName $tabarray[2] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
         New-HTMLContent  -HeaderText "Organizational Units" {
-            Get-HTMLContentDataTable $OUTable -HideFooter
+            New-HTMLTable $OUTable -HideFooter
         }
 
         New-HTMLContent -HeaderText "Organizational Units Charts" {
@@ -1638,22 +1638,22 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
     New-HTMLTab -TabName $tabarray[3] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
 
         New-HTMLContent  -HeaderText "Users Overivew" {
-            Get-HTMLContentDataTable $TOPUserTable -HideFooter
+            New-HTMLTable $TOPUserTable -HideFooter
         }
 
         New-HTMLContent  -HeaderText "Active Directory Users" {
-            Get-HTMLContentDataTable $UserTable -HideFooter
+            New-HTMLTable $UserTable -HideFooter
         }
 
         New-HTMLContent  -HeaderText "Expiring Items" {
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent   -HeaderText "Users with Passwords Expiring in less than $DaysUntilPWExpireINT days" {
-                    Get-HTMLContentDataTable $PasswordExpireSoonTable -HideFooter
+                    New-HTMLTable $PasswordExpireSoonTable -HideFooter
                 }
             }
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent  -HeaderText 'Accounts Expiring Soon' {
-                    Get-HTMLContentDataTable $ExpiringAccountsTable -HideFooter
+                    New-HTMLTable $ExpiringAccountsTable -HideFooter
 
                 }
             }
@@ -1662,7 +1662,7 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
         New-HTMLContent  -HeaderText "Accounts" {
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent   -HeaderText "Users Haven't Logged on in $Days Days or more" {
-                    Get-HTMLContentDataTable $userphaventloggedonrecentlytable -HideFooter
+                    New-HTMLTable $userphaventloggedonrecentlytable -HideFooter
                 }
             }
 
@@ -1670,7 +1670,7 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
 
             New-HTMLColumn   -ColumnCount 2 {
                 New-HTMLContent   -HeaderText "Accounts Created in $UserCreatedDays Days or Less" {
-                    Get-HTMLContentDataTable $NewCreatedUsersTable -HideFooter
+                    New-HTMLTable $NewCreatedUsersTable -HideFooter
                 }
             }
 
@@ -1693,7 +1693,7 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
     #GPO Report
     New-HTMLTab -TabName $tabarray[4] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
         New-HTMLContent -HeaderText "Group Policies" {
-            Get-HTMLContentDataTable $GPOTable -HideFooter
+            New-HTMLTable $GPOTable -HideFooter
         }
     }
 
@@ -1701,11 +1701,11 @@ $FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -R
     New-HTMLTab -TabName $tabarray[5] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
 
         New-HTMLContent -HeaderText "Computers Overivew" {
-            Get-HTMLContentDataTable $TOPComputersTable -HideFooter
+            New-HTMLTable $TOPComputersTable -HideFooter
         }
 
         New-HTMLContent  -HeaderText "Computers" {
-            Get-HTMLContentDataTable $ComputersTable -HideFooter
+            New-HTMLTable $ComputersTable -HideFooter
         }
 
         New-HTMLContent -HeaderText "Computers Charts" {

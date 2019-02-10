@@ -1,23 +1,25 @@
 Function New-HTMLTabHeader {
-    [alias('Get-HTMLTabHeader')]
     [CmdletBinding()]
     Param (
-        [Parameter(Mandatory)][Array] $TabNames
+        [Parameter(Mandatory)][Array] $TabNames,
+        [string] $DefaultTab
     )
-
-    $TabHeader = @()
-    $TabHeader += '<ul class="tab">'
-    $FirstTab = $true
-    Foreach ($TabName in $TabNames) {
-        if ($FirstTab) {
-            $TabHeader += '		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, ''' + $TabName + ''')" id="defaultOpen">' + $TabName + '</a></li>'
-            $FirstTab = $false
-        } else {
-            $TabHeader += '		<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, ''' + $TabName + ''')">' + $TabName + '</a></li>'
+    if ($DefaultTab -ne '') {
+        if ($TabNames -notcontains $DefaultTab) {
+            Write-Warning 'New-HTMLTabHeader - DefaultTab is not part of TabNames. Unable to set DefaultTab'
         }
-
     }
-    $TabHeader += '</ul>'
-    Set-Variable -Scope global -Name TabHeaderCreated -Value $true
-    Write-output $TabHeader
+    [int] $CountTabs = 0
+    New-HTMLTag -Tag 'ul' -Attributes @{ class = 'tab' } {
+        foreach ($Tab in $TabNames) {
+            New-HTMLTag -Tag 'li' {
+                if (($DefaultTab -ne '' -and $DefaultTab -eq $Tab) -or ($DefaultTab -eq '' -and $CountTabs -eq 0)) {
+                    New-HTMLAnchor -Class 'tablinks' -HrefLink "javascript:void(0)" -OnClick "openTab(event, '$Tab')" -Id 'defaultOpen' -Text $Tab
+                } else {
+                    New-HTMLAnchor -Class 'tablinks' -HrefLink "javascript:void(0)" -OnClick "openTab(event, '$Tab')" -Text $Tab
+                }
+            }
+            $CountTabs++
+        }
+    }
 }

@@ -9,50 +9,50 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
         New-HTMLColumn -ColumnCount 1 {
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
 
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
         New-HTMLColumn -ColumnCount 1 {
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
 
     New-HTMLContent -HeaderText '1st section' -CanCollapse -HeaderTextAlignment center {
         New-HTMLColumn -ColumnCount 1 {
 
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 1 {
 
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 1 {
 
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 2 -BackgroundColor Lime {
 
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 2 -BackgroundColor LimeGreen {
 
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
     New-HTMLContent -HeaderText '2nd section' -BackgroundColor Seashell {
         New-HTMLColumn -ColumnCount 3 {
 
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 3 {
 
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 3 {
 
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
 }

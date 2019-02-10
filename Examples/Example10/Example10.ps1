@@ -11,13 +11,13 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     New-HtmlTab -Name 'Test' {
         New-HTMLContent -HeaderText '0 section' {
             New-HTMLColumn -ColumnCount 3 {
-                Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+                New-HTMLTable -ArrayOfObjects $Processes -HideFooter
             }
             New-HTMLColumn -ColumnCount 3 {
-                New-HTMLContentData -DataTable $Processes -HideFooter
+                New-HTMLTable -DataTable $Processes -HideFooter
             }
             New-HTMLColumn -ColumnCount 3 {
-                New-HTMLContentData -DataTable $Processes -HideFooter -Simplify
+                New-HTMLTable -DataTable $Processes -HideFooter -Simplify
             }
         }
         New-HTMLColumn {

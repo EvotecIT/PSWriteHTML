@@ -11,16 +11,16 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
         New-HTMLContent -HeaderText 'Content' {
             New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    Get-HTMLContentTable -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
             }
             New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    Get-HTMLContentTable -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                Get-HTMLContentDataTable -ArrayOfObjects $EnterpriseAdminTable
+                New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
             }
         }
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
@@ -29,7 +29,7 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     }
     New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
         New-HTMLContent -HeaderText 'My other text' {
-            Get-HTMLContentTable -ArrayOfObjects $EnterpriseAdminTable
+            New-HTMLTable -Simplify -ArrayOfObjects $EnterpriseAdminTable
         }
     }
 }

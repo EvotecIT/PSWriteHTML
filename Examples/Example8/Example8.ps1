@@ -9,7 +9,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
         New-HTMLColumn -ColumnCount 1 {
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
 

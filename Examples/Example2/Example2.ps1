@@ -14,67 +14,49 @@ $TabNames = 'Dashboard', 'Something'
 $Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideDate -UseCssLinks -UseStyleLinks {
     New-HTMLTabHeader -TabNames $TabNames
     New-HTMLTab -TabName 'Dashboard' {
-
         New-HTMLContent -HeaderText "Groups" {
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
-                Get-HTMLContentDataTable $DomainAdminTable -HideFooter
+                New-HTMLTable $DomainAdminTable -HideFooter
             }
         }
-
         New-HTMLContent -HeaderText 'Test Group' -CanCollapse {
             New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'Enterprise Administrators' {
-                    Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter
+                    New-HTMLTable $EnterpriseAdminTable -HideFooter
                 }
             }
-
             New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'Enterprise Administrators' {
-                    Get-HTMLContentDataTable $EnterpriseAdminTable -HideFooter
+                    New-HTMLTable $EnterpriseAdminTable -HideFooter
                 }
             }
         }
-
         New-HTMLContent -HeaderText "Groups 1" {
-
             New-HTMLColumn -ColumnCount 1 {
-                Get-HTMLContentDataTable $DomainAdminTable -HideFooter
+                New-HTMLTable $DomainAdminTable -HideFooter
             }
             New-HTMLColumn -ColumnCount 1 {
-                Get-HTMLContentDataTable $DomainAdminTable -HideFooter
+                New-HTMLTable $DomainAdminTable -HideFooter
             }
-
         }
-
-
         New-HTMLContent -HeaderText "Groups 2" {
-
             New-HTMLColumn -ColumnCount 1 {
-                Get-HTMLContentDataTable $Allusers
+                New-HTMLTable $Allusers
             }
-
         }
-
         New-HTMLContent -HeaderText "Groups 3" {
-
             New-HTMLColumn -ColumnCount 4 {
-                Get-HTMLContentDataTable $Allusers -HideFooter
+                New-HTMLTable $Allusers -HideFooter
             }
-
             New-HTMLColumn -ColumnCount 4 {
-                Get-HTMLContentDataTable $Allusers -HideFooter
+                New-HTMLTable $Allusers -HideFooter
             }
-
-
-
             New-HTMLColumn -ColumnCount 4 {
-                Get-HTMLContentDataTable $Allusers -HideFooter
+                New-HTMLTable $Allusers -HideFooter
             }
-
             New-HTMLColumn -ColumnCount 4 {
-                Get-HTMLContentDataTable $Allusers -HideFooter
+                New-HTMLTable $Allusers -HideFooter
             }
-
         }
     }
 }

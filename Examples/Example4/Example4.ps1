@@ -19,10 +19,10 @@ $Report = New-HTML -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -UseC
         New-HTMLContent -HeaderText "Groups" {
             New-HTMLHeading -Heading h3 -HeadingText 'This is a test'
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
-                Get-HTMLContentTable -DataTable $EnterpriseAdminTable -Verbose
+                New-HTMLTable -DataTable $EnterpriseAdminTable -Verbose -Simplify
             }
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
-                Get-HTMLContentDataTable -DataTable $EnterpriseAdminTable -Verbose
+                New-HTMLTable -DataTable $EnterpriseAdminTable -Verbose
             }
         }
     }

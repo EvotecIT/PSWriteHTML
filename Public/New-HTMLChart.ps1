@@ -1,4 +1,4 @@
-function New-HTMLBarChart {
+function New-HTMLChart {
     [CmdletBinding()]
     param(
         [nullable[int]] $Height = 350,

@@ -9,10 +9,8 @@ function Add-HTMLBodyOpening {
         [string] $PrimaryColorHex,
         [string] $CurrentDate
     )
-    $HTML = New-GenericList -Type [string]
-    $HTML.Add('<!-- Body -->')
-    #$HTML.Add('<body onload="hide();">')
-    $HTML.Add('<body>')
+
+    $HTML = New-GenericList
 
     if ($HideLogos -eq $false) {
         $Leftlogo = $Options.Logos[$LeftLogoName]
@@ -31,7 +29,7 @@ function Add-HTMLBodyOpening {
         $HTML.Add("<!-- Report Header -->")
         $HTML.Add($LogoContent)
         $HTML.Add("<div class=`"pageTitle`">$TitleText</div>")
-    #    $HTML.Add("<hr />")
+        #    $HTML.Add("<hr />")
     }
     if (-not $HideDate) {
         $HTML.Add("<div class=`"ReportCreated`">Report created on $($CurrentDate)</div>")
@@ -44,5 +42,5 @@ function Add-HTMLBodyOpening {
             Write-Warning '$PrimaryColorHex must be 7 characters with hash eg "#337E94"'
         }
     }
-    return $HTML
+    $HTML
 }

@@ -15,16 +15,16 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
         New-HTMLContent -HeaderText 'Content' {
             New-HTMLColumn -ColumnNumber 1 -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    Get-HTMLContentTable -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
             }
             New-HTMLColumn -ColumnNumber 2 -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    Get-HTMLContentTable -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                Get-HTMLContentDataTable -ArrayOfObjects $EnterpriseAdminTable
+                New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
             }
         }
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
@@ -33,7 +33,7 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     }
     New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
         New-HTMLContent -HeaderText 'My other text' {
-            Get-HTMLContentTable -ArrayOfObjects $EnterpriseAdminTable
+            New-HTMLTable -Simplify -ArrayOfObjects $EnterpriseAdminTable
         }
     }
 }
@@ -87,33 +87,29 @@ $HTML = New-Html -UseCssLinks -UseStyleLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLColumn -ColumnCount 2 {
-               
-                    Get-HTMLContentTable -DataTable $DomainAdminTable
-                
+            New-HTMLColumn -ColumnCount 2 {               
+                    New-HTMLTable -Simplify -DataTable $DomainAdminTable                
             }
-            New-HTMLColumn -ColumnCount 2 {
-              
-                    Get-HTMLContentTable -DataTable $DomainAdminTable
-            
+            New-HTMLColumn -ColumnCount 2 {              
+                    New-HTMLTable -Simplify -DataTable $DomainAdminTable            
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                Get-HTMLContentDataTable -DataTable $EnterpriseAdminTable
+                New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
         New-HTMLContent -HeaderText 'Content New' {
             New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    Get-HTMLContentTable -DataTable $DomainAdminTable
+                    New-HTMLTable -Simplify -DataTable $DomainAdminTable
                 }
             }
             New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    Get-HTMLContentTable -DataTable $DomainAdminTable
+                    New-HTMLTable -Simplify -DataTable $DomainAdminTable
                 }
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                Get-HTMLContentDataTable -DataTable $EnterpriseAdminTable
+                New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
@@ -129,7 +125,7 @@ $HTML = New-Html -UseCssLinks -UseStyleLinks {
     }
     New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
         New-HTMLContent -HeaderText 'My other text' {
-            Get-HTMLContentTable -DataTable $EnterpriseAdminTable
+            New-HTMLTable -Simplify -DataTable $EnterpriseAdminTable
         }
     }
 }

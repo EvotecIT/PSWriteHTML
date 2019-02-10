@@ -9,16 +9,16 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
         New-HTMLContent -HeaderText 'Content' {
             New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    Get-HTMLContentTable -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
             }
             New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    Get-HTMLContentTable -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                Get-HTMLContentDataTable -ArrayOfObjects $EnterpriseAdminTable
+                New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
             }
         }
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
@@ -27,7 +27,7 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     }
     New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
         New-HTMLContent -HeaderText 'My other text' {
-            Get-HTMLContentTable -ArrayOfObjects $EnterpriseAdminTable
+            New-HTMLTable -Simplify -ArrayOfObjects $EnterpriseAdminTable
         }
     }
 }
@@ -55,14 +55,14 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
         New-HTMLColumn -ColumnCount 1 {
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 2 {
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 2 {
             $Processes = Get-Process | Select -First 5
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
@@ -109,7 +109,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     }
     New-HTMLContent -HeaderText 'Section 3rd with 3 columns' {
         New-HTMLColumn -ColumnCount 3 {
-            Get-HTMLContentDataTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 3 {
             New-HTMLChart -Data @(400, 430, 448), @(450, 0, 200) -DataNames 'People count', 'People death' -DataCategories '2015', '2016', '2017' -Type 'line' -LineColor 'Blue', 'Green'
