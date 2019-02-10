@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HtmlTab [[-HtmlData] <ScriptBlock>] [-TabName] <String> [[-TabHeading] <String>] [<CommonParameters>]
+New-HtmlTab [[-HtmlData] <ScriptBlock>] [-Name] <String> [[-TabHeading] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -39,6 +39,21 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Name
+{{Fill Name Description}}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: TabName
+
+Required: True
 Position: 1
 Default value: None
 Accept pipeline input: False
@@ -55,21 +70,6 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -TabName
-{{Fill TabName Description}}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

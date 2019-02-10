@@ -13,8 +13,8 @@ Creates a section in HTML
 ## SYNTAX
 
 ```
-New-HTMLContent [[-Content] <ScriptBlock>] [-HeaderText <String>] [-IsHidden] [-HeaderTextColor <RGBColors>]
- [-BackgroundColor <RGBColors>] [-CanCollapse] [<CommonParameters>]
+New-HTMLContent [[-Content] <ScriptBlock>] [-HeaderText <String>] [-HeaderTextColor <RGBColors>]
+ [-HeaderTextAlignment <String>] [-BackgroundColor <RGBColors>] [-CanCollapse] [-IsHidden] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -84,6 +84,22 @@ The heading for the section
 Type: String
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HeaderTextAlignment
+{{Fill HeaderTextAlignment Description}}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: center, left, right, justify
 
 Required: False
 Position: Named

@@ -5,16 +5,14 @@ online version:
 schema: 2.0.0
 ---
 
-# Set-TableRowColor
+# Get-HTMLStackedChart
 
 ## SYNOPSIS
-adds a row colour field to the array of object for processing with htmltable
 
 ## SYNTAX
 
 ```
-Set-TableRowColor [[-ArrayOfObjects] <Object[]>] [[-Green] <String>] [[-Yellow] <String>] [[-Red] <String>]
- [-Alternating] [<CommonParameters>]
+Get-HTMLStackedChart [-ChartObject] <Object> [-DataSet] <Array> [[-Options] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,77 +29,47 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -ArrayOfObjects
-The type of logo
+### -ChartObject
+{{Fill ChartObject Description}}
 
 ```yaml
-Type: Object[]
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Green
-Some additional pish
+### -DataSet
+{{Fill DataSet Description}}
 
 ```yaml
-Type: String
+Type: Array
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 2
-Default value: $this -eq $false
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Yellow
-Some additional pish
+### -Options
+{{Fill Options Description}}
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: 3
-Default value: $this -eq $false
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Red
-use $this and an expression to measure the value
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: $this -eq $false
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Alternating
-{{Fill Alternating Description}}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLTabHeader
+# New-HTMLTag
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
@@ -13,7 +13,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLTabHeader [-TabNames] <Array> [[-DefaultTab] <String>] [<CommonParameters>]
+New-HTMLTag [[-Value] <ScriptBlock>] [-Tag] <String> [-Attributes <IDictionary>] [-SelfClosing]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,30 +31,60 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -DefaultTab
-{{Fill DefaultTab Description}}
+### -Attributes
+{{Fill Attributes Description}}
+
+```yaml
+Type: IDictionary
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SelfClosing
+{{Fill SelfClosing Description}}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Tag
+{{Fill Tag Description}}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TabNames
-{{Fill TabNames Description}}
+### -Value
+{{Fill Value Description}}
 
 ```yaml
-Type: Array
+Type: ScriptBlock
 Parameter Sets: (All)
-Aliases:
+Aliases: Content
 
-Required: True
+Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False

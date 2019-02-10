@@ -39,9 +39,10 @@ PS C:\> {{ Add example code here }}
 Type: String
 Parameter Sets: (All)
 Aliases:
+Accepted values: line
 
 Required: False
-Position: 1
+Position: 0
 Default value: Line
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -56,38 +57,8 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 1
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Width
-{{Fill Width Description}}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: 500
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Height
-{{Fill Height Description}}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: 400
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -101,7 +72,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 5
+Position: 4
 Default value: X
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -116,7 +87,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 6
+Position: 5
 Default value: Y
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -131,8 +102,38 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 7
+Position: 6
 Default value: @()
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Height
+{{Fill Height Description}}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: 400
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Width
+{{Fill Width Description}}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: 500
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

@@ -17,3 +17,10 @@ Function New-HTMLColumn {
         Invoke-Command -ScriptBlock $Content
     }
 }
+
+
+New-HTMLTag -Tag 'html' -Attributes @{ class = "something somethingelse"} {
+    New-HTMLTag -Tag 'body'  {
+
+    }
+}

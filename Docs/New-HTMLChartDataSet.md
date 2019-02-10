@@ -5,15 +5,15 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-HTMLContentTableAdvanced
+# New-HTMLChartDataSet
 
 ## SYNOPSIS
-Code borrowed from https://www.powershellgallery.com/packages/EnhancedHTML2
+{{Fill in the Synopsis}}
 
 ## SYNTAX
 
 ```
-Get-HTMLContentTableAdvanced [-DataTable] <Array> [<CommonParameters>]
+New-HTMLChartDataSet [[-Data] <Array>] [[-DataNames] <Array>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,18 +30,33 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -DataTable
-{{Fill DataTable Description}}
+### -Data
+{{Fill Data Description}}
 
 ```yaml
 Type: Array
 Parameter Sets: (All)
-Aliases: ArrayOfObjects, Object, Table
+Aliases:
 
-Required: True
+Required: False
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DataNames
+{{Fill DataNames Description}}
+
+```yaml
+Type: Array
+Parameter Sets: (All)
+Aliases:
+
+Required: False
 Position: 1
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -50,8 +65,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### None
+
 ## OUTPUTS
 
+### System.Object
 ## NOTES
 
 ## RELATED LINKS

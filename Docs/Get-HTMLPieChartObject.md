@@ -37,9 +37,10 @@ PS C:\> {{ Add example code here }}
 Type: String
 Parameter Sets: (All)
 Aliases:
+Accepted values: pie, doughnut
 
 Required: False
-Position: 1
+Position: 0
 Default value: Pie
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -54,7 +55,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

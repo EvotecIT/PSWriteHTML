@@ -5,34 +5,38 @@ online version:
 schema: 2.0.0
 ---
 
-# Add-HTMLImage
+# Get-HTMLStackedChartObject
 
 ## SYNOPSIS
+create a Stacked chart object for use with Get-HTMLStackedChart
 
 ## SYNTAX
 
 ```
-Add-HTMLImage [[-Source] <String>] [[-UrlLink] <Uri>] [[-AlternativeText] <String>] [[-Class] <String>]
- [[-Target] <String>] [[-Width] <String>] [[-Height] <String>] [<CommonParameters>]
+Get-HTMLStackedChartObject [[-ColorScheme] <Object>] [[-DataSetArrayXLabels] <String>]
+ [[-DataSetArrayName] <String>] [[-DataSetArrayData] <String>] [[-DataSetArrayDataColumn] <String>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Long description
+{{Fill in the Description}}
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
-Add-HTMLImage -Source 'https://evotec.pl/image.png' -UrlLink 'https://evotc.pl/' -AlternativeText 'My other text' -Class 'otehr' -Width '100%'
-```
+
+{{ Add example description here }}
 
 ## PARAMETERS
 
-### -Source
-Parameter description
+### -ColorScheme
+{{Fill ColorScheme Description}}
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -43,23 +47,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -UrlLink
-Parameter description
+### -DataSetArrayXLabels
+\[Parameter(Mandatory=$true)\]
 
 ```yaml
-Type: Uri
+Type: String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: 2
-Default value: None
+Default value: Date
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -AlternativeText
-Parameter description
+### -DataSetArrayName
+\[Parameter(Mandatory=$true)\]
 
 ```yaml
 Type: String
@@ -68,13 +72,13 @@ Aliases:
 
 Required: False
 Position: 3
-Default value: None
+Default value: OwnerSolution
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Class
-Parameter description
+### -DataSetArrayData
+\[Parameter(Mandatory=$true)\]
 
 ```yaml
 Type: String
@@ -83,13 +87,13 @@ Aliases:
 
 Required: False
 Position: 4
-Default value: Logo
+Default value: Usagedata
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Target
-Parameter description
+### -DataSetArrayDataColumn
+\[Parameter(Mandatory=$true)\]
 
 ```yaml
 Type: String
@@ -98,37 +102,7 @@ Aliases:
 
 Required: False
 Position: 5
-Default value: _blank
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Width
-Parameter description
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 6
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Height
-Parameter description
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 7
-Default value: None
+Default value: Cost
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -141,6 +115,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-General notes
 
 ## RELATED LINKS

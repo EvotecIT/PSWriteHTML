@@ -5,39 +5,37 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-HTMLContentTable
+# New-HTMLImage
 
 ## SYNOPSIS
-Creates an HTML table from an array of objects
+Short description
 
 ## SYNTAX
 
 ```
-Get-HTMLContentTable [[-DataTable] <Array>] [[-GroupBy] <String>] [[-ColumnCounts] <Array>] [-Fixed]
- [[-ColumnAverages] <Array>] [-NoSortableHeader] [[-ColumnTotals] <Array>] [<CommonParameters>]
+New-HTMLImage [[-Source] <String>] [[-UrlLink] <Uri>] [[-AlternativeText] <String>] [[-Class] <String>]
+ [[-Target] <String>] [[-Width] <String>] [[-Height] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Long description
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+New-HTMLImage -Source 'https://evotec.pl/image.png' -UrlLink 'https://evotc.pl/' -AlternativeText 'My other text' -Class 'otehr' -Width '100%'
+```
 
 ## PARAMETERS
 
-### -DataTable
-{{Fill DataTable Description}}
+### -Source
+Parameter description
 
 ```yaml
-Type: Array
+Type: String
 Parameter Sets: (All)
-Aliases: ArrayOfObjects, Object, Table
+Aliases:
 
 Required: False
 Position: 1
@@ -46,12 +44,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -GroupBy
-The column to group the data. 
-make sure this is first in the array
+### -UrlLink
+Parameter description
 
 ```yaml
-Type: String
+Type: Uri
 Parameter Sets: (All)
 Aliases:
 
@@ -62,11 +59,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ColumnCounts
-{{Fill ColumnCounts Description}}
+### -AlternativeText
+Parameter description
 
 ```yaml
-Type: Array
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -77,61 +74,61 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Fixed
-fixes the html column width by the number of columns
+### -Class
+Parameter description
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ColumnAverages
-{{Fill ColumnAverages Description}}
-
-```yaml
-Type: Array
+Type: String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: 4
-Default value: None
+Default value: Logo
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -NoSortableHeader
-{{Fill NoSortableHeader Description}}
+### -Target
+Parameter description
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ColumnTotals
-{{Fill ColumnTotals Description}}
-
-```yaml
-Type: Array
+Type: String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: 5
+Default value: _blank
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Width
+Parameter description
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 6
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Height
+Parameter description
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -145,5 +142,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+General notes
 
 ## RELATED LINKS
