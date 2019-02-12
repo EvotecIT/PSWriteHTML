@@ -1,5 +1,5 @@
 Import-Module .\PSWriteHTML.psd1 -Force
-$Processes = Get-Process | Select -First 15
+$Processes = Get-Process | Select -First 1
 
 $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
@@ -20,8 +20,24 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
                 New-HTMLTable -DataTable $Processes -HideFooter -Simplify
             }
         }
+
+    }
+    New-HTMLTab -Name 'Test1' {
+        New-HTMLContent -HeaderText '1 section' {
+            New-HTMLColumn -ColumnCount 3 {
+                New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            }
+            New-HTMLColumn -ColumnCount 3 {
+                New-HTMLTable -DataTable $Processes -HideFooter
+            }
+            New-HTMLColumn -ColumnCount 3 {
+                New-HTMLTable -DataTable $Processes -HideFooter -Simplify
+            }
+        }
+    }
+    New-HTMLTab -Name 'Test2' {
         New-HTMLColumn {
-        
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
     }
 }
