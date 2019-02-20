@@ -74,10 +74,45 @@ function New-HTMLTable {
 
     } | ConvertTo-Json -Depth 6
 
+
     # return data
     if (-not $Simplify) {
-        New-HTMlTag -Tag 'script' {
-            "`$(document).ready(function() {`$('#$DataTableName').DataTable($($Options));});"
+
+        if ($Script:HTMLSchema.Tabs.Count -le 1) {
+            New-HTMlTag -Tag 'script' {
+
+                @"
+            `$(document).ready(function() {
+                
+                `$('#$DataTableName').DataTable($($Options));
+
+        });            
+"@
+            }
+
+        } else {
+            #            $TabName = $Script:HTMLSchema.Tabs[-1]
+            $TabName = $Script:HTMLSchema.TabsCurrent.Id
+
+
+            New-HTMlTag -Tag 'script' {
+
+                @"
+            `$(document).ready(function() {
+                `$('a').on('click', function() {
+                if (
+                                            `$(this).attr("href") == "#$TabName" &&
+                                            !$.fn.dataTable.isDataTable(
+                                                "#$DataTableName"
+                                            )
+                                        ) {
+                `$('#$DataTableName').DataTable($($Options));
+            };
+            });
+        });            
+"@
+            }
+
         }
     }
     New-HTMLTag -Tag 'table' -Attributes $TableAttributes {

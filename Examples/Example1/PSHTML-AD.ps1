@@ -1253,7 +1253,7 @@ $ComputersEnabledTable.Add($objULic)
 
 Write-Host "Done!" -ForegroundColor White
 
-$tabarray = @('Dashboard', 'Groups', 'Organizational Units', 'Users', 'Group Policy', 'Computers')
+$tabarray = @('Dashboard', 'Groups', 'OrganizationalUnits', 'Users', 'GroupPolicy', 'Computers')
 
 Write-Host "Compiling Report..." -ForegroundColor Green
 
@@ -1507,7 +1507,7 @@ $PieObjectGroupProtection.DataDefinition.DataNameColumnName = 'Name'
 $PieObjectGroupProtection.DataDefinition.DataValueColumnName = 'Count'
 
 
-$FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose { #-UseCssLinks -UseStyleLinks  {
+$FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose -UseCssLinks -UseStyleLinks  {
     New-HTMLTabHeader -TabNames $tabarray
     #Dashboard Report
     New-HTMLTab  -TabName $tabarray[0] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {

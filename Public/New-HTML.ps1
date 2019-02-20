@@ -39,10 +39,18 @@ Function New-HTML {
         -UseCssLinks:$UseCssLinks `
         -UseStyleLinks:$UseStyleLinks
 
+    $Script:HTMLSchema = @{
+        TabsHeaders = [System.Collections.Generic.List[Object]]::new()
+        Tabs        = [System.Collections.Generic.List[Object]]::new()
+        TabsCurrent = @{}
+    }
 
+    '<!DOCTYPE html>'
     New-HTMLTag -Tag 'html' {
         '<!-- HEADER -->'
         New-HTMLTag -Tag 'head' {
+            New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -SelfClosing
+            New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -SelfClosing
 
             if (-not $HideTitle) {
                 New-HTMLTag -Tag 'title' { $TitleText }
@@ -78,12 +86,22 @@ Function New-HTML {
             
             '<!-- FOOTER -->'
             New-HTMLTag -Tag 'footer' { 
-                New-HTMLTag -Tag 'div' -Attributes @{ class = 'footer' } {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultFooter' } {
                     if ($null -ne $FooterText) {
                         $FooterText = "Copyright &#169; $([DateTime]::Now.Year). All Rights Reserved."
                     }
                     $FooterText
                 }
+                <#
+                New-HTMLTag -Tag 'style' -Attributes @{ id = 'datatables_crazyfix' } {
+                    @'                    
+                    .tab-content .tab-pane {
+                        visibility: hidden;
+                        display: block;
+                    }
+'@
+                }
+                #>
                 "<!-- SCRIPT -->"
                 New-HTMLResourceJS {
 
@@ -101,6 +119,42 @@ Function New-HTML {
 '@
 
                 }
+                <#
+                New-HTMLResourceJS {
+                    @'
+                    jQuery(function($) {
+                            $("#datatables_crazyfix").remove();
+                        });
+'@
+                }
+                #>
+                <#
+                New-HTMLResourceJS {
+                    @'
+                    tabButtons.map(function (button) {
+                        button.addEventListener("click", function () {
+                          document
+                            .querySelector("li a.active.button")
+                            .classList.remove("active");
+                          button.classList.add("active");
+                      
+                          document
+                            .querySelector(".tab-pane.active")
+                            .classList.remove("active");
+                          document
+                            .querySelector(button.getAttribute("href"))
+                            .classList.add("active");
+                      
+                      
+                          /****  ADDED RESPONSIVE.RECALC  ****/
+                          $(button.getAttribute("href"))
+                            .find("table.display.compact")
+                            .DataTable().responsive.recalc();
+                        })
+                      })                   
+'@
+                }
+                #>
                 '<!-- END SCRIPTS -->'
             }
             '<!-- END FOOTER -->'

@@ -124,7 +124,7 @@ div.MainLogo {
     width: 50%;
 }
 
-div.section {
+div.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
     display: inline-block;
@@ -135,38 +135,17 @@ div.section {
     overflow-y: hidden;
 }
 
-div.header {
-    padding: 4px 5em 0px 5px;
+div.defaultHeader {
+    padding: 5px;
     margin: 0px 0px 0px 0px;
-    height: 2em;
     font-weight: bold;
     color: #ffffff;
     background-color: #007bff;
 }
-/*
-div.content {
-    width: calc(100% - 10px);
-    color: #000000;
-    background-color: #f9f9f9;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    margin: 5px;
-}
-*/
 
-div.footer {
+div.defaultFooter {
     padding-right: 5em;
     text-align: right;
-}
-
-table.fixed {
-    table-layout: fixed;
-}
-
-table.vertical {
-    table-layout: fixed;
-    width: 100px;
 }
 
 td.clientlogo {
@@ -195,32 +174,12 @@ td.groupby {
     border-top: 3px double #bbbbbb;
 }
 
-.green {
-    background-color: #a1cda4;
-}
-
-.yellow {
-    background-color: #fffab1;
-}
-
-.red {
-    background-color: #f5a085;
-}
-
-.odd {
-    background-color: #d5d8dc;
-}
-
-.even {
-    background-color: #f7f9f9;
-}
-
 .header {
     background-color: #616a6b;
     color: #f7f9f9;
 }
 
-div.column {
+div.defaultColumn {
     box-sizing: border-box;
     float: left;
     overflow: hidden; /* NEW */
@@ -287,51 +246,6 @@ table.sortable thead {
     cursor: default;
 }
 
-/* Style the list */
-ul.tab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-}
-
-/* Float the list items side by side */
-ul.tab li {
-    float: left;
-}
-
-/* Style the links inside the list items */
-ul.tab li a {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 10px 12px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 14px;
-}
-
-/* Change background color of links on hover */
-ul.tab li a:hover {
-    background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-ul.tab li a:focus,
-.active {
-    background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 8px;
-    border: 1px solid #ccc;
-    border-top: none;
-}
-
 /* Adding CSS */
 a.paginate_button {
     color: #000000 !important;
@@ -365,37 +279,8 @@ button.dt-button {
     border-radius: 5px;
     line-height: 1 !important;
 }
-/*
 
-a.paginate_button {
-    color: blue !important;
-}
-
-input {
-    border-radius: 5px;
-}
-*/
-
-/* Adding CSS 
-a.paginate_button {
-    color: #000000 !important;
-    font-size: 10px;
-}
-
-a.current {
-    color: #000000 !important;
-}
-
-td.sorting1 {
-}
-*/
-/* Button in Table 
-td.sorting_1::before {
-    background: #007bff !important;
-}
-*/
-
-.card {
+.defaultCard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 40%;
@@ -417,11 +302,42 @@ img {
 
 .flex-grid {
     display: flex;
-    flex-wrap: wrap;
+   /* flex-wrap: wrap; */
 }
 
 .col {
     padding: 20px;
     margin: 1%;
     flex: 1;
+}
+
+/* Skeleton-tabs */
+
+ul.tab-nav {
+    list-style: none;
+    border-bottom: 1px solid #bbb;
+    padding-left: 5px;
+}
+
+ul.tab-nav li {
+    display: inline;
+}
+
+ul.tab-nav li a.button {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: -1px;
+    border-bottom: none;
+}
+
+ul.tab-nav li a.active.button {
+    border-bottom: 0.175em solid #fff;
+}
+
+.tab-content .tab-pane {
+    display: none;
+}
+
+.tab-content .tab-pane.active {
+    display: block;
 }

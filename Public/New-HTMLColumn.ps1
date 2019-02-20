@@ -13,7 +13,7 @@ Function New-HTMLColumn {
     }
     $Class = $Columns.Replace('1', 'one').Replace('2', 'two').Replace('3', 'three').Replace('4', 'four').Replace('5', 'five').Replace('6', 'six')
         
-    New-HTMLTag -Tag 'div' -Attributes @{ class = "$Class column card"; style = $DivColumnStyle } {
+    New-HTMLTag -Tag 'div' -Attributes @{ class = "$Class defaultColumn defaultCard"; style = $DivColumnStyle } {
         Invoke-Command -ScriptBlock $Content
     }
 }

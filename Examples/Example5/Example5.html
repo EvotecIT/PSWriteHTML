@@ -1,9 +1,13 @@
+<!DOCTYPE html>
 <html ><!-- HEADER -->
-<head ><title ></title>
+<head ><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1"name="viewport"/>
+<title ></title>
 <!-- STYLES -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"/> 
  <link rel="stylesheet" type="text/css" href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css"/> 
  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/tui-grid@3.5.0/dist/tui-grid.css"/> 
+ <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"/> 
 
 <style type="text/css"> 
  * {
@@ -132,7 +136,7 @@
      width: 50%;
  }
  
- div.section {
+ div.defaultSection {
      border: 1px solid #bbbbbb;
      padding-bottom: 0px;
      display: inline-block;
@@ -143,38 +147,17 @@
      overflow-y: hidden;
  }
  
- div.header {
-     padding: 4px 5em 0px 5px;
+ div.defaultHeader {
+     padding: 5px;
      margin: 0px 0px 0px 0px;
-     height: 2em;
      font-weight: bold;
      color: #ffffff;
      background-color: #007bff;
  }
- /*
- div.content {
-     width: calc(100% - 10px);
-     color: #000000;
-     background-color: #f9f9f9;
-     overflow: hidden;
-     overflow-x: hidden;
-     overflow-y: hidden;
-     margin: 5px;
- }
- */
  
- div.footer {
+ div.defaultFooter {
      padding-right: 5em;
      text-align: right;
- }
- 
- table.fixed {
-     table-layout: fixed;
- }
- 
- table.vertical {
-     table-layout: fixed;
-     width: 100px;
  }
  
  td.clientlogo {
@@ -203,32 +186,12 @@
      border-top: 3px double #bbbbbb;
  }
  
- .green {
-     background-color: #a1cda4;
- }
- 
- .yellow {
-     background-color: #fffab1;
- }
- 
- .red {
-     background-color: #f5a085;
- }
- 
- .odd {
-     background-color: #d5d8dc;
- }
- 
- .even {
-     background-color: #f7f9f9;
- }
- 
  .header {
      background-color: #616a6b;
      color: #f7f9f9;
  }
  
- div.column {
+ div.defaultColumn {
      box-sizing: border-box;
      float: left;
      overflow: hidden; /* NEW */
@@ -295,51 +258,6 @@
      cursor: default;
  }
  
- /* Style the list */
- ul.tab {
-     list-style-type: none;
-     margin: 0;
-     padding: 0;
-     overflow: hidden;
-     border: 1px solid #ccc;
-     background-color: #f1f1f1;
- }
- 
- /* Float the list items side by side */
- ul.tab li {
-     float: left;
- }
- 
- /* Style the links inside the list items */
- ul.tab li a {
-     display: inline-block;
-     color: black;
-     text-align: center;
-     padding: 10px 12px;
-     text-decoration: none;
-     transition: 0.3s;
-     font-size: 14px;
- }
- 
- /* Change background color of links on hover */
- ul.tab li a:hover {
-     background-color: #ddd;
- }
- 
- /* Create an active/current tablink class */
- ul.tab li a:focus,
- .active {
-     background-color: #ccc;
- }
- 
- /* Style the tab content */
- .tabcontent {
-     display: none;
-     padding: 6px 8px;
-     border: 1px solid #ccc;
-     border-top: none;
- }
- 
  /* Adding CSS */
  a.paginate_button {
      color: #000000 !important;
@@ -373,37 +291,8 @@
      border-radius: 5px;
      line-height: 1 !important;
  }
- /*
  
- a.paginate_button {
-     color: blue !important;
- }
- 
- input {
-     border-radius: 5px;
- }
- */
- 
- /* Adding CSS 
- a.paginate_button {
-     color: #000000 !important;
-     font-size: 10px;
- }
- 
- a.current {
-     color: #000000 !important;
- }
- 
- td.sorting1 {
- }
- */
- /* Button in Table 
- td.sorting_1::before {
-     background: #007bff !important;
- }
- */
- 
- .card {
+ .defaultCard {
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
      transition: 0.3s;
      width: 40%;
@@ -425,7 +314,7 @@
  
  .flex-grid {
      display: flex;
-     flex-wrap: wrap;
+    /* flex-wrap: wrap; */
  }
  
  .col {
@@ -433,7 +322,37 @@
      margin: 1%;
      flex: 1;
  }
- </style> 
+ 
+ /* Skeleton-tabs */
+ 
+ ul.tab-nav {
+     list-style: none;
+     border-bottom: 1px solid #bbb;
+     padding-left: 5px;
+ }
+ 
+ ul.tab-nav li {
+     display: inline;
+ }
+ 
+ ul.tab-nav li a.button {
+     border-bottom-left-radius: 0;
+     border-bottom-right-radius: 0;
+     margin-bottom: -1px;
+     border-bottom: none;
+ }
+ 
+ ul.tab-nav li a.active.button {
+     border-bottom: 0.175em solid #fff;
+ }
+ 
+ .tab-content .tab-pane {
+     display: none;
+ }
+ 
+ .tab-content .tab-pane.active {
+     display: block;
+ } </style> 
 
 <!-- END STYLES -->
 <!-- SCRIPTS -->
@@ -444,6 +363,7 @@
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script> 
  <script type="text/javascript" src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js"></script> 
  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script> 
+ <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> 
  
  <script type="text/javascript"> 
  function show(obj) {
@@ -487,6 +407,38 @@
      img.src = datas;
  }
  // Use it like that : resizedataURL('yourDataURIHere', 50, 50);
+ </script> 
+ 
+ <script type="text/javascript"> 
+ (function() {
+     function main() {
+         var tabButtons = [].slice.call(
+             document.querySelectorAll("ul.tab-nav li a.button")
+         );
+ 
+         tabButtons.map(function(button) {
+             button.addEventListener("click", function() {
+                 document
+                     .querySelector("li a.active.button")
+                     .classList.remove("active");
+                 button.classList.add("active");
+ 
+                 document
+                     .querySelector(".tab-pane.active")
+                     .classList.remove("active");
+                 document
+                     .querySelector(button.getAttribute("href"))
+                     .classList.add("active");
+             });
+         });
+     }
+ 
+     if (document.readyState !== "loading") {
+         main();
+     } else {
+         document.addEventListener("DOMContentLoaded", main);
+     }
+ })();
  </script> 
  
  <script type="text/javascript"> 
@@ -974,7 +926,7 @@
      var i, tabcontent, tablinks;
  
      // Get all elements with class="tabcontent" and hide them
-     tabcontent = document.getElementsByClassName("tabcontent");
+     tabcontent = document.getElementsByClassName("insideTab");
      for (i = 0; i < tabcontent.length; i++) {
          tabcontent[i].style.display = "none";
      }
@@ -982,11 +934,16 @@
      // Get all elements with class="tablinks" and remove the class "active"
      tablinks = document.getElementsByClassName("tablinks");
      for (i = 0; i < tablinks.length; i++) {
-         tablinks[i].className = tablinks[i].className.replace(" active", "");
+         tablinks[i].className = tablinks[i].className.replace(" is-active", "");
      }
  
      // Show the current tab, and add an "active" class to the link that opened the tab
-     document.getElementById(tabName).style.display = "block";
+     try {
+         document.getElementById(tabName).style.display = "block";
+     } catch {
+         // This error happens when someone forgot addng new TABS with proper names
+         // Therefore style wouldn't exits on it.
+     }
      evt.currentTarget.className += " active";
  }
  </script> 
@@ -1003,43 +960,46 @@
         </tr>
         </tbody></table>
 <div class="pageTitle"></div>
-<div class="ReportCreated">Report created on 2019-02-10 12:32:08</div>
-<ul class="tab"><li ><a id="defaultOpen"class="tablinks"href="javascript:void(0)"onclick="openTab(event, 'Dashboard')">Dashboard
+<div class="ReportCreated">Report created on 2019-02-16 10:33:36</div>
+<div ><ul class="tab-nav"><li ><a class="button active"href="#Dashboard">Dashboard
 </a>
 </li>
-<li ><a class="tablinks"href="javascript:void(0)"onclick="openTab(event, 'Other')">Other
+<li ><a class="button"href="#Other">Other
 </a>
 </li>
 </ul>
-<div id="Dashboard"class="tabcontent"><div class="section card"><div class="header"style="text-align: left;"><a name="Content"style="color: #ffffff;">Content
+</div>
+<div class="tab-content"><div id="Dashboard"class="tab-pane active"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Content"style="color: #ffffff;">Content
 </a>
-<a id="show_895744271"href="#"onclick="show('895744271');"style="color: #ffffff; display:none">(Show)
+<a id="show_444942186"href="#"onclick="show('444942186');"style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_895744271"href="#"onclick="hide('895744271');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_444942186"href="#"onclick="hide('444942186');"style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="two column card"><table class="sortable"><thead ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+<div class="collapsable"id="444942186"><div class="two defaultColumn defaultCard"><table class="sortable"><thead ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
 </thead>
 <tbody ><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
 </tbody>
 <tfoot ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
 </tfoot>
 </table>
-</div> <div class="two column card"><table class="sortable"><thead ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+</div>
+<div class="two defaultColumn defaultCard"><table class="sortable"><thead ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
 </thead>
 <tbody ><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
 </tbody>
 <tfoot ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
 </tfoot>
 </table>
-</div> <div class="section card"><div class="header"style="text-align: left;"><a name="My text 2"style="color: #ffffff;">My text 2
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="My text 2"style="color: #ffffff;">My text 2
 </a>
-<a id="show_1619757307"href="#"onclick="show('1619757307');"style="color: #ffffff; display:none;">(Show)
+<a id="show_1732403230"href="#"onclick="show('1732403230');"style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1619757307"href="#"onclick="hide('1619757307');"style="color: #ffffff;">(Hide)
+<a id="hide_1732403230"href="#"onclick="hide('1732403230');"style="color: #ffffff;">(Hide)
 </a>
 </div>
-<script >$(document).ready(function() {$('#DT-8su25to1').DataTable({
+<div class="collapsable"id="1732403230"><script >$(document).ready(function() {$('#DT-2vj3ndu1').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1078,7 +1038,8 @@
     "searching":  true,
     "stateSave":  true
 });});
-</script> <table id="DT-8su25to1"class="display compact"><thead ><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
+</script>
+<table id="DT-2vj3ndu1"class="display compact"><thead ><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
 </thead>
 <tbody ><tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
 <tr><td>Guest</td><td></td><td>False</td><td></td></tr>
@@ -1134,21 +1095,23 @@
 </table>
 </div>
 </div>
-<div class="section card"><div class="header"style="text-align: left;"><a name="Content New"style="color: #ffffff;">Content New
+</div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Content New"style="color: #ffffff;">Content New
 </a>
-<a id="show_1693629889"href="#"onclick="show('1693629889');"style="color: #ffffff; display:none">(Show)
+<a id="show_1936553058"href="#"onclick="show('1936553058');"style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1693629889"href="#"onclick="hide('1693629889');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1936553058"href="#"onclick="hide('1936553058');"style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="two column card"><div class="section card"><div class="header"style="text-align: left;"><a name="My text"style="color: #ffffff;">My text
+<div class="collapsable"id="1936553058"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="My text"style="color: #ffffff;">My text
 </a>
-<a id="show_280355752"href="#"onclick="show('280355752');"style="color: #ffffff; display:none;">(Show)
+<a id="show_1285473077"href="#"onclick="show('1285473077');"style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_280355752"href="#"onclick="hide('280355752');"style="color: #ffffff;">(Hide)
+<a id="hide_1285473077"href="#"onclick="hide('1285473077');"style="color: #ffffff;">(Hide)
 </a>
 </div>
-<table class="sortable"><thead ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+<div class="collapsable"id="1285473077"><table class="sortable"><thead ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
 </thead>
 <tbody ><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
 </tbody>
@@ -1156,14 +1119,16 @@
 </tfoot>
 </table>
 </div>
-</div> <div class="two column card"><div class="section card"><div class="header"style="text-align: left;"><a name="My text"style="color: #ffffff;">My text
+</div>
+</div>
+<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="My text"style="color: #ffffff;">My text
 </a>
-<a id="show_495193561"href="#"onclick="show('495193561');"style="color: #ffffff; display:none;">(Show)
+<a id="show_1068538279"href="#"onclick="show('1068538279');"style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_495193561"href="#"onclick="hide('495193561');"style="color: #ffffff;">(Hide)
+<a id="hide_1068538279"href="#"onclick="hide('1068538279');"style="color: #ffffff;">(Hide)
 </a>
 </div>
-<table class="sortable"><thead ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+<div class="collapsable"id="1068538279"><table class="sortable"><thead ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
 </thead>
 <tbody ><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
 </tbody>
@@ -1171,14 +1136,16 @@
 </tfoot>
 </table>
 </div>
-</div> <div class="section card"><div class="header"style="text-align: left;"><a name="My text 2"style="color: #ffffff;">My text 2
+</div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="My text 2"style="color: #ffffff;">My text 2
 </a>
-<a id="show_842125061"href="#"onclick="show('842125061');"style="color: #ffffff; display:none;">(Show)
+<a id="show_1388680126"href="#"onclick="show('1388680126');"style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_842125061"href="#"onclick="hide('842125061');"style="color: #ffffff;">(Hide)
+<a id="hide_1388680126"href="#"onclick="hide('1388680126');"style="color: #ffffff;">(Hide)
 </a>
 </div>
-<script >$(document).ready(function() {$('#DT-8gmkqsed').DataTable({
+<div class="collapsable"id="1388680126"><script >$(document).ready(function() {$('#DT-9ejunl46').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1217,7 +1184,8 @@
     "searching":  true,
     "stateSave":  true
 });});
-</script> <table id="DT-8gmkqsed"class="display compact"><thead ><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
+</script>
+<table id="DT-9ejunl46"class="display compact"><thead ><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
 </thead>
 <tbody ><tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
 <tr><td>Guest</td><td></td><td>False</td><td></td></tr>
@@ -1273,14 +1241,16 @@
 </table>
 </div>
 </div>
-<div class="section card"><div class="header"style="text-align: left;"><a name="This shows PowerShell Language"style="color: #ffffff;">This shows PowerShell Language
+</div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="This shows PowerShell Language"style="color: #ffffff;">This shows PowerShell Language
 </a>
-<a id="show_1837545794"href="#"onclick="show('1837545794');"style="color: #ffffff; display:none">(Show)
+<a id="show_1615996306"href="#"onclick="show('1615996306');"style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1837545794"href="#"onclick="hide('1837545794');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1615996306"href="#"onclick="hide('1615996306');"style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<pre data-enlighter-language="powershell"data-enlighter-theme="godzilla"data-enlighter-group="test123"data-enlighter-title="PowerShell Code 1"data-enlighter-highlight="2-5, 13">
+<div class="collapsable"id="1615996306"><pre data-enlighter-language="powershell"data-enlighter-theme="godzilla"data-enlighter-group="test123"data-enlighter-title="PowerShell Code 1"data-enlighter-highlight="2-5, 13">
 $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
@@ -1311,7 +1281,8 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
 }
 Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
 
-</pre> <pre data-enlighter-language="powershell"data-enlighter-group="test123"data-enlighter-title="PowerShell Code 2">
+</pre>
+<pre data-enlighter-language="powershell"data-enlighter-group="test123"data-enlighter-title="PowerShell Code 2">
 $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
@@ -1344,14 +1315,15 @@ Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
 
 </pre>
 </div>
-<div class="section card"><div class="header"style="text-align: left;"><a name="This shows PowerShell Language"style="color: #ffffff;">This shows PowerShell Language
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="This shows PowerShell Language"style="color: #ffffff;">This shows PowerShell Language
 </a>
-<a id="show_464804005"href="#"onclick="show('464804005');"style="color: #ffffff; display:none">(Show)
+<a id="show_502858487"href="#"onclick="show('502858487');"style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_464804005"href="#"onclick="hide('464804005');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_502858487"href="#"onclick="hide('502858487');"style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<pre data-enlighter-language="javascript"data-enlighter-theme="enlighter"data-enlighter-highlight="2, 5">//refresh page on browser resize
+<div class="collapsable"id="502858487"><pre data-enlighter-language="javascript"data-enlighter-theme="enlighter"data-enlighter-highlight="2, 5">//refresh page on browser resize
 $(window).bind("resize", function(e) {
     if (window.RT) clearTimeout(window.RT);
     window.RT = setTimeout(function() {
@@ -1360,14 +1332,15 @@ $(window).bind("resize", function(e) {
 });
 </pre>
 </div>
-<div class="section card"><div class="header"style="text-align: left;"><a name="XML Language"style="color: #ffffff;">XML Language
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="XML Language"style="color: #ffffff;">XML Language
 </a>
-<a id="show_193536124"href="#"onclick="show('193536124');"style="color: #ffffff; display:none">(Show)
+<a id="show_1640430755"href="#"onclick="show('1640430755');"style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_193536124"href="#"onclick="hide('193536124');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1640430755"href="#"onclick="hide('1640430755');"style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<pre data-enlighter-language="xml"data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
+<div class="collapsable"id="1640430755"><pre data-enlighter-language="xml"data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
 <building name="GlobalDynamics Main Building"
     core:id="0xFA8A91C6617DFA1B" core:uid="0898213-123123123-1230898123" xmlns:core="http://www.xmlnamespace.tld">
   <core:group core:level="2">
@@ -1397,18 +1370,18 @@ $(window).bind("resize", function(e) {
 </pre>
 </div>
 </div>
-<script type="text/javascript">document.getElementById("defaultOpen").click();
-</script>
-<div id="Other"class="tabcontent"><h7 >Test 2
+</div>
+</div>
+<div class="tab-content"><div id="Other"class="tab-pane"><h7 >Test 2
 </h7>
-<div class="section card"><div class="header"style="text-align: left;"><a name="My other text"style="color: #ffffff;">My other text
+<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="My other text"style="color: #ffffff;">My other text
 </a>
-<a id="show_1553369328"href="#"onclick="show('1553369328');"style="color: #ffffff; display:none">(Show)
+<a id="show_2119785829"href="#"onclick="show('2119785829');"style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1553369328"href="#"onclick="hide('1553369328');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_2119785829"href="#"onclick="hide('2119785829');"style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<table class="sortable"><thead ><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
+<div class="collapsable"id="2119785829"><table class="sortable"><thead ><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
 </thead>
 <tbody ><tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
 <tr><td>Guest</td><td></td><td>False</td><td></td></tr>
@@ -1464,11 +1437,224 @@ $(window).bind("resize", function(e) {
 </table>
 </div>
 </div>
-<script type="text/javascript">document.getElementById("defaultOpen").click();
-</script>
-<!-- FOOTER -->
-<footer ><div class="footer">Copyright &#169; 2019. All Rights Reserved.
+<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Content"style="color: #ffffff;">Content
+</a>
+<a id="show_685403173"href="#"onclick="show('685403173');"style="color: #ffffff; display:none">(Show)
+</a>
+<a id="hide_685403173"href="#"onclick="hide('685403173');"style="color: #ffffff; display:none;">(Hide)
+</a>
 </div>
+<div class="collapsable"id="685403173"><div class="two defaultColumn defaultCard"><script >$(document).ready(function() {$('#DT-6l94qtg3').DataTable({
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       -1,
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+});});
+</script>
+<table id="DT-6l94qtg3"class="display compact"><thead ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+</thead>
+<tbody ><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
+</tbody>
+<tfoot ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+</tfoot>
+</table>
+</div>
+<div class="two defaultColumn defaultCard"><script >$(document).ready(function() {$('#DT-i15sa473').DataTable({
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       -1,
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+});});
+</script>
+<table id="DT-i15sa473"class="display compact"><thead ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+</thead>
+<tbody ><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
+</tbody>
+<tfoot ><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+</tfoot>
+</table>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="My text 2"style="color: #ffffff;">My text 2
+</a>
+<a id="show_1436784087"href="#"onclick="show('1436784087');"style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_1436784087"href="#"onclick="hide('1436784087');"style="color: #ffffff;">(Hide)
+</a>
+</div>
+<div class="collapsable"id="1436784087"><script >$(document).ready(function() {$('#DT-02j6dnc5').DataTable({
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       -1,
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+});});
+</script>
+<table id="DT-02j6dnc5"class="display compact"><thead ><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
+</thead>
+<tbody ><tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
+<tr><td>Guest</td><td></td><td>False</td><td></td></tr>
+<tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr>
+<tr><td>krbtgt</td><td></td><td>False</td><td></td></tr>
+<tr><td>Administrator Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
+<tr><td>Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
+<tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr>
+<tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr>
+<tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr>
+<tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr>
+<tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr>
+<tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr>
+<tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr>
+<tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr>
+<tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr>
+<tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr>
+<tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr>
+<tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr>
+<tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr>
+<tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr>
+<tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr>
+<tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr>
+<tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr>
+<tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr>
+<tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr>
+<tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr>
+<tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr>
+<tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr>
+<tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr>
+<tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr>
+<tr><td>My User</td><td>User</td><td>True</td><td></td></tr>
+<tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr>
+<tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr>
+<tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
+<tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr>
+<tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr>
+</tbody>
+<tfoot ><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FOOTER -->
+<footer ><div class="defaultFooter">Copyright &#169; 2019. All Rights Reserved.
+</div>
+<style id="datatables_crazyfix">                    .tab-content .tab-pane {
+                        visibility: hidden;
+                        display: block;
+                    }
+</style>
 <!-- SCRIPT -->
 <script type="text/javascript">                    // INIT CODE - simple page-wide initialization based on css selectors
                     // - highlight all pre + code tags (CSS3 selectors)
@@ -1479,6 +1665,10 @@ $(window).bind("resize", function(e) {
                             language: "powershell",
                             theme: "enlighter",
                             indent: 2
+                        });
+</script>
+<script type="text/javascript">                    jQuery(function($) {
+                            $("#datatables_crazyfix").remove();
                         });
 </script>
 <!-- END SCRIPTS -->
