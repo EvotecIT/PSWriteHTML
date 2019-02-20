@@ -5,12 +5,12 @@ function Set-Tag {
     )
     #$HTML = New-GenericList -Type [string]
     $HTML = [System.Text.StringBuilder]::new()
-    [void] $HTML.Append("<$($HtmlObject.Tag) ")
+    [void] $HTML.Append("<$($HtmlObject.Tag)")
     foreach ($Property in $HtmlObject.Attributes.Keys) {
         $PropertyValue = $HtmlObject.Attributes[$Property]
         # skip adding properties that are empty
         if ($PropertyValue -ne '') {
-            [void] $HTML.Append("$Property=`"$PropertyValue`"")
+            [void] $HTML.Append(" $Property=`"$PropertyValue`"")
         }
     }
     if (($null -ne $HtmlObject.Value) -and ($HtmlObject.Value -ne '')) {
@@ -18,9 +18,9 @@ function Set-Tag {
         foreach ($Entry in $HtmlObject.Value) {
             if ($Entry -is [System.Collections.IDictionary]) {
                 [string] $NewObject = Set-Tag -HtmlObject ($Entry)
-                [void] $HTML.AppendLine($NewObject)
+                [void] $HTML.Append($NewObject)
             } else {
-                [void] $HTML.AppendLine([string] $Entry)
+                [void] $HTML.Append([string] $Entry)
             }
 
         }
