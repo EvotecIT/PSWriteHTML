@@ -5,14 +5,8 @@ function New-HTMLTab {
         [alias('TabName')][Parameter(Mandatory, Position = 1)][String] $Name,
         [Parameter(Mandatory = $false, Position = 2)][String]$TabHeading
     )
-    # This tracks everything, especially needed for DataTables
-    if ($Script:HTMLSchema.Tabs.Count -eq 0) {
-        #   $Class = 'tab-pane active'
-    } else {
-        #  $Class = 'tab-pane'
-    }
+    <#
     $Script:HTMLSchema.Tabs.Add($Name)
-
 
     $TabInformation = foreach ($Tab in $Script:HTMLSchema.TabsHeaders) {
         if ($Tab.Name -eq $Name) {          
@@ -26,11 +20,27 @@ function New-HTMLTab {
             break           
         }
     }
+    #>
+    # $Script:HTMLSchema.TabsHeaders.Count
+    $Script:HTMLSchema.TabsHeaders | ForEach-Object { $_.Current = $false }
+    [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Used -eq $false })
+    #Write-Color "Tabs count ", $Tabs.Count
+    #Write-COlor $Tabs[0].Name, ' ', $Tabs[0].Used, ' ', $Tabs[0].Active, ' ', $Tabs[0].Current
+    #$Tabs[0] | Format-Stream
+    $Tabs[0].Used = $true
+    $Tabs[0].Current = $true
+    if ($Tabs[0].Active) {
+        $Class = 'tab-pane active'
+    } else {
+        $Class = 'tab-pane'
+    }
 
- 
+
+    #Write-Verbose 
+
     # This is building HTML
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'tab-content' } {
-        New-HTMLTag -Tag 'div' -Attributes @{ id = $TabInformation.ID; class = $Class } {
+        New-HTMLTag -Tag 'div' -Attributes @{ id = $Tabs[0].ID; class = $Class } {
             #New-HTMLTag -Tag 'div' -Attributes @{ id = $Name; class = 'insideTab' } {
             if (-not [string]::IsNullOrWhiteSpace($TabHeading)) {
                 New-HTMLTag -Tag 'h7' {
@@ -40,6 +50,7 @@ function New-HTMLTab {
             Invoke-Command -ScriptBlock $HtmlData
         }
     }
+    
     <#
     New-HTMLResourceJS -Content {
         #// Get the element with id="defaultOpen" and click on it

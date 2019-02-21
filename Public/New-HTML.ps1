@@ -40,7 +40,7 @@ Function New-HTML {
         -UseStyleLinks:$UseStyleLinks
 
     $Script:HTMLSchema = @{
-        TabsHeaders = [System.Collections.Generic.List[Object]]::new()
+        TabsHeaders = @()
         Tabs        = [System.Collections.Generic.List[Object]]::new()
         TabsCurrent = @{}
     }

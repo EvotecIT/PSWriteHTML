@@ -75,10 +75,15 @@ function New-HTMLTable {
     } | ConvertTo-Json -Depth 6
 
 
+    [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })
+    #Write-Color "Tabs count ", $Tabs.Count
+    #Write-COlor $Tabs[0].Name, ' ', $Tabs[0].Used, ' ', $Tabs[0].Active, ' ', $Tabs[0].Current
+    #Write-Color $Tabs[0].Name, ' Current: ', $Tabs[0].Current, ' Active: ', $Tabs[0].Active
+    
     # return data
     if (-not $Simplify) {
-
-        if ($Script:HTMLSchema.Tabs.Count -le 1) {
+        if ($Tabs[0].Active -eq $true) {
+        #if ($Script:HTMLSchema.Tabs.Count -le 1) {
             New-HTMlTag -Tag 'script' {
 
                 @"
@@ -92,8 +97,8 @@ function New-HTMLTable {
 
         } else {
             #            $TabName = $Script:HTMLSchema.Tabs[-1]
-            $TabName = $Script:HTMLSchema.TabsCurrent.Id
-
+            #$TabName = $Script:HTMLSchema.TabsCurrent.Id
+            $TabName = $Tabs[0].Id
 
             New-HTMlTag -Tag 'script' {
 

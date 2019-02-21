@@ -30,9 +30,25 @@ Function New-HTMLTabHeader {
     }
     #>
     [int] $TabNumber = 0
-    foreach ($Tab in $TabNames) {
+    $Script:HTMLSchema.TabsHeaders = foreach ($Tab in $TabNames) {
         [string] $TabID = "Tab-$(Get-RandomStringName -Size 8)"
-        $Script:HTMLSchema.TabsHeaders.Add(@{ Name = $Tab; Id = $TabID; Number = $TabNumber++ })
+
+        $Information = @{
+            Name    = $Tab
+            Id      = $TabID
+            Number  = $TabNumber++
+            Used    = $false
+            Active  = $false 
+            Current = $false
+        }
+        if ($DefaultTab -ne '' -and $Tab -eq $DefaultTab) {
+            $Information.Active = $true
+        }
+        $Information
+        #$Script:HTMLSchema.TabsHeaders.Add()
+    }
+    if ($Script:HTMLSchema.TabsHeaders.Active -notcontains $true) {
+        $Script:HTMLSchema.TabsHeaders[0].Active = $true
     }
 
     
@@ -41,7 +57,8 @@ Function New-HTMLTabHeader {
         New-HTMLTag -Tag 'ul' -Attributes @{ class = 'tab-nav'} {
             foreach ($Tab in $Script:HTMLSchema.TabsHeaders) {
                 New-HTMLTag -Tag 'li' {
-                    if (($DefaultTab -ne '' -and $DefaultTab -eq $Tab.Name) -or ($DefaultTab -eq '' -and $CountTabs -eq 0)) {
+                    if ($Tab.Active) {
+                        #if (($DefaultTab -ne '' -and $DefaultTab -eq $Tab.Name) -or ($DefaultTab -eq '' -and $CountTabs -eq 0)) {
                         New-HTMLAnchor -Class 'button active' -HrefLink "#$($Tab.Id)" -Text $Tab.Name
                     } else {
                         New-HTMLAnchor -Class 'button' -HrefLink "#$($Tab.Id)" -Text $Tab.Name
