@@ -15,7 +15,7 @@ $ImageLink = 'https://evotec.xyz/wp-content/uploads/2015/05/Logo-evotec-012.png'
 
 $Report = New-HTML -TitleText $ReportTitle -AddAuthor -HideDate -RightLogoString $ImageLink -Verbose -UseStyleLinks -UseCssLinks {
     New-HTMLTabHeader -TabNames $TabNames
-    New-HTMLTab -TabName 'Dashboard' {
+    New-HTMLTab {
         New-HTMLContent  -HeaderText "Groups" {    
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
                 New-HTMLColumn -Columns 1 {
@@ -23,6 +23,9 @@ $Report = New-HTML -TitleText $ReportTitle -AddAuthor -HideDate -RightLogoString
                 }
             }  
         }
+    }
+    New-HTMLTab {
+        
     }
 }
 

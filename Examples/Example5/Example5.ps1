@@ -15,12 +15,12 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
         New-HTMLContent -HeaderText 'Content' {
             New-HTMLColumn -ColumnNumber 1 -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -ArrayOfObjects $DomainAdminTable
                 }
             }
             New-HTMLColumn -ColumnNumber 2 -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -ArrayOfObjects $DomainAdminTable
                 }
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
@@ -33,7 +33,7 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
     }
     New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
         New-HTMLContent -HeaderText 'My other text' {
-            New-HTMLTable -Simplify -ArrayOfObjects $EnterpriseAdminTable
+            New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
         }
     }
 }
@@ -85,13 +85,13 @@ $CodeBlocksXML = @'
 
 $HTML = New-Html -UseCssLinks -UseStyleLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
-    New-HTMLTab -TabName 'Dashboard' {
+    New-HTMLTab {
         New-HTMLContent -HeaderText 'Content' {
             New-HTMLColumn -ColumnCount 2 {               
-                New-HTMLTable -Simplify -DataTable $DomainAdminTable                
+                New-HTMLTable -DataTable $DomainAdminTable                
             }
             New-HTMLColumn -ColumnCount 2 {              
-                New-HTMLTable -Simplify -DataTable $DomainAdminTable            
+                New-HTMLTable -DataTable $DomainAdminTable            
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
@@ -100,12 +100,12 @@ $HTML = New-Html -UseCssLinks -UseStyleLinks {
         New-HTMLContent -HeaderText 'Content New' {
             New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -DataTable $DomainAdminTable
+                    New-HTMLTable -DataTable $DomainAdminTable
                 }
             }
             New-HTMLColumn -ColumnCount 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -DataTable $DomainAdminTable
+                    New-HTMLTable -DataTable $DomainAdminTable
                 }
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
@@ -123,9 +123,9 @@ $HTML = New-Html -UseCssLinks -UseStyleLinks {
             New-HTMLCodeBlock -Code $CodeBlocksXML -Style 'xml' -Highlight '12, 19'
         }
     }
-    New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
+    New-HTMLTab -TabHeading 'Test 2' {
         New-HTMLContent -HeaderText 'My other text' {
-            New-HTMLTable -Simplify -DataTable $EnterpriseAdminTable
+            New-HTMLTable -DataTable $EnterpriseAdminTable
         }
         New-HTMLContent -HeaderText 'Content' {
             New-HTMLColumn -ColumnCount 2 {               

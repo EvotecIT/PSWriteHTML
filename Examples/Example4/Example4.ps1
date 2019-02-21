@@ -10,21 +10,22 @@ $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, S
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
 $Allusers = Get-AdUser -Filter *
 
-$TabNames = 'Dashboard', 'Something'
-
 $Report = New-HTML -TitleText $ReportTitle -HideLogos -AddAuthor -HideDate -UseCssLinks -UseStyleLinks -Verbose {
-    New-HTMLTabHeader -TabNames $TabNames
-    New-HTMLTab -TabName 'Dashboard' {
+    New-HTMLTabHeader -TabNames 'Dashboard', 'Something'
+    New-HTMLTab {
         New-HTMLHeading -Heading h3 -HeadingText 'This is a test'
         New-HTMLContent -HeaderText "Groups" {
             New-HTMLHeading -Heading h3 -HeadingText 'This is a test'
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
-                New-HTMLTable -DataTable $EnterpriseAdminTable -Verbose -Simplify
+                New-HTMLTable -DataTable $EnterpriseAdminTable -Verbose
             }
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable -Verbose
             }
         }
+    }
+    New-HTMLTab {
+
     }
 }
 Save-HTML -HTML $Report -FilePath $ReportPath -ShowHTML

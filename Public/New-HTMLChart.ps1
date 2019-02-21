@@ -114,6 +114,7 @@ function New-HTMLChart {
         }      
 
         # Convert Dictionary to JSON and return chart within SCRIPT tag
+        # Make sure to return with additional empty string 
         $JSON = $Options | ConvertTo-Json -Depth 5
         "var options = $JSON"
         ""

@@ -41,8 +41,6 @@ Function New-HTML {
 
     $Script:HTMLSchema = @{
         TabsHeaders = @()
-        Tabs        = [System.Collections.Generic.List[Object]]::new()
-        TabsCurrent = @{}
     }
 
     '<!DOCTYPE html>'
@@ -91,18 +89,7 @@ Function New-HTML {
                         $FooterText = "Copyright &#169; $([DateTime]::Now.Year). All Rights Reserved."
                     }
                     $FooterText
-                }
-                <#
-                New-HTMLTag -Tag 'style' -Attributes @{ id = 'datatables_crazyfix' } {
-                    @'                    
-                    .tab-content .tab-pane {
-                        visibility: hidden;
-                        display: block;
-                    }
-'@
-                }
-                #>
-                "<!-- SCRIPT -->"
+                }               
                 New-HTMLResourceJS {
 
                     @'   
@@ -117,45 +104,7 @@ Function New-HTML {
                             indent: 2
                         });
 '@
-
-                }
-                <#
-                New-HTMLResourceJS {
-                    @'
-                    jQuery(function($) {
-                            $("#datatables_crazyfix").remove();
-                        });
-'@
-                }
-                #>
-                <#
-                New-HTMLResourceJS {
-                    @'
-                    tabButtons.map(function (button) {
-                        button.addEventListener("click", function () {
-                          document
-                            .querySelector("li a.active.button")
-                            .classList.remove("active");
-                          button.classList.add("active");
-                      
-                          document
-                            .querySelector(".tab-pane.active")
-                            .classList.remove("active");
-                          document
-                            .querySelector(button.getAttribute("href"))
-                            .classList.add("active");
-                      
-                      
-                          /****  ADDED RESPONSIVE.RECALC  ****/
-                          $(button.getAttribute("href"))
-                            .find("table.display.compact")
-                            .DataTable().responsive.recalc();
-                        })
-                      })                   
-'@
-                }
-                #>
-                '<!-- END SCRIPTS -->'
+                }                
             }
             '<!-- END FOOTER -->'
         }

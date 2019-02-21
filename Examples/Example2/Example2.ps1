@@ -13,7 +13,7 @@ $TabNames = 'Dashboard', 'Something'
 
 $Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideDate -UseCssLinks -UseStyleLinks {
     New-HTMLTabHeader -TabNames $TabNames
-    New-HTMLTab -TabName 'Dashboard' {
+    New-HTMLTab {
         New-HTMLContent -HeaderText "Groups" {
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
                 New-HTMLTable $DomainAdminTable -HideFooter
@@ -58,6 +58,9 @@ $Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideD
                 New-HTMLTable $Allusers -HideFooter
             }
         }
+    }
+    New-HTMLTab {
+        
     }
 }
 Save-HTML -HTML $Report -FilePath $ReportPath -ShowHTML

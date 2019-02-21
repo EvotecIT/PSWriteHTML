@@ -3,7 +3,6 @@ function Set-Tag {
     param(
         [System.Collections.IDictionary] $HtmlObject
     )
-    #$HTML = New-GenericList -Type [string]
     $HTML = [System.Text.StringBuilder]::new()
     [void] $HTML.Append("<$($HtmlObject.Tag)")
     foreach ($Property in $HtmlObject.Attributes.Keys) {
@@ -20,7 +19,7 @@ function Set-Tag {
                 [string] $NewObject = Set-Tag -HtmlObject ($Entry)
                 [void] $HTML.Append($NewObject)
             } else {
-                [void] $HTML.Append([string] $Entry)
+                [void] $HTML.AppendLine([string] $Entry)
             }
 
         }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html ><!-- HEADER -->
-<head ><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1"name="viewport"/>
-<title >Active Directory Report
+<html><!-- HEADER -->
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Active Directory Report
 </title>
 <!-- STYLES -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"/> 
@@ -408,6 +408,38 @@
      img.src = datas;
  }
  // Use it like that : resizedataURL('yourDataURIHere', 50, 50);
+ </script> 
+ 
+ <script type="text/javascript"> 
+ (function() {
+     function main() {
+         var tabButtons = [].slice.call(
+             document.querySelectorAll("ul.tab-nav li a.button")
+         );
+ 
+         tabButtons.map(function(button) {
+             button.addEventListener("click", function() {
+                 document
+                     .querySelector("li a.active.button")
+                     .classList.remove("active");
+                 button.classList.add("active");
+ 
+                 document
+                     .querySelector(".tab-pane.active")
+                     .classList.remove("active");
+                 document
+                     .querySelector(button.getAttribute("href"))
+                     .classList.add("active");
+             });
+         });
+     }
+ 
+     if (document.readyState !== "loading") {
+         main();
+     } else {
+         document.addEventListener("DOMContentLoaded", main);
+     }
+ })();
  </script> 
  
  <script type="text/javascript"> 
@@ -921,7 +953,7 @@
 </head>
 <!-- END HEADER -->
 <!-- BODY -->
-<body ><!-- Report Header -->
+<body><!-- Report Header -->
         <table><tbody>
         <tr>
             <td class="clientlogo"><img src="" /></td>
@@ -929,60 +961,61 @@
         </tr>
         </tbody></table>
 <div class="pageTitle">Active Directory Report</div>
-<div class="ReportCreated">Report created on 2019-02-16 10:33:55</div>
-<div ><ul class="tab-nav"><li ><a class="button active"href="#Dashboard">Dashboard
+<div class="ReportCreated">Report created on 2019-02-21 20:36:23</div>
+<div><ul class="tab-nav"><li><a class="button active" href="#Tab-5ayebgdt">Dashboard
 </a>
 </li>
-<li ><a class="button"href="#Groups">Groups
+<li><a class="button" href="#Tab-zw8tgc24">Groups
 </a>
 </li>
-<li ><a class="button"href="#OrganizationalUnits">OrganizationalUnits
+<li><a class="button" href="#Tab-d2gb78fo">OrganizationalUnits
 </a>
 </li>
-<li ><a class="button"href="#Users">Users
+<li><a class="button" href="#Tab-ua0zce4r">Users
 </a>
 </li>
-<li ><a class="button"href="#GroupPolicy">GroupPolicy
+<li><a class="button" href="#Tab-g9p0rwey">GroupPolicy
 </a>
 </li>
-<li ><a class="button"href="#Computers">Computers
+<li><a class="button" href="#Tab-cwo376fn">Computers
 </a>
 </li>
 </ul>
 </div>
-<div class="tab-content"><div id="Dashboard"class="tab-pane active"><h7 >Report: 02-16-2019
+<div class="tab-content"><div id="Tab-5ayebgdt" class="tab-pane active"><h7>Report: 02-21-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Company Information"style="color: #ffffff;">Company Information
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Company Information" style="color: #ffffff;">Company Information
 </a>
-<a id="show_479284697"href="#"onclick="show('479284697');"style="color: #ffffff; display:none">(Show)
+<a id="show_1058671268" href="#" onclick="show('1058671268');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_479284697"href="#"onclick="hide('479284697');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1058671268" href="#" onclick="hide('1058671268');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="479284697"><table class="sortable"><thead ><tr><th>Domain</th><th>AD Recycle Bin</th><th>Infrastructure Master</th><th>RID Master</th><th>PDC Emulator</th><th>Domain Naming Master</th><th>Schema Master</th></tr>
+<div class="collapsable" id="1058671268"><table class="sortable"><thead><tr><th>Domain</th><th>AD Recycle Bin</th><th>Infrastructure Master</th><th>RID Master</th><th>PDC Emulator</th><th>Domain Naming Master</th><th>Schema Master</th></tr>
 </thead>
-<tbody ><tr><td>ad.evotec.xyz</td><td>Disabled</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
+<tbody><tr><td>ad.evotec.xyz</td><td>Disabled</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
 </tbody>
-<tfoot ><tr><th>Domain</th><th>AD Recycle Bin</th><th>Infrastructure Master</th><th>RID Master</th><th>PDC Emulator</th><th>Domain Naming Master</th><th>Schema Master</th></tr>
+<tfoot><tr><th>Domain</th><th>AD Recycle Bin</th><th>Infrastructure Master</th><th>RID Master</th><th>PDC Emulator</th><th>Domain Naming Master</th><th>Schema Master</th></tr>
 </tfoot>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Groups"style="color: #ffffff;">Groups
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Groups" style="color: #ffffff;">Groups
 </a>
-<a id="show_368067803"href="#"onclick="show('368067803');"style="color: #ffffff; display:none">(Show)
+<a id="show_71383691" href="#" onclick="show('71383691');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_368067803"href="#"onclick="hide('368067803');"style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable"id="368067803"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Domain Administrators"style="color: #ffffff;">Domain Administrators
-</a>
-<a id="show_831350184"href="#"onclick="show('831350184');"style="color: #ffffff; display:none">(Show)
-</a>
-<a id="hide_831350184"href="#"onclick="hide('831350184');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_71383691" href="#" onclick="hide('71383691');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="831350184"><script >$(document).ready(function() {$('#DT-uc0h1tox').DataTable({
+<div class="collapsable" id="71383691"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
+</a>
+<a id="show_1262162469" href="#" onclick="show('1262162469');" style="color: #ffffff; display:none">(Show)
+</a>
+<a id="hide_1262162469" href="#" onclick="hide('1262162469');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="collapsable" id="1262162469"><script>                $(document).ready(function() {
+                    $('#DT-uy0fvio8').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1020,27 +1053,30 @@
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-uc0h1tox"class="display compact"><thead ><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
+<table id="DT-uy0fvio8" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
 </thead>
-<tbody ><tr><td>Administrator</td><td>True</td><td>user</td></tr>
+<tbody><tr><td>Administrator</td><td>True</td><td>user</td></tr>
 <tr><td>Administrator Przemyslaw Klys</td><td>True</td><td>user</td></tr>
 <tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr>
 <tr><td>GDS-TestGroup3</td><td></td><td>group</td></tr>
+<tr><td>Test Przemyslaw Klys1</td><td>False</td><td>user</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Enterprise Administrators"style="color: #ffffff;">Enterprise Administrators
+<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Enterprise Administrators" style="color: #ffffff;">Enterprise Administrators
 </a>
-<a id="show_57703431"href="#"onclick="show('57703431');"style="color: #ffffff; display:none">(Show)
+<a id="show_1250347256" href="#" onclick="show('1250347256');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_57703431"href="#"onclick="hide('57703431');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1250347256" href="#" onclick="hide('1250347256');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="57703431"><script >$(document).ready(function() {$('#DT-mkcx3zjv').DataTable({
+<div class="collapsable" id="1250347256"><script>                $(document).ready(function() {
+                    $('#DT-g1ra27je').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1078,11 +1114,12 @@
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-mkcx3zjv"class="display compact"><thead ><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
+<table id="DT-g1ra27je" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
 </thead>
-<tbody ><tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr>
+<tbody><tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr>
 <tr><td>Administrator</td><td>True</td><td>user</td></tr>
 </tbody>
 </table>
@@ -1091,21 +1128,22 @@
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Objects in Default OUs"style="color: #ffffff;">Objects in Default OUs
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Objects in Default OUs" style="color: #ffffff;">Objects in Default OUs
 </a>
-<a id="show_1524054930"href="#"onclick="show('1524054930');"style="color: #ffffff; display:none">(Show)
+<a id="show_1221823835" href="#" onclick="show('1221823835');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1524054930"href="#"onclick="hide('1524054930');"style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable"id="1524054930"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Computers"style="color: #ffffff;">Computers
-</a>
-<a id="show_297584805"href="#"onclick="show('297584805');"style="color: #ffffff; display:none">(Show)
-</a>
-<a id="hide_297584805"href="#"onclick="hide('297584805');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1221823835" href="#" onclick="hide('1221823835');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="297584805"><script >$(document).ready(function() {$('#DT-kme75w3g').DataTable({
+<div class="collapsable" id="1221823835"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Computers" style="color: #ffffff;">Computers
+</a>
+<a id="show_1716748445" href="#" onclick="show('1716748445');" style="color: #ffffff; display:none">(Show)
+</a>
+<a id="hide_1716748445" href="#" onclick="hide('1716748445');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="collapsable" id="1716748445"><script>                $(document).ready(function() {
+                    $('#DT-3fpni1ba').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1143,25 +1181,27 @@
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-kme75w3g"class="display compact"><thead ><tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr>
+<table id="DT-3fpni1ba" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr>
 </thead>
-<tbody ><tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>10.02.2019 02:16:04</td><td>20.01.2019 18:38:57</td><td>False</td></tr>
-<tr><td>ADFS2019</td><td>True</td><td>Windows Server 2019 Standard Evaluation</td><td>30.01.2019 10:10:44</td><td>30.01.2019 10:09:30</td><td>False</td></tr>
+<tbody><tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>20.02.2019 15:50:12</td><td>20.02.2019 15:49:57</td><td>False</td></tr>
+<tr><td>ADFS2019</td><td>True</td><td>Windows Server 2019 Standard Evaluation</td><td>16.02.2019 18:17:16</td><td>30.01.2019 10:09:30</td><td>False</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Users"style="color: #ffffff;">Users
+<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users" style="color: #ffffff;">Users
 </a>
-<a id="show_2015155201"href="#"onclick="show('2015155201');"style="color: #ffffff; display:none">(Show)
+<a id="show_2081899124" href="#" onclick="show('2081899124');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_2015155201"href="#"onclick="hide('2015155201');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_2081899124" href="#" onclick="hide('2081899124');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="2015155201"><script >$(document).ready(function() {$('#DT-vfyu4sc8').DataTable({
+<div class="collapsable" id="2081899124"><script>                $(document).ready(function() {
+                    $('#DT-m103hb5f').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1199,11 +1239,12 @@
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-vfyu4sc8"class="display compact"><thead ><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th></tr>
+<table id="DT-m103hb5f" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th></tr>
 </thead>
-<tbody ><tr><td>Guest</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr>
+<tbody><tr><td>Guest</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr>
 <tr><td>DefaultAccount</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr>
 <tr><td>krbtgt</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr>
 <tr><td>EVOTECPL$</td><td></td><td>True</td><td>False</td><td>Never</td><td></td></tr>
@@ -1214,7 +1255,7 @@
 <tr><td>Discovery Search Mailbox</td><td>DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td></tr>
 <tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td></tr>
 <tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td></tr>
-<tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td>False</td><td>16.02.2019 10:31:34</td><td></td></tr>
+<tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td>False</td><td>21.02.2019 20:31:24</td><td></td></tr>
 </tbody>
 </table>
 </div>
@@ -1222,14 +1263,15 @@
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="AD Objects Modified in Last 3 Days"style="color: #ffffff;">AD Objects Modified in Last 3 Days
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="AD Objects Modified in Last 3 Days" style="color: #ffffff;">AD Objects Modified in Last 3 Days
 </a>
-<a id="show_1487759140"href="#"onclick="show('1487759140');"style="color: #ffffff; display:none">(Show)
+<a id="show_189131448" href="#" onclick="show('189131448');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1487759140"href="#"onclick="hide('1487759140');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_189131448" href="#" onclick="hide('189131448');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="1487759140"><script >$(document).ready(function() {$('#DT-6vj48u71').DataTable({
+<div class="collapsable" id="189131448"><script>                $(document).ready(function() {
+                    $('#DT-vn24h0kx').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1267,32 +1309,40 @@
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-6vj48u71"class="display compact"><thead ><tr><th>Name</th><th>Object Type</th><th>When Changed</th></tr>
+<table id="DT-vn24h0kx" class="display compact"><thead><tr><th>Name</th><th>Object Type</th><th>When Changed</th></tr>
 </thead>
-<tbody ><tr><td>DESKTOP-68J4BAT</td><td>computer</td><td>15.02.2019 19:24:03</td></tr>
+<tbody><tr><td>ADCONNECT</td><td>computer</td><td>20.02.2019 15:50:12</td></tr>
+<tr><td>AD1</td><td>computer</td><td>19.02.2019 15:45:25</td></tr>
+<tr><td>MSOL_6f0d1d4965ec</td><td>user</td><td>19.02.2019 18:43:57</td></tr>
+<tr><td>EVO1</td><td>computer</td><td>19.02.2019 01:27:57</td></tr>
+<tr><td>DESKTOP-CQESSGI</td><td>computer</td><td>19.02.2019 17:47:46</td></tr>
+<tr><td>DESKTOP-68J4BAT</td><td>computer</td><td>19.02.2019 22:37:25</td></tr>
+<tr><td>Przemyslaw Klys</td><td>user</td><td>19.02.2019 19:03:00</td></tr>
 </tbody>
-<tfoot ><tr><th>Name</th><th>Object Type</th><th>When Changed</th></tr>
+<tfoot><tr><th>Name</th><th>Object Type</th><th>When Changed</th></tr>
 </tfoot>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Expiring Items"style="color: #ffffff;">Expiring Items
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Expiring Items" style="color: #ffffff;">Expiring Items
 </a>
-<a id="show_1916394094"href="#"onclick="show('1916394094');"style="color: #ffffff; display:none">(Show)
+<a id="show_563648496" href="#" onclick="show('563648496');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1916394094"href="#"onclick="hide('1916394094');"style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable"id="1916394094"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Users with Passwords Expiring in less than 7 days"style="color: #ffffff;">Users with Passwords Expiring in less than 7 days
-</a>
-<a id="show_646342803"href="#"onclick="show('646342803');"style="color: #ffffff; display:none">(Show)
-</a>
-<a id="hide_646342803"href="#"onclick="hide('646342803');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_563648496" href="#" onclick="hide('563648496');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="646342803"><script >$(document).ready(function() {$('#DT-k7e1i5r9').DataTable({
+<div class="collapsable" id="563648496"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users with Passwords Expiring in less than 7 days" style="color: #ffffff;">Users with Passwords Expiring in less than 7 days
+</a>
+<a id="show_245870234" href="#" onclick="show('245870234');" style="color: #ffffff; display:none">(Show)
+</a>
+<a id="hide_245870234" href="#" onclick="hide('245870234');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="collapsable" id="245870234"><script>                $(document).ready(function() {
+                    $('#DT-qjpob903').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1330,28 +1380,29 @@
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-k7e1i5r9"class="display compact"><thead ><tr><th>Name</th><th>Days Until Password Expires</th></tr>
+<table id="DT-qjpob903" class="display compact"><thead><tr><th>Name</th><th>Days Until Password Expires</th></tr>
 </thead>
-<tbody ><tr><td>Special Test User</td><td>-125</td></tr>
-<tr><td>Some Mailbox</td><td>-109</td></tr>
-<tr><td>My User</td><td>-62</td></tr>
-<tr><td>My User 2</td><td>-53</td></tr>
-<tr><td>Test Przemyslaw Klys</td><td>2</td></tr>
+<tbody><tr><td>Special Test User</td><td>-131</td></tr>
+<tr><td>Some Mailbox</td><td>-114</td></tr>
+<tr><td>My User</td><td>-68</td></tr>
+<tr><td>My User 2</td><td>-58</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Accounts Expiring Soon"style="color: #ffffff;">Accounts Expiring Soon
+<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts Expiring Soon" style="color: #ffffff;">Accounts Expiring Soon
 </a>
-<a id="show_386618417"href="#"onclick="show('386618417');"style="color: #ffffff; display:none">(Show)
+<a id="show_1672257757" href="#" onclick="show('1672257757');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_386618417"href="#"onclick="hide('386618417');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1672257757" href="#" onclick="hide('1672257757');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="386618417"><script >$(document).ready(function() {$('#DT-mio4vhsz').DataTable({
+<div class="collapsable" id="1672257757"><script>                $(document).ready(function() {
+                    $('#DT-hu3tog6p').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1389,11 +1440,12 @@
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-mio4vhsz"class="display compact"><thead ><tr><th>*</th></tr>
+<table id="DT-hu3tog6p" class="display compact"><thead><tr><th>*</th></tr>
 </thead>
-<tbody ><tr><td>Information: No Users were found to expire soon</td></tr>
+<tbody><tr><td>Information: No Users were found to expire soon</td></tr>
 </tbody>
 </table>
 </div>
@@ -1401,21 +1453,22 @@
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Accounts"style="color: #ffffff;">Accounts
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts" style="color: #ffffff;">Accounts
 </a>
-<a id="show_1576744791"href="#"onclick="show('1576744791');"style="color: #ffffff; display:none">(Show)
+<a id="show_74508620" href="#" onclick="show('74508620');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1576744791"href="#"onclick="hide('1576744791');"style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable"id="1576744791"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Users Haven't Logged on in 30 Days or more"style="color: #ffffff;">Users Haven't Logged on in 30 Days or more
-</a>
-<a id="show_109109988"href="#"onclick="show('109109988');"style="color: #ffffff; display:none">(Show)
-</a>
-<a id="hide_109109988"href="#"onclick="hide('109109988');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_74508620" href="#" onclick="hide('74508620');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="109109988"><script >$(document).ready(function() {$('#DT-o76ws50i').DataTable({
+<div class="collapsable" id="74508620"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users Haven't Logged on in 30 Days or more" style="color: #ffffff;">Users Haven't Logged on in 30 Days or more
+</a>
+<a id="show_1339658419" href="#" onclick="show('1339658419');" style="color: #ffffff; display:none">(Show)
+</a>
+<a id="hide_1339658419" href="#" onclick="hide('1339658419');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="collapsable" id="1339658419"><script>                $(document).ready(function() {
+                    $('#DT-0gs3vljd').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1453,27 +1506,29 @@
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-o76ws50i"class="display compact"><thead ><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
+<table id="DT-0gs3vljd" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
 </thead>
-<tbody ><tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td>20.05.2018 16:15:39</td><td>True</td><td>N/A</td></tr>
-<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td>17.09.2018 20:40:45</td><td>False</td><td>-109</td></tr>
-<tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td>True</td><td>False</td><td>24.11.2018 11:56:34</td><td>True</td><td>N/A</td></tr>
-<tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td>True</td><td>False</td><td>24.11.2018 12:09:22</td><td>True</td><td>N/A</td></tr>
+<tbody><tr><td>Administrator</td><td>Administrator@ad.evotec.xyz</td><td>True</td><td>False</td><td>25.12.2018 08:21:23</td><td>True</td><td>N/A</td></tr>
+<tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td>True</td><td>False</td><td>24.11.2018 11:33:52</td><td>True</td><td>N/A</td></tr>
+<tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td>True</td><td>False</td><td>24.11.2018 11:31:30</td><td>True</td><td>N/A</td></tr>
+<tr><td>My User</td><td>myuserPrincipal@evotec.pl</td><td>True</td><td>False</td><td>03.11.2018 18:12:44</td><td>False</td><td>-68</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Accounts Created in 7 Days or Less"style="color: #ffffff;">Accounts Created in 7 Days or Less
+<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts Created in 7 Days or Less" style="color: #ffffff;">Accounts Created in 7 Days or Less
 </a>
-<a id="show_2037722597"href="#"onclick="show('2037722597');"style="color: #ffffff; display:none">(Show)
+<a id="show_268611662" href="#" onclick="show('268611662');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_2037722597"href="#"onclick="hide('2037722597');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_268611662" href="#" onclick="hide('268611662');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="2037722597"><script >$(document).ready(function() {$('#DT-lf47haz2').DataTable({
+<div class="collapsable" id="268611662"><script>                $(document).ready(function() {
+                    $('#DT-5jfsmb2e').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1511,11 +1566,12 @@
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-lf47haz2"class="display compact"><thead ><tr><th>*</th></tr>
+<table id="DT-5jfsmb2e" class="display compact"><thead><tr><th>*</th></tr>
 </thead>
-<tbody ><tr><td>Information: No new users have been recently created</td></tr>
+<tbody><tr><td>Information: No new users have been recently created</td></tr>
 </tbody>
 </table>
 </div>
@@ -1523,14 +1579,15 @@
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Security Logs"style="color: #ffffff;">Security Logs
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Security Logs" style="color: #ffffff;">Security Logs
 </a>
-<a id="show_319878285"href="#"onclick="show('319878285');"style="color: #ffffff; display:none">(Show)
+<a id="show_1959846453" href="#" onclick="show('1959846453');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_319878285"href="#"onclick="hide('319878285');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1959846453" href="#" onclick="hide('1959846453');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="319878285"><script >$(document).ready(function() {$('#DT-s7iuwynj').DataTable({
+<div class="collapsable" id="1959846453"><script>                $(document).ready(function() {
+                    $('#DT-0swxuygc').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1568,11 +1625,23 @@
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-s7iuwynj"class="display compact"><thead ><tr><th>Time</th><th>Type</th><th>Message</th></tr>
+<table id="DT-0swxuygc" class="display compact"><thead><tr><th>Time</th><th>Type</th><th>Message</th></tr>
 </thead>
-<tbody ><tr><td>16.02.2019 10:33:43</td><td>FailureAudit</td><td>An account failed to log on.
+<tbody><tr><td>21.02.2019 20:34:19</td><td>SuccessAudit</td><td>An account was logged off.
+
+Subject:
+	Security ID:		S-1-5-18
+	Account Name:		EVO1$
+	Account Domain:		EVOTEC
+	Logon ID:		0x77bdba2e
+
+Logon Type:			3
+
+This event is generated when a logon session is destroyed. It may be positively correlated with a logon event using the Logon ID value. Logon IDs are only unique between reboots on the same computer.</td></tr>
+<tr><td>21.02.2019 20:34:19</td><td>SuccessAudit</td><td>An account was successfully logged on.
 
 Subject:
 	Security ID:		S-1-0-0
@@ -1580,381 +1649,188 @@ Subject:
 	Account Domain:		-
 	Logon ID:		0x0
 
-Logon Type:			3
+Logon Information:
+	Logon Type:		3
+	Restricted Admin Mode:	-
+	Virtual Account:		%%1843
+	Elevated Token:		%%1842
 
-Account For Which Logon Failed:
-	Security ID:		S-1-0-0
-	Account Name:		ADMINISTRATOR
-	Account Domain:		
+Impersonation Level:		%%1833
 
-Failure Information:
-	Failure Reason:		%%2313
-	Status:			0xc000006d
-	Sub Status:		0xc000006a
+New Logon:
+	Security ID:		S-1-5-18
+	Account Name:		EVO1$
+	Account Domain:		AD.EVOTEC.XYZ
+	Logon ID:		0x77bdba2e
+	Linked Logon ID:		0x0
+	Network Account Name:	-
+	Network Account Domain:	-
+	Logon GUID:		{f05eae8e-09f8-5fb5-5813-a7f906d0f89c}
 
 Process Information:
-	Caller Process ID:	0x0
-	Caller Process Name:	-
+	Process ID:		0x0
+	Process Name:		-
 
 Network Information:
 	Workstation Name:	-
-	Source Network Address:	122.154.155.132
+	Source Network Address:	::1
 	Source Port:		0
 
 Detailed Authentication Information:
-	Logon Process:		NtLmSsp 
-	Authentication Package:	NTLM
+	Logon Process:		Kerberos
+	Authentication Package:	Kerberos
 	Transited Services:	-
 	Package Name (NTLM only):	-
 	Key Length:		0
 
-This event is generated when a logon request fails. It is generated on the computer where access was attempted.
+This event is generated when a logon session is created. It is generated on the computer that was accessed.
 
-The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
+The subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
 
-The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
+The logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).
 
-The Process Information fields indicate which account and process on the system requested the logon.
+The New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.
 
-The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
+The network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
+
+The impersonation level field indicates the extent to which a process in the logon session can impersonate.
 
 The authentication information fields provide detailed information about this specific logon request.
+	- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.
 	- Transited services indicate which intermediate services have participated in this logon request.
 	- Package name indicates which sub-protocol was used among the NTLM protocols.
 	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr>
-<tr><td>16.02.2019 10:33:42</td><td>FailureAudit</td><td>An account failed to log on.
+<tr><td>21.02.2019 20:33:25</td><td>SuccessAudit</td><td>An account was logged off.
 
 Subject:
-	Security ID:		S-1-0-0
-	Account Name:		-
-	Account Domain:		-
-	Logon ID:		0x0
+	Security ID:		S-1-5-21-853615985-2870445339-3163598659-1105
+	Account Name:		przemyslaw.klys
+	Account Domain:		EVOTEC
+	Logon ID:		0x77b1e8dc
 
-Logon Type:			3
+Logon Type:			4
 
-Account For Which Logon Failed:
-	Security ID:		S-1-0-0
-	Account Name:		ADMINISTRATOR
-	Account Domain:		
-
-Failure Information:
-	Failure Reason:		%%2313
-	Status:			0xc000006d
-	Sub Status:		0xc000006a
-
-Process Information:
-	Caller Process ID:	0x0
-	Caller Process Name:	-
-
-Network Information:
-	Workstation Name:	-
-	Source Network Address:	100.26.42.45
-	Source Port:		0
-
-Detailed Authentication Information:
-	Logon Process:		NtLmSsp 
-	Authentication Package:	NTLM
-	Transited Services:	-
-	Package Name (NTLM only):	-
-	Key Length:		0
-
-This event is generated when a logon request fails. It is generated on the computer where access was attempted.
-
-The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
-
-The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
-
-The Process Information fields indicate which account and process on the system requested the logon.
-
-The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
-
-The authentication information fields provide detailed information about this specific logon request.
-	- Transited services indicate which intermediate services have participated in this logon request.
-	- Package name indicates which sub-protocol was used among the NTLM protocols.
-	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr>
-<tr><td>16.02.2019 10:33:41</td><td>FailureAudit</td><td>An account failed to log on.
+This event is generated when a logon session is destroyed. It may be positively correlated with a logon event using the Logon ID value. Logon IDs are only unique between reboots on the same computer.</td></tr>
+<tr><td>21.02.2019 20:33:00</td><td>SuccessAudit</td><td>An account was successfully logged on.
 
 Subject:
-	Security ID:		S-1-0-0
-	Account Name:		-
-	Account Domain:		-
-	Logon ID:		0x0
+	Security ID:		S-1-5-18
+	Account Name:		EVO1$
+	Account Domain:		EVOTEC
+	Logon ID:		0x3e7
 
-Logon Type:			3
+Logon Information:
+	Logon Type:		4
+	Restricted Admin Mode:	-
+	Virtual Account:		%%1843
+	Elevated Token:		%%1842
 
-Account For Which Logon Failed:
-	Security ID:		S-1-0-0
-	Account Name:		VALERIE
-	Account Domain:		
+Impersonation Level:		%%1833
 
-Failure Information:
-	Failure Reason:		%%2313
-	Status:			0xc000006d
-	Sub Status:		0xc0000064
+New Logon:
+	Security ID:		S-1-5-21-853615985-2870445339-3163598659-1105
+	Account Name:		przemyslaw.klys
+	Account Domain:		EVOTEC
+	Logon ID:		0x77b1e8dc
+	Linked Logon ID:		0x0
+	Network Account Name:	-
+	Network Account Domain:	-
+	Logon GUID:		{f8e35512-e8c4-8251-b3b2-25af78e688b2}
 
 Process Information:
-	Caller Process ID:	0x0
-	Caller Process Name:	-
+	Process ID:		0x7a8
+	Process Name:		C:\Windows\System32\svchost.exe
 
 Network Information:
-	Workstation Name:	-
-	Source Network Address:	185.156.177.221
-	Source Port:		0
+	Workstation Name:	EVO1
+	Source Network Address:	-
+	Source Port:		-
 
 Detailed Authentication Information:
-	Logon Process:		NtLmSsp 
-	Authentication Package:	NTLM
+	Logon Process:		Advapi  
+	Authentication Package:	Negotiate
 	Transited Services:	-
 	Package Name (NTLM only):	-
 	Key Length:		0
 
-This event is generated when a logon request fails. It is generated on the computer where access was attempted.
+This event is generated when a logon session is created. It is generated on the computer that was accessed.
 
-The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
+The subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
 
-The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
+The logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).
 
-The Process Information fields indicate which account and process on the system requested the logon.
+The New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.
 
-The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
+The network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
+
+The impersonation level field indicates the extent to which a process in the logon session can impersonate.
 
 The authentication information fields provide detailed information about this specific logon request.
+	- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.
 	- Transited services indicate which intermediate services have participated in this logon request.
 	- Package name indicates which sub-protocol was used among the NTLM protocols.
 	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr>
-<tr><td>16.02.2019 10:33:40</td><td>FailureAudit</td><td>An account failed to log on.
+<tr><td>21.02.2019 20:33:00</td><td>SuccessAudit</td><td>A logon was attempted using explicit credentials.
 
 Subject:
-	Security ID:		S-1-0-0
-	Account Name:		-
-	Account Domain:		-
-	Logon ID:		0x0
+	Security ID:		S-1-5-18
+	Account Name:		EVO1$
+	Account Domain:		EVOTEC
+	Logon ID:		0x3e7
+	Logon GUID:		{00000000-0000-0000-0000-000000000000}
 
-Logon Type:			3
+Account Whose Credentials Were Used:
+	Account Name:		przemyslaw.klys
+	Account Domain:		EVOTEC
+	Logon GUID:		{f8e35512-e8c4-8251-b3b2-25af78e688b2}
 
-Account For Which Logon Failed:
-	Security ID:		S-1-0-0
-	Account Name:		GABRIELA
-	Account Domain:		
-
-Failure Information:
-	Failure Reason:		%%2313
-	Status:			0xc000006d
-	Sub Status:		0xc0000064
+Target Server:
+	Target Server Name:	localhost
+	Additional Information:	localhost
 
 Process Information:
-	Caller Process ID:	0x0
-	Caller Process Name:	-
+	Process ID:		0x7a8
+	Process Name:		C:\Windows\System32\svchost.exe
 
 Network Information:
-	Workstation Name:	-
-	Source Network Address:	185.156.177.221
-	Source Port:		0
+	Network Address:	-
+	Port:			-
 
-Detailed Authentication Information:
-	Logon Process:		NtLmSsp 
-	Authentication Package:	NTLM
-	Transited Services:	-
-	Package Name (NTLM only):	-
-	Key Length:		0
-
-This event is generated when a logon request fails. It is generated on the computer where access was attempted.
-
-The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
-
-The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
-
-The Process Information fields indicate which account and process on the system requested the logon.
-
-The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
-
-The authentication information fields provide detailed information about this specific logon request.
-	- Transited services indicate which intermediate services have participated in this logon request.
-	- Package name indicates which sub-protocol was used among the NTLM protocols.
-	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr>
-<tr><td>16.02.2019 10:33:40</td><td>FailureAudit</td><td>An account failed to log on.
-
-Subject:
-	Security ID:		S-1-0-0
-	Account Name:		-
-	Account Domain:		-
-	Logon ID:		0x0
-
-Logon Type:			3
-
-Account For Which Logon Failed:
-	Security ID:		S-1-0-0
-	Account Name:		KARI
-	Account Domain:		
-
-Failure Information:
-	Failure Reason:		%%2313
-	Status:			0xc000006d
-	Sub Status:		0xc0000064
-
-Process Information:
-	Caller Process ID:	0x0
-	Caller Process Name:	-
-
-Network Information:
-	Workstation Name:	-
-	Source Network Address:	185.156.177.221
-	Source Port:		0
-
-Detailed Authentication Information:
-	Logon Process:		NtLmSsp 
-	Authentication Package:	NTLM
-	Transited Services:	-
-	Package Name (NTLM only):	-
-	Key Length:		0
-
-This event is generated when a logon request fails. It is generated on the computer where access was attempted.
-
-The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
-
-The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
-
-The Process Information fields indicate which account and process on the system requested the logon.
-
-The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
-
-The authentication information fields provide detailed information about this specific logon request.
-	- Transited services indicate which intermediate services have participated in this logon request.
-	- Package name indicates which sub-protocol was used among the NTLM protocols.
-	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr>
-<tr><td>16.02.2019 10:33:37</td><td>FailureAudit</td><td>An account failed to log on.
-
-Subject:
-	Security ID:		S-1-0-0
-	Account Name:		-
-	Account Domain:		-
-	Logon ID:		0x0
-
-Logon Type:			3
-
-Account For Which Logon Failed:
-	Security ID:		S-1-0-0
-	Account Name:		ADMINISTRATOR
-	Account Domain:		
-
-Failure Information:
-	Failure Reason:		%%2313
-	Status:			0xc000006d
-	Sub Status:		0xc000006a
-
-Process Information:
-	Caller Process ID:	0x0
-	Caller Process Name:	-
-
-Network Information:
-	Workstation Name:	-
-	Source Network Address:	100.26.42.45
-	Source Port:		0
-
-Detailed Authentication Information:
-	Logon Process:		NtLmSsp 
-	Authentication Package:	NTLM
-	Transited Services:	-
-	Package Name (NTLM only):	-
-	Key Length:		0
-
-This event is generated when a logon request fails. It is generated on the computer where access was attempted.
-
-The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
-
-The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
-
-The Process Information fields indicate which account and process on the system requested the logon.
-
-The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
-
-The authentication information fields provide detailed information about this specific logon request.
-	- Transited services indicate which intermediate services have participated in this logon request.
-	- Package name indicates which sub-protocol was used among the NTLM protocols.
-	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr>
-<tr><td>16.02.2019 10:33:36</td><td>FailureAudit</td><td>An account failed to log on.
-
-Subject:
-	Security ID:		S-1-0-0
-	Account Name:		-
-	Account Domain:		-
-	Logon ID:		0x0
-
-Logon Type:			3
-
-Account For Which Logon Failed:
-	Security ID:		S-1-0-0
-	Account Name:		ADMINISTRATOR
-	Account Domain:		
-
-Failure Information:
-	Failure Reason:		%%2313
-	Status:			0xc000006d
-	Sub Status:		0xc000006a
-
-Process Information:
-	Caller Process ID:	0x0
-	Caller Process Name:	-
-
-Network Information:
-	Workstation Name:	-
-	Source Network Address:	159.65.91.244
-	Source Port:		0
-
-Detailed Authentication Information:
-	Logon Process:		NtLmSsp 
-	Authentication Package:	NTLM
-	Transited Services:	-
-	Package Name (NTLM only):	-
-	Key Length:		0
-
-This event is generated when a logon request fails. It is generated on the computer where access was attempted.
-
-The Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
-
-The Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).
-
-The Process Information fields indicate which account and process on the system requested the logon.
-
-The Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
-
-The authentication information fields provide detailed information about this specific logon request.
-	- Transited services indicate which intermediate services have participated in this logon request.
-	- Package name indicates which sub-protocol was used among the NTLM protocols.
-	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.</td></tr>
+This event is generated when a process attempts to log on an account by explicitly specifying that account’s credentials.  This most commonly occurs in batch-type configurations such as scheduled tasks, or when using the RUNAS command.</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="UPN Suffixes"style="color: #ffffff;">UPN Suffixes
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="UPN Suffixes" style="color: #ffffff;">UPN Suffixes
 </a>
-<a id="show_1217487179"href="#"onclick="show('1217487179');"style="color: #ffffff; display:none">(Show)
+<a id="show_209406342" href="#" onclick="show('209406342');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1217487179"href="#"onclick="hide('1217487179');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_209406342" href="#" onclick="hide('209406342');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="1217487179"><table class="sortable"><thead ><tr><th>UPN Suffixes</th><th>Valid</th></tr>
+<div class="collapsable" id="209406342"><table class="sortable"><thead><tr><th>UPN Suffixes</th><th>Valid</th></tr>
 </thead>
-<tbody ><tr><td>evotec.xyz</td><td>True</td></tr>
+<tbody><tr><td>evotec.xyz</td><td>True</td></tr>
 <tr><td>evotec.pl</td><td>True</td></tr>
 </tbody>
-<tfoot ><tr><th>UPN Suffixes</th><th>Valid</th></tr>
+<tfoot><tr><th>UPN Suffixes</th><th>Valid</th></tr>
 </tfoot>
 </table>
 </div>
 </div>
 </div>
 </div>
-<div class="tab-content"><div id="Groups"class="tab-pane"><h7 >Report: 02-16-2019
+<div class="tab-content"><div id="Tab-zw8tgc24" class="tab-pane"><h7>Report: 02-21-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Groups Overivew"style="color: #ffffff;">Groups Overivew
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Groups Overivew" style="color: #ffffff;">Groups Overivew
 </a>
-<a id="show_2146453318"href="#"onclick="show('2146453318');"style="color: #ffffff; display:none">(Show)
+<a id="show_855996018" href="#" onclick="show('855996018');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_2146453318"href="#"onclick="hide('2146453318');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_855996018" href="#" onclick="hide('855996018');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="2146453318"><script >$(document).ready(function() {$('#DT-2pkrq3dc').DataTable({
+<div class="collapsable" id="855996018"><script>                $(document).ready(function() {
+                    $('#DT-4e7zux2j').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1992,23 +1868,25 @@ The authentication information fields provide detailed information about this sp
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-2pkrq3dc"class="display compact"><thead ><tr><th>Total Groups</th><th>Mail-Enabled Security Groups</th><th>Security Groups</th><th>Distribution Groups</th></tr>
+<table id="DT-4e7zux2j" class="display compact"><thead><tr><th>Total Groups</th><th>Mail-Enabled Security Groups</th><th>Security Groups</th><th>Distribution Groups</th></tr>
 </thead>
-<tbody ><tr><td>74</td><td>0</td><td>72</td><td>2</td></tr>
+<tbody><tr><td>74</td><td>0</td><td>72</td><td>2</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Active Directory Groups"style="color: #ffffff;">Active Directory Groups
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Active Directory Groups" style="color: #ffffff;">Active Directory Groups
 </a>
-<a id="show_2087065656"href="#"onclick="show('2087065656');"style="color: #ffffff; display:none">(Show)
+<a id="show_603377947" href="#" onclick="show('603377947');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_2087065656"href="#"onclick="hide('2087065656');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_603377947" href="#" onclick="hide('603377947');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="2087065656"><script >$(document).ready(function() {$('#DT-shqjo842').DataTable({
+<div class="collapsable" id="603377947"><script>                $(document).ready(function() {
+                    $('#DT-5htxiwec').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2046,16 +1924,14 @@ The authentication information fields provide detailed information about this sp
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-shqjo842"class="display compact"><thead ><tr><th>Name</th><th>Type</th><th>Members</th><th>Managed By</th><th>E-mail Address</th><th>Protected from Deletion</th><th>Default AD Group</th></tr>
+<table id="DT-5htxiwec" class="display compact"><thead><tr><th>Name</th><th>Type</th><th>Members</th><th>Managed By</th><th>E-mail Address</th><th>Protected from Deletion</th><th>Default AD Group</th></tr>
 </thead>
-<tbody ><tr><td>Administrators</td><td>Security Group</td><td>Administrator, Enterprise Admins, Domain Admins</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tbody><tr><td>Administrators</td><td>Security Group</td><td>Administrator, Enterprise Admins, Domain Admins</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Users</td><td>Security Group</td><td>INTERACTIVE, Authenticated Users, Domain Users</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Guests</td><td>Security Group</td><td>Guest, Domain Guests</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Print Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Backup Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Replicator</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Remote Desktop Users</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Network Configuration Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Performance Monitor Users</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
@@ -2074,29 +1950,32 @@ The authentication information fields provide detailed information about this sp
 <tr><td>System Managed Accounts Group</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Storage Replica Administrators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Domain Computers</td><td>Security Group</td><td>Test5, Test4, Test2, ADFS2019, ADCONNECT, TestingDSInstall, EX2013X3, DESKTOP-CQESSGI, EX2016X1, EVO1, EX2013X2, EX2013X1, DESKTOP-68J4BAT</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Domain Controllers</td><td>Security Group</td><td>AD2, AD1</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Schema Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Enterprise Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Cert Publishers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Domain Admins</td><td>Security Group</td><td>Przemyslaw Klys, GDS-TestGroup3, Administrator, Administrator Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Domain Users</td><td>Security Group</td><td>Skipped Domain Users Membership</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Domain Guests</td><td>Security Group</td><td>Guest</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Group Policy Creator Owners</td><td>Security Group</td><td>Administrator</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>RAS and IAS Servers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Server Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Account Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Pre-Windows 2000 Compatible Access</td><td>Security Group</td><td>Authenticated Users</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Incoming Forest Trust Builders</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Windows Authorization Access Group</td><td>Security Group</td><td>ENTERPRISE DOMAIN CONTROLLERS, Exchange Servers</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Terminal Server License Servers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Domain Admins</td><td>Security Group</td><td>GDS-TestGroup3, Test Przemyslaw Klys1, Przemyslaw Klys, Administrator, Administrator Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Schema Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Enterprise Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Group Policy Creator Owners</td><td>Security Group</td><td>Administrator</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Pre-Windows 2000 Compatible Access</td><td>Security Group</td><td>Authenticated Users</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Windows Authorization Access Group</td><td>Security Group</td><td>ENTERPRISE DOMAIN CONTROLLERS, Exchange Servers</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Allowed RODC Password Replication Group</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Denied RODC Password Replication Group</td><td>Security Group</td><td>Enterprise Admins, Schema Admins, Domain Controllers, Cert Publishers, Read-only Domain Controllers, Group Policy Creator Owners, Domain Admins</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Read-only Domain Controllers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Enterprise Read-only Domain Controllers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Cloneable Domain Controllers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Protected Users</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Key Admins</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>Enterprise Key Admins</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Print Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Replicator</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Server Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Account Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Backup Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Domain Controllers</td><td>Security Group</td><td>AD2, AD1</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Read-only Domain Controllers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>DnsAdmins</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>DnsUpdateProxy</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
 <tr><td>GDS-TestGroup1</td><td>Security Group</td><td>Administrator, Administrator Przemyslaw Klys, Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr>
@@ -2115,10 +1994,10 @@ The authentication information fields provide detailed information about this sp
 <tr><td>Delegated Setup</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr>
 <tr><td>Hygiene Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr>
 <tr><td>Compliance Management</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr>
-<tr><td>Exchange Servers</td><td>Security Group</td><td>Exchange Install Domain Servers, EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr>
 <tr><td>Exchange Trusted Subsystem</td><td>Security Group</td><td>EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr>
 <tr><td>Managed Availability Servers</td><td>Security Group</td><td>Exchange Servers, EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr>
 <tr><td>Exchange Windows Permissions</td><td>Security Group</td><td>Exchange Trusted Subsystem</td><td></td><td></td><td>False</td><td>False</td></tr>
+<tr><td>Exchange Servers</td><td>Security Group</td><td>Exchange Install Domain Servers, EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr>
 <tr><td>ExchangeLegacyInterop</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>False</td></tr>
 <tr><td>Exchange Install Domain Servers</td><td>Security Group</td><td>EX2013X3</td><td></td><td></td><td>False</td><td>False</td></tr>
 <tr><td>GDS-TestGroup5</td><td>Distribution Group</td><td>Test User Test, Service Task Scheduler, Przemyslaw Klys, Some Mailbox, Expiration Date Test, Special Test User</td><td></td><td></td><td>False</td><td>False</td></tr>
@@ -2128,14 +2007,15 @@ The authentication information fields provide detailed information about this sp
 </table>
 </div>
 </div>
-<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Domain Administrators"style="color: #ffffff;">Domain Administrators
+<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
 </a>
-<a id="show_576241826"href="#"onclick="show('576241826');"style="color: #ffffff; display:none">(Show)
+<a id="show_515720829" href="#" onclick="show('515720829');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_576241826"href="#"onclick="hide('576241826');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_515720829" href="#" onclick="hide('515720829');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="576241826"><script >$(document).ready(function() {$('#DT-mw13jdc8').DataTable({
+<div class="collapsable" id="515720829"><script>                $(document).ready(function() {
+                    $('#DT-kpx4h170').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2173,27 +2053,30 @@ The authentication information fields provide detailed information about this sp
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-mw13jdc8"class="display compact"><thead ><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
+<table id="DT-kpx4h170" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
 </thead>
-<tbody ><tr><td>Administrator</td><td>True</td><td>user</td></tr>
+<tbody><tr><td>Administrator</td><td>True</td><td>user</td></tr>
 <tr><td>Administrator Przemyslaw Klys</td><td>True</td><td>user</td></tr>
 <tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr>
 <tr><td>GDS-TestGroup3</td><td></td><td>group</td></tr>
+<tr><td>Test Przemyslaw Klys1</td><td>False</td><td>user</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Enterprise Administrators"style="color: #ffffff;">Enterprise Administrators
+<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Enterprise Administrators" style="color: #ffffff;">Enterprise Administrators
 </a>
-<a id="show_2045902750"href="#"onclick="show('2045902750');"style="color: #ffffff; display:none">(Show)
+<a id="show_1338965654" href="#" onclick="show('1338965654');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_2045902750"href="#"onclick="hide('2045902750');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1338965654" href="#" onclick="hide('1338965654');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="2045902750"><script >$(document).ready(function() {$('#DT-yuen2qbz').DataTable({
+<div class="collapsable" id="1338965654"><script>                $(document).ready(function() {
+                    $('#DT-ugbcx2mq').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2231,36 +2114,37 @@ The authentication information fields provide detailed information about this sp
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-yuen2qbz"class="display compact"><thead ><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
+<table id="DT-ugbcx2mq" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
 </thead>
-<tbody ><tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr>
+<tbody><tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr>
 <tr><td>Administrator</td><td>True</td><td>user</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Active Directory Groups Chart"style="color: #ffffff;">Active Directory Groups Chart
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Active Directory Groups Chart" style="color: #ffffff;">Active Directory Groups Chart
 </a>
-<a id="show_1901686681"href="#"onclick="show('1901686681');"style="color: #ffffff; display:none">(Show)
+<a id="show_1843998395" href="#" onclick="show('1843998395');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1901686681"href="#"onclick="hide('1901686681');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1843998395" href="#" onclick="hide('1843998395');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="1901686681"><div class="four defaultColumn defaultCard"><canvas id="Piesap9lqvixtc4" width="250" height="250"></canvas>
+<div class="collapsable" id="1843998395"><div class="four defaultColumn defaultCard"><canvas id="Pie3co2fz6i5x8a" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Piesap9lqvixtc4");
-var Piesap9lqvixtc4 = new Chart(ctx, {
+var ctx = document.getElementById("Pie3co2fz6i5x8a");
+var Pie3co2fz6i5x8a = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Mail-Enabled Security Groups","Security Groups","Distribution Groups"],
 		datasets: [{
 			label: 'Data',
 			data: [0,72,2],
-			backgroundColor: ['rgba(177,104,231,0.7)','rgba(174,108,88,0.7)','rgba(162,97,81,0.7)'],
-			hoverBackgroundColor:  ['rgba(177,104,231,1)','rgba(174,108,88,1)','rgba(162,97,81,1)'],
+			backgroundColor: ['rgba(109,101,13,0.7)','rgba(110,76,94,0.7)','rgba(96,186,125,0.7)'],
+			hoverBackgroundColor:  ['rgba(109,101,13,1)','rgba(110,76,94,1)','rgba(96,186,125,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2281,10 +2165,10 @@ var Piesap9lqvixtc4 = new Chart(ctx, {
 });	
  </script>
 </div>
-<div class="four defaultColumn defaultCard"><canvas id="Pieaypeu0g7qor8" width="250" height="250"></canvas>
+<div class="four defaultColumn defaultCard"><canvas id="Piecumpgdkx2ylq" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Pieaypeu0g7qor8");
-var Pieaypeu0g7qor8 = new Chart(ctx, {
+var ctx = document.getElementById("Piecumpgdkx2ylq");
+var Piecumpgdkx2ylq = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Default Groups","Custom Groups"],
@@ -2313,18 +2197,18 @@ var Pieaypeu0g7qor8 = new Chart(ctx, {
 });	
  </script>
 </div>
-<div class="four defaultColumn defaultCard"><canvas id="Piexdst74maz6f3" width="250" height="250"></canvas>
+<div class="four defaultColumn defaultCard"><canvas id="Pielazjret705km" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Piexdst74maz6f3");
-var Piexdst74maz6f3 = new Chart(ctx, {
+var ctx = document.getElementById("Pielazjret705km");
+var Pielazjret705km = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["With Members","No Members"],
 		datasets: [{
 			label: 'Data',
 			data: [26,47],
-			backgroundColor: ['rgba(109,222,230,0.7)','rgba(102,129,125,0.7)'],
-			hoverBackgroundColor:  ['rgba(109,222,230,1)','rgba(102,129,125,1)'],
+			backgroundColor: ['rgba(151,93,103,0.7)','rgba(118,93,87,0.7)'],
+			hoverBackgroundColor:  ['rgba(151,93,103,1)','rgba(118,93,87,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2345,18 +2229,18 @@ var Piexdst74maz6f3 = new Chart(ctx, {
 });	
  </script>
 </div>
-<div class="four defaultColumn defaultCard"><canvas id="Pie03wyqjrnbfpg" width="250" height="250"></canvas>
+<div class="four defaultColumn defaultCard"><canvas id="Piek9y7lmsuoadb" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Pie03wyqjrnbfpg");
-var Pie03wyqjrnbfpg = new Chart(ctx, {
+var ctx = document.getElementById("Piek9y7lmsuoadb");
+var Piek9y7lmsuoadb = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Protected","Not Protected"],
 		datasets: [{
 			label: 'Data',
 			data: [0,74],
-			backgroundColor: ['rgba(103,160,145,0.7)','rgba(26,158,45,0.7)'],
-			hoverBackgroundColor:  ['rgba(103,160,145,1)','rgba(26,158,45,1)'],
+			backgroundColor: ['rgba(252,195,248,0.7)','rgba(96,189,123,0.7)'],
+			hoverBackgroundColor:  ['rgba(252,195,248,1)','rgba(96,189,123,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2381,16 +2265,17 @@ var Pie03wyqjrnbfpg = new Chart(ctx, {
 </div>
 </div>
 </div>
-<div class="tab-content"><div id="OrganizationalUnits"class="tab-pane"><h7 >Report: 02-16-2019
+<div class="tab-content"><div id="Tab-d2gb78fo" class="tab-pane"><h7>Report: 02-21-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Organizational Units"style="color: #ffffff;">Organizational Units
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Organizational Units" style="color: #ffffff;">Organizational Units
 </a>
-<a id="show_1064277644"href="#"onclick="show('1064277644');"style="color: #ffffff; display:none">(Show)
+<a id="show_2120953134" href="#" onclick="show('2120953134');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1064277644"href="#"onclick="hide('1064277644');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_2120953134" href="#" onclick="hide('2120953134');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="1064277644"><script >$(document).ready(function() {$('#DT-109ajetk').DataTable({
+<div class="collapsable" id="2120953134"><script>                $(document).ready(function() {
+                    $('#DT-hcmx17tu').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2428,44 +2313,45 @@ var Pie03wyqjrnbfpg = new Chart(ctx, {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-109ajetk"class="display compact"><thead ><tr><th>Name</th><th>Linked GPOs</th><th>Modified Date</th><th>Protected from Deletion</th></tr>
+<table id="DT-hcmx17tu" class="display compact"><thead><tr><th>Name</th><th>Linked GPOs</th><th>Modified Date</th><th>Protected from Deletion</th></tr>
 </thead>
-<tbody ><tr><td>Domain Controllers</td><td>DC | Event Log Audit Rules, DC | Event Log Settings, Default Domain Controllers Policy</td><td>20.05.2018 23:20:04</td><td>False</td></tr>
-<tr><td>Production</td><td>None</td><td>27.05.2018 00:16:19</td><td>True</td></tr>
-<tr><td>Groups</td><td>None</td><td>27.05.2018 00:16:36</td><td>True</td></tr>
-<tr><td>SecurityGroups</td><td>None</td><td>27.05.2018 00:16:36</td><td>True</td></tr>
-<tr><td>Users</td><td>None</td><td>16.07.2018 13:54:34</td><td>True</td></tr>
-<tr><td>Microsoft Exchange Security Groups</td><td>None</td><td>05.08.2018 09:54:36</td><td>False</td></tr>
-<tr><td>Users-Offboarded</td><td>None</td><td>05.08.2018 12:07:12</td><td>True</td></tr>
-<tr><td>Computers</td><td>ALL | Bitlocker Settings, COMPUTERS | Enable Sets</td><td>08.08.2018 17:24:43</td><td>False</td></tr>
-<tr><td>Servers</td><td>ALL | Bitlocker Settings</td><td>24.08.2018 10:05:33</td><td>True</td></tr>
-<tr><td>Contacts</td><td>None</td><td>26.08.2018 09:46:19</td><td>True</td></tr>
-<tr><td>Users-O365</td><td>Users | Synced Office 365 Users</td><td>19.11.2018 22:54:44</td><td>True</td></tr>
+<tbody><tr><td>Domain Controllers</td><td>DC | Event Log Audit Rules, DC | Event Log Settings, Default Domain Controllers Policy</td><td>01.06.2018 00:22:48</td><td>False</td></tr>
+<tr><td>Production</td><td>None</td><td>01.06.2018 00:22:55</td><td>True</td></tr>
+<tr><td>Groups</td><td>None</td><td>01.06.2018 00:22:55</td><td>True</td></tr>
+<tr><td>SecurityGroups</td><td>None</td><td>01.06.2018 00:22:55</td><td>True</td></tr>
+<tr><td>Users</td><td>None</td><td>16.07.2018 13:54:49</td><td>True</td></tr>
+<tr><td>Microsoft Exchange Security Groups</td><td>None</td><td>05.08.2018 09:54:42</td><td>False</td></tr>
+<tr><td>Users-Offboarded</td><td>None</td><td>05.08.2018 12:07:19</td><td>True</td></tr>
+<tr><td>Computers</td><td>ALL | Bitlocker Settings, COMPUTERS | Enable Sets</td><td>08.08.2018 17:24:58</td><td>False</td></tr>
+<tr><td>Servers</td><td>ALL | Bitlocker Settings</td><td>24.08.2018 10:05:48</td><td>True</td></tr>
+<tr><td>Contacts</td><td>None</td><td>09.09.2018 15:38:10</td><td>True</td></tr>
+<tr><td>Users-O365</td><td>Users | Synced Office 365 Users</td><td>19.11.2018 22:54:47</td><td>True</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Organizational Units Charts"style="color: #ffffff;">Organizational Units Charts
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Organizational Units Charts" style="color: #ffffff;">Organizational Units Charts
 </a>
-<a id="show_24089328"href="#"onclick="show('24089328');"style="color: #ffffff; display:none">(Show)
+<a id="show_43743914" href="#" onclick="show('43743914');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_24089328"href="#"onclick="hide('24089328');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_43743914" href="#" onclick="hide('43743914');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="24089328"><div class="two defaultColumn defaultCard"><canvas id="Piec9qrfzsieuk0" width="250" height="250"></canvas>
+<div class="collapsable" id="43743914"><div class="two defaultColumn defaultCard"><canvas id="Piekxulo9tgznj2" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Piec9qrfzsieuk0");
-var Piec9qrfzsieuk0 = new Chart(ctx, {
+var ctx = document.getElementById("Piekxulo9tgznj2");
+var Piekxulo9tgznj2 = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["OUs with no GPO's linked","OUs with GPO's linked"],
 		datasets: [{
 			label: 'Data',
 			data: [7,4],
-			backgroundColor: ['rgba(120,97,125,0.7)','rgba(131,167,241,0.7)'],
-			hoverBackgroundColor:  ['rgba(120,97,125,1)','rgba(131,167,241,1)'],
+			backgroundColor: ['rgba(99,64,3,0.7)','rgba(92,43,92,0.7)'],
+			hoverBackgroundColor:  ['rgba(99,64,3,1)','rgba(92,43,92,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2486,18 +2372,18 @@ var Piec9qrfzsieuk0 = new Chart(ctx, {
 });	
  </script>
 </div>
-<div class="two defaultColumn defaultCard"><canvas id="Piewrbhjuseg4zo" width="250" height="250"></canvas>
+<div class="two defaultColumn defaultCard"><canvas id="Pielh9i5sdz1o4a" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Piewrbhjuseg4zo");
-var Piewrbhjuseg4zo = new Chart(ctx, {
+var ctx = document.getElementById("Pielh9i5sdz1o4a");
+var Pielh9i5sdz1o4a = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Protected","Not Protected"],
 		datasets: [{
 			label: 'Data',
 			data: [8,3],
-			backgroundColor: ['rgba(132,95,40,0.7)','rgba(181,97,98,0.7)'],
-			hoverBackgroundColor:  ['rgba(132,95,40,1)','rgba(181,97,98,1)'],
+			backgroundColor: ['rgba(155,176,37,0.7)','rgba(72,171,54,0.7)'],
+			hoverBackgroundColor:  ['rgba(155,176,37,1)','rgba(72,171,54,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2522,16 +2408,17 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
 </div>
 </div>
 </div>
-<div class="tab-content"><div id="Users"class="tab-pane"><h7 >Report: 02-16-2019
+<div class="tab-content"><div id="Tab-ua0zce4r" class="tab-pane"><h7>Report: 02-21-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Users Overivew"style="color: #ffffff;">Users Overivew
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users Overivew" style="color: #ffffff;">Users Overivew
 </a>
-<a id="show_305702145"href="#"onclick="show('305702145');"style="color: #ffffff; display:none">(Show)
+<a id="show_712483981" href="#" onclick="show('712483981');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_305702145"href="#"onclick="hide('305702145');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_712483981" href="#" onclick="hide('712483981');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="305702145"><script >$(document).ready(function() {$('#DT-8kesr5ft').DataTable({
+<div class="collapsable" id="712483981"><script>                $(document).ready(function() {
+                    $('#DT-o7ysv0fn').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2569,23 +2456,25 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-8kesr5ft"class="display compact"><thead ><tr><th>Total Users</th><th>Users with Passwords Expiring in less than 7 days</th><th>Expiring Accounts</th><th>Users Haven't Logged on in 30 Days or more</th></tr>
+<table id="DT-o7ysv0fn" class="display compact"><thead><tr><th>Total Users</th><th>Users with Passwords Expiring in less than 7 days</th><th>Expiring Accounts</th><th>Users Haven't Logged on in 30 Days or more</th></tr>
 </thead>
-<tbody ><tr><td>48</td><td>5</td><td>0</td><td>0</td></tr>
+<tbody><tr><td>48</td><td>4</td><td>0</td><td>0</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Active Directory Users"style="color: #ffffff;">Active Directory Users
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Active Directory Users" style="color: #ffffff;">Active Directory Users
 </a>
-<a id="show_1210319254"href="#"onclick="show('1210319254');"style="color: #ffffff; display:none">(Show)
+<a id="show_494236012" href="#" onclick="show('494236012');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1210319254"href="#"onclick="hide('1210319254');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_494236012" href="#" onclick="hide('494236012');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="1210319254"><script >$(document).ready(function() {$('#DT-hakfxut2').DataTable({
+<div class="collapsable" id="494236012"><script>                $(document).ready(function() {
+                    $('#DT-9brq6o7z').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2623,20 +2512,21 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-hakfxut2"class="display compact"><thead ><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th><th>Account Expiration</th><th>Change Password Next Logon</th><th>Password Last Set</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
+<table id="DT-9brq6o7z" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th><th>Account Expiration</th><th>Change Password Next Logon</th><th>Password Last Set</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
 </thead>
-<tbody ><tr><td>Administrator</td><td>Administrator@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>Administrator@ad.evotec.xyz</td><td></td><td>False</td><td>19.05.2018 21:08:11</td><td>True</td><td>N/A</td></tr>
-<tr><td>Guest</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td></td><td>True</td><td>N/A</td></tr>
+<tbody><tr><td>Guest</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td></td><td>True</td><td>N/A</td></tr>
 <tr><td>DefaultAccount</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td></td><td>True</td><td>N/A</td></tr>
 <tr><td>krbtgt</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>True</td><td>20.05.2018 09:56:36</td><td>False</td><td>N/A</td></tr>
+<tr><td>Administrator</td><td>Administrator@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>Administrator@ad.evotec.xyz</td><td></td><td>False</td><td>19.05.2018 21:08:11</td><td>True</td><td>N/A</td></tr>
 <tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>20.05.2018 10:22:34</td><td>True</td><td>N/A</td></tr>
 <tr><td>Przemyslaw Klys</td><td>przemyslaw.klys@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>przemyslaw.klys@evotec.pl</td><td></td><td>False</td><td>20.05.2018 16:09:12</td><td>True</td><td>N/A</td></tr>
 <tr><td>Service Task Scheduler</td><td>svcTaskScheduler@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td>09.07.2018 18:29:52</td><td>True</td><td>N/A</td></tr>
 <tr><td>Test User Test</td><td>test@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td></td><td>False</td><td>User has never logged on</td></tr>
 <tr><td>New n. New</td><td>new@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>pklys@evotec.pl</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
-<tr><td>EVOTECPL$</td><td></td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>06.02.2019 15:41:51</td><td>False</td><td>32</td></tr>
+<tr><td>EVOTECPL$</td><td></td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>06.02.2019 15:41:51</td><td>False</td><td>26</td></tr>
 <tr><td>Exchange Online-ApplicationAccount</td><td>Exchange_Online-ApplicationAccount@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td></td><td>False</td><td>User has never logged on</td></tr>
 <tr><td>Microsoft Exchange Approval Assistant</td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
 <tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
@@ -2644,20 +2534,20 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
 <tr><td>Discovery Search Mailbox</td><td>DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
 <tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
 <tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
-<tr><td>Special Test User</td><td>SpecialTestUser@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td>01.09.2018 12:00:04</td><td>False</td><td>-125</td></tr>
+<tr><td>Special Test User</td><td>SpecialTestUser@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td>01.09.2018 12:00:04</td><td>False</td><td>-131</td></tr>
 <tr><td>Expiration Date Test</td><td>expiration@evotec.xyz</td><td>False</td><td>False</td><td></td><td>expiration@evotec.xyz</td><td>17.09.2018 00:00:00</td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td>HealthMailboxceaf9714b5e8497aabe5d8c7d390c762@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxceaf9714b5e8497aabe5d8c7d390c762@ad.evotec.xyz</td><td></td><td>False</td><td>22.10.2018 07:54:30</td><td>True</td><td>N/A</td></tr>
+<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td>HealthMailboxbb779b7f61384f1abd85a4cc2e793321@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxbb779b7f61384f1abd85a4cc2e793321@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:05</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td>HealthMailbox14193432ba1143fda716adf2892e98c6@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox14193432ba1143fda716adf2892e98c6@ad.evotec.xyz</td><td></td><td>False</td><td>22.10.2018 07:54:37</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td>HealthMailbox60155b13835f4e669b2fabf5b95dfd74@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox60155b13835f4e669b2fabf5b95dfd74@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:16</td><td>True</td><td>N/A</td></tr>
-<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td>HealthMailboxbb779b7f61384f1abd85a4cc2e793321@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxbb779b7f61384f1abd85a4cc2e793321@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:05</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td>HealthMailboxe03c754075c6456cac3e996649243352@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxe03c754075c6456cac3e996649243352@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:27</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td>HealthMailbox61f9b982483640bf8ce51c097113cc94@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox61f9b982483640bf8ce51c097113cc94@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:38</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td>HealthMailboxc57ed73ae291405da8589c3f2d9a94da@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxc57ed73ae291405da8589c3f2d9a94da@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:13:48</td><td>True</td><td>N/A</td></tr>
+<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:46</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td>HealthMailboxfcd7e01b1f1246449c76ee183185ee32@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxfcd7e01b1f1246449c76ee183185ee32@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:15</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td>HealthMailbox751984c8c5c54b849143e72fccb98a27@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox751984c8c5c54b849143e72fccb98a27@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:32</td><td>True</td><td>N/A</td></tr>
-<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:46</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td>HealthMailbox603739f5e90b43539922000fece40c6b@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox603739f5e90b43539922000fece40c6b@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:57</td><td>True</td><td>N/A</td></tr>
-<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td></td><td>SomeMailbox@ad.evotec.xyz</td><td></td><td>True</td><td>17.09.2018 20:39:50</td><td>False</td><td>-109</td></tr>
+<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td></td><td>SomeMailbox@ad.evotec.xyz</td><td></td><td>True</td><td>17.09.2018 20:39:50</td><td>False</td><td>-114</td></tr>
 <tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td></td><td>False</td><td>24.11.2018 12:08:23</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td></td><td>False</td><td>24.11.2018 12:08:31</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:04</td><td>True</td><td>N/A</td></tr>
@@ -2669,31 +2559,32 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
 <tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:09</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:20</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:30</td><td>True</td><td>N/A</td></tr>
-<tr><td>My User</td><td>myuserPrincipal@evotec.pl</td><td>True</td><td>False</td><td></td><td>my.user2@evotec.pl</td><td></td><td>True</td><td>03.11.2018 18:05:01</td><td>False</td><td>-62</td></tr>
+<tr><td>My User</td><td>myuserPrincipal@evotec.pl</td><td>True</td><td>False</td><td></td><td>my.user2@evotec.pl</td><td></td><td>True</td><td>03.11.2018 18:05:01</td><td>False</td><td>-68</td></tr>
 <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>09.11.2018 17:54:07</td><td>True</td><td>N/A</td></tr>
-<tr><td>My User 2</td><td>myUser2@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td>12.11.2018 21:23:59</td><td>False</td><td>-53</td></tr>
-<tr><td>Test Przemyslaw Klys</td><td>test.przemyslaw.klys@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>przemyslaw.klys@evotec.xyz</td><td></td><td>False</td><td>07.01.2019 19:20:13</td><td>False</td><td>2</td></tr>
+<tr><td>My User 2</td><td>myUser2@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td>12.11.2018 21:23:59</td><td>False</td><td>-58</td></tr>
+<tr><td>Test Przemyslaw Klys1</td><td>test.przemyslaw.klys@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>przemyslaw.klys@evotec.xyz</td><td></td><td>True</td><td>07.01.2019 19:20:13</td><td>False</td><td>N/A</td></tr>
 <tr><td>Weird Name, with $,.</td><td>myweirdtest@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td>11.01.2019 19:51:06</td><td>True</td><td>N/A</td></tr>
 <tr><td>Test My, User</td><td>testmyuser@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td>27.01.2019 13:03:50</td><td>False</td><td>N/A</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Expiring Items"style="color: #ffffff;">Expiring Items
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Expiring Items" style="color: #ffffff;">Expiring Items
 </a>
-<a id="show_1609951899"href="#"onclick="show('1609951899');"style="color: #ffffff; display:none">(Show)
+<a id="show_1087318907" href="#" onclick="show('1087318907');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1609951899"href="#"onclick="hide('1609951899');"style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable"id="1609951899"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Users with Passwords Expiring in less than 7 days"style="color: #ffffff;">Users with Passwords Expiring in less than 7 days
-</a>
-<a id="show_1977939751"href="#"onclick="show('1977939751');"style="color: #ffffff; display:none">(Show)
-</a>
-<a id="hide_1977939751"href="#"onclick="hide('1977939751');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1087318907" href="#" onclick="hide('1087318907');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="1977939751"><script >$(document).ready(function() {$('#DT-tehbgxoj').DataTable({
+<div class="collapsable" id="1087318907"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users with Passwords Expiring in less than 7 days" style="color: #ffffff;">Users with Passwords Expiring in less than 7 days
+</a>
+<a id="show_1694970732" href="#" onclick="show('1694970732');" style="color: #ffffff; display:none">(Show)
+</a>
+<a id="hide_1694970732" href="#" onclick="hide('1694970732');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="collapsable" id="1694970732"><script>                $(document).ready(function() {
+                    $('#DT-5mfpc1oq').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2731,28 +2622,29 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-tehbgxoj"class="display compact"><thead ><tr><th>Name</th><th>Days Until Password Expires</th></tr>
+<table id="DT-5mfpc1oq" class="display compact"><thead><tr><th>Name</th><th>Days Until Password Expires</th></tr>
 </thead>
-<tbody ><tr><td>Special Test User</td><td>-125</td></tr>
-<tr><td>Some Mailbox</td><td>-109</td></tr>
-<tr><td>My User</td><td>-62</td></tr>
-<tr><td>My User 2</td><td>-53</td></tr>
-<tr><td>Test Przemyslaw Klys</td><td>2</td></tr>
+<tbody><tr><td>Special Test User</td><td>-131</td></tr>
+<tr><td>Some Mailbox</td><td>-114</td></tr>
+<tr><td>My User</td><td>-68</td></tr>
+<tr><td>My User 2</td><td>-58</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Accounts Expiring Soon"style="color: #ffffff;">Accounts Expiring Soon
+<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts Expiring Soon" style="color: #ffffff;">Accounts Expiring Soon
 </a>
-<a id="show_111980340"href="#"onclick="show('111980340');"style="color: #ffffff; display:none">(Show)
+<a id="show_1652011172" href="#" onclick="show('1652011172');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_111980340"href="#"onclick="hide('111980340');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1652011172" href="#" onclick="hide('1652011172');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="111980340"><script >$(document).ready(function() {$('#DT-yswxina0').DataTable({
+<div class="collapsable" id="1652011172"><script>                $(document).ready(function() {
+                    $('#DT-shrmv4uj').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2790,11 +2682,12 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-yswxina0"class="display compact"><thead ><tr><th>*</th></tr>
+<table id="DT-shrmv4uj" class="display compact"><thead><tr><th>*</th></tr>
 </thead>
-<tbody ><tr><td>Information: No Users were found to expire soon</td></tr>
+<tbody><tr><td>Information: No Users were found to expire soon</td></tr>
 </tbody>
 </table>
 </div>
@@ -2802,21 +2695,22 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Accounts"style="color: #ffffff;">Accounts
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts" style="color: #ffffff;">Accounts
 </a>
-<a id="show_916572199"href="#"onclick="show('916572199');"style="color: #ffffff; display:none">(Show)
+<a id="show_689726378" href="#" onclick="show('689726378');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_916572199"href="#"onclick="hide('916572199');"style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable"id="916572199"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Users Haven't Logged on in 30 Days or more"style="color: #ffffff;">Users Haven't Logged on in 30 Days or more
-</a>
-<a id="show_1522236686"href="#"onclick="show('1522236686');"style="color: #ffffff; display:none">(Show)
-</a>
-<a id="hide_1522236686"href="#"onclick="hide('1522236686');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_689726378" href="#" onclick="hide('689726378');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="1522236686"><script >$(document).ready(function() {$('#DT-u4bmvs98').DataTable({
+<div class="collapsable" id="689726378"><div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users Haven't Logged on in 30 Days or more" style="color: #ffffff;">Users Haven't Logged on in 30 Days or more
+</a>
+<a id="show_364017073" href="#" onclick="show('364017073');" style="color: #ffffff; display:none">(Show)
+</a>
+<a id="hide_364017073" href="#" onclick="hide('364017073');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="collapsable" id="364017073"><script>                $(document).ready(function() {
+                    $('#DT-7l3wsrjq').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2854,27 +2748,29 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-u4bmvs98"class="display compact"><thead ><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
+<table id="DT-7l3wsrjq" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
 </thead>
-<tbody ><tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td>20.05.2018 16:15:39</td><td>True</td><td>N/A</td></tr>
-<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td>17.09.2018 20:40:45</td><td>False</td><td>-109</td></tr>
-<tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td>True</td><td>False</td><td>24.11.2018 11:56:34</td><td>True</td><td>N/A</td></tr>
-<tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td>True</td><td>False</td><td>24.11.2018 12:09:22</td><td>True</td><td>N/A</td></tr>
+<tbody><tr><td>Administrator</td><td>Administrator@ad.evotec.xyz</td><td>True</td><td>False</td><td>25.12.2018 08:21:23</td><td>True</td><td>N/A</td></tr>
+<tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td>True</td><td>False</td><td>24.11.2018 11:33:52</td><td>True</td><td>N/A</td></tr>
+<tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td>True</td><td>False</td><td>24.11.2018 11:31:30</td><td>True</td><td>N/A</td></tr>
+<tr><td>My User</td><td>myuserPrincipal@evotec.pl</td><td>True</td><td>False</td><td>03.11.2018 18:12:44</td><td>False</td><td>-68</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Accounts Created in 7 Days or Less"style="color: #ffffff;">Accounts Created in 7 Days or Less
+<div class="two defaultColumn defaultCard"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts Created in 7 Days or Less" style="color: #ffffff;">Accounts Created in 7 Days or Less
 </a>
-<a id="show_60814685"href="#"onclick="show('60814685');"style="color: #ffffff; display:none">(Show)
+<a id="show_512615008" href="#" onclick="show('512615008');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_60814685"href="#"onclick="hide('60814685');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_512615008" href="#" onclick="hide('512615008');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="60814685"><script >$(document).ready(function() {$('#DT-a3hy7s60').DataTable({
+<div class="collapsable" id="512615008"><script>                $(document).ready(function() {
+                    $('#DT-l45mtw9n').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2912,11 +2808,12 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-a3hy7s60"class="display compact"><thead ><tr><th>*</th></tr>
+<table id="DT-l45mtw9n" class="display compact"><thead><tr><th>*</th></tr>
 </thead>
-<tbody ><tr><td>Information: No new users have been recently created</td></tr>
+<tbody><tr><td>Information: No new users have been recently created</td></tr>
 </tbody>
 </table>
 </div>
@@ -2924,25 +2821,25 @@ var Piewrbhjuseg4zo = new Chart(ctx, {
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Users Charts"style="color: #ffffff;">Users Charts
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users Charts" style="color: #ffffff;">Users Charts
 </a>
-<a id="show_541941102"href="#"onclick="show('541941102');"style="color: #ffffff; display:none">(Show)
+<a id="show_344268216" href="#" onclick="show('344268216');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_541941102"href="#"onclick="hide('541941102');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_344268216" href="#" onclick="hide('344268216');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="541941102"><div class="three defaultColumn defaultCard"><canvas id="Pieaos975vrle34" width="250" height="250"></canvas>
+<div class="collapsable" id="344268216"><div class="three defaultColumn defaultCard"><canvas id="Piedvc0z2jf7o91" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Pieaos975vrle34");
-var Pieaos975vrle34 = new Chart(ctx, {
+var ctx = document.getElementById("Piedvc0z2jf7o91");
+var Piedvc0z2jf7o91 = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Enabled","Disabled"],
 		datasets: [{
 			label: 'Data',
-			data: [23,25],
-			backgroundColor: ['rgba(168,210,67,0.7)','rgba(166,45,35,0.7)'],
-			hoverBackgroundColor:  ['rgba(168,210,67,1)','rgba(166,45,35,1)'],
+			data: [22,26],
+			backgroundColor: ['rgba(103,221,36,0.7)','rgba(107,135,104,0.7)'],
+			hoverBackgroundColor:  ['rgba(103,221,36,1)','rgba(107,135,104,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2963,18 +2860,18 @@ var Pieaos975vrle34 = new Chart(ctx, {
 });	
  </script>
 </div>
-<div class="three defaultColumn defaultCard"><canvas id="Piegbj31td9vhcq" width="250" height="250"></canvas>
+<div class="three defaultColumn defaultCard"><canvas id="Pie7um5zfh9sdj3" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Piegbj31td9vhcq");
-var Piegbj31td9vhcq = new Chart(ctx, {
+var ctx = document.getElementById("Pie7um5zfh9sdj3");
+var Pie7um5zfh9sdj3 = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Password Expires","Password Never Expires"],
 		datasets: [{
 			label: 'Data',
 			data: [18,30],
-			backgroundColor: ['rgba(28,62,231,0.7)','rgba(55,61,112,0.7)'],
-			hoverBackgroundColor:  ['rgba(28,62,231,1)','rgba(55,61,112,1)'],
+			backgroundColor: ['rgba(136,108,187,0.7)','rgba(139,194,179,0.7)'],
+			hoverBackgroundColor:  ['rgba(136,108,187,1)','rgba(139,194,179,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -2995,18 +2892,18 @@ var Piegbj31td9vhcq = new Chart(ctx, {
 });	
  </script>
 </div>
-<div class="three defaultColumn defaultCard"><canvas id="Piekpw519x7fqsm" width="250" height="250"></canvas>
+<div class="three defaultColumn defaultCard"><canvas id="Pieowxd20lyrz8e" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Piekpw519x7fqsm");
-var Piekpw519x7fqsm = new Chart(ctx, {
+var ctx = document.getElementById("Pieowxd20lyrz8e");
+var Pieowxd20lyrz8e = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Protected","Not Protected"],
 		datasets: [{
 			label: 'Data',
 			data: [0,48],
-			backgroundColor: ['rgba(75,116,193,0.7)','rgba(68,244,38,0.7)'],
-			hoverBackgroundColor:  ['rgba(75,116,193,1)','rgba(68,244,38,1)'],
+			backgroundColor: ['rgba(190,101,73,0.7)','rgba(198,187,216,0.7)'],
+			hoverBackgroundColor:  ['rgba(190,101,73,1)','rgba(198,187,216,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -3031,16 +2928,17 @@ var Piekpw519x7fqsm = new Chart(ctx, {
 </div>
 </div>
 </div>
-<div class="tab-content"><div id="GroupPolicy"class="tab-pane"><h7 >Report: 02-16-2019
+<div class="tab-content"><div id="Tab-g9p0rwey" class="tab-pane"><h7>Report: 02-21-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Group Policies"style="color: #ffffff;">Group Policies
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Group Policies" style="color: #ffffff;">Group Policies
 </a>
-<a id="show_14978697"href="#"onclick="show('14978697');"style="color: #ffffff; display:none">(Show)
+<a id="show_738356320" href="#" onclick="show('738356320');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_14978697"href="#"onclick="hide('14978697');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_738356320" href="#" onclick="hide('738356320');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="14978697"><script >$(document).ready(function() {$('#DT-r80fels3').DataTable({
+<div class="collapsable" id="738356320"><script>                $(document).ready(function() {
+                    $('#DT-s2xnc4yu').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -3078,11 +2976,12 @@ var Piekpw519x7fqsm = new Chart(ctx, {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-r80fels3"class="display compact"><thead ><tr><th>Name</th><th>Status</th><th>Modified Date</th><th>User Version</th><th>Computer Version</th></tr>
+<table id="DT-s2xnc4yu" class="display compact"><thead><tr><th>Name</th><th>Status</th><th>Modified Date</th><th>User Version</th><th>Computer Version</th></tr>
 </thead>
-<tbody ><tr><td>ALL | Enable RDP</td><td>AllSettingsEnabled</td><td>07.08.2018 11:47:44</td><td>1</td><td>1</td></tr>
+<tbody><tr><td>ALL | Enable RDP</td><td>AllSettingsEnabled</td><td>07.08.2018 11:47:44</td><td>1</td><td>1</td></tr>
 <tr><td>ALL | PowerShell Settings</td><td>AllSettingsEnabled</td><td>16.06.2018 11:21:08</td><td>1</td><td>1</td></tr>
 <tr><td>COMPUTERS | Allow use of biometrics</td><td>AllSettingsEnabled</td><td>20.05.2018 22:51:22</td><td>0</td><td>1</td></tr>
 <tr><td>Default Domain Policy</td><td>AllSettingsEnabled</td><td>20.05.2018 08:59:46</td><td>0</td><td>3</td></tr>
@@ -3100,16 +2999,17 @@ var Piekpw519x7fqsm = new Chart(ctx, {
 </div>
 </div>
 </div>
-<div class="tab-content"><div id="Computers"class="tab-pane"><h7 >Report: 02-16-2019
+<div class="tab-content"><div id="Tab-cwo376fn" class="tab-pane"><h7>Report: 02-21-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Computers Overivew"style="color: #ffffff;">Computers Overivew
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Computers Overivew" style="color: #ffffff;">Computers Overivew
 </a>
-<a id="show_66863460"href="#"onclick="show('66863460');"style="color: #ffffff; display:none">(Show)
+<a id="show_1707043086" href="#" onclick="show('1707043086');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_66863460"href="#"onclick="hide('66863460');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1707043086" href="#" onclick="hide('1707043086');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="66863460"><script >$(document).ready(function() {$('#DT-os9aiu7w').DataTable({
+<div class="collapsable" id="1707043086"><script>                $(document).ready(function() {
+                    $('#DT-vj8lu342').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -3147,23 +3047,25 @@ var Piekpw519x7fqsm = new Chart(ctx, {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-os9aiu7w"class="display compact"><thead ><tr><th>Windows 10</th><th>Windows Server 2012 R2</th><th>Windows Server 2016</th><th>Windows Server 2019</th><th>Total Computers</th></tr>
+<table id="DT-vj8lu342" class="display compact"><thead><tr><th>Windows 10</th><th>Windows Server 2012 R2</th><th>Windows Server 2016</th><th>Windows Server 2019</th><th>Total Computers</th></tr>
 </thead>
-<tbody ><tr><td>3</td><td>1</td><td>6</td><td>1</td><td>15</td></tr>
+<tbody><tr><td>3</td><td>1</td><td>6</td><td>1</td><td>15</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Computers"style="color: #ffffff;">Computers
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Computers" style="color: #ffffff;">Computers
 </a>
-<a id="show_1756910308"href="#"onclick="show('1756910308');"style="color: #ffffff; display:none">(Show)
+<a id="show_1277244749" href="#" onclick="show('1277244749');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1756910308"href="#"onclick="hide('1756910308');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1277244749" href="#" onclick="hide('1277244749');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="1756910308"><script >$(document).ready(function() {$('#DT-6c3l714j').DataTable({
+<div class="collapsable" id="1277244749"><script>                $(document).ready(function() {
+                    $('#DT-2l6cy1g9').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -3201,48 +3103,49 @@ var Piekpw519x7fqsm = new Chart(ctx, {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});});
+});
+                });            
 </script>
-<table id="DT-6c3l714j"class="display compact"><thead ><tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr>
+<table id="DT-2l6cy1g9" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr>
 </thead>
-<tbody ><tr><td>AD1</td><td>True</td><td>Windows Server 2016 Standard</td><td>09.02.2019 01:30:43</td><td>20.01.2019 11:22:35</td><td>False</td></tr>
-<tr><td>EVO1</td><td>True</td><td>Windows 10 Enterprise</td><td>08.02.2019 01:30:10</td><td>19.01.2019 20:28:49</td><td>False</td></tr>
-<tr><td>AD2</td><td>True</td><td>Windows Server 2016 Standard</td><td>21.12.2018 17:53:03</td><td>10.12.2018 23:10:27</td><td>False</td></tr>
-<tr><td>EX2016X1</td><td>True</td><td>Windows Server 2016 Standard</td><td>09.09.2018 11:41:14</td><td>07.06.2018 21:28:39</td><td>False</td></tr>
-<tr><td>DESKTOP-CQESSGI</td><td>True</td><td>Windows 10 Pro</td><td>09.02.2019 17:13:44</td><td>17.01.2019 19:49:27</td><td>False</td></tr>
-<tr><td>DESKTOP-68J4BAT</td><td>True</td><td>Windows 10 Pro N</td><td>15.02.2019 19:24:03</td><td>30.01.2019 16:58:25</td><td>False</td></tr>
-<tr><td>EX2013X1</td><td>True</td><td>Windows Server 2016 Standard</td><td>20.11.2018 15:49:15</td><td>20.11.2018 15:49:15</td><td>False</td></tr>
-<tr><td>EX2013X2</td><td>True</td><td>Windows Server 2016 Standard</td><td>26.08.2018 09:46:38</td><td>07.08.2018 17:10:18</td><td>False</td></tr>
-<tr><td>EX2013X3</td><td>True</td><td>Windows Server 2012 R2 Standard Evaluation</td><td>24.11.2018 08:23:51</td><td>24.11.2018 08:23:36</td><td>False</td></tr>
-<tr><td>Test2</td><td>True</td><td></td><td>15.09.2018 12:47:10</td><td>15.09.2018 12:36:25</td><td>False</td></tr>
-<tr><td>Test4</td><td>True</td><td></td><td>15.09.2018 12:53:01</td><td>15.09.2018 12:47:16</td><td>False</td></tr>
-<tr><td>Test5</td><td>False</td><td></td><td>02.10.2018 20:15:00</td><td>02.10.2018 20:15:00</td><td>False</td></tr>
-<tr><td>TestingDSInstall</td><td>True</td><td></td><td>01.10.2018 13:38:49</td><td>01.10.2018 13:38:49</td><td>False</td></tr>
-<tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>10.02.2019 02:16:04</td><td>20.01.2019 18:38:57</td><td>False</td></tr>
-<tr><td>ADFS2019</td><td>True</td><td>Windows Server 2019 Standard Evaluation</td><td>30.01.2019 10:10:44</td><td>30.01.2019 10:09:30</td><td>False</td></tr>
+<tbody><tr><td>AD2</td><td>True</td><td>Windows Server 2016 Standard</td><td>16.02.2019 18:17:16</td><td>16.02.2019 18:16:49</td><td>False</td></tr>
+<tr><td>AD1</td><td>True</td><td>Windows Server 2016 Standard</td><td>19.02.2019 15:45:25</td><td>19.02.2019 15:44:39</td><td>False</td></tr>
+<tr><td>EVO1</td><td>True</td><td>Windows 10 Enterprise</td><td>19.02.2019 01:27:57</td><td>19.02.2019 01:27:49</td><td>False</td></tr>
+<tr><td>EX2016X1</td><td>True</td><td>Windows Server 2016 Standard</td><td>09.09.2018 15:38:10</td><td>07.06.2018 21:28:39</td><td>False</td></tr>
+<tr><td>DESKTOP-CQESSGI</td><td>True</td><td>Windows 10 Pro</td><td>19.02.2019 17:47:46</td><td>17.02.2019 01:56:28</td><td>False</td></tr>
+<tr><td>DESKTOP-68J4BAT</td><td>True</td><td>Windows 10 Pro N</td><td>19.02.2019 22:37:25</td><td>30.01.2019 16:58:25</td><td>False</td></tr>
+<tr><td>EX2013X1</td><td>True</td><td>Windows Server 2016 Standard</td><td>20.11.2018 15:49:24</td><td>20.11.2018 15:49:15</td><td>False</td></tr>
+<tr><td>EX2013X2</td><td>True</td><td>Windows Server 2016 Standard</td><td>09.09.2018 15:38:10</td><td>07.08.2018 17:10:18</td><td>False</td></tr>
+<tr><td>EX2013X3</td><td>True</td><td>Windows Server 2012 R2 Standard Evaluation</td><td>24.11.2018 08:23:36</td><td>24.11.2018 08:23:36</td><td>False</td></tr>
+<tr><td>Test2</td><td>True</td><td></td><td>15.09.2018 12:47:13</td><td>15.09.2018 12:36:25</td><td>False</td></tr>
+<tr><td>Test4</td><td>True</td><td></td><td>15.09.2018 12:53:03</td><td>15.09.2018 12:47:16</td><td>False</td></tr>
+<tr><td>Test5</td><td>False</td><td></td><td>02.10.2018 20:15:16</td><td>02.10.2018 20:15:00</td><td>False</td></tr>
+<tr><td>TestingDSInstall</td><td>True</td><td></td><td>01.10.2018 13:39:04</td><td>01.10.2018 13:38:49</td><td>False</td></tr>
+<tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>20.02.2019 15:50:12</td><td>20.02.2019 15:49:57</td><td>False</td></tr>
+<tr><td>ADFS2019</td><td>True</td><td>Windows Server 2019 Standard Evaluation</td><td>16.02.2019 18:17:16</td><td>30.01.2019 10:09:30</td><td>False</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Computers Charts"style="color: #ffffff;">Computers Charts
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Computers Charts" style="color: #ffffff;">Computers Charts
 </a>
-<a id="show_863622009"href="#"onclick="show('863622009');"style="color: #ffffff; display:none">(Show)
+<a id="show_1179990777" href="#" onclick="show('1179990777');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_863622009"href="#"onclick="hide('863622009');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1179990777" href="#" onclick="hide('1179990777');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="863622009"><div class="two defaultColumn defaultCard"><canvas id="Pie032qhsceryxu" width="250" height="250"></canvas>
+<div class="collapsable" id="1179990777"><div class="two defaultColumn defaultCard"><canvas id="Piesnrjawv146el" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Pie032qhsceryxu");
-var Pie032qhsceryxu = new Chart(ctx, {
+var ctx = document.getElementById("Piesnrjawv146el");
+var Piesnrjawv146el = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Protected","Not Protected"],
 		datasets: [{
 			label: 'Data',
 			data: [,15],
-			backgroundColor: ['rgba(83,149,124,0.7)','rgba(88,175,150,0.7)'],
-			hoverBackgroundColor:  ['rgba(83,149,124,1)','rgba(88,175,150,1)'],
+			backgroundColor: ['rgba(78,244,125,0.7)','rgba(92,235,114,0.7)'],
+			hoverBackgroundColor:  ['rgba(78,244,125,1)','rgba(92,235,114,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -3263,18 +3166,18 @@ var Pie032qhsceryxu = new Chart(ctx, {
 });	
  </script>
 </div>
-<div class="two defaultColumn defaultCard"><canvas id="Pieso1x8wd64vqt" width="250" height="250"></canvas>
+<div class="two defaultColumn defaultCard"><canvas id="Pieg5xh7bw3mstf" width="250" height="250"></canvas>
 <script>
-var ctx = document.getElementById("Pieso1x8wd64vqt");
-var Pieso1x8wd64vqt = new Chart(ctx, {
+var ctx = document.getElementById("Pieg5xh7bw3mstf");
+var Pieg5xh7bw3mstf = new Chart(ctx, {
 	type: 'doughnut',
 	data:	{
 		labels: ["Enabled","Disabled"],
 		datasets: [{
 			label: 'Data',
 			data: [14,1],
-			backgroundColor: ['rgba(165,151,170,0.7)','rgba(187,148,59,0.7)'],
-			hoverBackgroundColor:  ['rgba(165,151,170,1)','rgba(187,148,59,1)'],
+			backgroundColor: ['rgba(132,5,96,0.7)','rgba(136,104,61,0.7)'],
+			hoverBackgroundColor:  ['rgba(132,5,96,1)','rgba(136,104,61,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -3297,25 +3200,25 @@ var Pieso1x8wd64vqt = new Chart(ctx, {
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader"style="text-align: center;"><a name="Computers Operating System Breakdown"style="color: #ffffff;">Computers Operating System Breakdown
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Computers Operating System Breakdown" style="color: #ffffff;">Computers Operating System Breakdown
 </a>
-<a id="show_794759559"href="#"onclick="show('794759559');"style="color: #ffffff; display:none">(Show)
+<a id="show_228981066" href="#" onclick="show('228981066');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_794759559"href="#"onclick="hide('794759559');"style="color: #ffffff; display:none;">(Hide)
+<a id="hide_228981066" href="#" onclick="hide('228981066');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable"id="794759559"><canvas id="Pieim3fapldwv0y" width="500" height="400"></canvas>
+<div class="collapsable" id="228981066"><canvas id="Piez7dhc2859txe" width="500" height="400"></canvas>
 <script>
-var ctx = document.getElementById("Pieim3fapldwv0y");
-var Pieim3fapldwv0y = new Chart(ctx, {
+var ctx = document.getElementById("Piez7dhc2859txe");
+var Piez7dhc2859txe = new Chart(ctx, {
 	type: 'pie',
 	data:	{
 		labels: ["Windows 10","Windows Server 2012 R2","Windows Server 2016","Windows Server 2019"],
 		datasets: [{
 			label: 'Data',
 			data: [3,1,6,1],
-			backgroundColor: ['rgba(214,109,151,0.7)','rgba(44,107,122,0.7)','rgba(239,110,80,0.7)','rgba(201,98,114,0.7)'],
-			hoverBackgroundColor:  ['rgba(214,109,151,1)','rgba(44,107,122,1)','rgba(239,110,80,1)','rgba(201,98,114,1)'],
+			backgroundColor: ['rgba(56,117,38,0.7)','rgba(228,124,29,0.7)','rgba(238,114,207,0.7)','rgba(39,120,62,0.7)'],
+			hoverBackgroundColor:  ['rgba(56,117,38,1)','rgba(228,124,29,1)','rgba(238,114,207,1)','rgba(39,120,62,1)'],
 			borderWidth: 1
 		}]
 	},
@@ -3340,14 +3243,8 @@ var Pieim3fapldwv0y = new Chart(ctx, {
 </div>
 </div>
 <!-- FOOTER -->
-<footer ><div class="defaultFooter">Copyright &#169; 2019. All Rights Reserved.
+<footer><div class="defaultFooter">Copyright &#169; 2019. All Rights Reserved.
 </div>
-<style id="datatables_crazyfix">                    .tab-content .tab-pane {
-                        visibility: hidden;
-                        display: block;
-                    }
-</style>
-<!-- SCRIPT -->
 <script type="text/javascript">                    // INIT CODE - simple page-wide initialization based on css selectors
                     // - highlight all pre + code tags (CSS3 selectors)
                     // - use javascript as default language
@@ -3359,11 +3256,6 @@ var Pieim3fapldwv0y = new Chart(ctx, {
                             indent: 2
                         });
 </script>
-<script type="text/javascript">                    jQuery(function($) {
-                            $("#datatables_crazyfix").remove();
-                        });
-</script>
-<!-- END SCRIPTS -->
 </footer>
 <!-- END FOOTER -->
 </body>

@@ -20,17 +20,10 @@ function New-HTMLTable {
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
-    [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8)"
+    [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8)" # this builds table ID
     [Array] $Table = $DataTable | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
-    [string] $Header = $Table | Select-Object -First 1
-    $Table = $Table | Select-Object -Skip 1
-
-
-    if ($Simplify) {
-        $TableAttributes = @{ class = 'sortable' }
-    } else {
-        $TableAttributes = @{ id = $DataTableName; class = ($Style -join ' ') }
-    }
+    [string] $Header = $Table | Select-Object -First 1 # this gets header 
+    $Table = $Table | Select-Object -Skip 1 # this gets actuall table content 
 
     $Options = [ordered] @{
         <# DOM Definition: https://datatables.net/reference/option/dom
@@ -76,50 +69,43 @@ function New-HTMLTable {
 
 
     [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })
-    #Write-Color "Tabs count ", $Tabs.Count
-    #Write-COlor $Tabs[0].Name, ' ', $Tabs[0].Used, ' ', $Tabs[0].Active, ' ', $Tabs[0].Current
-    #Write-Color $Tabs[0].Name, ' Current: ', $Tabs[0].Current, ' Active: ', $Tabs[0].Active
-    
+    if ($Tabs.Count -eq 0) {
+        # There are no tabs in use, pretend there is only one Active Tab
+        $Tab = @{ Active = $true }
+    } else {
+        # Get First Tab
+        $Tab = $Tabs[0]
+    }
+
     # return data
     if (-not $Simplify) {
-        if ($Tabs[0].Active -eq $true) {
-        #if ($Script:HTMLSchema.Tabs.Count -le 1) {
+        $TableAttributes = @{ id = $DataTableName; class = ($Style -join ' ') }
+        if ($Tab.Active -eq $true) {
             New-HTMlTag -Tag 'script' {
-
                 @"
-            `$(document).ready(function() {
-                
-                `$('#$DataTableName').DataTable($($Options));
-
-        });            
+                `$(document).ready(function() {
+                    `$('#$DataTableName').DataTable($($Options));
+                });            
 "@
             }
-
         } else {
-            #            $TabName = $Script:HTMLSchema.Tabs[-1]
-            #$TabName = $Script:HTMLSchema.TabsCurrent.Id
-            $TabName = $Tabs[0].Id
-
+            [string] $TabName = $Tab.Id
             New-HTMlTag -Tag 'script' {
-
                 @"
-            `$(document).ready(function() {
-                `$('a').on('click', function() {
-                if (
-                                            `$(this).attr("href") == "#$TabName" &&
-                                            !$.fn.dataTable.isDataTable(
-                                                "#$DataTableName"
-                                            )
-                                        ) {
-                `$('#$DataTableName').DataTable($($Options));
-            };
-            });
-        });            
+                    `$(document).ready(function() {
+                        `$('a').on('click', function() {
+                            if (`$(this).attr("href") == "#$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
+                                `$('#$DataTableName').DataTable($($Options));
+                            };
+                        });
+                    });            
 "@
             }
-
         }
+    } else {
+        $TableAttributes = @{ class = 'sortable' }
     }
+    # Build HTML TABLE
     New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
         New-HTMLTag -Tag 'thead' {
             $Header

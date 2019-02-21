@@ -81,7 +81,7 @@ $CodeBlocksXML = @'
 
 $HTML = New-Html -UseCssLinks -UseStyleLinks -HideLogos -HideDate {
     New-HTMLTabHeader -TabNames 'Coding', 'Other'
-    New-HTMLTab -TabName 'Coding' {
+    New-HTMLTab  {
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Group 'Test123' -Title 'PowerShell Code 1' -Theme godzilla -Highlight '2-5, 13'
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Group 'Test123' -Title 'PowerShell Code 2'
@@ -93,7 +93,7 @@ $HTML = New-Html -UseCssLinks -UseStyleLinks -HideLogos -HideDate {
             New-HTMLCodeBlock -Code $CodeBlocksXML -Style 'xml' -Highlight '12, 19'
         }
     }
-    New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
+    New-HTMLTab -TabHeading 'Test 2' {
 
     }
 }

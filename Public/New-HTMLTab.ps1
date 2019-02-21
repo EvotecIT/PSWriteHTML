@@ -2,46 +2,44 @@ function New-HTMLTab {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $HtmlData = $(Throw "No curly brace?)"),
-        [alias('TabName')][Parameter(Mandatory, Position = 1)][String] $Name,
-        [Parameter(Mandatory = $false, Position = 2)][String]$TabHeading
+        [Parameter(Mandatory = $false, Position = 1)][String]$TabHeading,
+        [alias('Name')][string] $TabName
     )
-    <#
-    $Script:HTMLSchema.Tabs.Add($Name)
-
-    $TabInformation = foreach ($Tab in $Script:HTMLSchema.TabsHeaders) {
-        if ($Tab.Name -eq $Name) {          
-            if ($Tab.Number -eq 0) {
-                $Class = 'tab-pane active'
-            } else {
-                $Class = 'tab-pane'
-            }
-            $Tab
-            $Script:HTMLSchema.TabsCurrent = $Tab
-            break           
+    if ($TabName -ne '') {
+        # Start - Just in case you prefer to use old way - can be useful with tabs created out of order
+        [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Name -eq $TabName})
+        if ($Tabs.Count -gt 0) {
+            $Tab = $Tabs[0]
+            $Tab.Used = $true
+            $Tab.Current = $true
+        } else {
+            Write-Warning "New-HTMLTab - Tab name $TabName is not defined in TabHeaders. Terminating!"
+            Exit
         }
+        # End
+    } else {
+        # Start Tabs Tracking - This code gets tab names from TabHeaders and uses its data. No need to define Tab Names for New-HTMLTab
+        $Script:HTMLSchema.TabsHeaders | ForEach-Object { $_.Current = $false }
+        [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Used -eq $false })
+        if ($Tabs.Count -gt 0) {
+            $Tab = $Tabs[0]
+            $Tab.Used = $true
+            $Tab.Current = $true
+        } else {
+            Write-Warning "New-HTMLTab - There are no unused tabs. Either TableHeaders are not defined or there are not enough of them. Terminating!"
+            Exit
+        }
+        # End Tabs Tracking
     }
-    #>
-    # $Script:HTMLSchema.TabsHeaders.Count
-    $Script:HTMLSchema.TabsHeaders | ForEach-Object { $_.Current = $false }
-    [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Used -eq $false })
-    #Write-Color "Tabs count ", $Tabs.Count
-    #Write-COlor $Tabs[0].Name, ' ', $Tabs[0].Used, ' ', $Tabs[0].Active, ' ', $Tabs[0].Current
-    #$Tabs[0] | Format-Stream
-    $Tabs[0].Used = $true
-    $Tabs[0].Current = $true
-    if ($Tabs[0].Active) {
+    if ($Tab.Active) {
         $Class = 'tab-pane active'
     } else {
         $Class = 'tab-pane'
     }
 
-
-    #Write-Verbose 
-
     # This is building HTML
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'tab-content' } {
-        New-HTMLTag -Tag 'div' -Attributes @{ id = $Tabs[0].ID; class = $Class } {
-            #New-HTMLTag -Tag 'div' -Attributes @{ id = $Name; class = 'insideTab' } {
+        New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $Class } {
             if (-not [string]::IsNullOrWhiteSpace($TabHeading)) {
                 New-HTMLTag -Tag 'h7' {
                     $TabHeading
@@ -50,11 +48,4 @@ function New-HTMLTab {
             Invoke-Command -ScriptBlock $HtmlData
         }
     }
-    
-    <#
-    New-HTMLResourceJS -Content {
-        #// Get the element with id="defaultOpen" and click on it
-        'document.getElementById("defaultOpen").click();'
-    } 
-    #>  
 }
