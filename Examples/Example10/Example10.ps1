@@ -35,6 +35,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             }
         }
     }
+    <#
     
     New-HTMLTab {
         New-HTMLColumn {
@@ -80,6 +81,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             }
         }
     }
+    #>
     
 }
 
