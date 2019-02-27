@@ -188,50 +188,6 @@ div.defaultColumn {
     padding: 2px;
 }
 
-div.one {
-    width: calc(100% - 10px);
-
-    /*  overflow: hidden;NEW 
-    overflow-x: hidden;
-    overflow-y: hidden;*/
-}
-
-/* New-HTMLColumn has this built-in
-div.two {
-    width: calc(100% / 2 - 10px);
-}
-div.three {
-    width: calc(100% / 3 - 10px);
-}
-div.four {
-    width: calc(100% / 4 - 10px);
-}
-div.five {
-    width: calc(100% / 5 - 10px);
-}
-div.six {
-    width: calc(100% / 6 - 10px);
-}
-div.seven {
-    width: calc(100% / 7 - 10px);
-}
-div.eight {
-    width: calc(100% / 8 - 10px);
-}
-div.nine {
-    width: calc(100% / 9 - 10px);
-}
-div.ten {
-    width: calc(100% / 10 - 10px);
-}
-div.eleven {
-    width: calc(100% / 11 - 10px);
-}
-div.twelve {
-    width: calc(100% / 12 - 10px);
-}
-*/
-
 a.alink:link {
     color: #007bff;
     text-decoration: none;
