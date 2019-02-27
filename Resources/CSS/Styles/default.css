@@ -284,34 +284,3 @@ img {
     margin: 1%;
     flex: 1;
 }
-
-/* Skeleton-tabs */
-
-ul.tab-nav {
-    list-style: none;
-    border-bottom: 1px solid #bbb;
-    padding-left: 5px;
-}
-
-ul.tab-nav li {
-    display: inline;
-}
-
-ul.tab-nav li a.button {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-bottom: -1px;
-    border-bottom: none;
-}
-
-ul.tab-nav li a.active.button {
-    border-bottom: 0.175em solid #fff;
-}
-
-.tab-content .tab-pane {
-    display: none;
-}
-
-.tab-content .tab-pane.active {
-    display: block;
-}
