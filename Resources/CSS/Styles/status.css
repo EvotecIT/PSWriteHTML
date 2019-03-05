@@ -1,0 +1,105 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300);
+.buttonicalService {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.buttonical {
+    z-index: 0;
+    height: 80px;
+    float: none;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 40px;
+    display: block;
+    box-shadow: 0 2px 4px -1px rgba(25, 25, 25, 0.2);
+}
+.buttonical input {
+    display: none;
+}
+.buttonical .label {
+    display: table;
+    float: left;
+    padding: 0;
+    width: calc(100% / 3);
+    height: 100%;
+    margin: 0;
+    text-align: center;
+  /*   border-left: 1px solid rgba(0, 0, 0, 0.05); */
+}
+.buttonical .middle {
+    display: table;
+    float: left;
+    padding: 0;
+    width: calc(100% / 3);
+    height: 100%;
+    margin: 0;
+    text-align: center;
+   /* border-left: 1px solid rgba(0, 0, 0, 0.05); */
+}
+.buttonical .status {
+    display: table;
+    float: left;
+    padding: 0;
+    width: calc(100% / 3);
+    height: 100%;
+    margin: 0;
+    text-align: center;
+   /* border-left: 1px solid rgba(0, 0, 0, 0.05); */
+}
+.buttonical .label:first-child {
+    border-left: none;
+    border-radius: 40px 0 0 40px;
+}
+.buttonical .label:last-child {
+    border-radius: 0 40px 40px 0;
+}
+.buttonical .performance {
+    font-size: 19px;
+    cursor: pointer;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: 300;
+    color: #fff;
+}
+.buttonical .performance:after {
+    content: "\2714";
+
+    margin-left: -10px;
+    display: inline-block;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.buttonical .performanceProblem:after {
+    content: "\2639";
+
+    margin-left: -10px;
+    display: inline-block;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.buttonical .performanceDead:after {
+    content: "\2620";
+    margin-left: -10px;
+    display: inline-block;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.buttonical .first {
+    border-radius: 40px 0 0 40px;
+}
+.buttonical .last {
+    border-radius: 0 40px 40px 0;
+}
+.buttonical input:checked + .performance {
+    color: #5f6982;
+}
+.buttonical input:checked + .performance:after {
+    margin-left: 12px;
+
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+}

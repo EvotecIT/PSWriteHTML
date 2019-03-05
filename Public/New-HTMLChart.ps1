@@ -19,12 +19,13 @@ function New-HTMLChart {
         [bool] $LineShow = $true,
         [ValidateSet('straight', 'smooth')] $LineCurve = 'straight',
         $LineWidth = 2,
-        [RGBColors[]] $LineColor
+        [RGBColors[]] $LineColor,
+        [ValidateSet('', 'central')][string] $Positioning
     )
 
     $ID = "ChartID-" + (Get-RandomStringName -Size 8)
 
-    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID } 
+    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = $Positioning } 
     $Script = New-HTMLTag -Tag 'script' -Value {
 
         $Options = [ordered] @{}

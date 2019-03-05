@@ -8,7 +8,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -UseStyleLinks:$true {
 
     New-HTMLContent -HeaderText '0 section' {
-        New-HTMLColumn -ColumnCount 3 {
+        New-HTMLColumn -ColumnCount 12 {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLColumn -ColumnCount 3 {

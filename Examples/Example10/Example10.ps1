@@ -17,7 +17,10 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
                 New-HTMLTable -DataTable $Processes -HideFooter
             }
             New-HTMLColumn -ColumnCount 3 {
-                #New-HTMLTable -DataTable $Processes -HideFooter -Simplify
+                New-HTMLTable -DataTable $Processes -HideFooter -Simplify
+            }
+            New-HTMLColumn -ColumnCount 12 {
+                New-HTMLTable -DataTable $Processes -HideFooter
             }
         }
     }

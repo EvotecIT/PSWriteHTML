@@ -66,13 +66,15 @@ Function New-HTMLReportOptions {
     $StyleHeaderContent.Add((Get-HTMLCSS -Builtin -UseLinks:$UseStyleLinks))
     $StyleHeaderContent.Add((Get-HTMLCSS -CSSPath $CSSPath -CSSName $CSSName))
 
-
     $Options = [PSCustomObject] @{
         Logos         = $LogoSources
         ScriptContent = $ScriptHeaderContent
         StyleContent  = $StyleHeaderContent
         ColorSchemes  = $ColorSchemes
     }
+    # Converts Styles to their binary representation
+    Convert-StyleContent -Options $Options
+
     set-variable -Name GlobalColorSchemes -Value $ColorSchemes -Scope Global
     if ([string]::IsNullOrEmpty($SaveOptionsPath)) {
         Write-Output $Options
