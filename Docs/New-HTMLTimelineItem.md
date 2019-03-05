@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLTab
+# New-HTMLTimelineItem
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLTab [[-HtmlData] <ScriptBlock>] [[-TabHeading] <String>] [-TabName <String>] [<CommonParameters>]
+New-HTMLTimelineItem [[-Date] <Object>] [[-HeadingText] <Object>] [[-Text] <Object>]
 ```
 
 ## DESCRIPTION
@@ -30,11 +30,11 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -HtmlData
-{{Fill HtmlData Description}}
+### -Date
+{{Fill Date Description}}
 
 ```yaml
-Type: ScriptBlock
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -45,11 +45,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TabHeading
-{{Fill TabHeading Description}}
+### -HeadingText
+{{Fill HeadingText Description}}
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -60,23 +60,20 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TabName
-{{Fill TabName Description}}
+### -Text
+{{Fill Text Description}}
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
-Aliases: Name
+Aliases:
 
 Required: False
-Position: Named
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
-
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

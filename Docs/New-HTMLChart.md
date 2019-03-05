@@ -17,7 +17,8 @@ New-HTMLChart [[-Height] <Int32>] [[-Width] <Int32>] [[-Type] <String>] [[-Horiz
  [[-DataLabelsEnabled] <Boolean>] [[-DataLabelsOffsetX] <Int32>] [[-DataLabelsFontSize] <String>]
  [[-DataLabelsColor] <RGBColors>] [[-Data] <Array>] [[-DataNames] <Array>] [[-DataCategories] <Array>]
  [[-DataCategoriesType] <String>] [[-TitleText] <String>] [[-TitleAlignment] <String>] [[-LineShow] <Boolean>]
- [[-LineCurve] <Object>] [[-LineWidth] <Object>] [[-LineColor] <RGBColors[]>] [<CommonParameters>]
+ [[-LineCurve] <Object>] [[-LineWidth] <Object>] [[-LineColor] <RGBColors[]>] [[-Positioning] <String>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -243,6 +244,22 @@ Aliases:
 
 Required: False
 Position: 16
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Positioning
+{{Fill Positioning Description}}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: , central
+
+Required: False
+Position: 18
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

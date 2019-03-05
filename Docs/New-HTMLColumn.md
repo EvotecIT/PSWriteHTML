@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLColumn [[-Content] <ScriptBlock>] [-Columns <String>] [-BackgroundColor <RGBColors>]
+New-HTMLColumn [[-Content] <ScriptBlock>] [-Columns <String>] [-BackgroundColor <RGBColors>] [-Invisible]
  [<CommonParameters>]
 ```
 
@@ -54,7 +54,7 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases: ColumnCount
-Accepted values: 1, 2, 3, 4, 5, 6
+Accepted values: 1, 2, 3, 4, 5 , 6, 7, 8, 9, 10, 11, 12
 
 Required: False
 Position: Named
@@ -73,6 +73,21 @@ Aliases:
 
 Required: False
 Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Invisible
+{{Fill Invisible Description}}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

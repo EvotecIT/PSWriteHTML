@@ -16,8 +16,8 @@ schema: 2.0.0
 New-HTML [[-HtmlData] <ScriptBlock>] [-UseCssLinks] [-UseStyleLinks] [-TitleText <String>] [-CSSPath <String>]
  [-CSSName <String>] [-ScriptPath <String>] [-ColorSchemePath <String>] [-LogoPath <String>]
  [-LeftLogoName <String>] [-RightLogoName <String>] [-LeftLogoString <String>] [-RightLogoString <String>]
- [-HideLogos] [-HideTitle] [-NoScript] [-PrimaryColorHex <String>] [-AddAuthor] [-Author <String>] [-HideDate]
- [-DateFormat <String>] [-FooterText <String>] [<CommonParameters>]
+ [-HideLogos] [-NoScript] [-PrimaryColorHex <String>] [-AddAuthor] [-Author <String>] [-DateFormat <String>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -124,53 +124,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -FooterText
-{{Fill FooterText Description}}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -HideDate
-{{Fill HideDate Description}}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -HideLogos
 {{Fill HideLogos Description}}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -HideTitle
-{{Fill HideTitle Description}}
 
 ```yaml
 Type: SwitchParameter

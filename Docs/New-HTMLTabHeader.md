@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLTabHeader [-TabNames] <Array> [[-DefaultTab] <String>] [<CommonParameters>]
+New-HTMLTabHeader [-TabNames] <String[]> [[-DefaultTab] <String>] [[-TabsType] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -49,12 +49,27 @@ Accept wildcard characters: False
 {{Fill TabNames Description}}
 
 ```yaml
-Type: Array
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
 Required: True
 Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TabsType
+{{Fill TabsType Description}}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

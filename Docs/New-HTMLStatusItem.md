@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLTab
+# New-HTMLStatusItem
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
@@ -13,7 +13,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLTab [[-HtmlData] <ScriptBlock>] [[-TabHeading] <String>] [-TabName <String>] [<CommonParameters>]
+New-HTMLStatusItem [[-ServiceName] <Object>] [[-ServiceStatus] <Object>] [[-Icon] <Object>]
+ [[-Percentage] <String>]
 ```
 
 ## DESCRIPTION
@@ -30,11 +31,43 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -HtmlData
-{{Fill HtmlData Description}}
+### -Icon
+{{Fill Icon Description}}
 
 ```yaml
-Type: ScriptBlock
+Type: Object
+Parameter Sets: (All)
+Aliases:
+Accepted values: Dead, Bad, Good
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Percentage
+{{Fill Percentage Description}}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: 0%, 10%, 30%, 70%, 100%
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ServiceName
+{{Fill ServiceName Description}}
+
+```yaml
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -45,11 +78,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TabHeading
-{{Fill TabHeading Description}}
+### -ServiceStatus
+{{Fill ServiceStatus Description}}
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -59,24 +92,6 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
-
-### -TabName
-{{Fill TabName Description}}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: Name
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

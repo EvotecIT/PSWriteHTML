@@ -71,6 +71,12 @@ Creates a section in HTML
 ### [New-HTMLImage](New-HTMLImage.md)
 Short description
 
+### [New-HTMLResourceCSS](New-HTMLResourceCSS.md)
+{{Fill in the Synopsis}}
+
+### [New-HTMLResourceJS](New-HTMLResourceJS.md)
+{{Fill in the Synopsis}}
+
 ### [New-HTMLTab](New-HTMLTab.md)
 {{Fill in the Synopsis}}
 

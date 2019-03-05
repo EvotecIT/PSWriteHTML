@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLTab
+# New-HTMLMessage
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLTab [[-HtmlData] <ScriptBlock>] [[-TabHeading] <String>] [-TabName <String>] [<CommonParameters>]
+New-HTMLMessage [[-Content] <ScriptBlock>] [-Text <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,8 +30,8 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -HtmlData
-{{Fill HtmlData Description}}
+### -Content
+{{Fill Content Description}}
 
 ```yaml
 Type: ScriptBlock
@@ -45,28 +45,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TabHeading
-{{Fill TabHeading Description}}
+### -Text
+{{Fill Text Description}}
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
-
-Required: False
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -TabName
-{{Fill TabName Description}}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: Name
 
 Required: False
 Position: Named
@@ -76,7 +61,8 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
