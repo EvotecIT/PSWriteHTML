@@ -10,14 +10,14 @@ ul.tab-nav li {
     display: inline;
 }
 
-ul.tab-nav li a.button {
+ul.tab-nav li a.buttonTab {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     margin-bottom: -1px;
     border-bottom: none;
 }
 
-ul.tab-nav li a.active.button {
+ul.tab-nav li a.active.buttonTab {
     border-bottom: 0.175em solid #fff;
 }
 

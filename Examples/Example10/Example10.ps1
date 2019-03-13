@@ -7,8 +7,8 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -UseCssLinks:$true `
     -UseStyleLinks:$true {
 
-    New-HTMLTabHeader -TabNames 'Test', 'Test 5555', 'Test2', 'Test3', 'Test4', 'Test5','Test2'
-    New-HtmlTab {
+    #New-HTMLTabHeader -TabNames 'Test', 'Test 5555', 'Test2', 'Test3', 'Test4', 'Test5','Test2'
+    New-HtmlTab -TabName 'Test' {
         New-HTMLContent -HeaderText '0 section' {
             New-HTMLColumn -ColumnCount 3 {
                 New-HTMLTable -ArrayOfObjects $Processes -HideFooter
@@ -24,7 +24,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             }
         }
     }
-    New-HTMLTab {
+    New-HTMLTab -TabName 'Test5' {
         New-HTMLContent -HeaderText '1 section' {
             New-HTMLColumn -ColumnCount 3 {
                 New-HTMLTable -ArrayOfObjects $Processes -HideFooter

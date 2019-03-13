@@ -37,7 +37,7 @@ Function New-HTML {
         -UseStyleLinks:$UseStyleLinks
 
     $Script:HTMLSchema = @{
-        TabsHeaders = @()
+        TabsHeaders = [System.Collections.Generic.List[HashTable]]::new()
     }
 
     '<!DOCTYPE html>'
@@ -61,8 +61,9 @@ Function New-HTML {
             #New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\timeline-scrible.css" -ResourceComment 'Timeline Scrible'
             New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\timeline-simple.css" -ResourceComment 'Timeline Simple'
             New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\skeleton-tabs.css" -ResourceComment 'Skeleton Tabs'
+            New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\skeleton.css" -ResourceComment 'Skeleton'
             New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\status.css" -ResourceComment 'Status Buttonical'
-            New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\message.css" -ResourceComment 'Message Notifications'
+            #New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\message.css" -ResourceComment 'Message Notifications'
             New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\toasts.css" -ResourceComment 'Toast Notifications'
             '<!-- END STYLES -->'
             '<!-- SCRIPTS -->'
@@ -101,8 +102,12 @@ Function New-HTML {
                 }
             }
             #> 
-            Invoke-Command -ScriptBlock $HtmlData
-            
+            $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
+            if ($Script:HTMLSchema.TabsHeaders) {
+                New-HTMLTabHead
+            }
+            $OutputHTML
+
             '<!-- FOOTER -->'
             New-HTMLTag -Tag 'footer' { 
                 #New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultFooter' } {

@@ -5,6 +5,7 @@ function New-HTMLTab {
         [Parameter(Mandatory = $false, Position = 1)][String]$TabHeading,
         [alias('Name')][string] $TabName
     )
+    <#
     if ($TabName -ne '') {
         # Start - Just in case you prefer to use old way - can be useful with tabs created out of order
         [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Name -eq $TabName})
@@ -31,13 +32,35 @@ function New-HTMLTab {
         }
         # End Tabs Tracking
     }
+    #>
+
+    # Reset all Tabs Headers to make sure there are no Current Tab Set
+    # This is required for New-HTMLTable
+    foreach ($Tab in $Script:HTMLSchema.TabsHeaders) {
+        $Tab.Current = $false
+    }
+
+    # Start Tab Tracking
+    $Tab = @{}
+    $Tab.ID = "Tab-$(Get-RandomStringName -Size 8)"
+    $Tab.Name = $TabName
+    #$Tab.Used = $true
+    $Tab.Current = $true
+    if ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
+        $Tab.Active = $false
+    } else {
+        $Tab.Active = $true
+    }
+    $Script:HTMLSchema.TabsHeaders.Add($Tab)
+    # End Tab Tracking
+
+
+    # This is building HTML
     if ($Tab.Active) {
         $Class = 'tab-pane active'
     } else {
         $Class = 'tab-pane'
     }
-
-    # This is building HTML
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'tab-content' } {
         New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $Class } {
             if (-not [string]::IsNullOrWhiteSpace($TabHeading)) {
