@@ -68,8 +68,7 @@ $Script:Configuration = [ordered] @{
                 JSLink = "$PSScriptRoot\..\Resources\JS\Other\tabs-elastic.js"
             }
         }
-        TimeLine         = @{
-            
+        TimeLine         = @{            
             Comment = 'Timeline Simple'
             Header  = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\Styles\timeline-simple.css"
@@ -89,54 +88,9 @@ $Script:Configuration = [ordered] @{
         }
         TuiGrid          = @{
             Header = @{
+                Css     = "$PSScriptRoot\..\Resources\CSS\StylesAlways\tuigrid.css"
                 CssLink = 'https://cdn.jsdelivr.net/npm/tui-grid@3.5.0/dist/tui-grid.css'
             }
         }
     }
 }
-
-function Get-Resources {
-    [CmdLetBinding()]
-    param(
-        [switch] $UseCssLinks,
-        [switch] $UseJavaScriptLinks, 
-        [ValidateSet('Header', 'Footer', 'HeaderLocal', 'FooterLocal')][string] $Loocation
-    )
-    DynamicParam {
-        # Defines Features Parameter Dynamically
-        $Names = $Script:Configuration.Features.Keys
-        $ParamAttrib = New-Object System.Management.Automation.ParameterAttribute
-        $ParamAttrib.Mandatory = $true
-        $ParamAttrib.ParameterSetName = '__AllParameterSets'
-
-        $ReportAttrib = New-Object  System.Collections.ObjectModel.Collection[System.Attribute]
-        $ReportAttrib.Add($ParamAttrib)
-        $ReportAttrib.Add((New-Object System.Management.Automation.ValidateSetAttribute($Names)))
-        $ReportRuntimeParam = New-Object System.Management.Automation.RuntimeDefinedParameter('Features', [string[]], $ReportAttrib)
-        $RuntimeParamDic = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
-        $RuntimeParamDic.Add('Features', $ReportRuntimeParam)
-        return $RuntimeParamDic
-    }
-    Process {
-        [string[]] $Features = $PSBoundParameters.Features
-
-        foreach ($Feature in $Features) {
-            
-            # $Script:Configuration.Features.$Feature.$Location
-
-
-            if ($UseCssLinks) {
-
-            } else {
-
-            }
-            if ($UseJavaScriptLinks) {
-
-            } else {
-
-            }
-        }
-    }
-}
-
-Get-Resources -Features Accordion, Bulma

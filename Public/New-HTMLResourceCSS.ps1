@@ -7,17 +7,15 @@ function New-HTMLResourceCSS {
         [string] $ResourceComment,
         [string] $FilePath
     )
-    "<!-- CSS $ResourceComment -->"
-    if ($Content -eq '') {
-        New-HTMlTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $Link } 
-    } elseif ($FilePath -ne '') {
+    "<!-- CSS $ResourceComment START -->"
+    if ($FilePath -ne '') {
         New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
-            Get-ResourceContent -FilePath $FilePath
+            if (Test-Path -LiteralPath $FilePath) {
+                Get-Content -LiteralPath $FilePath
+            }
         }
     } else {
-        New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
-            $Content
-        }
+        New-HTMlTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $Link } 
     }
     "<!-- CSS $ResourceComment END -->"
 }
