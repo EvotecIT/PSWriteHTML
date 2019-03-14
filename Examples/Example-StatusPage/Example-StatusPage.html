@@ -10,13 +10,18 @@
  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/tui-grid@3.5.0/dist/tui-grid.css"/> 
 
 <style type="text/css"> 
+ @import url('https://fonts.googleapis.com/css?family=Roboto');
+ @import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
+ /*
  * {
      margin: 0px;
-     font-family: sans-serif;
-     font-size: 8pt;
+ 
  }
+ */
  
  body {
+     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+     font-size: 8pt;
      margin: 8px 10px 8px 10px;
  }
  
@@ -26,23 +31,11 @@
      font-size: 18pt;
  }
  
- h1.underline,
- h2.underline,
- h3.underline,
- h4.underline,
- h5.underline,
- h6.underline,
- h7.underline {
+ h1.underline, h2.underline, h3.underline, h4.underline, h5.underline, h6.underline, h7.underline {
      border-bottom: 2px solid #bbbbbb;
  }
  
- h1.central,
- h2.central,
- h3.central,
- h4.central,
- h5.central,
- h6.central,
- h7.central {
+ h1.central, h2.central, h3.central, h4.central, h5.central, h6.central, h7.central {
      margin: 10px auto;
      width: 100%;
      max-width: 900px;
@@ -169,7 +162,8 @@
      display: inline-block;
      margin: 5px;
      width: calc(100% - 10px);
-     overflow: hidden; /* NEW */
+     overflow: hidden;
+     /* NEW */
      overflow-x: hidden;
      overflow-y: hidden;
  }
@@ -221,7 +215,8 @@
  div.defaultColumn {
      box-sizing: border-box;
      float: left;
-     overflow: hidden; /* NEW */
+     overflow: hidden;
+     /* NEW */
      overflow-x: hidden;
      overflow-y: hidden;
      padding: 2px;
@@ -232,11 +227,13 @@
      text-decoration: none;
      font-size: 120%;
  }
+ 
  a.alink:visited {
      color: #ff8400;
      text-decoration: none;
      font-size: 120%;
  }
+ 
  a.alink:hover {
      text-decoration: underline;
      font-size: 130%;
@@ -260,6 +257,7 @@
  }
  
  /* Adding CSS */
+ 
  a.paginate_button {
      color: #000000 !important;
      font-size: 10px;
@@ -270,17 +268,21 @@
  }
  
  /* Added to make sure plus logo fits in */
+ 
  td {
      height: 27px;
  }
  
  /* Button in Table - giving it some colors */
+ 
  td.sorting_1::before {
      background: #007bff !important;
  }
+ 
  td::before {
      background: #007bff !important;
  }
+ 
  /* giving some spaces between tables being to close */
  
  div.dataTables_wrapper {
@@ -334,11 +336,12 @@
  
  .green {
      background-color: #2ecc40;
- }
- </style> 
+ } </style> 
 
 <!-- CSS Timeline Simple -->
-<style type="text/css">@import url("https://fonts.googleapis.com/css?family=Oswald|Roboto:400,700");
+<style type="text/css">/*
+@import url("https://fonts.googleapis.com/css?family=Oswald|Roboto:400,700");
+*/
 
 h1.timelineSimple,
 h2.timelineSimple,
@@ -346,7 +349,7 @@ h3.timelineSimple,
 h4.timelineSimple,
 h5.timelineSimple,
 h6.timelineSimple {
-    font-family: "Oswald", sans-serif;
+    font-family: "Roboto", sans-serif;
     border-bottom: unset !important;
     font-weight: unset !important;
     margin: unset !important;
@@ -425,41 +428,12 @@ p.timelineSimple {
 }
 </style>
 <!-- CSS Timeline Simple END -->
-<!-- CSS Skeleton Tabs -->
-<style type="text/css">/* Skeleton-tabs */
-
-ul.tab-nav {
-    list-style: none;
-    border-bottom: 1px solid #bbb;
-    padding-left: 5px;
-}
-
-ul.tab-nav li {
-    display: inline;
-}
-
-ul.tab-nav li a.button {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-bottom: -1px;
-    border-bottom: none;
-}
-
-ul.tab-nav li a.active.button {
-    border-bottom: 0.175em solid #fff;
-}
-
-.tab-content .tab-pane {
-    display: none;
-}
-
-.tab-content .tab-pane.active {
-    display: block;
-}
-</style>
-<!-- CSS Skeleton Tabs END -->
 <!-- CSS Status Buttonical -->
-<style type="text/css">@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300);
+<style type="text/css">
+/*
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300);
+*/
+
 .buttonicalService {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     display: table;
@@ -566,130 +540,11 @@ ul.tab-nav li a.active.button {
 }
 </style>
 <!-- CSS Status Buttonical END -->
-<!-- CSS Message Notifications -->
-<style type="text/css">@import url(https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300");
-
-/*
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #ddd;
-    font-family: "Source Sans Pro";
-    font-weight: 300;
-}
-*/
-
-.message-container {
-    background-color: #ddd;
-    font-family: "Source Sans Pro";
-    font-weight: 300;
-    box-sizing: border-box;
-}
-
-.message {
-    display: table;
-    position: relative;
-    margin: 40px auto 0;
-    max-width: 900px;
-    width: 100%;
-    /* background-color: #0074d9; */
-    color: #fff;
-    transition: all 0.2s ease;
-    box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
-
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-.message.is-hidden {
-    opacity: 0;
-    height: 0;
-    font-size: 0;
-    padding: 0;
-    margin: 0 auto;
-    display: block;
-}
-
-.message-icon {
-    display: table-cell;
-    vertical-align: middle;
-    width: 60px;
-    padding: 30px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.25);
-
-    font-size: 20px !important;
-}
-.message-icon > i {
-    width: 20px;
-}
-
-.message-body {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 30px 20px 30px 10px;
-}
-.message-body > p {
-    line-height: 1.2;
-    margin-top: 6px;
-}
-
-.message-body > p {
-    font-family: "Source Sans Pro";
-    font-size: 16px !important;
-    font-weight: 300;
-}
-
-.message-button {
-    position: relative;
-    margin: 15px 5px -10px;
-    background-color: rgba(0, 0, 0, 0.25);
-    box-shadow: 0 3px rgba(0, 0, 0, 0.4);
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-family: "Source Sans Pro";
-    color: #fff;
-    outline: none;
-    cursor: pointer;
-}
-.message-button:hover {
-    background: rgba(0, 0, 0, 0.3);
-}
-.message-button:active {
-    background: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0px rgba(0, 0, 0, 0.4);
-    top: 3px;
-}
-
-.message-close {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
-    border: none;
-    outline: none;
-    font-size: 20px;
-    right: 5px;
-    top: 5px;
-    opacity: 0;
-    cursor: pointer;
-}
-.message:hover .message-close {
-    opacity: 1;
-}
-.message-close:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.u-italic {
-    font-style: italic;
-}
-</style>
-<!-- CSS Message Notifications END -->
 <!-- CSS Toast Notifications -->
-<style type="text/css">@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i");
+<style type="text/css">/*
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i");
+*/
 
 .add-margin {
     margin-top: 20px;
@@ -704,7 +559,6 @@ body {
     padding: 21px 0;
     background-color: #fff;
     border-radius: 4px;
-
     top: 0px;
     position: relative;
     box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
@@ -738,7 +592,6 @@ body {
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 8px;
-
     font-family: "Raleway", sans-serif;
     font-size: 16px !important;
 }
@@ -748,7 +601,6 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     color: #878787;
-
     font-family: "Raleway", sans-serif;
     font-size: 14px !important;
 }
@@ -788,11 +640,99 @@ body {
 .orange .toast__icon {
     background-color: #ffc007;
 }
+
 .orange:before {
     background-color: #ffc007;
 }
 </style>
 <!-- CSS Toast Notifications END -->
+<!-- CSS Tabs -->
+<style type="text/css">/*
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+*/
+
+/*
+@import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
+*/
+
+/*
+body {
+    font-family: 'Roboto', sans-serif;
+}
+*/
+
+.tabsWrapper {
+    text-align: center;
+    margin: 50px auto;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.tabs {
+    font-family: 'Roboto', sans-serif !important;
+    margin-top: 50px;
+    font-size: 15px;
+    padding: 0px;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    /*
+*/
+    /*
+    border-radius: 50px;
+*/
+    position: relative;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #777;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.6s;
+}
+
+.tabs a.active {
+    color: #fff;
+}
+
+.tabs a i {
+    margin-right: 5px;
+}
+
+.tabs .selector {
+    display: none;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    /*
+    border-radius: 50px;
+    */
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: #05abe0;
+    background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1);
+}
+
+.tabs-content {
+    display: none;
+}
+
+.tabs-content.active {
+    display: block;
+}
+</style>
+<!-- CSS Tabs END -->
 <!-- END STYLES -->
 <!-- SCRIPTS -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"></script> 
@@ -802,7 +742,6 @@ body {
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script> 
  <script type="text/javascript" src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js"></script> 
  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script> 
- <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> 
  
  <script type="text/javascript"> 
  function show(obj) {
@@ -852,13 +791,13 @@ body {
  (function() {
      function main() {
          var tabButtons = [].slice.call(
-             document.querySelectorAll("ul.tab-nav li a.button")
+             document.querySelectorAll("ul.tab-nav li a.buttonTab")
          );
  
          tabButtons.map(function(button) {
              button.addEventListener("click", function() {
                  document
-                     .querySelector("li a.active.button")
+                     .querySelector("li a.active.buttonTab")
                      .classList.remove("active");
                  button.classList.add("active");
  
@@ -1408,7 +1347,7 @@ body {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="103438536" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="445640501" value="other-item" type="radio"/>
 <span class="performance ">Operational
 </span>
 </div>
@@ -1417,7 +1356,7 @@ body {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="1540289365" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="967138876" value="other-item" type="radio"/>
 <span class="performance ">Operational
 </span>
 </div>
@@ -1426,7 +1365,7 @@ body {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="360587571" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="18335715" value="other-item" type="radio"/>
 <span class="performance performanceDead">Non-functional
 </span>
 </div>
@@ -1435,7 +1374,7 @@ body {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="1682499223" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="383078772" value="other-item" type="radio"/>
 <span class="performance ">Operational
 </span>
 </div>
@@ -1444,7 +1383,7 @@ body {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="1344789943" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="1619912081" value="other-item" type="radio"/>
 <span class="performance performanceProblem">Working on it
 </span>
 </div>
@@ -1453,7 +1392,7 @@ body {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="2095924306" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="672219774" value="other-item" type="radio"/>
 <span class="performance performanceProblem">Who knows?!
 </span>
 </div>
@@ -1475,7 +1414,7 @@ body {
 </div>
 <h1 Class="central">Incidents per day
 </h1>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px); box-shadow: unset !important;"><div id="ChartID-20cjdyhq" class="central"></div>
+<div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px); box-shadow: unset !important;"><div id="ChartID-1pxyvach" class="central"></div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -1516,51 +1455,42 @@ body {
                                 ],
                        "data":  [
                                     4,
+                                    0,
                                     4,
+                                    1,
+                                    4,
+                                    3,
+                                    2,
+                                    2,
+                                    2,
+                                    3,
+                                    2,
+                                    0,
+                                    1,
+                                    1,
+                                    1,
+                                    3,
+                                    0,
+                                    3,
+                                    0,
+                                    3,
                                     4,
                                     1,
                                     2,
-                                    4,
-                                    3,
-                                    0,
-                                    0,
-                                    4,
-                                    0,
-                                    1,
-                                    2,
-                                    3,
-                                    0,
-                                    4,
-                                    0,
-                                    3,
-                                    0,
-                                    1,
-                                    0,
-                                    1,
                                     0,
                                     2,
+                                    1,
                                     3,
                                     4,
                                     4,
-                                    1,
-                                    0,
-                                    2,
-                                    0
+                                    3,
+                                    1
                                 ]
                    }
                ],
     "xaxis":  {
                   "type":  "category",
                   "categories":  [
-                                     "03.02.2019",
-                                     "04.02.2019",
-                                     "05.02.2019",
-                                     "06.02.2019",
-                                     "07.02.2019",
-                                     "08.02.2019",
-                                     "09.02.2019",
-                                     "10.02.2019",
-                                     "11.02.2019",
                                      "12.02.2019",
                                      "13.02.2019",
                                      "14.02.2019",
@@ -1582,7 +1512,16 @@ body {
                                      "02.03.2019",
                                      "03.03.2019",
                                      "04.03.2019",
-                                     "05.03.2019"
+                                     "05.03.2019",
+                                     "06.03.2019",
+                                     "07.03.2019",
+                                     "08.03.2019",
+                                     "09.03.2019",
+                                     "10.03.2019",
+                                     "11.03.2019",
+                                     "12.03.2019",
+                                     "13.03.2019",
+                                     "14.03.2019"
                                  ]
               },
     "stroke":  {
@@ -1603,7 +1542,7 @@ body {
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-20cjdyhq'), 
+var chart = new ApexCharts(document.querySelector('#ChartID-1pxyvach'), 
             options
         );
 chart.render();
@@ -1611,47 +1550,47 @@ chart.render();
 </div>
 <h1 Class="central">Past Incidents
 </h1>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px); box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="03/04/2019 21:49:21"><h1 class="timelineSimple">Azure AD is down
+<div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px); box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="03/13/2019 11:21:56"><h1 class="timelineSimple">Azure AD is down
 </h1>
 <p class="timelineSimple">We have huge problems
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/03/2019 21:49:21"><h1 class="timelineSimple">Azure AD ...
+<div class="timelineSimple-item" date-is="03/12/2019 11:21:56"><h1 class="timelineSimple">Azure AD ...
 </h1>
 <p class="timelineSimple">We have huge problems
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/02/2019 21:49:21"><h1 class="timelineSimple">AD just died
+<div class="timelineSimple-item" date-is="03/11/2019 11:21:56"><h1 class="timelineSimple">AD just died
 </h1>
 <p class="timelineSimple">We have huge problems
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/01/2019 21:49:21"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/10/2019 11:21:56"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/01/2019 21:49:21"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/10/2019 11:21:56"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/01/2019 21:49:21"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/10/2019 11:21:56"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
 </div>
-<div class="timelineSimple-item" date-is="02/28/2019 21:49:21"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/09/2019 11:21:56"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
 </div>
-<div class="timelineSimple-item" date-is="02/27/2019 21:49:21"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/08/2019 11:21:56"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
 </div>
-<div class="timelineSimple-item" date-is="02/26/2019 21:49:21"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/07/2019 11:21:56"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
@@ -1671,6 +1610,65 @@ chart.render();
                         });
 </script>
 </footer>
+<script type="text/javascript">
+var maxWidth = 0;
+var $element;
+$(".tabs a").each(function () {
+    $element = $(this);
+    if ($element.width() > maxWidth) {
+        maxWidth = $element.width();
+    }
+});
+
+// Get on Resize function
+$(window).on('resize', function () {
+    $(".selector").hide();
+    var activeItem = $(".tabs a[class*='active']");
+    var id = activeItem.data("id");
+    setSelectorPosition(id);
+});
+
+$(".tabs a").each(function () {
+    $(this).width(maxWidth);
+});
+
+// Set first active link
+var activeItem = $(".tabs a[class*='active']");
+var id = activeItem.data("id");
+setSelectorPosition(id);
+
+// Get on click function
+$(".tabs").on("click", "a", function (e) {
+    e.preventDefault();
+    $('.tabs a').removeClass("active");
+    $(this).addClass('active');
+
+    // Get id of link clicked
+    var id = $(this).data("id");
+
+    // Set selector position
+    setSelectorPosition(id);
+
+    // Hide all tabs
+    $('.tabs-content').hide();
+
+    // Show current tab
+    $('#' + id).show();
+});
+
+function setSelectorPosition(id) {
+    var activeItem = $(".tabs").find("[data-id=" + id + "]");
+    var activeWidth = activeItem.innerWidth();
+    var itemPos = activeItem.position();
+    $(".selector").css({
+        "left": itemPos.left + "px",
+        "top": itemPos.top + "px",
+        "width": activeItem.innerWidth() + "px",
+        "height": activeItem.innerHeight() + "px"
+    });
+    $(".selector").show();
+}
+</script>
 <!-- END FOOTER -->
 </body>
 <!-- END BODY -->

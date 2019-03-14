@@ -93,8 +93,8 @@ function New-HTMLTable {
             New-HTMlTag -Tag 'script' {
                 @"
                     `$(document).ready(function() {
-                        `$('a').on('click', function() {
-                            if (`$(this).attr("href") == "#$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
+                        `$('.tabs').on('click', 'a', function (event) { 
+                            if (`$(event.target).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
                                 `$('#$DataTableName').DataTable($($Options));
                             };
                         });

@@ -1,4 +1,6 @@
+/*
 @import url("https://fonts.googleapis.com/css?family=Oswald|Roboto:400,700");
+*/
 
 h1.timelineSimple,
 h2.timelineSimple,
@@ -6,7 +8,7 @@ h3.timelineSimple,
 h4.timelineSimple,
 h5.timelineSimple,
 h6.timelineSimple {
-    font-family: "Oswald", sans-serif;
+    font-family: "Roboto", sans-serif;
     border-bottom: unset !important;
     font-weight: unset !important;
     margin: unset !important;

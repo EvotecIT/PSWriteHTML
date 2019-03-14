@@ -9,13 +9,10 @@ $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, S
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
 $Allusers = Get-AdUser -Filter *
 
-$TabNames = 'Dashboard', 'Something'
-
 $ImageLink = 'https://evotec.xyz/wp-content/uploads/2015/05/Logo-evotec-012.png'
 
-$Report = New-HTML -TitleText $ReportTitle -AddAuthor -HideDate -RightLogoString $ImageLink -Verbose -UseStyleLinks -UseCssLinks {
-    New-HTMLTabHeader -TabNames $TabNames
-    New-HTMLTab {
+$Report = New-HTML -TitleText $ReportTitle -AddAuthor -RightLogoString $ImageLink -Verbose -UseStyleLinks -UseCssLinks {
+    New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent  -HeaderText "Groups" {    
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
                 New-HTMLColumn -Columns 1 {
@@ -24,7 +21,7 @@ $Report = New-HTML -TitleText $ReportTitle -AddAuthor -HideDate -RightLogoString
             }  
         }
     }
-    New-HTMLTab {
+    New-HTMLTab -TabName 'Something' {
         
     }
 }

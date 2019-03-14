@@ -36,6 +36,7 @@
         'New-HTMLResourceJS',
         'New-HTMLStatus',
         'New-HTMLStatusItem',
+        'New-HTMLTab1',
         'New-HTMLTab',
         'New-HTMLTabHeader',
         'New-HTMLTabHead',

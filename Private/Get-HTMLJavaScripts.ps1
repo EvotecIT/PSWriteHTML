@@ -19,7 +19,7 @@ Function Get-HTMLJavaScripts {
             "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"
             "https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js"
             "https://cdn.jsdelivr.net/npm/apexcharts@latest"
-            "https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+            #"https://use.fontawesome.com/releases/v5.3.1/js/all.js"
         )
         foreach ($Link in $Links) {
             [string] $HTMLLink = '<script type="text/javascript" src="**Link**"></script>'.Replace('**Link**', $Link)

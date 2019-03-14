@@ -60,11 +60,12 @@ Function New-HTML {
             #New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\timeline-ygc.css" -ResourceComment 'Timeline YGC'
             #New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\timeline-scrible.css" -ResourceComment 'Timeline Scrible'
             New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\timeline-simple.css" -ResourceComment 'Timeline Simple'
-            New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\skeleton-tabs.css" -ResourceComment 'Skeleton Tabs'
-            New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\skeleton.css" -ResourceComment 'Skeleton'
+            #New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\skeleton-tabs.css" -ResourceComment 'Skeleton Tabs'
+            #New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\skeleton.css" -ResourceComment 'Skeleton'
             New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\status.css" -ResourceComment 'Status Buttonical'
             #New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\message.css" -ResourceComment 'Message Notifications'
             New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\toasts.css" -ResourceComment 'Toast Notifications'
+            New-HTMLResourceCSS -FilePath "$PSScriptRoot\..\Resources\CSS\Styles\tabs-elastic.css" -ResourceComment 'Tabs'
             '<!-- END STYLES -->'
             '<!-- SCRIPTS -->'
             $Options.ScriptContent
@@ -132,6 +133,7 @@ Function New-HTML {
 '@
                 }                
             }
+            Get-JavaScript -FilePath "$PSScriptRoot\..\Resources\JS\Other\tabs-elastic.js"
             '<!-- END FOOTER -->'
         }
         '<!-- END BODY -->'

@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
+/*
 * {
     margin: 0px;
-    font-family: sans-serif;
-    font-size: 8pt;
+
 }
+*/
 
 body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
     margin: 8px 10px 8px 10px;
 }
 
@@ -14,23 +19,11 @@ h1 {
     font-size: 18pt;
 }
 
-h1.underline,
-h2.underline,
-h3.underline,
-h4.underline,
-h5.underline,
-h6.underline,
-h7.underline {
+h1.underline, h2.underline, h3.underline, h4.underline, h5.underline, h6.underline, h7.underline {
     border-bottom: 2px solid #bbbbbb;
 }
 
-h1.central,
-h2.central,
-h3.central,
-h4.central,
-h5.central,
-h6.central,
-h7.central {
+h1.central, h2.central, h3.central, h4.central, h5.central, h6.central, h7.central {
     margin: 10px auto;
     width: 100%;
     max-width: 900px;
@@ -157,7 +150,8 @@ div.defaultSection {
     display: inline-block;
     margin: 5px;
     width: calc(100% - 10px);
-    overflow: hidden; /* NEW */
+    overflow: hidden;
+    /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -209,7 +203,8 @@ td.groupby {
 div.defaultColumn {
     box-sizing: border-box;
     float: left;
-    overflow: hidden; /* NEW */
+    overflow: hidden;
+    /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 2px;
@@ -220,11 +215,13 @@ a.alink:link {
     text-decoration: none;
     font-size: 120%;
 }
+
 a.alink:visited {
     color: #ff8400;
     text-decoration: none;
     font-size: 120%;
 }
+
 a.alink:hover {
     text-decoration: underline;
     font-size: 130%;
@@ -248,6 +245,7 @@ table.sortable thead {
 }
 
 /* Adding CSS */
+
 a.paginate_button {
     color: #000000 !important;
     font-size: 10px;
@@ -258,17 +256,21 @@ a.current {
 }
 
 /* Added to make sure plus logo fits in */
+
 td {
     height: 27px;
 }
 
 /* Button in Table - giving it some colors */
+
 td.sorting_1::before {
     background: #007bff !important;
 }
+
 td::before {
     background: #007bff !important;
 }
+
 /* giving some spaces between tables being to close */
 
 div.dataTables_wrapper {

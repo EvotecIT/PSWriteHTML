@@ -9,11 +9,9 @@ $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, S
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
 $Allusers = Get-AdUser -Filter *
 
-$TabNames = 'Dashboard', 'Something'
 
-$Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideDate -UseCssLinks -UseStyleLinks {
-    New-HTMLTabHeader -TabNames $TabNames
-    New-HTMLTab {
+$Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -UseCssLinks -UseStyleLinks {
+    New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText "Groups" {
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
                 New-HTMLTable $DomainAdminTable -HideFooter
@@ -44,7 +42,7 @@ $Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideD
                 New-HTMLTable $Allusers
             }
         }
-        New-HTMLContent -HeaderText "Groups 3" {
+        New-HTMLContent -HeaderText "Groups 3" -CanCollapse {
             New-HTMLColumn -ColumnCount 4 {
                 New-HTMLTable $Allusers -HideFooter
             }
@@ -59,7 +57,7 @@ $Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -HideD
             }
         }
     }
-    New-HTMLTab {
+    New-HTMLTab -TabName 'Something' {
         
     }
 }
