@@ -2,7 +2,6 @@
 @import "https://fonts.googleapis.com/css?family=Montserrat:400,400i,700";
 */
 
-
 body {
     position: relative;
     margin: 0;
@@ -10,13 +9,16 @@ body {
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
 }
+
 :focus {
     outline: none;
 }
+
 body {
     background: #e0e0e0;
     height: 100vh;
 }
+
 div {
     width: 400px;
     margin: 0 auto;
@@ -25,10 +27,11 @@ div {
     color: #464646;
     border: 1px solid silver;
 }
-p,
-summary {
+
+p, summary {
     background: #fff;
 }
+
 summary {
     padding: 20px;
     width: 400px;
@@ -37,6 +40,7 @@ summary {
     border-bottom: 1px solid silver;
     cursor: pointer;
 }
+
 p {
     width: 440px;
     margin: -2px -20px 0;
@@ -48,9 +52,11 @@ p {
     z-index: 2;
     box-shadow: 0 0 30px -12px #000;
 }
+
 details[open] p {
     animation: det 0.3s;
 }
+
 @keyframes det {
     0% {
         opacity: 0;
@@ -59,6 +65,7 @@ details[open] p {
         opacity: 1;
     }
 }
+
 button {
     float: right;
     background: #0288d1;
@@ -69,6 +76,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
+
 button:hover {
     background: #01579b;
 }

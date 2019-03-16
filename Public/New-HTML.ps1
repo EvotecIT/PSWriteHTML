@@ -31,6 +31,8 @@ Function New-HTML {
         Features    = @{} # tracks features for CSS/JS implementation
     }
     $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
+    $Logo = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type Between
+    $OutputHTML = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type After
     $Features = Get-FeaturesInUse
 
     '<!DOCTYPE html>'
@@ -55,7 +57,8 @@ Function New-HTML {
         '<!-- BODY -->'
         #'<body onload="hide();">'       
         New-HTMLTag -Tag 'body' {
-            
+        
+            <#
             if ($HideLogos -eq $false) {
                 $Leftlogo = $Options.Logos[$LeftLogoName]
                 $Rightlogo = $Options.Logos[$RightLogoName]
@@ -68,7 +71,8 @@ Function New-HTML {
                 </tbody></table>
 "@
                 $LogoContent
-            }         
+            }  
+            #>       
             <# Not sure what for 
             if (!([string]::IsNullOrEmpty($PrimaryColorHex))) {
                 if ($PrimaryColorHex.Length -eq 7) {
@@ -78,24 +82,30 @@ Function New-HTML {
                 }
             }
             #> 
-            
+
+            # Add logo if there is one 
+            $Logo
+
+            # Add tabs header if there is one
             if ($Script:HTMLSchema.TabsHeaders) {
                 New-HTMLTabHead
             }
+            # Add remaining data
             $OutputHTML
-            '<!-- FOOTER -->'
-            New-HTMLTag -Tag 'footer' {  
-                if ($null -ne $Features) {
-                    # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included 
-                    # either as links or from file per required features
-                    Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'FooterAlways' -Features $Features
-                    Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'FooterAlways' -Features $Features
-                    # standard footer features
-                    Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Footer' -Features $Features      
-                }  
-            }
-            '<!-- END FOOTER -->'
         }
+        '<!-- FOOTER -->'
+        New-HTMLTag -Tag 'footer' {  
+            if ($null -ne $Features) {
+                # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included 
+                # either as links or from file per required features
+                Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'FooterAlways' -Features $Features
+                Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'FooterAlways' -Features $Features
+                # standard footer features
+                Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Footer' -Features $Features      
+            }  
+        }
+        '<!-- END FOOTER -->'
+        
         '<!-- END BODY -->'
     }     
 }

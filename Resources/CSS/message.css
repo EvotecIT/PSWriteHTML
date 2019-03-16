@@ -1,9 +1,7 @@
 /*
 @import url(https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300");
-*/
 
-/*
 * {
     box-sizing: border-box;
 }
@@ -32,10 +30,10 @@ body {
     color: #fff;
     transition: all 0.2s ease;
     box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
-
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
 }
+
 .message.is-hidden {
     opacity: 0;
     height: 0;
@@ -52,10 +50,10 @@ body {
     padding: 30px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.25);
-
     font-size: 20px !important;
 }
-.message-icon > i {
+
+.message-icon>i {
     width: 20px;
 }
 
@@ -64,12 +62,13 @@ body {
     vertical-align: middle;
     padding: 30px 20px 30px 10px;
 }
-.message-body > p {
+
+.message-body>p {
     line-height: 1.2;
     margin-top: 6px;
 }
 
-.message-body > p {
+.message-body>p {
     font-family: "Source Sans Pro";
     font-size: 16px !important;
     font-weight: 300;
@@ -88,9 +87,11 @@ body {
     outline: none;
     cursor: pointer;
 }
+
 .message-button:hover {
     background: rgba(0, 0, 0, 0.3);
 }
+
 .message-button:active {
     background: rgba(0, 0, 0, 0.3);
     box-shadow: 0 0px rgba(0, 0, 0, 0.4);
@@ -109,9 +110,11 @@ body {
     opacity: 0;
     cursor: pointer;
 }
+
 .message:hover .message-close {
     opacity: 1;
 }
+
 .message-close:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }

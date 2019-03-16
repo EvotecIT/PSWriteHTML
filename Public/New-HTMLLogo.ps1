@@ -25,6 +25,7 @@ function New-HTMLLogo {
     if ($HideLogos -eq $false) {
         $Leftlogo = $Options.Logos[$LeftLogoName]
         $Rightlogo = $Options.Logos[$RightLogoName]
+        '<!-- START LOGO -->'
         $LogoContent = @"
         <table><tbody>
         <tr>
@@ -34,5 +35,7 @@ function New-HTMLLogo {
         </tbody></table>
 "@
         $LogoContent
+        '<!-- END LOGO -->'
+     
     }       
 }

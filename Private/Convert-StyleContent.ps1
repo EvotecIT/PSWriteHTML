@@ -6,7 +6,7 @@ function Convert-StyleContent {
         [string] $SearchPath
     )
 
-    Get-ObjectType -Object $CSS -VerboseOnly -Verbose
+    #Get-ObjectType -Object $CSS -VerboseOnly -Verbose
 
     $ImageFiles = Get-ChildItem -Path (Join-Path $ImagesPath '\*') -Include *.jpg, *.png, *.bmp #-Recurse
     foreach ($Image in $ImageFiles) {
