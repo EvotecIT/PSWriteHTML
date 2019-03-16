@@ -106,20 +106,20 @@ $Script:Configuration = [ordered] @{
             }
         }
         TimeLine         = @{            
-            Comment = 'Timeline Simple'
-            Header  = @{
+            Comment      = 'Timeline Simple'
+            HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\timeline-simple.css"
             }
         }
         StatusButtonical = @{
-            Comment = 'Status Buttonical'
-            Header  = @{
+            Comment      = 'Status Buttonical'
+            HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\status.css"
             }
         }
         Toast            = @{
-            Comment = 'Toasts Looking Messages'
-            Header  = @{
+            Comment      = 'Toasts Looking Messages'
+            HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\toasts.css"
             }
         }
