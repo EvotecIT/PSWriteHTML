@@ -51,7 +51,7 @@ Function New-HTMLReportOptions {
 
     $LogoSources = Get-HTMLLogos `
         -RightLogoName $RightLogoName `
-        -LeftLogoName LeftLogoName  `
+        -LeftLogoName $LeftLogoName  `
         -LeftLogoString $LeftLogoString `
         -RightLogoString $RightLogoString
 

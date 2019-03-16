@@ -22,7 +22,6 @@ function Get-Resources {
     }
     Process {
         [string[]] $Features = $PSBoundParameters.Features
-
         
         foreach ($Feature in $Features) {
             
@@ -30,7 +29,8 @@ function Get-Resources {
             if ($UseCssLinks) {
                 New-HTMLResourceCSS -Link $Script:Configuration.Features.$Feature.$Location.'CssLink' -ResourceComment $Script:Configuration.Features.$Feature.Comment
             } else {
-                New-HTMLResourceCSS -FilePath $Script:Configuration.Features.$Feature.$Location.'Css' -ResourceComment $Script:Configuration.Features.$Feature.Comment 
+                $CSSOutput = New-HTMLResourceCSS -FilePath $Script:Configuration.Features.$Feature.$Location.'Css' -ResourceComment $Script:Configuration.Features.$Feature.Comment 
+                Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "DataTables-1.10.18/images/"
             }
             if ($UseJavaScriptLinks) {
                 New-HTMLResourceJS -Link $Script:Configuration.Features.$Feature.$Location.'JsLink' -ResourceComment $Script:Configuration.Features.$Feature.Comment 

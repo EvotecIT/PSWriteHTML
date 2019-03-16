@@ -1,11 +1,11 @@
-(function() {
+(function () {
     function main() {
         var tabButtons = [].slice.call(
             document.querySelectorAll("ul.tab-nav li a.buttonTab")
         );
 
-        tabButtons.map(function(button) {
-            button.addEventListener("click", function() {
+        tabButtons.map(function (button) {
+            button.addEventListener("click", function () {
                 document
                     .querySelector("li a.active.buttonTab")
                     .classList.remove("active");

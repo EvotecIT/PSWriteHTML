@@ -2,12 +2,11 @@ Import-Module .\PSWriteHTML.psd1 -Force
 $Processes = Get-Process | Select -First 5
 
 $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
-    -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
-    -RightLogoString $ReportOptions.AsDynamicHTML.Branding.Logo.RightLogo.ImageLink `
-    -UseCssLinks:$true `
-    -UseJavaScriptLinks:$true {
+    -UseCssLinks:$false `
+    -UseJavaScriptLinks:$false {
 
-    #New-HTMLTabHeader -TabNames 'Test', 'Test 5555', 'Test2', 'Test3', 'Test4', 'Test5','Test2'
+    New-HTMLLogo
+
     New-HtmlTab -TabName 'Test' {
         New-HTMLContent -HeaderText '0 section' {
             New-HTMLColumn -ColumnCount 3 {

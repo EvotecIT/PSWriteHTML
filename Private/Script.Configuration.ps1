@@ -48,7 +48,6 @@ $Script:Configuration = [ordered] @{
                 Css    = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
-
         Jquery           = @{
             Comment = 'Jquery'
             Header  = @{
@@ -56,25 +55,27 @@ $Script:Configuration = [ordered] @{
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.3.1.min.js"
             }
         }
-
         DataTables       = @{
             Comment = 'DataTables'
             Header  = @{
                 CssLink = 'https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\datatables.min.css"
                 JsLink  = "https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"
+                JS      = "$PSScriptRoot\..\Resources\JS\datatables.min.js"
             }
         }
         DataTablesPDF    = @{
             Comment = 'DataTables PDF Features'
             Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js'
+                Js     = "$PSScriptRoot\..\Resources\JS\pdfmake.min.js", "$PSScriptRoot\..\Resources\JS\vfs_fonts.min.js"
             }
         }
         DataTablesExcel  = @{
             Comment = 'DataTables Excel Features'
             Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'
+                JS     = "$PSScriptRoot\..\Resources\JS\jszip.min.js"
             }
         }
         Fonts            = @{

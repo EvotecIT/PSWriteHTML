@@ -4,7 +4,7 @@ function resizedataURL(datas, wantedWidth, wantedHeight) {
     var img = document.createElement("img");
 
     // When the event "onload" is triggered we can resize the image.
-    img.onload = function() {
+    img.onload = function () {
         // We create a canvas and get its context.
         var canvas = document.createElement("canvas");
         var ctx = canvas.getContext("2d");

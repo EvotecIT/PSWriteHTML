@@ -5,17 +5,7 @@ Function New-HTML {
         [switch] $UseCssLinks,
         [switch] $UseJavaScriptLinks,
         [String] $TitleText,
-        [String] $CSSPath,
-        [String] $CSSName = "default",
-        [String] $ScriptPath,
         [String] $ColorSchemePath,
-        [String] $LogoPath,
-        [string] $LeftLogoName = "Sample",
-        [string] $RightLogoName = "Alternate",
-        [string] $LeftLogoString,
-        [string] $RightLogoString,
-        [switch] $HideLogos,
-        [switch] $NoScript,
         [string] $PrimaryColorHex,
         [string] $Author,
         [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss'
@@ -37,15 +27,11 @@ Function New-HTML {
         -UseStyleLinks:$UseStyleLinks
     #>
     $Script:HTMLSchema = @{
-        TabsHeaders = [System.Collections.Generic.List[HashTable]]::new()
-        Features    = @{
-            #Test = $true
-        }
+        TabsHeaders = [System.Collections.Generic.List[HashTable]]::new() # tracks / stores headers
+        Features    = @{} # tracks features for CSS/JS implementation
     }
     $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
     $Features = Get-FeaturesInUse
-
-
 
     '<!DOCTYPE html>'
     New-HTMLTag -Tag 'html' {
