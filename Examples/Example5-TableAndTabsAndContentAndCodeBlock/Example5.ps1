@@ -1,4 +1,4 @@
-Import-Module "..\PSWriteHTML\PSWriteHTML.psd1" -Force
+Import-Module PSWriteHTML.psd1 -Force
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
@@ -13,12 +13,12 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLColumn -ColumnNumber 1 -ColumnCount 2 {
+            New-HTMLPanel -ColumnNumber 1 -Count 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -ArrayOfObjects $DomainAdminTable
                 }
             }
-            New-HTMLColumn -ColumnNumber 2 -ColumnCount 2 {
+            New-HTMLPanel -ColumnNumber 2 -Count 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -ArrayOfObjects $DomainAdminTable
                 }
@@ -84,26 +84,26 @@ $CodeBlocksXML = @'
 '@
 
 $HTML = New-Html -UseCssLinks -UseJavaScriptLinks {
-    New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
-    New-HTMLTab {
+    New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLColumn -ColumnCount 2 {               
+            New-HTMLPanel -Count 2 {               
                 New-HTMLTable -DataTable $DomainAdminTable                
             }
-            New-HTMLColumn -ColumnCount 2 {              
+            New-HTMLPanel -Count 2 {              
                 New-HTMLTable -DataTable $DomainAdminTable            
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
+   
         New-HTMLContent -HeaderText 'Content New' {
-            New-HTMLColumn -ColumnCount 2 {
+            New-HTMLPanel -Count 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -DataTable $DomainAdminTable
                 }
             }
-            New-HTMLColumn -ColumnCount 2 {
+            New-HTMLPanel -Count 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -DataTable $DomainAdminTable
                 }
@@ -123,15 +123,15 @@ $HTML = New-Html -UseCssLinks -UseJavaScriptLinks {
             New-HTMLCodeBlock -Code $CodeBlocksXML -Style 'xml' -Highlight '12, 19'
         }
     }
-    New-HTMLTab -TabHeading 'Test 2' {
+    New-HTMLTab -TabName 'Test 2' {
         New-HTMLContent -HeaderText 'My other text' {
             New-HTMLTable -DataTable $EnterpriseAdminTable
         }
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLColumn -ColumnCount 2 {               
+            New-HTMLPanel -Count 2 {               
                 New-HTMLTable -DataTable $DomainAdminTable                
             }
-            New-HTMLColumn -ColumnCount 2 {              
+            New-HTMLPanel -Count 2 {              
                 New-HTMLTable -DataTable $DomainAdminTable            
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
@@ -139,5 +139,6 @@ $HTML = New-Html -UseCssLinks -UseJavaScriptLinks {
             }
         }
     }
+    
 }
 Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML

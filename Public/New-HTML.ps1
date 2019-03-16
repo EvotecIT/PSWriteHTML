@@ -93,6 +93,7 @@ Function New-HTML {
             # Add remaining data
             $OutputHTML
         }
+        '<!-- END BODY -->'
         '<!-- FOOTER -->'
         New-HTMLTag -Tag 'footer' {  
             if ($null -ne $Features) {
@@ -105,7 +106,5 @@ Function New-HTML {
             }  
         }
         '<!-- END FOOTER -->'
-        
-        '<!-- END BODY -->'
     }     
 }

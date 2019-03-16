@@ -3,8 +3,9 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-03-16 17:19:54" name="revised"/>
-<title></title>
+<meta content="2019-03-16 17:30:49" name="revised"/>
+<title>Test
+</title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto" type="text/css" rel="stylesheet"></link>
 <!-- CSS Default fonts END -->
@@ -332,6 +333,24 @@ img {
 }
 </style>
 <!-- CSS Always Required Default Visual Settings END -->
+
+
+
+
+
+<!-- JS Hide Section Code START -->
+<script type="text/javascript">function show(obj) {
+  document.getElementById(obj).style.display='block';
+  document.getElementById("hide_" + obj).style.display='';
+  document.getElementById("show_" + obj).style.display='none';
+}
+function hide(obj) {
+  document.getElementById(obj).style.display='none';
+  document.getElementById("hide_" + obj).style.display='none';
+  document.getElementById("show_" + obj).style.display='';
+}
+</script>
+<!-- JS Hide Section Code END -->
 <!-- CSS Elastic Tabs START -->
 <style type="text/css">.tabsWrapper {
     text-align: center;
@@ -399,162 +418,119 @@ img {
 }
 </style>
 <!-- CSS Elastic Tabs END -->
-
-
+<!-- JS DataTables Excel Features START -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script>
+<!-- JS DataTables Excel Features END -->
+<!-- JS DataTables PDF Features START -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
+<!-- JS DataTables PDF Features END -->
 <!-- JS Jquery START -->
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
 <!-- JS Jquery END -->
-<!-- CSS EnlighterJS CodeBlocks START -->
-<link href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css" type="text/css" rel="stylesheet"></link>
-<!-- CSS EnlighterJS CodeBlocks END -->
-<!-- JS EnlighterJS CodeBlocks START -->
-<script src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js" type="text/javascript"></script>
-<!-- JS EnlighterJS CodeBlocks END -->
+<!-- CSS DataTables START -->
+<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"></link>
+<!-- CSS DataTables END -->
+<!-- JS DataTables START -->
+<script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script>
+<!-- JS DataTables END -->
 </head>
 <!-- END HEADER -->
 <!-- BODY -->
-<body><div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-zr6co4lh"><i class="fas fa-bomb">Coding
+<body><!-- START LOGO -->
+        <table><tbody>
+        <tr>
+            <td class="clientlogo"><img src="" /></td>
+            <td class="MainLogo"><img src="https://evotec.xyz/wp-content/uploads/2015/05/Logo-evotec-012.png" /></td>
+        </tr>
+        </tbody></table>
+<!-- END LOGO -->
+<div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
+<a href="javascript:void(0)" class="active" data-id="Tab-l1hfi4me"><i class="fas fa-bomb">Dashboard
 </i>
 </a>
-<a href="javascript:void(0)" data-id="Tab-tm183ajn"><i class="fas fa-bomb">Other
+<a href="javascript:void(0)" data-id="Tab-zdb3olft"><i class="fas fa-bomb">Something
 </i>
 </a>
 </div>
 </div>
-<div id="Tab-zr6co4lh" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language
+<div id="Tab-l1hfi4me" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Groups" style="color: #ffffff;">Groups
 </a>
-<a id="show_294761030" href="#" onclick="show('294761030');" style="color: #ffffff; display:none">(Show)
+<a id="show_1157834662" href="#" onclick="show('1157834662');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_294761030" href="#" onclick="hide('294761030');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable" id="294761030"><pre data-enlighter-language="powershell" data-enlighter-theme="godzilla" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 1" data-enlighter-highlight="2-5, 13">
-$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
-    New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
-    New-HTMLTab -TabName 'Dashboard' {
-        New-HTMLContent -HeaderText 'Content' {
-            New-HTMLColumn -ColumnCount 2 {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
-                }
-            }
-            New-HTMLColumn -ColumnCount 2 {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
-                }
-            }
-            New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
-            }
-        }
-        New-HTMLContent -HeaderText 'This shows PowerShell Language' {
-            Get-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell'
-        }
-    }
-    New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
-        New-HTMLContent -HeaderText 'My other text' {
-            New-HTMLTable -Simplify -ArrayOfObjects $EnterpriseAdminTable
-        }
-    }
-}
-Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
-
-</pre>
-<pre data-enlighter-language="powershell" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 2">
-$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
-    New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
-    New-HTMLTab -TabName 'Dashboard' {
-        New-HTMLContent -HeaderText 'Content' {
-            New-HTMLColumn -ColumnCount 2 {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
-                }
-            }
-            New-HTMLColumn -ColumnCount 2 {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
-                }
-            }
-            New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
-            }
-        }
-        New-HTMLContent -HeaderText 'This shows PowerShell Language' {
-            Get-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell'
-        }
-    }
-    New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
-        New-HTMLContent -HeaderText 'My other text' {
-            New-HTMLTable -Simplify -ArrayOfObjects $EnterpriseAdminTable
-        }
-    }
-}
-Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
-
-</pre>
-</div>
-</div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language
-</a>
-<a id="show_1707071779" href="#" onclick="show('1707071779');" style="color: #ffffff; display:none">(Show)
-</a>
-<a id="hide_1707071779" href="#" onclick="hide('1707071779');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1157834662" href="#" onclick="hide('1157834662');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1707071779"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
-$(window).bind("resize", function(e) {
-    if (window.RT) clearTimeout(window.RT);
-    window.RT = setTimeout(function() {
-        this.location.reload(false); /* false to get page from cache */
-    }, 200);
+<div class="collapsable" id="1157834662"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
+</a>
+<a id="show_1033744834" href="#" onclick="show('1033744834');" style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_1033744834" href="#" onclick="hide('1033744834');" style="color: #ffffff;">(Hide)
+</a>
+</div>
+<div class="collapsable" id="1033744834"><div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px);"><script>                $(document).ready(function() {
+                    $('#DT-WMnpjMRH').DataTable({
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       -1,
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
 });
-</pre>
-</div>
-</div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="XML Language" style="color: #ffffff;">XML Language
-</a>
-<a id="show_2088669778" href="#" onclick="show('2088669778');" style="color: #ffffff; display:none">(Show)
-</a>
-<a id="hide_2088669778" href="#" onclick="hide('2088669778');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable" id="2088669778"><pre data-enlighter-language="xml" data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
-<building name="GlobalDynamics Main Building"
-    core:id="0xFA8A91C6617DFA1B" core:uid="0898213-123123123-1230898123" xmlns:core="http://www.xmlnamespace.tld">
-  <core:group core:level="2">
-    <room number="123">Conference Room A</room>
-    <room number="124">Conference Room B</room>
-    <room number="125">Conference Room C</room>
-    <room number="126">Conference Room D</room>
-  </core:group>
-  <core:group core:level="2">
-    <room number="17">John's Office</room>
-            <room number="19">Eric's Office</room>
-  </core:group>
-  <core:group core:level="1">
-    <room number="091">Mainframe Housing A</room>
-    <room number="092">Mainframe Housing B</room>
-    <room number="090">Mainframe Power Supply Station</room>
-    <room number="089">Mainframe Backup Power Supply Station</room>
-  </core:group>
-  <core:group core:level="8">
-    <room number="1717" role="cto">CTO Office</room>
-    <room number="1819" role="ceo">CEO Office</room>
-    <room number="1820" role="cfo">
-      <x_room label="k89121">Lab01</x_room>
-    </room>
-  </core:group>
-</building>
-</pre>
+                });            
+</script>
+<table id="DT-WMnpjMRH" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+</thead>
+<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
-<div id="Tab-tm183ajn" class="tabs-content"></div>
+</div>
+</div>
+</div>
+<div id="Tab-zdb3olft" class="tabs-content"></div>
 </body>
 <!-- END BODY -->
 <!-- FOOTER -->
 <footer>
+
+
+
+
+
 <!-- JS Elastic Tabs START -->
 <script type="text/javascript">var maxWidth = 0;
 var $element;
@@ -615,21 +591,6 @@ function setSelectorPosition(id) {
 }
 </script>
 <!-- JS Elastic Tabs END -->
-
-
-<!-- JS EnlighterJS CodeBlocks START -->
-<script type="text/javascript">// INIT CODE - simple page-wide initialization based on css selectors
-// - highlight all pre + code tags (CSS3 selectors)
-// - use javascript as default language
-// - use theme "enlighter" as default theme
-// - replace tabs with 2 spaces
-EnlighterJS.init("pre", "code", {
-    language: "powershell",
-    theme: "enlighter",
-    indent: 2
-});
-</script>
-<!-- JS EnlighterJS CodeBlocks END -->
 </footer>
 <!-- END FOOTER -->
 </html>

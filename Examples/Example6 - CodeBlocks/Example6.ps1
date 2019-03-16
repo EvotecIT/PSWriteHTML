@@ -1,4 +1,4 @@
-Import-Module "..\PSWriteHTML\PSWriteHTML.psd1" -Force
+Import-Module PSWriteHTML -Force
 
 $HTMLPath = "$PSScriptRoot\Example6.html"
 
@@ -9,12 +9,12 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLColumn -ColumnCount 2 {
+            New-HTMLPanel -Count 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
             }
-            New-HTMLColumn -ColumnCount 2 {
+            New-HTMLPanel -Count 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
@@ -79,7 +79,7 @@ $CodeBlocksXML = @'
 </building>
 '@
 
-$HTML = New-Html -UseCssLinks -UseJavaScriptLinks -HideLogos {
+$HTML = New-Html -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTab -TabName 'Coding' {
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Group 'Test123' -Title 'PowerShell Code 1' -Theme godzilla -Highlight '2-5, 13'

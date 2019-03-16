@@ -20,7 +20,7 @@ function New-HTMLTable {
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
-    [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8)" # this builds table ID
+    [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
     [Array] $Table = $DataTable | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
     [string] $Header = $Table | Select-Object -First 1 # this gets header 
     $Table = $Table | Select-Object -Skip 1 # this gets actuall table content 

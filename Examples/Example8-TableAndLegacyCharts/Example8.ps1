@@ -1,20 +1,16 @@
 Import-Module PSWriteHTML -Force
 $Processes = Get-Process | Select -First 5
 
-$DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
-    -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
-    -RightLogoString $ReportOptions.AsDynamicHTML.Branding.Logo.RightLogo.ImageLink `
-    -UseCssLinks:$true `
-    -UseJavaScriptLinks:$true {
+$DynamicHTML = New-HTML -TitleText 'Title' -UseCssLinks:$true -UseJavaScriptLinks:$true {
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
-        New-HTMLColumn -ColumnCount 1 {
+        New-HTMLPanel -Count 1 {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
 
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
-        New-HTMLColumn -ColumnCount 1 {
+        New-HTMLPanel -Count 1 {
             $PieObjectGroupMembersType = Get-HTMLPieChartObject
             $PieObjectGroupMembersType.Title = "Group Membership"
             $PieObjectGroupMembersType.Size.Height = 250
@@ -42,7 +38,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             $GroupMembershipTable.Add($objmem)
             Get-HTMLPieChart -ChartObject $PieObjectGroupMembersType -DataSet $GroupMembershipTable
         }
-        New-HTMLColumn -ColumnCount 1 {
+        New-HTMLPanel -Count 1 {
             
             $LineObject = Get-HTMLLineChartObject
             # $LineObject.DataDefinition.DataCategoryName = '2012','2013'
@@ -64,7 +60,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             Get-HTMLLineChart -ChartObject $LineObject -DataSet $DataSet 
             
         }
-        New-HTMLColumn -ColumnCount 1 {
+        New-HTMLPanel -Count 1 {
             
             $Stacked = Get-HTMLStackedChartObject
             $Stacked.Title = "Group Membership"

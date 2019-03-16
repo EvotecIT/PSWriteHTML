@@ -10,7 +10,8 @@ $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enab
 $Allusers = Get-AdUser -Filter *
 
 
-$Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -UseCssLinks -UseJavaScriptLinks {
+$Report = New-HTML -TitleText $ReportTitle -UseCssLinks -UseJavaScriptLinks {
+    New-HTMLLogo
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText "Groups" {
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
@@ -18,41 +19,41 @@ $Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -UseCs
             }
         }
         New-HTMLContent -HeaderText 'Test Group' -CanCollapse {
-            New-HTMLColumn -ColumnCount 2 {
+            New-HTMLPanel -Count 2 {
                 New-HTMLContent -HeaderText 'Enterprise Administrators' {
                     New-HTMLTable $EnterpriseAdminTable -HideFooter
                 }
             }
-            New-HTMLColumn -ColumnCount 2 {
+            New-HTMLPanel -Count 2 {
                 New-HTMLContent -HeaderText 'Enterprise Administrators' {
                     New-HTMLTable $EnterpriseAdminTable -HideFooter
                 }
             }
         }
         New-HTMLContent -HeaderText "Groups 1" {
-            New-HTMLColumn -ColumnCount 1 {
+            New-HTMLPanel -Count 1 {
                 New-HTMLTable $DomainAdminTable -HideFooter
             }
-            New-HTMLColumn -ColumnCount 1 {
+            New-HTMLPanel -Count 1 {
                 New-HTMLTable $DomainAdminTable -HideFooter
             }
         }
         New-HTMLContent -HeaderText "Groups 2" {
-            New-HTMLColumn -ColumnCount 1 {
+            New-HTMLPanel -Count 1 {
                 New-HTMLTable $Allusers
             }
         }
         New-HTMLContent -HeaderText "Groups 3" -CanCollapse {
-            New-HTMLColumn -ColumnCount 4 {
+            New-HTMLPanel -Count 4 {
                 New-HTMLTable $Allusers -HideFooter
             }
-            New-HTMLColumn -ColumnCount 4 {
+            New-HTMLPanel -Count 4 {
                 New-HTMLTable $Allusers -HideFooter
             }
-            New-HTMLColumn -ColumnCount 4 {
+            New-HTMLPanel -Count 4 {
                 New-HTMLTable $Allusers -HideFooter
             }
-            New-HTMLColumn -ColumnCount 4 {
+            New-HTMLPanel -Count 4 {
                 New-HTMLTable $Allusers -HideFooter
             }
         }

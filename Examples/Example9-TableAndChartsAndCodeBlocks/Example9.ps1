@@ -1,5 +1,5 @@
 Import-Module .\PSWriteHTML.psd1 -Force
-$Processes = Get-Process | Select -First 5
+$Processes = Get-Process | Select-Object -First 5
 
 $CodeBlock = @'
 
@@ -7,12 +7,12 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLColumn -ColumnCount 2 {
+            New-HTMLPanel -Count 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
             }
-            New-HTMLColumn -ColumnCount 2 {
+            New-HTMLPanel -Count 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
@@ -47,26 +47,23 @@ $(window).bind("resize", function(e) {
 '@
 
 
-$DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
-    -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
-    -RightLogoString $ReportOptions.AsDynamicHTML.Branding.Logo.RightLogo.ImageLink `
-    -UseCssLinks:$true `
-    -UseJavaScriptLinks:$true {
+$DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true {
+    New-HTMLLogo
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
-        New-HTMLColumn -ColumnCount 1 {
+        New-HTMLPanel -Count 1 {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLColumn -ColumnCount 2 {
+        New-HTMLPanel -Count 2 {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLColumn -ColumnCount 2 {
+        New-HTMLPanel -Count 2 {
             $Processes = Get-Process | Select -First 5
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
-        New-HTMLColumn -ColumnCount 1 {
+        New-HTMLPanel -Count 1 {
             # Standard Chart Bar 
             New-HTMLChart -Data @(400, 430, 448) -DataNames 'People count' -DataCategories 'Poland', 'Europe', 'Germany'
 
@@ -76,14 +73,14 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
 
             # New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'column'
         }
-        New-HTMLColumn -ColumnCount 2 {
+        New-HTMLPanel -Count 2 {
             $GroupedBar = @()
             $GroupedBar += 400, 430, 448
             $GroupedBar1 = @()
             $GroupedBar1 += 420, 450, 448
             New-HTMLChart -Data $GroupedBar, $GroupedBar1 -DataNames 'People count in  2019', 'People count in 2018' -DataCategories 'Poland', 'Europe', 'Germany'
         }
-        New-HTMLColumn -ColumnCount 2 {
+        New-HTMLPanel -Count 2 {
             $Data = 10, 41, 35, 51, 49, 62, 69, 91, 148
             $DataName = "Desktops"
             $DataCategories = 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
@@ -98,7 +95,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
 
             
         }
-        New-HTMLColumn -ColumnCount 1 {
+        New-HTMLPanel -Count 1 {
             $Data1 = 44, 55, 57, 56, 61, 58, 63, 60, 66
             $Data2 = 76, 85, 101, 98, 87, 105, 91, 114, 94
             $Data3 = 35, 41, 36, 26, 45, 48, 52, 53, 41
@@ -108,21 +105,21 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
         }
     }
     New-HTMLContent -HeaderText 'Section 3rd with 3 columns' {
-        New-HTMLColumn -ColumnCount 3 {
+        New-HTMLPanel -Count 3 {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLColumn -ColumnCount 3 {
+        New-HTMLPanel -Count 3 {
             New-HTMLChart -Data @(400, 430, 448), @(450, 0, 200) -DataNames 'People count', 'People death' -DataCategories '2015', '2016', '2017' -Type 'line' -LineColor 'Blue', 'Green'
         }
-        New-HTMLColumn -ColumnCount 3 {
+        New-HTMLPanel -Count 3 {
             New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
         }
     }
     New-HTMLContent -HeaderText 'Anoteher' {
-        New-HTMLColumn -Columns 2 {
+        New-HTMLPanel -Count 2 {
             New-HTMLCodeBlock -Code $CodeBlockJS -Style 'JavaScript' -Theme enlighter -Highlight '2, 5'
         }
-        New-HTMLColumn -Columns 2 {
+        New-HTMLPanel -Count 2 {
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Theme enlighter -Highlight '2, 5'
         }
     }
