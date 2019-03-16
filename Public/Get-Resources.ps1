@@ -3,7 +3,7 @@ function Get-Resources {
     param(
         [switch] $UseCssLinks,
         [switch] $UseJavaScriptLinks, 
-        [ValidateSet('Header', 'Footer', 'HeaderLocal', 'FooterLocal')][string] $Location
+        [ValidateSet('Header', 'Footer', 'HeaderAlways', 'FooterAlways')][string] $Location
     )
     DynamicParam {
         # Defines Features Parameter Dynamically
@@ -23,9 +23,10 @@ function Get-Resources {
     Process {
         [string[]] $Features = $PSBoundParameters.Features
 
+        
         foreach ($Feature in $Features) {
             
-            # $Script:Configuration.Features.$Feature.$Location
+            Write-Verbose "Get-Resources - Location: $Location - Feature: $Feature UseCssLinks: $UseCssLinks UseJavaScriptLinks: $UseJavaScriptLinks"
             if ($UseCssLinks) {
                 New-HTMLResourceCSS -Link $Script:Configuration.Features.$Feature.$Location.'CssLink' -ResourceComment $Script:Configuration.Features.$Feature.Comment
             } else {
@@ -37,6 +38,7 @@ function Get-Resources {
                 New-HTMLResourceJS -FilePath $Script:Configuration.Features.$Feature.$Location.'Js' -ResourceComment $Script:Configuration.Features.$Feature.Comment 
             }
         }
+        
     }
+
 }
-#Get-Resources -Features Accordion -Location 'Header'

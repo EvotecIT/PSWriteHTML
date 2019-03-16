@@ -6,6 +6,7 @@ function New-HTMLToast {
         [ValidateSet('Green', 'Blue', 'Orange')] $Color = "Green",
         [ValidateSet('Success', 'Information', 'Exclamation')][string] $Icon = 'Success'
     )
+    $Script:HTMLSchema.Features.Toast = $true
     $DivClass = "toast $($Color.ToLower()) central" 
     New-HTMLTag -Tag 'div' -Attributes @{ class = $DivClass } {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'toast__icon' } {

@@ -9,7 +9,7 @@ $HTMLPath = "$PSScriptRoot\Example5.html"
 # Code Block for PowerShell Code (Showing how <pre> tags work)
 $CodeBlock = @'
 
-$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
+$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
@@ -83,7 +83,7 @@ $CodeBlocksXML = @'
 </building>
 '@
 
-$HTML = New-Html -UseCssLinks -UseStyleLinks {
+$HTML = New-Html -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab {
         New-HTMLContent -HeaderText 'Content' {

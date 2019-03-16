@@ -13,7 +13,7 @@ Function Get-HTMLPieChart {
         [Parameter(Mandatory = $false)]
         $Options
     )
-
+    $Script:HTMLSchema.Features.Charts = $true
     $DataCount = $DataSet.Count
     Write-Verbose "Data Set counnt is $DataCount"
 

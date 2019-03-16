@@ -88,7 +88,7 @@ Function New-HTMLCodeBlock {
         [Parameter(Mandatory = $false)][nullable[bool]] $ShowLineNumbers,
         [Parameter(Mandatory = $false)][String] $LineOffset
     )
-
+    $Script:HTMLSchema.Features.CodeBlocks = $true
     <# Explanation to fields:
         data-enlighter-language (string) - The language of the codeblock - overrides the global default setting | Block+Inline Content option
         data-enlighter-theme (string) - The theme of the codeblock - overrides the global default setting | Block+Inline Content option

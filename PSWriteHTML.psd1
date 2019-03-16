@@ -19,7 +19,8 @@
     CompatiblePSEditions='Desktop',
         'Core'
     PowerShellVersion='5.1'
-    FunctionsToExport='Get-Resources',
+    FunctionsToExport='Get-FeaturesInUse',
+        'Get-Resources',
         'New-HTML',
         'New-HTMLAnchor',
         'New-HTMLAnchorLink',

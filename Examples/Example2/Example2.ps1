@@ -10,7 +10,7 @@ $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enab
 $Allusers = Get-AdUser -Filter *
 
 
-$Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -UseCssLinks -UseStyleLinks {
+$Report = New-HTML -TitleText $ReportTitle -HideLogos -Verbose -AddAuthor -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText "Groups" {
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {

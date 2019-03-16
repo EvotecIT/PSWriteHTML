@@ -19,14 +19,13 @@ Function Get-RandomColorScheme {
     
     param
     (
-        [Parameter(Mandatory = $false)][int]$NumberOfSchemes = 1
+        [Parameter(Mandatory = $false)][int]$NumberOfSchemes = 1,
+        [int] $ColorSwing = 8,        
+        [string] $Hover = 0.3,
+        [string] $color = 0.6,
+        [string] $border = 1,
+        [string] $background = 0.7
     )
-
-    [string] $Hover = 0.3
-    [string] $color = 0.6
-    [string] $border = 1
-    [string] $background = 0.7
-    [int] $ColorSwing = 8
 
     $ColorReference = Get-Random -Minimum 1 -Maximum 3
     $BaseColor = (Get-Random -Maximum (200 - $ColorSwing) -Minimum (50 + $ColorSwing))

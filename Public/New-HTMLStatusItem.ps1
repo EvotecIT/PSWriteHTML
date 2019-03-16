@@ -5,6 +5,7 @@ function New-HTMLStatusItem {
         [ValidateSet('Dead', 'Bad', 'Good')]$Icon = 'Good',
         [ValidateSet('0%', '10%', '30%', '70%', '100%')][string] $Percentage = '100%'
     )
+    #$Script:HTMLSchema.Features.StatusButtonical = $true
     if ($Icon -eq 'Dead') {
         $IconType = 'performanceDead'
     } elseif ($Icon -eq 'Bad') { 

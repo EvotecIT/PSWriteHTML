@@ -80,6 +80,8 @@ function New-HTMLTab {
         [Parameter(Mandatory = $false, Position = 1)][String]$TabHeading,
         [alias('Name')][string] $TabName
     )
+    $Script:HTMLSchema.Features.Tabs = $true
+    $Script:HTMLSchema.Features.JQuery = $true
     <#
     if ($TabName -ne '') {
         # Start - Just in case you prefer to use old way - can be useful with tabs created out of order

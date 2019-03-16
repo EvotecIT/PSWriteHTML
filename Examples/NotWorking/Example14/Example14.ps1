@@ -5,7 +5,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
     -RightLogoString $ReportOptions.AsDynamicHTML.Branding.Logo.RightLogo.ImageLink `
     -UseCssLinks:$true `
-    -UseStyleLinks:$true {
+    -UseJavaScriptLinks:$true {
 
 
     New-HTMLColumn -Columns 1 {

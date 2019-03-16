@@ -3,7 +3,7 @@ $Processes = Get-Process | Select -First 5
 
 $CodeBlock = @'
 
-$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseStyleLinks {
+$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
@@ -51,7 +51,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
     -RightLogoString $ReportOptions.AsDynamicHTML.Branding.Logo.RightLogo.ImageLink `
     -UseCssLinks:$true `
-    -UseStyleLinks:$true {
+    -UseJavaScriptLinks:$true {
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
         New-HTMLColumn -ColumnCount 1 {
@@ -128,5 +128,4 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     }
 }
 
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML `
-    -FilePath 'C:\Support\GitHub\PSWriteHTML\Examples\Example9\Example9.html'
+[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath $PSScriptRoot\Example9.html

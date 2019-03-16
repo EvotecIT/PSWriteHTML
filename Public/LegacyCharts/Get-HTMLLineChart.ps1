@@ -13,7 +13,7 @@ Function Get-HTMLLineChart {
         [Parameter(Mandatory = $false)]
         $Options
     )
-	
+	$Script:HTMLSchema.Features.Charts = $true
     $DataCount = $ChartObject.DataDefinition.DataSetNames.Count
     Write-Verbose "Data Set count is $DataCount"
 

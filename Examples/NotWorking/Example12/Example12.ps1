@@ -5,9 +5,9 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
     -RightLogoString $ReportOptions.AsDynamicHTML.Branding.Logo.RightLogo.ImageLink `
     -UseCssLinks:$true `
-    -UseStyleLinks:$true {
+    -UseJavaScriptLinks:$true {
 
-@'
+    @'
 <div class="tabs">
   <ul>
     <li class="is-active"><a>Pictures</a></li>
@@ -26,7 +26,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     }
     New-HTMLContent -Content {
         New-HTMLColumn -Columns 2 {
-        @'
+            @'
         <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">

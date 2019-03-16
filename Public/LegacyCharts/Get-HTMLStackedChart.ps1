@@ -14,7 +14,7 @@ Function Get-HTMLStackedChart
 		[Parameter(Mandatory=$false)]
         $Options
 	)
-
+    $Script:HTMLSchema.Features.Charts = $true
 
 	$DataCount = $DataSet.Count
 	Write-Verbose "Data Set count is $DataCount"

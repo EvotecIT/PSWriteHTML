@@ -8,6 +8,7 @@ function New-HTMLTimelineItem {
         class     = 'timelineSimple-item'
         "date-is" = $Date
     }
+    # $Script:HTMLSchema.Features.TimeLine = $true
     New-HTMLTag -Tag 'div' -Attributes $Attributes -Value {
         New-HTMLTag -Tag 'h1' -Attributes @{ class = 'timelineSimple' } {
             $HeadingText

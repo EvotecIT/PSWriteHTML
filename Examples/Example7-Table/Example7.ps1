@@ -5,7 +5,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
     -RightLogoString $ReportOptions.AsDynamicHTML.Branding.Logo.RightLogo.ImageLink `
     -UseCssLinks:$true `
-    -UseStyleLinks:$true {
+    -UseJavaScriptLinks:$true {
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
         New-HTMLColumn -ColumnCount 1 {
@@ -57,5 +57,4 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     }
 }
 
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML `
-    -FilePath 'C:\Support\GitHub\PSWriteHTML\Examples\Example7\Example7.html'
+[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath $PSScriptRoot\Example7.html

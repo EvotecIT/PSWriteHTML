@@ -79,6 +79,10 @@ function New-HTMLTable {
 
     # return data
     if (-not $Simplify) {
+        $Script:HTMLSchema.Features.DataTables = $true
+        $Script:HTMLSchema.Features.DataTablesPDF = $true
+        $Script:HTMLSchema.Features.DataTablesExcel = $true
+
         $TableAttributes = @{ id = $DataTableName; class = ($Style -join ' ') }
         if ($Tab.Active -eq $true) {
             New-HTMlTag -Tag 'script' {

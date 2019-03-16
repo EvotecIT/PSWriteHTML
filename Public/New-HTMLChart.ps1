@@ -22,6 +22,8 @@ function New-HTMLChart {
         [RGBColors[]] $LineColor,
         [ValidateSet('', 'central')][string] $Positioning
     )
+    $Script:HTMLSchema.Features.ChartsApex = $true
+
 
     $ID = "ChartID-" + (Get-RandomStringName -Size 8)
 

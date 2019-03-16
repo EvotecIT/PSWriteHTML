@@ -5,7 +5,7 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     -HideLogos:(-not $ReportOptions.AsDynamicHTML.Branding.Logo.Show) `
     -RightLogoString $ReportOptions.AsDynamicHTML.Branding.Logo.RightLogo.ImageLink `
     -UseCssLinks:$true `
-    -UseStyleLinks:$true {
+    -UseJavaScriptLinks:$true {
 
     #New-HTMLTabHeader -TabNames 'Test', 'Test 5555', 'Test2', 'Test3', 'Test4', 'Test5','Test2'
     New-HtmlTab -TabName 'Test' {
@@ -88,5 +88,4 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
     
 }
 
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML `
-    -FilePath 'C:\Support\GitHub\PSWriteHTML\Examples\Example10\Example10.html'
+[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath $PSScriptRoot\Example10.html

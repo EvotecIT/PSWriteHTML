@@ -6,16 +6,30 @@ function New-HTMLResourceCSS {
         [string] $Link,
         [string] $ResourceComment,
         [string] $FilePath
+    
     )
-    "<!-- CSS $ResourceComment START -->"
-    if ($FilePath -ne '') {
-        New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
-            if (Test-Path -LiteralPath $FilePath) {
-                Get-Content -LiteralPath $FilePath
+    $Output = @(
+        "<!-- CSS $ResourceComment START -->"
+        foreach ($File in $FilePath) {
+            if ($File -ne '') {
+                if (Test-Path -LiteralPath $File) {                
+                    New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {    
+                        Write-Verbose "New-HTMLResourceCSS - Reading file from $File"        
+                        Get-Content -LiteralPath $File           
+                    }
+                } 
             }
         }
-    } else {
-        New-HTMlTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $Link } 
-    }
-    "<!-- CSS $ResourceComment END -->"
+        foreach ($L in $Link) {   
+            if ($L -ne '') {
+                Write-Verbose "New-HTMLResourceCSS - Adding link $L"   
+                New-HTMlTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $L } 
+            }
+        }
+        "<!-- CSS $ResourceComment END -->"
+    )
+    if ($Output.Count -gt 2) {
+        # Outputs only if more than comments
+        $Output
+    } 
 }

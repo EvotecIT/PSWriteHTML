@@ -4,7 +4,7 @@ $Time = Start-TimeLog
 $DynamicHTML = New-HTML -TitleText 'Services Status' `
     -HideLogos:$true `
     -UseCssLinks:$true `
-    -UseStyleLinks:$true {
+    -UseJavaScriptLinks:$true {
 
     New-HTMLColumn -Invisible {
         New-HTMLToast -Icon Information -Color Blue -TextHeader 'Information' -Text 'Everything is running smoothly!'

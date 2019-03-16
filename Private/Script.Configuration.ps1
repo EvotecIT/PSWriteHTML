@@ -1,94 +1,131 @@
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
         Default          = @{
-            HeaderLocal = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\Styles\default.css"   
+            Comment      = 'Always Required Default Visual Settings'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\default.css"   
             }
         }
         Accordion        = @{
-            Header = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\Styles\accordion-1.css"
+            Comment = 'Accordion'
+            Header  = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
             }
         }
         Bulma            = @{
-            Header = @{
+            Comment = 'Bulma Styles'
+            Header  = @{
                 CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css'
             }
         }
         CodeBlocks       = @{
-            Header      = @{
+            Comment      = 'EnlighterJS CodeBlocks'
+            Header       = @{
                 CssLink = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\StylesAlways\enlighterjs.min.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\enlighterjs.min.css"
                 JsLink  = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js'
             }
-            Footer      = @{
+            Footer       = @{
 
             }
-            HeaderLocal = @{
+            HeaderAlways = @{
                 
             }
-            FooterLocal = @{
-                JS = "$PSScriptRoot\..\Resources\JS\Static\Enlighter-Footer.js"
+            FooterAlways = @{
+                JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
             }
         }
         Charts           = @{
-            Header = @{
+            Comment = 'Charts JS'
+            Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js'
             }
         }
         ChartsApex       = @{
-
-            Header = @{
+            Comment = 'Apex Charts'
+            Header  = @{
                 JsLink = 'https://cdn.jsdelivr.net/npm/apexcharts@latest'
-                Css    = "$PSScriptRoot\..\Resources\CSS\StylesAlways\apexcharts.css"
+                Css    = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
+
+        Jquery           = @{
+            Comment = 'Jquery'
+            Header  = @{
+                JsLink = 'http://code.jquery.com/jquery-3.3.1.min.js'
+                Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.3.1.min.js"
+            }
+        }
+
         DataTables       = @{
-            Header = @{
+            Comment = 'DataTables'
+            Header  = @{
                 CssLink = 'https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\StylesAlways\datatables.min.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\datatables.min.css"
+                JsLink  = "https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"
             }
         }
         DataTablesPDF    = @{
-            Header = @{
+            Comment = 'DataTables PDF Features'
+            Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js'
             }
         }
         DataTablesExcel  = @{
-            Header = @{
+            Comment = 'DataTables Excel Features'
+            Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'
             }
         }
-        Tabs             = @{
-            Comment = 'Elastic Tabs'
-            Header  = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\Styles\tabs-elastic.css"
+        Fonts            = @{
+            Comment      = 'Default fonts'
+            HeaderAlways = @{
+                CssLink = 'https://fonts.googleapis.com/css?family=Roboto'
             }
-            Footer  = @{
-                JSLink = "$PSScriptRoot\..\Resources\JS\Other\tabs-elastic.js"
+        }
+        FontsAwesome     = @{
+            Comment      = 'Default fonts icons'
+            HeaderAlways = @{
+                CssLink = 'https://use.fontawesome.com/releases/v5.7.2/css/all.css'
+            }
+        }
+        HideSection      = @{
+            Comment      = 'Hide Section Code'
+            HeaderAlways = @{
+                JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
+            }
+        }
+        Tabs             = @{
+            Comment      = 'Elastic Tabs'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.css"
+            }
+            FooterAlways = @{
+                JS = "$PSScriptRoot\..\Resources\JS\tabs-elastic.js"
             }
         }
         TimeLine         = @{            
             Comment = 'Timeline Simple'
             Header  = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\Styles\timeline-simple.css"
+                Css = "$PSScriptRoot\..\Resources\CSS\timeline-simple.css"
             }
         }
         StatusButtonical = @{
             Comment = 'Status Buttonical'
             Header  = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\Styles\status.css"
+                Css = "$PSScriptRoot\..\Resources\CSS\status.css"
             }
         }
         Toast            = @{
             Comment = 'Toasts Looking Messages'
             Header  = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\Styles\toasts.css"
+                Css = "$PSScriptRoot\..\Resources\CSS\toasts.css"
             }
         }
         TuiGrid          = @{
-            Header = @{
-                Css     = "$PSScriptRoot\..\Resources\CSS\StylesAlways\tuigrid.css"
+            Comment = 'Tui Grid'
+            Header  = @{
+                Css     = "$PSScriptRoot\..\Resources\CSS\tuigrid.css"
                 CssLink = 'https://cdn.jsdelivr.net/npm/tui-grid@3.5.0/dist/tui-grid.css'
             }
         }

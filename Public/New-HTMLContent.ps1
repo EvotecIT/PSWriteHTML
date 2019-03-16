@@ -18,6 +18,7 @@ Function New-HTMLContent {
         $BGStyleColor = ''
     }
     if ($CanCollapse) {
+        $Script:HTMLSchema.Features.HideSection = $true
         if ($IsHidden) {
             $ShowStyle = "color: $TextHeaderColorFromRGB" # shows Show button
             $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button 

@@ -11,7 +11,7 @@ $Allusers = Get-AdUser -Filter *
 
 $ImageLink = 'https://evotec.xyz/wp-content/uploads/2015/05/Logo-evotec-012.png'
 
-$Report = New-HTML -TitleText $ReportTitle -AddAuthor -RightLogoString $ImageLink -Verbose -UseStyleLinks -UseCssLinks {
+$Report = New-HTML -TitleText $ReportTitle -AddAuthor -RightLogoString $ImageLink -Verbose -UseJavaScriptLinks -UseCssLinks {
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent  -HeaderText "Groups" {    
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {

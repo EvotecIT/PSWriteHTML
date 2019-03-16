@@ -1507,7 +1507,7 @@ $PieObjectGroupProtection.DataDefinition.DataNameColumnName = 'Name'
 $PieObjectGroupProtection.DataDefinition.DataValueColumnName = 'Count'
 
 
-$FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose -UseCssLinks -UseStyleLinks  {
+$FinalReport = New-HTML  -TitleText $ReportTitle -LeftLogoString $CompanyLogo -RightLogoString $RightLogo -Verbose -UseCssLinks -UseJavaScriptLinks  {
     New-HTMLTabHeader -TabNames $tabarray
     #Dashboard Report
     New-HTMLTab  -TabName $tabarray[0] -TabHeading ("Report: " + (Get-Date -Format MM-dd-yyyy)) {
