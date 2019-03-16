@@ -98,7 +98,7 @@ function New-HTMLTable {
                 @"
                     `$(document).ready(function() {
                         `$('.tabs').on('click', 'a', function (event) { 
-                            if (`$(event.target).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
+                            if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
                                 `$('#$DataTableName').DataTable($($Options));
                             };
                         });
