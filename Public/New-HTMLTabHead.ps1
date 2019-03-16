@@ -1,32 +1,8 @@
-<#
-Function New-HTMLTabHead {
+function New-HTMLTabHead {
     [CmdletBinding()]
     Param (
         
-    )
-    
-    New-HTMLTag -Tag 'div' -Attributes @{ class = '' } {
-        New-HTMLTag -Tag 'ul' -Attributes @{ class = 'tab-nav'} {
-            foreach ($Tab in $Script:HTMLSchema.TabsHeaders) {
-                New-HTMLTag -Tag 'li' {
-                    if ($Tab.Active) {
-                        New-HTMLAnchor -Class 'buttonTab active' -HrefLink "#$($Tab.Id)" -Text $Tab.Name
-                    } else {
-                        New-HTMLAnchor -Class 'buttonTab' -HrefLink "#$($Tab.Id)" -Text $Tab.Name
-                    }
-                }
-            }
-        }
-    }
-}
-
-#>
-Function New-HTMLTabHead {
-    [CmdletBinding()]
-    Param (
-        
-    )
-    
+    )    
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsWrapper' } {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabs' } {
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'selector' }
@@ -56,8 +32,7 @@ Function New-HTMLTabHead {
                         New-HTMLTag -Tag 'i' -Attributes @{ class = 'fas fa-bomb' } -Value { $Tab.Name }
                     }
                 }
-            }
-            
+            }            
         }
     }
 }
