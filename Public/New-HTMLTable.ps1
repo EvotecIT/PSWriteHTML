@@ -21,7 +21,16 @@ function New-HTMLTable {
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
     [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
-    [Array] $Table = $DataTable | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
+
+    if ($DataTable[0] -is [System.Collections.IDictionary]) {
+        Write-Verbose 'New-HTMLTable - Working with IDictionary'
+        [Array ] $Table = $($DataTable).GetEnumerator() | Select-Object Name, Value | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
+    } elseif ($DataTable[0] -is [string]) {
+        [Array] $Table = $DataTable | ForEach-Object { [PSCustomObject]@{ 'Name' = $_ } } | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 
+    } else {
+        Write-Verbose 'New-HTMLTable - Working with Objects'
+        [Array] $Table = $DataTable | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
+    }
     [string] $Header = $Table | Select-Object -First 1 # this gets header 
     $Table = $Table | Select-Object -Skip 1 # this gets actuall table content 
 
