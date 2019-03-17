@@ -1,20 +1,25 @@
 .tabsWrapper {
     text-align: center;
-    /* margin: 50px auto; */
+    margin: 10px auto;
     font-family: 'Roboto', sans-serif !important;
 }
 
 .tabs {
-    font-family: 'Roboto', sans-serif !important;
-    /* margin-top: 50px; */
+    margin-top: 10px;
     font-size: 15px;
     padding: 0px;
     list-style: none;
     background: #fff;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    /*
     display: inline-block;
-    /* border-radius: 50px; */
+*/
+    border-radius: 4px;
     position: relative;
+}
+
+.tabs .round {
+    border-radius: 4px;
 }
 
 .tabs a {
@@ -45,7 +50,7 @@
     right: 0px;
     bottom: 0px;
     z-index: 1;
-    /* border-radius: 50px; */
+    border-radius: 4px;
     transition-duration: 0.6s;
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     background: #05abe0;
