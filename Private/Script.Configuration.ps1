@@ -6,6 +6,12 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\default.css"   
             }
         }
+        DefaultHeadings  = @{
+            Comment      = 'Always Required Default Headings'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\headings.css"   
+            }
+        }
         Accordion        = @{
             Comment = 'Accordion'
             Header  = @{
@@ -81,7 +87,7 @@ $Script:Configuration = [ordered] @{
         Fonts            = @{
             Comment      = 'Default fonts'
             HeaderAlways = @{
-                CssLink = 'https://fonts.googleapis.com/css?family=Roboto'
+                CssLink = 'https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald'
             }
         }
         FontsAwesome     = @{

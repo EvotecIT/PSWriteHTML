@@ -25,8 +25,14 @@ $Report = New-HTML -TitleText $ReportTitle -UseJavaScriptLinks -UseCssLinks {
     New-HTMLTab -TabName 'Something' {
         
     }
+    New-HTMLTab -TabName 'This is very long title' {
+        
+    }
+    New-HTMLTab -TabName 'This is long title' {
+        
+    }
 }
 
-Save-HTML -HTML $Report -FilePath $ReportPath -ShowHTML
+Save-HTML -HTML $Report -FilePath $ReportPath #-ShowHTML
 
 Stop-TimeLog -Time $Time -Option OneLiner

@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-03-16 17:30:49" name="revised"/>
+<meta content="2019-03-17 19:01:31" name="revised"/>
 <title>Test
 </title>
 <!-- CSS Default fonts START -->
@@ -13,7 +13,21 @@
 <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"></link>
 <!-- CSS Default fonts icons END -->
 <!-- CSS Always Required Default Visual Settings START -->
-<style type="text/css">body {
+<style type="text/css">
+
+body {
+    border-top-color: rgb(90, 90, 90);
+  background-color: rgb(23, 24, 28);
+  color: rgb(192, 188, 181);
+}
+@media screen and (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: black;
+  }
+}
+
+body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
     margin: 8px 10px 8px 10px;
@@ -354,21 +368,26 @@ function hide(obj) {
 <!-- CSS Elastic Tabs START -->
 <style type="text/css">.tabsWrapper {
     text-align: center;
-    /* margin: 50px auto; */
+    margin: 10px auto;
     font-family: 'Roboto', sans-serif !important;
 }
 
 .tabs {
-    font-family: 'Roboto', sans-serif !important;
-    /* margin-top: 50px; */
+    margin-top: 10px;
     font-size: 15px;
     padding: 0px;
     list-style: none;
     background: #fff;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    /*
     display: inline-block;
-    /* border-radius: 50px; */
+*/
+    border-radius: 4px;
     position: relative;
+}
+
+.tabs .round {
+    border-radius: 4px;
 }
 
 .tabs a {
@@ -399,7 +418,7 @@ function hide(obj) {
     right: 0px;
     bottom: 0px;
     z-index: 1;
-    /* border-radius: 50px; */
+    border-radius: 4px;
     transition-duration: 0.6s;
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     background: #05abe0;
@@ -446,30 +465,36 @@ function hide(obj) {
         </tbody></table>
 <!-- END LOGO -->
 <div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-l1hfi4me"><i class="fas fa-bomb">Dashboard
+<a href="javascript:void(0)" class="active" data-id="Tab-0da3pr2k"><i class="fas fa-bomb">Dashboard
 </i>
 </a>
-<a href="javascript:void(0)" data-id="Tab-zdb3olft"><i class="fas fa-bomb">Something
+<a href="javascript:void(0)" data-id="Tab-xtznj3iw"><i class="fas fa-bomb">Something
+</i>
+</a>
+<a href="javascript:void(0)" data-id="Tab-9qyfrwb5"><i class="fas fa-bomb">This is very long title
+</i>
+</a>
+<a href="javascript:void(0)" data-id="Tab-int23col"><i class="fas fa-bomb">This is long title
 </i>
 </a>
 </div>
 </div>
-<div id="Tab-l1hfi4me" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Groups" style="color: #ffffff;">Groups
+<div id="Tab-0da3pr2k" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Groups" style="color: #ffffff;">Groups
 </a>
-<a id="show_1157834662" href="#" onclick="show('1157834662');" style="color: #ffffff; display:none">(Show)
+<a id="show_2007732721" href="#" onclick="show('2007732721');" style="color: #ffffff; display:none">(Show)
 </a>
-<a id="hide_1157834662" href="#" onclick="hide('1157834662');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable" id="1157834662"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
-</a>
-<a id="show_1033744834" href="#" onclick="show('1033744834');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_1033744834" href="#" onclick="hide('1033744834');" style="color: #ffffff;">(Hide)
+<a id="hide_2007732721" href="#" onclick="hide('2007732721');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1033744834"><div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px);"><script>                $(document).ready(function() {
-                    $('#DT-WMnpjMRH').DataTable({
+<div class="collapsable" id="2007732721"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
+</a>
+<a id="show_1209647780" href="#" onclick="show('1209647780');" style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_1209647780" href="#" onclick="hide('1209647780');" style="color: #ffffff;">(Hide)
+</a>
+</div>
+<div class="collapsable" id="1209647780"><div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px);"><script>                $(document).ready(function() {
+                    $('#DT-EBrJTmut').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -510,7 +535,7 @@ function hide(obj) {
 });
                 });            
 </script>
-<table id="DT-WMnpjMRH" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+<table id="DT-EBrJTmut" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
 </thead>
 <tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
 </tbody>
@@ -521,7 +546,9 @@ function hide(obj) {
 </div>
 </div>
 </div>
-<div id="Tab-zdb3olft" class="tabs-content"></div>
+<div id="Tab-xtznj3iw" class="tabs-content"></div>
+<div id="Tab-9qyfrwb5" class="tabs-content"></div>
+<div id="Tab-int23col" class="tabs-content"></div>
 </body>
 <!-- END BODY -->
 <!-- FOOTER -->
@@ -534,35 +561,34 @@ function hide(obj) {
 <!-- JS Elastic Tabs START -->
 <script type="text/javascript">var maxWidth = 0;
 var $element;
-$(".tabs a").each(function () {
-    $element = $(this);
-    if ($element.width() > maxWidth) {
-        maxWidth = $element.width();
-    }
-});
+//$(".tabs a").each(function(){
+//   $element = $(this);
+//   if($element.width() > maxWidth){
+//     maxWidth = $element.width();
+//  }
+//});
 
-// Get on Resize function
-$(window).on('resize', function () {
+$(window).on("resize", function() {
     $(".selector").hide();
     var activeItem = $(".tabs a[class*='active']");
     var id = activeItem.data("id");
     setSelectorPosition(id);
 });
 
-$(".tabs a").each(function () {
-    $(this).width(maxWidth);
-});
+//$(".tabs a").each(function(){
+//$(this).width(maxWidth);
+
+//});
 
 // Set first active link
 var activeItem = $(".tabs a[class*='active']");
 var id = activeItem.data("id");
 setSelectorPosition(id);
 
-// Get on click function
-$(".tabs").on("click", "a", function (e) {
+$(".tabs").on("click", "a", function(e) {
     e.preventDefault();
-    $('.tabs a').removeClass("active");
-    $(this).addClass('active');
+    $(".tabs a").removeClass("active");
+    $(this).addClass("active");
 
     // Get id of link clicked
     var id = $(this).data("id");
@@ -571,21 +597,21 @@ $(".tabs").on("click", "a", function (e) {
     setSelectorPosition(id);
 
     // Hide all tabs
-    $('.tabs-content').hide();
+    $(".tabs-content").hide();
 
     // Show current tab
-    $('#' + id).show();
+    $("#" + id).show();
 });
 
 function setSelectorPosition(id) {
-    var activeItem = $(".tabs").find("[data-id=" + id + "]");
+    var activeItem = $(".tabs").find("[data-id='" + id + "']");
     var activeWidth = activeItem.innerWidth();
     var itemPos = activeItem.position();
     $(".selector").css({
-        "left": itemPos.left + "px",
-        "top": itemPos.top + "px",
-        "width": activeItem.innerWidth() + "px",
-        "height": activeItem.innerHeight() + "px"
+        left: itemPos.left + "px",
+        top: itemPos.top + "px",
+        width: activeItem.innerWidth() + "px",
+        height: activeItem.innerHeight() + "px"
     });
     $(".selector").show();
 }
