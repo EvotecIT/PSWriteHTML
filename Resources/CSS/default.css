@@ -79,13 +79,33 @@ div.MainLogo {
 div.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
-    display: inline-block;
+   /* display: inline-block; */
     margin: 5px;
     width: calc(100% - 10px);
     overflow: hidden;
     /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
+    box-sizing: border-box;
+    float: left;
+}
+
+div.defaultColumn {
+    box-sizing: border-box;
+    float: left;
+    overflow: hidden;
+    /* NEW */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px;
+}
+
+.defaultCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+    margin: 5px;
 }
 
 div.defaultHeader {
@@ -131,16 +151,6 @@ td.groupby {
 .header {
     background-color: #616a6b;
     color: #f7f9f9;
-}
-
-div.defaultColumn {
-    box-sizing: border-box;
-    float: left;
-    overflow: hidden;
-    /* NEW */
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding: 2px;
 }
 
 a.alink:link {
@@ -214,14 +224,6 @@ button.dt-button {
     color: blue !important;
     border-radius: 5px;
     line-height: 1 !important;
-}
-
-.defaultCard {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 40%;
-    border-radius: 5px;
-    margin: 5px;
 }
 
 .card:hover {
