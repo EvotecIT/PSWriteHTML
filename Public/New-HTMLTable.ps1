@@ -21,7 +21,9 @@ function New-HTMLTable {
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
     [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
-
+    if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
+        return ''
+    }
     if ($DataTable[0] -is [System.Collections.IDictionary]) {
         Write-Verbose 'New-HTMLTable - Working with IDictionary'
         [Array ] $Table = $($DataTable).GetEnumerator() | Select-Object Name, Value | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
