@@ -34,7 +34,7 @@ Function New-HTMLContent {
             $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Show button
             $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button 
         } else {
-            $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;"  # hides Show button 
+            $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button 
             $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
         }
     }
@@ -52,22 +52,12 @@ Function New-HTMLContent {
     $HeaderStyle = "color: $TextHeaderColorFromRGB;"
 
     if ($Invisible) {
-        #New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultSection defaultCard"; 'style' = $DivContentStyle } -Value {
-        # New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle  } -Value {
-        #   New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
-        #   New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
-        #    New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
-        # }
-        #New-HTMLContainer {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther' } -Value {
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther defaultPanelOther' } -Value {
                 Invoke-Command -ScriptBlock $Content
             }
         }
-        #}
-        # }
     } else {
-
         # return this HTML
         New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultSection defaultCard"; 'style' = $DivContentStyle } -Value {
             New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle  } -Value {
@@ -75,13 +65,11 @@ Function New-HTMLContent {
                 New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
                 New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
             }
-            #New-HTMLContainer {
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther'; id = $RandomNumber; } -Value {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainer defaultPanelOther collapsable'; id = $RandomNumber; } -Value {
                     Invoke-Command -ScriptBlock $Content
                 }
             }
-            #}
         }
     }
 }
