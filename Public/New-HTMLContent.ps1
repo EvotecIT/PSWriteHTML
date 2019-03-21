@@ -62,8 +62,8 @@ Function New-HTMLContent {
         New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultSection defaultCard"; 'style' = $DivContentStyle } -Value {
             New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle  } -Value {
                 New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
-                New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
-                New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
+                New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)'
+                New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
             }
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther'; id = $RandomNumber; } -Value {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainer defaultPanelOther collapsable'; id = $RandomNumber; } -Value {
