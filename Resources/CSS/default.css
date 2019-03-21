@@ -76,6 +76,12 @@ div.MainLogo {
     width: 50%;
 }
 
+.central {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 900px;
+}
+
 div.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
