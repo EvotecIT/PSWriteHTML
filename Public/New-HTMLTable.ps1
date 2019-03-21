@@ -120,6 +120,7 @@ function New-HTMLTable {
     } else {
         $TableAttributes = @{ class = 'sortable' }
     }
+    New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultPanelOther' } -Value {
     # Build HTML TABLE
     New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
         New-HTMLTag -Tag 'thead' {
@@ -134,5 +135,5 @@ function New-HTMLTable {
             }
         }
     }
-
+    }
 }

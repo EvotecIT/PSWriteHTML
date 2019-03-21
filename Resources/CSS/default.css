@@ -79,31 +79,71 @@ div.MainLogo {
 div.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
-   /* display: inline-block; */
+    /* display: inline-block; */
     margin: 5px;
     width: calc(100% - 10px);
     overflow: hidden;
     /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
-    box-sizing: border-box;
+
+    /*
+      box-sizing: border-box;
     float: left;
+    */
 }
 
 div.defaultColumn {
-    box-sizing: border-box;
-    float: left;
+
+
     overflow: hidden;
-    /* NEW */
+    /* 
+     float: left;
+    box-sizing: border-box;
+    */
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 2px;
 }
 
+.defaultContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultContainerOther {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanelOther {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanel {
+    flex-basis: 100%;
+    /* padding: 5px; */
+
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
 .defaultCard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    width: 40%;
+    /* width: 40%; */
     border-radius: 5px;
     margin: 5px;
 }

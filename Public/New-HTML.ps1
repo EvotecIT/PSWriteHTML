@@ -8,7 +8,11 @@ Function New-HTML {
         [String] $ColorSchemePath,
         [string] $PrimaryColorHex,
         [string] $Author,
-        [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss'
+        [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss',
+        
+        # save HTML options
+        [Parameter(Mandatory = $false)][string]$FilePath,
+        [Parameter(Mandatory = $false)][switch]$ShowHTML
     )
 
     [string] $CurrentDate = (Get-Date).ToString($DateFormat)
@@ -35,30 +39,31 @@ Function New-HTML {
     $OutputHTML = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type After
     $Features = Get-FeaturesInUse
 
-    '<!DOCTYPE html>'
-    New-HTMLTag -Tag 'html' {
-        '<!-- HEADER -->'
-        New-HTMLTag -Tag 'head' {
-            New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -SelfClosing
-            New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -SelfClosing
-            New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -SelfClosing
-            New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -SelfClosing
-            New-HTMLTag -Tag 'title' { $TitleText }          
+    $HTML = @(
+        '<!DOCTYPE html>'
+        New-HTMLTag -Tag 'html' {
+            '<!-- HEADER -->'
+            New-HTMLTag -Tag 'head' {
+                New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -SelfClosing
+                New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -SelfClosing
+                New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -SelfClosing
+                New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -SelfClosing
+                New-HTMLTag -Tag 'title' { $TitleText }          
 
-            Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome
-            Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings
-            if ($null -ne $Features) {
-                Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'HeaderAlways' -Features $Features
-                Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'HeaderAlways' -Features $Features
-                Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Header' -Features $Features
+                Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome
+                Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings
+                if ($null -ne $Features) {
+                    Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'HeaderAlways' -Features $Features
+                    Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'HeaderAlways' -Features $Features
+                    Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Header' -Features $Features
+                }
             }
-        }
-        '<!-- END HEADER -->'
-        '<!-- BODY -->'
-        #'<body onload="hide();">'       
-        New-HTMLTag -Tag 'body' {
+            '<!-- END HEADER -->'
+            '<!-- BODY -->'
+            #'<body onload="hide();">'       
+            New-HTMLTag -Tag 'body' {
         
-            <#
+                <#
             if ($HideLogos -eq $false) {
                 $Leftlogo = $Options.Logos[$LeftLogoName]
                 $Rightlogo = $Options.Logos[$RightLogoName]
@@ -73,7 +78,7 @@ Function New-HTML {
                 $LogoContent
             }  
             #>       
-            <# Not sure what for 
+                <# Not sure what for 
             if (!([string]::IsNullOrEmpty($PrimaryColorHex))) {
                 if ($PrimaryColorHex.Length -eq 7) {
                     $HTML = $HTML -replace '#337E94', $PrimaryColorHex
@@ -83,28 +88,34 @@ Function New-HTML {
             }
             #> 
 
-            # Add logo if there is one 
-            $Logo
+                # Add logo if there is one 
+                $Logo
 
-            # Add tabs header if there is one
-            if ($Script:HTMLSchema.TabsHeaders) {
-                New-HTMLTabHead
+                # Add tabs header if there is one
+                if ($Script:HTMLSchema.TabsHeaders) {
+                    New-HTMLTabHead
+                }
+                # Add remaining data
+                $OutputHTML
             }
-            # Add remaining data
-            $OutputHTML
-        }
-        '<!-- END BODY -->'
-        '<!-- FOOTER -->'
-        New-HTMLTag -Tag 'footer' {  
-            if ($null -ne $Features) {
-                # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included 
-                # either as links or from file per required features
-                Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'FooterAlways' -Features $Features
-                Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'FooterAlways' -Features $Features
-                # standard footer features
-                Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Footer' -Features $Features      
-            }  
-        }
-        '<!-- END FOOTER -->'
-    }     
+            '<!-- END BODY -->'
+            '<!-- FOOTER -->'
+            New-HTMLTag -Tag 'footer' {  
+                if ($null -ne $Features) {
+                    # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included 
+                    # either as links or from file per required features
+                    Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'FooterAlways' -Features $Features
+                    Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'FooterAlways' -Features $Features
+                    # standard footer features
+                    Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Footer' -Features $Features      
+                }  
+            }
+            '<!-- END FOOTER -->'
+        }     
+    )
+    if ($FilePath -ne '') {
+        Save-HTML -HTML $HTML -FilePath $FilePath -ShowHTML:$ShowHTML #-Supress:$Supress
+    } else {
+        $HTML
+    }
 }

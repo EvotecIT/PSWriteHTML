@@ -9,7 +9,8 @@ Function New-HTMLContent {
         [alias('BackgroundShade')][RGBColors]$BackgroundColor,
         [Parameter(Mandatory = $false)][switch] $CanCollapse,
         [Parameter(Mandatory = $false)][switch] $IsHidden,
-        [int] $Height
+        [int] $Height,
+        [switch] $Invisible
     )
     $RandomNumber = Get-Random
     $TextHeaderColorFromRGB = ConvertFrom-Color -Color $HeaderTextColor
@@ -42,24 +43,45 @@ Function New-HTMLContent {
     $StyleWidth = "width: calc(100% / $Count - 15px)"
 
     if ($IsHidden) {
-        $DivContentStyle = "display:none; $BGStyleColor; $StyleWidth; $StyleHeight;"
+        $DivContentStyle = "display:none; $StyleWidth; $StyleHeight; $BGStyleColor"
     } else { 
-        $DivContentStyle = "$BGStyleColor; $StyleWidth; $StyleHeight;"
+        $DivContentStyle = "$StyleWidth; $StyleHeight; $BGStyleColor"
     }
 
     $DivHeaderStyle = "text-align: $HeaderTextAlignment;"
     $HeaderStyle = "color: $TextHeaderColorFromRGB;"
 
-    # return this HTML
-    New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultSection defaultCard"; 'style' = $DivContentStyle } -Value {
-        New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle  } -Value {
-            New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
-            New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
-            New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
+    if ($Invisible) {
+        #New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultSection defaultCard"; 'style' = $DivContentStyle } -Value {
+        # New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle  } -Value {
+        #   New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
+        #   New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
+        #    New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
+        # }
+        #New-HTMLContainer {
+        New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther' } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther defaultPanelOther' } -Value {
+                Invoke-Command -ScriptBlock $Content
+            }
         }
+        #}
+        # }
+    } else {
 
-        New-HTMLTag -Tag 'div' -Attributes @{ class = 'collapsable'; id = $RandomNumber; } -Value {
-            Invoke-Command -ScriptBlock $Content
+        # return this HTML
+        New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultSection defaultCard"; 'style' = $DivContentStyle } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle  } -Value {
+                New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
+                New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)' 
+                New-HTMLAnchor -Id "hide_$RandomNumber" -Href '#' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
+            }
+            #New-HTMLContainer {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther'; id = $RandomNumber; } -Value {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainer defaultPanelOther collapsable'; id = $RandomNumber; } -Value {
+                    Invoke-Command -ScriptBlock $Content
+                }
+            }
+            #}
         }
     }
 }

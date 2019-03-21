@@ -22,7 +22,7 @@ function New-HTMLResourceJS {
         }
         foreach ($L in $Link) {        
             if ($L -ne '') {
-                New-HTMlTag -Tag 'script' -Attributes @{ type = "text/javascript"; src = $L } 
+                New-HTMlTag -Tag 'script' -Attributes @{ type = "text/javascript"; src = $L }
             } else {
                 return
             }

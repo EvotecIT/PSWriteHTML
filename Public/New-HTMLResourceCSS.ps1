@@ -23,7 +23,7 @@ function New-HTMLResourceCSS {
         foreach ($L in $Link) {   
             if ($L -ne '') {
                 Write-Verbose "New-HTMLResourceCSS - Adding link $L"   
-                New-HTMlTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $L } 
+                New-HTMlTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $L } -SelfClosing
             }
         }
         "<!-- CSS $ResourceComment END -->"
