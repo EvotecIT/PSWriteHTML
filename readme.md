@@ -1,18 +1,19 @@
 # PSWriteHTML - PowerShell Module
 
-`PSWriteHTML` is fork of `ReportHTML` module. I've forked `ReportHTML` due to it being outdated and not really maintained anymore. I also wanted to address some problems it has and possibly add more features. As it stands currently `PSWriteHTML` is replacement for `ReportHTML` but in next days/weeks/months most likely it will be totally different module.
-
-**PSWriteHTML** is under renaming process where all commands may change their naming to:
-
--   prevent clashing with ReportHTML
--   add new functionality
--   provide different (easier to read) coding style
+`PSWriteHTML` is fork of `ReportHTML` module. I've forked `ReportHTML` due to it being outdated and not really maintained. I also wanted to address some problems it has and possibly add more features. As it stands `PSWriteHTML` doesn't use same naming convention as `ReportHTML` therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features as I go (fixes included).  
 
 ## Advantages over ReportHTML:
 
 -   faster report building (from 20+ seconds to 0-2 seconds)
 -   updated libraries
 -   bunch of different, new features
+-   easier building HTML
+
+## Projects using PSWriteHTML (to give you ideas what you can do):
+
+- [Statusimo](https://github.com/EvotecIT/Statusimo) is a PowerShell module that is able to generate a Status Page entirely from PowerShell.
+
+
 
 Following external libaries and frameworks are in use. They make `PSWriteHTML` what it is now. This list is dynamic and doesn't cover everything yet.
 
@@ -47,7 +48,7 @@ Following JS Framework is intergrated as part of this module. It was downloaded 
 JSZip and PDFMake are not downloaded as part of this package. They fail to import properly hence they are not bundled as one minified version.
 
 -   [x] Extensions:
-    -   [x] Downloaded from https://github.com/Stuk/jszip
+    -   [x] Downloaded from https://github.com/Stuk/jszip (3.1.5)
         -   [x] JSZip Required for the Excel HTML5 export button.v2.5.0
     -   [x] DataTables Package https://datatables.net/download/ but with separate file
         -   [x] pdfmake Required for the PDF HTML5 export button.v0.1.36
