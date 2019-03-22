@@ -6,10 +6,23 @@ function Set-Tag {
     $HTML = [System.Text.StringBuilder]::new()
     [void] $HTML.Append("<$($HtmlObject.Tag)")
     foreach ($Property in $HtmlObject.Attributes.Keys) {
-        $PropertyValue = $HtmlObject.Attributes[$Property]
-        # skip adding properties that are empty
-        if ($PropertyValue -ne '') {
-            [void] $HTML.Append(" $Property=`"$PropertyValue`"")
+        $PropertyValue = $HtmlObject.Attributes[$Property]        
+        # This checks if property has any subproperties  such as style having multiple options
+        if ($PropertyValue -is [System.Collections.IDictionary]) {
+            $OutputSubProperties = foreach ($SubAttributes in $PropertyValue.Keys) {                             
+                $SubPropertyValue = $PropertyValue[$SubAttributes]
+                # skip adding properties that are empty
+                if ($SubPropertyValue -ne '') {
+                    "$($SubAttributes):$($SubPropertyValue)"
+                }
+            }
+            $MyValue = $OutputSubProperties -join ';'
+            [void] $HTML.Append(" $Property=`"$MyValue`"")
+        } else {
+            # skip adding properties that are empty
+            if ($PropertyValue -ne '') {
+                [void] $HTML.Append(" $Property=`"$PropertyValue`"")
+            }
         }
     }
     if (($null -ne $HtmlObject.Value) -and ($HtmlObject.Value -ne '')) {
