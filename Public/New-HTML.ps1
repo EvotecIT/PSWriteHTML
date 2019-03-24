@@ -9,7 +9,7 @@ Function New-HTML {
         [string] $PrimaryColorHex,
         [string] $Author,
         [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss',
-        
+
         # save HTML options
         [Parameter(Mandatory = $false)][string]$FilePath,
         [Parameter(Mandatory = $false)][switch]$ShowHTML
@@ -33,6 +33,7 @@ Function New-HTML {
     $Script:HTMLSchema = @{
         TabsHeaders = [System.Collections.Generic.List[HashTable]]::new() # tracks / stores headers
         Features    = @{} # tracks features for CSS/JS implementation
+        Charts      = [System.Collections.Generic.List[string]]::new()
     }
     $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
     $Logo = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type Between
@@ -48,7 +49,7 @@ Function New-HTML {
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -SelfClosing
-                New-HTMLTag -Tag 'title' { $TitleText }          
+                New-HTMLTag -Tag 'title' { $TitleText }
 
                 Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome
                 Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings
@@ -60,9 +61,9 @@ Function New-HTML {
             }
             '<!-- END HEADER -->'
             '<!-- BODY -->'
-            #'<body onload="hide();">'       
+            #'<body onload="hide();">'
             New-HTMLTag -Tag 'body' {
-        
+
                 <#
             if ($HideLogos -eq $false) {
                 $Leftlogo = $Options.Logos[$LeftLogoName]
@@ -76,9 +77,9 @@ Function New-HTML {
                 </tbody></table>
 "@
                 $LogoContent
-            }  
-            #>       
-                <# Not sure what for 
+            }
+            #>
+                <# Not sure what for
             if (!([string]::IsNullOrEmpty($PrimaryColorHex))) {
                 if ($PrimaryColorHex.Length -eq 7) {
                     $HTML = $HTML -replace '#337E94', $PrimaryColorHex
@@ -86,9 +87,9 @@ Function New-HTML {
                     Write-Warning '$PrimaryColorHex must be 7 characters with hash eg "#337E94"'
                 }
             }
-            #> 
+            #>
 
-                # Add logo if there is one 
+                # Add logo if there is one
                 $Logo
 
                 # Add tabs header if there is one
@@ -97,21 +98,26 @@ Function New-HTML {
                 }
                 # Add remaining data
                 $OutputHTML
+
+                # Add charts scripts if those are there
+                foreach ($Chart in $Script:HTMLSchema.Charts) {
+                    $Chart
+                }
             }
             '<!-- END BODY -->'
             '<!-- FOOTER -->'
-            New-HTMLTag -Tag 'footer' {  
+            New-HTMLTag -Tag 'footer' {
                 if ($null -ne $Features) {
-                    # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included 
+                    # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included
                     # either as links or from file per required features
                     Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'FooterAlways' -Features $Features
                     Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'FooterAlways' -Features $Features
                     # standard footer features
-                    Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Footer' -Features $Features      
-                }  
+                    Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Footer' -Features $Features
+                }
             }
             '<!-- END FOOTER -->'
-        }     
+        }
     )
     if ($FilePath -ne '') {
         Save-HTML -HTML $HTML -FilePath $FilePath -ShowHTML:$ShowHTML #-Supress:$Supress

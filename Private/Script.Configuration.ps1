@@ -3,25 +3,19 @@ $Script:Configuration = [ordered] @{
         Default          = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\default.css"   
+                Css = "$PSScriptRoot\..\Resources\CSS\default.css"
             }
         }
         DefaultHeadings  = @{
             Comment      = 'Always Required Default Headings'
             HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\headings.css"   
+                Css = "$PSScriptRoot\..\Resources\CSS\headings.css"
             }
         }
         Accordion        = @{
-            Comment = 'Accordion'
-            Header  = @{
+            Comment      = 'Accordion'
+            HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
-            }
-        }
-        Bulma            = @{
-            Comment = 'Bulma Styles'
-            Header  = @{
-                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css'
             }
         }
         CodeBlocks       = @{
@@ -30,12 +24,13 @@ $Script:Configuration = [ordered] @{
                 CssLink = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\enlighterjs.min.css"
                 JsLink  = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\enlighterjs.min.js"
             }
             Footer       = @{
 
             }
             HeaderAlways = @{
-                
+
             }
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
@@ -48,10 +43,13 @@ $Script:Configuration = [ordered] @{
             }
         }
         ChartsApex       = @{
-            Comment = 'Apex Charts'
-            Header  = @{
+            Comment      = 'Apex Charts'
+            Header       = @{
                 JsLink = 'https://cdn.jsdelivr.net/npm/apexcharts@latest'
-                Css    = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
+                JS     = "$PSScriptRoot\..\Resources\JS\apexcharts.min.js"
+            }
+            HeaderAlways = @{
+                #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
         Jquery           = @{
@@ -111,7 +109,7 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\tabs-elastic.js"
             }
         }
-        TimeLine         = @{            
+        TimeLine         = @{
             Comment      = 'Timeline Simple'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\timeline-simple.css"

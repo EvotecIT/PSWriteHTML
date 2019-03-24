@@ -27,7 +27,7 @@ function New-HTMLChart {
 
     $ID = "ChartID-" + (Get-RandomStringName -Size 8)
 
-    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = $Positioning } 
+    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = $Positioning }
     $Script = New-HTMLTag -Tag 'script' -Value {
 
         $Options = [ordered] @{}
@@ -41,7 +41,7 @@ function New-HTMLChart {
         }
         if ($null -ne $Width) {
             $Options.chart.width = $Width
-        }  
+        }
         $Options.chart.toolbar = [ordered] @{
             show         = $true
             tools        = [ordered] @{
@@ -53,10 +53,10 @@ function New-HTMLChart {
                 pan       = $true
                 reset     = $true
             }
-            autoSelected = 'zoom' 
+            autoSelected = 'zoom'
         }
-        
-        
+
+
 
         $Options.plotOptions = @{
             bar = @{
@@ -81,7 +81,7 @@ function New-HTMLChart {
                 $Options.labels = $DataCategories
             } else {
                 $Options.labels = $DataNames
-            }   
+            }
         }
         # X AXIS - CATEGORIES
         $Options.xaxis = [ordered] @{}
@@ -90,7 +90,7 @@ function New-HTMLChart {
         }
         if ($DataCategories.Count -gt 0) {
             $Options.xaxis.categories = $DataCategories
-        }      
+        }
 
         # LINE Definition
         $Options.stroke = [ordered] @{
@@ -105,7 +105,7 @@ function New-HTMLChart {
             position = 'right'
             offsetY  = 100
             height   = 230
-        } 
+        }
 
         # title
         $Options.title = [ordered] @{}
@@ -114,18 +114,19 @@ function New-HTMLChart {
         }
         if ($TitleAlignment -ne '') {
             $Options.title.align = $TitleAlignment
-        }      
+        }
 
         # Convert Dictionary to JSON and return chart within SCRIPT tag
-        # Make sure to return with additional empty string 
+        # Make sure to return with additional empty string
         $JSON = $Options | ConvertTo-Json -Depth 5
         "var options = $JSON"
         ""
-        "var chart = new ApexCharts(document.querySelector('#$ID'), 
+        "var chart = new ApexCharts(document.querySelector('#$ID'),
             options
         );"
         "chart.render();"
     }
     $Div
-    $Script
+    # we need to move it to the end of the code therefore using additional vesel
+    $Script:HTMLSchema.Charts.Add($Script)
 }
