@@ -21,3 +21,29 @@ function New-HTMLChartSpark {
 
     New-ApexChart -Positioning $Positioning -Options $Options
 }
+
+
+function New-ChartRadial {
+    [CmdletBinding()]
+    param(
+        [System.Collections.IDictionary] $Options,
+        [Array] $Values,
+        [Array] $Names,
+        $Type
+    )
+    # Chart defintion type, size
+    $Options.chart = @{
+        type = 'radialBar'
+    }
+
+    if ($Type -eq '1') {
+        New-ChartRadialType1 -Options $Options
+    } elseif ($Type -eq '2') {
+        New-ChartRadialType2 -Options $Options
+    }
+
+    $Options.series = @($Values)
+    $Options.labels = @($Names)
+
+
+}
