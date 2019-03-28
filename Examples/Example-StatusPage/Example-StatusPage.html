@@ -3,88 +3,28 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-03-16 17:56:59" name="revised"/>
+<meta content="2019-03-21 23:37:29" name="revised"/>
 <title>Services Status
 </title>
 <!-- CSS Default fonts START -->
-<link href="https://fonts.googleapis.com/css?family=Roboto" type="text/css" rel="stylesheet"></link>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts END -->
 <!-- CSS Default fonts icons START -->
-<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"></link>
+<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts icons END -->
 <!-- CSS Always Required Default Visual Settings START -->
-<style type="text/css">
-body {
+<style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
     margin: 8px 10px 8px 10px;
 }
 
-h1 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 18pt;
-}
-
-h1.underline, h2.underline, h3.underline, h4.underline, h5.underline, h6.underline, h7.underline {
-    border-bottom: 2px solid #bbbbbb;
-}
-
-h1.central, h2.central, h3.central, h4.central, h5.central, h6.central, h7.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-
-div.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-
-h2 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 16pt;
-    border-bottom: 2px solid #bbbbbb;
-}
-
-h3 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 14pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h4 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 12pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h5 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 10pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h6 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 8pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h7 {
-    font-family: sans-serif;
-    font-size: 10pt;
-}
-
 hr {
     height: 4px;
+    /*
     background-color: #007bff;
+    */
+    background-color: #6Cf;
     border: 0px;
     width: 100%;
 }
@@ -151,16 +91,82 @@ div.MainLogo {
     width: 50%;
 }
 
+.central {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 900px;
+}
+
 div.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
-    display: inline-block;
+    /* display: inline-block; */
     margin: 5px;
     width: calc(100% - 10px);
     overflow: hidden;
     /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
+
+    /*
+      box-sizing: border-box;
+    float: left;
+    */
+}
+
+div.defaultColumn {
+
+
+    overflow: hidden;
+    /* 
+     float: left;
+    box-sizing: border-box;
+    */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px;
+}
+
+.defaultContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultContainerOther {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanelOther {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanel {
+    flex-basis: 100%;
+    /* padding: 5px; */
+
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    /* width: 40%; */
+    border-radius: 5px;
+    margin: 5px;
 }
 
 div.defaultHeader {
@@ -168,7 +174,8 @@ div.defaultHeader {
     margin: 0px 0px 0px 0px;
     font-weight: bold;
     color: #ffffff;
-    background-color: #007bff;
+    /* background-color: #007bff; */
+    background-color: #6Cf;
 }
 
 div.defaultFooter {
@@ -205,16 +212,6 @@ td.groupby {
 .header {
     background-color: #616a6b;
     color: #f7f9f9;
-}
-
-div.defaultColumn {
-    box-sizing: border-box;
-    float: left;
-    overflow: hidden;
-    /* NEW */
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding: 2px;
 }
 
 a.alink:link {
@@ -290,14 +287,6 @@ button.dt-button {
     line-height: 1 !important;
 }
 
-.defaultCard {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 40%;
-    border-radius: 5px;
-    margin: 5px;
-}
-
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -334,6 +323,118 @@ img {
 }
 </style>
 <!-- CSS Always Required Default Visual Settings END -->
+<!-- CSS Always Required Default Headings START -->
+<style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+}
+</style>
+<!-- CSS Always Required Default Headings END -->
 <!-- CSS Status Buttonical START -->
 <style type="text/css">/* @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300); */
 
@@ -640,7 +741,7 @@ p.timelineSimple {
 </head>
 <!-- END HEADER -->
 <!-- BODY -->
-<body><div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px); box-shadow: unset !important;"><div class="toast blue central"><div class="toast__icon"><svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M10,16c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2H8v4h16v-4h-1.992c-1.102,0-2-0.895-2-2L20,12H8     v4H10z"></path>
+<body><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ; box-shadow: unset !important;"><div class="toast blue central"><div class="toast__icon"><svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M10,16c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2H8v4h16v-4h-1.992c-1.102,0-2-0.895-2-2L20,12H8     v4H10z"></path>
 <circle cx="16" cy="4" r="4"></circle>
 </svg>
 </div>
@@ -653,11 +754,11 @@ p.timelineSimple {
 </div>
 <h1 Class="central">Current Status
 </h1>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px); box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ; box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="710833581" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="1029696045" value="other-item" type="radio"/>
 <span class="performance ">Operational
 </span>
 </div>
@@ -666,7 +767,7 @@ p.timelineSimple {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="1189067537" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="1057363610" value="other-item" type="radio"/>
 <span class="performance ">Operational
 </span>
 </div>
@@ -675,7 +776,7 @@ p.timelineSimple {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="2143437823" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="1088268079" value="other-item" type="radio"/>
 <span class="performance performanceDead">Non-functional
 </span>
 </div>
@@ -684,7 +785,7 @@ p.timelineSimple {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="521670440" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="75296374" value="other-item" type="radio"/>
 <span class="performance ">Operational
 </span>
 </div>
@@ -693,7 +794,7 @@ p.timelineSimple {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="1582127729" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="8179935" value="other-item" type="radio"/>
 <span class="performance performanceProblem">Working on it
 </span>
 </div>
@@ -702,7 +803,7 @@ p.timelineSimple {
 </span>
 </div>
 <div class="middle"></div>
-<div class="status"><input checked="true" name="1258389470" value="other-item" type="radio"/>
+<div class="status"><input checked="true" name="1968131906" value="other-item" type="radio"/>
 <span class="performance performanceProblem">Who knows?!
 </span>
 </div>
@@ -711,7 +812,7 @@ p.timelineSimple {
 </div>
 <h1 Class="central">Scheduled Maintenance
 </h1>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px); box-shadow: unset !important;"><div class="toast orange central"><div class="toast__icon"><svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M10,16c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2H8v4h16v-4h-1.992c-1.102,0-2-0.895-2-2L20,12H8     v4H10z"></path>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ; box-shadow: unset !important;"><div class="toast orange central"><div class="toast__icon"><svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M10,16c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2H8v4h16v-4h-1.992c-1.102,0-2-0.895-2-2L20,12H8     v4H10z"></path>
 <circle cx="16" cy="4" r="4"></circle>
 </svg>
 </div>
@@ -724,7 +825,7 @@ p.timelineSimple {
 </div>
 <h1 Class="central">Incidents per day
 </h1>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px); box-shadow: unset !important;"><div id="ChartID-tngv1k2c" class="central"></div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ; box-shadow: unset !important;"><div id="ChartID-4gd62iye" class="central"></div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -764,48 +865,43 @@ p.timelineSimple {
                                     "Incidents"
                                 ],
                        "data":  [
+                                    3,
+                                    3,
+                                    3,
+                                    1,
+                                    4,
+                                    3,
+                                    3,
                                     0,
+                                    0,
+                                    4,
+                                    0,
+                                    1,
                                     0,
                                     2,
                                     4,
-                                    2,
-                                    2,
-                                    0,
-                                    1,
-                                    2,
-                                    2,
-                                    2,
-                                    0,
-                                    1,
-                                    2,
-                                    2,
-                                    1,
-                                    2,
-                                    2,
-                                    2,
-                                    1,
-                                    2,
-                                    0,
-                                    2,
                                     4,
-                                    1,
                                     2,
-                                    4,
+                                    2,
                                     2,
                                     1,
                                     4,
-                                    3
+                                    0,
+                                    3,
+                                    1,
+                                    4,
+                                    0,
+                                    2,
+                                    1,
+                                    2,
+                                    2,
+                                    4
                                 ]
                    }
                ],
     "xaxis":  {
                   "type":  "category",
                   "categories":  [
-                                     "14.02.2019",
-                                     "15.02.2019",
-                                     "16.02.2019",
-                                     "17.02.2019",
-                                     "18.02.2019",
                                      "19.02.2019",
                                      "20.02.2019",
                                      "21.02.2019",
@@ -831,7 +927,12 @@ p.timelineSimple {
                                      "13.03.2019",
                                      "14.03.2019",
                                      "15.03.2019",
-                                     "16.03.2019"
+                                     "16.03.2019",
+                                     "17.03.2019",
+                                     "18.03.2019",
+                                     "19.03.2019",
+                                     "20.03.2019",
+                                     "21.03.2019"
                                  ]
               },
     "stroke":  {
@@ -852,7 +953,7 @@ p.timelineSimple {
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-tngv1k2c'), 
+var chart = new ApexCharts(document.querySelector('#ChartID-4gd62iye'), 
             options
         );
 chart.render();
@@ -860,47 +961,47 @@ chart.render();
 </div>
 <h1 Class="central">Past Incidents
 </h1>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px); box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="03/15/2019 17:56:59"><h1 class="timelineSimple">Azure AD is down
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ; box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="03/20/2019 23:37:29"><h1 class="timelineSimple">Azure AD is down
 </h1>
 <p class="timelineSimple">We have huge problems
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/14/2019 17:56:59"><h1 class="timelineSimple">Azure AD ...
+<div class="timelineSimple-item" date-is="03/19/2019 23:37:29"><h1 class="timelineSimple">Azure AD ...
 </h1>
 <p class="timelineSimple">We have huge problems
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/13/2019 17:56:59"><h1 class="timelineSimple">AD just died
+<div class="timelineSimple-item" date-is="03/18/2019 23:37:29"><h1 class="timelineSimple">AD just died
 </h1>
 <p class="timelineSimple">We have huge problems
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/12/2019 17:56:59"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/17/2019 23:37:29"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/12/2019 17:56:59"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/17/2019 23:37:29"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/12/2019 17:56:59"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/17/2019 23:37:29"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/11/2019 17:56:59"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/16/2019 23:37:29"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/10/2019 17:56:59"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/15/2019 23:37:29"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>
 </div>
-<div class="timelineSimple-item" date-is="03/09/2019 17:56:59"><h1 class="timelineSimple">Twitter
+<div class="timelineSimple-item" date-is="03/14/2019 23:37:29"><h1 class="timelineSimple">Twitter
 </h1>
 <p class="timelineSimple">We're very soorrry! It just won't work!
 </p>

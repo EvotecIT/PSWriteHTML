@@ -5,7 +5,7 @@ $Title = 'My title'
 
 $DynamicHTML = New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true {
 
-    New-HTMLContent -HeaderText '0 section' {
+    New-HTMLContent -HeaderText '0 section' -CanCollapse {
         New-HTMLPanel -Count 3 {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }

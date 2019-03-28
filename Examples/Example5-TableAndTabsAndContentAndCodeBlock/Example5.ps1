@@ -112,11 +112,11 @@ $HTML = New-Html -UseCssLinks -UseJavaScriptLinks {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
-        New-HTMLContent -HeaderText 'This shows PowerShell Language' {
+        New-HTMLContent -HeaderText 'This shows PowerShell Language' -CanCollapse {
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Group 'Test123' -Title 'PowerShell Code 1' -Theme godzilla -Highlight '2-5, 13'
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Group 'Test123' -Title 'PowerShell Code 2'
         }
-        New-HTMLContent -HeaderText 'This shows PowerShell Language' {
+        New-HTMLContent -HeaderText 'This shows PowerShell Language' -CanCollapse {
             New-HTMLCodeBlock -Code $CodeBlockJS -Style 'JavaScript' -Theme enlighter -Highlight '2, 5'
         }
         New-HTMLContent -HeaderText 'XML Language' {

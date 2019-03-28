@@ -1,23 +1,27 @@
+$Time = Start-TimeLog
 Import-Module PSWriteHTML.psd1 -Force
+Stop-TimeLog -Time $Time
+$Time = Start-TimeLog
+
 $Processes = Get-Process | Select -First 2
 $Title = 'My title'
 
-$DynamicHTML = New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true {
+New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example13.html {
 
     New-HTMLContent -HeaderText '0 section' {
-        New-HTMLPanel -Count 12 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 3 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 3 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 2 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 2 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
@@ -25,6 +29,19 @@ $DynamicHTML = New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks
         New-HTMLTable -ArrayOfObjects $Processes -HideFooter
     }
 
+    New-HTMLContent -Invisible {
+        New-HTMLPanel {        
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+        }
+        New-HTMLPanel {        
+            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+   
+        }
+    }
+    New-HTMLPanel {        
+        New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+
+    }
 }
 
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath $PSScriptRoot\Example13.html
+Stop-TimeLog -Time $Time

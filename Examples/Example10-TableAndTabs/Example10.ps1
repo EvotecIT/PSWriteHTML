@@ -1,12 +1,8 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 $Processes = Get-Process | Select -First 5
 
-$DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
-    -UseCssLinks:$true `
-    -UseJavaScriptLinks:$true {
-
+New-HTML -TitleText 'My Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example10.html {
     New-HTMLLogo
-
     New-HtmlTab -TabName 'Test' {
         New-HTMLContent -HeaderText '0 section' {
             New-HTMLPanel -Count 3 {
@@ -37,10 +33,13 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             }
         }
     }
-    <#
+   
     
     New-HTMLTab {
         New-HTMLPanel {
+            New-HTMLTable -DataTable $Processes -HideFooter
+        }
+        New-HTMLPanel -Count 2 {
             New-HTMLTable -DataTable $Processes -HideFooter
         }
         New-HTMLPanel -Count 2 {
@@ -83,8 +82,6 @@ $DynamicHTML = New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
             }
         }
     }
-    #>
     
-}
 
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath $PSScriptRoot\Example10.html
+}

@@ -22,8 +22,9 @@ function New-HTMLChartSpark {
         [ValidateSet('straight', 'smooth')] $LineCurve = 'straight',
         $LineWidth = 2,
         [RGBColors[]] $LineColor,
-        [ValidateSet('', 'central')][string] $Positioning,
         #>
+        [ValidateSet('', 'central')][string] $Positioning,
+
         [Array] $Data,
         [string] $TitleText,
         [string] $SubTitleText,
@@ -40,91 +41,9 @@ function New-HTMLChartSpark {
     $Script = New-HTMLTag -Tag 'script' -Value {
 
         $Options = [ordered] @{}
-
-        # Chart defintion type, size
-        $Options.chart = [ordered] @{
-            type      = 'area'
-            sparkline = @{
-                enabled = $true
-            }
-        }
-
+        Get-ChartSpark -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Values $Data
         Get-ChartSize -Options $Options -Height $Height -Width $Width
         Get-ChartToolbar -Options $Options
-        Get-ChartSpark -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Values $Data
-
-
-        <# Gradient
-            $Options.stroke = @{
-            lineCap = 'round'
-        }
-        #>
-        <#
-        $Options.fill = @{
-            type     = 'gradient'
-            gradient = @{
-                shade          = 'dark'
-                shadeIntensity = 0.15
-                inverseColors  = false
-                opacityFrom    = 1
-                opacityTo      = 1
-                stops          = @(0, 50, 65, 91)
-            }
-        }
-        #>
-
-
-        <#
-
-        if ('bar', 'line' -contains $Type) {
-            # Some types require a more complicated dataset
-            $Options.series = @( New-HTMLChartDataSet -Data $Data -DataNames $DataNames )
-        } else {
-            # Some types of charts require simple data sets - in particular just array
-            $Options.series = $Data
-            if ($null -ne $DataCategories) {
-                $Options.labels = $DataCategories
-            } else {
-                $Options.labels = $DataNames
-            }
-        }
-        #>
-
-        <#
-        # X AXIS - CATEGORIES
-        $Options.xaxis = [ordered] @{}
-        if ($DataCategoriesType -ne '') {
-            $Options.xaxis.type = $DataCategoriesType
-        }
-        if ($DataCategories.Count -gt 0) {
-            $Options.xaxis.categories = $DataCategories
-        }
-
-        # LINE Definition
-        $Options.stroke = [ordered] @{
-            show   = $LineShow
-            curve  = $LineCurve
-            width  = $LineWidth
-            colors = @(ConvertFrom-Color -Color $LineColor)
-        }
-
-
-        $Options.legend = @{
-            position = 'right'
-            offsetY  = 100
-            height   = 230
-        }
-#>
-        # title
-        <#
-        $Options.title = [ordered] @{}
-        if ($TitleText -ne '') {
-            $Options.title.text = $TitleText
-        }
-        if ($TitleAlignment -ne '') {
-            $Options.title.align = $TitleAlignment
-        }
-        #>
 
         # Convert Dictionary to JSON and return chart within SCRIPT tag
         # Make sure to return with additional empty string
