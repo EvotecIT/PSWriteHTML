@@ -69,18 +69,17 @@ RequiredModules = @('PSSharedGoods')
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Get-ChartSpark', 'Get-ChartSize', 'Get-ChartToolbar', 
-               'Get-ChartTypeSpark', 'New-HTML', 'New-HTMLAnchor', 
-               'New-HTMLAnchorLink', 'New-HTMLAnchorName', 'New-HTMLChart', 
-               'New-HTMLChartDataSet', 'New-HTMLChartRadial', 'New-HTMLChartSpark', 
-               'New-HTMLCodeBlock', 'New-HTMLContent', 'New-HTMLHeading', 
-               'New-HTMLHorizontalLine', 'New-HTMLImage', 'New-HTMLLogo', 
-               'New-HTMLMessage', 'New-HTMLPanel', 'New-HTMLResourceCSS', 
-               'New-HTMLResourceJS', 'New-HTMLStatus', 'New-HTMLStatusItem', 
-               'New-HTMLTab', 'New-HTMLTabHead', 'New-HTMLTable', 'New-HTMLTag', 
-               'New-HTMLTimeline', 'New-HTMLTimelineItem', 'New-HTMLToast', 
-               'Save-HTML', 'Get-HTMLBarChart', 'Get-HTMLBarChartObject', 
-               'Get-HTMLLineChart', 'Get-HTMLLineChartObject', 'Get-HTMLPieChart', 
+FunctionsToExport = 'New-HTML', 'New-HTMLAnchor', 'New-HTMLAnchorLink', 
+               'New-HTMLAnchorName', 'New-HTMLChart', 'New-HTMLChartDataSet', 
+               'New-HTMLChartRadial', 'New-HTMLChartSpark', 'New-HTMLCodeBlock', 
+               'New-HTMLContent', 'New-HTMLHeading', 'New-HTMLHorizontalLine', 
+               'New-HTMLImage', 'New-HTMLLogo', 'New-HTMLMessage', 'New-HTMLPanel', 
+               'New-HTMLResourceCSS', 'New-HTMLResourceJS', 'New-HTMLStatus', 
+               'New-HTMLStatusItem', 'New-HTMLTab', 'New-HTMLTabHead', 'New-HTMLTable', 
+               'New-HTMLTag', 'New-HTMLTimeline', 'New-HTMLTimelineItem', 
+               'New-HTMLToast', 'Save-HTML', 'Get-HTMLBarChart', 
+               'Get-HTMLBarChartObject', 'Get-HTMLLineChart', 
+               'Get-HTMLLineChartObject', 'Get-HTMLPieChart', 
                'Get-HTMLPieChartObject', 'Get-HTMLStackedChart', 
                'Get-HTMLStackedChartObject'
 

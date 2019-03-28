@@ -18,12 +18,12 @@ $DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptL
             New-HTMLChartSpark -Data $Value1 -TitleText '$1500,43' -SubTitleText 'Money in the bank' -Color DarkSalmon
         }
         New-HTMLPanel {
-            $Value1 = 7, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46
+            $Value1 = 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46,47, 5, 4, 8, 56, 24, 5, 31, 7
             New-HTMLChartSpark -Data $Value1 -TitleText '$1500,43' -SubTitleText 'Sales in January'
         }
         New-HTMLPanel {
             $Value1 = @(7, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46)
-            $Value2 = @(47, 5, 4, 8, 56, 24, 5, 31, 7, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46)
+            $Value2 = @(39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46,47, 5, 4, 8, 56, 24, 5, 31, 7)
             New-HTMLChartSpark -Data $Value1, $Value2
         }
     }
