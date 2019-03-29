@@ -19,6 +19,8 @@ function New-HTMLChartBar {
 
         [RGBColors[]] $Colors,
 
+        [switch] $PatternedColors,
+
         [string] $Title,
         [ValidateSet('center', 'left', 'right', '')][string] $TitleAlignment = '',
 
@@ -27,9 +29,10 @@ function New-HTMLChartBar {
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
         [nullable[RGBColors]] $DataLabelsColor,
-        [switch] $Stacked,
 
-        [string] $Formatter,
+        [switch] $Distributed,
+
+        #[string] $Formatter,
 
         [ValidateSet('top', 'right', 'bottom', '')][string] $LegendPosition = '',
 
@@ -45,8 +48,10 @@ function New-HTMLChartBar {
     $Options = [ordered] @{}
     New-ChartBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX -DataLabelsFontSize $DataLabelsFontSize -DataLabelsColor $DataLabelsColor `
-        -Data $Data -DataNames $DataNames -Stacked:$Stacked -DataLegend $DataLegend -Title $Title -TitleAlignment $TitleAlignment `
-        -LegendPosition $LegendPosition -Formatter $Formatter -Type $Type -Colors $Colors
+        -Data $Data -DataNames $DataNames -DataLegend $DataLegend -Title $Title -TitleAlignment $TitleAlignment `
+        -LegendPosition $LegendPosition -Type $Type -Colors $Colors `
+        -PatternedColors:$PatternedColors -Distributed:$Distributed
+    #-Formatter $Formatter
 
 
     <#

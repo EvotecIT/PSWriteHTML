@@ -8,7 +8,6 @@ Function New-ChartBar {
         [string] $DataLabelsFontSize = '12px',
         [nullable[RGBColors]] $DataLabelsColor,
 
-        [switch] $Stacked,
         [string] $Title,
         [ValidateSet('center', 'left', 'right', '')][string] $TitleAlignment = '',
 
@@ -18,10 +17,12 @@ Function New-ChartBar {
 
         [RGBColors[]] $Colors,
 
+        [switch] $PatternedColors,
+        [switch] $Distributed,
+
         [Array] $Data,
         [Array] $DataNames,
         [Array] $DataLegend
-
     )
 
     if ($Type -eq 'bar') {
@@ -30,8 +31,8 @@ Function New-ChartBar {
         }
     } elseif ($Type -eq 'barStacked') {
         $Options.chart = [ordered] @{
-            type      = 'bar'
-            stacked   = $true
+            type    = 'bar'
+            stacked = $true
         }
     } else {
         $Options.chart = [ordered] @{
@@ -50,6 +51,9 @@ Function New-ChartBar {
         bar = @{
             horizontal = $Horizontal
         }
+    }
+    if ($Distributed) {
+        $Options.plotOptions.bar.distributed = $Distributed.IsPresent
     }
     $Options.dataLabels = [ordered] @{
         enabled = $DataLabelsEnabled
@@ -101,6 +105,16 @@ Function New-ChartBar {
             position        = 'top'
             horizontalAlign = 'left'
             offsetX         = 40
+        }
+    }
+
+    if ($PatternedColors) {
+        $Options.fill = @{
+            type    = 'pattern'
+            opacity = 1
+            pattern = @{
+                style = @('circles', 'slantedLines', 'verticalLines', 'horizontalLines')
+            }
         }
     }
 }
