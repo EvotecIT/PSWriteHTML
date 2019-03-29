@@ -1,56 +1,55 @@
-function New-HTMLChart {
+function New-HTMLChartBar {
     [CmdletBinding()]
     param(
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
-        [string] $Type = 'bar',
-        [bool] $Horizontal = $true,
-        [bool] $DataLabelsEnabled = $true,
-        [int] $DataLabelsOffsetX = -6,
-        [string] $DataLabelsFontSize = '12px',
-        [RGBColors] $DataLabelsColor,
-        [Array] $Data = @(),
-        [Array] $DataNames = @(),
+        [ValidateSet('', 'central')][string] $Positioning,
+        [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',
+        <#
+
         [Array] $DataCategories = @(),
         [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category',
-        [string] $TitleText,
-        [ValidateSet('center', 'left', 'right', '')][string] $TitleAlignment = '',
+
 
         [bool] $LineShow = $true,
         [ValidateSet('straight', 'smooth')] $LineCurve = 'straight',
         $LineWidth = 2,
         [RGBColors[]] $LineColor,
-        [ValidateSet('', 'central')][string] $Positioning
+        #>
+
+        [RGBColors[]] $Colors,
+
+        [string] $Title,
+        [ValidateSet('center', 'left', 'right', '')][string] $TitleAlignment = '',
+
+        [bool] $Horizontal = $true,
+        [bool] $DataLabelsEnabled = $true,
+        [int] $DataLabelsOffsetX = -6,
+        [string] $DataLabelsFontSize = '12px',
+        [nullable[RGBColors]] $DataLabelsColor,
+        [switch] $Stacked,
+
+        [string] $Formatter,
+
+        [ValidateSet('top', 'right', 'bottom', '')][string] $LegendPosition = '',
+
+        [Array] $Data,
+        [Array] $DataNames,
+        [Array] $DataLegend
+
     )
 
 
 
 
     $Options = [ordered] @{}
-
-    # Chart defintion type, size
-    $Options.chart = @{
-        type = $Type
-    }
-
-
-    New-ChartSize -Options $Options -Height $Height -Width $Width
-    New-ChartToolbar -Options $Options
+    New-ChartBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
+        -DataLabelsOffsetX $DataLabelsOffsetX -DataLabelsFontSize $DataLabelsFontSize -DataLabelsColor $DataLabelsColor `
+        -Data $Data -DataNames $DataNames -Stacked:$Stacked -DataLegend $DataLegend -Title $Title -TitleAlignment $TitleAlignment `
+        -LegendPosition $LegendPosition -Formatter $Formatter -Type $Type -Colors $Colors
 
 
-    $Options.plotOptions = @{
-        bar = @{
-            horizontal = $Horizontal
-        }
-    }
-    $Options.dataLabels = [ordered] @{
-        enabled = $DataLabelsEnabled
-        offsetX = $DataLabelsOffsetX
-        style   = @{
-            fontSize = $DataLabelsFontSize
-            colors   = @($DataLabelsColor)
-        }
-    }
+    <#
     if ('bar', 'line' -contains $Type) {
         # Some types require a more complicated dataset
         $Options.series = @( New-HTMLChartDataSet -Data $Data -DataNames $DataNames )
@@ -63,6 +62,7 @@ function New-HTMLChart {
             $Options.labels = $DataNames
         }
     }
+
     # X AXIS - CATEGORIES
     $Options.xaxis = [ordered] @{}
     if ($DataCategoriesType -ne '') {
@@ -87,16 +87,9 @@ function New-HTMLChart {
         height   = 230
     }
 
-    # title
-    $Options.title = [ordered] @{}
-    if ($TitleText -ne '') {
-        $Options.title.text = $TitleText
-    }
-    if ($TitleAlignment -ne '') {
-        $Options.title.align = $TitleAlignment
-    }
 
 
+#>
     New-ChartSize -Options $Options -Height $Height -Width $Width
     New-ChartToolbar -Options $Options
     New-ApexChart -Positioning $Positioning -Options $Options

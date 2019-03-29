@@ -5,11 +5,12 @@ function New-HTMLChartRadial {
         [nullable[int]] $Width,
         [ValidateSet('', 'central')][string] $Positioning,
 
+        <#
         [bool] $Horizontal = $true,
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [RGBColors] $DataLabelsColor,
+        [nullable[RGBColors]] $DataLabelsColor,
         [Array] $Data = @(),
         [Array] $DataNames = @(),
         [Array] $DataCategories = @(),
@@ -22,7 +23,7 @@ function New-HTMLChartRadial {
         $LineWidth = 2,
         [RGBColors[]] $LineColor,
 
-
+#>
 
         [Array] $Names,
         [Array] $Values,

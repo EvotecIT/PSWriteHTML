@@ -6,10 +6,16 @@ function New-HTMLChartDataSet {
     )
 
     if ($null -ne $Data -and $null -ne $DataNames) {
-        
         if ($Data[0] -is [Array]) {
-            # If it's array of Arrays         
-            if ($Data.Count -eq $DataNames.Count) {
+            # If it's array of Arrays
+            if ($Data[0].Count -eq $DataNames.Count) {
+                for ($a = 0; $a -lt $Data.Count; $a++) {
+                    @{
+                        name = $DataNames[$a]
+                        data = $Data[$a]
+                    }
+                }
+            } elseif ($Data.Count -eq $DataNames.Count) {
                 for ($a = 0; $a -lt $Data.Count; $a++) {
                     @{
                         name = $DataNames[$a]
@@ -33,12 +39,12 @@ function New-HTMLChartDataSet {
                     data = $Data
                 }
             }
-        }      
-        
+        }
+
     } elseif ($null -ne $Data) {
         # No names given
         if ($Data[0] -is [Array]) {
-            # If it's array of Arrays         
+            # If it's array of Arrays
             foreach ($D in $Data) {
                 @{
                     data = $D
