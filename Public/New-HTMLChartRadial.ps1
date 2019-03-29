@@ -27,13 +27,14 @@ function New-HTMLChartRadial {
         [Array] $Names,
         [Array] $Values,
         $Type,
-        [ValidateSet('FullCircleTop', 'FullCircleBottom', 'FullCircleBottomLeft', 'FullCircleLeft', 'FullCircleRight', 'Speedometer')] $CircleType = 'FullCircleTop',
+        [ValidateSet('FullCircleTop', 'FullCircleBottom', 'FullCircleBottomLeft', 'FullCircleLeft', 'Speedometer', 'SemiCircleGauge')] $CircleType = 'FullCircleTop',
         [string] $LabelAverage
     )
 
     $Options = [ordered] @{}
 
     New-ChartRadial -Options $Options -Names $Names -Values $Values -Type $Type
+    # This controls how the circle starts / left , right and so on
     New-ChartRadialCircleType -Options $Options -CircleType $CircleType
     # This added label. It's useful if there's more then one data
     New-HTMLChartRadialDataLabels -Options $Options -Label $LabelAverage

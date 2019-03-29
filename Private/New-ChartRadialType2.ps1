@@ -1,12 +1,13 @@
 
 function New-ChartRadialType2 {
+    [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
         [Array] $Values,
         [Array] $Names
     )
     $Options.plotOptions = @{
-        radialBar = @{
+        radialBar = [ordered] @{
 
             #startAngle = -135
             #endAngle   = 225
@@ -15,7 +16,7 @@ function New-ChartRadialType2 {
             #endAngle   = 135
 
 
-            hollow = @{
+            hollow = [ordered] @{
                 margin       = 0
                 size         = '70%'
                 background   = '#fff'

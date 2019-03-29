@@ -1,5 +1,6 @@
 
 function New-ChartRadialType1 {
+    [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
         [Array] $Values,
@@ -7,7 +8,7 @@ function New-ChartRadialType1 {
     )
 
     $Options.plotOptions = @{
-        radialBar = @{
+        radialBar = [ordered] @{
             #startAngle = -135
             #endAngle   = 225
 
@@ -15,7 +16,7 @@ function New-ChartRadialType1 {
             #endAngle   = 135
 
 
-            hollow = @{
+            hollow = [ordered] @{
                 margin       = 0
                 size         = '70%'
                 background   = '#fff'
@@ -31,11 +32,11 @@ function New-ChartRadialType1 {
                     opacity = 0.24
                 }
             }
-            track  = @{
+            track  = [ordered] @{
                 background  = '#fff'
                 strokeWidth = '70%'
                 margin      = 0  #// margin is in pixels
-                dropShadow  = @{
+                dropShadow  = [ordered] @{
                     enabled = $true
                     top     = -3
                     left    = 0
@@ -68,9 +69,9 @@ function New-ChartRadialType1 {
         }
     }
 
-    $Options.fill = @{
+    $Options.fill = [ordered] @{
         type     = 'gradient'
-        gradient = @{
+        gradient = [ordered] @{
             shade            = 'dark'
             type             = 'horizontal'
             shadeIntensity   = 0.5
@@ -99,7 +100,7 @@ function New-ChartRadialType1 {
         }
     }
     #>
-    $Options.stroke = @{
+    $Options.stroke = [ordered] @{
         dashArray = 4
     }
 
