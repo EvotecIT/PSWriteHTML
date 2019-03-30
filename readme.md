@@ -1,6 +1,6 @@
 # PSWriteHTML - PowerShell Module
 
-`PSWriteHTML` is fork of `ReportHTML` module. I've forked `ReportHTML` due to it being outdated and not really maintained. I also wanted to address some problems it has and possibly add more features. As it stands `PSWriteHTML` doesn't use same naming convention as `ReportHTML` therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features as I go (fixes included).  
+`PSWriteHTML` is fork of `ReportHTML` module. I've forked `ReportHTML` due to it being outdated and not really maintained. I also wanted to address some problems it has and possibly add more features. As it stands `PSWriteHTML` doesn't use same naming convention as `ReportHTML` therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features as I go (fixes included).
 
 ## Advantages over ReportHTML:
 
@@ -19,7 +19,11 @@ Following external libaries and frameworks are in use. They make `PSWriteHTML` w
 
 ### PSWriteHTML - External JS Framework - DataTables
 
-Following JS Framework is intergrated as part of this module. It was downloaded from https://datatables.net/download/ with following settings.
+Following JS Framework is intergrated as part of this module. It's responsible for building Tables
+
+![DataTables Example](https://evotec.xyz/wp-content/uploads/2019/03/img_5c9fe366e4906.png)
+
+It was downloaded from https://datatables.net/download/ with following settings.
 
 -   [x] Styling Framework:
     -   [x] DataTables' default styling.v1.10.18
@@ -55,9 +59,13 @@ JSZip and PDFMake are not downloaded as part of this package. They fail to impor
     -   [x] ChartJS Package - https://github.com/chartjs/Chart.js/releases
         -   [x] ChartJS - version 2.7.3 (required for charts)
 
-### PSWriteHTML - External JS Framework -EnligherJS
+### PSWriteHTML - External JS Framework -EnlighterJS
 
-**PSWriteHTML** provides built-in EnligherJS JavaScript. This allows for **code blocks** support. Currently it uses Release Candidate version as it's first version to support **PowerShell highlighting** and many additional languages. It will be updated to new version
+**PSWriteHTML** provides built-in EnlighterJS JavaScript. It's responsible for building Code Blocks
+
+![EnlighterJS Example](https://evotec.xyz/wp-content/uploads/2019/03/img_5c9fea1322df8.png)
+
+This allows for **code blocks** support. Currently it uses Release Candidate version as it's first version to support **PowerShell highlighting** and many additional languages. It will be updated to new version
 
 -   [x] Downloaded from https://github.com/EnlighterJS/EnlighterJS/tree/v3.0.0-RC1
 
