@@ -1,56 +1,54 @@
 Import-Module PSWriteHTML -Force
-$Processes = Get-Process | Select -First 10
+$Processes = Get-Process | Select-Object -First 10
 
-$DynamicHTML = New-HTML -TitleText 'Title' -UseCssLinks:$true -UseJavaScriptLinks:$true {
+New-HTML -TitleText 'Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example7.html {
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
-        New-HTMLPanel -Count 1 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
 
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
-        New-HTMLPanel -Count 1 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
 
     New-HTMLContent -HeaderText '1st section' -CanCollapse -HeaderTextAlignment center {
-        New-HTMLPanel -Count 1 {
+        New-HTMLPanel {
 
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 1 {
+        New-HTMLPanel {
 
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 1 {
+        New-HTMLPanel {
 
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 2 -BackgroundColor Lime {
+        New-HTMLPanel -BackgroundColor Lime {
 
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 2 -BackgroundColor LimeGreen {
+        New-HTMLPanel -BackgroundColor LimeGreen {
 
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
     New-HTMLContent -HeaderText '2nd section' -BackgroundColor Seashell {
-        New-HTMLPanel -Count 3 {
+        New-HTMLPanel {
 
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 3 {
+        New-HTMLPanel {
 
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 3 {
+        New-HTMLPanel {
 
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
 }
-
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath $PSScriptRoot\Example7.html

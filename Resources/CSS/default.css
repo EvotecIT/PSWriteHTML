@@ -103,7 +103,7 @@ div.defaultColumn {
 
 
     overflow: hidden;
-    /* 
+    /*
      float: left;
     box-sizing: border-box;
     */
@@ -305,4 +305,9 @@ img {
 
 .green {
     background-color: #2ecc40;
+}
+
+div.enlighter-default {
+    flex-basis: 100%;
+    margin: 0 !important;
 }

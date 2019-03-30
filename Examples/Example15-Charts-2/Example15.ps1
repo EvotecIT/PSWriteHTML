@@ -1,7 +1,7 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
-$DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true {
-
+$DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example15.html {
+    <#
     New-HTMLContent -HeaderText 'Bar Charts' -CanCollapse {
         New-HTMLPanel {
             $Data1 = 400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380
@@ -186,8 +186,6 @@ $DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptL
             New-HTMLChartBar -Data $Data1, $Data2 -DataNames $DataNames1 -Type barStacked100Percent -DataLegend 'People', 'Pets' -Title 'Pets vs People' -TitleAlignment center -LegendPosition top  -Horizontal $false
         }
     }
-
-    <#
     New-HTMLContent -HeaderText 'Radline Charts' -CanCollapse {
         New-HTMLPanel {
             New-HTMLChartRadial -Names 'My data' -Values 95 -Type 1 -CircleType FullCircleTop
@@ -231,7 +229,18 @@ $DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptL
             New-HTMLChartSpark -Data $Value1, $Value2
         }
     }
+    #>
+    New-HTMLContent -HeaderText '-1 section' -CanCollapse {
 
+
+    }
+
+
+
+
+
+
+    <#
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
             $GroupedBar = @()
@@ -284,5 +293,3 @@ $DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptL
     }
     #>
 }
-
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath $PSScriptRoot\Example15.html

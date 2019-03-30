@@ -1,24 +1,24 @@
 Import-Module PSWriteHTML.psd1 -Force
-$Processes = Get-Process | Select -First 2
-$Processes1 = Get-Process | Select -First 10
+$Processes = Get-Process | Select-Object -First 2
+$Processes1 = Get-Process | Select-Object -First 10
 $Title = 'My title'
 
-$DynamicHTML = New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true {
+New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example14.html {
 
     New-HTMLContent -HeaderText '0 section' -CanCollapse {
-        New-HTMLPanel -Count 3 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 3 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes1 -HideFooter
         }
-        New-HTMLPanel -Count 3 {
-            
+        New-HTMLPanel {
+
         }
-        New-HTMLPanel -Count 2 {
-            
+        New-HTMLPanel {
+
         }
-        New-HTMLPanel -Count 2 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes1 -HideFooter
         }
     }
@@ -27,5 +27,3 @@ $DynamicHTML = New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks
     }
 
 }
-
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath $PSScriptRoot\Example14.html

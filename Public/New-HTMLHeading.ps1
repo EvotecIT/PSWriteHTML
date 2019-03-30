@@ -1,13 +1,22 @@
 Function New-HTMLHeading {
+    [CmdletBinding()]
     Param (
         [validateset('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7')][string]$Heading,
         [string]$HeadingText,
         [validateset('', 'central')][string] $Type,
-        [switch] $Underline
-    )  
-    $Attributes = @{} 
-    if ($Type -eq 'central') {       
-        $Attributes.Class = 'central'        
+        [switch] $Underline,
+        [nullable[RGBColors]] $Color
+    )
+    if ($null -ne $Color) {
+        $RGBcolor = ConvertFrom-Color -Color $Color
+        $Attributes = @{
+            style = "color: $RGBcolor;"
+        }
+    } else {
+        $Attributes = @{}
+    }
+    if ($Type -eq 'central') {
+        $Attributes.Class = 'central'
     }
     if ($Underline) {
         $Attributes.Class = "$($Attributes.Class) underline"

@@ -16,25 +16,27 @@ function New-HTMLTable {
         [switch]$DisableStateSave,
         [switch]$DisableSearch,
         [string[]][ValidateSet('display', 'cell-border', 'compact', 'hover', 'nowrap', 'order-column', 'row-border', 'stripe')] $Style = @('display', 'compact'),
-        [switch]$Simplify
+        [switch]$Simplify,
+        [string]$TextWhenNoData = 'No data available.'
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
     [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
     if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
-        return ''
+        #return ''
+        $DataTable = $TextWhenNoData
     }
     if ($DataTable[0] -is [System.Collections.IDictionary]) {
         Write-Verbose 'New-HTMLTable - Working with IDictionary'
         [Array ] $Table = $($DataTable).GetEnumerator() | Select-Object Name, Value | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
     } elseif ($DataTable[0] -is [string]) {
-        [Array] $Table = $DataTable | ForEach-Object { [PSCustomObject]@{ 'Name' = $_ } } | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 
+        [Array] $Table = $DataTable | ForEach-Object { [PSCustomObject]@{ 'Name' = $_ } } | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2
     } else {
         Write-Verbose 'New-HTMLTable - Working with Objects'
         [Array] $Table = $DataTable | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
     }
-    [string] $Header = $Table | Select-Object -First 1 # this gets header 
-    $Table = $Table | Select-Object -Skip 1 # this gets actuall table content 
+    [string] $Header = $Table | Select-Object -First 1 # this gets header
+    $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
 
     $Options = [ordered] @{
         <# DOM Definition: https://datatables.net/reference/option/dom
@@ -59,7 +61,7 @@ function New-HTMLTable {
             simple_numbers - 'Previous' and 'Next' buttons, plus page numbers
             full - 'First', 'Previous', 'Next' and 'Last' buttons
             full_numbers - 'First', 'Previous', 'Next' and 'Last' buttons, plus page numbers
-            first_last_numbers - 'First' and 'Last' buttons, plus page numbers        
+            first_last_numbers - 'First' and 'Last' buttons, plus page numbers
         #>
         "pagingType" = $PagingStyle
         "lengthMenu" = @(
@@ -69,8 +71,8 @@ function New-HTMLTable {
         "ordering"   = -not $DisableOrdering
         "info"       = -not $DisableInfo
         "procesing"  = -not $DisableProcessing
-        "responsive" = @{ 
-            details = -not $DisableResponsiveTable 
+        "responsive" = @{
+            details = -not $DisableResponsiveTable
         }
         "select"     = -not $DisableSelect
         "searching"  = -not $DisableSearch
@@ -100,7 +102,7 @@ function New-HTMLTable {
                 @"
                 `$(document).ready(function() {
                     `$('#$DataTableName').DataTable($($Options));
-                });            
+                });
 "@
             }
         } else {
@@ -108,12 +110,12 @@ function New-HTMLTable {
             New-HTMlTag -Tag 'script' {
                 @"
                     `$(document).ready(function() {
-                        `$('.tabs').on('click', 'a', function (event) { 
+                        `$('.tabs').on('click', 'a', function (event) {
                             if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
                                 `$('#$DataTableName').DataTable($($Options));
                             };
                         });
-                    });            
+                    });
 "@
             }
         }
@@ -121,19 +123,19 @@ function New-HTMLTable {
         $TableAttributes = @{ class = 'sortable' }
     }
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultPanelOther' } -Value {
-    # Build HTML TABLE
-    New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
-        New-HTMLTag -Tag 'thead' {
-            $Header
-        }
-        New-HTMLTag -Tag 'tbody' {
-            $Table
-        }
-        if (-not $HideFooter) {
-            New-HTMLTag -Tag 'tfoot' {
+        # Build HTML TABLE
+        New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
+            New-HTMLTag -Tag 'thead' {
                 $Header
             }
+            New-HTMLTag -Tag 'tbody' {
+                $Table
+            }
+            if (-not $HideFooter) {
+                New-HTMLTag -Tag 'tfoot' {
+                    $Header
+                }
+            }
         }
-    }
     }
 }

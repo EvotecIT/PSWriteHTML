@@ -3,101 +3,28 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-03-17 19:01:31" name="revised"/>
+<meta content="2019-03-29 21:39:53" name="revised"/>
 <title>Test
 </title>
 <!-- CSS Default fonts START -->
-<link href="https://fonts.googleapis.com/css?family=Roboto" type="text/css" rel="stylesheet"></link>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts END -->
 <!-- CSS Default fonts icons START -->
-<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"></link>
+<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts icons END -->
 <!-- CSS Always Required Default Visual Settings START -->
-<style type="text/css">
-
-body {
-    border-top-color: rgb(90, 90, 90);
-  background-color: rgb(23, 24, 28);
-  color: rgb(192, 188, 181);
-}
-@media screen and (prefers-color-scheme: light) {
-  body {
-    background-color: white;
-    color: black;
-  }
-}
-
-body {
+<style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
     margin: 8px 10px 8px 10px;
 }
 
-h1 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 18pt;
-}
-
-h1.underline, h2.underline, h3.underline, h4.underline, h5.underline, h6.underline, h7.underline {
-    border-bottom: 2px solid #bbbbbb;
-}
-
-h1.central, h2.central, h3.central, h4.central, h5.central, h6.central, h7.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-
-div.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-
-h2 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 16pt;
-    border-bottom: 2px solid #bbbbbb;
-}
-
-h3 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 14pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h4 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 12pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h5 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 10pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h6 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 8pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h7 {
-    font-family: sans-serif;
-    font-size: 10pt;
-}
-
 hr {
     height: 4px;
+    /*
     background-color: #007bff;
+    */
+    background-color: #6Cf;
     border: 0px;
     width: 100%;
 }
@@ -164,16 +91,82 @@ div.MainLogo {
     width: 50%;
 }
 
+.central {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 900px;
+}
+
 div.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
-    display: inline-block;
+    /* display: inline-block; */
     margin: 5px;
     width: calc(100% - 10px);
     overflow: hidden;
     /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
+
+    /*
+      box-sizing: border-box;
+    float: left;
+    */
+}
+
+div.defaultColumn {
+
+
+    overflow: hidden;
+    /* 
+     float: left;
+    box-sizing: border-box;
+    */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px;
+}
+
+.defaultContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultContainerOther {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanelOther {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanel {
+    flex-basis: 100%;
+    /* padding: 5px; */
+
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    /* width: 40%; */
+    border-radius: 5px;
+    margin: 5px;
 }
 
 div.defaultHeader {
@@ -181,7 +174,8 @@ div.defaultHeader {
     margin: 0px 0px 0px 0px;
     font-weight: bold;
     color: #ffffff;
-    background-color: #007bff;
+    /* background-color: #007bff; */
+    background-color: #6Cf;
 }
 
 div.defaultFooter {
@@ -218,16 +212,6 @@ td.groupby {
 .header {
     background-color: #616a6b;
     color: #f7f9f9;
-}
-
-div.defaultColumn {
-    box-sizing: border-box;
-    float: left;
-    overflow: hidden;
-    /* NEW */
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding: 2px;
 }
 
 a.alink:link {
@@ -303,14 +287,6 @@ button.dt-button {
     line-height: 1 !important;
 }
 
-.defaultCard {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 40%;
-    border-radius: 5px;
-    margin: 5px;
-}
-
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -347,6 +323,118 @@ img {
 }
 </style>
 <!-- CSS Always Required Default Visual Settings END -->
+<!-- CSS Always Required Default Headings START -->
+<style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+}
+</style>
+<!-- CSS Always Required Default Headings END -->
 
 
 
@@ -448,7 +536,7 @@ function hide(obj) {
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
 <!-- JS Jquery END -->
 <!-- CSS DataTables START -->
-<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"></link>
+<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/>
 <!-- CSS DataTables END -->
 <!-- JS DataTables START -->
 <script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script>
@@ -465,36 +553,36 @@ function hide(obj) {
         </tbody></table>
 <!-- END LOGO -->
 <div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-0da3pr2k"><i class="fas fa-bomb">Dashboard
+<a href="javascript:void(0)" class="active" data-id="Tab-jbsp7ez8"><i class="fas fa-bomb">Dashboard
 </i>
 </a>
-<a href="javascript:void(0)" data-id="Tab-xtznj3iw"><i class="fas fa-bomb">Something
+<a href="javascript:void(0)" data-id="Tab-sn1q6emb"><i class="fas fa-bomb">Something
 </i>
 </a>
-<a href="javascript:void(0)" data-id="Tab-9qyfrwb5"><i class="fas fa-bomb">This is very long title
+<a href="javascript:void(0)" data-id="Tab-f8b2aire"><i class="fas fa-bomb">This is very long title
 </i>
 </a>
-<a href="javascript:void(0)" data-id="Tab-int23col"><i class="fas fa-bomb">This is long title
+<a href="javascript:void(0)" data-id="Tab-qgp5orub"><i class="fas fa-bomb">This is long title
 </i>
 </a>
 </div>
 </div>
-<div id="Tab-0da3pr2k" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Groups" style="color: #ffffff;">Groups
+<div id="Tab-jbsp7ez8" class="tabs-content active"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Groups" style="color: #ffffff;">Groups
 </a>
-<a id="show_2007732721" href="#" onclick="show('2007732721');" style="color: #ffffff; display:none">(Show)
+<a id="show_1077739463" href="javascript:void(0)" onclick="show('1077739463');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_2007732721" href="#" onclick="hide('2007732721');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable" id="2007732721"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
-</a>
-<a id="show_1209647780" href="#" onclick="show('1209647780');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_1209647780" href="#" onclick="hide('1209647780');" style="color: #ffffff;">(Hide)
+<a id="hide_1077739463" href="javascript:void(0)" onclick="hide('1077739463');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1209647780"><div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px);"><script>                $(document).ready(function() {
-                    $('#DT-EBrJTmut').DataTable({
+<div class="defaultContainerOther" id="1077739463"><div class="defaultContainer defaultPanelOther collapsable" id="1077739463"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
+</a>
+<a id="show_1739028672" href="javascript:void(0)" onclick="show('1739028672');" style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_1739028672" href="javascript:void(0)" onclick="hide('1739028672');" style="color: #ffffff;">(Hide)
+</a>
+</div>
+<div class="defaultContainerOther" id="1739028672"><div class="defaultContainer defaultPanelOther collapsable" id="1739028672"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
+                    $('#DT-mqxfaMSZ').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -535,7 +623,7 @@ function hide(obj) {
 });
                 });            
 </script>
-<table id="DT-EBrJTmut" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
+<div class="defaultPanelOther"><table id="DT-mqxfaMSZ" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
 </thead>
 <tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
 </tbody>
@@ -546,9 +634,12 @@ function hide(obj) {
 </div>
 </div>
 </div>
-<div id="Tab-xtznj3iw" class="tabs-content"></div>
-<div id="Tab-9qyfrwb5" class="tabs-content"></div>
-<div id="Tab-int23col" class="tabs-content"></div>
+</div>
+</div>
+</div>
+<div id="Tab-sn1q6emb" class="tabs-content"></div>
+<div id="Tab-f8b2aire" class="tabs-content"></div>
+<div id="Tab-qgp5orub" class="tabs-content"></div>
 </body>
 <!-- END BODY -->
 <!-- FOOTER -->

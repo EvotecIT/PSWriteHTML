@@ -3,36 +3,31 @@ Import-Module ..\PSWriteHTML -Force
 $Time = Start-TimeLog
 
 $ReportTitle = 'Test'
-$ReportPath = "$PSScriptRoot\Example3.html"
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
-$EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
-$Allusers = Get-AdUser -Filter *
 
 $ImageLink = 'https://evotec.xyz/wp-content/uploads/2015/05/Logo-evotec-012.png'
 
-$Report = New-HTML -TitleText $ReportTitle -UseJavaScriptLinks -UseCssLinks {
+New-HTML -TitleText $ReportTitle -UseJavaScriptLinks -UseCssLinks -FilePath "$PSScriptRoot\Example3.html" {
     New-HTMLLogo -RightLogoString $ImageLink
     New-HTMLTab -TabName 'Dashboard' {
-        New-HTMLContent  -HeaderText "Groups" {    
+        New-HTMLContent  -HeaderText "Groups" {
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
-                New-HTMLPanel -Count 1 {
+                New-HTMLPanel {
                     New-HTMLTable -DataTable $DomainAdminTable -HideFooter
                 }
-            }  
+            }
         }
     }
     New-HTMLTab -TabName 'Something' {
-        
+
     }
     New-HTMLTab -TabName 'This is very long title' {
-        
+
     }
     New-HTMLTab -TabName 'This is long title' {
-        
+
     }
 }
-
-Save-HTML -HTML $Report -FilePath $ReportPath #-ShowHTML
 
 Stop-TimeLog -Time $Time -Option OneLiner

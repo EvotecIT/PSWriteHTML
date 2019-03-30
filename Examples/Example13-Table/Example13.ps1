@@ -3,7 +3,7 @@ Import-Module PSWriteHTML.psd1 -Force
 Stop-TimeLog -Time $Time
 $Time = Start-TimeLog
 
-$Processes = Get-Process | Select -First 2
+$Processes = Get-Process | Select-Object -First 2
 $Title = 'My title'
 
 New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example13.html {
@@ -30,15 +30,15 @@ New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePat
     }
 
     New-HTMLContent -Invisible {
-        New-HTMLPanel {        
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel {        
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
-   
+
         }
     }
-    New-HTMLPanel {        
+    New-HTMLPanel {
         New-HTMLTable -ArrayOfObjects $Processes -HideFooter
 
     }

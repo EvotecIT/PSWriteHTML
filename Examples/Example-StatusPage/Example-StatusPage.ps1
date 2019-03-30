@@ -9,7 +9,7 @@ $DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJava
 
     New-HTMLHeading -Heading h1 -HeadingText 'Current Status' -Type 'central'
 
-    New-HTMLPanel -Count 1 -Invisible { 
+    New-HTMLPanel -Invisible {
         New-HTMLStatus {
             New-HTMLStatusItem -ServiceName 'Active Directory' -ServiceStatus 'Operational' -Icon Good -Percentage '100%'
             New-HTMLStatusItem -ServiceName 'Github' -ServiceStatus 'Operational' -Icon Good -Percentage '100%'
@@ -17,11 +17,11 @@ $DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJava
             New-HTMLStatusItem -ServiceName 'Active Directory' -ServiceStatus 'Operational' -Icon Good -Percentage '100%'
             New-HTMLStatusItem -ServiceName 'Azure' -ServiceStatus 'Working on it' -Icon Bad -Percentage '70%'
             New-HTMLStatusItem -ServiceName 'Twitter' -ServiceStatus 'Who knows?!' -Icon Bad -Percentage '30%'
-        }    
+        }
     }
 
     New-HTMLHeading -Heading h1 -HeadingText 'Scheduled Maintenance' -Type 'central'
-    
+
     New-HTMLPanel -Invisible {
         New-HTMLToast -Icon Information -Color Orange -TextHeader 'Maintenance' -Text "We've planned maintenance on 24th of January 2020. It will last 30 hours."
     }
@@ -29,7 +29,7 @@ $DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJava
 
     New-HTMLHeading -Heading h1 -HeadingText 'Incidents per day' -Type 'central'
 
-    New-HTMLPanel -Count 1 -Invisible {
+    New-HTMLPanel -Invisible {
         $Data = foreach ($Element in 30..0) {
             Get-Random -Minimum 0 -Maximum 5
         }
@@ -37,7 +37,7 @@ $DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJava
         $DataCategories = foreach ($Element in 30..0) {
             (Get-Date).AddDays(-$Element).ToShortDateString()
         }
-        
+
         New-HTMLChart `
             -Data $Data `
             -DataNames $DataName `
@@ -51,7 +51,7 @@ $DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJava
 
     New-HTMLHeading -Heading h1 -HeadingText 'Past Incidents' -Type 'central'
 
-    New-HTMLPanel -Count 1 -Invisible {    
+    New-HTMLPanel -Invisible {
         New-HTMLTimeline {
             New-HTMLTimelineItem -HeadingText 'Azure AD is down' -Text "We have huge problems" -Date (Get-Date).AddDays(-1)
             New-HTMLTimelineItem -HeadingText 'Azure AD ...' -Text "We have huge problems" -Date (Get-Date).AddDays(-2)

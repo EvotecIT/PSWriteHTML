@@ -7,12 +7,12 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLPanel -Count 2 {
+            New-HTMLPanel {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
             }
-            New-HTMLPanel -Count 2 {
+            New-HTMLPanel {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
                 }
@@ -47,24 +47,24 @@ $(window).bind("resize", function(e) {
 '@
 
 
-$DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true {
+New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example9.html {
     New-HTMLLogo
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
-        New-HTMLPanel -Count 1 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 2 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 2 {
+        New-HTMLPanel {
             $Processes = Get-Process | Select -First 5
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
-        New-HTMLPanel -Count 1 {
-            # Standard Chart Bar 
+        New-HTMLPanel {
+            # Standard Chart Bar
             New-HTMLChart -Data @(400, 430, 448) -DataNames 'People count' -DataCategories 'Poland', 'Europe', 'Germany'
 
             New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
@@ -73,14 +73,14 @@ $DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptL
 
             # New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'column'
         }
-        New-HTMLPanel -Count 2 {
+        New-HTMLPanel {
             $GroupedBar = @()
             $GroupedBar += 400, 430, 448
             $GroupedBar1 = @()
             $GroupedBar1 += 420, 450, 448
             New-HTMLChart -Data $GroupedBar, $GroupedBar1 -DataNames 'People count in  2019', 'People count in 2018' -DataCategories 'Poland', 'Europe', 'Germany'
         }
-        New-HTMLPanel -Count 2 {
+        New-HTMLPanel {
             $Data = 10, 41, 35, 51, 49, 62, 69, 91, 148
             $DataName = "Desktops"
             $DataCategories = 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
@@ -93,9 +93,9 @@ $DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptL
                 -TitleAlignment 'left' `
                 -LineColor 'Blue', 'Green' -Horizontal $false
 
-            
+
         }
-        New-HTMLPanel -Count 1 {
+        New-HTMLPanel {
             $Data1 = 44, 55, 57, 56, 61, 58, 63, 60, 66
             $Data2 = 76, 85, 101, 98, 87, 105, 91, 114, 94
             $Data3 = 35, 41, 36, 26, 45, 48, 52, 53, 41
@@ -105,24 +105,22 @@ $DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptL
         }
     }
     New-HTMLContent -HeaderText 'Section 3rd with 3 columns' {
-        New-HTMLPanel -Count 3 {
+        New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
-        New-HTMLPanel -Count 3 {
+        New-HTMLPanel {
             New-HTMLChart -Data @(400, 430, 448), @(450, 0, 200) -DataNames 'People count', 'People death' -DataCategories '2015', '2016', '2017' -Type 'line' -LineColor 'Blue', 'Green'
         }
-        New-HTMLPanel -Count 3 {
+        New-HTMLPanel {
             New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
         }
     }
-    New-HTMLContent -HeaderText 'Anoteher' {
-        New-HTMLPanel -Count 2 {
+    New-HTMLContent -HeaderText 'Another conteent' -CanCollapse {
+        New-HTMLPanel {
             New-HTMLCodeBlock -Code $CodeBlockJS -Style 'JavaScript' -Theme enlighter -Highlight '2, 5'
         }
-        New-HTMLPanel -Count 2 {
+        New-HTMLPanel {
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Theme enlighter -Highlight '2, 5'
         }
     }
 }
-
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath $PSScriptRoot\Example9.html

@@ -3,14 +3,14 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-03-16 17:17:53" name="revised"/>
+<meta content="2019-03-30 09:38:09" name="revised"/>
 <title>My title
 </title>
 <!-- CSS Default fonts START -->
-<link href="https://fonts.googleapis.com/css?family=Roboto" type="text/css" rel="stylesheet"></link>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts END -->
 <!-- CSS Default fonts icons START -->
-<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"></link>
+<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts icons END -->
 <!-- CSS Always Required Default Visual Settings START -->
 <style type="text/css">body {
@@ -19,71 +19,12 @@
     margin: 8px 10px 8px 10px;
 }
 
-h1 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 18pt;
-}
-
-h1.underline, h2.underline, h3.underline, h4.underline, h5.underline, h6.underline, h7.underline {
-    border-bottom: 2px solid #bbbbbb;
-}
-
-h1.central, h2.central, h3.central, h4.central, h5.central, h6.central, h7.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-
-div.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-
-h2 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 16pt;
-    border-bottom: 2px solid #bbbbbb;
-}
-
-h3 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 14pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h4 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 12pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h5 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 10pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h6 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 8pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h7 {
-    font-family: sans-serif;
-    font-size: 10pt;
-}
-
 hr {
     height: 4px;
+    /*
     background-color: #007bff;
+    */
+    background-color: #6Cf;
     border: 0px;
     width: 100%;
 }
@@ -150,16 +91,82 @@ div.MainLogo {
     width: 50%;
 }
 
+.central {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 900px;
+}
+
 div.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
-    display: inline-block;
+    /* display: inline-block; */
     margin: 5px;
     width: calc(100% - 10px);
     overflow: hidden;
     /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
+
+    /*
+      box-sizing: border-box;
+    float: left;
+    */
+}
+
+div.defaultColumn {
+
+
+    overflow: hidden;
+    /*
+     float: left;
+    box-sizing: border-box;
+    */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px;
+}
+
+.defaultContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultContainerOther {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanelOther {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanel {
+    flex-basis: 100%;
+    /* padding: 5px; */
+
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    /* width: 40%; */
+    border-radius: 5px;
+    margin: 5px;
 }
 
 div.defaultHeader {
@@ -167,7 +174,8 @@ div.defaultHeader {
     margin: 0px 0px 0px 0px;
     font-weight: bold;
     color: #ffffff;
-    background-color: #007bff;
+    /* background-color: #007bff; */
+    background-color: #6Cf;
 }
 
 div.defaultFooter {
@@ -204,16 +212,6 @@ td.groupby {
 .header {
     background-color: #616a6b;
     color: #f7f9f9;
-}
-
-div.defaultColumn {
-    box-sizing: border-box;
-    float: left;
-    overflow: hidden;
-    /* NEW */
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding: 2px;
 }
 
 a.alink:link {
@@ -289,14 +287,6 @@ button.dt-button {
     line-height: 1 !important;
 }
 
-.defaultCard {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 40%;
-    border-radius: 5px;
-    margin: 5px;
-}
-
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -331,8 +321,125 @@ img {
 .green {
     background-color: #2ecc40;
 }
+
+div.enlighter-default {
+    flex-basis: 100%;
+    margin: 0 !important;
+}
 </style>
 <!-- CSS Always Required Default Visual Settings END -->
+<!-- CSS Always Required Default Headings START -->
+<style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+}
+</style>
+<!-- CSS Always Required Default Headings END -->
 
 
 
@@ -357,7 +464,7 @@ function hide(obj) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
 <!-- JS DataTables PDF Features END -->
 <!-- CSS EnlighterJS CodeBlocks START -->
-<link href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css" type="text/css" rel="stylesheet"></link>
+<link href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css" type="text/css" rel="stylesheet"/>
 <!-- CSS EnlighterJS CodeBlocks END -->
 <!-- JS EnlighterJS CodeBlocks START -->
 <script src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js" type="text/javascript"></script>
@@ -366,7 +473,7 @@ function hide(obj) {
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script>
 <!-- JS Apex Charts END -->
 <!-- CSS DataTables START -->
-<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"></link>
+<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/>
 <!-- CSS DataTables END -->
 <!-- JS DataTables START -->
 <script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script>
@@ -385,15 +492,15 @@ function hide(obj) {
         </tr>
         </tbody></table>
 <!-- END LOGO -->
-<div class="defaultSection defaultCard" style="background-color:#87ceeb;"><div class="defaultHeader" style="text-align: center;"><a name="0 section" style="color: #ffffff;">0 section
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; background-color:#87ceeb;"><div class="defaultHeader" style="text-align: center;"><a name="0 section" style="color: #ffffff;">0 section
 </a>
-<a id="show_851639696" href="#" onclick="show('851639696');" style="color: #ffffff; display:none">(Show)
+<a id="show_71753868" href="javascript:void(0)" onclick="show('71753868');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_851639696" href="#" onclick="hide('851639696');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_71753868" href="javascript:void(0)" onclick="hide('71753868');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="851639696"><div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px);"><script>                $(document).ready(function() {
-                    $('#DT-pompCeVr').DataTable({
+<div class="defaultContainerOther" id="71753868"><div class="defaultContainer defaultPanelOther collapsable" id="71753868"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
+                    $('#DT-SsgBEWRB').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -434,18 +541,19 @@ function hide(obj) {
 });
                 });            
 </script>
-<table id="DT-pompCeVr" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+<div class="defaultPanelOther"><table id="DT-SsgBEWRB" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
 </thead>
-<tbody><tr><td>1Password</td><td>12472</td><td>Normal</td><td>7.3.657</td><td>677</td><td>11624448</td><td>40906752</td><td>40906752</td><td>303841280</td><td>00:00:00.6875000</td><td>1</td><td>677</td><td>303841280</td><td>11624448</td><td>40906752</td><td>39504</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,6875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1448</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>39504</td><td>39504</td><td>40906752</td><td>455272</td><td>455272</td><td>42127360</td><td>42127360</td><td>63016960</td><td>63016960</td><td>323739648</td><td>323739648</td><td>True</td><td>40906752</td><td>00:00:00.1406250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:25:32</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5468750</td><td>303841280</td><td>False</td><td></td><td></td><td></td><td>11624448</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>16236</td><td></td><td></td><td>179</td><td>3227648</td><td>2236416</td><td>2236416</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>3227648</td><td>2236416</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2236416</td><td>104984</td><td>104984</td><td>3280896</td><td>3280896</td><td>9887744</td><td>9887744</td><td>100552704</td><td>2203418775552</td><td></td><td>2236416</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>3227648</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>12420</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>497</td><td>10203136</td><td>27336704</td><td>27336704</td><td>289456128</td><td>00:00:01.6093750</td><td>1</td><td>497</td><td>2203607678976</td><td>10203136</td><td>27336704</td><td>29368</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>1,609375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>14724</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1311050</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29368</td><td>29368</td><td>27336704</td><td>429432</td><td>429432</td><td>45076480</td><td>45076480</td><td>61906944</td><td>61906944</td><td>327069696</td><td>2203645292544</td><td>True</td><td>27336704</td><td>00:00:00.9531250</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:25:39</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.6562500</td><td>2203607678976</td><td>False</td><td></td><td></td><td></td><td>10203136</td><td></td><td></td></tr>
-<tr><td>browser_broker</td><td>18280</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>3010560</td><td>1765376</td><td>1765376</td><td>98476032</td><td>00:00:00</td><td>1</td><td>139</td><td>2203416698880</td><td>3010560</td><td>1765376</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9740</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1765376</td><td>125960</td><td>125960</td><td>2007040</td><td>2007040</td><td>8540160</td><td>8540160</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1765376</td><td>00:00:00</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:26:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>3010560</td><td></td><td></td></tr>
-<tr><td>chrome</td><td>1440</td><td>Normal</td><td>75.0.3734.0</td><td>149</td><td>3002368</td><td>2113536</td><td>2113536</td><td>136986624</td><td>00:00:00.0156250</td><td>1</td><td>149</td><td>2203455209472</td><td>3002368</td><td>2113536</td><td>10944</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,015625</td><td>75.0.3734.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6684</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>10944</td><td>10944</td><td>2113536</td><td>178112</td><td>178112</td><td>2162688</td><td>2162688</td><td>8843264</td><td>8843264</td><td>139083776</td><td>2203457306624</td><td>True</td><td>2113536</td><td>00:00:00</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:28:13</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203455209472</td><td>False</td><td></td><td></td><td></td><td>3002368</td><td></td><td></td></tr>
+<tbody><tr><td>1Password</td><td>16904</td><td>Normal</td><td>7.3.657</td><td>881</td><td>163524608</td><td>167792640</td><td>167792640</td><td>825004032</td><td>00:25:50.3281250</td><td>1</td><td>881</td><td>825004032</td><td>163524608</td><td>167792640</td><td>63384</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1550,328125</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>14848</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>63384</td><td>63384</td><td>167792640</td><td>894680</td><td>894680</td><td>270249984</td><td>270249984</td><td>278634496</td><td>278634496</td><td>933236736</td><td>933236736</td><td>True</td><td>167792640</td><td>00:06:29</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:45:44</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:19:21.3281250</td><td>825004032</td><td>False</td><td></td><td></td><td></td><td>163524608</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>3660</td><td></td><td></td><td>179</td><td>6623232</td><td>2351104</td><td>2351104</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>6623232</td><td>2351104</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2351104</td><td>104984</td><td>104984</td><td>3125248</td><td>3125248</td><td>9641984</td><td>9641984</td><td>100417536</td><td>2203418640384</td><td></td><td>2351104</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>6623232</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>17960</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>557</td><td>31334400</td><td>35352576</td><td>35352576</td><td>311816192</td><td>00:00:04.0312500</td><td>1</td><td>557</td><td>2203630039040</td><td>31334400</td><td>35352576</td><td>33040</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>4,03125</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8548</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>7799656</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>33040</td><td>33040</td><td>35352576</td><td>457664</td><td>457664</td><td>58241024</td><td>58241024</td><td>65060864</td><td>65060864</td><td>327282688</td><td>2203645505536</td><td>True</td><td>35352576</td><td>00:00:02.6562500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:46:25</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.3750000</td><td>2203630039040</td><td>False</td><td></td><td></td><td></td><td>31334400</td><td></td><td></td></tr>
+<tr><td>audiodg</td><td>19188</td><td></td><td></td><td>170</td><td>11546624</td><td>6520832</td><td>6520832</td><td>84914176</td><td>00:00:00.3750000</td><td>0</td><td>170</td><td>2203403137024</td><td>11546624</td><td>6520832</td><td>10056</td><td></td><td></td><td>0,375</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10056</td><td>10056</td><td>6520832</td><td>96080</td><td>96080</td><td>7618560</td><td>7618560</td><td>12554240</td><td>12554240</td><td>88399872</td><td>2203406622720</td><td></td><td>6520832</td><td>00:00:00.2031250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>30.03.2019 09:32:01</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1718750</td><td>2203403137024</td><td>False</td><td></td><td></td><td></td><td>11546624</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>7808</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>6172672</td><td>1765376</td><td>1765376</td><td>98476032</td><td>00:00:00.0156250</td><td>1</td><td>139</td><td>2203416698880</td><td>6172672</td><td>1765376</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1940</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1765376</td><td>125960</td><td>125960</td><td>1896448</td><td>1896448</td><td>8441856</td><td>8441856</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1765376</td><td>00:00:00</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 14:28:50</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>6172672</td><td></td><td></td></tr>
 </tbody>
 </table>
 </div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><script>                $(document).ready(function() {
-                    $('#DT-kRFVxLVy').DataTable({
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
+                    $('#DT-ZpGdRmCL').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -486,18 +594,19 @@ function hide(obj) {
 });
                 });            
 </script>
-<table id="DT-kRFVxLVy" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+<div class="defaultPanelOther"><table id="DT-ZpGdRmCL" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
 </thead>
-<tbody><tr><td>1Password</td><td>12472</td><td>Normal</td><td>7.3.657</td><td>677</td><td>11624448</td><td>40906752</td><td>40906752</td><td>303841280</td><td>00:00:00.6875000</td><td>1</td><td>677</td><td>303841280</td><td>11624448</td><td>40906752</td><td>39504</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,6875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1448</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>39504</td><td>39504</td><td>40906752</td><td>455272</td><td>455272</td><td>42127360</td><td>42127360</td><td>63016960</td><td>63016960</td><td>323739648</td><td>323739648</td><td>True</td><td>40906752</td><td>00:00:00.1406250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:25:32</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5468750</td><td>303841280</td><td>False</td><td></td><td></td><td></td><td>11624448</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>16236</td><td></td><td></td><td>179</td><td>3227648</td><td>2236416</td><td>2236416</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>3227648</td><td>2236416</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2236416</td><td>104984</td><td>104984</td><td>3280896</td><td>3280896</td><td>9887744</td><td>9887744</td><td>100552704</td><td>2203418775552</td><td></td><td>2236416</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>3227648</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>12420</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>497</td><td>10203136</td><td>27336704</td><td>27336704</td><td>289456128</td><td>00:00:01.6093750</td><td>1</td><td>497</td><td>2203607678976</td><td>10203136</td><td>27336704</td><td>29368</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>1,609375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>14724</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1311050</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29368</td><td>29368</td><td>27336704</td><td>429432</td><td>429432</td><td>45076480</td><td>45076480</td><td>61906944</td><td>61906944</td><td>327069696</td><td>2203645292544</td><td>True</td><td>27336704</td><td>00:00:00.9531250</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:25:39</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.6562500</td><td>2203607678976</td><td>False</td><td></td><td></td><td></td><td>10203136</td><td></td><td></td></tr>
-<tr><td>browser_broker</td><td>18280</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>3010560</td><td>1765376</td><td>1765376</td><td>98476032</td><td>00:00:00</td><td>1</td><td>139</td><td>2203416698880</td><td>3010560</td><td>1765376</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9740</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1765376</td><td>125960</td><td>125960</td><td>2007040</td><td>2007040</td><td>8540160</td><td>8540160</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1765376</td><td>00:00:00</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:26:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>3010560</td><td></td><td></td></tr>
-<tr><td>chrome</td><td>1440</td><td>Normal</td><td>75.0.3734.0</td><td>149</td><td>3002368</td><td>2113536</td><td>2113536</td><td>136986624</td><td>00:00:00.0156250</td><td>1</td><td>149</td><td>2203455209472</td><td>3002368</td><td>2113536</td><td>10944</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,015625</td><td>75.0.3734.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6684</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>10944</td><td>10944</td><td>2113536</td><td>178112</td><td>178112</td><td>2162688</td><td>2162688</td><td>8843264</td><td>8843264</td><td>139083776</td><td>2203457306624</td><td>True</td><td>2113536</td><td>00:00:00</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:28:13</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203455209472</td><td>False</td><td></td><td></td><td></td><td>3002368</td><td></td><td></td></tr>
+<tbody><tr><td>1Password</td><td>16904</td><td>Normal</td><td>7.3.657</td><td>881</td><td>163524608</td><td>167792640</td><td>167792640</td><td>825004032</td><td>00:25:50.3281250</td><td>1</td><td>881</td><td>825004032</td><td>163524608</td><td>167792640</td><td>63384</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1550,328125</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>14848</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>63384</td><td>63384</td><td>167792640</td><td>894680</td><td>894680</td><td>270249984</td><td>270249984</td><td>278634496</td><td>278634496</td><td>933236736</td><td>933236736</td><td>True</td><td>167792640</td><td>00:06:29</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:45:44</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:19:21.3281250</td><td>825004032</td><td>False</td><td></td><td></td><td></td><td>163524608</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>3660</td><td></td><td></td><td>179</td><td>6623232</td><td>2351104</td><td>2351104</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>6623232</td><td>2351104</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2351104</td><td>104984</td><td>104984</td><td>3125248</td><td>3125248</td><td>9641984</td><td>9641984</td><td>100417536</td><td>2203418640384</td><td></td><td>2351104</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>6623232</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>17960</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>557</td><td>31334400</td><td>35352576</td><td>35352576</td><td>311816192</td><td>00:00:04.0312500</td><td>1</td><td>557</td><td>2203630039040</td><td>31334400</td><td>35352576</td><td>33040</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>4,03125</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8548</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>7799656</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>33040</td><td>33040</td><td>35352576</td><td>457664</td><td>457664</td><td>58241024</td><td>58241024</td><td>65060864</td><td>65060864</td><td>327282688</td><td>2203645505536</td><td>True</td><td>35352576</td><td>00:00:02.6562500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:46:25</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.3750000</td><td>2203630039040</td><td>False</td><td></td><td></td><td></td><td>31334400</td><td></td><td></td></tr>
+<tr><td>audiodg</td><td>19188</td><td></td><td></td><td>170</td><td>11546624</td><td>6520832</td><td>6520832</td><td>84914176</td><td>00:00:00.3750000</td><td>0</td><td>170</td><td>2203403137024</td><td>11546624</td><td>6520832</td><td>10056</td><td></td><td></td><td>0,375</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10056</td><td>10056</td><td>6520832</td><td>96080</td><td>96080</td><td>7618560</td><td>7618560</td><td>12554240</td><td>12554240</td><td>88399872</td><td>2203406622720</td><td></td><td>6520832</td><td>00:00:00.2031250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>30.03.2019 09:32:01</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1718750</td><td>2203403137024</td><td>False</td><td></td><td></td><td></td><td>11546624</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>7808</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>6172672</td><td>1765376</td><td>1765376</td><td>98476032</td><td>00:00:00.0156250</td><td>1</td><td>139</td><td>2203416698880</td><td>6172672</td><td>1765376</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1940</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1765376</td><td>125960</td><td>125960</td><td>1896448</td><td>1896448</td><td>8441856</td><td>8441856</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1765376</td><td>00:00:00</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 14:28:50</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>6172672</td><td></td><td></td></tr>
 </tbody>
 </table>
 </div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><script>                $(document).ready(function() {
-                    $('#DT-ZTEUnhPS').DataTable({
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
+                    $('#DT-uetBOsYX').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -538,26 +647,159 @@ function hide(obj) {
 });
                 });            
 </script>
-<table id="DT-ZTEUnhPS" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+<div class="defaultPanelOther"><table id="DT-uetBOsYX" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
 </thead>
-<tbody><tr><td>1Password</td><td>12472</td><td>Normal</td><td>7.3.657</td><td>677</td><td>11624448</td><td>40906752</td><td>40906752</td><td>303841280</td><td>00:00:00.6875000</td><td>1</td><td>677</td><td>303841280</td><td>11624448</td><td>40906752</td><td>39504</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,6875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>13912</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>39504</td><td>39504</td><td>40906752</td><td>455272</td><td>455272</td><td>42127360</td><td>42127360</td><td>63016960</td><td>63016960</td><td>323739648</td><td>323739648</td><td>True</td><td>40906752</td><td>00:00:00.1406250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:25:32</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5468750</td><td>303841280</td><td>False</td><td></td><td></td><td></td><td>11624448</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>16236</td><td></td><td></td><td>179</td><td>3227648</td><td>2236416</td><td>2236416</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>3227648</td><td>2236416</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2236416</td><td>104984</td><td>104984</td><td>3280896</td><td>3280896</td><td>9887744</td><td>9887744</td><td>100552704</td><td>2203418775552</td><td></td><td>2236416</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>3227648</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>12420</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>497</td><td>10203136</td><td>27336704</td><td>27336704</td><td>289456128</td><td>00:00:01.6093750</td><td>1</td><td>497</td><td>2203607678976</td><td>10203136</td><td>27336704</td><td>29368</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>1,609375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9032</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1311050</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29368</td><td>29368</td><td>27336704</td><td>429432</td><td>429432</td><td>45076480</td><td>45076480</td><td>61906944</td><td>61906944</td><td>327069696</td><td>2203645292544</td><td>True</td><td>27336704</td><td>00:00:00.9531250</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:25:39</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.6562500</td><td>2203607678976</td><td>False</td><td></td><td></td><td></td><td>10203136</td><td></td><td></td></tr>
-<tr><td>browser_broker</td><td>18280</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>3010560</td><td>1765376</td><td>1765376</td><td>98476032</td><td>00:00:00</td><td>1</td><td>139</td><td>2203416698880</td><td>3010560</td><td>1765376</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>13868</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1765376</td><td>125960</td><td>125960</td><td>2007040</td><td>2007040</td><td>8540160</td><td>8540160</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1765376</td><td>00:00:00</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:26:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>3010560</td><td></td><td></td></tr>
-<tr><td>chrome</td><td>1440</td><td>Normal</td><td>75.0.3734.0</td><td>149</td><td>3002368</td><td>2113536</td><td>2113536</td><td>136986624</td><td>00:00:00.0156250</td><td>1</td><td>149</td><td>2203455209472</td><td>3002368</td><td>2113536</td><td>10944</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,015625</td><td>75.0.3734.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>14776</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>10944</td><td>10944</td><td>2113536</td><td>178112</td><td>178112</td><td>2162688</td><td>2162688</td><td>8843264</td><td>8843264</td><td>139083776</td><td>2203457306624</td><td>True</td><td>2113536</td><td>00:00:00</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:28:13</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203455209472</td><td>False</td><td></td><td></td><td></td><td>3002368</td><td></td><td></td></tr>
+<tbody><tr><td>1Password</td><td>16904</td><td>Normal</td><td>7.3.657</td><td>881</td><td>163524608</td><td>167792640</td><td>167792640</td><td>825004032</td><td>00:25:50.3281250</td><td>1</td><td>881</td><td>825004032</td><td>163524608</td><td>167792640</td><td>63384</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1550,328125</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>13860</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>63384</td><td>63384</td><td>167792640</td><td>894680</td><td>894680</td><td>270249984</td><td>270249984</td><td>278634496</td><td>278634496</td><td>933236736</td><td>933236736</td><td>True</td><td>167792640</td><td>00:06:29</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:45:44</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:19:21.3281250</td><td>825004032</td><td>False</td><td></td><td></td><td></td><td>163524608</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>3660</td><td></td><td></td><td>179</td><td>6623232</td><td>2351104</td><td>2351104</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>6623232</td><td>2351104</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2351104</td><td>104984</td><td>104984</td><td>3125248</td><td>3125248</td><td>9641984</td><td>9641984</td><td>100417536</td><td>2203418640384</td><td></td><td>2351104</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>6623232</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>17960</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>557</td><td>31334400</td><td>35352576</td><td>35352576</td><td>311816192</td><td>00:00:04.0312500</td><td>1</td><td>557</td><td>2203630039040</td><td>31334400</td><td>35352576</td><td>33040</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>4,03125</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>14892</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>7799656</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>33040</td><td>33040</td><td>35352576</td><td>457664</td><td>457664</td><td>58241024</td><td>58241024</td><td>65060864</td><td>65060864</td><td>327282688</td><td>2203645505536</td><td>True</td><td>35352576</td><td>00:00:02.6562500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:46:25</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.3750000</td><td>2203630039040</td><td>False</td><td></td><td></td><td></td><td>31334400</td><td></td><td></td></tr>
+<tr><td>audiodg</td><td>19188</td><td></td><td></td><td>170</td><td>11546624</td><td>6520832</td><td>6520832</td><td>84914176</td><td>00:00:00.3750000</td><td>0</td><td>170</td><td>2203403137024</td><td>11546624</td><td>6520832</td><td>10056</td><td></td><td></td><td>0,375</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10056</td><td>10056</td><td>6520832</td><td>96080</td><td>96080</td><td>7618560</td><td>7618560</td><td>12554240</td><td>12554240</td><td>88399872</td><td>2203406622720</td><td></td><td>6520832</td><td>00:00:00.2031250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>30.03.2019 09:32:01</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1718750</td><td>2203403137024</td><td>False</td><td></td><td></td><td></td><td>11546624</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>7808</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>6172672</td><td>1765376</td><td>1765376</td><td>98476032</td><td>00:00:00.0156250</td><td>1</td><td>139</td><td>2203416698880</td><td>6172672</td><td>1765376</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4256</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1765376</td><td>125960</td><td>125960</td><td>1896448</td><td>1896448</td><td>8441856</td><td>8441856</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1765376</td><td>00:00:00</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 14:28:50</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>6172672</td><td></td><td></td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="-1 section" style="color: #ffffff;">-1 section
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="-1 section" style="color: #ffffff;">-1 section
 </a>
-<a id="show_701452620" href="#" onclick="show('701452620');" style="color: #ffffff; display:none;">(Show)
+<a id="show_1530239134" href="javascript:void(0)" onclick="show('1530239134');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_701452620" href="#" onclick="hide('701452620');" style="color: #ffffff;">(Hide)
+<a id="hide_1530239134" href="javascript:void(0)" onclick="hide('1530239134');" style="color: #ffffff;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="701452620"><div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px);"><div id="ChartID-45f62cej"></div>
+<div class="defaultContainerOther" id="1530239134"><div class="defaultContainer defaultPanelOther collapsable" id="1530239134"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-ifuy5jn4"></div>
+<div id="ChartID-iemqhzvr"></div>
+<div id="ChartID-2ygomvc3"></div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-ojmdelbt"></div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-mqu0wa9g"></div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-y8c6m9hl"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Section 3rd with 3 columns" style="color: #ffffff;">Section 3rd with 3 columns
+</a>
+<a id="show_138181027" href="javascript:void(0)" onclick="show('138181027');" style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_138181027" href="javascript:void(0)" onclick="hide('138181027');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="defaultContainerOther" id="138181027"><div class="defaultContainer defaultPanelOther collapsable" id="138181027"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
+                    $('#DT-bTgMLHCt').DataTable({
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       -1,
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+});
+                });            
+</script>
+<div class="defaultPanelOther"><table id="DT-bTgMLHCt" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+</thead>
+<tbody><tr><td>1Password</td><td>16904</td><td>Normal</td><td>7.3.657</td><td>881</td><td>163524608</td><td>167792640</td><td>167792640</td><td>825004032</td><td>00:25:50.3281250</td><td>1</td><td>881</td><td>825004032</td><td>163524608</td><td>167792640</td><td>63384</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1550,328125</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>14848</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>63384</td><td>63384</td><td>167792640</td><td>894680</td><td>894680</td><td>270249984</td><td>270249984</td><td>278634496</td><td>278634496</td><td>933236736</td><td>933236736</td><td>True</td><td>167792640</td><td>00:06:29</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:45:44</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:19:21.3281250</td><td>825004032</td><td>False</td><td></td><td></td><td></td><td>163524608</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>3660</td><td></td><td></td><td>179</td><td>6623232</td><td>2351104</td><td>2351104</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>6623232</td><td>2351104</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2351104</td><td>104984</td><td>104984</td><td>3125248</td><td>3125248</td><td>9641984</td><td>9641984</td><td>100417536</td><td>2203418640384</td><td></td><td>2351104</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>6623232</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>17960</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>557</td><td>31334400</td><td>35352576</td><td>35352576</td><td>311816192</td><td>00:00:04.0312500</td><td>1</td><td>557</td><td>2203630039040</td><td>31334400</td><td>35352576</td><td>33040</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>4,03125</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8548</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>7799656</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>33040</td><td>33040</td><td>35352576</td><td>457664</td><td>457664</td><td>58241024</td><td>58241024</td><td>65060864</td><td>65060864</td><td>327282688</td><td>2203645505536</td><td>True</td><td>35352576</td><td>00:00:02.6562500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:46:25</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.3750000</td><td>2203630039040</td><td>False</td><td></td><td></td><td></td><td>31334400</td><td></td><td></td></tr>
+<tr><td>audiodg</td><td>19188</td><td></td><td></td><td>170</td><td>11546624</td><td>6520832</td><td>6520832</td><td>84914176</td><td>00:00:00.3750000</td><td>0</td><td>170</td><td>2203403137024</td><td>11546624</td><td>6520832</td><td>10056</td><td></td><td></td><td>0,375</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10056</td><td>10056</td><td>6520832</td><td>96080</td><td>96080</td><td>7618560</td><td>7618560</td><td>12554240</td><td>12554240</td><td>88399872</td><td>2203406622720</td><td></td><td>6520832</td><td>00:00:00.2031250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>30.03.2019 09:32:01</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1718750</td><td>2203403137024</td><td>False</td><td></td><td></td><td></td><td>11546624</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>7808</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>6172672</td><td>1765376</td><td>1765376</td><td>98476032</td><td>00:00:00.0156250</td><td>1</td><td>139</td><td>2203416698880</td><td>6172672</td><td>1765376</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1940</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1765376</td><td>125960</td><td>125960</td><td>1896448</td><td>1896448</td><td>8441856</td><td>8441856</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1765376</td><td>00:00:00</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 14:28:50</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>6172672</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-idcam5ye"></div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-64enjyxc"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Anoteher" style="color: #ffffff;">Anoteher
+</a>
+<a id="show_35878180" href="javascript:void(0)" onclick="show('35878180');" style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_35878180" href="javascript:void(0)" onclick="hide('35878180');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="defaultContainerOther" id="35878180"><div class="defaultContainer defaultPanelOther collapsable" id="35878180"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
+$(window).bind("resize", function(e) {
+    if (window.RT) clearTimeout(window.RT);
+    window.RT = setTimeout(function() {
+        this.location.reload(false); /* false to get page from cache */
+    }, 200);
+});
+</pre>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><pre data-enlighter-language="powershell" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">
+$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
+    New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
+    New-HTMLTab -TabName 'Dashboard' {
+        New-HTMLContent -HeaderText 'Content' {
+            New-HTMLPanel {
+                New-HTMLContent -HeaderText 'My text' -CanCollapse {
+                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
+                }
+            }
+            New-HTMLPanel {
+                New-HTMLContent -HeaderText 'My text' -CanCollapse {
+                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
+                }
+            }
+            New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
+                New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
+            }
+        }
+        New-HTMLContent -HeaderText 'This shows PowerShell Language' {
+            Get-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell'
+        }
+    }
+    New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
+        New-HTMLContent -HeaderText 'My other text' {
+            New-HTMLTable -Simplify -ArrayOfObjects $EnterpriseAdminTable
+        }
+    }
+}
+Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
+
+</pre>
+</div>
+</div>
+</div>
+</div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -629,12 +871,11 @@ function hide(obj) {
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-45f62cej'), 
+var chart = new ApexCharts(document.querySelector('#ChartID-ifuy5jn4'),
             options
         );
 chart.render();
 </script>
-<div id="ChartID-5virsxe0"></div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -704,12 +945,11 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-5virsxe0'), 
+var chart = new ApexCharts(document.querySelector('#ChartID-iemqhzvr'),
             options
         );
 chart.render();
 </script>
-<div id="ChartID-fpg2qz68"></div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -788,13 +1028,11 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-fpg2qz68'), 
+var chart = new ApexCharts(document.querySelector('#ChartID-2ygomvc3'),
             options
         );
 chart.render();
 </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div id="ChartID-f63p1zyn"></div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -872,13 +1110,11 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-f63p1zyn'), 
+var chart = new ApexCharts(document.querySelector('#ChartID-ojmdelbt'),
             options
         );
 chart.render();
 </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div id="ChartID-93dt8e5g"></div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -964,13 +1200,11 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-93dt8e5g'), 
+var chart = new ApexCharts(document.querySelector('#ChartID-mqu0wa9g'),
             options
         );
 chart.render();
 </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 1 - 10px);"><div id="ChartID-z0ybiuwr"></div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -1080,74 +1314,11 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-z0ybiuwr'), 
+var chart = new ApexCharts(document.querySelector('#ChartID-y8c6m9hl'),
             options
         );
 chart.render();
 </script>
-</div>
-</div>
-</div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Section 3rd with 3 columns" style="color: #ffffff;">Section 3rd with 3 columns
-</a>
-<a id="show_798004433" href="#" onclick="show('798004433');" style="color: #ffffff; display:none">(Show)
-</a>
-<a id="hide_798004433" href="#" onclick="hide('798004433');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable" id="798004433"><div class="defaultColumn defaultCard" style="width: calc(100% / 3 - 10px);"><script>                $(document).ready(function() {
-                    $('#DT-dnkfBIAE').DataTable({
-    "dom":  "Bfrtip",
-    "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
-                ],
-    "colReorder":  true,
-    "paging":  true,
-    "pagingType":  [
-                       "full_numbers"
-                   ],
-    "lengthMenu":  [
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       -1,
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       "All"
-                   ],
-    "ordering":  true,
-    "info":  true,
-    "procesing":  true,
-    "responsive":  {
-                       "details":  true
-                   },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
-});
-                });            
-</script>
-<table id="DT-dnkfBIAE" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
-</thead>
-<tbody><tr><td>1Password</td><td>12472</td><td>Normal</td><td>7.3.657</td><td>677</td><td>11624448</td><td>40906752</td><td>40906752</td><td>303841280</td><td>00:00:00.6875000</td><td>1</td><td>677</td><td>303841280</td><td>11624448</td><td>40906752</td><td>39504</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,6875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1448</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>39504</td><td>39504</td><td>40906752</td><td>455272</td><td>455272</td><td>42127360</td><td>42127360</td><td>63016960</td><td>63016960</td><td>323739648</td><td>323739648</td><td>True</td><td>40906752</td><td>00:00:00.1406250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:25:32</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5468750</td><td>303841280</td><td>False</td><td></td><td></td><td></td><td>11624448</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>16236</td><td></td><td></td><td>179</td><td>3227648</td><td>2236416</td><td>2236416</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>3227648</td><td>2236416</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2236416</td><td>104984</td><td>104984</td><td>3280896</td><td>3280896</td><td>9887744</td><td>9887744</td><td>100552704</td><td>2203418775552</td><td></td><td>2236416</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>3227648</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>12420</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>497</td><td>10203136</td><td>27336704</td><td>27336704</td><td>289456128</td><td>00:00:01.6093750</td><td>1</td><td>497</td><td>2203607678976</td><td>10203136</td><td>27336704</td><td>29368</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>1,609375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>14724</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1311050</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29368</td><td>29368</td><td>27336704</td><td>429432</td><td>429432</td><td>45076480</td><td>45076480</td><td>61906944</td><td>61906944</td><td>327069696</td><td>2203645292544</td><td>True</td><td>27336704</td><td>00:00:00.9531250</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:25:39</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.6562500</td><td>2203607678976</td><td>False</td><td></td><td></td><td></td><td>10203136</td><td></td><td></td></tr>
-<tr><td>browser_broker</td><td>18280</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>3010560</td><td>1765376</td><td>1765376</td><td>98476032</td><td>00:00:00</td><td>1</td><td>139</td><td>2203416698880</td><td>3010560</td><td>1765376</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9740</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1765376</td><td>125960</td><td>125960</td><td>2007040</td><td>2007040</td><td>8540160</td><td>8540160</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1765376</td><td>00:00:00</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:26:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>3010560</td><td></td><td></td></tr>
-<tr><td>chrome</td><td>1440</td><td>Normal</td><td>75.0.3734.0</td><td>149</td><td>3002368</td><td>2113536</td><td>2113536</td><td>136986624</td><td>00:00:00.0156250</td><td>1</td><td>149</td><td>2203455209472</td><td>3002368</td><td>2113536</td><td>10944</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,015625</td><td>75.0.3734.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6684</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>10944</td><td>10944</td><td>2113536</td><td>178112</td><td>178112</td><td>2162688</td><td>2162688</td><td>8843264</td><td>8843264</td><td>139083776</td><td>2203457306624</td><td>True</td><td>2113536</td><td>00:00:00</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>16.03.2019 09:28:13</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203455209472</td><td>False</td><td></td><td></td><td></td><td>3002368</td><td></td><td></td></tr>
-</tbody>
-</table>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 3 - 10px);"><div id="ChartID-cslptaif"></div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -1226,13 +1397,11 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-cslptaif'), 
+var chart = new ApexCharts(document.querySelector('#ChartID-idcam5ye'),
             options
         );
 chart.render();
 </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 3 - 10px);"><div id="ChartID-af3vc45u"></div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -1302,65 +1471,11 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-af3vc45u'), 
+var chart = new ApexCharts(document.querySelector('#ChartID-64enjyxc'),
             options
         );
 chart.render();
 </script>
-</div>
-</div>
-</div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Anoteher" style="color: #ffffff;">Anoteher
-</a>
-<a id="show_1177572514" href="#" onclick="show('1177572514');" style="color: #ffffff; display:none">(Show)
-</a>
-<a id="hide_1177572514" href="#" onclick="hide('1177572514');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="collapsable" id="1177572514"><div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
-$(window).bind("resize", function(e) {
-    if (window.RT) clearTimeout(window.RT);
-    window.RT = setTimeout(function() {
-        this.location.reload(false); /* false to get page from cache */
-    }, 200);
-});
-</pre>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><pre data-enlighter-language="powershell" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">
-$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
-    New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
-    New-HTMLTab -TabName 'Dashboard' {
-        New-HTMLContent -HeaderText 'Content' {
-            New-HTMLColumn -ColumnCount 2 {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
-                }
-            }
-            New-HTMLColumn -ColumnCount 2 {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
-                }
-            }
-            New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
-            }
-        }
-        New-HTMLContent -HeaderText 'This shows PowerShell Language' {
-            Get-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell'
-        }
-    }
-    New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
-        New-HTMLContent -HeaderText 'My other text' {
-            New-HTMLTable -Simplify -ArrayOfObjects $EnterpriseAdminTable
-        }
-    }
-}
-Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
-
-</pre>
-</div>
-</div>
-</div>
 </body>
 <!-- END BODY -->
 <!-- FOOTER -->

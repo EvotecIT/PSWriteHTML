@@ -2,9 +2,6 @@ Import-Module PSWriteHTML.psd1 -Force
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
-$Allusers = Get-AdUser -Filter *
-
-$HTMLPath = "$PSScriptRoot\Example5.html"
 
 # Code Block for PowerShell Code (Showing how <pre> tags work)
 $CodeBlock = @'
@@ -13,12 +10,12 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLPanel -ColumnNumber 1 -Count 2 {
+            New-HTMLPanel -ColumnNumber 1 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -ArrayOfObjects $DomainAdminTable
                 }
             }
-            New-HTMLPanel -ColumnNumber 2 -Count 2 {
+            New-HTMLPanel -ColumnNumber 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -ArrayOfObjects $DomainAdminTable
                 }
@@ -83,27 +80,27 @@ $CodeBlocksXML = @'
 </building>
 '@
 
-$HTML = New-Html -UseCssLinks -UseJavaScriptLinks {
+New-Html -UseCssLinks -UseJavaScriptLinks -FilePath "$PSScriptRoot\Example5.html" {
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLPanel -Count 2 {               
-                New-HTMLTable -DataTable $DomainAdminTable                
+            New-HTMLPanel {
+                New-HTMLTable -DataTable $DomainAdminTable
             }
-            New-HTMLPanel -Count 2 {              
-                New-HTMLTable -DataTable $DomainAdminTable            
+            New-HTMLPanel {
+                New-HTMLTable -DataTable $DomainAdminTable
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
-   
+
         New-HTMLContent -HeaderText 'Content New' {
-            New-HTMLPanel -Count 2 {
+            New-HTMLPanel {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -DataTable $DomainAdminTable
                 }
             }
-            New-HTMLPanel -Count 2 {
+            New-HTMLPanel {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -DataTable $DomainAdminTable
                 }
@@ -128,17 +125,16 @@ $HTML = New-Html -UseCssLinks -UseJavaScriptLinks {
             New-HTMLTable -DataTable $EnterpriseAdminTable
         }
         New-HTMLContent -HeaderText 'Content' {
-            New-HTMLPanel -Count 2 {               
-                New-HTMLTable -DataTable $DomainAdminTable                
+            New-HTMLPanel {
+                New-HTMLTable -DataTable $DomainAdminTable
             }
-            New-HTMLPanel -Count 2 {              
-                New-HTMLTable -DataTable $DomainAdminTable            
+            New-HTMLPanel {
+                New-HTMLTable -DataTable $DomainAdminTable
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
     }
-    
+
 }
-Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML

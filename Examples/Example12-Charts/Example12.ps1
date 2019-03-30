@@ -2,7 +2,7 @@ Import-Module .\PSWriteHTML.psd1 -Force
 $Processes = Get-Process | Select-Object -First 5
 
 
-$DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true {
+New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example12.html {
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
             # Standard Chart Bar
@@ -13,10 +13,8 @@ $DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptL
     }
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
-            $GroupedBar = @()
-            $GroupedBar += 400, 430, 448
-            $GroupedBar1 = @()
-            $GroupedBar1 += 420, 450, 448
+            $GroupedBar = 400, 430, 448
+            $GroupedBar1 = 420, 450, 448
             New-HTMLChart -Data $GroupedBar, $GroupedBar1 -DataNames 'People count in  2019', 'People count in 2018' -DataCategories 'Poland', 'Europe', 'Germany'
         }
         New-HTMLPanel {
@@ -55,5 +53,3 @@ $DynamicHTML = New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptL
         }
     }
 }
-
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath $PSScriptRoot\Example12.html

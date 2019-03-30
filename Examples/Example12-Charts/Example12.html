@@ -1,1344 +1,858 @@
 <!DOCTYPE html>
-<html>
-<!-- HEADER -->
+<html><!-- HEADER -->
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="author"/>
+<meta content="2019-03-30 09:43:59" name="revised"/>
+<title>My title
+</title>
+<!-- CSS Default fonts START -->
+<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
+<!-- CSS Default fonts END -->
+<!-- CSS Default fonts icons START -->
+<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
+<!-- CSS Default fonts icons END -->
+<!-- CSS Always Required Default Visual Settings START -->
+<style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+    margin: 8px 10px 8px 10px;
+}
 
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta name="author" />
-    <meta content="2019-03-24 18:51:49" name="revised" />
-    <title>My title
-    </title>
-    <!-- CSS Default fonts START -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css"
-        rel="stylesheet" />
-    <!-- CSS Default fonts END -->
-    <!-- CSS Default fonts icons START -->
-    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet" />
-    <!-- CSS Default fonts icons END -->
-    <!-- CSS Always Required Default Visual Settings START -->
-    <style type="text/css">
-        body {
-            font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-            font-size: 8pt;
-            margin: 8px 10px 8px 10px;
-        }
-
-        hr {
-            height: 4px;
-            /*
+hr {
+    height: 4px;
+    /*
     background-color: #007bff;
     */
-            background-color: #6Cf;
-            border: 0px;
-            width: 100%;
-        }
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
 
-        table {
-            table-layout: auto;
-            width: 100%;
-            border-collapse: collapse;
-        }
+table {
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
 
-        th {
-            vertical-align: top;
-            text-align: left;
-            padding: 2px 5px 2px 5px;
-        }
+th {
+    vertical-align: top;
+    text-align: left;
+    padding: 2px 5px 2px 5px;
+}
 
-        td {
-            vertical-align: top;
-            padding: 2px 5px 2px 5px;
-            border-top: 1px solid #bbbbbb;
-            height: 16px;
-            vertical-align: middle;
-        }
+td {
+    vertical-align: top;
+    padding: 2px 5px 2px 5px;
+    border-top: 1px solid #bbbbbb;
+    height: 16px;
+    vertical-align: middle;
+}
 
-        tr.totalrow {
-            border-top: thick double;
-        }
+tr.totalrow {
+    border-top: thick double;
+}
 
-        td.totalrow {
-            vertical-align: Bottom;
-            text-align: left;
-            font-size: 8pt;
-            font-weight: bold;
-            padding: 2px 5px 2px 5px;
-        }
+td.totalrow {
+    vertical-align: Bottom;
+    text-align: left;
+    font-size: 8pt;
+    font-weight: bold;
+    padding: 2px 5px 2px 5px;
+}
 
-        div.pageTitle {
-            font-size: 14pt;
-            font-weight: bold;
-            width: 100%;
-            display: block;
-            padding: 4px 1em 0px 2px;
-            height: 2em;
-        }
+div.pageTitle {
+    font-size: 14pt;
+    font-weight: bold;
+    width: 100%;
+    display: block;
+    padding: 4px 1em 0px 2px;
+    height: 2em;
+}
 
-        div.ReportCreated {
-            text-align: right;
-            padding-right: 5em;
-        }
+div.ReportCreated {
+    text-align: right;
+    padding-right: 5em;
+}
 
-        div.clientlogo {
-            border: 0px;
-            vertical-align: middle;
-            text-align: left;
-            display: inline-block;
-            width: 50%;
-        }
+div.clientlogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+}
 
-        div.MainLogo {
-            border: 0px;
-            vertical-align: middle;
-            text-align: right;
-            display: inline-block;
-            width: 50%;
-        }
+div.MainLogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+}
 
-        .central {
-            margin: 10px auto;
-            width: 100%;
-            max-width: 900px;
-        }
+.central {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 900px;
+}
 
-        div.defaultSection {
-            border: 1px solid #bbbbbb;
-            padding-bottom: 0px;
-            /* display: inline-block; */
-            margin: 5px;
-            width: calc(100% - 10px);
-            overflow: hidden;
-            /* NEW */
-            overflow-x: hidden;
-            overflow-y: hidden;
+div.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    /* display: inline-block; */
+    margin: 5px;
+    width: calc(100% - 10px);
+    overflow: hidden;
+    /* NEW */
+    overflow-x: hidden;
+    overflow-y: hidden;
 
-            /*
+    /*
       box-sizing: border-box;
     float: left;
     */
-        }
+}
 
-        div.defaultColumn {
+div.defaultColumn {
 
 
-            overflow: hidden;
-            /*
+    overflow: hidden;
+    /*
      float: left;
     box-sizing: border-box;
     */
-            overflow-x: hidden;
-            overflow-y: hidden;
-            padding: 2px;
-        }
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px;
+}
 
-        .defaultContainer {
-            display: flex;
-            justify-content: space-between;
-            padding: 2px;
-            border: 1px solid #ddd;
-            overflow: hidden;
-            overflow-x: hidden;
-            overflow-y: hidden;
-        }
+.defaultContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
-        .defaultContainerOther {
-            display: flex;
-            justify-content: space-between;
-            overflow: hidden;
-            overflow-x: hidden;
-            overflow-y: hidden;
-        }
+.defaultContainerOther {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
-        .defaultPanelOther {
-            flex-basis: 100%;
-            overflow: hidden;
-            overflow-x: hidden;
-            overflow-y: hidden;
-        }
+.defaultPanelOther {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
-        .defaultPanel {
-            flex-basis: 100%;
-            /* padding: 5px; */
+.defaultPanel {
+    flex-basis: 100%;
+    /* padding: 5px; */
 
-            overflow: hidden;
-            overflow-x: hidden;
-            overflow-y: hidden;
-        }
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
-        .defaultCard {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            /* width: 40%; */
-            border-radius: 5px;
-            margin: 5px;
-        }
+.defaultCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    /* width: 40%; */
+    border-radius: 5px;
+    margin: 5px;
+}
 
-        div.defaultHeader {
-            padding: 5px;
-            margin: 0px 0px 0px 0px;
-            font-weight: bold;
-            color: #ffffff;
-            /* background-color: #007bff; */
-            background-color: #6Cf;
-        }
+div.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+    color: #ffffff;
+    /* background-color: #007bff; */
+    background-color: #6Cf;
+}
 
-        div.defaultFooter {
-            padding-right: 5em;
-            text-align: right;
-        }
+div.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
 
-        td.clientlogo {
-            border: 0px;
-            padding-left: 0px;
-            vertical-align: middle;
-        }
+td.clientlogo {
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
 
-        td.MainLogo {
-            border: 0px;
-            padding-right: 5em;
-            text-align: right;
-            vertical-align: middle;
-        }
+td.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
 
-        th.content {
-            border-top: 1px solid #bbbbbb;
-            width: 25%;
-        }
+th.content {
+    border-top: 1px solid #bbbbbb;
+    width: 25%;
+}
 
-        td.content {
-            width: 75%;
-        }
+td.content {
+    width: 75%;
+}
 
-        td.groupby {
-            border-top: 3px double #bbbbbb;
-        }
+td.groupby {
+    border-top: 3px double #bbbbbb;
+}
 
-        .header {
-            background-color: #616a6b;
-            color: #f7f9f9;
-        }
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
 
-        a.alink:link {
-            color: #007bff;
-            text-decoration: none;
-            font-size: 120%;
-        }
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
 
-        a.alink:visited {
-            color: #ff8400;
-            text-decoration: none;
-            font-size: 120%;
-        }
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
 
-        a.alink:hover {
-            text-decoration: underline;
-            font-size: 130%;
-        }
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
 
-        table.sortable {
-            width: calc(100% - 10px);
-            margin: 5px;
-            box-sizing: border-box;
-            border-collapse: collapse;
-            display: inline-block;
-            overflow-x: auto;
-            overflow-y: auto;
-        }
+table.sortable {
+    width: calc(100% - 10px);
+    margin: 5px;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    display: inline-block;
+    overflow-x: auto;
+    overflow-y: auto;
+}
 
-        table.sortable thead {
-            background-color: #eee;
-            color: #666666;
-            font-weight: bold;
-            cursor: default;
-        }
+table.sortable thead {
+    background-color: #eee;
+    color: #666666;
+    font-weight: bold;
+    cursor: default;
+}
 
-        /* Adding CSS */
+/* Adding CSS */
 
-        a.paginate_button {
-            color: #000000 !important;
-            font-size: 10px;
-        }
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
 
-        a.current {
-            color: #000000 !important;
-        }
+a.current {
+    color: #000000 !important;
+}
 
-        /* Added to make sure plus logo fits in */
+/* Added to make sure plus logo fits in */
 
-        td {
-            height: 27px;
-        }
+td {
+    height: 27px;
+}
 
-        /* Button in Table - giving it some colors */
+/* Button in Table - giving it some colors */
 
-        td.sorting_1::before {
-            background: #007bff !important;
-        }
+td.sorting_1::before {
+    background: #007bff !important;
+}
 
-        td::before {
-            background: #007bff !important;
-        }
+td::before {
+    background: #007bff !important;
+}
 
-        /* giving some spaces between tables being to close */
+/* giving some spaces between tables being to close */
 
-        div.dataTables_wrapper {
-            padding: 10px 10px 10px 10px;
-        }
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
 
-        button.dt-button {
-            color: blue !important;
-            border-radius: 5px;
-            line-height: 1 !important;
-        }
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
 
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        }
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 
-        img {
-            border-radius: 5px 5px 0 0;
-        }
+img {
+    border-radius: 5px 5px 0 0;
+}
 
-        .container {
-            padding: 2px 16px;
-        }
+.container {
+    padding: 2px 16px;
+}
 
-        .flex-grid {
-            display: flex;
-            /* flex-wrap: wrap; */
-        }
+.flex-grid {
+    display: flex;
+    /* flex-wrap: wrap; */
+}
 
-        .col {
-            padding: 20px;
-            margin: 1%;
-            flex: 1;
-        }
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
 
-        .orange {
-            background-color: #f39c12;
-        }
+.orange {
+    background-color: #f39c12;
+}
 
-        .red {
-            background-color: #ff4136;
-        }
+.red {
+    background-color: #ff4136;
+}
 
-        .green {
-            background-color: #2ecc40;
-        }
-    </style>
-    <!-- CSS Always Required Default Visual Settings END -->
-    <!-- CSS Always Required Default Headings START -->
-    <style type="text/css">
-        h2:after,
-        h3:after,
-        h4:after,
-        h5:after,
-        h6:after {
-            position: absolute;
-            content: "";
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 5px;
-            border-radius: 2px;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
-        }
+.green {
+    background-color: #2ecc40;
+}
 
-        h2:after {
-            background: #0AF;
-        }
+div.enlighter-default {
+    flex-basis: 100%;
+    margin: 0 !important;
+}
+</style>
+<!-- CSS Always Required Default Visual Settings END -->
+<!-- CSS Always Required Default Headings START -->
+<style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
 
-        h3:after {
-            background: #3BF;
-        }
+h2:after {
+    background: #0AF;
+}
 
-        h4:after,
-        h5:after,
-        h6:after {
-            background: #6Cf;
-        }
+h3:after {
+    background: #3BF;
+}
 
-        h1.white,
-        h2.white,
-        h3.white,
-        h4.white,
-        h5.white,
-        h6.white {
-            color: white;
-        }
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Hammersmith One', sans-serif;
-            /*
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
     font-family: 'Questrial', sans-serif;
     */
-        }
-
-        h1 {
-            font-size: 36px;
-            line-height: 40px;
-            margin: 1em 0 .6em 0;
-            font-weight: normal;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-            position: relative;
-            color: #6Cf;
-        }
-
-        h2 {
-            margin: 1em 0 .6em 0;
-            padding: 0 0 0 20px;
-            font-weight: normal;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-            position: relative;
-            font-size: 30px;
-            line-height: 40px;
-        }
-
-        h3 {
-            margin: 1em 0 .6em 0;
-            padding: 0 0 0 20px;
-            font-weight: normal;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-            position: relative;
-            font-size: 24px;
-            line-height: 40px;
-        }
-
-        h4 {
-            margin: 1em 0 .6em 0;
-            padding: 0 0 0 20px;
-            font-weight: normal;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-            position: relative;
-            font-size: 18px;
-            line-height: 20px;
-        }
-
-        h5 {
-            margin: 1em 0 .6em 0;
-            padding: 0 0 0 20px;
-            font-weight: normal;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-            position: relative;
-            font-size: 14px;
-            line-height: 16px;
-        }
-
-        h6 {
-            margin: 1em 0 .6em 0;
-            padding: 0 0 0 20px;
-            font-weight: normal;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-            position: relative;
-            font-size: 10px;
-            line-height: 12px;
-        }
-    </style>
-    <!-- CSS Always Required Default Headings END -->
-
-    <!-- CSS Apex Charts START -->
-    <style type="text/css">
-        .apexcharts-canvas {
-            position: relative;
-            user-select: none;
-            /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
-        }
-
-        /* scrollbar is not visible by default for legend, hence forcing the visibility */
-
-        .apexcharts-canvas ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 6px;
-        }
-
-        .apexcharts-canvas ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-            -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-
-        .apexcharts-inner {
-            position: relative;
-        }
-
-        .legend-mouseover-inactive {
-            transition: 0.15s ease all;
-            opacity: 0.20;
-        }
-
-        .apexcharts-series-collapsed {
-            opacity: 0;
-        }
-
-        .apexcharts-gridline,
-        .apexcharts-text {
-            pointer-events: none;
-        }
-
-        .apexcharts-tooltip {
-            border-radius: 5px;
-            box-shadow: 2px 2px 6px -4px #999;
-            cursor: default;
-            font-size: 14px;
-            left: 62px;
-            opacity: 0;
-            pointer-events: none;
-            position: absolute;
-            top: 20px;
-            overflow: hidden;
-            white-space: nowrap;
-            z-index: 12;
-            transition: 0.15s ease all;
-        }
-
-        .apexcharts-tooltip.light {
-            border: 1px solid #e3e3e3;
-            background: rgba(255, 255, 255, 0.96);
-        }
-
-        .apexcharts-tooltip.dark {
-            color: #fff;
-            background: rgba(30, 30, 30, 0.8);
-        }
-
-        .apexcharts-tooltip * {
-            font-family: inherit;
-        }
-
-        .apexcharts-tooltip .apexcharts-marker,
-        .apexcharts-area-series .apexcharts-area,
-        .apexcharts-line {
-            pointer-events: none;
-        }
-
-        .apexcharts-tooltip.active {
-            opacity: 1;
-            transition: 0.15s ease all;
-        }
-
-        .apexcharts-tooltip-title {
-            padding: 6px;
-            font-size: 15px;
-            margin-bottom: 4px;
-        }
-
-        .apexcharts-tooltip.light .apexcharts-tooltip-title {
-            background: #ECEFF1;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .apexcharts-tooltip.dark .apexcharts-tooltip-title {
-            background: rgba(0, 0, 0, 0.7);
-            border-bottom: 1px solid #222;
-        }
-
-        .apexcharts-tooltip-text-value,
-        .apexcharts-tooltip-text-z-value {
-            display: inline-block;
-            font-weight: 600;
-            margin-left: 5px;
-        }
-
-        .apexcharts-tooltip-text-z-label:empty,
-        .apexcharts-tooltip-text-z-value:empty {
-            display: none;
-        }
-
-        .apexcharts-tooltip-text-value,
-        .apexcharts-tooltip-text-z-value {
-            font-weight: 600;
-        }
-
-        .apexcharts-tooltip-marker {
-            width: 12px;
-            height: 12px;
-            position: relative;
-            top: 0px;
-            margin-right: 10px;
-            border-radius: 50%;
-        }
-
-        .apexcharts-tooltip-series-group {
-            padding: 0 10px;
-            display: none;
-            text-align: left;
-            justify-content: left;
-            align-items: center;
-        }
-
-        .apexcharts-tooltip-series-group.active .apexcharts-tooltip-marker {
-            opacity: 1;
-        }
-
-        .apexcharts-tooltip-series-group.active,
-        .apexcharts-tooltip-series-group:last-child {
-            padding-bottom: 4px;
-        }
-
-        .apexcharts-tooltip-y-group {
-            padding: 6px 0 5px;
-        }
-
-        .apexcharts-tooltip-candlestick {
-            padding: 4px 8px;
-        }
-
-        .apexcharts-tooltip-candlestick>div {
-            margin: 4px 0;
-        }
-
-        .apexcharts-tooltip-candlestick span.value {
-            font-weight: bold;
-        }
-
-        .apexcharts-xaxistooltip {
-            opacity: 0;
-            padding: 9px 10px;
-            pointer-events: none;
-            color: #373d3f;
-            font-size: 13px;
-            text-align: center;
-            border-radius: 2px;
-            position: absolute;
-            z-index: 10;
-            background: #ECEFF1;
-            border: 1px solid #90A4AE;
-            transition: 0.15s ease all;
-        }
-
-        .apexcharts-xaxistooltip:after,
-        .apexcharts-xaxistooltip:before {
-            left: 50%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-        }
-
-        .apexcharts-xaxistooltip:after {
-            border-color: rgba(236, 239, 241, 0);
-            border-width: 6px;
-            margin-left: -6px;
-        }
-
-        .apexcharts-xaxistooltip:before {
-            border-color: rgba(144, 164, 174, 0);
-            border-width: 7px;
-            margin-left: -7px;
-        }
-
-        .apexcharts-xaxistooltip-bottom:after,
-        .apexcharts-xaxistooltip-bottom:before {
-            bottom: 100%;
-        }
-
-        .apexcharts-xaxistooltip-bottom:after {
-            border-bottom-color: #ECEFF1;
-        }
-
-        .apexcharts-xaxistooltip-bottom:before {
-            border-bottom-color: #90A4AE;
-        }
-
-        .apexcharts-xaxistooltip-top:after,
-        .apexcharts-xaxistooltip-top:before {
-            top: 100%;
-        }
-
-        .apexcharts-xaxistooltip-top:after {
-            border-top-color: #ECEFF1;
-        }
-
-        .apexcharts-xaxistooltip-top:before {
-            border-top-color: #90A4AE;
-        }
-
-        .apexcharts-xaxistooltip.active {
-            opacity: 1;
-            transition: 0.15s ease all;
-        }
-
-        .apexcharts-yaxistooltip {
-            opacity: 0;
-            padding: 4px 10px;
-            pointer-events: none;
-            color: #373d3f;
-            font-size: 13px;
-            text-align: center;
-            border-radius: 2px;
-            position: absolute;
-            z-index: 10;
-            background: #ECEFF1;
-            border: 1px solid #90A4AE;
-        }
-
-        .apexcharts-yaxistooltip:after,
-        .apexcharts-yaxistooltip:before {
-            top: 50%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-        }
-
-        .apexcharts-yaxistooltip:after {
-            border-color: rgba(236, 239, 241, 0);
-            border-width: 6px;
-            margin-top: -6px;
-        }
-
-        .apexcharts-yaxistooltip:before {
-            border-color: rgba(144, 164, 174, 0);
-            border-width: 7px;
-            margin-top: -7px;
-        }
-
-        .apexcharts-yaxistooltip-left:after,
-        .apexcharts-yaxistooltip-left:before {
-            left: 100%;
-        }
-
-        .apexcharts-yaxistooltip-left:after {
-            border-left-color: #ECEFF1;
-        }
-
-        .apexcharts-yaxistooltip-left:before {
-            border-left-color: #90A4AE;
-        }
-
-        .apexcharts-yaxistooltip-right:after,
-        .apexcharts-yaxistooltip-right:before {
-            right: 100%;
-        }
-
-        .apexcharts-yaxistooltip-right:after {
-            border-right-color: #ECEFF1;
-        }
-
-        .apexcharts-yaxistooltip-right:before {
-            border-right-color: #90A4AE;
-        }
-
-        .apexcharts-yaxistooltip.active {
-            opacity: 1;
-        }
-
-        .apexcharts-xcrosshairs,
-        .apexcharts-ycrosshairs {
-            pointer-events: none;
-            opacity: 0;
-            transition: 0.15s ease all;
-        }
-
-        .apexcharts-xcrosshairs.active,
-        .apexcharts-ycrosshairs.active {
-            opacity: 1;
-            transition: 0.15s ease all;
-        }
-
-        .apexcharts-ycrosshairs-hidden {
-            opacity: 0;
-        }
-
-        .apexcharts-zoom-rect {
-            pointer-events: none;
-        }
-
-        .apexcharts-selection-rect {
-            cursor: move;
-        }
-
-        .svg_select_points,
-        .svg_select_points_rot {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .svg_select_points_l,
-        .svg_select_points_r {
-            cursor: ew-resize;
-            opacity: 1;
-            visibility: visible;
-            fill: #888;
-        }
-
-        .apexcharts-canvas.zoomable .hovering-zoom {
-            cursor: crosshair
-        }
-
-        .apexcharts-canvas.zoomable .hovering-pan {
-            cursor: move
-        }
-
-        .apexcharts-xaxis,
-        .apexcharts-yaxis {
-            pointer-events: none;
-        }
-
-        .apexcharts-zoom-icon,
-        .apexcharts-zoom-in-icon,
-        .apexcharts-zoom-out-icon,
-        .apexcharts-reset-zoom-icon,
-        .apexcharts-pan-icon,
-        .apexcharts-selection-icon,
-        .apexcharts-menu-icon {
-            cursor: pointer;
-            width: 20px;
-            height: 20px;
-            text-align: center;
-        }
-
-        .apexcharts-zoom-icon svg,
-        .apexcharts-zoom-in-icon svg,
-        .apexcharts-zoom-out-icon svg,
-        .apexcharts-reset-zoom-icon svg,
-        .apexcharts-menu-icon svg {
-            fill: #6E8192;
-        }
-
-        .apexcharts-selection-icon svg {
-            fill: #444;
-            transform: scale(0.76)
-        }
-
-        .apexcharts-zoom-icon.selected svg,
-        .apexcharts-selection-icon.selected svg,
-        .apexcharts-reset-zoom-icon.selected svg {
-            fill: #008FFB;
-        }
-
-        .apexcharts-selection-icon:not(.selected):hover svg,
-        .apexcharts-zoom-icon:not(.selected):hover svg,
-        .apexcharts-zoom-in-icon:hover svg,
-        .apexcharts-zoom-out-icon:hover svg,
-        .apexcharts-reset-zoom-icon:hover svg,
-        .apexcharts-menu-icon:hover svg {
-            fill: #333;
-        }
-
-        .apexcharts-selection-icon,
-        .apexcharts-menu-icon {
-            position: relative;
-        }
-
-        .apexcharts-reset-zoom-icon {
-            margin-left: 5px;
-        }
-
-        .apexcharts-zoom-icon,
-        .apexcharts-reset-zoom-icon,
-        .apexcharts-menu-icon {
-            transform: scale(0.85);
-        }
-
-        .apexcharts-zoom-in-icon,
-        .apexcharts-zoom-out-icon {
-            transform: scale(0.7)
-        }
-
-        .apexcharts-zoom-out-icon {
-            margin-right: 3px;
-        }
-
-        .apexcharts-pan-icon {
-            transform: scale(0.62);
-            position: relative;
-            left: 1px;
-            top: 0px;
-        }
-
-        .apexcharts-pan-icon svg {
-            fill: #fff;
-            stroke: #6E8192;
-            stroke-width: 2;
-        }
-
-        .apexcharts-pan-icon.selected svg {
-            stroke: #008FFB;
-        }
-
-        .apexcharts-pan-icon:not(.selected):hover svg {
-            stroke: #333;
-        }
-
-        .apexcharts-toolbar {
-            position: absolute;
-            z-index: 11;
-            top: 0px;
-            right: 3px;
-            max-width: 176px;
-            text-align: right;
-            border-radius: 3px;
-            padding: 0px 6px 2px 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .apexcharts-toolbar svg {
-            pointer-events: none;
-        }
-
-        .apexcharts-menu {
-            background: #fff;
-            position: absolute;
-            top: 100%;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            padding: 3px;
-            right: 10px;
-            opacity: 0;
-            min-width: 110px;
-            transition: 0.15s ease all;
-            pointer-events: none;
-        }
-
-        .apexcharts-menu.open {
-            opacity: 1;
-            pointer-events: all;
-            transition: 0.15s ease all;
-        }
-
-        .apexcharts-menu-item {
-            padding: 6px 7px;
-            font-size: 12px;
-            cursor: pointer;
-        }
-
-        .apexcharts-menu-item:hover {
-            background: #eee;
-        }
-
-        @media screen and (min-width: 768px) {
-            .apexcharts-toolbar {
-                /*opacity: 0;*/
-            }
-
-            .apexcharts-canvas:hover .apexcharts-toolbar {
-                opacity: 1;
-            }
-        }
-
-        .apexcharts-datalabel.hidden {
-            opacity: 0;
-        }
-
-        .apexcharts-pie-label,
-        .apexcharts-datalabel,
-        .apexcharts-datalabel-label,
-        .apexcharts-datalabel-value {
-            cursor: default;
-            pointer-events: none;
-        }
-
-        .apexcharts-pie-label-delay {
-            opacity: 0;
-            animation-name: opaque;
-            animation-duration: 0.3s;
-            animation-fill-mode: forwards;
-            animation-timing-function: ease;
-        }
-
-        .apexcharts-canvas .hidden {
-            opacity: 0;
-        }
-
-        .apexcharts-hide .apexcharts-series-points {
-            opacity: 0;
-        }
-
-        .apexcharts-area-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
-        .apexcharts-line-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
-        .apexcharts-radar-series path,
-        .apexcharts-radar-series polygon {
-            pointer-events: none;
-        }
-
-        /* markers */
-
-        .apexcharts-marker {
-            transition: 0.15s ease all;
-        }
-
-        @keyframes opaque {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-    </style>
-    <!-- CSS Apex Charts END -->
-
-
-    <!-- JS Hide Section Code START -->
-    <script type="text/javascript">
-        function show(obj) {
-            document.getElementById(obj).style.display = 'block';
-            document.getElementById("hide_" + obj).style.display = '';
-            document.getElementById("show_" + obj).style.display = 'none';
-        }
-
-        function hide(obj) {
-            document.getElementById(obj).style.display = 'none';
-            document.getElementById("hide_" + obj).style.display = 'none';
-            document.getElementById("show_" + obj).style.display = '';
-        }
-    </script>
-    <!-- JS Hide Section Code END -->
-
-    <!-- JS DataTables PDF Features START -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
-    <!-- JS DataTables PDF Features END -->
-    <!-- JS Apex Charts START -->
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script>
-    <!-- JS Apex Charts END -->
-    <!-- CSS DataTables START -->
-    <link
-        href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css"
-        type="text/css" rel="stylesheet" />
-    <!-- CSS DataTables END -->
-    <!-- JS DataTables START -->
-    <script
-        src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"
-        type="text/javascript"></script>
-    <!-- JS DataTables END -->
-    <!-- JS DataTables Excel Features START -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script>
-    <!-- JS DataTables Excel Features END -->
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+}
+</style>
+<!-- CSS Always Required Default Headings END -->
+
+
+
+
+<!-- JS Hide Section Code START -->
+<script type="text/javascript">function show(obj) {
+  document.getElementById(obj).style.display='block';
+  document.getElementById("hide_" + obj).style.display='';
+  document.getElementById("show_" + obj).style.display='none';
+}
+function hide(obj) {
+  document.getElementById(obj).style.display='none';
+  document.getElementById("hide_" + obj).style.display='none';
+  document.getElementById("show_" + obj).style.display='';
+}
+</script>
+<!-- JS Hide Section Code END -->
+
+<!-- JS DataTables PDF Features START -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
+<!-- JS DataTables PDF Features END -->
+<!-- JS Apex Charts START -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script>
+<!-- JS Apex Charts END -->
+<!-- CSS DataTables START -->
+<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/>
+<!-- CSS DataTables END -->
+<!-- JS DataTables START -->
+<script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script>
+<!-- JS DataTables END -->
+<!-- JS DataTables Excel Features START -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script>
+<!-- JS DataTables Excel Features END -->
 </head>
 <!-- END HEADER -->
 <!-- BODY -->
-
-<body>
-    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
-        <div class="defaultHeader" style="text-align: center;"><a name="-1 section" style="color: #ffffff;">-1 section
-            </a>
-            <a id="show_96664460" href="javascript:void(0)" onclick="show('96664460');"
-                style="color: #ffffff; display:none;">(Show)
-            </a>
-            <a id="hide_96664460" href="javascript:void(0)" onclick="hide('96664460');" style="color: #ffffff;">(Hide)
-            </a>
-        </div>
-        <div class="defaultContainerOther" id="96664460">
-            <div class="defaultContainer defaultPanelOther collapsable" id="96664460">
-                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
-                    <div id="ChartID-glh7mqi1"></div>
-                    <script>
-                        var options = {
-                            "chart": {
-                                "height": 350,
-                                "type": "bar",
-                                "toolbar": {
-                                    "show": true,
-                                    "tools": {
-                                        "download": true,
-                                        "selection": true,
-                                        "zoom": true,
-                                        "zoomin": true,
-                                        "zoomout": true,
-                                        "pan": true,
-                                        "reset": true
-                                    },
-                                    "autoSelected": "zoom"
+<body><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="-1 section" style="color: #ffffff;">-1 section
+</a>
+<a id="show_1567100514" href="javascript:void(0)" onclick="show('1567100514');" style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_1567100514" href="javascript:void(0)" onclick="hide('1567100514');" style="color: #ffffff;">(Hide)
+</a>
+</div>
+<div class="defaultContainerOther" id="1567100514"><div class="defaultContainer defaultPanelOther collapsable" id="1567100514"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-2ujqxz7s"></div>
+<div id="ChartID-xno3siu4"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="-1 section" style="color: #ffffff;">-1 section
+</a>
+<a id="show_466374999" href="javascript:void(0)" onclick="show('466374999');" style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_466374999" href="javascript:void(0)" onclick="hide('466374999');" style="color: #ffffff;">(Hide)
+</a>
+</div>
+<div class="defaultContainerOther" id="466374999"><div class="defaultContainer defaultPanelOther collapsable" id="466374999"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-ba5ow7gr"></div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-he8arsf0"></div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-6hxj173o"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Section 3rd with 3 columns" style="color: #ffffff;">Section 3rd with 3 columns
+</a>
+<a id="show_1953738069" href="javascript:void(0)" onclick="show('1953738069');" style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_1953738069" href="javascript:void(0)" onclick="hide('1953738069');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="defaultContainerOther" id="1953738069"><div class="defaultContainer defaultPanelOther collapsable" id="1953738069"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
+                    $('#DT-JWscVrGx').DataTable({
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       -1,
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+});
+                });            
+</script>
+<div class="defaultPanelOther"><table id="DT-JWscVrGx" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+</thead>
+<tbody><tr><td>1Password</td><td>16904</td><td>Normal</td><td>7.3.657</td><td>881</td><td>157364224</td><td>167792640</td><td>167792640</td><td>825004032</td><td>00:25:50.3593750</td><td>1</td><td>881</td><td>825004032</td><td>157364224</td><td>167792640</td><td>63384</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1550,359375</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4416</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>63384</td><td>63384</td><td>167792640</td><td>894680</td><td>894680</td><td>270249984</td><td>270249984</td><td>278634496</td><td>278634496</td><td>933236736</td><td>933236736</td><td>True</td><td>167792640</td><td>00:06:29</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:45:44</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:19:21.3593750</td><td>825004032</td><td>False</td><td></td><td></td><td></td><td>157364224</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>3660</td><td></td><td></td><td>179</td><td>6582272</td><td>2351104</td><td>2351104</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>6582272</td><td>2351104</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2351104</td><td>104984</td><td>104984</td><td>3125248</td><td>3125248</td><td>9641984</td><td>9641984</td><td>100417536</td><td>2203418640384</td><td></td><td>2351104</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>6582272</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>17960</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>557</td><td>30879744</td><td>35352576</td><td>35352576</td><td>311816192</td><td>00:00:04.0312500</td><td>1</td><td>557</td><td>2203630039040</td><td>30879744</td><td>35352576</td><td>33040</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>4,03125</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9968</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>7799656</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>33040</td><td>33040</td><td>35352576</td><td>457664</td><td>457664</td><td>58241024</td><td>58241024</td><td>65060864</td><td>65060864</td><td>327282688</td><td>2203645505536</td><td>True</td><td>35352576</td><td>00:00:02.6562500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:46:25</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.3750000</td><td>2203630039040</td><td>False</td><td></td><td></td><td></td><td>30879744</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>7808</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>6144000</td><td>1765376</td><td>1765376</td><td>98476032</td><td>00:00:00.0156250</td><td>1</td><td>139</td><td>2203416698880</td><td>6144000</td><td>1765376</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>12644</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1765376</td><td>125960</td><td>125960</td><td>1896448</td><td>1896448</td><td>8441856</td><td>8441856</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1765376</td><td>00:00:00</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 14:28:50</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>6144000</td><td></td><td></td></tr>
+<tr><td>Calculator</td><td>17376</td><td>Normal</td><td>10.1812.1901.04008</td><td>518</td><td>409600</td><td>16297984</td><td>16297984</td><td>443850752</td><td>00:00:00.2187500</td><td>1</td><td>518</td><td>4738818048</td><td>409600</td><td>16297984</td><td>27648</td><td>C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.1812.10048.0_x64__8wekyb3d8bbwe\Calculator.exe</td><td>Microsoft Corporation</td><td>0,21875</td><td>10.1812.190104008</td><td>Calculator.exe</td><td>Microsoft Calculator</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>12960</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>264206</td><td>Calculator</td><td>System.Diagnostics.ProcessModule (Calculator.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>27648</td><td>27648</td><td>16297984</td><td>697552</td><td>697552</td><td>18784256</td><td>18784256</td><td>57933824</td><td>57933824</td><td>481599488</td><td>4776566784</td><td>True</td><td>16297984</td><td>00:00:00.0781250</td><td>Calculator</td><td>65535</td><td>False</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>29.03.2019 00:00:51</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1406250</td><td>4738818048</td><td>False</td><td></td><td></td><td></td><td>409600</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-wh1jie8m"></div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div id="ChartID-ye3c705n"></div>
+</div>
+</div>
+</div>
+</div>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "bar",
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  true
                                 }
-                            },
-                            "plotOptions": {
-                                "bar": {
-                                    "horizontal": true
-                                }
-                            },
-                            "dataLabels": {
-                                "enabled": true,
-                                "offsetX": -6,
-                                "style": {
-                                    "fontSize": "12px",
-                                    "colors": [
-                                        null
-                                    ]
-                                }
-                            },
-                            "series": [{
-                                "name": [
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px",
+                                     "colors":  [
+                                                    null
+                                                ]
+                                 }
+                   },
+    "series":  [
+                   {
+                       "name":  [
                                     "People count"
                                 ],
-                                "data": [
+                       "data":  [
                                     400,
                                     430,
                                     448
                                 ]
-                            }],
-                            "xaxis": {
-                                "type": "category",
-                                "categories": [
-                                    "Poland",
-                                    "Europe",
-                                    "Germany"
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Poland",
+                                     "Europe",
+                                     "Germany"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  "straight",
+                   "width":  2,
+                   "colors":  [
+
+                              ]
+               },
+    "legend":  {
+                   "position":  "right",
+                   "offsetY":  100,
+                   "height":  230
+               },
+    "title":  {
+
+              }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-2ujqxz7s'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  true
+                                }
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px",
+                                     "colors":  [
+                                                    null
+                                                ]
+                                 }
+                   },
+    "series":  [
+                   {
+                       "name":  "People count",
+                       "data":  [
+                                    400,
+                                    430,
+                                    448
                                 ]
-                            },
-                            "stroke": {
-                                "show": true,
-                                "curve": "straight",
-                                "width": 2,
-                                "colors": [
-
+                   },
+                   {
+                       "name":  "People death",
+                       "data":  [
+                                    450,
+                                    0,
+                                    200
                                 ]
-                            },
-                            "legend": {
-                                "position": "right",
-                                "offsetY": 100,
-                                "height": 230
-                            },
-                            "title": {
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "2015",
+                                     "2016",
+                                     "2017"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  "straight",
+                   "width":  2,
+                   "colors":  [
+                                  "#0000ff",
+                                  "#008000"
+                              ]
+               },
+    "legend":  {
+                   "position":  "right",
+                   "offsetY":  100,
+                   "height":  230
+               },
+    "title":  {
 
-                            }
-                        }
+              }
+}
 
-                        var chart = new ApexCharts(document.querySelector('#ChartID-glh7mqi1'),
-                            options
-                        );
-                        chart.render();
-                    </script>
-                    <div id="ChartID-wirgcu5k"></div>
-                    <script>
-                        var options = {
-                            "chart": {
-                                "height": 350,
-                                "type": "line",
-                                "toolbar": {
-                                    "show": true,
-                                    "tools": {
-                                        "download": true,
-                                        "selection": true,
-                                        "zoom": true,
-                                        "zoomin": true,
-                                        "zoomout": true,
-                                        "pan": true,
-                                        "reset": true
-                                    },
-                                    "autoSelected": "zoom"
+var chart = new ApexCharts(document.querySelector('#ChartID-xno3siu4'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "bar",
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  true
                                 }
-                            },
-                            "plotOptions": {
-                                "bar": {
-                                    "horizontal": true
-                                }
-                            },
-                            "dataLabels": {
-                                "enabled": true,
-                                "offsetX": -6,
-                                "style": {
-                                    "fontSize": "12px",
-                                    "colors": [
-                                        null
-                                    ]
-                                }
-                            },
-                            "series": [{
-                                    "name": "People count",
-                                    "data": [
-                                        400,
-                                        430,
-                                        448
-                                    ]
-                                },
-                                {
-                                    "name": "People death",
-                                    "data": [
-                                        450,
-                                        0,
-                                        200
-                                    ]
-                                }
-                            ],
-                            "xaxis": {
-                                "type": "category",
-                                "categories": [
-                                    "2015",
-                                    "2016",
-                                    "2017"
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px",
+                                     "colors":  [
+                                                    null
+                                                ]
+                                 }
+                   },
+    "series":  [
+                   {
+                       "name":  "People count in  2019",
+                       "data":  [
+                                    400,
+                                    430,
+                                    448
                                 ]
-                            },
-                            "stroke": {
-                                "show": true,
-                                "curve": "straight",
-                                "width": 2,
-                                "colors": [
-                                    "#0000ff",
-                                    "#008000"
+                   },
+                   {
+                       "name":  "People count in 2018",
+                       "data":  [
+                                    420,
+                                    450,
+                                    448
                                 ]
-                            },
-                            "legend": {
-                                "position": "right",
-                                "offsetY": 100,
-                                "height": 230
-                            },
-                            "title": {
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Poland",
+                                     "Europe",
+                                     "Germany"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  "straight",
+                   "width":  2,
+                   "colors":  [
 
-                            }
-                        }
+                              ]
+               },
+    "legend":  {
+                   "position":  "right",
+                   "offsetY":  100,
+                   "height":  230
+               },
+    "title":  {
 
-                        var chart = new ApexCharts(document.querySelector('#ChartID-wirgcu5k'),
-                            options
-                        );
-                        chart.render();
-                    </script>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
-        <div class="defaultHeader" style="text-align: center;"><a name="-1 section" style="color: #ffffff;">-1 section
-            </a>
-            <a id="show_2069285643" href="javascript:void(0)" onclick="show('2069285643');"
-                style="color: #ffffff; display:none;">(Show)
-            </a>
-            <a id="hide_2069285643" href="javascript:void(0)" onclick="hide('2069285643');"
-                style="color: #ffffff;">(Hide)
-            </a>
-        </div>
-        <div class="defaultContainerOther" id="2069285643">
-            <div class="defaultContainer defaultPanelOther collapsable" id="2069285643">
-                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
-                    <div id="ChartID-8a6jo9rn"></div>
-                    <script>
-                        var options = {
-                            "chart": {
-                                "height": 350,
-                                "type": "bar",
-                                "toolbar": {
-                                    "show": true,
-                                    "tools": {
-                                        "download": true,
-                                        "selection": true,
-                                        "zoom": true,
-                                        "zoomin": true,
-                                        "zoomout": true,
-                                        "pan": true,
-                                        "reset": true
-                                    },
-                                    "autoSelected": "zoom"
-                                }
-                            },
-                            "plotOptions": {
-                                "bar": {
-                                    "horizontal": true
-                                }
-                            },
-                            "dataLabels": {
-                                "enabled": true,
-                                "offsetX": -6,
-                                "style": {
-                                    "fontSize": "12px",
-                                    "colors": [
-                                        null
-                                    ]
-                                }
-                            },
-                            "series": [{
-                                    "name": "People count in  2019",
-                                    "data": [
-                                        400,
-                                        430,
-                                        448
-                                    ]
-                                },
-                                {
-                                    "name": "People count in 2018",
-                                    "data": [
-                                        420,
-                                        450,
-                                        448
-                                    ]
-                                }
-                            ],
-                            "xaxis": {
-                                "type": "category",
-                                "categories": [
-                                    "Poland",
-                                    "Europe",
-                                    "Germany"
-                                ]
-                            },
-                            "stroke": {
-                                "show": true,
-                                "curve": "straight",
-                                "width": 2,
-                                "colors": [
+              }
+}
 
-                                ]
-                            },
-                            "legend": {
-                                "position": "right",
-                                "offsetY": 100,
-                                "height": 230
-                            },
-                            "title": {
-
-                            }
-                        }
-
-                        var chart = new ApexCharts(document.querySelector('#ChartID-8a6jo9rn'),
-                            options
-                        );
-                        chart.render();
-                    </script>
-                </div>
-                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
-                    <div id="ChartID-mfygh68e"></div>
-                    <script>
-                        var options = {
-                            "chart": {
-                                "height": 350,
-                                "type": "line",
-                                "toolbar": {
-                                    "show": true,
-                                    "tools": {
-                                        "download": true,
-                                        "selection": true,
-                                        "zoom": true,
-                                        "zoomin": true,
-                                        "zoomout": true,
-                                        "pan": true,
-                                        "reset": true
-                                    },
-                                    "autoSelected": "zoom"
+var chart = new ApexCharts(document.querySelector('#ChartID-ba5ow7gr'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  false
                                 }
-                            },
-                            "plotOptions": {
-                                "bar": {
-                                    "horizontal": false
-                                }
-                            },
-                            "dataLabels": {
-                                "enabled": true,
-                                "offsetX": -6,
-                                "style": {
-                                    "fontSize": "12px",
-                                    "colors": [
-                                        null
-                                    ]
-                                }
-                            },
-                            "series": [{
-                                "name": [
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px",
+                                     "colors":  [
+                                                    null
+                                                ]
+                                 }
+                   },
+    "series":  [
+                   {
+                       "name":  [
                                     "Desktops"
                                 ],
-                                "data": [
+                       "data":  [
                                     10,
                                     41,
                                     35,
@@ -1349,815 +863,318 @@
                                     91,
                                     148
                                 ]
-                            }],
-                            "xaxis": {
-                                "type": "category",
-                                "categories": [
-                                    "Jan",
-                                    "Feb",
-                                    "Mar",
-                                    "Apr",
-                                    "May",
-                                    "Jun",
-                                    "Jul",
-                                    "Aug",
-                                    "Sep"
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Jan",
+                                     "Feb",
+                                     "Mar",
+                                     "Apr",
+                                     "May",
+                                     "Jun",
+                                     "Jul",
+                                     "Aug",
+                                     "Sep"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  "straight",
+                   "width":  2,
+                   "colors":  [
+                                  "#0000ff",
+                                  "#008000"
+                              ]
+               },
+    "legend":  {
+                   "position":  "right",
+                   "offsetY":  100,
+                   "height":  230
+               },
+    "title":  {
+                  "text":  "Product Trends by Month",
+                  "align":  "left"
+              }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-he8arsf0'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "bar",
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  false
+                                }
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px",
+                                     "colors":  [
+                                                    null
+                                                ]
+                                 }
+                   },
+    "series":  [
+                   {
+                       "name":  "Net Profit",
+                       "data":  [
+                                    44,
+                                    55,
+                                    57,
+                                    56,
+                                    61,
+                                    58,
+                                    63,
+                                    60,
+                                    66
                                 ]
-                            },
-                            "stroke": {
-                                "show": true,
-                                "curve": "straight",
-                                "width": 2,
-                                "colors": [
-                                    "#0000ff",
-                                    "#008000"
+                   },
+                   {
+                       "name":  "Revenue",
+                       "data":  [
+                                    76,
+                                    85,
+                                    101,
+                                    98,
+                                    87,
+                                    105,
+                                    91,
+                                    114,
+                                    94
                                 ]
-                            },
-                            "legend": {
-                                "position": "right",
-                                "offsetY": 100,
-                                "height": 230
-                            },
-                            "title": {
-                                "text": "Product Trends by Month",
-                                "align": "left"
-                            }
-                        }
-
-                        var chart = new ApexCharts(document.querySelector('#ChartID-mfygh68e'),
-                            options
-                        );
-                        chart.render();
-                    </script>
-                </div>
-                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
-                    <div id="ChartID-3ud51q86"></div>
-                    <script>
-                        var options = {
-                            "chart": {
-                                "height": 350,
-                                "type": "bar",
-                                "toolbar": {
-                                    "show": true,
-                                    "tools": {
-                                        "download": true,
-                                        "selection": true,
-                                        "zoom": true,
-                                        "zoomin": true,
-                                        "zoomout": true,
-                                        "pan": true,
-                                        "reset": true
-                                    },
-                                    "autoSelected": "zoom"
-                                }
-                            },
-                            "plotOptions": {
-                                "bar": {
-                                    "horizontal": false
-                                }
-                            },
-                            "dataLabels": {
-                                "enabled": true,
-                                "offsetX": -6,
-                                "style": {
-                                    "fontSize": "12px",
-                                    "colors": [
-                                        null
-                                    ]
-                                }
-                            },
-                            "series": [{
-                                    "name": "Net Profit",
-                                    "data": [
-                                        44,
-                                        55,
-                                        57,
-                                        56,
-                                        61,
-                                        58,
-                                        63,
-                                        60,
-                                        66
-                                    ]
-                                },
-                                {
-                                    "name": "Revenue",
-                                    "data": [
-                                        76,
-                                        85,
-                                        101,
-                                        98,
-                                        87,
-                                        105,
-                                        91,
-                                        114,
-                                        94
-                                    ]
-                                },
-                                {
-                                    "name": "Free Cash Flow",
-                                    "data": [
-                                        35,
-                                        41,
-                                        36,
-                                        26,
-                                        45,
-                                        48,
-                                        52,
-                                        53,
-                                        41
-                                    ]
-                                }
-                            ],
-                            "xaxis": {
-                                "type": "category",
-                                "categories": [
-                                    "Feb",
-                                    "Mar",
-                                    "Apr",
-                                    "May",
-                                    "Jun",
-                                    "Jul",
-                                    "Aug",
-                                    "Sep",
-                                    "Oct"
+                   },
+                   {
+                       "name":  "Free Cash Flow",
+                       "data":  [
+                                    35,
+                                    41,
+                                    36,
+                                    26,
+                                    45,
+                                    48,
+                                    52,
+                                    53,
+                                    41
                                 ]
-                            },
-                            "stroke": {
-                                "show": true,
-                                "curve": "straight",
-                                "width": 2,
-                                "colors": [
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Feb",
+                                     "Mar",
+                                     "Apr",
+                                     "May",
+                                     "Jun",
+                                     "Jul",
+                                     "Aug",
+                                     "Sep",
+                                     "Oct"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  "straight",
+                   "width":  2,
+                   "colors":  [
 
+                              ]
+               },
+    "legend":  {
+                   "position":  "right",
+                   "offsetY":  100,
+                   "height":  230
+               },
+    "title":  {
+
+              }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-6hxj173o'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  true
+                                }
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px",
+                                     "colors":  [
+                                                    null
+                                                ]
+                                 }
+                   },
+    "series":  [
+                   {
+                       "name":  "People count",
+                       "data":  [
+                                    400,
+                                    430,
+                                    448
                                 ]
-                            },
-                            "legend": {
-                                "position": "right",
-                                "offsetY": 100,
-                                "height": 230
-                            },
-                            "title": {
-
-                            }
-                        }
-
-                        var chart = new ApexCharts(document.querySelector('#ChartID-3ud51q86'),
-                            options
-                        );
-                        chart.render();
-                    </script>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
-        <div class="defaultHeader" style="text-align: center;"><a name="Section 3rd with 3 columns"
-                style="color: #ffffff;">Section 3rd with 3 columns
-            </a>
-            <a id="show_289140052" href="javascript:void(0)" onclick="show('289140052');"
-                style="color: #ffffff; display:none;">(Show)
-            </a>
-            <a id="hide_289140052" href="javascript:void(0)" onclick="hide('289140052');"
-                style="color: #ffffff; display:none;">(Hide)
-            </a>
-        </div>
-        <div class="defaultContainerOther" id="289140052">
-            <div class="defaultContainer defaultPanelOther collapsable" id="289140052">
-                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
-                    <script>
-                        $(document).ready(function () {
-                            $('#DT-MtuVsuuK').DataTable({
-                                "dom": "Bfrtip",
-                                "buttons": [
-                                    "copyHtml5",
-                                    "excelHtml5",
-                                    "csvHtml5",
-                                    "pdfHtml5"
-                                ],
-                                "colReorder": true,
-                                "paging": true,
-                                "pagingType": [
-                                    "full_numbers"
-                                ],
-                                "lengthMenu": [
-                                    [
-                                        15,
-                                        25,
-                                        50,
-                                        100
-                                    ],
-                                    -1,
-                                    [
-                                        15,
-                                        25,
-                                        50,
-                                        100
-                                    ],
-                                    "All"
-                                ],
-                                "ordering": true,
-                                "info": true,
-                                "procesing": true,
-                                "responsive": {
-                                    "details": true
-                                },
-                                "select": true,
-                                "searching": true,
-                                "stateSave": true
-                            });
-                        });
-                    </script>
-                    <div class="defaultPanelOther">
-                        <table id="DT-MtuVsuuK" class="display compact">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Id</th>
-                                    <th>PriorityClass</th>
-                                    <th>FileVersion</th>
-                                    <th>HandleCount</th>
-                                    <th>WorkingSet</th>
-                                    <th>PagedMemorySize</th>
-                                    <th>PrivateMemorySize</th>
-                                    <th>VirtualMemorySize</th>
-                                    <th>TotalProcessorTime</th>
-                                    <th>SI</th>
-                                    <th>Handles</th>
-                                    <th>VM</th>
-                                    <th>WS</th>
-                                    <th>PM</th>
-                                    <th>NPM</th>
-                                    <th>Path</th>
-                                    <th>Company</th>
-                                    <th>CPU</th>
-                                    <th>ProductVersion</th>
-                                    <th>Description</th>
-                                    <th>Product</th>
-                                    <th>__NounName</th>
-                                    <th>BasePriority</th>
-                                    <th>ExitCode</th>
-                                    <th>HasExited</th>
-                                    <th>ExitTime</th>
-                                    <th>Handle</th>
-                                    <th>SafeHandle</th>
-                                    <th>MachineName</th>
-                                    <th>MainWindowHandle</th>
-                                    <th>MainWindowTitle</th>
-                                    <th>MainModule</th>
-                                    <th>MaxWorkingSet</th>
-                                    <th>MinWorkingSet</th>
-                                    <th>Modules</th>
-                                    <th>NonpagedSystemMemorySize</th>
-                                    <th>NonpagedSystemMemorySize64</th>
-                                    <th>PagedMemorySize64</th>
-                                    <th>PagedSystemMemorySize</th>
-                                    <th>PagedSystemMemorySize64</th>
-                                    <th>PeakPagedMemorySize</th>
-                                    <th>PeakPagedMemorySize64</th>
-                                    <th>PeakWorkingSet</th>
-                                    <th>PeakWorkingSet64</th>
-                                    <th>PeakVirtualMemorySize</th>
-                                    <th>PeakVirtualMemorySize64</th>
-                                    <th>PriorityBoostEnabled</th>
-                                    <th>PrivateMemorySize64</th>
-                                    <th>PrivilegedProcessorTime</th>
-                                    <th>ProcessName</th>
-                                    <th>ProcessorAffinity</th>
-                                    <th>Responding</th>
-                                    <th>SessionId</th>
-                                    <th>StartInfo</th>
-                                    <th>StartTime</th>
-                                    <th>SynchronizingObject</th>
-                                    <th>Threads</th>
-                                    <th>UserProcessorTime</th>
-                                    <th>VirtualMemorySize64</th>
-                                    <th>EnableRaisingEvents</th>
-                                    <th>StandardInput</th>
-                                    <th>StandardOutput</th>
-                                    <th>StandardError</th>
-                                    <th>WorkingSet64</th>
-                                    <th>Site</th>
-                                    <th>Container</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1Password</td>
-                                    <td>14676</td>
-                                    <td>Normal</td>
-                                    <td>7.3.657</td>
-                                    <td>911</td>
-                                    <td>90021888</td>
-                                    <td>142057472</td>
-                                    <td>142057472</td>
-                                    <td>742735872</td>
-                                    <td>00:03:51.6406250</td>
-                                    <td>1</td>
-                                    <td>911</td>
-                                    <td>742735872</td>
-                                    <td>90021888</td>
-                                    <td>142057472</td>
-                                    <td>57928</td>
-                                    <td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td>
-                                    <td>AgileBits Inc.</td>
-                                    <td>231,640625</td>
-                                    <td>7.3.657</td>
-                                    <td>1Password for Windows desktop</td>
-                                    <td>1Password</td>
-                                    <td>Process</td>
-                                    <td>8</td>
-                                    <td></td>
-                                    <td>False</td>
-                                    <td></td>
-                                    <td>11920</td>
-                                    <td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td>
-                                    <td>.</td>
-                                    <td>0</td>
-                                    <td></td>
-                                    <td>System.Diagnostics.ProcessModule (1Password.exe)</td>
-                                    <td>1413120</td>
-                                    <td>204800</td>
-                                    <td>System.Diagnostics.ProcessModuleCollection</td>
-                                    <td>57928</td>
-                                    <td>57928</td>
-                                    <td>142057472</td>
-                                    <td>834720</td>
-                                    <td>834720</td>
-                                    <td>190832640</td>
-                                    <td>190832640</td>
-                                    <td>219353088</td>
-                                    <td>219353088</td>
-                                    <td>795037696</td>
-                                    <td>795037696</td>
-                                    <td>True</td>
-                                    <td>142057472</td>
-                                    <td>00:01:11.2500000</td>
-                                    <td>1Password</td>
-                                    <td>65535</td>
-                                    <td>True</td>
-                                    <td>1</td>
-                                    <td>System.Diagnostics.ProcessStartInfo</td>
-                                    <td>23.03.2019 17:53:10</td>
-                                    <td></td>
-                                    <td>System.Diagnostics.ProcessThreadCollection</td>
-                                    <td>00:02:40.3906250</td>
-                                    <td>742735872</td>
-                                    <td>False</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>90021888</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>aesm_service</td>
-                                    <td>12216</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>179</td>
-                                    <td>7217152</td>
-                                    <td>2330624</td>
-                                    <td>2330624</td>
-                                    <td>89571328</td>
-                                    <td></td>
-                                    <td>0</td>
-                                    <td>179</td>
-                                    <td>2203407794176</td>
-                                    <td>7217152</td>
-                                    <td>2330624</td>
-                                    <td>10168</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Process</td>
-                                    <td>8</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>.</td>
-                                    <td>0</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>10168</td>
-                                    <td>10168</td>
-                                    <td>2330624</td>
-                                    <td>104984</td>
-                                    <td>104984</td>
-                                    <td>2912256</td>
-                                    <td>2912256</td>
-                                    <td>9433088</td>
-                                    <td>9433088</td>
-                                    <td>99549184</td>
-                                    <td>2203417772032</td>
-                                    <td></td>
-                                    <td>2330624</td>
-                                    <td></td>
-                                    <td>aesm_service</td>
-                                    <td></td>
-                                    <td>True</td>
-                                    <td>0</td>
-                                    <td>System.Diagnostics.ProcessStartInfo</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>System.Diagnostics.ProcessThreadCollection</td>
-                                    <td></td>
-                                    <td>2203407794176</td>
-                                    <td>False</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>7217152</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>ApplicationFrameHost</td>
-                                    <td>13960</td>
-                                    <td>Normal</td>
-                                    <td>10.0.17763.1 (WinBuild.160101.0800)</td>
-                                    <td>498</td>
-                                    <td>26480640</td>
-                                    <td>23351296</td>
-                                    <td>23351296</td>
-                                    <td>289296384</td>
-                                    <td>00:00:03</td>
-                                    <td>1</td>
-                                    <td>498</td>
-                                    <td>2203607519232</td>
-                                    <td>26480640</td>
-                                    <td>23351296</td>
-                                    <td>29640</td>
-                                    <td>C:\Windows\system32\ApplicationFrameHost.exe</td>
-                                    <td>Microsoft Corporation</td>
-                                    <td>3</td>
-                                    <td>10.0.17763.1</td>
-                                    <td>Application Frame Host</td>
-                                    <td>Microsoft&#174; Windows&#174; Operating System</td>
-                                    <td>Process</td>
-                                    <td>8</td>
-                                    <td></td>
-                                    <td>False</td>
-                                    <td></td>
-                                    <td>7440</td>
-                                    <td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td>
-                                    <td>.</td>
-                                    <td>856842</td>
-                                    <td>Settings</td>
-                                    <td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td>
-                                    <td>1413120</td>
-                                    <td>204800</td>
-                                    <td>System.Diagnostics.ProcessModuleCollection</td>
-                                    <td>29640</td>
-                                    <td>29640</td>
-                                    <td>23351296</td>
-                                    <td>430144</td>
-                                    <td>430144</td>
-                                    <td>27324416</td>
-                                    <td>27324416</td>
-                                    <td>40550400</td>
-                                    <td>40550400</td>
-                                    <td>300044288</td>
-                                    <td>2203618267136</td>
-                                    <td>True</td>
-                                    <td>23351296</td>
-                                    <td>00:00:02.0156250</td>
-                                    <td>ApplicationFrameHost</td>
-                                    <td>65535</td>
-                                    <td>True</td>
-                                    <td>1</td>
-                                    <td>System.Diagnostics.ProcessStartInfo</td>
-                                    <td>23.03.2019 17:52:58</td>
-                                    <td></td>
-                                    <td>System.Diagnostics.ProcessThreadCollection</td>
-                                    <td>00:00:00.9843750</td>
-                                    <td>2203607519232</td>
-                                    <td>False</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>26480640</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>browser_broker</td>
-                                    <td>17932</td>
-                                    <td>Normal</td>
-                                    <td>11.00.17763.316 (WinBuild.160101.0800)</td>
-                                    <td>139</td>
-                                    <td>6840320</td>
-                                    <td>1875968</td>
-                                    <td>1875968</td>
-                                    <td>98476032</td>
-                                    <td>00:00:00.0156250</td>
-                                    <td>1</td>
-                                    <td>139</td>
-                                    <td>2203416698880</td>
-                                    <td>6840320</td>
-                                    <td>1875968</td>
-                                    <td>8832</td>
-                                    <td>C:\Windows\system32\browser_broker.exe</td>
-                                    <td>Microsoft Corporation</td>
-                                    <td>0,015625</td>
-                                    <td>11.00.17763.316</td>
-                                    <td>Browser_Broker</td>
-                                    <td>Microsoft&#174; Windows&#174; Operating System</td>
-                                    <td>Process</td>
-                                    <td>8</td>
-                                    <td></td>
-                                    <td>False</td>
-                                    <td></td>
-                                    <td>3940</td>
-                                    <td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td>
-                                    <td>.</td>
-                                    <td>0</td>
-                                    <td></td>
-                                    <td>System.Diagnostics.ProcessModule (browser_broker.exe)</td>
-                                    <td>1413120</td>
-                                    <td>204800</td>
-                                    <td>System.Diagnostics.ProcessModuleCollection</td>
-                                    <td>8832</td>
-                                    <td>8832</td>
-                                    <td>1875968</td>
-                                    <td>125960</td>
-                                    <td>125960</td>
-                                    <td>1933312</td>
-                                    <td>1933312</td>
-                                    <td>8540160</td>
-                                    <td>8540160</td>
-                                    <td>102146048</td>
-                                    <td>2203420368896</td>
-                                    <td>True</td>
-                                    <td>1875968</td>
-                                    <td>00:00:00.0156250</td>
-                                    <td>browser_broker</td>
-                                    <td>65535</td>
-                                    <td>True</td>
-                                    <td>1</td>
-                                    <td>System.Diagnostics.ProcessStartInfo</td>
-                                    <td>23.03.2019 17:53:35</td>
-                                    <td></td>
-                                    <td>System.Diagnostics.ProcessThreadCollection</td>
-                                    <td>00:00:00</td>
-                                    <td>2203416698880</td>
-                                    <td>False</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>6840320</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>chrome</td>
-                                    <td>1716</td>
-                                    <td>Idle</td>
-                                    <td>75.0.3741.0</td>
-                                    <td>394</td>
-                                    <td>58613760</td>
-                                    <td>94662656</td>
-                                    <td>94662656</td>
-                                    <td>584314880</td>
-                                    <td>00:00:40.9062500</td>
-                                    <td>1</td>
-                                    <td>394</td>
-                                    <td>2203902537728</td>
-                                    <td>58613760</td>
-                                    <td>94662656</td>
-                                    <td>42968</td>
-                                    <td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe
-                                    </td>
-                                    <td>Google Inc.</td>
-                                    <td>40,90625</td>
-                                    <td>75.0.3741.0</td>
-                                    <td>Google Chrome</td>
-                                    <td>Google Chrome</td>
-                                    <td>Process</td>
-                                    <td>4</td>
-                                    <td></td>
-                                    <td>False</td>
-                                    <td></td>
-                                    <td>5068</td>
-                                    <td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td>
-                                    <td>.</td>
-                                    <td>0</td>
-                                    <td></td>
-                                    <td>System.Diagnostics.ProcessModule (chrome.exe)</td>
-                                    <td>1413120</td>
-                                    <td>204800</td>
-                                    <td>System.Diagnostics.ProcessModuleCollection</td>
-                                    <td>42968</td>
-                                    <td>42968</td>
-                                    <td>94662656</td>
-                                    <td>522320</td>
-                                    <td>522320</td>
-                                    <td>100474880</td>
-                                    <td>100474880</td>
-                                    <td>139657216</td>
-                                    <td>139657216</td>
-                                    <td>616042496</td>
-                                    <td>2203934265344</td>
-                                    <td>True</td>
-                                    <td>94662656</td>
-                                    <td>00:00:03.4375000</td>
-                                    <td>chrome</td>
-                                    <td>65535</td>
-                                    <td>True</td>
-                                    <td>1</td>
-                                    <td>System.Diagnostics.ProcessStartInfo</td>
-                                    <td>24.03.2019 12:40:37</td>
-                                    <td></td>
-                                    <td>System.Diagnostics.ProcessThreadCollection</td>
-                                    <td>00:00:37.4687500</td>
-                                    <td>2203902537728</td>
-                                    <td>False</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>58613760</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
-                    <div id="ChartID-2rhiatbe"></div>
-                    <script>
-                        var options = {
-                            "chart": {
-                                "height": 350,
-                                "type": "line",
-                                "toolbar": {
-                                    "show": true,
-                                    "tools": {
-                                        "download": true,
-                                        "selection": true,
-                                        "zoom": true,
-                                        "zoomin": true,
-                                        "zoomout": true,
-                                        "pan": true,
-                                        "reset": true
-                                    },
-                                    "autoSelected": "zoom"
-                                }
-                            },
-                            "plotOptions": {
-                                "bar": {
-                                    "horizontal": true
-                                }
-                            },
-                            "dataLabels": {
-                                "enabled": true,
-                                "offsetX": -6,
-                                "style": {
-                                    "fontSize": "12px",
-                                    "colors": [
-                                        null
-                                    ]
-                                }
-                            },
-                            "series": [{
-                                    "name": "People count",
-                                    "data": [
-                                        400,
-                                        430,
-                                        448
-                                    ]
-                                },
-                                {
-                                    "name": "People death",
-                                    "data": [
-                                        450,
-                                        0,
-                                        200
-                                    ]
-                                }
-                            ],
-                            "xaxis": {
-                                "type": "category",
-                                "categories": [
-                                    "2015",
-                                    "2016",
-                                    "2017"
+                   },
+                   {
+                       "name":  "People death",
+                       "data":  [
+                                    450,
+                                    0,
+                                    200
                                 ]
-                            },
-                            "stroke": {
-                                "show": true,
-                                "curve": "straight",
-                                "width": 2,
-                                "colors": [
-                                    "#0000ff",
-                                    "#008000"
-                                ]
-                            },
-                            "legend": {
-                                "position": "right",
-                                "offsetY": 100,
-                                "height": 230
-                            },
-                            "title": {
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "2015",
+                                     "2016",
+                                     "2017"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  "straight",
+                   "width":  2,
+                   "colors":  [
+                                  "#0000ff",
+                                  "#008000"
+                              ]
+               },
+    "legend":  {
+                   "position":  "right",
+                   "offsetY":  100,
+                   "height":  230
+               },
+    "title":  {
 
-                            }
-                        }
+              }
+}
 
-                        var chart = new ApexCharts(document.querySelector('#ChartID-2rhiatbe'),
-                            options
-                        );
-                        chart.render();
-                    </script>
-                </div>
-                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
-                    <div id="ChartID-bcfnq15u"></div>
-                    <script>
-                        var options = {
-                            "chart": {
-                                "height": 350,
-                                "type": "donut",
-                                "toolbar": {
-                                    "show": true,
-                                    "tools": {
-                                        "download": true,
-                                        "selection": true,
-                                        "zoom": true,
-                                        "zoomin": true,
-                                        "zoomout": true,
-                                        "pan": true,
-                                        "reset": true
-                                    },
-                                    "autoSelected": "zoom"
+var chart = new ApexCharts(document.querySelector('#ChartID-wh1jie8m'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "donut",
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  true
                                 }
-                            },
-                            "plotOptions": {
-                                "bar": {
-                                    "horizontal": true
-                                }
-                            },
-                            "dataLabels": {
-                                "enabled": true,
-                                "offsetX": -6,
-                                "style": {
-                                    "fontSize": "12px",
-                                    "colors": [
-                                        null
-                                    ]
-                                }
-                            },
-                            "series": [
-                                400,
-                                430,
-                                448
-                            ],
-                            "labels": [
-                                "Poland",
-                                "Europe",
-                                "Germany"
-                            ],
-                            "xaxis": {
-                                "type": "category",
-                                "categories": [
-                                    "Poland",
-                                    "Europe",
-                                    "Germany"
-                                ]
-                            },
-                            "stroke": {
-                                "show": true,
-                                "curve": "straight",
-                                "width": 2,
-                                "colors": [
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px",
+                                     "colors":  [
+                                                    null
+                                                ]
+                                 }
+                   },
+    "series":  [
+                   400,
+                   430,
+                   448
+               ],
+    "labels":  [
+                   "Poland",
+                   "Europe",
+                   "Germany"
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Poland",
+                                     "Europe",
+                                     "Germany"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  "straight",
+                   "width":  2,
+                   "colors":  [
 
-                                ]
-                            },
-                            "legend": {
-                                "position": "right",
-                                "offsetY": 100,
-                                "height": 230
-                            },
-                            "title": {
+                              ]
+               },
+    "legend":  {
+                   "position":  "right",
+                   "offsetY":  100,
+                   "height":  230
+               },
+    "title":  {
 
-                            }
-                        }
+              }
+}
 
-                        var chart = new ApexCharts(document.querySelector('#ChartID-bcfnq15u'),
-                            options
-                        );
-                        chart.render();
-                    </script>
-                </div>
-            </div>
-        </div>
-    </div>
+var chart = new ApexCharts(document.querySelector('#ChartID-ye3c705n'),
+            options
+        );
+chart.render();
+</script>
 </body>
 <!-- END BODY -->
 <!-- FOOTER -->
@@ -2168,5 +1185,4 @@
 
 </footer>
 <!-- END FOOTER -->
-
 </html>

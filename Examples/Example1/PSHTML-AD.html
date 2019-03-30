@@ -3,14 +3,14 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-03-16 17:40:36" name="revised"/>
+<meta content="2019-03-30 10:08:43" name="revised"/>
 <title>Active Directory Report
 </title>
 <!-- CSS Default fonts START -->
-<link href="https://fonts.googleapis.com/css?family=Roboto" type="text/css" rel="stylesheet"></link>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts END -->
 <!-- CSS Default fonts icons START -->
-<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"></link>
+<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts icons END -->
 <!-- CSS Always Required Default Visual Settings START -->
 <style type="text/css">body {
@@ -19,71 +19,12 @@
     margin: 8px 10px 8px 10px;
 }
 
-h1 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 18pt;
-}
-
-h1.underline, h2.underline, h3.underline, h4.underline, h5.underline, h6.underline, h7.underline {
-    border-bottom: 2px solid #bbbbbb;
-}
-
-h1.central, h2.central, h3.central, h4.central, h5.central, h6.central, h7.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-
-div.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-
-h2 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 16pt;
-    border-bottom: 2px solid #bbbbbb;
-}
-
-h3 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 14pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h4 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 12pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h5 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 10pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h6 {
-    margin: 8px 5px 8px 5px;
-    font-family: sans-serif;
-    font-size: 8pt;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-h7 {
-    font-family: sans-serif;
-    font-size: 10pt;
-}
-
 hr {
     height: 4px;
+    /*
     background-color: #007bff;
+    */
+    background-color: #6Cf;
     border: 0px;
     width: 100%;
 }
@@ -150,16 +91,82 @@ div.MainLogo {
     width: 50%;
 }
 
+.central {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 900px;
+}
+
 div.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
-    display: inline-block;
+    /* display: inline-block; */
     margin: 5px;
     width: calc(100% - 10px);
     overflow: hidden;
     /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
+
+    /*
+      box-sizing: border-box;
+    float: left;
+    */
+}
+
+div.defaultColumn {
+
+
+    overflow: hidden;
+    /*
+     float: left;
+    box-sizing: border-box;
+    */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px;
+}
+
+.defaultContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultContainerOther {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanelOther {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanel {
+    flex-basis: 100%;
+    /* padding: 5px; */
+
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    /* width: 40%; */
+    border-radius: 5px;
+    margin: 5px;
 }
 
 div.defaultHeader {
@@ -167,7 +174,8 @@ div.defaultHeader {
     margin: 0px 0px 0px 0px;
     font-weight: bold;
     color: #ffffff;
-    background-color: #007bff;
+    /* background-color: #007bff; */
+    background-color: #6Cf;
 }
 
 div.defaultFooter {
@@ -204,16 +212,6 @@ td.groupby {
 .header {
     background-color: #616a6b;
     color: #f7f9f9;
-}
-
-div.defaultColumn {
-    box-sizing: border-box;
-    float: left;
-    overflow: hidden;
-    /* NEW */
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding: 2px;
 }
 
 a.alink:link {
@@ -289,14 +287,6 @@ button.dt-button {
     line-height: 1 !important;
 }
 
-.defaultCard {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 40%;
-    border-radius: 5px;
-    margin: 5px;
-}
-
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -331,30 +321,151 @@ img {
 .green {
     background-color: #2ecc40;
 }
+
+div.enlighter-default {
+    flex-basis: 100%;
+    margin: 0 !important;
+}
 </style>
 <!-- CSS Always Required Default Visual Settings END -->
+<!-- CSS Always Required Default Headings START -->
+<style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
 
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+}
+</style>
+<!-- CSS Always Required Default Headings END -->
 
 
 
 <!-- CSS Elastic Tabs START -->
 <style type="text/css">.tabsWrapper {
     text-align: center;
-    /* margin: 50px auto; */
+    margin: 10px auto;
     font-family: 'Roboto', sans-serif !important;
 }
 
 .tabs {
-    font-family: 'Roboto', sans-serif !important;
-    /* margin-top: 50px; */
+    margin-top: 10px;
     font-size: 15px;
     padding: 0px;
     list-style: none;
     background: #fff;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    /*
     display: inline-block;
-    /* border-radius: 50px; */
+*/
+    border-radius: 4px;
     position: relative;
+}
+
+.tabs .round {
+    border-radius: 4px;
 }
 
 .tabs a {
@@ -385,7 +496,7 @@ img {
     right: 0px;
     bottom: 0px;
     z-index: 1;
-    /* border-radius: 50px; */
+    border-radius: 4px;
     transition-duration: 0.6s;
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     background: #05abe0;
@@ -409,14 +520,11 @@ img {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
 <!-- JS DataTables PDF Features END -->
-<!-- JS Charts JS START -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js" type="text/javascript"></script>
-<!-- JS Charts JS END -->
 <!-- JS Jquery START -->
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
 <!-- JS Jquery END -->
 <!-- CSS DataTables START -->
-<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"></link>
+<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/>
 <!-- CSS DataTables END -->
 <!-- JS DataTables START -->
 <script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script>
@@ -436,36 +544,36 @@ img {
         </tbody></table>
 <!-- END LOGO -->
 <div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-ih5n2910"><i class="fas fa-bomb">Dashboard
+<a href="javascript:void(0)" class="active" data-id="Tab-cgdalr53"><i class="fas fa-bomb">Dashboard
 </i>
 </a>
-<a href="javascript:void(0)" data-id="Tab-vqrzblxy"><i class="fas fa-bomb">Groups
+<a href="javascript:void(0)" data-id="Tab-im8zc5dg"><i class="fas fa-bomb">Groups
 </i>
 </a>
-<a href="javascript:void(0)" data-id="Tab-6v8ug3fw"><i class="fas fa-bomb">OrganizationalUnits
+<a href="javascript:void(0)" data-id="Tab-1ul9mnja"><i class="fas fa-bomb">OrganizationalUnits
 </i>
 </a>
-<a href="javascript:void(0)" data-id="Tab-u9db2s5m"><i class="fas fa-bomb">Users
+<a href="javascript:void(0)" data-id="Tab-3v0j6x9t"><i class="fas fa-bomb">Users
 </i>
 </a>
-<a href="javascript:void(0)" data-id="Tab-ylcav529"><i class="fas fa-bomb">GroupPolicy
+<a href="javascript:void(0)" data-id="Tab-d2txymj0"><i class="fas fa-bomb">GroupPolicy
 </i>
 </a>
-<a href="javascript:void(0)" data-id="Tab-m37go84x"><i class="fas fa-bomb">Computers
+<a href="javascript:void(0)" data-id="Tab-7gtp41ze"><i class="fas fa-bomb">Computers
 </i>
 </a>
 </div>
 </div>
-<div id="Tab-ih5n2910" class="tabs-content active"><h7>Report: 03-16-2019
+<div id="Tab-cgdalr53" class="tabs-content active"><h7>Report: 03-30-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Company Information" style="color: #ffffff;">Company Information
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Company Information" style="color: #ffffff;">Company Information
 </a>
-<a id="show_2046397513" href="#" onclick="show('2046397513');" style="color: #ffffff; display:none">(Show)
+<a id="show_31211593" href="javascript:void(0)" onclick="show('31211593');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_2046397513" href="#" onclick="hide('2046397513');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_31211593" href="javascript:void(0)" onclick="hide('31211593');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="2046397513"><table class="sortable"><thead><tr><th>Domain</th><th>AD Recycle Bin</th><th>Infrastructure Master</th><th>RID Master</th><th>PDC Emulator</th><th>Domain Naming Master</th><th>Schema Master</th></tr>
+<div class="defaultContainerOther" id="31211593"><div class="defaultContainer defaultPanelOther collapsable" id="31211593"><div class="defaultPanelOther"><table class="sortable"><thead><tr><th>Domain</th><th>AD Recycle Bin</th><th>Infrastructure Master</th><th>RID Master</th><th>PDC Emulator</th><th>Domain Naming Master</th><th>Schema Master</th></tr>
 </thead>
 <tbody><tr><td>ad.evotec.xyz</td><td>Disabled</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
 </tbody>
@@ -474,22 +582,24 @@ img {
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Groups" style="color: #ffffff;">Groups
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Groups" style="color: #ffffff;">Groups
 </a>
-<a id="show_417729831" href="#" onclick="show('417729831');" style="color: #ffffff; display:none">(Show)
+<a id="show_1384218296" href="javascript:void(0)" onclick="show('1384218296');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_417729831" href="#" onclick="hide('417729831');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1384218296" href="javascript:void(0)" onclick="hide('1384218296');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="417729831"><div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
+<div class="defaultContainerOther" id="1384218296"><div class="defaultContainer defaultPanelOther collapsable" id="1384218296"><div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
 </a>
-<a id="show_1330197" href="#" onclick="show('1330197');" style="color: #ffffff; display:none">(Show)
+<a id="show_1339797063" href="javascript:void(0)" onclick="show('1339797063');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1330197" href="#" onclick="hide('1330197');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1339797063" href="javascript:void(0)" onclick="hide('1339797063');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1330197"><script>                $(document).ready(function() {
-                    $('#DT-VhpgXulQ').DataTable({
+<div class="defaultContainerOther" id="1339797063"><div class="defaultContainer defaultPanelOther collapsable" id="1339797063"><script>                $(document).ready(function() {
+                    $('#DT-umIqSKez').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -530,7 +640,7 @@ img {
 });
                 });            
 </script>
-<table id="DT-VhpgXulQ" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
+<div class="defaultPanelOther"><table id="DT-umIqSKez" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
 </thead>
 <tbody><tr><td>Administrator</td><td>True</td><td>user</td></tr>
 <tr><td>Administrator Przemyslaw Klys</td><td>True</td><td>user</td></tr>
@@ -541,15 +651,17 @@ img {
 </div>
 </div>
 </div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Enterprise Administrators" style="color: #ffffff;">Enterprise Administrators
+</div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Enterprise Administrators" style="color: #ffffff;">Enterprise Administrators
 </a>
-<a id="show_1450892538" href="#" onclick="show('1450892538');" style="color: #ffffff; display:none">(Show)
+<a id="show_1588698268" href="javascript:void(0)" onclick="show('1588698268');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1450892538" href="#" onclick="hide('1450892538');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1588698268" href="javascript:void(0)" onclick="hide('1588698268');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1450892538"><script>                $(document).ready(function() {
-                    $('#DT-ebOByHxr').DataTable({
+<div class="defaultContainerOther" id="1588698268"><div class="defaultContainer defaultPanelOther collapsable" id="1588698268"><script>                $(document).ready(function() {
+                    $('#DT-TkVrdOSa').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -590,7 +702,7 @@ img {
 });
                 });            
 </script>
-<table id="DT-ebOByHxr" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
+<div class="defaultPanelOther"><table id="DT-TkVrdOSa" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
 </thead>
 <tbody><tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr>
 <tr><td>Administrator</td><td>True</td><td>user</td></tr>
@@ -601,22 +713,25 @@ img {
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Objects in Default OUs" style="color: #ffffff;">Objects in Default OUs
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Objects in Default OUs" style="color: #ffffff;">Objects in Default OUs
 </a>
-<a id="show_162873062" href="#" onclick="show('162873062');" style="color: #ffffff; display:none">(Show)
+<a id="show_1552820685" href="javascript:void(0)" onclick="show('1552820685');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_162873062" href="#" onclick="hide('162873062');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1552820685" href="javascript:void(0)" onclick="hide('1552820685');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="162873062"><div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Computers" style="color: #ffffff;">Computers
+<div class="defaultContainerOther" id="1552820685"><div class="defaultContainer defaultPanelOther collapsable" id="1552820685"><div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Computers" style="color: #ffffff;">Computers
 </a>
-<a id="show_1430656786" href="#" onclick="show('1430656786');" style="color: #ffffff; display:none">(Show)
+<a id="show_1221450128" href="javascript:void(0)" onclick="show('1221450128');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1430656786" href="#" onclick="hide('1430656786');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1221450128" href="javascript:void(0)" onclick="hide('1221450128');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1430656786"><script>                $(document).ready(function() {
-                    $('#DT-zdQJPHOX').DataTable({
+<div class="defaultContainerOther" id="1221450128"><div class="defaultContainer defaultPanelOther collapsable" id="1221450128"><script>                $(document).ready(function() {
+                    $('#DT-zVLFBtsP').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -657,25 +772,27 @@ img {
 });
                 });            
 </script>
-<table id="DT-zdQJPHOX" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr>
+<div class="defaultPanelOther"><table id="DT-zVLFBtsP" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr>
 </thead>
-<tbody><tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>02.03.2019 02:23:57</td><td>20.02.2019 15:49:57</td><td>False</td></tr>
+<tbody><tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>23.03.2019 06:58:57</td><td>23.03.2019 06:58:57</td><td>False</td></tr>
 <tr><td>ADFS2019</td><td>True</td><td>Windows Server 2019 Standard Evaluation</td><td>30.01.2019 10:10:44</td><td>30.01.2019 10:09:30</td><td>False</td></tr>
-<tr><td>EVOWIN</td><td>True</td><td>Windows 10 Enterprise</td><td>10.03.2019 09:55:54</td><td>09.03.2019 10:28:36</td><td>False</td></tr>
+<tr><td>EVOWIN</td><td>True</td><td>Windows 10 Enterprise</td><td>26.03.2019 23:44:32</td><td>26.03.2019 23:44:17</td><td>False</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users" style="color: #ffffff;">Users
+</div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Users" style="color: #ffffff;">Users
 </a>
-<a id="show_621051194" href="#" onclick="show('621051194');" style="color: #ffffff; display:none">(Show)
+<a id="show_2126576227" href="javascript:void(0)" onclick="show('2126576227');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_621051194" href="#" onclick="hide('621051194');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_2126576227" href="javascript:void(0)" onclick="hide('2126576227');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="621051194"><script>                $(document).ready(function() {
-                    $('#DT-aZGMnLBO').DataTable({
+<div class="defaultContainerOther" id="2126576227"><div class="defaultContainer defaultPanelOther collapsable" id="2126576227"><script>                $(document).ready(function() {
+                    $('#DT-nzXJoCvp').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -716,7 +833,7 @@ img {
 });
                 });            
 </script>
-<table id="DT-aZGMnLBO" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th></tr>
+<div class="defaultPanelOther"><table id="DT-nzXJoCvp" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th></tr>
 </thead>
 <tbody><tr><td>Guest</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr>
 <tr><td>DefaultAccount</td><td></td><td>False</td><td>False</td><td>Never</td><td></td></tr>
@@ -729,7 +846,7 @@ img {
 <tr><td>Discovery Search Mailbox</td><td>DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td></tr>
 <tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td></tr>
 <tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td>False</td><td>False</td><td>Never</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td></tr>
-<tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td>False</td><td>08.03.2019 22:58:54</td><td></td></tr>
+<tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td>False</td><td>27.03.2019 17:37:06</td><td></td></tr>
 </tbody>
 </table>
 </div>
@@ -737,15 +854,18 @@ img {
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="AD Objects Modified in Last 3 Days" style="color: #ffffff;">AD Objects Modified in Last 3 Days
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="AD Objects Modified in Last 3 Days" style="color: #ffffff;">AD Objects Modified in Last 3 Days
 </a>
-<a id="show_1421641820" href="#" onclick="show('1421641820');" style="color: #ffffff; display:none">(Show)
+<a id="show_935251994" href="javascript:void(0)" onclick="show('935251994');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1421641820" href="#" onclick="hide('1421641820');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_935251994" href="javascript:void(0)" onclick="hide('935251994');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1421641820"><script>                $(document).ready(function() {
-                    $('#DT-swcGbhAp').DataTable({
+<div class="defaultContainerOther" id="935251994"><div class="defaultContainer defaultPanelOther collapsable" id="935251994"><script>                $(document).ready(function() {
+                    $('#DT-GtBCzvnj').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -786,31 +906,34 @@ img {
 });
                 });            
 </script>
-<table id="DT-swcGbhAp" class="display compact"><thead><tr><th>*</th></tr>
+<div class="defaultPanelOther"><table id="DT-GtBCzvnj" class="display compact"><thead><tr><th>Name</th><th>Object Type</th><th>When Changed</th></tr>
 </thead>
-<tbody><tr><td>Information: No AD Objects have been modified recently</td></tr>
+<tbody><tr><td>AD2</td><td>computer</td><td>28.03.2019 22:54:57</td></tr>
+<tr><td>Special Test User</td><td>user</td><td>28.03.2019 20:36:35</td></tr>
 </tbody>
-<tfoot><tr><th>*</th></tr>
+<tfoot><tr><th>Name</th><th>Object Type</th><th>When Changed</th></tr>
 </tfoot>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Expiring Items" style="color: #ffffff;">Expiring Items
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Expiring Items" style="color: #ffffff;">Expiring Items
 </a>
-<a id="show_842285102" href="#" onclick="show('842285102');" style="color: #ffffff; display:none">(Show)
+<a id="show_566236141" href="javascript:void(0)" onclick="show('566236141');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_842285102" href="#" onclick="hide('842285102');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_566236141" href="javascript:void(0)" onclick="hide('566236141');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="842285102"><div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users with Passwords Expiring in less than 7 days" style="color: #ffffff;">Users with Passwords Expiring in less than 7 days
+<div class="defaultContainerOther" id="566236141"><div class="defaultContainer defaultPanelOther collapsable" id="566236141"><div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Users with Passwords Expiring in less than 7 days" style="color: #ffffff;">Users with Passwords Expiring in less than 7 days
 </a>
-<a id="show_1779296570" href="#" onclick="show('1779296570');" style="color: #ffffff; display:none">(Show)
+<a id="show_481471281" href="javascript:void(0)" onclick="show('481471281');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1779296570" href="#" onclick="hide('1779296570');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_481471281" href="javascript:void(0)" onclick="hide('481471281');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1779296570"><script>                $(document).ready(function() {
-                    $('#DT-qjLRuETm').DataTable({
+<div class="defaultContainerOther" id="481471281"><div class="defaultContainer defaultPanelOther collapsable" id="481471281"><script>                $(document).ready(function() {
+                    $('#DT-enbNAIJo').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -851,26 +974,27 @@ img {
 });
                 });            
 </script>
-<table id="DT-qjLRuETm" class="display compact"><thead><tr><th>Name</th><th>Days Until Password Expires</th></tr>
+<div class="defaultPanelOther"><table id="DT-enbNAIJo" class="display compact"><thead><tr><th>Name</th><th>Days Until Password Expires</th></tr>
 </thead>
-<tbody><tr><td>Special Test User</td><td>-154</td></tr>
-<tr><td>Some Mailbox</td><td>-137</td></tr>
-<tr><td>My User</td><td>-90</td></tr>
-<tr><td>My User 2</td><td>-81</td></tr>
+<tbody><tr><td>Some Mailbox</td><td>-151</td></tr>
+<tr><td>My User</td><td>-104</td></tr>
+<tr><td>My User 2</td><td>-95</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts Expiring Soon" style="color: #ffffff;">Accounts Expiring Soon
+</div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Accounts Expiring Soon" style="color: #ffffff;">Accounts Expiring Soon
 </a>
-<a id="show_438374244" href="#" onclick="show('438374244');" style="color: #ffffff; display:none">(Show)
+<a id="show_2050090231" href="javascript:void(0)" onclick="show('2050090231');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_438374244" href="#" onclick="hide('438374244');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_2050090231" href="javascript:void(0)" onclick="hide('2050090231');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="438374244"><script>                $(document).ready(function() {
-                    $('#DT-RcRjoLIN').DataTable({
+<div class="defaultContainerOther" id="2050090231"><div class="defaultContainer defaultPanelOther collapsable" id="2050090231"><script>                $(document).ready(function() {
+                    $('#DT-nsYCWbsI').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -911,7 +1035,7 @@ img {
 });
                 });            
 </script>
-<table id="DT-RcRjoLIN" class="display compact"><thead><tr><th>*</th></tr>
+<div class="defaultPanelOther"><table id="DT-nsYCWbsI" class="display compact"><thead><tr><th>*</th></tr>
 </thead>
 <tbody><tr><td>Information: No Users were found to expire soon</td></tr>
 </tbody>
@@ -921,22 +1045,25 @@ img {
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts" style="color: #ffffff;">Accounts
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Accounts" style="color: #ffffff;">Accounts
 </a>
-<a id="show_1678380489" href="#" onclick="show('1678380489');" style="color: #ffffff; display:none">(Show)
+<a id="show_839412451" href="javascript:void(0)" onclick="show('839412451');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1678380489" href="#" onclick="hide('1678380489');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_839412451" href="javascript:void(0)" onclick="hide('839412451');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1678380489"><div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users Haven't Logged on in 30 Days or more" style="color: #ffffff;">Users Haven't Logged on in 30 Days or more
+<div class="defaultContainerOther" id="839412451"><div class="defaultContainer defaultPanelOther collapsable" id="839412451"><div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Users Haven't Logged on in 30 Days or more" style="color: #ffffff;">Users Haven't Logged on in 30 Days or more
 </a>
-<a id="show_1032770269" href="#" onclick="show('1032770269');" style="color: #ffffff; display:none">(Show)
+<a id="show_180297263" href="javascript:void(0)" onclick="show('180297263');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1032770269" href="#" onclick="hide('1032770269');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_180297263" href="javascript:void(0)" onclick="hide('180297263');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1032770269"><script>                $(document).ready(function() {
-                    $('#DT-iRilZVFL').DataTable({
+<div class="defaultContainerOther" id="180297263"><div class="defaultContainer defaultPanelOther collapsable" id="180297263"><script>                $(document).ready(function() {
+                    $('#DT-KBOhezYo').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -977,24 +1104,26 @@ img {
 });
                 });            
 </script>
-<table id="DT-iRilZVFL" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
+<div class="defaultPanelOther"><table id="DT-KBOhezYo" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
 </thead>
 <tbody><tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td>20.05.2018 16:15:39</td><td>True</td><td>N/A</td></tr>
-<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td>17.09.2018 20:40:45</td><td>False</td><td>-137</td></tr>
+<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td>17.09.2018 20:40:45</td><td>False</td><td>-151</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts Created in 7 Days or Less" style="color: #ffffff;">Accounts Created in 7 Days or Less
+</div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Accounts Created in 7 Days or Less" style="color: #ffffff;">Accounts Created in 7 Days or Less
 </a>
-<a id="show_963011847" href="#" onclick="show('963011847');" style="color: #ffffff; display:none">(Show)
+<a id="show_84265857" href="javascript:void(0)" onclick="show('84265857');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_963011847" href="#" onclick="hide('963011847');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_84265857" href="javascript:void(0)" onclick="hide('84265857');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="963011847"><script>                $(document).ready(function() {
-                    $('#DT-BwuXchRf').DataTable({
+<div class="defaultContainerOther" id="84265857"><div class="defaultContainer defaultPanelOther collapsable" id="84265857"><script>                $(document).ready(function() {
+                    $('#DT-GgFNuLPw').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1035,7 +1164,7 @@ img {
 });
                 });            
 </script>
-<table id="DT-BwuXchRf" class="display compact"><thead><tr><th>*</th></tr>
+<div class="defaultPanelOther"><table id="DT-GgFNuLPw" class="display compact"><thead><tr><th>*</th></tr>
 </thead>
 <tbody><tr><td>Information: No new users have been recently created</td></tr>
 </tbody>
@@ -1045,15 +1174,18 @@ img {
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Security Logs" style="color: #ffffff;">Security Logs
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Security Logs" style="color: #ffffff;">Security Logs
 </a>
-<a id="show_1964332494" href="#" onclick="show('1964332494');" style="color: #ffffff; display:none">(Show)
+<a id="show_758698855" href="javascript:void(0)" onclick="show('758698855');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1964332494" href="#" onclick="hide('1964332494');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_758698855" href="javascript:void(0)" onclick="hide('758698855');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1964332494"><script>                $(document).ready(function() {
-                    $('#DT-WgzPHimY').DataTable({
+<div class="defaultContainerOther" id="758698855"><div class="defaultContainer defaultPanelOther collapsable" id="758698855"><script>                $(document).ready(function() {
+                    $('#DT-DoCaXZQe').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1094,21 +1226,23 @@ img {
 });
                 });            
 </script>
-<table id="DT-WgzPHimY" class="display compact"><thead><tr><th>*</th></tr>
+<div class="defaultPanelOther"><table id="DT-DoCaXZQe" class="display compact"><thead><tr><th>*</th></tr>
 </thead>
 <tbody><tr><td>Information: No logon security events were found</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="UPN Suffixes" style="color: #ffffff;">UPN Suffixes
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="UPN Suffixes" style="color: #ffffff;">UPN Suffixes
 </a>
-<a id="show_391548745" href="#" onclick="show('391548745');" style="color: #ffffff; display:none">(Show)
+<a id="show_789458303" href="javascript:void(0)" onclick="show('789458303');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_391548745" href="#" onclick="hide('391548745');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_789458303" href="javascript:void(0)" onclick="hide('789458303');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="391548745"><table class="sortable"><thead><tr><th>UPN Suffixes</th><th>Valid</th></tr>
+<div class="defaultContainerOther" id="789458303"><div class="defaultContainer defaultPanelOther collapsable" id="789458303"><div class="defaultPanelOther"><table class="sortable"><thead><tr><th>UPN Suffixes</th><th>Valid</th></tr>
 </thead>
 <tbody><tr><td>evotec.xyz</td><td>True</td></tr>
 <tr><td>evotec.pl</td><td>True</td></tr>
@@ -1119,19 +1253,21 @@ img {
 </div>
 </div>
 </div>
-<div id="Tab-vqrzblxy" class="tabs-content"><h7>Report: 03-16-2019
+</div>
+</div>
+<div id="Tab-im8zc5dg" class="tabs-content"><h7>Report: 03-30-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Groups Overivew" style="color: #ffffff;">Groups Overivew
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Groups Overivew" style="color: #ffffff;">Groups Overivew
 </a>
-<a id="show_33654309" href="#" onclick="show('33654309');" style="color: #ffffff; display:none">(Show)
+<a id="show_2142874019" href="javascript:void(0)" onclick="show('2142874019');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_33654309" href="#" onclick="hide('33654309');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_2142874019" href="javascript:void(0)" onclick="hide('2142874019');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="33654309"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="2142874019"><div class="defaultContainer defaultPanelOther collapsable" id="2142874019"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-vqrzblxy" && !$.fn.dataTable.isDataTable("#DT-NutVXxZG")) {
-                                $('#DT-NutVXxZG').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-im8zc5dg" && !$.fn.dataTable.isDataTable("#DT-EWBZJoEf")) {
+                                $('#DT-EWBZJoEf').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1174,24 +1310,26 @@ img {
                         });
                     });            
 </script>
-<table id="DT-NutVXxZG" class="display compact"><thead><tr><th>Total Groups</th><th>Mail-Enabled Security Groups</th><th>Security Groups</th><th>Distribution Groups</th></tr>
+<div class="defaultPanelOther"><table id="DT-EWBZJoEf" class="display compact"><thead><tr><th>Total Groups</th><th>Mail-Enabled Security Groups</th><th>Security Groups</th><th>Distribution Groups</th></tr>
 </thead>
-<tbody><tr><td>74</td><td>0</td><td>72</td><td>2</td></tr>
+<tbody><tr><td>74</td><td>0</td><td>72</td><td></td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Active Directory Groups" style="color: #ffffff;">Active Directory Groups
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Active Directory Groups" style="color: #ffffff;">Active Directory Groups
 </a>
-<a id="show_1323073035" href="#" onclick="show('1323073035');" style="color: #ffffff; display:none">(Show)
+<a id="show_1625117624" href="javascript:void(0)" onclick="show('1625117624');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1323073035" href="#" onclick="hide('1323073035');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1625117624" href="javascript:void(0)" onclick="hide('1625117624');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1323073035"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="1625117624"><div class="defaultContainer defaultPanelOther collapsable" id="1625117624"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-vqrzblxy" && !$.fn.dataTable.isDataTable("#DT-hxWeqxCF")) {
-                                $('#DT-hxWeqxCF').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-im8zc5dg" && !$.fn.dataTable.isDataTable("#DT-hNBooJTP")) {
+                                $('#DT-hNBooJTP').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1234,57 +1372,57 @@ img {
                         });
                     });            
 </script>
-<table id="DT-hxWeqxCF" class="display compact"><thead><tr><th>Name</th><th>Type</th><th>Members</th><th>Managed By</th><th>E-mail Address</th><th>Protected from Deletion</th><th>Default AD Group</th></tr>
+<div class="defaultPanelOther"><table id="DT-hNBooJTP" class="display compact"><thead><tr><th>Name</th><th>Type</th><th>Members</th><th>Managed By</th><th>E-mail Address</th><th>Protected from Deletion</th><th>Default AD Group</th></tr>
 </thead>
-<tbody><tr><td>Administrators</td><td>Security Group</td><td>Administrator, Enterprise Admins, Domain Admins</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Users</td><td>Security Group</td><td>INTERACTIVE, Authenticated Users, Domain Users</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Guests</td><td>Security Group</td><td>Guest, Domain Guests</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Print Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Backup Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Replicator</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Remote Desktop Users</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Network Configuration Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Performance Monitor Users</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Performance Log Users</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Distributed COM Users</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>IIS_IUSRS</td><td>Security Group</td><td>IUSR</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Cryptographic Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Event Log Readers</td><td>Security Group</td><td>EVO1, EVOWIN</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Certificate Service DCOM Access</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>RDS Remote Access Servers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>RDS Endpoint Servers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>RDS Management Servers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Hyper-V Administrators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Access Control Assistance Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Remote Management Users</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>System Managed Accounts Group</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Storage Replica Administrators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Domain Computers</td><td>Security Group</td><td>Test5, Test4, Test2, TestingDSInstall, EVOWIN, ADFS2019, ADCONNECT, DESKTOP-CQESSGI, EX2016X1, EVO1, DESKTOP-68J4BAT, EX2013X3, EX2013X2, EX2013X1</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Domain Controllers</td><td>Security Group</td><td>AD2, AD1</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Schema Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Enterprise Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Cert Publishers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Domain Admins</td><td>Security Group</td><td>Przemyslaw Klys, GDS-TestGroup3, Administrator, Administrator Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Domain Users</td><td>Security Group</td><td>Skipped Domain Users Membership</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Domain Guests</td><td>Security Group</td><td>Guest</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Group Policy Creator Owners</td><td>Security Group</td><td>Administrator</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>RAS and IAS Servers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Server Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Account Operators</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Pre-Windows 2000 Compatible Access</td><td>Security Group</td><td>Authenticated Users</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Incoming Forest Trust Builders</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Windows Authorization Access Group</td><td>Security Group</td><td>ENTERPRISE DOMAIN CONTROLLERS, Exchange Servers</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Terminal Server License Servers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Allowed RODC Password Replication Group</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Denied RODC Password Replication Group</td><td>Security Group</td><td>Enterprise Admins, Schema Admins, Domain Controllers, Cert Publishers, Read-only Domain Controllers, Group Policy Creator Owners, Domain Admins</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Read-only Domain Controllers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Enterprise Read-only Domain Controllers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Cloneable Domain Controllers</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Protected Users</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Key Admins</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>Enterprise Key Admins</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>DnsAdmins</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
-<tr><td>DnsUpdateProxy</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>True</td></tr>
+<tbody><tr><td>Administrators</td><td>Security Group</td><td>Administrator, Enterprise Admins, Domain Admins</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Users</td><td>Security Group</td><td>INTERACTIVE, Authenticated Users, Domain Users</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Guests</td><td>Security Group</td><td>Guest, Domain Guests</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Print Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Backup Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Replicator</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Remote Desktop Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Network Configuration Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Performance Monitor Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Performance Log Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Distributed COM Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>IIS_IUSRS</td><td>Security Group</td><td>IUSR</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Cryptographic Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Event Log Readers</td><td>Security Group</td><td>EVO1, EVOWIN</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Certificate Service DCOM Access</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>RDS Remote Access Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>RDS Endpoint Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>RDS Management Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Hyper-V Administrators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Access Control Assistance Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Remote Management Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>System Managed Accounts Group</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Storage Replica Administrators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Domain Computers</td><td>Security Group</td><td>Test5, Test4, Test2, TestingDSInstall, EVOWIN, ADFS2019, ADCONNECT, DESKTOP-CQESSGI, EX2016X1, EVO1, DESKTOP-68J4BAT, EX2013X3, EX2013X2, EX2013X1</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Domain Controllers</td><td>Security Group</td><td>AD2, AD1</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Schema Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Enterprise Admins</td><td>Security Group</td><td>Administrator, Przemyslaw Klys</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Cert Publishers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Domain Admins</td><td>Security Group</td><td>Przemyslaw Klys, GDS-TestGroup3, Administrator, Administrator Przemyslaw Klys</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Domain Users</td><td>Security Group</td><td>Skipped Domain Users Membership</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Domain Guests</td><td>Security Group</td><td>Guest</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Group Policy Creator Owners</td><td>Security Group</td><td>Administrator</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>RAS and IAS Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Server Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Account Operators</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Pre-Windows 2000 Compatible Access</td><td>Security Group</td><td>Authenticated Users</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Incoming Forest Trust Builders</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Windows Authorization Access Group</td><td>Security Group</td><td>ENTERPRISE DOMAIN CONTROLLERS, Exchange Servers</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Terminal Server License Servers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Allowed RODC Password Replication Group</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Denied RODC Password Replication Group</td><td>Security Group</td><td>Enterprise Admins, Schema Admins, Domain Controllers, Cert Publishers, Read-only Domain Controllers, Group Policy Creator Owners, Domain Admins</td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Read-only Domain Controllers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Enterprise Read-only Domain Controllers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Cloneable Domain Controllers</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Protected Users</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Key Admins</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>Enterprise Key Admins</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>DnsAdmins</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
+<tr><td>DnsUpdateProxy</td><td>Security Group</td><td></td><td></td><td></td><td>False</td><td>True</td></tr>
 <tr><td>GDS-TestGroup1</td><td>Security Group</td><td>Administrator, Administrator Przemyslaw Klys, Przemyslaw Klys</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr>
 <tr><td>GDS-TestGroup2</td><td>Distribution Group</td><td>Service Task Scheduler, Administrator Przemyslaw Klys, Administrator</td><td>Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr>
 <tr><td>GDS-TestGroup3</td><td>Security Group</td><td></td><td>Przemyslaw Klys</td><td></td><td>False</td><td>False</td></tr>
@@ -1314,17 +1452,19 @@ img {
 </table>
 </div>
 </div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
+</div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Domain Administrators" style="color: #ffffff;">Domain Administrators
 </a>
-<a id="show_842086101" href="#" onclick="show('842086101');" style="color: #ffffff; display:none">(Show)
+<a id="show_1294500678" href="javascript:void(0)" onclick="show('1294500678');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_842086101" href="#" onclick="hide('842086101');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1294500678" href="javascript:void(0)" onclick="hide('1294500678');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="842086101"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="1294500678"><div class="defaultContainer defaultPanelOther collapsable" id="1294500678"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-vqrzblxy" && !$.fn.dataTable.isDataTable("#DT-OidNMWeJ")) {
-                                $('#DT-OidNMWeJ').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-im8zc5dg" && !$.fn.dataTable.isDataTable("#DT-QIpPRNRR")) {
+                                $('#DT-QIpPRNRR').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1367,7 +1507,7 @@ img {
                         });
                     });            
 </script>
-<table id="DT-OidNMWeJ" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
+<div class="defaultPanelOther"><table id="DT-QIpPRNRR" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
 </thead>
 <tbody><tr><td>Administrator</td><td>True</td><td>user</td></tr>
 <tr><td>Administrator Przemyslaw Klys</td><td>True</td><td>user</td></tr>
@@ -1378,17 +1518,19 @@ img {
 </div>
 </div>
 </div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Enterprise Administrators" style="color: #ffffff;">Enterprise Administrators
+</div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Enterprise Administrators" style="color: #ffffff;">Enterprise Administrators
 </a>
-<a id="show_231297888" href="#" onclick="show('231297888');" style="color: #ffffff; display:none">(Show)
+<a id="show_831035921" href="javascript:void(0)" onclick="show('831035921');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_231297888" href="#" onclick="hide('231297888');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_831035921" href="javascript:void(0)" onclick="hide('831035921');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="231297888"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="831035921"><div class="defaultContainer defaultPanelOther collapsable" id="831035921"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-vqrzblxy" && !$.fn.dataTable.isDataTable("#DT-DkdhQDYs")) {
-                                $('#DT-DkdhQDYs').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-im8zc5dg" && !$.fn.dataTable.isDataTable("#DT-WzuOScJT")) {
+                                $('#DT-WzuOScJT').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1431,7 +1573,7 @@ img {
                         });
                     });            
 </script>
-<table id="DT-DkdhQDYs" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
+<div class="defaultPanelOther"><table id="DT-WzuOScJT" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Type</th></tr>
 </thead>
 <tbody><tr><td>Przemyslaw Klys</td><td>True</td><td>user</td></tr>
 <tr><td>Administrator</td><td>True</td><td>user</td></tr>
@@ -1440,157 +1582,36 @@ img {
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Active Directory Groups Chart" style="color: #ffffff;">Active Directory Groups Chart
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Active Directory Groups Chart" style="color: #ffffff;">Active Directory Groups Chart
 </a>
-<a id="show_492224831" href="#" onclick="show('492224831');" style="color: #ffffff; display:none">(Show)
+<a id="show_1696685848" href="javascript:void(0)" onclick="show('1696685848');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_492224831" href="#" onclick="hide('492224831');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1696685848" href="javascript:void(0)" onclick="hide('1696685848');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="492224831"><div class="defaultColumn defaultCard" style="width: calc(100% / 4 - 10px);"><canvas id="Pieim6dh8o1a02z" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Pieim6dh8o1a02z");
-var Pieim6dh8o1a02z = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["Mail-Enabled Security Groups","Security Groups","Distribution Groups"],
-		datasets: [{
-			label: 'Data',
-			data: [0,72,2],
-			backgroundColor: ['rgba(181,105,195,0.7)','rgba(224,102,71,0.7)','rgba(130,98,67,0.7)'],
-			hoverBackgroundColor:  ['rgba(181,105,195,1)','rgba(224,102,71,1)','rgba(130,98,67,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Group Types'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 4 - 10px);"><canvas id="Pie8lt0crebkvha" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Pie8lt0crebkvha");
-var Pie8lt0crebkvha = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["Default Groups","Custom Groups"],
-		datasets: [{
-			label: 'Data',
-			data: [49,25],
-			backgroundColor: ['rgba(102,164,157,0.7)','rgba(96,45,168,0.7)'],
-			hoverBackgroundColor:  ['rgba(102,164,157,1)','rgba(96,45,168,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Custom vs Default Groups'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 4 - 10px);"><canvas id="Piekg267ocj8sfv" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Piekg267ocj8sfv");
-var Piekg267ocj8sfv = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["With Members","No Members"],
-		datasets: [{
-			label: 'Data',
-			data: [26,47],
-			backgroundColor: ['rgba(22,191,224,0.7)','rgba(163,191,92,0.7)'],
-			hoverBackgroundColor:  ['rgba(22,191,224,1)','rgba(163,191,92,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Group Membership'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 4 - 10px);"><canvas id="Pie36wfj9a14k8n" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Pie36wfj9a14k8n");
-var Pie36wfj9a14k8n = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["Protected","Not Protected"],
-		datasets: [{
-			label: 'Data',
-			data: [0,74],
-			backgroundColor: ['rgba(177,77,162,0.7)','rgba(178,1,165,0.7)'],
-			hoverBackgroundColor:  ['rgba(177,77,162,1)','rgba(178,1,165,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Groups Protected from Deletion'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
+<div class="defaultContainerOther" id="1696685848"><div class="defaultContainer defaultPanelOther collapsable" id="1696685848"><div class="defaultPanel defaultCard" style="width: calc(100% / 4 - 10px); ;"></div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 4 - 10px); ;"></div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 4 - 10px); ;"></div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 4 - 10px); ;"></div>
 </div>
 </div>
 </div>
 </div>
-<div id="Tab-6v8ug3fw" class="tabs-content"><h7>Report: 03-16-2019
+<div id="Tab-1ul9mnja" class="tabs-content"><h7>Report: 03-30-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Organizational Units" style="color: #ffffff;">Organizational Units
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Organizational Units" style="color: #ffffff;">Organizational Units
 </a>
-<a id="show_1713779243" href="#" onclick="show('1713779243');" style="color: #ffffff; display:none">(Show)
+<a id="show_1306309514" href="javascript:void(0)" onclick="show('1306309514');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1713779243" href="#" onclick="hide('1713779243');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1306309514" href="javascript:void(0)" onclick="hide('1306309514');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1713779243"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="1306309514"><div class="defaultContainer defaultPanelOther collapsable" id="1306309514"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-6v8ug3fw" && !$.fn.dataTable.isDataTable("#DT-VPHdODEj")) {
-                                $('#DT-VPHdODEj').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-1ul9mnja" && !$.fn.dataTable.isDataTable("#DT-KVjBEotC")) {
+                                $('#DT-KVjBEotC').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1633,7 +1654,7 @@ var Pie36wfj9a14k8n = new Chart(ctx, {
                         });
                     });            
 </script>
-<table id="DT-VPHdODEj" class="display compact"><thead><tr><th>Name</th><th>Linked GPOs</th><th>Modified Date</th><th>Protected from Deletion</th></tr>
+<div class="defaultPanelOther"><table id="DT-KVjBEotC" class="display compact"><thead><tr><th>Name</th><th>Linked GPOs</th><th>Modified Date</th><th>Protected from Deletion</th></tr>
 </thead>
 <tbody><tr><td>Domain Controllers</td><td>DC | Event Log Audit Rules, DC | Event Log Settings, Default Domain Controllers Policy</td><td>20.05.2018 23:20:04</td><td>False</td></tr>
 <tr><td>Production</td><td>None</td><td>27.05.2018 00:16:19</td><td>True</td></tr>
@@ -1650,93 +1671,34 @@ var Pie36wfj9a14k8n = new Chart(ctx, {
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Organizational Units Charts" style="color: #ffffff;">Organizational Units Charts
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Organizational Units Charts" style="color: #ffffff;">Organizational Units Charts
 </a>
-<a id="show_1306045260" href="#" onclick="show('1306045260');" style="color: #ffffff; display:none">(Show)
+<a id="show_74979175" href="javascript:void(0)" onclick="show('74979175');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1306045260" href="#" onclick="hide('1306045260');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_74979175" href="javascript:void(0)" onclick="hide('74979175');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1306045260"><div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><canvas id="Pierxla7mzd963w" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Pierxla7mzd963w");
-var Pierxla7mzd963w = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["OUs with no GPO's linked","OUs with GPO's linked"],
-		datasets: [{
-			label: 'Data',
-			data: [7,4],
-			backgroundColor: ['rgba(98,73,35,0.7)','rgba(99,32,143,0.7)'],
-			hoverBackgroundColor:  ['rgba(98,73,35,1)','rgba(99,32,143,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'OU GPO Links'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><canvas id="Piewteqk1xnhofs" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Piewteqk1xnhofs");
-var Piewteqk1xnhofs = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["Protected","Not Protected"],
-		datasets: [{
-			label: 'Data',
-			data: [8,3],
-			backgroundColor: ['rgba(178,60,18,0.7)','rgba(177,76,159,0.7)'],
-			hoverBackgroundColor:  ['rgba(178,60,18,1)','rgba(177,76,159,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Organizational Units Protected from Deletion'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
+<div class="defaultContainerOther" id="74979175"><div class="defaultContainer defaultPanelOther collapsable" id="74979175"><div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"></div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"></div>
 </div>
 </div>
 </div>
 </div>
-<div id="Tab-u9db2s5m" class="tabs-content"><h7>Report: 03-16-2019
+<div id="Tab-3v0j6x9t" class="tabs-content"><h7>Report: 03-30-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users Overivew" style="color: #ffffff;">Users Overivew
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Users Overivew" style="color: #ffffff;">Users Overivew
 </a>
-<a id="show_223023355" href="#" onclick="show('223023355');" style="color: #ffffff; display:none">(Show)
+<a id="show_677117718" href="javascript:void(0)" onclick="show('677117718');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_223023355" href="#" onclick="hide('223023355');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_677117718" href="javascript:void(0)" onclick="hide('677117718');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="223023355"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="677117718"><div class="defaultContainer defaultPanelOther collapsable" id="677117718"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-u9db2s5m" && !$.fn.dataTable.isDataTable("#DT-EGhznZJI")) {
-                                $('#DT-EGhznZJI').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-3v0j6x9t" && !$.fn.dataTable.isDataTable("#DT-xASIPgnD")) {
+                                $('#DT-xASIPgnD').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1779,24 +1741,26 @@ var Piewteqk1xnhofs = new Chart(ctx, {
                         });
                     });            
 </script>
-<table id="DT-EGhznZJI" class="display compact"><thead><tr><th>Total Users</th><th>Users with Passwords Expiring in less than 7 days</th><th>Expiring Accounts</th><th>Users Haven't Logged on in 30 Days or more</th></tr>
+<div class="defaultPanelOther"><table id="DT-xASIPgnD" class="display compact"><thead><tr><th>Total Users</th><th>Users with Passwords Expiring in less than 7 days</th><th>Expiring Accounts</th><th>Users Haven't Logged on in 30 Days or more</th></tr>
 </thead>
-<tbody><tr><td>48</td><td>4</td><td>0</td><td>0</td></tr>
+<tbody><tr><td>48</td><td>3</td><td>0</td><td>0</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Active Directory Users" style="color: #ffffff;">Active Directory Users
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Active Directory Users" style="color: #ffffff;">Active Directory Users
 </a>
-<a id="show_1206673280" href="#" onclick="show('1206673280');" style="color: #ffffff; display:none">(Show)
+<a id="show_168957578" href="javascript:void(0)" onclick="show('168957578');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1206673280" href="#" onclick="hide('1206673280');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_168957578" href="javascript:void(0)" onclick="hide('168957578');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1206673280"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="168957578"><div class="defaultContainer defaultPanelOther collapsable" id="168957578"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-u9db2s5m" && !$.fn.dataTable.isDataTable("#DT-AmViimNd")) {
-                                $('#DT-AmViimNd').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-3v0j6x9t" && !$.fn.dataTable.isDataTable("#DT-WsRcyPdo")) {
+                                $('#DT-WsRcyPdo').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1839,7 +1803,7 @@ var Piewteqk1xnhofs = new Chart(ctx, {
                         });
                     });            
 </script>
-<table id="DT-AmViimNd" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th><th>Account Expiration</th><th>Change Password Next Logon</th><th>Password Last Set</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
+<div class="defaultPanelOther"><table id="DT-WsRcyPdo" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Email Address</th><th>Account Expiration</th><th>Change Password Next Logon</th><th>Password Last Set</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
 </thead>
 <tbody><tr><td>Administrator</td><td>Administrator@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>Administrator@ad.evotec.xyz</td><td></td><td>False</td><td>19.05.2018 21:08:11</td><td>True</td><td>N/A</td></tr>
 <tr><td>Guest</td><td></td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td></td><td>True</td><td>N/A</td></tr>
@@ -1850,7 +1814,7 @@ var Piewteqk1xnhofs = new Chart(ctx, {
 <tr><td>Service Task Scheduler</td><td>svcTaskScheduler@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td>09.07.2018 18:29:52</td><td>True</td><td>N/A</td></tr>
 <tr><td>Test User Test</td><td>test@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td></td><td>False</td><td>User has never logged on</td></tr>
 <tr><td>New n. New</td><td>new@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>pklys@evotec.pl</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
-<tr><td>EVOTECPL$</td><td></td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>11.03.2019 10:35:09</td><td>False</td><td>36</td></tr>
+<tr><td>EVOTECPL$</td><td></td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>11.03.2019 10:35:09</td><td>False</td><td>23</td></tr>
 <tr><td>Exchange Online-ApplicationAccount</td><td>Exchange_Online-ApplicationAccount@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td></td><td>False</td><td>User has never logged on</td></tr>
 <tr><td>Microsoft Exchange Approval Assistant</td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
 <tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
@@ -1858,7 +1822,7 @@ var Piewteqk1xnhofs = new Chart(ctx, {
 <tr><td>Discovery Search Mailbox</td><td>DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
 <tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
 <tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td></td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
-<tr><td>Special Test User</td><td>SpecialTestUser@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td>01.09.2018 12:00:04</td><td>False</td><td>-154</td></tr>
+<tr><td>Special Test User</td><td>SpecialTestUser@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>28.03.2019 20:36:20</td><td>False</td><td>40</td></tr>
 <tr><td>Expiration Date Test</td><td>expiration@evotec.xyz</td><td>False</td><td>False</td><td></td><td>expiration@evotec.xyz</td><td>17.09.2018 00:00:00</td><td>True</td><td></td><td>False</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td>HealthMailboxceaf9714b5e8497aabe5d8c7d390c762@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxceaf9714b5e8497aabe5d8c7d390c762@ad.evotec.xyz</td><td></td><td>False</td><td>22.10.2018 07:54:30</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td>HealthMailbox14193432ba1143fda716adf2892e98c6@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox14193432ba1143fda716adf2892e98c6@ad.evotec.xyz</td><td></td><td>False</td><td>22.10.2018 07:54:37</td><td>True</td><td>N/A</td></tr>
@@ -1871,7 +1835,7 @@ var Piewteqk1xnhofs = new Chart(ctx, {
 <tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td>HealthMailbox751984c8c5c54b849143e72fccb98a27@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox751984c8c5c54b849143e72fccb98a27@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:32</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:46</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td>HealthMailbox603739f5e90b43539922000fece40c6b@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>HealthMailbox603739f5e90b43539922000fece40c6b@ad.evotec.xyz</td><td></td><td>False</td><td>24.08.2018 22:15:57</td><td>True</td><td>N/A</td></tr>
-<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td></td><td>SomeMailbox@ad.evotec.xyz</td><td></td><td>True</td><td>17.09.2018 20:39:50</td><td>False</td><td>-137</td></tr>
+<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td></td><td>SomeMailbox@ad.evotec.xyz</td><td></td><td>True</td><td>17.09.2018 20:39:50</td><td>False</td><td>-151</td></tr>
 <tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td></td><td>False</td><td>08.03.2019 22:54:00</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td></td><td>False</td><td>08.03.2019 22:54:08</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:28:04</td><td>True</td><td>N/A</td></tr>
@@ -1883,34 +1847,36 @@ var Piewteqk1xnhofs = new Chart(ctx, {
 <tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:09</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:20</td><td>True</td><td>N/A</td></tr>
 <tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8@ad.evotec.xyz</td><td></td><td>False</td><td>27.10.2018 10:29:30</td><td>True</td><td>N/A</td></tr>
-<tr><td>My User</td><td>myuserPrincipal@evotec.pl</td><td>True</td><td>False</td><td></td><td>my.user2@evotec.pl</td><td></td><td>True</td><td>03.11.2018 18:05:01</td><td>False</td><td>-90</td></tr>
+<tr><td>My User</td><td>myuserPrincipal@evotec.pl</td><td>True</td><td>False</td><td></td><td>my.user2@evotec.pl</td><td></td><td>True</td><td>03.11.2018 18:05:01</td><td>False</td><td>-104</td></tr>
 <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td>False</td><td></td><td></td><td></td><td>False</td><td>09.11.2018 17:54:07</td><td>True</td><td>N/A</td></tr>
-<tr><td>My User 2</td><td>myUser2@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td>12.11.2018 21:23:59</td><td>False</td><td>-81</td></tr>
-<tr><td>Test Przemyslaw Klys1</td><td>test.przemyslaw.klys@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td>przemyslaw.klys@evotec.xyz</td><td></td><td>True</td><td>07.01.2019 19:20:13</td><td>False</td><td>N/A</td></tr>
+<tr><td>My User 2</td><td>myUser2@ad.evotec.xyz</td><td>True</td><td>False</td><td></td><td></td><td></td><td>True</td><td>12.11.2018 21:23:59</td><td>False</td><td>-95</td></tr>
+<tr><td>Test Przemyslaw Klys1</td><td>test.przemyslaw.klys@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>True</td><td>07.01.2019 19:20:13</td><td>False</td><td>N/A</td></tr>
 <tr><td>Weird Name, with $,.</td><td>myweirdtest@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>False</td><td>11.01.2019 19:51:06</td><td>True</td><td>N/A</td></tr>
 <tr><td>Test My, User</td><td>testmyuser@ad.evotec.xyz</td><td>False</td><td>False</td><td></td><td></td><td></td><td>True</td><td>27.01.2019 13:03:50</td><td>False</td><td>N/A</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Expiring Items" style="color: #ffffff;">Expiring Items
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Expiring Items" style="color: #ffffff;">Expiring Items
 </a>
-<a id="show_277048819" href="#" onclick="show('277048819');" style="color: #ffffff; display:none">(Show)
+<a id="show_1532715205" href="javascript:void(0)" onclick="show('1532715205');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_277048819" href="#" onclick="hide('277048819');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1532715205" href="javascript:void(0)" onclick="hide('1532715205');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="277048819"><div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users with Passwords Expiring in less than 7 days" style="color: #ffffff;">Users with Passwords Expiring in less than 7 days
+<div class="defaultContainerOther" id="1532715205"><div class="defaultContainer defaultPanelOther collapsable" id="1532715205"><div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Users with Passwords Expiring in less than 7 days" style="color: #ffffff;">Users with Passwords Expiring in less than 7 days
 </a>
-<a id="show_70031083" href="#" onclick="show('70031083');" style="color: #ffffff; display:none">(Show)
+<a id="show_408260758" href="javascript:void(0)" onclick="show('408260758');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_70031083" href="#" onclick="hide('70031083');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_408260758" href="javascript:void(0)" onclick="hide('408260758');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="70031083"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="408260758"><div class="defaultContainer defaultPanelOther collapsable" id="408260758"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-u9db2s5m" && !$.fn.dataTable.isDataTable("#DT-bQOncIfA")) {
-                                $('#DT-bQOncIfA').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-3v0j6x9t" && !$.fn.dataTable.isDataTable("#DT-eSMhdfYe")) {
+                                $('#DT-eSMhdfYe').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1953,28 +1919,29 @@ var Piewteqk1xnhofs = new Chart(ctx, {
                         });
                     });            
 </script>
-<table id="DT-bQOncIfA" class="display compact"><thead><tr><th>Name</th><th>Days Until Password Expires</th></tr>
+<div class="defaultPanelOther"><table id="DT-eSMhdfYe" class="display compact"><thead><tr><th>Name</th><th>Days Until Password Expires</th></tr>
 </thead>
-<tbody><tr><td>Special Test User</td><td>-154</td></tr>
-<tr><td>Some Mailbox</td><td>-137</td></tr>
-<tr><td>My User</td><td>-90</td></tr>
-<tr><td>My User 2</td><td>-81</td></tr>
+<tbody><tr><td>Some Mailbox</td><td>-151</td></tr>
+<tr><td>My User</td><td>-104</td></tr>
+<tr><td>My User 2</td><td>-95</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts Expiring Soon" style="color: #ffffff;">Accounts Expiring Soon
+</div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Accounts Expiring Soon" style="color: #ffffff;">Accounts Expiring Soon
 </a>
-<a id="show_1742915389" href="#" onclick="show('1742915389');" style="color: #ffffff; display:none">(Show)
+<a id="show_2088342075" href="javascript:void(0)" onclick="show('2088342075');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1742915389" href="#" onclick="hide('1742915389');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_2088342075" href="javascript:void(0)" onclick="hide('2088342075');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1742915389"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="2088342075"><div class="defaultContainer defaultPanelOther collapsable" id="2088342075"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-u9db2s5m" && !$.fn.dataTable.isDataTable("#DT-wqdpfNGV")) {
-                                $('#DT-wqdpfNGV').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-3v0j6x9t" && !$.fn.dataTable.isDataTable("#DT-sFPnrTsV")) {
+                                $('#DT-sFPnrTsV').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2017,7 +1984,7 @@ var Piewteqk1xnhofs = new Chart(ctx, {
                         });
                     });            
 </script>
-<table id="DT-wqdpfNGV" class="display compact"><thead><tr><th>*</th></tr>
+<div class="defaultPanelOther"><table id="DT-sFPnrTsV" class="display compact"><thead><tr><th>*</th></tr>
 </thead>
 <tbody><tr><td>Information: No Users were found to expire soon</td></tr>
 </tbody>
@@ -2027,24 +1994,27 @@ var Piewteqk1xnhofs = new Chart(ctx, {
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts" style="color: #ffffff;">Accounts
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Accounts" style="color: #ffffff;">Accounts
 </a>
-<a id="show_719237952" href="#" onclick="show('719237952');" style="color: #ffffff; display:none">(Show)
+<a id="show_937635383" href="javascript:void(0)" onclick="show('937635383');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_719237952" href="#" onclick="hide('719237952');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_937635383" href="javascript:void(0)" onclick="hide('937635383');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="719237952"><div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users Haven't Logged on in 30 Days or more" style="color: #ffffff;">Users Haven't Logged on in 30 Days or more
+<div class="defaultContainerOther" id="937635383"><div class="defaultContainer defaultPanelOther collapsable" id="937635383"><div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Users Haven't Logged on in 30 Days or more" style="color: #ffffff;">Users Haven't Logged on in 30 Days or more
 </a>
-<a id="show_1634049355" href="#" onclick="show('1634049355');" style="color: #ffffff; display:none">(Show)
+<a id="show_1649843216" href="javascript:void(0)" onclick="show('1649843216');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1634049355" href="#" onclick="hide('1634049355');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_1649843216" href="javascript:void(0)" onclick="hide('1649843216');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1634049355"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="1649843216"><div class="defaultContainer defaultPanelOther collapsable" id="1649843216"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-u9db2s5m" && !$.fn.dataTable.isDataTable("#DT-wvfNMbHT")) {
-                                $('#DT-wvfNMbHT').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-3v0j6x9t" && !$.fn.dataTable.isDataTable("#DT-DlFAXela")) {
+                                $('#DT-DlFAXela').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2087,26 +2057,28 @@ var Piewteqk1xnhofs = new Chart(ctx, {
                         });
                     });            
 </script>
-<table id="DT-wvfNMbHT" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
+<div class="defaultPanelOther"><table id="DT-DlFAXela" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>Enabled</th><th>Protected from Deletion</th><th>Last Logon</th><th>Password Never Expires</th><th>Days Until Password Expires</th></tr>
 </thead>
 <tbody><tr><td>Administrator Przemyslaw Klys</td><td>adm.pklys@ad.evotec.xyz</td><td>True</td><td>False</td><td>20.05.2018 16:15:39</td><td>True</td><td>N/A</td></tr>
-<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td>17.09.2018 20:40:45</td><td>False</td><td>-137</td></tr>
+<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>True</td><td>False</td><td>17.09.2018 20:40:45</td><td>False</td><td>-151</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Accounts Created in 7 Days or Less" style="color: #ffffff;">Accounts Created in 7 Days or Less
+</div>
+</div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Accounts Created in 7 Days or Less" style="color: #ffffff;">Accounts Created in 7 Days or Less
 </a>
-<a id="show_697555806" href="#" onclick="show('697555806');" style="color: #ffffff; display:none">(Show)
+<a id="show_2000980979" href="javascript:void(0)" onclick="show('2000980979');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_697555806" href="#" onclick="hide('697555806');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_2000980979" href="javascript:void(0)" onclick="hide('2000980979');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="697555806"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="2000980979"><div class="defaultContainer defaultPanelOther collapsable" id="2000980979"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-u9db2s5m" && !$.fn.dataTable.isDataTable("#DT-yDLcAHNj")) {
-                                $('#DT-yDLcAHNj').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-3v0j6x9t" && !$.fn.dataTable.isDataTable("#DT-OEAFdxWR")) {
+                                $('#DT-OEAFdxWR').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2149,7 +2121,7 @@ var Piewteqk1xnhofs = new Chart(ctx, {
                         });
                     });            
 </script>
-<table id="DT-yDLcAHNj" class="display compact"><thead><tr><th>*</th></tr>
+<div class="defaultPanelOther"><table id="DT-OEAFdxWR" class="display compact"><thead><tr><th>*</th></tr>
 </thead>
 <tbody><tr><td>Information: No new users have been recently created</td></tr>
 </tbody>
@@ -2159,125 +2131,36 @@ var Piewteqk1xnhofs = new Chart(ctx, {
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Users Charts" style="color: #ffffff;">Users Charts
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Users Charts" style="color: #ffffff;">Users Charts
 </a>
-<a id="show_1574628634" href="#" onclick="show('1574628634');" style="color: #ffffff; display:none">(Show)
+<a id="show_416056965" href="javascript:void(0)" onclick="show('416056965');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1574628634" href="#" onclick="hide('1574628634');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_416056965" href="javascript:void(0)" onclick="hide('416056965');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1574628634"><div class="defaultColumn defaultCard" style="width: calc(100% / 3 - 10px);"><canvas id="Pie4vm0l27w5tiu" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Pie4vm0l27w5tiu");
-var Pie4vm0l27w5tiu = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["Enabled","Disabled"],
-		datasets: [{
-			label: 'Data',
-			data: [22,26],
-			backgroundColor: ['rgba(119,120,156,0.7)','rgba(126,90,77,0.7)'],
-			hoverBackgroundColor:  ['rgba(119,120,156,1)','rgba(126,90,77,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Enabled vs Disabled Users'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 3 - 10px);"><canvas id="Piet398i01lfnmw" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Piet398i01lfnmw");
-var Piet398i01lfnmw = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["Password Expires","Password Never Expires"],
-		datasets: [{
-			label: 'Data',
-			data: [18,30],
-			backgroundColor: ['rgba(86,146,193,0.7)','rgba(147,154,43,0.7)'],
-			hoverBackgroundColor:  ['rgba(86,146,193,1)','rgba(147,154,43,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Password Expiration'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 3 - 10px);"><canvas id="Piekbhn6yr8wfm2" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Piekbhn6yr8wfm2");
-var Piekbhn6yr8wfm2 = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["Protected","Not Protected"],
-		datasets: [{
-			label: 'Data',
-			data: [0,48],
-			backgroundColor: ['rgba(93,160,130,0.7)','rgba(98,115,225,0.7)'],
-			hoverBackgroundColor:  ['rgba(93,160,130,1)','rgba(98,115,225,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Users Protected from Deletion'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
+<div class="defaultContainerOther" id="416056965"><div class="defaultContainer defaultPanelOther collapsable" id="416056965"><div class="defaultPanel defaultCard" style="width: calc(100% / 3 - 10px); ;"></div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 3 - 10px); ;"></div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 3 - 10px); ;"></div>
 </div>
 </div>
 </div>
 </div>
-<div id="Tab-ylcav529" class="tabs-content"><h7>Report: 03-16-2019
+<div id="Tab-d2txymj0" class="tabs-content"><h7>Report: 03-30-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Group Policies" style="color: #ffffff;">Group Policies
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Group Policies" style="color: #ffffff;">Group Policies
 </a>
-<a id="show_476410452" href="#" onclick="show('476410452');" style="color: #ffffff; display:none">(Show)
+<a id="show_706126414" href="javascript:void(0)" onclick="show('706126414');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_476410452" href="#" onclick="hide('476410452');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_706126414" href="javascript:void(0)" onclick="hide('706126414');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="476410452"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="706126414"><div class="defaultContainer defaultPanelOther collapsable" id="706126414"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-ylcav529" && !$.fn.dataTable.isDataTable("#DT-YiDYZvYr")) {
-                                $('#DT-YiDYZvYr').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-d2txymj0" && !$.fn.dataTable.isDataTable("#DT-zNYoXhqx")) {
+                                $('#DT-zNYoXhqx').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2320,7 +2203,7 @@ var Piekbhn6yr8wfm2 = new Chart(ctx, {
                         });
                     });            
 </script>
-<table id="DT-YiDYZvYr" class="display compact"><thead><tr><th>Name</th><th>Status</th><th>Modified Date</th><th>User Version</th><th>Computer Version</th></tr>
+<div class="defaultPanelOther"><table id="DT-zNYoXhqx" class="display compact"><thead><tr><th>Name</th><th>Status</th><th>Modified Date</th><th>User Version</th><th>Computer Version</th></tr>
 </thead>
 <tbody><tr><td>ALL | Enable RDP</td><td>AllSettingsEnabled</td><td>07.08.2018 11:47:44</td><td>1</td><td>1</td></tr>
 <tr><td>ALL | PowerShell Settings</td><td>AllSettingsEnabled</td><td>16.06.2018 11:21:08</td><td>1</td><td>1</td></tr>
@@ -2339,19 +2222,21 @@ var Piekbhn6yr8wfm2 = new Chart(ctx, {
 </div>
 </div>
 </div>
-<div id="Tab-m37go84x" class="tabs-content"><h7>Report: 03-16-2019
+</div>
+</div>
+<div id="Tab-7gtp41ze" class="tabs-content"><h7>Report: 03-30-2019
 </h7>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Computers Overivew" style="color: #ffffff;">Computers Overivew
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Computers Overivew" style="color: #ffffff;">Computers Overivew
 </a>
-<a id="show_1901651253" href="#" onclick="show('1901651253');" style="color: #ffffff; display:none">(Show)
+<a id="show_4470438" href="javascript:void(0)" onclick="show('4470438');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1901651253" href="#" onclick="hide('1901651253');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_4470438" href="javascript:void(0)" onclick="hide('4470438');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1901651253"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="4470438"><div class="defaultContainer defaultPanelOther collapsable" id="4470438"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-m37go84x" && !$.fn.dataTable.isDataTable("#DT-ffGDvMHX")) {
-                                $('#DT-ffGDvMHX').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-7gtp41ze" && !$.fn.dataTable.isDataTable("#DT-KuLxiKup")) {
+                                $('#DT-KuLxiKup').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2394,24 +2279,26 @@ var Piekbhn6yr8wfm2 = new Chart(ctx, {
                         });
                     });            
 </script>
-<table id="DT-ffGDvMHX" class="display compact"><thead><tr><th>Windows 10</th><th>Windows Server 2012 R2</th><th>Windows Server 2016</th><th>Windows Server 2019</th><th>Total Computers</th></tr>
+<div class="defaultPanelOther"><table id="DT-KuLxiKup" class="display compact"><thead><tr><th>Windows 10</th><th>Windows Server 2012 R2</th><th>Windows Server 2016</th><th>Windows Server 2019</th><th>Total Computers</th></tr>
 </thead>
 <tbody><tr><td>4</td><td>1</td><td>6</td><td>1</td><td>16</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Computers" style="color: #ffffff;">Computers
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Computers" style="color: #ffffff;">Computers
 </a>
-<a id="show_838808237" href="#" onclick="show('838808237');" style="color: #ffffff; display:none">(Show)
+<a id="show_344843423" href="javascript:void(0)" onclick="show('344843423');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_838808237" href="#" onclick="hide('838808237');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_344843423" href="javascript:void(0)" onclick="hide('344843423');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="838808237"><script>                    $(document).ready(function() {
+<div class="defaultContainerOther" id="344843423"><div class="defaultContainer defaultPanelOther collapsable" id="344843423"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-m37go84x" && !$.fn.dataTable.isDataTable("#DT-dEleDaQE")) {
-                                $('#DT-dEleDaQE').DataTable({
+                            if ($(event.currentTarget).attr("data-id") == "Tab-7gtp41ze" && !$.fn.dataTable.isDataTable("#DT-vubOaqgr")) {
+                                $('#DT-vubOaqgr').DataTable({
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -2454,14 +2341,14 @@ var Piekbhn6yr8wfm2 = new Chart(ctx, {
                         });
                     });            
 </script>
-<table id="DT-dEleDaQE" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr>
+<div class="defaultPanelOther"><table id="DT-vubOaqgr" class="display compact"><thead><tr><th>Name</th><th>Enabled</th><th>Operating System</th><th>Modified Date</th><th>Password Last Set</th><th>Protect from Deletion</th></tr>
 </thead>
-<tbody><tr><td>AD1</td><td>True</td><td>Windows Server 2016 Standard</td><td>12.03.2019 16:12:10</td><td>19.02.2019 15:44:39</td><td>False</td></tr>
+<tbody><tr><td>AD1</td><td>True</td><td>Windows Server 2016 Standard</td><td>22.03.2019 17:57:48</td><td>21.03.2019 16:43:35</td><td>False</td></tr>
 <tr><td>EVO1</td><td>True</td><td>Windows 10 Enterprise</td><td>02.03.2019 07:44:03</td><td>19.02.2019 01:27:49</td><td>False</td></tr>
-<tr><td>AD2</td><td>True</td><td>Windows Server 2016 Standard</td><td>08.03.2019 22:37:22</td><td>16.02.2019 18:16:49</td><td>False</td></tr>
+<tr><td>AD2</td><td>True</td><td>Windows Server 2016 Standard</td><td>28.03.2019 22:54:57</td><td>19.03.2019 09:34:32</td><td>False</td></tr>
 <tr><td>EX2016X1</td><td>True</td><td>Windows Server 2016 Standard</td><td>09.09.2018 11:41:14</td><td>07.06.2018 21:28:39</td><td>False</td></tr>
-<tr><td>DESKTOP-CQESSGI</td><td>True</td><td>Windows 10 Pro</td><td>11.03.2019 20:39:02</td><td>17.02.2019 01:56:28</td><td>False</td></tr>
-<tr><td>DESKTOP-68J4BAT</td><td>True</td><td>Windows 10 Pro N</td><td>12.03.2019 08:15:14</td><td>02.03.2019 00:14:25</td><td>False</td></tr>
+<tr><td>DESKTOP-CQESSGI</td><td>True</td><td>Windows 10 Pro</td><td>21.03.2019 23:47:22</td><td>19.03.2019 09:34:30</td><td>False</td></tr>
+<tr><td>DESKTOP-68J4BAT</td><td>True</td><td>Windows 10 Pro N</td><td>22.03.2019 08:34:47</td><td>02.03.2019 00:14:25</td><td>False</td></tr>
 <tr><td>EX2013X1</td><td>True</td><td>Windows Server 2016 Standard</td><td>20.11.2018 15:49:15</td><td>20.11.2018 15:49:15</td><td>False</td></tr>
 <tr><td>EX2013X2</td><td>True</td><td>Windows Server 2016 Standard</td><td>26.08.2018 09:46:38</td><td>07.08.2018 17:10:18</td><td>False</td></tr>
 <tr><td>EX2013X3</td><td>True</td><td>Windows Server 2012 R2 Standard Evaluation</td><td>08.03.2019 22:37:32</td><td>24.11.2018 08:23:36</td><td>False</td></tr>
@@ -2469,124 +2356,35 @@ var Piekbhn6yr8wfm2 = new Chart(ctx, {
 <tr><td>Test4</td><td>True</td><td></td><td>15.09.2018 12:53:01</td><td>15.09.2018 12:47:16</td><td>False</td></tr>
 <tr><td>Test5</td><td>False</td><td></td><td>02.10.2018 20:15:00</td><td>02.10.2018 20:15:00</td><td>False</td></tr>
 <tr><td>TestingDSInstall</td><td>True</td><td></td><td>01.10.2018 13:38:49</td><td>01.10.2018 13:38:49</td><td>False</td></tr>
-<tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>02.03.2019 02:23:57</td><td>20.02.2019 15:49:57</td><td>False</td></tr>
+<tr><td>ADCONNECT</td><td>True</td><td>Windows Server 2016 Standard</td><td>23.03.2019 06:58:57</td><td>23.03.2019 06:58:57</td><td>False</td></tr>
 <tr><td>ADFS2019</td><td>True</td><td>Windows Server 2019 Standard Evaluation</td><td>30.01.2019 10:10:44</td><td>30.01.2019 10:09:30</td><td>False</td></tr>
-<tr><td>EVOWIN</td><td>True</td><td>Windows 10 Enterprise</td><td>10.03.2019 09:55:54</td><td>09.03.2019 10:28:36</td><td>False</td></tr>
+<tr><td>EVOWIN</td><td>True</td><td>Windows 10 Enterprise</td><td>26.03.2019 23:44:32</td><td>26.03.2019 23:44:17</td><td>False</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Computers Charts" style="color: #ffffff;">Computers Charts
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Computers Charts" style="color: #ffffff;">Computers Charts
 </a>
-<a id="show_1061442348" href="#" onclick="show('1061442348');" style="color: #ffffff; display:none">(Show)
+<a id="show_227292853" href="javascript:void(0)" onclick="show('227292853');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1061442348" href="#" onclick="hide('1061442348');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_227292853" href="javascript:void(0)" onclick="hide('227292853');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1061442348"><div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><canvas id="Pieotlmusp4cjh1" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Pieotlmusp4cjh1");
-var Pieotlmusp4cjh1 = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["Protected","Not Protected"],
-		datasets: [{
-			label: 'Data',
-			data: [,16],
-			backgroundColor: ['rgba(238,99,135,0.7)','rgba(194,92,93,0.7)'],
-			hoverBackgroundColor:  ['rgba(238,99,135,1)','rgba(194,92,93,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Computers Protected from Deletion'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
-</div>
-<div class="defaultColumn defaultCard" style="width: calc(100% / 2 - 10px);"><canvas id="Pietnxo2zdpa450" width="250" height="250"></canvas>
-<script>
-var ctx = document.getElementById("Pietnxo2zdpa450");
-var Pietnxo2zdpa450 = new Chart(ctx, {
-	type: 'doughnut',
-	data:	{
-		labels: ["Enabled","Disabled"],
-		datasets: [{
-			label: 'Data',
-			data: [15,1],
-			backgroundColor: ['rgba(239,114,112,0.7)','rgba(9,116,4,0.7)'],
-			hoverBackgroundColor:  ['rgba(239,114,112,1)','rgba(9,116,4,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Computers Enabled vs Disabled'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
+<div class="defaultContainerOther" id="227292853"><div class="defaultContainer defaultPanelOther collapsable" id="227292853"><div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"></div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 2 - 10px); ;"></div>
 </div>
 </div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align: center;"><a name="Computers Operating System Breakdown" style="color: #ffffff;">Computers Operating System Breakdown
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Computers Operating System Breakdown" style="color: #ffffff;">Computers Operating System Breakdown
 </a>
-<a id="show_1834951279" href="#" onclick="show('1834951279');" style="color: #ffffff; display:none">(Show)
+<a id="show_2106545095" href="javascript:void(0)" onclick="show('2106545095');" style="color: #ffffff; display:none;">(Show)
 </a>
-<a id="hide_1834951279" href="#" onclick="hide('1834951279');" style="color: #ffffff; display:none;">(Hide)
+<a id="hide_2106545095" href="javascript:void(0)" onclick="hide('2106545095');" style="color: #ffffff; display:none;">(Hide)
 </a>
 </div>
-<div class="collapsable" id="1834951279"><canvas id="Piefy9tw4gbno0k" width="500" height="400"></canvas>
-<script>
-var ctx = document.getElementById("Piefy9tw4gbno0k");
-var Piefy9tw4gbno0k = new Chart(ctx, {
-	type: 'pie',
-	data:	{
-		labels: ["Windows 10","Windows Server 2012 R2","Windows Server 2016","Windows Server 2019"],
-		datasets: [{
-			label: 'Data',
-			data: [4,1,6,1],
-			backgroundColor: ['rgba(103,170,92,0.7)','rgba(105,180,114,0.7)','rgba(200,181,164,0.7)','rgba(65,178,252,0.7)'],
-			hoverBackgroundColor:  ['rgba(103,170,92,1)','rgba(105,180,114,1)','rgba(200,181,164,1)','rgba(65,178,252,1)'],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		responsive: false,
-		legend: {
-                position: 'bottom',
-            },
-		title: {
-				display: true,
-				text: 'Computer Operating Systems'
-			},
-	},
-	animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-});	
- </script>
+<div class="defaultContainerOther" id="2106545095"><div class="defaultContainer defaultPanelOther collapsable" id="2106545095"></div>
 </div>
 </div>
 </div>
@@ -2597,39 +2395,37 @@ var Piefy9tw4gbno0k = new Chart(ctx, {
 
 
 
-
 <!-- JS Elastic Tabs START -->
 <script type="text/javascript">var maxWidth = 0;
 var $element;
-$(".tabs a").each(function () {
-    $element = $(this);
-    if ($element.width() > maxWidth) {
-        maxWidth = $element.width();
-    }
-});
+//$(".tabs a").each(function(){
+//   $element = $(this);
+//   if($element.width() > maxWidth){
+//     maxWidth = $element.width();
+//  }
+//});
 
-// Get on Resize function
-$(window).on('resize', function () {
+$(window).on("resize", function() {
     $(".selector").hide();
     var activeItem = $(".tabs a[class*='active']");
     var id = activeItem.data("id");
     setSelectorPosition(id);
 });
 
-$(".tabs a").each(function () {
-    $(this).width(maxWidth);
-});
+//$(".tabs a").each(function(){
+//$(this).width(maxWidth);
+
+//});
 
 // Set first active link
 var activeItem = $(".tabs a[class*='active']");
 var id = activeItem.data("id");
 setSelectorPosition(id);
 
-// Get on click function
-$(".tabs").on("click", "a", function (e) {
+$(".tabs").on("click", "a", function(e) {
     e.preventDefault();
-    $('.tabs a').removeClass("active");
-    $(this).addClass('active');
+    $(".tabs a").removeClass("active");
+    $(this).addClass("active");
 
     // Get id of link clicked
     var id = $(this).data("id");
@@ -2638,21 +2434,21 @@ $(".tabs").on("click", "a", function (e) {
     setSelectorPosition(id);
 
     // Hide all tabs
-    $('.tabs-content').hide();
+    $(".tabs-content").hide();
 
     // Show current tab
-    $('#' + id).show();
+    $("#" + id).show();
 });
 
 function setSelectorPosition(id) {
-    var activeItem = $(".tabs").find("[data-id=" + id + "]");
+    var activeItem = $(".tabs").find("[data-id='" + id + "']");
     var activeWidth = activeItem.innerWidth();
     var itemPos = activeItem.position();
     $(".selector").css({
-        "left": itemPos.left + "px",
-        "top": itemPos.top + "px",
-        "width": activeItem.innerWidth() + "px",
-        "height": activeItem.innerHeight() + "px"
+        left: itemPos.left + "px",
+        top: itemPos.top + "px",
+        width: activeItem.innerWidth() + "px",
+        height: activeItem.innerHeight() + "px"
     });
     $(".selector").show();
 }
