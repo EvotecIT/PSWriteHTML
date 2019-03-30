@@ -12,7 +12,8 @@ Function New-HTML {
 
         # save HTML options
         [Parameter(Mandatory = $false)][string]$FilePath,
-        [Parameter(Mandatory = $false)][switch]$ShowHTML
+        [Parameter(Mandatory = $false)][switch]$ShowHTML,
+        [int] $AutoRefresh
     )
 
     [string] $CurrentDate = (Get-Date).ToString($DateFormat)
@@ -50,6 +51,9 @@ Function New-HTML {
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -SelfClosing
                 New-HTMLTag -Tag 'title' { $TitleText }
+                if ($Autorefresh -gt 0) {
+                    New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = $Autorefresh } -SelfClosing
+                }
 
                 Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome
                 Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings
