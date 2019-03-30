@@ -51,11 +51,6 @@ div.pageTitle {
     height: 2em;
 }
 
-div.ReportCreated {
-    text-align: right;
-    padding-right: 5em;
-}
-
 div.clientlogo {
     border: 0px;
     vertical-align: middle;
@@ -89,8 +84,6 @@ div.defaultSection {
 }
 
 div.defaultColumn {
-
-
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -224,34 +217,6 @@ a.current {
     color: #000000 !important;
 }
 
-/* Added to make sure plus logo fits in */
-
-td {
-    height: 27px;
-}
-
-/* Button in Table - giving it some colors */
-
-td.sorting_1::before {
-    background: #007bff !important;
-}
-
-td::before {
-    background: #007bff !important;
-}
-
-/* giving some spaces between tables being to close */
-
-div.dataTables_wrapper {
-    padding: 10px 10px 10px 10px;
-}
-
-button.dt-button {
-    color: blue !important;
-    border-radius: 5px;
-    line-height: 1 !important;
-}
-
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -266,7 +231,6 @@ img {
 
 .flex-grid {
     display: flex;
-
 }
 
 .col {
