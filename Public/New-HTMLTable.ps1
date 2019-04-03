@@ -21,7 +21,10 @@ function New-HTMLTable {
         [string[]][ValidateSet('display', 'cell-border', 'compact', 'hover', 'nowrap', 'order-column', 'row-border', 'stripe')] $Style = @('display', 'compact'),
         [switch]$Simplify,
         [string]$TextWhenNoData = 'No data available.',
-        [int] $ScreenSizePercent = 0
+        [int] $ScreenSizePercent = 0,
+        [string] $DefaultSortColumn,
+        [int] $DefaultSortIndex,
+        [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Descending'
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
@@ -40,6 +43,7 @@ function New-HTMLTable {
         [Array] $Table = $DataTable | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
     }
     [string] $Header = $Table | Select-Object -First 1 # this gets header
+    [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
     $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
 
     $Options = [ordered] @{
@@ -86,6 +90,21 @@ function New-HTMLTable {
         "stateSave"      = -not $DisableStateSave
     }
 
+    # Sorting
+    if ($DefaultSortOrder -eq 'Ascending') {
+        $Sort = 'asc'
+    } else {
+        $Sort = 'dsc'
+    }
+    if ($DefaultSortColumn -ne '') {
+        $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($DefaultSortColumn.ToLower())
+        $Options."order" = @( $DefaultSortingNumber , $Sort )
+    }
+    if ($DefaultSortIndex -gt 0 -and $DefaultSortColumn -eq '') {
+        $Options."order" = @( $DefaultSortIndex , $Sort )
+    }
+
+    # Overwriting table size - screen size in percent. With added Section/Panels it shouldn't be more than 90%
     if ($ScreenSizePercent -gt 0) {
         $Options."scrollY" = "$($ScreenSizePercent)vh"
     }
@@ -99,7 +118,7 @@ function New-HTMLTable {
         $Conditional = Invoke-Command -ScriptBlock $ConditionalFormatting
     }
     # Process Conditional Formatting. Ugly JS building
-    $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $Conditional -Header $Header
+    $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $Conditional -Header $HeaderNames
 
 
     [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })

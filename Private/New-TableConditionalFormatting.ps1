@@ -3,12 +3,10 @@ function New-TableConditionalFormatting {
     param(
         [string] $Options,
         [Array] $ConditionalFormatting,
-        [string] $Header
+        [string[]] $Header
     )
 
     if ($ConditionalFormatting.Count -gt 0) {
-        $CleanHeader = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
-
         # Conditional - changes PowerShellOperator into JS operator
         foreach ($Formatting in $ConditionalFormatting) {
             if ($Formatting.Operator -eq 'gt') {
@@ -59,7 +57,7 @@ function New-TableConditionalFormatting {
         $Condition1 = '"createdRow": function (row, data, dataIndex, column) {'
 
         $Condition3 = foreach ($Condition in $ConditionalFormatting) {
-            $ConditionHeaderNr = $CleanHeader.ToLower().IndexOf($($Condition.Name.ToLower()))
+            $ConditionHeaderNr = $Header.ToLower().IndexOf($($Condition.Name.ToLower()))
             # reset to defaults
             [string] $ColorJSDefinition = ''
             [string] $ColorBackgroundJSDefinition = ''
