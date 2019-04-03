@@ -23,7 +23,7 @@ function New-HTMLTable {
         [string]$TextWhenNoData = 'No data available.',
         [int] $ScreenSizePercent = 0,
         [string] $DefaultSortColumn,
-        [int] $DefaultSortIndex,
+        [int] $DefaultSortIndex = -1,
         [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending'
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
@@ -102,14 +102,14 @@ function New-HTMLTable {
 
         # there seems to be a bug in ordering and colReorder plugin
         # Disabling colReorder
-       # $Options.colReorder = $false
+        $Options.colReorder = $false
     }
-    if ($DefaultSortIndex -gt 0 -and $DefaultSortColumn -eq '') {
+    if ($DefaultSortIndex -gt -1 -and $DefaultSortColumn -eq '') {
         $Options."order" = @( $DefaultSortIndex , $Sort )
 
         # there seems to be a bug in ordering and colReorder plugin
         # Disabling colReorder
-       # $Options.colReorder = $false
+        $Options.colReorder = $false
     }
 
     # Overwriting table size - screen size in percent. With added Section/Panels it shouldn't be more than 90%
