@@ -1,470 +1,3627 @@
 <!DOCTYPE html>
-<html><!-- HEADER -->
-<head><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta name="author"/>
-<meta content="2019-03-29 21:30:47" name="revised"/>
-<title>My title
-</title>
-<!-- CSS Default fonts START -->
-<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
-<!-- CSS Default fonts END -->
-<!-- CSS Default fonts icons START -->
-<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
-<!-- CSS Default fonts icons END -->
-<!-- CSS Always Required Default Visual Settings START -->
-<style type="text/css">body {
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-    margin: 8px 10px 8px 10px;
-}
+<html>
+<!-- HEADER -->
 
-hr {
-    height: 4px;
-    /*
-    background-color: #007bff;
-    */
-    background-color: #6Cf;
-    border: 0px;
-    width: 100%;
-}
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="author" />
+    <meta content="2019-04-03 07:58:11" name="revised" />
+    <title>My title
+    </title>
+    <!-- CSS Default fonts START -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css"
+        rel="stylesheet" />
+    <!-- CSS Default fonts END -->
+    <!-- CSS Default fonts icons START -->
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet" />
+    <!-- CSS Default fonts icons END -->
+    <!-- CSS Always Required Default Visual Settings START -->
+    <style type="text/css">
+        body {
+            font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+            font-size: 8pt;
+        }
 
-table {
-    table-layout: auto;
-    width: 100%;
-    border-collapse: collapse;
-}
+        hr {
+            height: 4px;
+            background-color: #6Cf;
+            border: 0px;
+            width: 100%;
+        }
 
-th {
-    vertical-align: top;
-    text-align: left;
-    padding: 2px 5px 2px 5px;
-}
+        table {
+            table-layout: auto;
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-td {
-    vertical-align: top;
-    padding: 2px 5px 2px 5px;
-    border-top: 1px solid #bbbbbb;
-    height: 16px;
-    vertical-align: middle;
-}
+        th {
+            vertical-align: top;
+            text-align: left;
+            padding: 2px 5px 2px 5px;
+        }
 
-tr.totalrow {
-    border-top: thick double;
-}
+        td {
+            vertical-align: top;
+            padding: 2px 5px 2px 5px;
+            border-top: 1px solid #bbbbbb;
+            height: 16px;
+            vertical-align: middle;
+        }
 
-td.totalrow {
-    vertical-align: Bottom;
-    text-align: left;
-    font-size: 8pt;
-    font-weight: bold;
-    padding: 2px 5px 2px 5px;
-}
+        tr.totalrow {
+            border-top: thick double;
+        }
 
-div.pageTitle {
-    font-size: 14pt;
-    font-weight: bold;
-    width: 100%;
-    display: block;
-    padding: 4px 1em 0px 2px;
-    height: 2em;
-}
+        td.totalrow {
+            vertical-align: Bottom;
+            text-align: left;
+            font-size: 8pt;
+            font-weight: bold;
+            padding: 2px 5px 2px 5px;
+        }
 
-div.ReportCreated {
-    text-align: right;
-    padding-right: 5em;
-}
+        div.pageTitle {
+            font-size: 14pt;
+            font-weight: bold;
+            width: 100%;
+            display: block;
+            padding: 4px 1em 0px 2px;
+            height: 2em;
+        }
 
-div.clientlogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: left;
-    display: inline-block;
-    width: 50%;
-}
+        div.clientlogo {
+            border: 0px;
+            vertical-align: middle;
+            text-align: left;
+            display: inline-block;
+            width: 50%;
+        }
 
-div.MainLogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: right;
-    display: inline-block;
-    width: 50%;
-}
+        div.MainLogo {
+            border: 0px;
+            vertical-align: middle;
+            text-align: right;
+            display: inline-block;
+            width: 50%;
+        }
 
-.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
+        .central {
+            margin: 10px auto;
+            width: 100%;
+            max-width: 900px;
+        }
 
-div.defaultSection {
-    border: 1px solid #bbbbbb;
-    padding-bottom: 0px;
-    /* display: inline-block; */
-    margin: 5px;
-    width: calc(100% - 10px);
-    overflow: hidden;
-    /* NEW */
-    overflow-x: hidden;
-    overflow-y: hidden;
+        div.defaultSection {
+            border: 1px solid #bbbbbb;
+            padding-bottom: 0px;
+            margin: 5px;
+            width: calc(100% - 10px);
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
 
-    /*
-      box-sizing: border-box;
-    float: left;
-    */
-}
+        div.defaultColumn {
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            padding: 2px;
+        }
 
-div.defaultColumn {
+        .defaultContainer {
+            display: flex;
+            justify-content: space-between;
+            padding: 2px;
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
 
+        .defaultContainerOther {
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
 
-    overflow: hidden;
-    /* 
-     float: left;
-    box-sizing: border-box;
-    */
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding: 2px;
-}
+        .defaultPanelOther {
+            flex-basis: 100%;
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
 
-.defaultContainer {
-    display: flex;
-    justify-content: space-between;
-    padding: 2px;
-    border: 1px solid #ddd;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
+        .defaultPanel {
+            flex-basis: 100%;
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
 
-.defaultContainerOther {
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
+        .defaultCard {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            border-radius: 5px;
+            margin: 5px;
+        }
 
-.defaultPanelOther {
-    flex-basis: 100%;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
+        div.defaultHeader {
+            padding: 5px;
+            margin: 0px 0px 0px 0px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #6Cf;
+        }
 
-.defaultPanel {
-    flex-basis: 100%;
-    /* padding: 5px; */
+        div.defaultFooter {
+            padding-right: 5em;
+            text-align: right;
+        }
 
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
+        td.clientlogo {
+            border: 0px;
+            padding-left: 0px;
+            vertical-align: middle;
+        }
 
-.defaultCard {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    /* width: 40%; */
-    border-radius: 5px;
-    margin: 5px;
-}
+        td.MainLogo {
+            border: 0px;
+            padding-right: 5em;
+            text-align: right;
+            vertical-align: middle;
+        }
 
-div.defaultHeader {
-    padding: 5px;
-    margin: 0px 0px 0px 0px;
-    font-weight: bold;
-    color: #ffffff;
-    /* background-color: #007bff; */
-    background-color: #6Cf;
-}
+        th.content {
+            border-top: 1px solid #bbbbbb;
+            width: 25%;
+        }
 
-div.defaultFooter {
-    padding-right: 5em;
-    text-align: right;
-}
+        td.content {
+            width: 75%;
+        }
 
-td.clientlogo {
-    border: 0px;
-    padding-left: 0px;
-    vertical-align: middle;
-}
+        td.groupby {
+            border-top: 3px double #bbbbbb;
+        }
 
-td.MainLogo {
-    border: 0px;
-    padding-right: 5em;
-    text-align: right;
-    vertical-align: middle;
-}
+        .header {
+            background-color: #616a6b;
+            color: #f7f9f9;
+        }
 
-th.content {
-    border-top: 1px solid #bbbbbb;
-    width: 25%;
-}
+        a.alink:link {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 120%;
+        }
 
-td.content {
-    width: 75%;
-}
+        a.alink:visited {
+            color: #ff8400;
+            text-decoration: none;
+            font-size: 120%;
+        }
 
-td.groupby {
-    border-top: 3px double #bbbbbb;
-}
+        a.alink:hover {
+            text-decoration: underline;
+            font-size: 130%;
+        }
 
-.header {
-    background-color: #616a6b;
-    color: #f7f9f9;
-}
+        table.sortable {
+            width: calc(100% - 10px);
+            margin: 5px;
+            box-sizing: border-box;
+            border-collapse: collapse;
+            display: inline-block;
+            overflow-x: auto;
+            overflow-y: auto;
+        }
 
-a.alink:link {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 120%;
-}
+        table.sortable thead {
+            background-color: #eee;
+            color: #666666;
+            font-weight: bold;
+            cursor: default;
+        }
 
-a.alink:visited {
-    color: #ff8400;
-    text-decoration: none;
-    font-size: 120%;
-}
+        /* Adding CSS */
 
-a.alink:hover {
-    text-decoration: underline;
-    font-size: 130%;
-}
+        a.paginate_button {
+            color: #000000 !important;
+            font-size: 10px;
+        }
 
-table.sortable {
-    width: calc(100% - 10px);
-    margin: 5px;
-    box-sizing: border-box;
-    border-collapse: collapse;
-    display: inline-block;
-    overflow-x: auto;
-    overflow-y: auto;
-}
+        a.current {
+            color: #000000 !important;
+        }
 
-table.sortable thead {
-    background-color: #eee;
-    color: #666666;
-    font-weight: bold;
-    cursor: default;
-}
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
 
-/* Adding CSS */
+        img {
+            border-radius: 5px 5px 0 0;
+        }
 
-a.paginate_button {
-    color: #000000 !important;
-    font-size: 10px;
-}
+        .container {
+            padding: 2px 16px;
+        }
 
-a.current {
-    color: #000000 !important;
-}
+        .flex-grid {
+            display: flex;
+        }
 
-/* Added to make sure plus logo fits in */
+        .col {
+            padding: 20px;
+            margin: 1%;
+            flex: 1;
+        }
 
-td {
-    height: 27px;
-}
+        .orange {
+            background-color: #f39c12;
+        }
 
-/* Button in Table - giving it some colors */
+        .red {
+            background-color: #ff4136;
+        }
 
-td.sorting_1::before {
-    background: #007bff !important;
-}
+        .green {
+            background-color: #2ecc40;
+        }
 
-td::before {
-    background: #007bff !important;
-}
+        div.enlighter-default {
+            flex-basis: 100%;
+            margin: 0 !important;
+        }
+    </style>
+    <!-- CSS Always Required Default Visual Settings END -->
+    <!-- CSS Always Required Default Headings START -->
+    <style type="text/css">
+        h2:after,
+        h3:after,
+        h4:after,
+        h5:after,
+        h6:after {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            border-radius: 2px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+        }
 
-/* giving some spaces between tables being to close */
+        h2:after {
+            background: #0AF;
+        }
 
-div.dataTables_wrapper {
-    padding: 10px 10px 10px 10px;
-}
+        h3:after {
+            background: #3BF;
+        }
 
-button.dt-button {
-    color: blue !important;
-    border-radius: 5px;
-    line-height: 1 !important;
-}
+        h4:after,
+        h5:after,
+        h6:after {
+            background: #6Cf;
+        }
 
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
+        h1.white,
+        h2.white,
+        h3.white,
+        h4.white,
+        h5.white,
+        h6.white {
+            color: white;
+        }
 
-img {
-    border-radius: 5px 5px 0 0;
-}
-
-.container {
-    padding: 2px 16px;
-}
-
-.flex-grid {
-    display: flex;
-    /* flex-wrap: wrap; */
-}
-
-.col {
-    padding: 20px;
-    margin: 1%;
-    flex: 1;
-}
-
-.orange {
-    background-color: #f39c12;
-}
-
-.red {
-    background-color: #ff4136;
-}
-
-.green {
-    background-color: #2ecc40;
-}
-</style>
-<!-- CSS Always Required Default Visual Settings END -->
-<!-- CSS Always Required Default Headings START -->
-<style type="text/css">h2:after,
-h3:after,
-h4:after,
-h5:after,
-h6:after {
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    border-radius: 2px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
-}
-
-h2:after {
-    background: #0AF;
-}
-
-h3:after {
-    background: #3BF;
-}
-
-h4:after,
-h5:after,
-h6:after {
-    background: #6Cf;
-}
-
-h1.white,
-h2.white,
-h3.white,
-h4.white,
-h5.white,
-h6.white {
-    color: white;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Hammersmith One', sans-serif;
-    /*
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Hammersmith One', sans-serif;
+            /*
     font-family: 'Questrial', sans-serif;
     */
-}
+        }
 
-h1 {
-    font-size: 36px;
-    line-height: 40px;
-    margin: 1em 0 .6em 0;
-    font-weight: normal;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-    position: relative;
-    color: #6Cf;
-}
+        h1 {
+            font-size: 36px;
+            line-height: 40px;
+            margin: 1em 0 .6em 0;
+            font-weight: normal;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+            position: relative;
+            color: #6Cf;
+        }
 
-h2 {
-    margin: 1em 0 .6em 0;
-    padding: 0 0 0 20px;
-    font-weight: normal;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-    position: relative;
-    font-size: 30px;
-    line-height: 40px;
-}
+        h2 {
+            margin: 1em 0 .6em 0;
+            padding: 0 0 0 20px;
+            font-weight: normal;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+            position: relative;
+            font-size: 30px;
+            line-height: 40px;
+        }
 
-h3 {
-    margin: 1em 0 .6em 0;
-    padding: 0 0 0 20px;
-    font-weight: normal;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-    position: relative;
-    font-size: 24px;
-    line-height: 40px;
-}
+        h3 {
+            margin: 1em 0 .6em 0;
+            padding: 0 0 0 20px;
+            font-weight: normal;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+            position: relative;
+            font-size: 24px;
+            line-height: 40px;
+        }
 
-h4 {
-    margin: 1em 0 .6em 0;
-    padding: 0 0 0 20px;
-    font-weight: normal;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-    position: relative;
-    font-size: 18px;
-    line-height: 20px;
-}
+        h4 {
+            margin: 1em 0 .6em 0;
+            padding: 0 0 0 20px;
+            font-weight: normal;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+            position: relative;
+            font-size: 18px;
+            line-height: 20px;
+        }
 
-h5 {
-    margin: 1em 0 .6em 0;
-    padding: 0 0 0 20px;
-    font-weight: normal;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-    position: relative;
-    font-size: 14px;
-    line-height: 16px;
-}
+        h5 {
+            margin: 1em 0 .6em 0;
+            padding: 0 0 0 20px;
+            font-weight: normal;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+            position: relative;
+            font-size: 14px;
+            line-height: 16px;
+        }
 
-h6 {
-    margin: 1em 0 .6em 0;
-    padding: 0 0 0 20px;
-    font-weight: normal;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-    position: relative;
-    font-size: 10px;
-    line-height: 12px;
-}
-</style>
-<!-- CSS Always Required Default Headings END -->
+        h6 {
+            margin: 1em 0 .6em 0;
+            padding: 0 0 0 20px;
+            font-weight: normal;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+            position: relative;
+            font-size: 10px;
+            line-height: 12px;
+        }
+    </style>
+    <!-- CSS Always Required Default Headings END -->
 
-<!-- JS Hide Section Code START -->
-<script type="text/javascript">function show(obj) {
-  document.getElementById(obj).style.display='block';
-  document.getElementById("hide_" + obj).style.display='';
-  document.getElementById("show_" + obj).style.display='none';
-}
-function hide(obj) {
-  document.getElementById(obj).style.display='none';
-  document.getElementById("hide_" + obj).style.display='none';
-  document.getElementById("show_" + obj).style.display='';
-}
-</script>
-<!-- JS Hide Section Code END -->
+
+    <!-- JS Hide Section Code START -->
+    <script type="text/javascript">
+        function show(obj) {
+            document.getElementById(obj).style.display = 'block';
+            document.getElementById("hide_" + obj).style.display = '';
+            document.getElementById("show_" + obj).style.display = 'none';
+        }
+
+        function hide(obj) {
+            document.getElementById(obj).style.display = 'none';
+            document.getElementById("hide_" + obj).style.display = 'none';
+            document.getElementById("show_" + obj).style.display = '';
+        }
+    </script>
+    <!-- JS Hide Section Code END -->
+    <!-- JS Apex Charts START -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script>
+    <!-- JS Apex Charts END -->
 </head>
 <!-- END HEADER -->
 <!-- BODY -->
-<body><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="-1 section" style="color: #ffffff;">-1 section
-</a>
-<a id="show_1189168745" href="javascript:void(0)" onclick="show('1189168745');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_1189168745" href="javascript:void(0)" onclick="hide('1189168745');" style="color: #ffffff;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="1189168745"><div class="defaultContainer defaultPanelOther collapsable" id="1189168745"></div>
-</div>
-</div>
+
+<body>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Bar Charts" style="color: #ffffff;">Bar Charts
+            </a>
+            <a id="show_194032780" href="javascript:void(0)" onclick="show('194032780');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_194032780" href="javascript:void(0)" onclick="hide('194032780');" style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="194032780">
+            <div class="defaultContainer defaultPanelOther collapsable" id="194032780">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-6vm83bzl"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-o82ak9cl"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Bar Charts 1" style="color: #ffffff;">Bar Charts
+                1
+            </a>
+            <a id="show_2023379058" href="javascript:void(0)" onclick="show('2023379058');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_2023379058" href="javascript:void(0)" onclick="hide('2023379058');"
+                style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="2023379058">
+            <div class="defaultContainer defaultPanelOther collapsable" id="2023379058">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-07jyeh8f"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-7lm1g5ep"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Bar Charts 2" style="color: #ffffff;">Bar Charts
+                2
+            </a>
+            <a id="show_819842180" href="javascript:void(0)" onclick="show('819842180');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_819842180" href="javascript:void(0)" onclick="hide('819842180');" style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="819842180">
+            <div class="defaultContainer defaultPanelOther collapsable" id="819842180">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-84bewydn"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-xrv5sd96"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Bar Charts 3" style="color: #ffffff;">Bar Charts
+                3
+            </a>
+            <a id="show_750293448" href="javascript:void(0)" onclick="show('750293448');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_750293448" href="javascript:void(0)" onclick="hide('750293448');" style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="750293448">
+            <div class="defaultContainer defaultPanelOther collapsable" id="750293448">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-vtfoim65"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-hjseqcon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Bar Charts 4" style="color: #ffffff;">Bar Charts
+                4
+            </a>
+            <a id="show_367016388" href="javascript:void(0)" onclick="show('367016388');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_367016388" href="javascript:void(0)" onclick="hide('367016388');" style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="367016388">
+            <div class="defaultContainer defaultPanelOther collapsable" id="367016388">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-gl9n32tk"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-9rc1bkwo"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Bar Charts 5" style="color: #ffffff;">Bar Charts
+                5
+            </a>
+            <a id="show_1132071272" href="javascript:void(0)" onclick="show('1132071272');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_1132071272" href="javascript:void(0)" onclick="hide('1132071272');"
+                style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="1132071272">
+            <div class="defaultContainer defaultPanelOther collapsable" id="1132071272">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-5jhsymrq"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-v03tqzp5"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-w30rnsz6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Bar Charts 6" style="color: #ffffff;">Bar Charts
+                6
+            </a>
+            <a id="show_522250553" href="javascript:void(0)" onclick="show('522250553');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_522250553" href="javascript:void(0)" onclick="hide('522250553');" style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="522250553">
+            <div class="defaultContainer defaultPanelOther collapsable" id="522250553">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-kcfnj1hy"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-eqz1b0sj"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Bar Charts Vertical 1"
+                style="color: #ffffff;">Bar Charts Vertical 1
+            </a>
+            <a id="show_1903743845" href="javascript:void(0)" onclick="show('1903743845');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_1903743845" href="javascript:void(0)" onclick="hide('1903743845');"
+                style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="1903743845">
+            <div class="defaultContainer defaultPanelOther collapsable" id="1903743845">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-8swiv1bl"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-t7hwsjya"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Bar Charts Vertical 2"
+                style="color: #ffffff;">Bar Charts Vertical 2
+            </a>
+            <a id="show_386551389" href="javascript:void(0)" onclick="show('386551389');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_386551389" href="javascript:void(0)" onclick="hide('386551389');" style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="386551389">
+            <div class="defaultContainer defaultPanelOther collapsable" id="386551389">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-179axk50"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-syg1p9ou"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Radline Charts" style="color: #ffffff;">Radline
+                Charts
+            </a>
+            <a id="show_387816138" href="javascript:void(0)" onclick="show('387816138');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_387816138" href="javascript:void(0)" onclick="hide('387816138');" style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="387816138">
+            <div class="defaultContainer defaultPanelOther collapsable" id="387816138">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-fopyga24"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-h9w0fdne"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-8tm6odir"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-q267g1jp"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-l0863a9h"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Radline Charts 1"
+                style="color: #ffffff;">Radline Charts 1
+            </a>
+            <a id="show_303887441" href="javascript:void(0)" onclick="show('303887441');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_303887441" href="javascript:void(0)" onclick="hide('303887441');" style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="303887441">
+            <div class="defaultContainer defaultPanelOther collapsable" id="303887441">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-fx6usm87"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-yp7qv1es"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-0n56tuqj"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="Sparkline Charts"
+                style="color: #ffffff;">Sparkline Charts
+            </a>
+            <a id="show_493426930" href="javascript:void(0)" onclick="show('493426930');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_493426930" href="javascript:void(0)" onclick="hide('493426930');" style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="493426930">
+            <div class="defaultContainer defaultPanelOther collapsable" id="493426930">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-6a7dc3v0"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-jf7ko6nr"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-jcsg24op"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; ">
+        <div class="defaultHeader" style="text-align: center;"><a name="-1 section" style="color: #ffffff;">-1 section
+            </a>
+            <a id="show_1371939133" href="javascript:void(0)" onclick="show('1371939133');"
+                style="color: #ffffff; display:none;">(Show)
+            </a>
+            <a id="hide_1371939133" href="javascript:void(0)" onclick="hide('1371939133');"
+                style="color: #ffffff;">(Hide)
+            </a>
+        </div>
+        <div class="defaultContainerOther" id="1371939133">
+            <div class="defaultContainer defaultPanelOther collapsable" id="1371939133">
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-qjd63mxh"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-y4w0qeik"></div>
+                </div>
+                <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;">
+                    <div id="ChartID-r8pti729"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                "name": [
+                    "Numer of bottles"
+                ],
+                "data": [
+                    400,
+                    430,
+                    448,
+                    470,
+                    540,
+                    580,
+                    690,
+                    1100,
+                    1200,
+                    1380
+                ]
+            }],
+            "xaxis": {
+                "categories": [
+                    "South Korea",
+                    "Canada",
+                    "United Kingdom",
+                    "Netherlands",
+                    "Italy",
+                    "France",
+                    "Japan",
+                    "United States",
+                    "China",
+                    "Germany"
+                ]
+            },
+            "title": {
+                "text": ""
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-6vm83bzl'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Born",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        64,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Died",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        44,
+                        32
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2001,
+                    2002,
+                    2003,
+                    2004,
+                    2005,
+                    2006,
+                    2007
+                ]
+            },
+            "title": {
+                "text": ""
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-o82ak9cl'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "People",
+                    "data": [
+                        400,
+                        430,
+                        448,
+                        470,
+                        540,
+                        580,
+                        690,
+                        1100,
+                        1200,
+                        1380
+                    ]
+                },
+                {
+                    "name": "Pets",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        64,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Furniture",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        44,
+                        32
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    "South Korea",
+                    "Canada",
+                    "United Kingdom",
+                    "Netherlands",
+                    "Italy",
+                    "France",
+                    "Japan",
+                    "United States",
+                    "China",
+                    "Germany"
+                ]
+            },
+            "title": {
+                "text": ""
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-07jyeh8f'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "People",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        64,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Pets",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        44,
+                        32
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2001,
+                    2002,
+                    2003,
+                    2004,
+                    2005,
+                    2006,
+                    2007
+                ]
+            },
+            "title": {
+                "text": ""
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-7lm1g5ep'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "People",
+                    "data": [
+                        400,
+                        430,
+                        448,
+                        470,
+                        540,
+                        580,
+                        690,
+                        1100,
+                        1200,
+                        1380
+                    ]
+                },
+                {
+                    "name": "Pets",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        64,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Furniture",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        44,
+                        32
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    "South Korea",
+                    "Canada",
+                    "United Kingdom",
+                    "Netherlands",
+                    "Italy",
+                    "France",
+                    "Japan",
+                    "United States",
+                    "China",
+                    "Germany"
+                ]
+            },
+            "title": {
+                "text": ""
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-84bewydn'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "People",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        64,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Pets",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        44,
+                        32
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2001,
+                    2002,
+                    2003,
+                    2004,
+                    2005,
+                    2006,
+                    2007
+                ]
+            },
+            "title": {
+                "text": "Pets vs People",
+                "align": "center"
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-xrv5sd96'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "stackType": "100%",
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Marine Sprite",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        37,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Striking Calf",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        43,
+                        32
+                    ]
+                },
+                {
+                    "name": "Tank Picture",
+                    "data": [
+                        12,
+                        17,
+                        11,
+                        9,
+                        15,
+                        11,
+                        20
+                    ]
+                },
+                {
+                    "name": "Tank Picture",
+                    "data": [
+                        9,
+                        7,
+                        5,
+                        8,
+                        6,
+                        9,
+                        4
+                    ]
+                },
+                {
+                    "name": "Bucket Slope",
+                    "data": [
+                        25,
+                        12,
+                        19,
+                        32,
+                        25,
+                        24,
+                        10
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2008,
+                    2009,
+                    2010,
+                    2011,
+                    2012,
+                    2013,
+                    2014
+                ]
+            },
+            "title": {
+                "text": "Finctional Books Sales"
+            },
+            "legend": {
+                "position": "top",
+                "horizontalAlign": "left",
+                "offsetX": 40
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-vtfoim65'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "stackType": "100%",
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "People",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        64,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Pets",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        44,
+                        32
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2001,
+                    2002,
+                    2003,
+                    2004,
+                    2005,
+                    2006,
+                    2007
+                ]
+            },
+            "title": {
+                "text": "Pets vs People",
+                "align": "center"
+            },
+            "legend": {
+                "position": "top",
+                "horizontalAlign": "left",
+                "offsetX": 40
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-hjseqcon'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "stackType": "100%",
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Marine Sprite",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        37,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Striking Calf",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        43,
+                        32
+                    ]
+                },
+                {
+                    "name": "Tank Picture",
+                    "data": [
+                        12,
+                        17,
+                        11,
+                        9,
+                        15,
+                        11,
+                        20
+                    ]
+                },
+                {
+                    "name": "Tank Picture",
+                    "data": [
+                        9,
+                        7,
+                        5,
+                        8,
+                        6,
+                        9,
+                        4
+                    ]
+                },
+                {
+                    "name": "Bucket Slope",
+                    "data": [
+                        25,
+                        12,
+                        19,
+                        32,
+                        25,
+                        24,
+                        10
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2008,
+                    2009,
+                    2010,
+                    2011,
+                    2012,
+                    2013,
+                    2014
+                ]
+            },
+            "title": {
+                "text": "Finctional Books Sales"
+            },
+            "legend": {
+                "position": "top",
+                "horizontalAlign": "left",
+                "offsetX": 40
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-gl9n32tk'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "stackType": "100%",
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "People",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        64,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Pets",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        44,
+                        32
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2001,
+                    2002,
+                    2003,
+                    2004,
+                    2005,
+                    2006,
+                    2007
+                ]
+            },
+            "title": {
+                "text": "Pets vs People",
+                "align": "center"
+            },
+            "legend": {
+                "position": "top",
+                "horizontalAlign": "left",
+                "offsetX": 40
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-9rc1bkwo'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 500,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Males",
+                    "data": [
+                        -0.8,
+                        -1.05,
+                        -1.06,
+                        -1.18,
+                        -1.4,
+                        -2.2,
+                        -2.85,
+                        -3.7,
+                        -3.96,
+                        -4.22,
+                        -4.3,
+                        -4.4,
+                        -4.1,
+                        -4,
+                        -4.1,
+                        -3.4,
+                        -3.1,
+                        -2.8
+                    ]
+                },
+                {
+                    "name": "Females",
+                    "data": [
+                        0.4,
+                        0.65,
+                        0.76,
+                        0.88,
+                        1.5,
+                        2.1,
+                        2.9,
+                        3.8,
+                        3.9,
+                        4.2,
+                        4,
+                        4.3,
+                        4.1,
+                        4.2,
+                        4.5,
+                        3.9,
+                        3.5,
+                        3
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    "85+",
+                    "80-84",
+                    "75-79",
+                    "70-74",
+                    "65-69",
+                    "60-64",
+                    "55-59",
+                    "50-54",
+                    "45-49",
+                    "40-44",
+                    "35-39",
+                    "30-34",
+                    "25-29",
+                    "20-24",
+                    "15-19",
+                    "10-14",
+                    "5-9",
+                    "0-4"
+                ]
+            },
+            "title": {
+                "text": "Mauritius population pyramid 2011"
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-5jhsymrq'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 500,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": false,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Males",
+                    "data": [
+                        -0.8,
+                        -1.05,
+                        -1.06,
+                        -1.18,
+                        -1.4,
+                        -2.2,
+                        -2.85,
+                        -3.7,
+                        -3.96,
+                        -4.22,
+                        -4.3,
+                        -4.4,
+                        -4.1,
+                        -4,
+                        -4.1,
+                        -3.4,
+                        -3.1,
+                        -2.8
+                    ]
+                },
+                {
+                    "name": "Females",
+                    "data": [
+                        0.4,
+                        0.65,
+                        0.76,
+                        0.88,
+                        1.5,
+                        2.1,
+                        2.9,
+                        3.8,
+                        3.9,
+                        4.2,
+                        4,
+                        4.3,
+                        4.1,
+                        4.2,
+                        4.5,
+                        3.9,
+                        3.5,
+                        3
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    "85+",
+                    "80-84",
+                    "75-79",
+                    "70-74",
+                    "65-69",
+                    "60-64",
+                    "55-59",
+                    "50-54",
+                    "45-49",
+                    "40-44",
+                    "35-39",
+                    "30-34",
+                    "25-29",
+                    "20-24",
+                    "15-19",
+                    "10-14",
+                    "5-9",
+                    "0-4"
+                ]
+            },
+            "title": {
+                "text": "Mauritius population pyramid 2011"
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-v03tqzp5'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 500,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "colors": [
+                "#cd5c5c",
+                "#7cfc00"
+            ],
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": false,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Males",
+                    "data": [
+                        -0.8,
+                        -1.05,
+                        -1.06,
+                        -1.18,
+                        -1.4,
+                        -2.2,
+                        -2.85,
+                        -3.7,
+                        -3.96,
+                        -4.22,
+                        -4.3,
+                        -4.4,
+                        -4.1,
+                        -4,
+                        -4.1,
+                        -3.4,
+                        -3.1,
+                        -2.8
+                    ]
+                },
+                {
+                    "name": "Females",
+                    "data": [
+                        0.4,
+                        0.65,
+                        0.76,
+                        0.88,
+                        1.5,
+                        2.1,
+                        2.9,
+                        3.8,
+                        3.9,
+                        4.2,
+                        4,
+                        4.3,
+                        4.1,
+                        4.2,
+                        4.5,
+                        3.9,
+                        3.5,
+                        3
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    "85+",
+                    "80-84",
+                    "75-79",
+                    "70-74",
+                    "65-69",
+                    "60-64",
+                    "55-59",
+                    "50-54",
+                    "45-49",
+                    "40-44",
+                    "35-39",
+                    "30-34",
+                    "25-29",
+                    "20-24",
+                    "15-19",
+                    "10-14",
+                    "5-9",
+                    "0-4"
+                ]
+            },
+            "title": {
+                "text": "Mauritius population pyramid 2011"
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-w30rnsz6'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Marine Sprite",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        37,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Striking Calf",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        43,
+                        32
+                    ]
+                },
+                {
+                    "name": "Tank Picture",
+                    "data": [
+                        12,
+                        17,
+                        11,
+                        9,
+                        15,
+                        11,
+                        20
+                    ]
+                },
+                {
+                    "name": "Bucket Slope",
+                    "data": [
+                        9,
+                        7,
+                        5,
+                        8,
+                        6,
+                        9,
+                        4
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2008,
+                    2009,
+                    2010,
+                    2011,
+                    2012,
+                    2013,
+                    201
+                ]
+            },
+            "title": {
+                "text": "Compare Sales Strategy"
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-kcfnj1hy'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": true
+                }
+            },
+            "dataLabels": {
+                "enabled": false,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Marine Sprite",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        37,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Striking Calf",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        43,
+                        32
+                    ]
+                },
+                {
+                    "name": "Tank Picture",
+                    "data": [
+                        12,
+                        17,
+                        11,
+                        9,
+                        15,
+                        11,
+                        20
+                    ]
+                },
+                {
+                    "name": "Bucket Slope",
+                    "data": [
+                        9,
+                        7,
+                        5,
+                        8,
+                        6,
+                        9,
+                        4
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2008,
+                    2009,
+                    2010,
+                    2011,
+                    2012,
+                    2013,
+                    201
+                ]
+            },
+            "title": {
+                "text": "Compare Sales Strategy"
+            },
+            "fill": {
+                "pattern": {
+                    "style": [
+                        "circles",
+                        "slantedLines",
+                        "verticalLines",
+                        "horizontalLines"
+                    ]
+                },
+                "opacity": 1,
+                "type": "pattern"
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-eqz1b0sj'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": false
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Marine Sprite",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        37,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Striking Calf",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        43,
+                        32
+                    ]
+                },
+                {
+                    "name": "Tank Picture",
+                    "data": [
+                        12,
+                        17,
+                        11,
+                        9,
+                        15,
+                        11,
+                        20
+                    ]
+                },
+                {
+                    "name": "Bucket Slope",
+                    "data": [
+                        9,
+                        7,
+                        5,
+                        8,
+                        6,
+                        9,
+                        4
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2008,
+                    2009,
+                    2010,
+                    2011,
+                    2012,
+                    2013,
+                    201
+                ]
+            },
+            "title": {
+                "text": "Compare Sales Strategy"
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-8swiv1bl'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": false
+                }
+            },
+            "dataLabels": {
+                "enabled": false,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Marine Sprite",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        37,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Striking Calf",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        43,
+                        32
+                    ]
+                },
+                {
+                    "name": "Tank Picture",
+                    "data": [
+                        12,
+                        17,
+                        11,
+                        9,
+                        15,
+                        11,
+                        20
+                    ]
+                },
+                {
+                    "name": "Bucket Slope",
+                    "data": [
+                        9,
+                        7,
+                        5,
+                        8,
+                        6,
+                        9,
+                        4
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2008,
+                    2009,
+                    2010,
+                    2011,
+                    2012,
+                    2013,
+                    201
+                ]
+            },
+            "title": {
+                "text": "Compare Sales Strategy"
+            },
+            "fill": {
+                "pattern": {
+                    "style": [
+                        "circles",
+                        "slantedLines",
+                        "verticalLines",
+                        "horizontalLines"
+                    ]
+                },
+                "opacity": 1,
+                "type": "pattern"
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-t7hwsjya'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "stackType": "100%",
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": false
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "Marine Sprite",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        37,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Striking Calf",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        43,
+                        32
+                    ]
+                },
+                {
+                    "name": "Tank Picture",
+                    "data": [
+                        12,
+                        17,
+                        11,
+                        9,
+                        15,
+                        11,
+                        20
+                    ]
+                },
+                {
+                    "name": "Tank Picture",
+                    "data": [
+                        9,
+                        7,
+                        5,
+                        8,
+                        6,
+                        9,
+                        4
+                    ]
+                },
+                {
+                    "name": "Bucket Slope",
+                    "data": [
+                        25,
+                        12,
+                        19,
+                        32,
+                        25,
+                        24,
+                        10
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2008,
+                    2009,
+                    2010,
+                    2011,
+                    2012,
+                    2013,
+                    2014
+                ]
+            },
+            "title": {
+                "text": "Finctional Books Sales"
+            },
+            "legend": {
+                "position": "top",
+                "horizontalAlign": "left",
+                "offsetX": 40
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-179axk50'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "bar",
+                "stacked": true,
+                "stackType": "100%",
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "bar": {
+                    "horizontal": false
+                }
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "series": [{
+                    "name": "People",
+                    "data": [
+                        44,
+                        55,
+                        41,
+                        64,
+                        22,
+                        43,
+                        21
+                    ]
+                },
+                {
+                    "name": "Pets",
+                    "data": [
+                        53,
+                        32,
+                        33,
+                        52,
+                        13,
+                        44,
+                        32
+                    ]
+                }
+            ],
+            "xaxis": {
+                "categories": [
+                    2001,
+                    2002,
+                    2003,
+                    2004,
+                    2005,
+                    2006,
+                    2007
+                ]
+            },
+            "title": {
+                "text": "Pets vs People",
+                "align": "center"
+            },
+            "legend": {
+                "position": "top",
+                "horizontalAlign": "left",
+                "offsetX": 40
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-syg1p9ou'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "radialBar",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "radialBar": {
+                    "hollow": {
+                        "margin": 0,
+                        "size": "70%",
+                        "background": "#fff",
+                        "image": "undefined",
+                        "imageOffsetX": 0,
+                        "imageOffsetY": 0,
+                        "position": "front",
+                        "dropShadow": {
+                            "left": 0,
+                            "opacity": 0.24,
+                            "top": 3,
+                            "blur": 4,
+                            "enabled": true
+                        }
+                    },
+                    "track": {
+                        "background": "#fff",
+                        "strokeWidth": "70%",
+                        "margin": 0,
+                        "dropShadow": {
+                            "enabled": true,
+                            "top": -3,
+                            "left": 0,
+                            "blur": 4,
+                            "opacity": 0.35
+                        }
+                    }
+                }
+            },
+            "fill": {
+                "type": "gradient",
+                "gradient": {
+                    "shade": "dark",
+                    "type": "horizontal",
+                    "shadeIntensity": 0.5,
+                    "gradientToColors": [
+                        "#ABE5A1"
+                    ],
+                    "inverseColors": {
+
+                    },
+                    "opacityFrom": 1,
+                    "opacityTo": 1,
+                    "stops": [
+                        0,
+                        100
+                    ]
+                }
+            },
+            "stroke": {
+                "dashArray": 4
+            },
+            "series": [
+                95
+            ],
+            "labels": [
+                "My data"
+            ]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-fopyga24'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "radialBar",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "radialBar": {
+                    "startAngle": -135,
+                    "endAngle": 225
+                }
+            },
+            "series": [
+                95
+            ],
+            "labels": [
+                "My data"
+            ]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-h9w0fdne'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "radialBar",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "radialBar": {
+                    "startAngle": -135,
+                    "endAngle": 225
+                }
+            },
+            "series": [
+                95,
+                30,
+                11
+            ],
+            "labels": [
+                "My data",
+                "Ole",
+                "Bole"
+            ]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-8tm6odir'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "radialBar",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "radialBar": {
+                    "startAngle": -180,
+                    "endAngle": 180
+                }
+            },
+            "fill": {
+                "type": "gradient",
+                "gradient": {
+                    "shade": "dark",
+                    "type": "horizontal",
+                    "shadeIntensity": 0.5,
+                    "gradientToColors": [
+                        "#ABE5A1"
+                    ],
+                    "inverseColors": {
+
+                    },
+                    "opacityFrom": 1,
+                    "opacityTo": 1,
+                    "stops": [
+                        0,
+                        100
+                    ]
+                }
+            },
+            "stroke": {
+                "dashArray": 4
+            },
+            "series": [
+                100,
+                20
+            ],
+            "labels": [
+                "My data",
+                "My other"
+            ]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-q267g1jp'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "radialBar",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "radialBar": {
+                    "startAngle": -135,
+                    "endAngle": 135
+                }
+            },
+            "series": [
+                95
+            ],
+            "labels": [
+                "My data"
+            ]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-l0863a9h'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "radialBar",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "radialBar": {
+                    "startAngle": -90,
+                    "endAngle": 270,
+                    "dataLabels": {
+                        "showOn": "always",
+                        "total": {
+                            "label": "Test",
+                            "show": true
+                        },
+                        "name": {
+
+                        },
+                        "value": {
+
+                        }
+                    }
+                }
+            },
+            "series": [
+                100,
+                20
+            ],
+            "labels": [
+                "My data",
+                "My other"
+            ]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-fx6usm87'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "radialBar",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "radialBar": {
+                    "startAngle": -90,
+                    "endAngle": 90,
+                    "dataLabels": {
+                        "showOn": "always",
+                        "total": {
+                            "label": "Test",
+                            "show": true
+                        },
+                        "name": {
+
+                        },
+                        "value": {
+
+                        }
+                    }
+                }
+            },
+            "series": [
+                100,
+                20
+            ],
+            "labels": [
+                "My data",
+                "My other"
+            ]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-yp7qv1es'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "radialBar",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "plotOptions": {
+                "radialBar": {
+                    "startAngle": -90,
+                    "endAngle": 90,
+                    "dataLabels": {
+                        "showOn": "always",
+                        "total": {
+                            "label": "Test",
+                            "show": true
+                        },
+                        "name": {
+
+                        },
+                        "value": {
+
+                        }
+                    }
+                }
+            },
+            "fill": {
+                "type": "gradient",
+                "gradient": {
+                    "shade": "dark",
+                    "type": "horizontal",
+                    "shadeIntensity": 0.5,
+                    "gradientToColors": [
+                        "#ABE5A1"
+                    ],
+                    "inverseColors": {
+
+                    },
+                    "opacityFrom": 1,
+                    "opacityTo": 1,
+                    "stops": [
+                        0,
+                        100
+                    ]
+                }
+            },
+            "stroke": {
+                "dashArray": 4
+            },
+            "series": [
+                20
+            ],
+            "labels": [
+                "My data"
+            ]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-0n56tuqj'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "colors": [
+                "#e9967a"
+            ],
+            "chart": {
+                "type": "area",
+                "sparkline": {
+                    "enabled": true
+                },
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "stroke": {
+                "curve": "straight"
+            },
+            "title": {
+                "text": "$1500,43",
+                "offsetX": 0,
+                "style": {
+                    "fontSize": "24px",
+                    "cssClass": "apexcharts-yaxis-title"
+                }
+            },
+            "subtitle": {
+                "text": "Money in the bank",
+                "offsetX": 0,
+                "style": {
+                    "fontSize": "14px",
+                    "cssClass": "apexcharts-yaxis-title"
+                }
+            },
+            "yaxis": {
+                "min": 0
+            },
+            "fill": {
+                "opacity": 0.3
+            },
+            "series": [{
+                "data": [
+                    7,
+                    45,
+                    54,
+                    38,
+                    56,
+                    24,
+                    65,
+                    31,
+                    37,
+                    39,
+                    62,
+                    51,
+                    35,
+                    41,
+                    35,
+                    27,
+                    93,
+                    53,
+                    61,
+                    27,
+                    54,
+                    43,
+                    19,
+                    46
+                ]
+            }]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-6a7dc3v0'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "area",
+                "sparkline": {
+                    "enabled": true
+                },
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "stroke": {
+                "curve": "straight"
+            },
+            "title": {
+                "text": "$1500,43",
+                "offsetX": 0,
+                "style": {
+                    "fontSize": "24px",
+                    "cssClass": "apexcharts-yaxis-title"
+                }
+            },
+            "subtitle": {
+                "text": "Sales in January",
+                "offsetX": 0,
+                "style": {
+                    "fontSize": "14px",
+                    "cssClass": "apexcharts-yaxis-title"
+                }
+            },
+            "yaxis": {
+                "min": 0
+            },
+            "fill": {
+                "opacity": 0.3
+            },
+            "series": [{
+                "data": [
+                    39,
+                    62,
+                    51,
+                    35,
+                    41,
+                    35,
+                    27,
+                    93,
+                    53,
+                    61,
+                    27,
+                    54,
+                    43,
+                    19,
+                    46,
+                    47,
+                    5,
+                    4,
+                    8,
+                    56,
+                    24,
+                    5,
+                    31,
+                    7
+                ]
+            }]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-jf7ko6nr'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "type": "area",
+                "sparkline": {
+                    "enabled": true
+                },
+                "height": 350,
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "stroke": {
+                "curve": "straight"
+            },
+            "title": {
+                "text": "",
+                "offsetX": 0,
+                "style": {
+                    "fontSize": "24px",
+                    "cssClass": "apexcharts-yaxis-title"
+                }
+            },
+            "subtitle": {
+                "text": "",
+                "offsetX": 0,
+                "style": {
+                    "fontSize": "14px",
+                    "cssClass": "apexcharts-yaxis-title"
+                }
+            },
+            "yaxis": {
+                "min": 0
+            },
+            "fill": {
+                "opacity": 0.3
+            },
+            "series": [{
+                    "data": [
+                        7,
+                        45,
+                        54,
+                        38,
+                        56,
+                        24,
+                        65,
+                        31,
+                        37,
+                        39,
+                        62,
+                        51,
+                        35,
+                        41,
+                        35,
+                        27,
+                        93,
+                        53,
+                        61,
+                        27,
+                        54,
+                        43,
+                        19,
+                        46
+                    ]
+                },
+                {
+                    "data": [
+                        39,
+                        62,
+                        51,
+                        35,
+                        41,
+                        35,
+                        27,
+                        93,
+                        53,
+                        61,
+                        27,
+                        54,
+                        43,
+                        19,
+                        46,
+                        47,
+                        5,
+                        4,
+                        8,
+                        56,
+                        24,
+                        5,
+                        31,
+                        7
+                    ]
+                }
+            ]
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-jcsg24op'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "line",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "series": [{
+                "name": [
+                    "Desktops"
+                ],
+                "data": [
+                    10,
+                    41,
+                    35,
+                    51,
+                    49,
+                    62,
+                    69,
+                    91,
+                    148
+                ]
+            }],
+            "xaxis": {
+                "type": "category",
+                "categories": [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul",
+                    "Aug",
+                    "Sep"
+                ]
+            },
+            "stroke": {
+                "show": true,
+                "curve": "straight"
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "yaxis": {
+
+            },
+            "title": {
+                "text": "Product Trends by Month",
+                "align": "left"
+            },
+            "grid": {
+                "row": {
+                    "colors": [
+                        "#d3d3d3",
+                        "#f5f5f5"
+                    ],
+                    "opacity": 0.5
+                }
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-qjd63mxh'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "line",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "series": [{
+                    "name": "High - 2013",
+                    "data": [
+                        28,
+                        29,
+                        33,
+                        36,
+                        32,
+                        32,
+                        33
+                    ]
+                },
+                {
+                    "name": "Low - 2013",
+                    "data": [
+                        12,
+                        11,
+                        14,
+                        18,
+                        17,
+                        13,
+                        13
+                    ]
+                }
+            ],
+            "xaxis": {
+                "type": "category",
+                "title": {
+                    "text": "Month"
+                },
+                "categories": [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul"
+                ]
+            },
+            "stroke": {
+                "show": true,
+                "curve": "smooth"
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "yaxis": {
+                "title": {
+                    "text": "Temperature"
+                }
+            },
+            "markers": {
+                "size": 6
+            },
+            "title": {
+                "text": "Average High & Low Temperature",
+                "align": "left"
+            },
+            "grid": {
+                "row": {
+                    "colors": [
+                        "#d3d3d3",
+                        "#f5f5f5"
+                    ],
+                    "opacity": 0.5
+                }
+            },
+            "legend": {
+                "position": "top",
+                "horizontalAlign": "right",
+                "floating": {
+
+                },
+                "offsetY": -25,
+                "offsetX": -5
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-y4w0qeik'),
+            options
+        );
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            "chart": {
+                "height": 350,
+                "type": "line",
+                "toolbar": {
+                    "show": true,
+                    "tools": {
+                        "download": true,
+                        "selection": true,
+                        "zoom": true,
+                        "zoomin": true,
+                        "zoomout": true,
+                        "pan": true,
+                        "reset": true
+                    },
+                    "autoSelected": "zoom"
+                }
+            },
+            "series": [{
+                    "name": "High - 2013",
+                    "data": [
+                        28,
+                        29,
+                        33,
+                        36,
+                        32,
+                        32,
+                        33
+                    ]
+                },
+                {
+                    "name": "Low - 2013",
+                    "data": [
+                        12,
+                        11,
+                        14,
+                        18,
+                        17,
+                        13,
+                        13
+                    ]
+                }
+            ],
+            "xaxis": {
+                "type": "category",
+                "title": {
+                    "text": "Month"
+                },
+                "categories": [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul"
+                ]
+            },
+            "stroke": {
+                "show": true,
+                "curve": "stepline"
+            },
+            "dataLabels": {
+                "enabled": true,
+                "offsetX": -6,
+                "style": {
+                    "fontSize": "12px"
+                }
+            },
+            "yaxis": {
+                "title": {
+                    "text": "Temperature"
+                }
+            },
+            "markers": {
+                "size": 6
+            },
+            "title": {
+                "text": "Average High & Low Temperature",
+                "align": "left"
+            },
+            "grid": {
+                "row": {
+                    "colors": [
+                        "#d3d3d3",
+                        "#f5f5f5"
+                    ],
+                    "opacity": 0.5
+                }
+            },
+            "legend": {
+                "position": "top",
+                "horizontalAlign": "right",
+                "floating": {
+
+                },
+                "offsetY": -25,
+                "offsetX": -5
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector('#ChartID-r8pti729'),
+            options
+        );
+        chart.render();
+    </script>
 </body>
 <!-- END BODY -->
 <!-- FOOTER -->
-<footer></footer>
+<footer>
+
+</footer>
 <!-- END FOOTER -->
+
 </html>

@@ -1,7 +1,9 @@
 function New-HTMLTable {
     [CmdletBinding()]
     param(
+        [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $ConditionalFormatting,
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
+        #[Array] $ConditionalFormatting,
         [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
@@ -82,14 +84,22 @@ function New-HTMLTable {
         "select"         = -not $DisableSelect
         "searching"      = -not $DisableSearch
         "stateSave"      = -not $DisableStateSave
-
     }
 
     if ($ScreenSizePercent -gt 0) {
         $Options."scrollY" = "$($ScreenSizePercent)vh"
     }
-
+    if ($null -ne $ConditionalFormatting) {
+        #.Count -gt 0) {
+        $Options.columnDefs = ''
+    }
     $Options = $Options | ConvertTo-Json -Depth 6
+
+
+    $Conditional = Invoke-Command -ScriptBlock $ConditionalFormatting
+
+    # Process Conditional Formatting. Ugly JS building
+    $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $Conditional -Header $Header
 
 
     [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })
@@ -112,7 +122,9 @@ function New-HTMLTable {
             New-HTMlTag -Tag 'script' {
                 @"
                 `$(document).ready(function() {
-                    `$('#$DataTableName').DataTable($($Options));
+                    `$('#$DataTableName').DataTable(
+                        $($Options)
+                    );
                 });
 "@
             }
@@ -123,7 +135,9 @@ function New-HTMLTable {
                     `$(document).ready(function() {
                         `$('.tabs').on('click', 'a', function (event) {
                             if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
-                                `$('#$DataTableName').DataTable($($Options));
+                                `$('#$DataTableName').DataTable(
+                                    $($Options)
+                                );
                             };
                         });
                     });
