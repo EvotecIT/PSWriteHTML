@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html><!-- HEADER -->
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="author"/>
+<meta content="2019-04-03 22:57:27" name="revised"/>
+<title>My title
+</title>
+<!-- CSS Default fonts START -->
+<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
+<!-- CSS Default fonts END -->
+<!-- CSS Default fonts icons START -->
+<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
+<!-- CSS Default fonts icons END -->
+<!-- CSS Always Required Default Visual Settings START -->
+<style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+table {
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    vertical-align: top;
+    text-align: left;
+    padding: 2px 5px 2px 5px;
+}
+
+td {
+    vertical-align: top;
+    padding: 2px 5px 2px 5px;
+    border-top: 1px solid #bbbbbb;
+    height: 16px;
+    vertical-align: middle;
+}
+
+tr.totalrow {
+    border-top: thick double;
+}
+
+td.totalrow {
+    vertical-align: Bottom;
+    text-align: left;
+    font-size: 8pt;
+    font-weight: bold;
+    padding: 2px 5px 2px 5px;
+}
+
+div.pageTitle {
+    font-size: 14pt;
+    font-weight: bold;
+    width: 100%;
+    display: block;
+    padding: 4px 1em 0px 2px;
+    height: 2em;
+}
+
+div.clientlogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+}
+
+div.MainLogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+}
+
+.central {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 900px;
+}
+
+div.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+div.defaultColumn {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px;
+}
+
+.defaultContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultContainerOther {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanelOther {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanel {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+div.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #6Cf;
+}
+
+div.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+td.clientlogo {
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+td.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+th.content {
+    border-top: 1px solid #bbbbbb;
+    width: 25%;
+}
+
+td.content {
+    width: 75%;
+}
+
+td.groupby {
+    border-top: 3px double #bbbbbb;
+}
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+table.sortable {
+    width: calc(100% - 10px);
+    margin: 5px;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    display: inline-block;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+table.sortable thead {
+    background-color: #eee;
+    color: #666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+/* Adding CSS */
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+
+.orange {
+    background-color: #f39c12;
+}
+
+.red {
+    background-color: #ff4136;
+}
+
+.green {
+    background-color: #2ecc40;
+}
+
+div.enlighter-default {
+    flex-basis: 100%;
+    margin: 0 !important;
+}
+</style>
+<!-- CSS Always Required Default Visual Settings END -->
+<!-- CSS Always Required Default Headings START -->
+<style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+}
+</style>
+<!-- CSS Always Required Default Headings END -->
+
+
+<!-- CSS DataTables START -->
+<style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+</style>
+<!-- CSS DataTables END -->
+<!-- JS DataTables Excel Features START -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script>
+<!-- JS DataTables Excel Features END -->
+<!-- JS DataTables PDF Features START -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
+<!-- JS DataTables PDF Features END -->
+<!-- CSS DataTables START -->
+<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/>
+<!-- CSS DataTables END -->
+<!-- JS DataTables START -->
+<script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script>
+<!-- JS DataTables END -->
+</head>
+<!-- END HEADER -->
+<!-- BODY -->
+<body><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Test" style="color: #ffffff;">Test
+</a>
+<a id="show_259729991" href="javascript:void(0)" onclick="show('259729991');" style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_259729991" href="javascript:void(0)" onclick="hide('259729991');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="defaultContainerOther" id="259729991"><div class="defaultContainer defaultPanelOther collapsable" id="259729991"><script>                $(document).ready(function() {
+                    $('#DT-HwYpARmK').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       -1,
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+}
+                    );
+                });
+</script>
+<div class="defaultPanelOther"><table id="DT-HwYpARmK" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+</thead>
+<tbody><tr><td>1Password</td><td>16904</td><td>Normal</td><td>7.3.657</td><td>900</td><td>157237248</td><td>191389696</td><td>191389696</td><td>828735488</td><td>01:32:54.0468750</td><td>1</td><td>900</td><td>828735488</td><td>157237248</td><td>191389696</td><td>66472</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>5574,046875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4360</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>66472</td><td>66472</td><td>191389696</td><td>934776</td><td>934776</td><td>294375424</td><td>294375424</td><td>291864576</td><td>291864576</td><td>1022361600</td><td>1022361600</td><td>True</td><td>191389696</td><td>00:22:22.4531250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:45:44</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>01:10:31.5937500</td><td>828735488</td><td>False</td><td></td><td></td><td></td><td>157237248</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>3660</td><td></td><td></td><td>179</td><td>3514368</td><td>2351104</td><td>2351104</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>3514368</td><td>2351104</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2351104</td><td>104984</td><td>104984</td><td>3125248</td><td>3125248</td><td>9641984</td><td>9641984</td><td>100417536</td><td>2203418640384</td><td></td><td>2351104</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>3514368</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>17960</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>564</td><td>19853312</td><td>38473728</td><td>38473728</td><td>312635392</td><td>00:00:11.9375000</td><td>1</td><td>564</td><td>2203630858240</td><td>19853312</td><td>38473728</td><td>33720</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>11,9375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4380</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>15664356</td><td>Microsoft Edge</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>33720</td><td>33720</td><td>38473728</td><td>458800</td><td>458800</td><td>58241024</td><td>58241024</td><td>65060864</td><td>65060864</td><td>337707008</td><td>2203655929856</td><td>True</td><td>38473728</td><td>00:00:07.9843750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:46:25</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:03.9531250</td><td>2203630858240</td><td>False</td><td></td><td></td><td></td><td>19853312</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>8572</td><td>Normal</td><td>5.1.145.0</td><td>167</td><td>4886528</td><td>2027520</td><td>2027520</td><td>120426496</td><td>00:00:00.0156250</td><td>1</td><td>167</td><td>4415393792</td><td>4886528</td><td>2027520</td><td>9072</td><td>C:\Program Files\Common Files\Microsoft Shared\ClickToRun\AppVShNotify.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>5.1.145.0</td><td>AppVShNotify</td><td>Microsoft Application Virtualization (App-V)</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4416</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (AppVShNotify.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>9072</td><td>9072</td><td>2027520</td><td>172512</td><td>172512</td><td>2252800</td><td>2252800</td><td>8261632</td><td>8261632</td><td>129077248</td><td>4424044544</td><td>True</td><td>2027520</td><td>00:00:00.0156250</td><td>AppVShNotify</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.03.2019 00:16:42</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>4415393792</td><td>False</td><td></td><td></td><td></td><td>4886528</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>28012</td><td></td><td></td><td>162</td><td>4399104</td><td>1810432</td><td>1810432</td><td>99344384</td><td></td><td>0</td><td>162</td><td>4394311680</td><td>4399104</td><td>1810432</td><td>8544</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8544</td><td>8544</td><td>1810432</td><td>131704</td><td>131704</td><td>2039808</td><td>2039808</td><td>7561216</td><td>7561216</td><td>106684416</td><td>4401651712</td><td></td><td>1810432</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394311680</td><td>False</td><td></td><td></td><td></td><td>4399104</td><td></td><td></td></tr>
+<tr><td>audiodg</td><td>12956</td><td></td><td></td><td>196</td><td>12402688</td><td>7655424</td><td>7655424</td><td>85778432</td><td>00:00:03.8906250</td><td>0</td><td>196</td><td>2203404001280</td><td>12402688</td><td>7655424</td><td>11336</td><td></td><td></td><td>3,890625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>11336</td><td>11336</td><td>7655424</td><td>96416</td><td>96416</td><td>7823360</td><td>7823360</td><td>12845056</td><td>12845056</td><td>88428544</td><td>2203406651392</td><td></td><td>7655424</td><td>00:00:02.8750000</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:18:13</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.0156250</td><td>2203404001280</td><td>False</td><td></td><td></td><td></td><td>12402688</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>29888</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>6692864</td><td>1687552</td><td>1687552</td><td>98476032</td><td>00:00:00.0625000</td><td>1</td><td>139</td><td>2203416698880</td><td>6692864</td><td>1687552</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,0625</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4272</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1687552</td><td>125960</td><td>125960</td><td>1925120</td><td>1925120</td><td>8445952</td><td>8445952</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1687552</td><td>00:00:00.0468750</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 12:20:15</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>6692864</td><td></td><td></td></tr>
+<tr><td>Calculator</td><td>21132</td><td>Normal</td><td>10.1812.1901.04008</td><td>518</td><td>520192</td><td>16379904</td><td>16379904</td><td>443850752</td><td>00:00:00.2187500</td><td>1</td><td>518</td><td>4738818048</td><td>520192</td><td>16379904</td><td>27648</td><td>C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.1812.10048.0_x64__8wekyb3d8bbwe\Calculator.exe</td><td>Microsoft Corporation</td><td>0,21875</td><td>10.1812.190104008</td><td>Calculator.exe</td><td>Microsoft Calculator</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4136</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>269570</td><td>Calculator</td><td>System.Diagnostics.ProcessModule (Calculator.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>27648</td><td>27648</td><td>16379904</td><td>697552</td><td>697552</td><td>18841600</td><td>18841600</td><td>58093568</td><td>58093568</td><td>481599488</td><td>4776566784</td><td>True</td><td>16379904</td><td>00:00:00.1093750</td><td>Calculator</td><td>65535</td><td>False</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 07:48:48</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1093750</td><td>4738818048</td><td>False</td><td></td><td></td><td></td><td>520192</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>5308</td><td>Idle</td><td>75.0.3755.0</td><td>462</td><td>160632832</td><td>114454528</td><td>114454528</td><td>695840768</td><td>00:00:05.5625000</td><td>1</td><td>462</td><td>2204014063616</td><td>160632832</td><td>114454528</td><td>48952</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,5625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4028</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>48952</td><td>48952</td><td>114454528</td><td>646344</td><td>646344</td><td>150732800</td><td>150732800</td><td>194564096</td><td>194564096</td><td>732409856</td><td>2204050632704</td><td>True</td><td>114454528</td><td>00:00:00.6718750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:52:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:04.8906250</td><td>2204014063616</td><td>False</td><td></td><td></td><td></td><td>160632832</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>11716</td><td>Idle</td><td>75.0.3755.0</td><td>417</td><td>301322240</td><td>285650944</td><td>285650944</td><td>827310080</td><td>00:00:27.8750000</td><td>1</td><td>417</td><td>2204145532928</td><td>301322240</td><td>285650944</td><td>110016</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>27,875</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4180</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>110016</td><td>110016</td><td>285650944</td><td>577360</td><td>577360</td><td>390746112</td><td>390746112</td><td>418471936</td><td>418471936</td><td>1079103488</td><td>2204397326336</td><td>True</td><td>285650944</td><td>00:00:01.2812500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 21:39:49</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:26.5937500</td><td>2204145532928</td><td>False</td><td></td><td></td><td></td><td>301322240</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12352</td><td>Idle</td><td>75.0.3755.0</td><td>317</td><td>41451520</td><td>36048896</td><td>36048896</td><td>504238080</td><td>00:00:00.3750000</td><td>1</td><td>317</td><td>2203822460928</td><td>41451520</td><td>36048896</td><td>29232</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4196</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29232</td><td>29232</td><td>36048896</td><td>471160</td><td>471160</td><td>50585600</td><td>50585600</td><td>66207744</td><td>66207744</td><td>684007424</td><td>2204002230272</td><td>True</td><td>36048896</td><td>00:00:00.1406250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 21:39:52</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2343750</td><td>2203822460928</td><td>False</td><td></td><td></td><td></td><td>41451520</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12508</td><td>Idle</td><td>75.0.3755.0</td><td>293</td><td>27033600</td><td>15499264</td><td>15499264</td><td>444231680</td><td>00:00:00.0625000</td><td>1</td><td>293</td><td>2203762454528</td><td>27033600</td><td>15499264</td><td>21072</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,0625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4260</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>21072</td><td>21072</td><td>15499264</td><td>507048</td><td>507048</td><td>19009536</td><td>19009536</td><td>27369472</td><td>27369472</td><td>465256448</td><td>2203783479296</td><td>True</td><td>15499264</td><td>00:00:00.0468750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:31:59</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203762454528</td><td>False</td><td></td><td></td><td></td><td>27033600</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12564</td><td>Normal</td><td>75.0.3755.0</td><td>2961</td><td>285437952</td><td>285483008</td><td>285483008</td><td>887046144</td><td>00:08:41.7343750</td><td>1</td><td>2961</td><td>2204205268992</td><td>285437952</td><td>285483008</td><td>83064</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>521,734375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3220</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>31786460</td><td>My title - Google Chrome</td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>83064</td><td>83064</td><td>285483008</td><td>1115400</td><td>1115400</td><td>327483392</td><td>327483392</td><td>339017728</td><td>339017728</td><td>1185058816</td><td>2204503281664</td><td>True</td><td>285483008</td><td>00:03:28.7812500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:05:12.9531250</td><td>2204205268992</td><td>False</td><td></td><td></td><td></td><td>285437952</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12832</td><td>Normal</td><td>75.0.3755.0</td><td>150</td><td>7880704</td><td>2166784</td><td>2166784</td><td>137359360</td><td>00:00:00.0468750</td><td>1</td><td>150</td><td>2203455582208</td><td>7880704</td><td>2166784</td><td>11352</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,046875</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4236</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>11352</td><td>11352</td><td>2166784</td><td>187016</td><td>187016</td><td>2777088</td><td>2777088</td><td>9707520</td><td>9707520</td><td>139456512</td><td>2203457679360</td><td>True</td><td>2166784</td><td>00:00:00.0312500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:19</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203455582208</td><td>False</td><td></td><td></td><td></td><td>7880704</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>13032</td><td>Idle</td><td>75.0.3755.0</td><td>349</td><td>131678208</td><td>109703168</td><td>109703168</td><td>641212416</td><td>00:00:38.0625000</td><td>1</td><td>349</td><td>2203959435264</td><td>131678208</td><td>109703168</td><td>41064</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>38,0625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4092</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>41064</td><td>41064</td><td>109703168</td><td>520960</td><td>520960</td><td>179888128</td><td>179888128</td><td>201814016</td><td>201814016</td><td>731066368</td><td>2204049289216</td><td>True</td><td>109703168</td><td>00:00:01.7968750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:35:56</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:36.2656250</td><td>2203959435264</td><td>False</td><td></td><td></td><td></td><td>131678208</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>13420</td><td>Normal</td><td>75.0.3755.0</td><td>300</td><td>67080192</td><td>55721984</td><td>55721984</td><td>537759744</td><td>00:00:05.7812500</td><td>1</td><td>300</td><td>2203855982592</td><td>67080192</td><td>55721984</td><td>29640</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,78125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3792</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29640</td><td>29640</td><td>55721984</td><td>472248</td><td>472248</td><td>75436032</td><td>75436032</td><td>85549056</td><td>85549056</td><td>557551616</td><td>2203875774464</td><td>True</td><td>55721984</td><td>00:00:00.4375000</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:05.3437500</td><td>2203855982592</td><td>False</td><td></td><td></td><td></td><td>67080192</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>18604</td><td>Normal</td><td>75.0.3755.0</td><td>298</td><td>49930240</td><td>91209728</td><td>91209728</td><td>543723520</td><td>00:00:03.6718750</td><td>1</td><td>298</td><td>2203861946368</td><td>49930240</td><td>91209728</td><td>30864</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>3,671875</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4164</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>30864</td><td>30864</td><td>91209728</td><td>480440</td><td>480440</td><td>92438528</td><td>92438528</td><td>81072128</td><td>81072128</td><td>546869248</td><td>2203865092096</td><td>True</td><td>91209728</td><td>00:00:00.2968750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:03.3750000</td><td>2203861946368</td><td>False</td><td></td><td></td><td></td><td>49930240</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>19536</td><td>Idle</td><td>75.0.3755.0</td><td>284</td><td>17973248</td><td>15695872</td><td>15695872</td><td>444166144</td><td>00:00:00.0937500</td><td>1</td><td>284</td><td>2203762388992</td><td>17973248</td><td>15695872</td><td>20936</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,09375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4124</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>20936</td><td>20936</td><td>15695872</td><td>486440</td><td>486440</td><td>17190912</td><td>17190912</td><td>27365376</td><td>27365376</td><td>463040512</td><td>2203781263360</td><td>True</td><td>15695872</td><td>00:00:00.0468750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:35:55</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203762388992</td><td>False</td><td></td><td></td><td></td><td>17973248</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>20560</td><td>Normal</td><td>75.0.3755.0</td><td>293</td><td>30076928</td><td>26251264</td><td>26251264</td><td>468283392</td><td>00:00:00.8437500</td><td>1</td><td>293</td><td>2203786506240</td><td>30076928</td><td>26251264</td><td>25968</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,84375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4452</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>25968</td><td>25968</td><td>26251264</td><td>461864</td><td>461864</td><td>29380608</td><td>29380608</td><td>39972864</td><td>39972864</td><td>479817728</td><td>2203798040576</td><td>True</td><td>26251264</td><td>00:00:00.1718750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.6718750</td><td>2203786506240</td><td>False</td><td></td><td></td><td></td><td>30076928</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>21036</td><td>Idle</td><td>75.0.3755.0</td><td>372</td><td>90898432</td><td>68263936</td><td>68263936</td><td>566255616</td><td>00:00:05.4843750</td><td>1</td><td>372</td><td>2203884478464</td><td>90898432</td><td>68263936</td><td>36984</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,484375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4032</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>36984</td><td>36984</td><td>68263936</td><td>475808</td><td>475808</td><td>107474944</td><td>107474944</td><td>129200128</td><td>129200128</td><td>635498496</td><td>2203953721344</td><td>True</td><td>68263936</td><td>00:00:00.4843750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:42:53</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:05</td><td>2203884478464</td><td>False</td><td></td><td></td><td></td><td>90898432</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>21152</td><td>Idle</td><td>75.0.3755.0</td><td>427</td><td>195575808</td><td>155389952</td><td>155389952</td><td>652464128</td><td>00:00:08.4375000</td><td>1</td><td>427</td><td>2203970686976</td><td>195575808</td><td>155389952</td><td>57792</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>8,4375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4108</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>57792</td><td>57792</td><td>155389952</td><td>530904</td><td>530904</td><td>224190464</td><td>224190464</td><td>264998912</td><td>264998912</td><td>942297088</td><td>2204260519936</td><td>True</td><td>155389952</td><td>00:00:00.6718750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:47:27</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:07.7656250</td><td>2203970686976</td><td>False</td><td></td><td></td><td></td><td>195575808</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>21408</td><td>Idle</td><td>75.0.3755.0</td><td>284</td><td>26779648</td><td>15454208</td><td>15454208</td><td>444166144</td><td>00:00:00.0781250</td><td>1</td><td>284</td><td>2203762388992</td><td>26779648</td><td>15454208</td><td>20936</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,078125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>3112</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>20936</td><td>20936</td><td>15454208</td><td>506920</td><td>506920</td><td>17027072</td><td>17027072</td><td>26980352</td><td>26980352</td><td>463040512</td><td>2203781263360</td><td>True</td><td>15454208</td><td>00:00:00.0156250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:51:17</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0625000</td><td>2203762388992</td><td>False</td><td></td><td></td><td></td><td>26779648</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>22740</td><td>Normal</td><td>75.0.3755.0</td><td>299</td><td>30302208</td><td>25481216</td><td>25481216</td><td>475697152</td><td>00:00:00.4062500</td><td>1</td><td>299</td><td>2203793920000</td><td>30302208</td><td>25481216</td><td>25696</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,40625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4204</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>25696</td><td>25696</td><td>25481216</td><td>476344</td><td>476344</td><td>26882048</td><td>26882048</td><td>43466752</td><td>43466752</td><td>494047232</td><td>2203812270080</td><td>True</td><td>25481216</td><td>00:00:00.1562500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2500000</td><td>2203793920000</td><td>False</td><td></td><td></td><td></td><td>30302208</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>22876</td><td>Idle</td><td>75.0.3755.0</td><td>293</td><td>19111936</td><td>15683584</td><td>15683584</td><td>444231680</td><td>00:00:00.1093750</td><td>1</td><td>293</td><td>2203762454528</td><td>19111936</td><td>15683584</td><td>21072</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,109375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>3952</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>21072</td><td>21072</td><td>15683584</td><td>474280</td><td>474280</td><td>19333120</td><td>19333120</td><td>27426816</td><td>27426816</td><td>467341312</td><td>2203785564160</td><td>True</td><td>15683584</td><td>00:00:00.0625000</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:42:37</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203762454528</td><td>False</td><td></td><td></td><td></td><td>19111936</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>25404</td><td>Normal</td><td>75.0.3755.0</td><td>298</td><td>31387648</td><td>28778496</td><td>28778496</td><td>478056448</td><td>00:00:00.9062500</td><td>1</td><td>298</td><td>2203796279296</td><td>31387648</td><td>28778496</td><td>26920</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,90625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4184</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>26920</td><td>26920</td><td>28778496</td><td>476344</td><td>476344</td><td>31432704</td><td>31432704</td><td>44310528</td><td>44310528</td><td>491950080</td><td>2203810172928</td><td>True</td><td>28778496</td><td>00:00:00.1562500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.7500000</td><td>2203796279296</td><td>False</td><td></td><td></td><td></td><td>31387648</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>25428</td><td>Normal</td><td>75.0.3755.0</td><td>296</td><td>26324992</td><td>23625728</td><td>23625728</td><td>467562496</td><td>00:00:00.2031250</td><td>1</td><td>296</td><td>2203785785344</td><td>26324992</td><td>23625728</td><td>23792</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,203125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4268</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>23792</td><td>23792</td><td>23625728</td><td>470184</td><td>470184</td><td>24051712</td><td>24051712</td><td>40738816</td><td>40738816</td><td>486436864</td><td>2203804659712</td><td>True</td><td>23625728</td><td>00:00:00.0937500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1093750</td><td>2203785785344</td><td>False</td><td></td><td></td><td></td><td>26324992</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>26188</td><td>Idle</td><td>75.0.3755.0</td><td>308</td><td>26947584</td><td>15937536</td><td>15937536</td><td>460943360</td><td>00:00:00.0625000</td><td>1</td><td>308</td><td>2203779166208</td><td>26947584</td><td>15937536</td><td>22024</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,0625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4516</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>22024</td><td>22024</td><td>15937536</td><td>494632</td><td>494632</td><td>17154048</td><td>17154048</td><td>26968064</td><td>26968064</td><td>463040512</td><td>2203781263360</td><td>True</td><td>15937536</td><td>00:00:00.0156250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:56:04</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203779166208</td><td>False</td><td></td><td></td><td></td><td>26947584</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>26280</td><td>Normal</td><td>75.0.3755.0</td><td>372</td><td>8278016</td><td>3891200</td><td>3891200</td><td>144900096</td><td>00:00:00.4843750</td><td>1</td><td>372</td><td>2203463122944</td><td>8278016</td><td>3891200</td><td>11488</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,484375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4424</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>11488</td><td>11488</td><td>3891200</td><td>190480</td><td>190480</td><td>13680640</td><td>13680640</td><td>19415040</td><td>19415040</td><td>153341952</td><td>2203471564800</td><td>True</td><td>3891200</td><td>00:00:00.4062500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0781250</td><td>2203463122944</td><td>False</td><td></td><td></td><td></td><td>8278016</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>26524</td><td>Normal</td><td>75.0.3755.0</td><td>299</td><td>55590912</td><td>42868736</td><td>42868736</td><td>514822144</td><td>00:00:05.6562500</td><td>1</td><td>299</td><td>2203833044992</td><td>55590912</td><td>42868736</td><td>31544</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,65625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>31544</td><td>31544</td><td>42868736</td><td>476472</td><td>476472</td><td>50085888</td><td>50085888</td><td>69570560</td><td>69570560</td><td>539987968</td><td>2203858210816</td><td>True</td><td>42868736</td><td>00:00:00.7031250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:04.9531250</td><td>2203833044992</td><td>False</td><td></td><td></td><td></td><td>55590912</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>27380</td><td>Normal</td><td>75.0.3755.0</td><td>304</td><td>67809280</td><td>63074304</td><td>63074304</td><td>542216192</td><td>00:00:09.0781250</td><td>1</td><td>304</td><td>2203860439040</td><td>67809280</td><td>63074304</td><td>39976</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>9,078125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4264</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>39976</td><td>39976</td><td>63074304</td><td>468280</td><td>468280</td><td>78635008</td><td>78635008</td><td>94064640</td><td>94064640</td><td>578637824</td><td>2203896860672</td><td>True</td><td>63074304</td><td>00:00:00.7812500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:19</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:08.2968750</td><td>2203860439040</td><td>False</td><td></td><td></td><td></td><td>67809280</td><td></td><td></td></tr>
+</tbody>
+<tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Test" style="color: #ffffff;">Test
+</a>
+<a id="show_1463802466" href="javascript:void(0)" onclick="show('1463802466');" style="color: #ffffff; display:none;">(Show)
+</a>
+<a id="hide_1463802466" href="javascript:void(0)" onclick="hide('1463802466');" style="color: #ffffff; display:none;">(Hide)
+</a>
+</div>
+<div class="defaultContainerOther" id="1463802466"><div class="defaultContainer defaultPanelOther collapsable" id="1463802466"><script>                $(document).ready(function() {
+                    $('#DT-elgaGcoP').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       -1,
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "order":  [
+                  3,
+                  "asc"
+              ]
+}
+                    );
+                });
+</script>
+<div class="defaultPanelOther"><table id="DT-elgaGcoP" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+</thead>
+<tbody><tr><td>1Password</td><td>16904</td><td>Normal</td><td>7.3.657</td><td>900</td><td>157237248</td><td>191389696</td><td>191389696</td><td>828735488</td><td>01:32:54.0468750</td><td>1</td><td>900</td><td>828735488</td><td>157237248</td><td>191389696</td><td>66472</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>5574,046875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4360</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>66472</td><td>66472</td><td>191389696</td><td>934776</td><td>934776</td><td>294375424</td><td>294375424</td><td>291864576</td><td>291864576</td><td>1022361600</td><td>1022361600</td><td>True</td><td>191389696</td><td>00:22:22.4531250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:45:44</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>01:10:31.5937500</td><td>828735488</td><td>False</td><td></td><td></td><td></td><td>157237248</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>3660</td><td></td><td></td><td>179</td><td>3514368</td><td>2351104</td><td>2351104</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>3514368</td><td>2351104</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2351104</td><td>104984</td><td>104984</td><td>3125248</td><td>3125248</td><td>9641984</td><td>9641984</td><td>100417536</td><td>2203418640384</td><td></td><td>2351104</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>3514368</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>17960</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>564</td><td>19853312</td><td>38473728</td><td>38473728</td><td>312635392</td><td>00:00:11.9375000</td><td>1</td><td>564</td><td>2203630858240</td><td>19853312</td><td>38473728</td><td>33720</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>11,9375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4380</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>15664356</td><td>Microsoft Edge</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>33720</td><td>33720</td><td>38473728</td><td>458800</td><td>458800</td><td>58241024</td><td>58241024</td><td>65060864</td><td>65060864</td><td>337707008</td><td>2203655929856</td><td>True</td><td>38473728</td><td>00:00:07.9843750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:46:25</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:03.9531250</td><td>2203630858240</td><td>False</td><td></td><td></td><td></td><td>19853312</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>8572</td><td>Normal</td><td>5.1.145.0</td><td>167</td><td>4886528</td><td>2027520</td><td>2027520</td><td>120426496</td><td>00:00:00.0156250</td><td>1</td><td>167</td><td>4415393792</td><td>4886528</td><td>2027520</td><td>9072</td><td>C:\Program Files\Common Files\Microsoft Shared\ClickToRun\AppVShNotify.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>5.1.145.0</td><td>AppVShNotify</td><td>Microsoft Application Virtualization (App-V)</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4416</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (AppVShNotify.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>9072</td><td>9072</td><td>2027520</td><td>172512</td><td>172512</td><td>2252800</td><td>2252800</td><td>8261632</td><td>8261632</td><td>129077248</td><td>4424044544</td><td>True</td><td>2027520</td><td>00:00:00.0156250</td><td>AppVShNotify</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.03.2019 00:16:42</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>4415393792</td><td>False</td><td></td><td></td><td></td><td>4886528</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>28012</td><td></td><td></td><td>162</td><td>4399104</td><td>1810432</td><td>1810432</td><td>99344384</td><td></td><td>0</td><td>162</td><td>4394311680</td><td>4399104</td><td>1810432</td><td>8544</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8544</td><td>8544</td><td>1810432</td><td>131704</td><td>131704</td><td>2039808</td><td>2039808</td><td>7561216</td><td>7561216</td><td>106684416</td><td>4401651712</td><td></td><td>1810432</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394311680</td><td>False</td><td></td><td></td><td></td><td>4399104</td><td></td><td></td></tr>
+<tr><td>audiodg</td><td>12956</td><td></td><td></td><td>196</td><td>12402688</td><td>7655424</td><td>7655424</td><td>85778432</td><td>00:00:03.8906250</td><td>0</td><td>196</td><td>2203404001280</td><td>12402688</td><td>7655424</td><td>11336</td><td></td><td></td><td>3,890625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>11336</td><td>11336</td><td>7655424</td><td>96416</td><td>96416</td><td>7823360</td><td>7823360</td><td>12845056</td><td>12845056</td><td>88428544</td><td>2203406651392</td><td></td><td>7655424</td><td>00:00:02.8750000</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:18:13</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.0156250</td><td>2203404001280</td><td>False</td><td></td><td></td><td></td><td>12402688</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>29888</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>6692864</td><td>1687552</td><td>1687552</td><td>98476032</td><td>00:00:00.0625000</td><td>1</td><td>139</td><td>2203416698880</td><td>6692864</td><td>1687552</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,0625</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4272</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1687552</td><td>125960</td><td>125960</td><td>1925120</td><td>1925120</td><td>8445952</td><td>8445952</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1687552</td><td>00:00:00.0468750</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 12:20:15</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>6692864</td><td></td><td></td></tr>
+<tr><td>Calculator</td><td>21132</td><td>Normal</td><td>10.1812.1901.04008</td><td>518</td><td>520192</td><td>16379904</td><td>16379904</td><td>443850752</td><td>00:00:00.2187500</td><td>1</td><td>518</td><td>4738818048</td><td>520192</td><td>16379904</td><td>27648</td><td>C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.1812.10048.0_x64__8wekyb3d8bbwe\Calculator.exe</td><td>Microsoft Corporation</td><td>0,21875</td><td>10.1812.190104008</td><td>Calculator.exe</td><td>Microsoft Calculator</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4136</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>269570</td><td>Calculator</td><td>System.Diagnostics.ProcessModule (Calculator.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>27648</td><td>27648</td><td>16379904</td><td>697552</td><td>697552</td><td>18841600</td><td>18841600</td><td>58093568</td><td>58093568</td><td>481599488</td><td>4776566784</td><td>True</td><td>16379904</td><td>00:00:00.1093750</td><td>Calculator</td><td>65535</td><td>False</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 07:48:48</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1093750</td><td>4738818048</td><td>False</td><td></td><td></td><td></td><td>520192</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>5308</td><td>Idle</td><td>75.0.3755.0</td><td>462</td><td>160632832</td><td>114454528</td><td>114454528</td><td>695840768</td><td>00:00:05.5625000</td><td>1</td><td>462</td><td>2204014063616</td><td>160632832</td><td>114454528</td><td>48952</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,5625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4028</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>48952</td><td>48952</td><td>114454528</td><td>646344</td><td>646344</td><td>150732800</td><td>150732800</td><td>194564096</td><td>194564096</td><td>732409856</td><td>2204050632704</td><td>True</td><td>114454528</td><td>00:00:00.6718750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:52:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:04.8906250</td><td>2204014063616</td><td>False</td><td></td><td></td><td></td><td>160632832</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>11716</td><td>Idle</td><td>75.0.3755.0</td><td>417</td><td>301322240</td><td>285650944</td><td>285650944</td><td>827310080</td><td>00:00:27.8750000</td><td>1</td><td>417</td><td>2204145532928</td><td>301322240</td><td>285650944</td><td>110016</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>27,875</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4180</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>110016</td><td>110016</td><td>285650944</td><td>577360</td><td>577360</td><td>390746112</td><td>390746112</td><td>418471936</td><td>418471936</td><td>1079103488</td><td>2204397326336</td><td>True</td><td>285650944</td><td>00:00:01.2812500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 21:39:49</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:26.5937500</td><td>2204145532928</td><td>False</td><td></td><td></td><td></td><td>301322240</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12352</td><td>Idle</td><td>75.0.3755.0</td><td>317</td><td>41451520</td><td>36048896</td><td>36048896</td><td>504238080</td><td>00:00:00.3750000</td><td>1</td><td>317</td><td>2203822460928</td><td>41451520</td><td>36048896</td><td>29232</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4196</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29232</td><td>29232</td><td>36048896</td><td>471160</td><td>471160</td><td>50585600</td><td>50585600</td><td>66207744</td><td>66207744</td><td>684007424</td><td>2204002230272</td><td>True</td><td>36048896</td><td>00:00:00.1406250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 21:39:52</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2343750</td><td>2203822460928</td><td>False</td><td></td><td></td><td></td><td>41451520</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12508</td><td>Idle</td><td>75.0.3755.0</td><td>293</td><td>27033600</td><td>15499264</td><td>15499264</td><td>444231680</td><td>00:00:00.0625000</td><td>1</td><td>293</td><td>2203762454528</td><td>27033600</td><td>15499264</td><td>21072</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,0625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4260</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>21072</td><td>21072</td><td>15499264</td><td>507048</td><td>507048</td><td>19009536</td><td>19009536</td><td>27369472</td><td>27369472</td><td>465256448</td><td>2203783479296</td><td>True</td><td>15499264</td><td>00:00:00.0468750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:31:59</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203762454528</td><td>False</td><td></td><td></td><td></td><td>27033600</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12564</td><td>Normal</td><td>75.0.3755.0</td><td>2961</td><td>285437952</td><td>285483008</td><td>285483008</td><td>887046144</td><td>00:08:41.8125000</td><td>1</td><td>2961</td><td>2204205268992</td><td>285437952</td><td>285483008</td><td>83064</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>521,8125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3220</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>31786460</td><td>My title - Google Chrome</td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>83064</td><td>83064</td><td>285483008</td><td>1115400</td><td>1115400</td><td>327483392</td><td>327483392</td><td>339017728</td><td>339017728</td><td>1185058816</td><td>2204503281664</td><td>True</td><td>285483008</td><td>00:03:28.8125000</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:05:13</td><td>2204205268992</td><td>False</td><td></td><td></td><td></td><td>285437952</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12832</td><td>Normal</td><td>75.0.3755.0</td><td>150</td><td>7880704</td><td>2166784</td><td>2166784</td><td>137359360</td><td>00:00:00.0468750</td><td>1</td><td>150</td><td>2203455582208</td><td>7880704</td><td>2166784</td><td>11352</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,046875</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4236</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>11352</td><td>11352</td><td>2166784</td><td>187016</td><td>187016</td><td>2777088</td><td>2777088</td><td>9707520</td><td>9707520</td><td>139456512</td><td>2203457679360</td><td>True</td><td>2166784</td><td>00:00:00.0312500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:19</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203455582208</td><td>False</td><td></td><td></td><td></td><td>7880704</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>13032</td><td>Idle</td><td>75.0.3755.0</td><td>349</td><td>131678208</td><td>109703168</td><td>109703168</td><td>641212416</td><td>00:00:38.0625000</td><td>1</td><td>349</td><td>2203959435264</td><td>131678208</td><td>109703168</td><td>41064</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>38,0625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4092</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>41064</td><td>41064</td><td>109703168</td><td>520960</td><td>520960</td><td>179888128</td><td>179888128</td><td>201814016</td><td>201814016</td><td>731066368</td><td>2204049289216</td><td>True</td><td>109703168</td><td>00:00:01.7968750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:35:56</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:36.2656250</td><td>2203959435264</td><td>False</td><td></td><td></td><td></td><td>131678208</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>13420</td><td>Normal</td><td>75.0.3755.0</td><td>300</td><td>67080192</td><td>55721984</td><td>55721984</td><td>537759744</td><td>00:00:05.7812500</td><td>1</td><td>300</td><td>2203855982592</td><td>67080192</td><td>55721984</td><td>29640</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,78125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3792</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29640</td><td>29640</td><td>55721984</td><td>472248</td><td>472248</td><td>75436032</td><td>75436032</td><td>85549056</td><td>85549056</td><td>557551616</td><td>2203875774464</td><td>True</td><td>55721984</td><td>00:00:00.4375000</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:05.3437500</td><td>2203855982592</td><td>False</td><td></td><td></td><td></td><td>67080192</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>18604</td><td>Normal</td><td>75.0.3755.0</td><td>298</td><td>49930240</td><td>91209728</td><td>91209728</td><td>543723520</td><td>00:00:03.6718750</td><td>1</td><td>298</td><td>2203861946368</td><td>49930240</td><td>91209728</td><td>30864</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>3,671875</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4164</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>30864</td><td>30864</td><td>91209728</td><td>480440</td><td>480440</td><td>92438528</td><td>92438528</td><td>81072128</td><td>81072128</td><td>546869248</td><td>2203865092096</td><td>True</td><td>91209728</td><td>00:00:00.2968750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:03.3750000</td><td>2203861946368</td><td>False</td><td></td><td></td><td></td><td>49930240</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>19536</td><td>Idle</td><td>75.0.3755.0</td><td>284</td><td>17973248</td><td>15695872</td><td>15695872</td><td>444166144</td><td>00:00:00.0937500</td><td>1</td><td>284</td><td>2203762388992</td><td>17973248</td><td>15695872</td><td>20936</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,09375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4124</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>20936</td><td>20936</td><td>15695872</td><td>486440</td><td>486440</td><td>17190912</td><td>17190912</td><td>27365376</td><td>27365376</td><td>463040512</td><td>2203781263360</td><td>True</td><td>15695872</td><td>00:00:00.0468750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:35:55</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203762388992</td><td>False</td><td></td><td></td><td></td><td>17973248</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>20560</td><td>Normal</td><td>75.0.3755.0</td><td>293</td><td>30076928</td><td>26251264</td><td>26251264</td><td>468283392</td><td>00:00:00.8437500</td><td>1</td><td>293</td><td>2203786506240</td><td>30076928</td><td>26251264</td><td>25968</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,84375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4452</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>25968</td><td>25968</td><td>26251264</td><td>461864</td><td>461864</td><td>29380608</td><td>29380608</td><td>39972864</td><td>39972864</td><td>479817728</td><td>2203798040576</td><td>True</td><td>26251264</td><td>00:00:00.1718750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.6718750</td><td>2203786506240</td><td>False</td><td></td><td></td><td></td><td>30076928</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>21036</td><td>Idle</td><td>75.0.3755.0</td><td>372</td><td>90898432</td><td>68263936</td><td>68263936</td><td>566255616</td><td>00:00:05.4843750</td><td>1</td><td>372</td><td>2203884478464</td><td>90898432</td><td>68263936</td><td>36984</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,484375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4032</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>36984</td><td>36984</td><td>68263936</td><td>475808</td><td>475808</td><td>107474944</td><td>107474944</td><td>129200128</td><td>129200128</td><td>635498496</td><td>2203953721344</td><td>True</td><td>68263936</td><td>00:00:00.4843750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:42:53</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:05</td><td>2203884478464</td><td>False</td><td></td><td></td><td></td><td>90898432</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>21152</td><td>Idle</td><td>75.0.3755.0</td><td>427</td><td>195575808</td><td>155389952</td><td>155389952</td><td>652464128</td><td>00:00:08.4375000</td><td>1</td><td>427</td><td>2203970686976</td><td>195575808</td><td>155389952</td><td>57792</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>8,4375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4108</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>57792</td><td>57792</td><td>155389952</td><td>530904</td><td>530904</td><td>224190464</td><td>224190464</td><td>264998912</td><td>264998912</td><td>942297088</td><td>2204260519936</td><td>True</td><td>155389952</td><td>00:00:00.6718750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:47:27</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:07.7656250</td><td>2203970686976</td><td>False</td><td></td><td></td><td></td><td>195575808</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>21408</td><td>Idle</td><td>75.0.3755.0</td><td>284</td><td>26779648</td><td>15454208</td><td>15454208</td><td>444166144</td><td>00:00:00.0781250</td><td>1</td><td>284</td><td>2203762388992</td><td>26779648</td><td>15454208</td><td>20936</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,078125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>3112</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>20936</td><td>20936</td><td>15454208</td><td>506920</td><td>506920</td><td>17027072</td><td>17027072</td><td>26980352</td><td>26980352</td><td>463040512</td><td>2203781263360</td><td>True</td><td>15454208</td><td>00:00:00.0156250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:51:17</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0625000</td><td>2203762388992</td><td>False</td><td></td><td></td><td></td><td>26779648</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>22740</td><td>Normal</td><td>75.0.3755.0</td><td>299</td><td>30302208</td><td>25481216</td><td>25481216</td><td>475697152</td><td>00:00:00.4062500</td><td>1</td><td>299</td><td>2203793920000</td><td>30302208</td><td>25481216</td><td>25696</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,40625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4204</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>25696</td><td>25696</td><td>25481216</td><td>476344</td><td>476344</td><td>26882048</td><td>26882048</td><td>43466752</td><td>43466752</td><td>494047232</td><td>2203812270080</td><td>True</td><td>25481216</td><td>00:00:00.1562500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2500000</td><td>2203793920000</td><td>False</td><td></td><td></td><td></td><td>30302208</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>22876</td><td>Idle</td><td>75.0.3755.0</td><td>293</td><td>19111936</td><td>15683584</td><td>15683584</td><td>444231680</td><td>00:00:00.1093750</td><td>1</td><td>293</td><td>2203762454528</td><td>19111936</td><td>15683584</td><td>21072</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,109375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>3952</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>21072</td><td>21072</td><td>15683584</td><td>474280</td><td>474280</td><td>19333120</td><td>19333120</td><td>27426816</td><td>27426816</td><td>467341312</td><td>2203785564160</td><td>True</td><td>15683584</td><td>00:00:00.0625000</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:42:37</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203762454528</td><td>False</td><td></td><td></td><td></td><td>19111936</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>25404</td><td>Normal</td><td>75.0.3755.0</td><td>298</td><td>31387648</td><td>28778496</td><td>28778496</td><td>478056448</td><td>00:00:00.9062500</td><td>1</td><td>298</td><td>2203796279296</td><td>31387648</td><td>28778496</td><td>26920</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,90625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4184</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>26920</td><td>26920</td><td>28778496</td><td>476344</td><td>476344</td><td>31432704</td><td>31432704</td><td>44310528</td><td>44310528</td><td>491950080</td><td>2203810172928</td><td>True</td><td>28778496</td><td>00:00:00.1562500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.7500000</td><td>2203796279296</td><td>False</td><td></td><td></td><td></td><td>31387648</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>25428</td><td>Normal</td><td>75.0.3755.0</td><td>296</td><td>26324992</td><td>23625728</td><td>23625728</td><td>467562496</td><td>00:00:00.2031250</td><td>1</td><td>296</td><td>2203785785344</td><td>26324992</td><td>23625728</td><td>23792</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,203125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4268</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>23792</td><td>23792</td><td>23625728</td><td>470184</td><td>470184</td><td>24051712</td><td>24051712</td><td>40738816</td><td>40738816</td><td>486436864</td><td>2203804659712</td><td>True</td><td>23625728</td><td>00:00:00.0937500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1093750</td><td>2203785785344</td><td>False</td><td></td><td></td><td></td><td>26324992</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>26188</td><td>Idle</td><td>75.0.3755.0</td><td>308</td><td>26947584</td><td>15937536</td><td>15937536</td><td>460943360</td><td>00:00:00.0625000</td><td>1</td><td>308</td><td>2203779166208</td><td>26947584</td><td>15937536</td><td>22024</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,0625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4516</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>22024</td><td>22024</td><td>15937536</td><td>494632</td><td>494632</td><td>17154048</td><td>17154048</td><td>26968064</td><td>26968064</td><td>463040512</td><td>2203781263360</td><td>True</td><td>15937536</td><td>00:00:00.0156250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:56:04</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203779166208</td><td>False</td><td></td><td></td><td></td><td>26947584</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>26280</td><td>Normal</td><td>75.0.3755.0</td><td>372</td><td>8278016</td><td>3891200</td><td>3891200</td><td>144900096</td><td>00:00:00.4843750</td><td>1</td><td>372</td><td>2203463122944</td><td>8278016</td><td>3891200</td><td>11488</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,484375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4424</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>11488</td><td>11488</td><td>3891200</td><td>190480</td><td>190480</td><td>13680640</td><td>13680640</td><td>19415040</td><td>19415040</td><td>153341952</td><td>2203471564800</td><td>True</td><td>3891200</td><td>00:00:00.4062500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0781250</td><td>2203463122944</td><td>False</td><td></td><td></td><td></td><td>8278016</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>26524</td><td>Normal</td><td>75.0.3755.0</td><td>299</td><td>55590912</td><td>42868736</td><td>42868736</td><td>514822144</td><td>00:00:05.6562500</td><td>1</td><td>299</td><td>2203833044992</td><td>55590912</td><td>42868736</td><td>31544</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,65625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>31544</td><td>31544</td><td>42868736</td><td>476472</td><td>476472</td><td>50085888</td><td>50085888</td><td>69570560</td><td>69570560</td><td>539987968</td><td>2203858210816</td><td>True</td><td>42868736</td><td>00:00:00.7031250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:04.9531250</td><td>2203833044992</td><td>False</td><td></td><td></td><td></td><td>55590912</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>27380</td><td>Normal</td><td>75.0.3755.0</td><td>304</td><td>67809280</td><td>63074304</td><td>63074304</td><td>542216192</td><td>00:00:09.0781250</td><td>1</td><td>304</td><td>2203860439040</td><td>67809280</td><td>63074304</td><td>39976</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>9,078125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4264</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>39976</td><td>39976</td><td>63074304</td><td>468280</td><td>468280</td><td>78635008</td><td>78635008</td><td>94064640</td><td>94064640</td><td>578637824</td><td>2203896860672</td><td>True</td><td>63074304</td><td>00:00:00.7812500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:19</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:08.2968750</td><td>2203860439040</td><td>False</td><td></td><td></td><td></td><td>67809280</td><td></td><td></td></tr>
+</tbody>
+<tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script>                $(document).ready(function() {
+                    $('#DT-TtmGvOZk').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       -1,
+                       [
+                           15,
+                           25,
+                           50,
+                           100
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+}
+                    );
+                });
+</script>
+<div class="defaultPanelOther"><table id="DT-TtmGvOZk" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+</thead>
+<tbody><tr><td>1Password</td><td>16904</td><td>Normal</td><td>7.3.657</td><td>900</td><td>157237248</td><td>191389696</td><td>191389696</td><td>828735488</td><td>01:32:54.0468750</td><td>1</td><td>900</td><td>828735488</td><td>157237248</td><td>191389696</td><td>66472</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>5574,046875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4360</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>66472</td><td>66472</td><td>191389696</td><td>934776</td><td>934776</td><td>294375424</td><td>294375424</td><td>291864576</td><td>291864576</td><td>1022361600</td><td>1022361600</td><td>True</td><td>191389696</td><td>00:22:22.4531250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:45:44</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>01:10:31.5937500</td><td>828735488</td><td>False</td><td></td><td></td><td></td><td>157237248</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>3660</td><td></td><td></td><td>179</td><td>3514368</td><td>2351104</td><td>2351104</td><td>89571328</td><td></td><td>0</td><td>179</td><td>2203407794176</td><td>3514368</td><td>2351104</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2351104</td><td>104984</td><td>104984</td><td>3125248</td><td>3125248</td><td>9641984</td><td>9641984</td><td>100417536</td><td>2203418640384</td><td></td><td>2351104</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407794176</td><td>False</td><td></td><td></td><td></td><td>3514368</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>17960</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>564</td><td>19853312</td><td>38473728</td><td>38473728</td><td>312635392</td><td>00:00:11.9375000</td><td>1</td><td>564</td><td>2203630858240</td><td>19853312</td><td>38473728</td><td>33720</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>11,9375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4380</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>15664356</td><td>Microsoft Edge</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>33720</td><td>33720</td><td>38473728</td><td>458800</td><td>458800</td><td>58241024</td><td>58241024</td><td>65060864</td><td>65060864</td><td>337707008</td><td>2203655929856</td><td>True</td><td>38473728</td><td>00:00:07.9843750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.03.2019 08:46:25</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:03.9531250</td><td>2203630858240</td><td>False</td><td></td><td></td><td></td><td>19853312</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>8572</td><td>Normal</td><td>5.1.145.0</td><td>167</td><td>4886528</td><td>2027520</td><td>2027520</td><td>120426496</td><td>00:00:00.0156250</td><td>1</td><td>167</td><td>4415393792</td><td>4886528</td><td>2027520</td><td>9072</td><td>C:\Program Files\Common Files\Microsoft Shared\ClickToRun\AppVShNotify.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>5.1.145.0</td><td>AppVShNotify</td><td>Microsoft Application Virtualization (App-V)</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4416</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (AppVShNotify.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>9072</td><td>9072</td><td>2027520</td><td>172512</td><td>172512</td><td>2252800</td><td>2252800</td><td>8261632</td><td>8261632</td><td>129077248</td><td>4424044544</td><td>True</td><td>2027520</td><td>00:00:00.0156250</td><td>AppVShNotify</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.03.2019 00:16:42</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>4415393792</td><td>False</td><td></td><td></td><td></td><td>4886528</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>28012</td><td></td><td></td><td>162</td><td>4399104</td><td>1810432</td><td>1810432</td><td>99344384</td><td></td><td>0</td><td>162</td><td>4394311680</td><td>4399104</td><td>1810432</td><td>8544</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8544</td><td>8544</td><td>1810432</td><td>131704</td><td>131704</td><td>2039808</td><td>2039808</td><td>7561216</td><td>7561216</td><td>106684416</td><td>4401651712</td><td></td><td>1810432</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394311680</td><td>False</td><td></td><td></td><td></td><td>4399104</td><td></td><td></td></tr>
+<tr><td>audiodg</td><td>12956</td><td></td><td></td><td>196</td><td>12402688</td><td>7655424</td><td>7655424</td><td>85778432</td><td>00:00:03.8906250</td><td>0</td><td>196</td><td>2203404001280</td><td>12402688</td><td>7655424</td><td>11336</td><td></td><td></td><td>3,890625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>11336</td><td>11336</td><td>7655424</td><td>96416</td><td>96416</td><td>7823360</td><td>7823360</td><td>12845056</td><td>12845056</td><td>88428544</td><td>2203406651392</td><td></td><td>7655424</td><td>00:00:02.8750000</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:18:13</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.0156250</td><td>2203404001280</td><td>False</td><td></td><td></td><td></td><td>12402688</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>29888</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>6692864</td><td>1687552</td><td>1687552</td><td>98476032</td><td>00:00:00.0625000</td><td>1</td><td>139</td><td>2203416698880</td><td>6692864</td><td>1687552</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,0625</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4272</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1687552</td><td>125960</td><td>125960</td><td>1925120</td><td>1925120</td><td>8445952</td><td>8445952</td><td>102146048</td><td>2203420368896</td><td>True</td><td>1687552</td><td>00:00:00.0468750</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 12:20:15</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203416698880</td><td>False</td><td></td><td></td><td></td><td>6692864</td><td></td><td></td></tr>
+<tr><td>Calculator</td><td>21132</td><td>Normal</td><td>10.1812.1901.04008</td><td>518</td><td>520192</td><td>16379904</td><td>16379904</td><td>443850752</td><td>00:00:00.2187500</td><td>1</td><td>518</td><td>4738818048</td><td>520192</td><td>16379904</td><td>27648</td><td>C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.1812.10048.0_x64__8wekyb3d8bbwe\Calculator.exe</td><td>Microsoft Corporation</td><td>0,21875</td><td>10.1812.190104008</td><td>Calculator.exe</td><td>Microsoft Calculator</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4136</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>269570</td><td>Calculator</td><td>System.Diagnostics.ProcessModule (Calculator.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>27648</td><td>27648</td><td>16379904</td><td>697552</td><td>697552</td><td>18841600</td><td>18841600</td><td>58093568</td><td>58093568</td><td>481599488</td><td>4776566784</td><td>True</td><td>16379904</td><td>00:00:00.1093750</td><td>Calculator</td><td>65535</td><td>False</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 07:48:48</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1093750</td><td>4738818048</td><td>False</td><td></td><td></td><td></td><td>520192</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>5308</td><td>Idle</td><td>75.0.3755.0</td><td>462</td><td>160632832</td><td>114454528</td><td>114454528</td><td>695840768</td><td>00:00:05.5625000</td><td>1</td><td>462</td><td>2204014063616</td><td>160632832</td><td>114454528</td><td>48952</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,5625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4028</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>48952</td><td>48952</td><td>114454528</td><td>646344</td><td>646344</td><td>150732800</td><td>150732800</td><td>194564096</td><td>194564096</td><td>732409856</td><td>2204050632704</td><td>True</td><td>114454528</td><td>00:00:00.6718750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:52:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:04.8906250</td><td>2204014063616</td><td>False</td><td></td><td></td><td></td><td>160632832</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>11716</td><td>Idle</td><td>75.0.3755.0</td><td>417</td><td>301322240</td><td>285650944</td><td>285650944</td><td>827310080</td><td>00:00:27.8750000</td><td>1</td><td>417</td><td>2204145532928</td><td>301322240</td><td>285650944</td><td>110016</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>27,875</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4180</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>110016</td><td>110016</td><td>285650944</td><td>577360</td><td>577360</td><td>390746112</td><td>390746112</td><td>418471936</td><td>418471936</td><td>1079103488</td><td>2204397326336</td><td>True</td><td>285650944</td><td>00:00:01.2812500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 21:39:49</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:26.5937500</td><td>2204145532928</td><td>False</td><td></td><td></td><td></td><td>301322240</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12352</td><td>Idle</td><td>75.0.3755.0</td><td>317</td><td>41451520</td><td>36048896</td><td>36048896</td><td>504238080</td><td>00:00:00.3750000</td><td>1</td><td>317</td><td>2203822460928</td><td>41451520</td><td>36048896</td><td>29232</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4196</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29232</td><td>29232</td><td>36048896</td><td>471160</td><td>471160</td><td>50585600</td><td>50585600</td><td>66207744</td><td>66207744</td><td>684007424</td><td>2204002230272</td><td>True</td><td>36048896</td><td>00:00:00.1406250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 21:39:52</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2343750</td><td>2203822460928</td><td>False</td><td></td><td></td><td></td><td>41451520</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12508</td><td>Idle</td><td>75.0.3755.0</td><td>293</td><td>27033600</td><td>15499264</td><td>15499264</td><td>444231680</td><td>00:00:00.0625000</td><td>1</td><td>293</td><td>2203762454528</td><td>27033600</td><td>15499264</td><td>21072</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,0625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4260</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>21072</td><td>21072</td><td>15499264</td><td>507048</td><td>507048</td><td>19009536</td><td>19009536</td><td>27369472</td><td>27369472</td><td>465256448</td><td>2203783479296</td><td>True</td><td>15499264</td><td>00:00:00.0468750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:31:59</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203762454528</td><td>False</td><td></td><td></td><td></td><td>27033600</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12564</td><td>Normal</td><td>75.0.3755.0</td><td>2961</td><td>285437952</td><td>285483008</td><td>285483008</td><td>887046144</td><td>00:08:41.8125000</td><td>1</td><td>2961</td><td>2204205268992</td><td>285437952</td><td>285483008</td><td>83064</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>521,8125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3220</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>31786460</td><td>My title - Google Chrome</td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>83064</td><td>83064</td><td>285483008</td><td>1115400</td><td>1115400</td><td>327483392</td><td>327483392</td><td>339017728</td><td>339017728</td><td>1185058816</td><td>2204503281664</td><td>True</td><td>285483008</td><td>00:03:28.8125000</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:05:13</td><td>2204205268992</td><td>False</td><td></td><td></td><td></td><td>285437952</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>12832</td><td>Normal</td><td>75.0.3755.0</td><td>150</td><td>7880704</td><td>2166784</td><td>2166784</td><td>137359360</td><td>00:00:00.0468750</td><td>1</td><td>150</td><td>2203455582208</td><td>7880704</td><td>2166784</td><td>11352</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,046875</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4236</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>11352</td><td>11352</td><td>2166784</td><td>187016</td><td>187016</td><td>2777088</td><td>2777088</td><td>9707520</td><td>9707520</td><td>139456512</td><td>2203457679360</td><td>True</td><td>2166784</td><td>00:00:00.0312500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:19</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203455582208</td><td>False</td><td></td><td></td><td></td><td>7880704</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>13032</td><td>Idle</td><td>75.0.3755.0</td><td>349</td><td>131678208</td><td>109703168</td><td>109703168</td><td>641212416</td><td>00:00:38.0625000</td><td>1</td><td>349</td><td>2203959435264</td><td>131678208</td><td>109703168</td><td>41064</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>38,0625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4092</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>41064</td><td>41064</td><td>109703168</td><td>520960</td><td>520960</td><td>179888128</td><td>179888128</td><td>201814016</td><td>201814016</td><td>731066368</td><td>2204049289216</td><td>True</td><td>109703168</td><td>00:00:01.7968750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:35:56</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:36.2656250</td><td>2203959435264</td><td>False</td><td></td><td></td><td></td><td>131678208</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>13420</td><td>Normal</td><td>75.0.3755.0</td><td>300</td><td>67080192</td><td>55721984</td><td>55721984</td><td>537759744</td><td>00:00:05.7812500</td><td>1</td><td>300</td><td>2203855982592</td><td>67080192</td><td>55721984</td><td>29640</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,78125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3792</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29640</td><td>29640</td><td>55721984</td><td>472248</td><td>472248</td><td>75436032</td><td>75436032</td><td>85549056</td><td>85549056</td><td>557551616</td><td>2203875774464</td><td>True</td><td>55721984</td><td>00:00:00.4375000</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:05.3437500</td><td>2203855982592</td><td>False</td><td></td><td></td><td></td><td>67080192</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>18604</td><td>Normal</td><td>75.0.3755.0</td><td>298</td><td>49930240</td><td>91209728</td><td>91209728</td><td>543723520</td><td>00:00:03.6718750</td><td>1</td><td>298</td><td>2203861946368</td><td>49930240</td><td>91209728</td><td>30864</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>3,671875</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4164</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>30864</td><td>30864</td><td>91209728</td><td>480440</td><td>480440</td><td>92438528</td><td>92438528</td><td>81072128</td><td>81072128</td><td>546869248</td><td>2203865092096</td><td>True</td><td>91209728</td><td>00:00:00.2968750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:03.3750000</td><td>2203861946368</td><td>False</td><td></td><td></td><td></td><td>49930240</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>19536</td><td>Idle</td><td>75.0.3755.0</td><td>284</td><td>17973248</td><td>15695872</td><td>15695872</td><td>444166144</td><td>00:00:00.0937500</td><td>1</td><td>284</td><td>2203762388992</td><td>17973248</td><td>15695872</td><td>20936</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,09375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4124</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>20936</td><td>20936</td><td>15695872</td><td>486440</td><td>486440</td><td>17190912</td><td>17190912</td><td>27365376</td><td>27365376</td><td>463040512</td><td>2203781263360</td><td>True</td><td>15695872</td><td>00:00:00.0468750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:35:55</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203762388992</td><td>False</td><td></td><td></td><td></td><td>17973248</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>20560</td><td>Normal</td><td>75.0.3755.0</td><td>293</td><td>30076928</td><td>26251264</td><td>26251264</td><td>468283392</td><td>00:00:00.8437500</td><td>1</td><td>293</td><td>2203786506240</td><td>30076928</td><td>26251264</td><td>25968</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,84375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4452</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>25968</td><td>25968</td><td>26251264</td><td>461864</td><td>461864</td><td>29380608</td><td>29380608</td><td>39972864</td><td>39972864</td><td>479817728</td><td>2203798040576</td><td>True</td><td>26251264</td><td>00:00:00.1718750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.6718750</td><td>2203786506240</td><td>False</td><td></td><td></td><td></td><td>30076928</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>21036</td><td>Idle</td><td>75.0.3755.0</td><td>372</td><td>90898432</td><td>68263936</td><td>68263936</td><td>566255616</td><td>00:00:05.4843750</td><td>1</td><td>372</td><td>2203884478464</td><td>90898432</td><td>68263936</td><td>36984</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,484375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4032</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>36984</td><td>36984</td><td>68263936</td><td>475808</td><td>475808</td><td>107474944</td><td>107474944</td><td>129200128</td><td>129200128</td><td>635498496</td><td>2203953721344</td><td>True</td><td>68263936</td><td>00:00:00.4843750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:42:53</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:05</td><td>2203884478464</td><td>False</td><td></td><td></td><td></td><td>90898432</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>21152</td><td>Idle</td><td>75.0.3755.0</td><td>427</td><td>195575808</td><td>155389952</td><td>155389952</td><td>652464128</td><td>00:00:08.4375000</td><td>1</td><td>427</td><td>2203970686976</td><td>195575808</td><td>155389952</td><td>57792</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>8,4375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4108</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>57792</td><td>57792</td><td>155389952</td><td>530904</td><td>530904</td><td>224190464</td><td>224190464</td><td>264998912</td><td>264998912</td><td>942297088</td><td>2204260519936</td><td>True</td><td>155389952</td><td>00:00:00.6718750</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:47:27</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:07.7656250</td><td>2203970686976</td><td>False</td><td></td><td></td><td></td><td>195575808</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>21408</td><td>Idle</td><td>75.0.3755.0</td><td>284</td><td>26779648</td><td>15454208</td><td>15454208</td><td>444166144</td><td>00:00:00.0781250</td><td>1</td><td>284</td><td>2203762388992</td><td>26779648</td><td>15454208</td><td>20936</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,078125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>3112</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>20936</td><td>20936</td><td>15454208</td><td>506920</td><td>506920</td><td>17027072</td><td>17027072</td><td>26980352</td><td>26980352</td><td>463040512</td><td>2203781263360</td><td>True</td><td>15454208</td><td>00:00:00.0156250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:51:17</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0625000</td><td>2203762388992</td><td>False</td><td></td><td></td><td></td><td>26779648</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>22740</td><td>Normal</td><td>75.0.3755.0</td><td>299</td><td>30302208</td><td>25481216</td><td>25481216</td><td>475697152</td><td>00:00:00.4062500</td><td>1</td><td>299</td><td>2203793920000</td><td>30302208</td><td>25481216</td><td>25696</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,40625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4204</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>25696</td><td>25696</td><td>25481216</td><td>476344</td><td>476344</td><td>26882048</td><td>26882048</td><td>43466752</td><td>43466752</td><td>494047232</td><td>2203812270080</td><td>True</td><td>25481216</td><td>00:00:00.1562500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2500000</td><td>2203793920000</td><td>False</td><td></td><td></td><td></td><td>30302208</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>22876</td><td>Idle</td><td>75.0.3755.0</td><td>293</td><td>19111936</td><td>15683584</td><td>15683584</td><td>444231680</td><td>00:00:00.1093750</td><td>1</td><td>293</td><td>2203762454528</td><td>19111936</td><td>15683584</td><td>21072</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,109375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>3952</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>21072</td><td>21072</td><td>15683584</td><td>474280</td><td>474280</td><td>19333120</td><td>19333120</td><td>27426816</td><td>27426816</td><td>467341312</td><td>2203785564160</td><td>True</td><td>15683584</td><td>00:00:00.0625000</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:42:37</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203762454528</td><td>False</td><td></td><td></td><td></td><td>19111936</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>25404</td><td>Normal</td><td>75.0.3755.0</td><td>298</td><td>31387648</td><td>28778496</td><td>28778496</td><td>478056448</td><td>00:00:00.9062500</td><td>1</td><td>298</td><td>2203796279296</td><td>31387648</td><td>28778496</td><td>26920</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,90625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4184</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>26920</td><td>26920</td><td>28778496</td><td>476344</td><td>476344</td><td>31432704</td><td>31432704</td><td>44310528</td><td>44310528</td><td>491950080</td><td>2203810172928</td><td>True</td><td>28778496</td><td>00:00:00.1562500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.7500000</td><td>2203796279296</td><td>False</td><td></td><td></td><td></td><td>31387648</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>25428</td><td>Normal</td><td>75.0.3755.0</td><td>296</td><td>26324992</td><td>23625728</td><td>23625728</td><td>467562496</td><td>00:00:00.2031250</td><td>1</td><td>296</td><td>2203785785344</td><td>26324992</td><td>23625728</td><td>23792</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,203125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4268</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>23792</td><td>23792</td><td>23625728</td><td>470184</td><td>470184</td><td>24051712</td><td>24051712</td><td>40738816</td><td>40738816</td><td>486436864</td><td>2203804659712</td><td>True</td><td>23625728</td><td>00:00:00.0937500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1093750</td><td>2203785785344</td><td>False</td><td></td><td></td><td></td><td>26324992</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>26188</td><td>Idle</td><td>75.0.3755.0</td><td>308</td><td>26947584</td><td>15937536</td><td>15937536</td><td>460943360</td><td>00:00:00.0625000</td><td>1</td><td>308</td><td>2203779166208</td><td>26947584</td><td>15937536</td><td>22024</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,0625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>4</td><td></td><td>False</td><td></td><td>4516</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>22024</td><td>22024</td><td>15937536</td><td>494632</td><td>494632</td><td>17154048</td><td>17154048</td><td>26968064</td><td>26968064</td><td>463040512</td><td>2203781263360</td><td>True</td><td>15937536</td><td>00:00:00.0156250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 22:56:04</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203779166208</td><td>False</td><td></td><td></td><td></td><td>26947584</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>26280</td><td>Normal</td><td>75.0.3755.0</td><td>372</td><td>8278016</td><td>3891200</td><td>3891200</td><td>144900096</td><td>00:00:00.4843750</td><td>1</td><td>372</td><td>2203463122944</td><td>8278016</td><td>3891200</td><td>11488</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>0,484375</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4424</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>11488</td><td>11488</td><td>3891200</td><td>190480</td><td>190480</td><td>13680640</td><td>13680640</td><td>19415040</td><td>19415040</td><td>153341952</td><td>2203471564800</td><td>True</td><td>3891200</td><td>00:00:00.4062500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0781250</td><td>2203463122944</td><td>False</td><td></td><td></td><td></td><td>8278016</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>26524</td><td>Normal</td><td>75.0.3755.0</td><td>299</td><td>55590912</td><td>42868736</td><td>42868736</td><td>514822144</td><td>00:00:05.6562500</td><td>1</td><td>299</td><td>2203833044992</td><td>55590912</td><td>42868736</td><td>31544</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>5,65625</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>31544</td><td>31544</td><td>42868736</td><td>476472</td><td>476472</td><td>50085888</td><td>50085888</td><td>69570560</td><td>69570560</td><td>539987968</td><td>2203858210816</td><td>True</td><td>42868736</td><td>00:00:00.7031250</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:04.9531250</td><td>2203833044992</td><td>False</td><td></td><td></td><td></td><td>55590912</td><td></td><td></td></tr>
+<tr><td>chrome</td><td>27380</td><td>Normal</td><td>75.0.3755.0</td><td>304</td><td>67809280</td><td>63074304</td><td>63074304</td><td>542216192</td><td>00:00:09.0781250</td><td>1</td><td>304</td><td>2203860439040</td><td>67809280</td><td>63074304</td><td>39976</td><td>C:\Users\przemyslaw.klys\AppData\Local\Google\Chrome SxS\Application\chrome.exe</td><td>Google Inc.</td><td>9,078125</td><td>75.0.3755.0</td><td>Google Chrome</td><td>Google Chrome</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4264</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (chrome.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>39976</td><td>39976</td><td>63074304</td><td>468280</td><td>468280</td><td>78635008</td><td>78635008</td><td>94064640</td><td>94064640</td><td>578637824</td><td>2203896860672</td><td>True</td><td>63074304</td><td>00:00:00.7812500</td><td>chrome</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>03.04.2019 20:04:19</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:08.2968750</td><td>2203860439040</td><td>False</td><td></td><td></td><td></td><td>67809280</td><td></td><td></td></tr>
+</tbody>
+<tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
+</tfoot>
+</table>
+</div>
+</body>
+<!-- END BODY -->
+<!-- FOOTER -->
+<footer>
+
+
+</footer>
+<!-- END FOOTER -->
+</html>

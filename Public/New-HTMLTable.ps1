@@ -99,9 +99,17 @@ function New-HTMLTable {
     if ($DefaultSortColumn -ne '') {
         $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($DefaultSortColumn.ToLower())
         $Options."order" = @( $DefaultSortingNumber , $Sort )
+
+        # there seems to be a bug in ordering and colReorder plugin
+        # Disabling colReorder
+       # $Options.colReorder = $false
     }
     if ($DefaultSortIndex -gt 0 -and $DefaultSortColumn -eq '') {
         $Options."order" = @( $DefaultSortIndex , $Sort )
+
+        # there seems to be a bug in ordering and colReorder plugin
+        # Disabling colReorder
+       # $Options.colReorder = $false
     }
 
     # Overwriting table size - screen size in percent. With added Section/Panels it shouldn't be more than 90%
