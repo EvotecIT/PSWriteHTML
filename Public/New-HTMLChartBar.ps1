@@ -34,7 +34,7 @@ function New-HTMLChartBar {
 
         #[string] $Formatter,
 
-        [ValidateSet('top', 'right', 'bottom', '')][string] $LegendPosition = '',
+        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', '')][string] $LegendPosition = '',
 
         [Array] $Data,
         [Array] $DataNames,
@@ -49,8 +49,11 @@ function New-HTMLChartBar {
     New-ChartBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX -DataLabelsFontSize $DataLabelsFontSize -DataLabelsColor $DataLabelsColor `
         -Data $Data -DataNames $DataNames -DataLegend $DataLegend -Title $Title -TitleAlignment $TitleAlignment `
-        -LegendPosition $LegendPosition -Type $Type -Colors $Colors `
+        -Type $Type -Colors $Colors `
         -PatternedColors:$PatternedColors -Distributed:$Distributed
+
+
+    New-ChartLegend -Options $Options -LegendPosition $LegendPosition
     #-Formatter $Formatter
 
 

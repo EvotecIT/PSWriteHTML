@@ -6,12 +6,11 @@ Function New-ChartBar {
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [nullable[RGBColors]] $DataLabelsColor,
+        [RGBColors[]] $DataLabelsColor,
 
         [string] $Title,
         [ValidateSet('center', 'left', 'right', '')][string] $TitleAlignment = '',
 
-        [ValidateSet('top', 'left', 'right', 'bottom', '')][string] $LegendPosition = '',
         [string] $Formatter,
         [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',
 
@@ -83,32 +82,9 @@ Function New-ChartBar {
         #}
     }
 
-    # title
-    $Options.title = [ordered] @{}
-    if ($TitleText -ne '') {
-        $Options.title.text = $Title
-    }
-    if ($TitleAlignment -ne '') {
-        $Options.title.align = $TitleAlignment
-    }
-    # legend
-    if ($LegendPosition -eq '' -or $LegendPosition -eq 'bottom') {
-        # Do nothing
-    } elseif ($LegendPosition -eq 'right') {
-        $Options.legend = [ordered]@{
-            position = 'right'
-            offsetY  = 100
-            height   = 230
-        }
-    } elseif ($LegendPosition -eq 'top') {
-        $Options.legend = [ordered]@{
-            position        = 'top'
-            horizontalAlign = 'left'
-            offsetX         = 40
-        }
-    }
+    New-ChartTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
 
-    if ($PatternedColors) {
+     if ($PatternedColors) {
         $Options.fill = @{
             type    = 'pattern'
             opacity = 1

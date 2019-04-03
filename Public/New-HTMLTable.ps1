@@ -15,9 +15,11 @@ function New-HTMLTable {
         [switch]$DisableSelect,
         [switch]$DisableStateSave,
         [switch]$DisableSearch,
+        [bool] $ScrollCollapse,
         [string[]][ValidateSet('display', 'cell-border', 'compact', 'hover', 'nowrap', 'order-column', 'row-border', 'stripe')] $Style = @('display', 'compact'),
         [switch]$Simplify,
-        [string]$TextWhenNoData = 'No data available.'
+        [string]$TextWhenNoData = 'No data available.',
+        [int] $ScreenSizePercent = 0
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
@@ -49,11 +51,14 @@ function New-HTMLTable {
             B - Buttons
             S - Select
         #>
-        dom          = 'Bfrtip'
-        buttons      = @($Buttons)
-        "colReorder" = -not $DisableColumnReorder
+        dom              = 'Bfrtip'
+        buttons          = @($Buttons)
+        "colReorder"     = -not $DisableColumnReorder
 
-        "paging"     = -not $DisablePaging
+
+        # https://datatables.net/examples/basic_init/scroll_y_dynamic.html
+        "paging"         = -not $DisablePaging
+        "scrollCollapse" = $ScrollCollapse
 
         <# Paging Type
             numbers - Page number buttons only
@@ -63,22 +68,28 @@ function New-HTMLTable {
             full_numbers - 'First', 'Previous', 'Next' and 'Last' buttons, plus page numbers
             first_last_numbers - 'First' and 'Last' buttons, plus page numbers
         #>
-        "pagingType" = $PagingStyle
-        "lengthMenu" = @(
+        "pagingType"     = $PagingStyle
+        "lengthMenu"     = @(
             @($PagingOptions, -1)
             @($PagingOptions, "All")
         )
-        "ordering"   = -not $DisableOrdering
-        "info"       = -not $DisableInfo
-        "procesing"  = -not $DisableProcessing
-        "responsive" = @{
+        "ordering"       = -not $DisableOrdering
+        "info"           = -not $DisableInfo
+        "procesing"      = -not $DisableProcessing
+        "responsive"     = @{
             details = -not $DisableResponsiveTable
         }
-        "select"     = -not $DisableSelect
-        "searching"  = -not $DisableSearch
-        "stateSave"  = -not $DisableStateSave
+        "select"         = -not $DisableSelect
+        "searching"      = -not $DisableSearch
+        "stateSave"      = -not $DisableStateSave
 
-    } | ConvertTo-Json -Depth 6
+    }
+
+    if ($ScreenSizePercent -gt 0) {
+        $Options."scrollY" = "$($ScreenSizePercent)vh"
+    }
+
+    $Options = $Options | ConvertTo-Json -Depth 6
 
 
     [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })
