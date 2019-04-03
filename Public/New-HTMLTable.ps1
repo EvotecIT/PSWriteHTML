@@ -24,7 +24,7 @@ function New-HTMLTable {
         [int] $ScreenSizePercent = 0,
         [string] $DefaultSortColumn,
         [int] $DefaultSortIndex,
-        [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Descending'
+        [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending'
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
