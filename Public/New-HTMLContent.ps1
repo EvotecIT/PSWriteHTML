@@ -24,27 +24,27 @@ Function New-HTMLContent {
         $Script:HTMLSchema.Features.HideSection = $true
         if ($IsHidden) {
             $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Show button
-            $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button 
+            $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button
         } else {
             $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
-            $HideStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button 
+            $HideStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button
         }
     } else {
         if ($IsHidden) {
             $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Show button
-            $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button 
+            $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button
         } else {
-            $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button 
+            $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
             $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
         }
     }
 
-    if ($Height -ne 0) { $StyleHeight = "height: $($Height)px" }    
+    if ($Height -ne 0) { $StyleHeight = "height: $($Height)px" }
     $StyleWidth = "width: calc(100% / $Count - 15px)"
 
     if ($IsHidden) {
         $DivContentStyle = "display:none; $StyleWidth; $StyleHeight; $BGStyleColor"
-    } else { 
+    } else {
         $DivContentStyle = "$StyleWidth; $StyleHeight; $BGStyleColor"
     }
 
@@ -63,7 +63,7 @@ Function New-HTMLContent {
             New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle  } -Value {
                 New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
                 New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)'
-                New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)' 
+                New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)'
             }
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther'; id = $RandomNumber; } -Value {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainer defaultPanelOther collapsable'; id = $RandomNumber; } -Value {
