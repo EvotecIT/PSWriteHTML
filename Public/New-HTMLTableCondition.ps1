@@ -1,8 +1,9 @@
 function New-HTMLTableCondition {
+    [CmdletBinding()]
     param(
         [alias('ColumnName')][string] $Name,
         [ValidateSet('number', 'string')][string] $Type,
-        [ValidateSet('lt','le','eq','ge','gt')][string] $Operator,
+        [ValidateSet('lt', 'le', 'eq', 'ge', 'gt')][string] $Operator,
         [Object] $Value,
         [switch] $Row,
         [nullable[RGBColors]] $Color,

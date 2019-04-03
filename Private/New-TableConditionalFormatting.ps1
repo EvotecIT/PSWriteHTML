@@ -1,4 +1,5 @@
 function New-TableConditionalFormatting {
+    [CmdletBinding()]
     param(
         [string] $Options,
         [Array] $ConditionalFormatting,

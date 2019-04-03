@@ -95,9 +95,9 @@ function New-HTMLTable {
     }
     $Options = $Options | ConvertTo-Json -Depth 6
 
-
-    $Conditional = Invoke-Command -ScriptBlock $ConditionalFormatting
-
+    if ($null -ne $ConditionalFormatting) {
+        $Conditional = Invoke-Command -ScriptBlock $ConditionalFormatting
+    }
     # Process Conditional Formatting. Ugly JS building
     $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $Conditional -Header $Header
 
