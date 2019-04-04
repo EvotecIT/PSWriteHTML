@@ -1,23 +1,23 @@
-function New-ChartLine {
+function New-ChartArea {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
 
         [Array] $Data,
         [Array] $DataNames,
-        #[Array] $DataLegend,
+        [Array] $DataLegend,
 
-        # [bool] $DataLabelsEnabled = $true,
+        #[bool] $DataLabelsEnabled = $true,
         #[int] $DataLabelsOffsetX = -6,
         #[string] $DataLabelsFontSize = '12px',
-        # [nullable[RGBColors]] $DataLabelsColor,
+        #[nullable[RGBColors]] $DataLabelsColor,
         [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category'
 
-        # $Type
+        #$Type
     )
     # Chart defintion type, size
     $Options.chart = @{
-        type = 'line'
+        type = 'area'
     }
 
     $Options.series = @( New-HTMLChartDataSet -Data $Data -DataNames $DataNames )

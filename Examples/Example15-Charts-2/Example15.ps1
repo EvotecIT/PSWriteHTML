@@ -1,7 +1,7 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example15.html {
-
+    <#
     New-HTMLContent -HeaderText 'Bar Charts' -CanCollapse {
         New-HTMLPanel {
             $Data1 = 400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380
@@ -229,8 +229,16 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChartSpark -Data $Value1, $Value2
         }
     }
+    #>
 
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
+        New-HTMLPanel {
+            $Data = 10, 41, 35, 51, 49, 62, 69, 91, 148
+            $DataName = 'Desktops'
+            $DataCategory = 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
+            New-HTMLChartLine -Data $Data -DataNames $DataName -DataLegend $DataCategory -GridColors LightGrey, WhiteSmoke -GridOpacity 0.5 -Title 'Product Trends by Month' -TitleAlignment left `
+                -DataLabelsEnabled $false
+        }
         New-HTMLPanel {
             $Data = 10, 41, 35, 51, 49, 62, 69, 91, 148
             $DataName = 'Desktops'
@@ -261,6 +269,24 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
                 -TitleX 'Month' `
                 -TitleY 'Temperature' -Marker 6 -LineCurve stepline -LegendPosition topright
         }
+    }
+
+
+    New-HTMLContent -HeaderText '-1 section' -CanCollapse {
+        New-HTMLPanel {
+            $Data1 = 28, 29, 33, 36, 32, 32, 33
+            $DataName1 = "High - 2013"
+
+            $Data2 = 12, 11, 14, 18, 17, 13, 13
+            $DataName2 = "Low - 2013"
+            $DataCategory = 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'
+            New-HTMLChartLine -Data $Data1, $Data2 -DataNames $DataName1, $DataName2 -DataLegend $DataCategory `
+                -GridColors LightGrey, WhiteSmoke -GridOpacity 0.5 -Title 'Average High & Low Temperature' -TitleAlignment left `
+                -TitleX 'Month' `
+                -TitleY 'Temperature' -Marker 6 -LineCurve smooth -LegendPosition topright `
+                -LineColor Blue, Grey
+        }
+
     }
 
 

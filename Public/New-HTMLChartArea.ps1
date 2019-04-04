@@ -1,4 +1,4 @@
-function New-HTMLChartLine {
+function New-HTMLChartArea {
     [CmdletBinding()]
     param(
         [nullable[int]] $Height = 350,
@@ -30,12 +30,14 @@ function New-HTMLChartLine {
 
         [Array] $Data,
         [Array] $DataNames,
-        [Array] $DataLegend
+        [Array] $DataLegend,
+
+        [switch] $Zoom
     )
 
     $Options = [ordered] @{}
 
-    New-ChartLine -Options $Options -Data $Data -DataNames $DataNames
+    New-ChartArea -Options $Options -Data $Data -DataNames $DataNames
 
     New-ChartStrokeDefinition -Options $Options `
         -LineShow $true `
@@ -65,6 +67,8 @@ function New-HTMLChartLine {
     New-ChartLegend -Options $Options -LegendPosition $LegendPosition
 
     New-ChartSize -Options $Options -Height $Height -Width $Width
+
+    New-ChartZoom -Options $Options -Enabled:$Zoom
     New-ChartToolbar -Options $Options
     New-ApexChart -Positioning $Positioning -Options $Options
 }
