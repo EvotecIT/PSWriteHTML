@@ -17,14 +17,16 @@ function New-HTMLTable {
         [switch]$DisableSelect,
         [switch]$DisableStateSave,
         [switch]$DisableSearch,
-        [bool] $ScrollCollapse,
+        [switch]$ScrollCollapse,
+        [switch]$OrderMulti,
         [string[]][ValidateSet('display', 'cell-border', 'compact', 'hover', 'nowrap', 'order-column', 'row-border', 'stripe')] $Style = @('display', 'compact'),
         [switch]$Simplify,
         [string]$TextWhenNoData = 'No data available.',
         [int] $ScreenSizePercent = 0,
         [string] $DefaultSortColumn,
         [int] $DefaultSortIndex = -1,
-        [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending'
+        [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending',
+        [alias('Search')][string]$Find
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
@@ -59,12 +61,12 @@ function New-HTMLTable {
         #>
         dom              = 'Bfrtip'
         buttons          = @($Buttons)
-        "colReorder"     = -not $DisableColumnReorder
+        "colReorder"     = -not $DisableColumnReorder.IsPresent
 
 
         # https://datatables.net/examples/basic_init/scroll_y_dynamic.html
         "paging"         = -not $DisablePaging
-        "scrollCollapse" = $ScrollCollapse
+        "scrollCollapse" = $ScrollCollapse.IsPresent
 
         <# Paging Type
             numbers - Page number buttons only
@@ -79,15 +81,24 @@ function New-HTMLTable {
             @($PagingOptions, -1)
             @($PagingOptions, "All")
         )
-        "ordering"       = -not $DisableOrdering
-        "info"           = -not $DisableInfo
-        "procesing"      = -not $DisableProcessing
+        "ordering"       = -not $DisableOrdering.IsPresent
+        "info"           = -not $DisableInfo.IsPresent
+        "procesing"      = -not $DisableProcessing.IsPresent
         "responsive"     = @{
-            details = -not $DisableResponsiveTable
+            details = -not $DisableResponsiveTable.IsPresent
         }
-        "select"         = -not $DisableSelect
-        "searching"      = -not $DisableSearch
-        "stateSave"      = -not $DisableStateSave
+        "select"         = -not $DisableSelect.IsPresent
+        "searching"      = -not $DisableSearch.IsPresent
+        "stateSave"      = -not $DisableStateSave.IsPresent
+    }
+
+    if ($OrderMulti) {
+        $Options.orderMulti = $OrderMulti.IsPresent
+    }
+    if ($Find -ne '') {
+        $Options.search = @{
+            search = $Find
+        }
     }
 
     # Sorting
