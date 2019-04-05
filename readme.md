@@ -1,6 +1,6 @@
 # PSWriteHTML - PowerShell Module
 
-`PSWriteHTML` is fork of `ReportHTML` module. I've forked `ReportHTML` due to it being outdated and not really maintained. I also wanted to address some problems it has and possibly add more features. As it stands `PSWriteHTML` doesn't use same naming convention as `ReportHTML` therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features as I go (fixes included).
+`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and possibly add more features. As it stands `PSWriteHTML` doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features as I go (fixes included).
 
 ## Advantages over ReportHTML:
 
@@ -16,6 +16,10 @@
 
 
 Following external libaries and frameworks are in use. They make `PSWriteHTML` what it is now. This list is dynamic and doesn't cover everything yet.
+
+### Credits
+
+[Matthew Quickenden](https://www.linkedin.com/in/matthewquickenden/) ([@lucidqdreams](https://github.com/lucidqdreams)) - author of  ReportHTML - without him this wouldn't be possible.
 
 ### PSWriteHTML - External JS Framework - DataTables
 
