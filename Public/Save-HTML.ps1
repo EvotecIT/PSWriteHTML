@@ -28,7 +28,6 @@ Function Save-HTML {
         [Parameter(Mandatory = $false)][string]$FilePath,
         [Parameter(Mandatory = $true)][Array] $HTML,
         [Parameter(Mandatory = $false)][switch]$ShowHTML
-       # [switch] $Supress
     )
     if ([string]::IsNullOrEmpty($FilePath)) {
         $FilePath = Get-FileName -Temporary -Extension 'html'
@@ -40,14 +39,14 @@ Function Save-HTML {
     }
     Write-Verbose "Save-HTML - Saving HTML to file $FilePath"
 
-
-    $HTML | Set-Content -Path $FilePath -Force
+    $HTML | Set-Content -LiteralPath $FilePath -Force
     Write-Verbose $FilePath
     if ($ShowHTML) {
         #Start-Sleep -Seconds 1
-        Invoke-Item $FilePath
+        try {
+            Invoke-Item -LiteralPath $FilePath -ErrorAction Stop
+        } catch {
+            Write-Warning "Save-HTML - couldn't open file $FilePath in a browser."
+        }
     }
-   # if (-not $Supress) {
-   #     $FilePath
-   # }
 }

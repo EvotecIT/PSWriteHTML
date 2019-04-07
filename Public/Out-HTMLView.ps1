@@ -30,10 +30,16 @@ function Out-HtmlView {
         [Parameter(ValueFromPipeline = $true, Mandatory = $true)] $Table,
         [string] $Title = 'Out-HTMLView',
         [string] $DefaultSortColumn,
-        [int] $DefaultSortIndex = -1
+        [int] $DefaultSortIndex = -1,
+        [string] $FilePath,
+        [switch] $DisablePaging,
+        [switch] $PassThru
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
+        if ($FilePath -eq '') {
+            $FilePath = Get-FileName -Extension 'html' -Temporary
+        }
     }
     Process {
         foreach ($T in $Table) {
@@ -41,9 +47,13 @@ function Out-HtmlView {
         }
     }
     End {
-        [string] $FilePath = Get-FileName -Extension 'html' -Temporary
         New-HTML -FilePath $FilePath -UseCssLinks -UseJavaScriptLinks -TitleText $Title -ShowHTML {
-            New-HTMLTable -DataTable $DataTable -DefaultSortColumn $DefaultSortColumn -DefaultSortIndex $DefaultSortIndex
+            New-HTMLTable -DataTable $DataTable -DefaultSortColumn $DefaultSortColumn -DefaultSortIndex $DefaultSortIndex -DisablePaging:$DisablePaging
+        }
+        if ($PassThru) {
+            # This isn't really real PassThru but just passing final object further down the pipe when needed
+            # real PassThru requires significant work - if you're up to it, let me know.
+            $DataTable
         }
     }
 }
