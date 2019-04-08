@@ -1,28 +1,38 @@
 /* @import url("https://fonts.googleapis.com/css?family=Oswald|Roboto:400,700"); */
 
-h1.timelineSimple, h2.timelineSimple, h3.timelineSimple, h4.timelineSimple, h5.timelineSimple, h6.timelineSimple {
-    font-family: "Roboto", sans-serif;
+h1.timelineSimple,
+h2.timelineSimple,
+h3.timelineSimple,
+h4.timelineSimple,
+h5.timelineSimple,
+h6.timelineSimple {
+    font-family: "Raleway", sans-serif;
     border-bottom: unset !important;
     font-weight: unset !important;
     margin: unset !important;
 }
 
 h1.timelineSimple {
-    font-size: 2rem;
+    font-size: 16px;
     margin-bottom: 0.5em;
+    line-height: unset !important;
 }
 
 p.timelineSimple {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.8rem;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px !important;
 }
 
 .timelineSimpleContainer {
     max-width: 900px;
     width: 90%;
     margin: 0 auto;
+    /*
     font-size: 14px;
+    */
+    /*
     line-height: 1.5;
+    */
     box-sizing: unset !important;
 }
 
@@ -40,13 +50,13 @@ p.timelineSimple {
 .timelineSimple-item::before {
     content: attr(date-is);
     position: absolute;
-    left: 2em;
+    /* left: 2em; */
     font-weight: bold;
-    top: 1em;
+    top: 9px;
     display: block;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    /* font-size: 0.785rem; */
+    font-family: "Raleway", sans-serif;
+    /* font-weight: 700; */
+    font-size: 16px;
 }
 
 .timelineSimple-item::after {
@@ -55,7 +65,7 @@ p.timelineSimple {
     display: block;
     top: 1em;
     position: absolute;
-    left: -7px;
+    left: -8px;
     border-radius: 10px;
     content: "";
     border: 2px solid rgba(0, 0, 0, 0.3);
@@ -63,7 +73,7 @@ p.timelineSimple {
 }
 
 .timelineSimple-item:last-child {
-    -o-border-image: linear-gradient( to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
-    border-image: -webkit-linear-gradient( top, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
-    border-image: linear-gradient( to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
+    -o-border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
+    border-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
+    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
 }
