@@ -49,8 +49,8 @@ h6 {
 }
 
 h1 {
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 30px;
+    line-height: 20px;
     margin: 1em 0 .6em 0;
     font-weight: normal;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
@@ -64,8 +64,8 @@ h2 {
     font-weight: normal;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 25px;
+    line-height: 20px;
 }
 
 h3 {
@@ -75,7 +75,7 @@ h3 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
     font-size: 24px;
-    line-height: 40px;
+    line-height: 20px;
 }
 
 h4 {
@@ -85,7 +85,7 @@ h4 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
     font-size: 18px;
-    line-height: 20px;
+    line-height: 16px;
 }
 
 h5 {
