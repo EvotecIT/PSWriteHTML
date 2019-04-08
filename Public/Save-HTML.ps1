@@ -27,7 +27,8 @@ Function Save-HTML {
     (
         [Parameter(Mandatory = $false)][string]$FilePath,
         [Parameter(Mandatory = $true)][Array] $HTML,
-        [Parameter(Mandatory = $false)][switch]$ShowHTML
+        [Parameter(Mandatory = $false)][switch]$ShowHTML,
+        [Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding] $Encoding = 'UTF8'
     )
     if ([string]::IsNullOrEmpty($FilePath)) {
         $FilePath = Get-FileName -Temporary -Extension 'html'
@@ -39,7 +40,7 @@ Function Save-HTML {
     }
     Write-Verbose "Save-HTML - Saving HTML to file $FilePath"
 
-    $HTML | Set-Content -LiteralPath $FilePath -Force
+    $HTML | Set-Content -LiteralPath $FilePath -Force -Encoding $Encoding
     Write-Verbose $FilePath
     if ($ShowHTML) {
         #Start-Sleep -Seconds 1

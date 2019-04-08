@@ -13,7 +13,8 @@ Function New-HTML {
         # save HTML options
         [Parameter(Mandatory = $false)][string]$FilePath,
         [Parameter(Mandatory = $false)][switch]$ShowHTML,
-        [int] $AutoRefresh
+        [int] $AutoRefresh,
+        [Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding] $Encoding = 'UTF8'
     )
 
     [string] $CurrentDate = (Get-Date).ToString($DateFormat)
@@ -124,7 +125,7 @@ Function New-HTML {
         }
     )
     if ($FilePath -ne '') {
-        Save-HTML -HTML $HTML -FilePath $FilePath -ShowHTML:$ShowHTML #-Supress:$Supress
+        Save-HTML -HTML $HTML -FilePath $FilePath -ShowHTML:$ShowHTML -Encoding $Encoding
     } else {
         $HTML
     }
