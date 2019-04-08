@@ -28,7 +28,7 @@ Function Save-HTML {
         [Parameter(Mandatory = $false)][string]$FilePath,
         [Parameter(Mandatory = $true)][Array] $HTML,
         [Parameter(Mandatory = $false)][switch]$ShowHTML,
-        [Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding] $Encoding = 'UTF8'
+        [ValidateSet('Unknown', 'String', 'Unicode', 'Byte', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'Ascii', 'Default', 'Oem', 'BigEndianUTF32')] $Encoding = 'UTF8'
     )
     if ([string]::IsNullOrEmpty($FilePath)) {
         $FilePath = Get-FileName -Temporary -Extension 'html'
