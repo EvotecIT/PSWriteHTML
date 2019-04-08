@@ -12,7 +12,7 @@
 RootModule = 'PSWriteHTML.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.22'
+ModuleVersion = '0.0.23'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'

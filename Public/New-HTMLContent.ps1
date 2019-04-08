@@ -9,6 +9,7 @@ Function New-HTMLContent {
         [alias('BackgroundShade')][RGBColors]$BackgroundColor,
         [Parameter(Mandatory = $false)][switch] $CanCollapse,
         [Parameter(Mandatory = $false)][switch] $IsHidden,
+        [switch] $Collapsed,
         [int] $Height,
         [switch] $Invisible
     )
@@ -26,8 +27,14 @@ Function New-HTMLContent {
             $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Show button
             $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button
         } else {
-            $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
-            $HideStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button
+            if ($Collapsed) {
+                $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
+                $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button
+                $HiddenDivStyle = 'display:none;'
+            } else {
+                $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
+                $HideStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button
+            }
         }
     } else {
         if ($IsHidden) {
@@ -65,7 +72,7 @@ Function New-HTMLContent {
                 New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)'
                 New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)'
             }
-            New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther'; id = $RandomNumber; } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther'; id = $RandomNumber; Style = $HiddenDivStyle } -Value {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainer defaultPanelOther collapsable'; id = $RandomNumber; } -Value {
                     Invoke-Command -ScriptBlock $Content
                 }
