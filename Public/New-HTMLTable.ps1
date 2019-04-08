@@ -19,6 +19,8 @@ function New-HTMLTable {
         [switch]$DisableSearch,
         [switch]$ScrollCollapse,
         [switch]$OrderMulti,
+        [switch]$Filtering,
+        [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom',
         [string[]][ValidateSet('display', 'cell-border', 'compact', 'hover', 'nowrap', 'order-column', 'row-border', 'stripe')] $Style = @('display', 'compact'),
         [switch]$Simplify,
         [string]$TextWhenNoData = 'No data available.',
@@ -156,13 +158,21 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTablesExcel = $true
 
         $TableAttributes = @{ id = $DataTableName; class = ($Style -join ' ') }
+
+        $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation
+        $FilteringTopCode = $FilteringOutput.FilteringTopCode
+        $FilteringBottomCode = $FilteringOutput.FilteringBottomCode
+
         if ($Tab.Active -eq $true) {
             New-HTMlTag -Tag 'script' {
                 @"
                 `$(document).ready(function() {
-                    `$('#$DataTableName').DataTable(
+                    $FilteringTopCode
+                    //  Table code
+                    var table = `$('#$DataTableName').DataTable(
                         $($Options)
                     );
+                    $FilteringBottomCode
                 });
 "@
             }
@@ -173,9 +183,12 @@ function New-HTMLTable {
                     `$(document).ready(function() {
                         `$('.tabs').on('click', 'a', function (event) {
                             if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
-                                `$('#$DataTableName').DataTable(
+                                $FilteringTopCode
+                                //  Table code
+                                var table = `$('#$DataTableName').DataTable(
                                     $($Options)
                                 );
+                                $FilteringBottomCode
                             };
                         });
                     });

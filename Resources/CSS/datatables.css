@@ -12,6 +12,7 @@ td.sorting_1::before {
 td::before {
     background: #007bff !important;
 }
+
 /* giving some spaces between tables being to close */
 
 div.dataTables_wrapper {
@@ -22,4 +23,20 @@ button.dt-button {
     color: blue !important;
     border-radius: 5px;
     line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
 }
