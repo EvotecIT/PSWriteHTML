@@ -33,7 +33,9 @@ function Out-HtmlView {
         [int] $DefaultSortIndex = -1,
         [string] $FilePath,
         [switch] $DisablePaging,
-        [switch] $PassThru
+        [switch] $PassThru,
+        [switch]$Filtering,
+        [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom'
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -48,7 +50,7 @@ function Out-HtmlView {
     }
     End {
         New-HTML -FilePath $FilePath -UseCssLinks -UseJavaScriptLinks -TitleText $Title -ShowHTML {
-            New-HTMLTable -DataTable $DataTable -DefaultSortColumn $DefaultSortColumn -DefaultSortIndex $DefaultSortIndex -DisablePaging:$DisablePaging
+            New-HTMLTable -DataTable $DataTable -DefaultSortColumn $DefaultSortColumn -DefaultSortIndex $DefaultSortIndex -DisablePaging:$DisablePaging -Filtering:$Filtering -FilteringLocation $FilteringLocation
         }
         if ($PassThru) {
             # This isn't really real PassThru but just passing final object further down the pipe when needed
