@@ -23,7 +23,7 @@ function New-HTMLTimelineItem {
             $HeadingText
         }
         New-HTMLTag -Tag 'p' -Attributes @{ class = 'timelineSimple'} {
-            $Text
+            $Text -Replace [Environment]::NewLine, '<br>' -replace '\n', '<br>'
         }
     }
 }
