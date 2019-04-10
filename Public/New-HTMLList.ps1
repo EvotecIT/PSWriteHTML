@@ -64,7 +64,7 @@ function New-HTMLList {
     }
 
     if ($SpanRequired) {
-        New-SpanStyle @newHTMLSplat {
+        New-HTMLSpanStyle @newHTMLSplat {
             if ($Type -eq 'Unordered') {
                 New-HTMLTag -Tag 'ul' {
                     Invoke-Command -ScriptBlock $ListItems

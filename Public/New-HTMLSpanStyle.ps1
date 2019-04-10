@@ -1,4 +1,4 @@
-function New-SpanStyle {
+function New-HTMLSpanStyle {
     [CmdletBinding()]
     param(
         [ScriptBlock] $Content,

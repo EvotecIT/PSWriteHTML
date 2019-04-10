@@ -129,7 +129,7 @@ function New-HTMLText {
         #     $Paragraph.Align = $ParamAlignment
 
         #New-HTMLTag -Tag 'p' -Attributes $Paragraph {
-        New-SpanStyle @newSpanTextSplat {
+        New-HTMLSpanStyle @newSpanTextSplat {
             $Text[$i]
         }
         #}
