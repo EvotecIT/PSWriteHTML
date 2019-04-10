@@ -1,3 +1,64 @@
+table.Simplisimo {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+th.Simplisimo {
+    border-width: 1px;
+    padding: 3px;
+    border-style: solid;
+    border-color: black;
+    background-color: #00297A;
+    color: white;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+tr.Simplisimo {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+ul.Simplisimo {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+li.Simplisimo {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+td.Simplisimo {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+h2.Simplisimo {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+p.Simplisimo {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+
+
+
 body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
@@ -10,6 +71,7 @@ hr {
     width: 100%;
 }
 
+/*
 table {
     table-layout: auto;
     width: 100%;
@@ -41,6 +103,7 @@ td.totalrow {
     font-weight: bold;
     padding: 2px 5px 2px 5px;
 }
+*/
 
 div.pageTitle {
     font-size: 14pt;
@@ -141,6 +204,8 @@ div.defaultFooter {
     text-align: right;
 }
 
+
+
 td.clientlogo {
     border: 0px;
     padding-left: 0px;
@@ -154,6 +219,8 @@ td.MainLogo {
     vertical-align: middle;
 }
 
+/*
+
 th.content {
     border-top: 1px solid #bbbbbb;
     width: 25%;
@@ -166,6 +233,7 @@ td.content {
 td.groupby {
     border-top: 3px double #bbbbbb;
 }
+*/
 
 .header {
     background-color: #616a6b;

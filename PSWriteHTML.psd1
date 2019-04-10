@@ -74,13 +74,13 @@ FunctionsToExport = 'New-HTML', 'New-HTMLAnchor', 'New-HTMLAnchorLink',
                'New-HTMLChartBar', 'New-HTMLChartDataSet', 'New-HTMLChartLine', 
                'New-HTMLChartRadial', 'New-HTMLChartSpark', 'New-HTMLCodeBlock', 
                'New-HTMLContent', 'New-HTMLHeading', 'New-HTMLHorizontalLine', 
-               'New-HTMLImage', 'New-HTMLLimitedChart', 'New-HTMLLimitedChartPie', 
-               'New-HTMLList', 'New-HTMLListItem', 'New-HTMLLogo', 'New-HTMLMessage', 
-               'New-HTMLPanel', 'New-HTMLResourceCSS', 'New-HTMLResourceJS', 
-               'New-HTMLStatus', 'New-HTMLStatusItem', 'New-HTMLTab', 
-               'New-HTMLTabHead', 'New-HTMLTable', 'New-HTMLTableCondition', 
-               'New-HTMLTag', 'New-HTMLText', 'New-HTMLTimeline', 
-               'New-HTMLTimelineItem', 'New-HTMLToast', 'Out-HtmlView', 'Save-HTML'
+               'New-HTMLImage', 'New-HTMLList', 'New-HTMLListItem', 'New-HTMLLogo', 
+               'New-HTMLMessage', 'New-HTMLPanel', 'New-HTMLResourceCSS', 
+               'New-HTMLResourceJS', 'New-HTMLStatus', 'New-HTMLStatusItem', 
+               'New-HTMLTab', 'New-HTMLTabHead', 'New-HTMLTable', 
+               'New-HTMLTableCondition', 'New-HTMLTag', 'New-HTMLText', 
+               'New-HTMLTimeline', 'New-HTMLTimelineItem', 'New-HTMLToast', 
+               'Out-HtmlView', 'Save-HTML'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

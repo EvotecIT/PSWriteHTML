@@ -28,7 +28,8 @@ Function Save-HTML {
         [Parameter(Mandatory = $false)][string]$FilePath,
         [Parameter(Mandatory = $true)][Array] $HTML,
         [Parameter(Mandatory = $false)][switch]$ShowHTML,
-        [ValidateSet('Unknown', 'String', 'Unicode', 'Byte', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'Ascii', 'Default', 'Oem', 'BigEndianUTF32')] $Encoding = 'UTF8'
+        [ValidateSet('Unknown', 'String', 'Unicode', 'Byte', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'Ascii', 'Default', 'Oem', 'BigEndianUTF32')] $Encoding = 'UTF8',
+        [bool] $Supress = $true
     )
     if ([string]::IsNullOrEmpty($FilePath)) {
         $FilePath = Get-FileName -Temporary -Extension 'html'
@@ -39,15 +40,22 @@ Function Save-HTML {
         }
     }
     Write-Verbose "Save-HTML - Saving HTML to file $FilePath"
-
-    $HTML | Set-Content -LiteralPath $FilePath -Force -Encoding $Encoding
-    Write-Verbose $FilePath
+    try {
+        $HTML | Set-Content -LiteralPath $FilePath -Force -Encoding $Encoding
+        if (-not $Supress) {
+            $FilePath
+        }
+    } catch {
+        $ErrorMessage = $_.Exception.Message -replace "`n", " " -replace "`r", " "
+        Write-Warning "Save-HTML - Failed with error: $ErrorMessage"
+    }
     if ($ShowHTML) {
-        #Start-Sleep -Seconds 1
         try {
             Invoke-Item -LiteralPath $FilePath -ErrorAction Stop
         } catch {
-            Write-Warning "Save-HTML - couldn't open file $FilePath in a browser."
+            $ErrorMessage = $_.Exception.Message -replace "`n", " " -replace "`r", " "
+            Write-Warning "Save-HTML - couldn't open file $FilePath in a browser. Error: $ErrorMessage"
         }
     }
+
 }
