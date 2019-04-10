@@ -15,7 +15,7 @@ function New-SpanStyle {
         [ValidateSet('rtl')][string] $Direction,
         [switch] $LineBreak
     )
-
+    Write-Verbose 'New-SpanStyle - BEGIN'
     if ($FontSize -eq 0) {
         $Size = ''
     } else {
@@ -39,12 +39,24 @@ function New-SpanStyle {
         }
     }
 
+    if ($Alignment) {
+        $StyleDiv = @{}
+        $StyleDiv.Align = $Alignment
 
-    New-HTMLTag -Tag 'span' -Attributes $Style {
-        Invoke-Command -ScriptBlock $Content
+        New-HTMLTag -Tag 'div' -Attributes $StyleDiv {
+            New-HTMLTag -Tag 'span' -Attributes $Style {
+                Invoke-Command -ScriptBlock $Content
+            }
+        }
+    } else {
+        New-HTMLTag -Tag 'span' -Attributes $Style {
+            Invoke-Command -ScriptBlock $Content
+        }
     }
-    if ($LineBreak) {
-        New-HTMLTag -Tag 'br' -SelfClosing
-    }
+    # if ($LineBreak) {
+    #    Write-Verbose 'New-SpanStyle - BR'
+    #     New-HTMLTag -Tag 'br' -SelfClosing
+    # }
+
 
 }

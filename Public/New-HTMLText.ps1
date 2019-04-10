@@ -15,7 +15,7 @@ function New-HTMLText {
         [ValidateSet('rtl')][string[]] $Direction = @(),
         [switch] $LineBreak
     )
-
+    #Write-Verbose 'New-HTMLText - Processing...'
     $DefaultColor = $Color[0]
     $DefaultFontSize = $FontSize[0]
     $DefaultFontWeight = if ($null -eq $FontWeight[0] ) { '' } else { $FontWeight[0] }
@@ -123,23 +123,28 @@ function New-HTMLText {
         $newSpanTextSplat.LineBreak = $LineBreak
 
 
+        #$newSpanTextSplat | fv
+        # if ($ParamAlignment -ne '') {
+        #    $Paragraph = @{}
+        #     $Paragraph.Align = $ParamAlignment
 
-        if ($ParamAlignment -ne '') {
-            $Paragraph = @{}
-            $Paragraph.Align = $ParamAlignment
-
-            New-HTMLTag -Tag 'p' -Attributes $Paragraph {
-                New-SpanStyle @newSpanTextSplat {
-                    $Text[$i]
-                }
-            }
-        } else {
-            New-SpanStyle @newSpanTextSplat {
-                $Text[$i]
-            }
+        #New-HTMLTag -Tag 'p' -Attributes $Paragraph {
+        New-SpanStyle @newSpanTextSplat {
+            $Text[$i]
         }
+        #}
+        #   } else {
+        # New-SpanStyle @newSpanTextSplat {
+        #     $Text[$i]
+        #
+        # }
+        # }
     }
     $Output -join ''
+
+    if ($LineBreak) {
+        New-HTMLTag -Tag 'br' -SelfClosing
+    }
 }
 
 #New-HTMLText -Text 'My text', " shouldn't be too hard", ' to write with this lovely function.' -Color Green , Yellow -TextDecoration underline  -FontFamily 'Calibri' -FontStyle italic

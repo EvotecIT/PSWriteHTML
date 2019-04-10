@@ -29,10 +29,33 @@ function New-HTMLListItem {
         BackGroundColor = $BackGroundColor
         FontVariant     = $FontVariant
         FontWeight      = $FontWeight
-        LineBreak  = $LineBreak
+        LineBreak       = $LineBreak
     }
 
-    New-HTMLTag -Tag 'li' -Value {
+    if (($FontSize.Count -eq 0) -or ($FontSize -eq 0)) {
+        $Size = ''
+    } else {
+        $size = "$($FontSize)px"
+    }
+    $Style = @{
+        style = @{
+            'color'            = ConvertFrom-Color -Color $Color
+            'background-color' = ConvertFrom-Color -Color $BackGroundColor
+            'font-size'        = $Size
+            'font-weight'      = $FontWeight
+            'font-variant'     = $FontVariant
+            'font-family'      = $FontFamily
+            'font-style'       = $FontStyle
+            'text-align'       = $Alignment
+
+
+            'text-decoration'  = $TextDecoration
+            'text-transform'   = $TextTransform
+            'direction'        = $Direction
+        }
+    }
+
+    New-HTMLTag -Tag 'li' -Attributes $Style -Value {
         New-HTMLText @newHTMLTextSplat
     }
 }
