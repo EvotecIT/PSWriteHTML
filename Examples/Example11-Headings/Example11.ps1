@@ -1,7 +1,7 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 $Processes = Get-Process | Select-Object -First 5
 
-New-HTML -TitleText $ReportOptions.AsDynamicHTML.Title `
+New-HTML -TitleText "Title" `
     -UseCssLinks:$true `
     -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example11.html {
 

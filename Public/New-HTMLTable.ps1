@@ -157,7 +157,7 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTablesPDF = $true
         $Script:HTMLSchema.Features.DataTablesExcel = $true
 
-        $TableAttributes = @{ id = $DataTableName; class = "Simplisimo $($Style -join ' ')" }
+        $TableAttributes = @{ id = $DataTableName; class = "$($Style -join ' ')" }
 
         $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation
         $FilteringTopCode = $FilteringOutput.FilteringTopCode

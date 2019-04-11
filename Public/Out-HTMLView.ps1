@@ -24,7 +24,7 @@ function Out-HtmlView {
     .NOTES
     General notes
     #>
-    [alias('Out-GridHtml')]
+    [alias('Out-GridHtml', 'ohv')]
     [CmdletBinding()]
     param(
         [Parameter(ValueFromPipeline = $true, Mandatory = $true)] $Table,

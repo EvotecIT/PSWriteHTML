@@ -1,3 +1,5 @@
+
+/*
 table.Simplisimo {
     border-width: 1px;
     border-style: solid;
@@ -56,22 +58,6 @@ p.Simplisimo {
     font-size: 8pt;
 }
 
-
-
-
-body {
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-}
-
-hr {
-    height: 4px;
-    background-color: #6Cf;
-    border: 0px;
-    width: 100%;
-}
-
-/*
 table {
     table-layout: auto;
     width: 100%;
@@ -103,7 +89,24 @@ td.totalrow {
     font-weight: bold;
     padding: 2px 5px 2px 5px;
 }
+
+
 */
+
+
+body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+
 
 div.pageTitle {
     font-size: 14pt;
