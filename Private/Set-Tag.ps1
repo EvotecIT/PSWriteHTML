@@ -29,14 +29,23 @@ function Set-Tag {
     }
     if (($null -ne $HtmlObject.Value) -and ($HtmlObject.Value -ne '')) {
         [void] $HTML.Append(">")
-        foreach ($Entry in $HtmlObject.Value) {
-            if ($Entry -is [System.Collections.IDictionary]) {
-                [string] $NewObject = Set-Tag -HtmlObject ($Entry)
+
+        if ($HtmlObject.Value.Count -eq 1) {
+            if ($HtmlObject.Value -is [System.Collections.IDictionary]) {
+                [string] $NewObject = Set-Tag -HtmlObject ($HtmlObject.Value)
                 [void] $HTML.Append($NewObject)
             } else {
-                [void] $HTML.AppendLine([string] $Entry)
+                [void] $HTML.Append([string] $HtmlObject.Value)
             }
-
+        } else {
+            foreach ($Entry in $HtmlObject.Value) {
+                if ($Entry -is [System.Collections.IDictionary]) {
+                    [string] $NewObject = Set-Tag -HtmlObject ($Entry)
+                    [void] $HTML.Append($NewObject)
+                } else {
+                    [void] $HTML.AppendLine([string] $Entry)
+                }
+            }
         }
         [void] $HTML.Append("</$($HtmlObject.Tag)>")
     } else {
