@@ -1,11 +1,5 @@
 var maxWidth = 0;
 var $element;
-//$(".tabs a").each(function(){
-//   $element = $(this);
-//   if($element.width() > maxWidth){
-//     maxWidth = $element.width();
-//  }
-//});
 
 $(window).on("resize", function() {
     $(".selector").hide();
@@ -13,11 +7,6 @@ $(window).on("resize", function() {
     var id = activeItem.data("id");
     setSelectorPosition(id);
 });
-
-//$(".tabs a").each(function(){
-//$(this).width(maxWidth);
-
-//});
 
 // Set first active link
 var activeItem = $(".tabs a[class*='active']");
