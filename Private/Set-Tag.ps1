@@ -17,7 +17,9 @@ function Set-Tag {
                 }
             }
             $MyValue = $OutputSubProperties -join ';'
-            [void] $HTML.Append(" $Property=`"$MyValue`"")
+            if ($MyValue.Trim() -ne '') {
+                [void] $HTML.Append(" $Property=`"$MyValue`"")
+            }
         } else {
             # skip adding properties that are empty
             if ($null -ne $PropertyValue -and $PropertyValue -ne '') {
