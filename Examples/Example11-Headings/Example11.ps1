@@ -3,7 +3,7 @@ $Processes = Get-Process | Select-Object -First 5
 
 New-HTML -TitleText "Title" `
     -UseCssLinks:$true `
-    -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example11.html {
+    -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example11.html -ShowHTML {
 
     New-HTMLLogo
 

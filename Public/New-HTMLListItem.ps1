@@ -56,6 +56,6 @@ function New-HTMLListItem {
     }
 
     New-HTMLTag -Tag 'li' -Attributes $Style -Value {
-        New-HTMLText @newHTMLTextSplat
+        New-HTMLText @newHTMLTextSplat -SkipParagraph
     }
 }

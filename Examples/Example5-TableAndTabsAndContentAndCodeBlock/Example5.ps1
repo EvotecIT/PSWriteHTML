@@ -80,7 +80,7 @@ $CodeBlocksXML = @'
 </building>
 '@
 
-New-Html -UseCssLinks -UseJavaScriptLinks -FilePath "$PSScriptRoot\Example5.html" {
+New-Html -UseCssLinks -UseJavaScriptLinks -FilePath "$PSScriptRoot\Example5.html" -ShowHTML {
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
             New-HTMLPanel {

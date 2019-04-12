@@ -13,7 +13,8 @@ function New-HTMLText {
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string[]] $TextDecoration = @(),
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string[]] $TextTransform = @(),
         [ValidateSet('rtl')][string[]] $Direction = @(),
-        [switch] $LineBreak
+        [switch] $LineBreak,
+        [switch] $SkipParagraph
     )
     #Write-Verbose 'New-HTMLText - Processing...'
     $DefaultColor = $Color[0]
@@ -90,9 +91,6 @@ function New-HTMLText {
         }
 
         $newSpanTextSplat = @{}
-
-        #$newSpanTextSplat.Text = $Text[$i]
-
         $newSpanTextSplat.Color = $ParamColor
         $newSpanTextSplat.BackGroundColor = $ParamBackGroundColor
 
@@ -121,30 +119,34 @@ function New-HTMLText {
         }
 
         $newSpanTextSplat.LineBreak = $LineBreak
-
-
-        #$newSpanTextSplat | fv
-        # if ($ParamAlignment -ne '') {
-        #    $Paragraph = @{}
-        #     $Paragraph.Align = $ParamAlignment
-
-        #New-HTMLTag -Tag 'p' -Attributes $Paragraph {
         New-HTMLSpanStyle @newSpanTextSplat {
-            $Text[$i]
+            if ($Text[$i] -match "\[([^\[]*)\)") {
+                # Covers markdown LINK  "[somestring](https://evotec.xyz)"
+                $RegexBrackets1 = [regex] "\[([^\[]*)\]" # catch 'sometstring'
+                $RegexBrackets2 = [regex] "\(([^\[]*)\)" # catch link
+                $RegexBrackets3 = [regex] "\[([^\[]*)\)" # catch both somestring and link
+                $Text1 = $RegexBrackets1.match($Text[$i]).Groups[1].value
+                $Text2 = $RegexBrackets2.match($Text[$i]).Groups[1].value
+                $Text3 = $RegexBrackets3.match($Text[$i]).Groups[0].value
+                if ($Text1 -ne '' -and $Text2 -ne '') {
+                    $Link = New-HTMLAnchor -HrefLink $Text2 -Text $Text1
+                    $Text[$i].Replace($Text3, $Link)
+                }
+            } else {
+                # Default
+                $Text[$i]
+            }
         }
-        #}
-        #   } else {
-        # New-SpanStyle @newSpanTextSplat {
-        #     $Text[$i]
-        #
-        # }
-        # }
     }
-    $Output -join ''
 
+    if ($SkipParagraph) {
+        $Output -join ''
+    } else {
+        New-HTMLTag -Tag 'div' {
+            $Output
+        }
+    }
     if ($LineBreak) {
         New-HTMLTag -Tag 'br' -SelfClosing
     }
 }
-
-#New-HTMLText -Text 'My text', " shouldn't be too hard", ' to write with this lovely function.' -Color Green , Yellow -TextDecoration underline  -FontFamily 'Calibri' -FontStyle italic

@@ -2,7 +2,7 @@ Import-Module .\PSWriteHTML.psd1 -Force
 $Processes = Get-Process | Select-Object -First 5
 
 
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example12.html {
+New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example12.html -ShowHTML {
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
             # Standard Chart Bar

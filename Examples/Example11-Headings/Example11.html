@@ -3,9 +3,8 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-04-11 09:38:17" name="revised"/>
-<title>Title
-</title>
+<meta content="2019-04-12 09:55:07" name="revised"/>
+<title>Title</title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts END -->
@@ -13,68 +12,7 @@
 <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts icons END -->
 <!-- CSS Always Required Default Visual Settings START -->
-<style type="text/css">table.Simplisimo {
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-    border-collapse: collapse;
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-}
-
-th.Simplisimo {
-    border-width: 1px;
-    padding: 3px;
-    border-style: solid;
-    border-color: black;
-    background-color: #00297A;
-    color: white;
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-}
-
-tr.Simplisimo {
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-}
-
-ul.Simplisimo {
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-}
-
-li.Simplisimo {
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-}
-
-td.Simplisimo {
-    border-width: 1px;
-    padding-right: 2px;
-    padding-left: 2px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-}
-
-h2.Simplisimo {
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-}
-
-p.Simplisimo {
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-}
-
-
-
-
-body {
+<style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -84,49 +22,6 @@ hr {
     background-color: #6Cf;
     border: 0px;
     width: 100%;
-}
-
-/*
-table {
-    table-layout: auto;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th {
-    vertical-align: top;
-    text-align: left;
-    padding: 2px 5px 2px 5px;
-}
-
-td {
-    vertical-align: top;
-    padding: 2px 5px 2px 5px;
-    border-top: 1px solid #bbbbbb;
-    height: 16px;
-    vertical-align: middle;
-}
-
-tr.totalrow {
-    border-top: thick double;
-}
-
-td.totalrow {
-    vertical-align: Bottom;
-    text-align: left;
-    font-size: 8pt;
-    font-weight: bold;
-    padding: 2px 5px 2px 5px;
-}
-*/
-
-div.pageTitle {
-    font-size: 14pt;
-    font-weight: bold;
-    width: 100%;
-    display: block;
-    padding: 4px 1em 0px 2px;
-    height: 2em;
 }
 
 div.clientlogo {
@@ -572,6 +467,167 @@ thead input {
 </style>
 <!-- CSS Elastic Tabs END -->
 
+
+
+<!-- CSS DataTables START -->
+<style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+<noscript><!-- CSS DataTables START -->
+<style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+th {
+    border-width: 1px;
+    padding: 3px;
+    border-style: solid;
+    border-color: black;
+    background-color: #00297A;
+    color: white;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+tr {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+</noscript>
+<!-- CSS Elastic Tabs START -->
+<style type="text/css">.tabsWrapper {
+    text-align: center;
+    margin: 10px auto;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.tabs {
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 0px;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    /*
+    display: inline-block;
+*/
+    border-radius: 4px;
+    position: relative;
+}
+
+.tabs .round {
+    border-radius: 4px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #777;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.6s;
+}
+
+.tabs a.active {
+    color: #fff;
+}
+
+.tabs a i {
+    margin-right: 5px;
+}
+
+.tabs .selector {
+    display: none;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    border-radius: 4px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: #05abe0;
+    background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1);
+}
+
+.tabs-content {
+    display: none;
+}
+
+.tabs-content.active {
+    display: block;
+}
+</style>
+<!-- CSS Elastic Tabs END -->
+
 <!-- JS DataTables PDF Features START -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
@@ -600,37 +656,23 @@ thead input {
         </tbody></table>
 <!-- END LOGO -->
 <div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-s83jomd4"><i class="fas fa-bomb">Test
-</i>
-</a>
-<a href="javascript:void(0)" data-id="Tab-fig061pu"><i class="fas fa-bomb">Test5
-</i>
-</a>
+<a href="javascript:void(0)" class="active" data-id="Tab-l26x8nkr"><i class="fas fa-bomb">Test</i></a>
+<a href="javascript:void(0)" data-id="Tab-j0vr2yel"><i class="fas fa-bomb">Test5</i></a>
+</div></div>
+<h1>This is my heading</h1>
+<h2>This is my heading</h2>
+<h3>This is my heading</h3>
+<h4>This is my heading</h4>
+<h5>This is my heading</h5>
+<h6>This is my heading</h6>
+<div id="Tab-l26x8nkr" class="tabs-content active"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="0 section" style="color: #ffffff;">0 section</a>
+<a id="show_2073930963" href="javascript:void(0)" onclick="show('2073930963');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_2073930963" href="javascript:void(0)" onclick="hide('2073930963');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-</div>
-<h1>This is my heading
-</h1>
-<h2>This is my heading
-</h2>
-<h3>This is my heading
-</h3>
-<h4>This is my heading
-</h4>
-<h5>This is my heading
-</h5>
-<h6>This is my heading
-</h6>
-<div id="Tab-s83jomd4" class="tabs-content active"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="0 section" style="color: #ffffff;">0 section
-</a>
-<a id="show_2095300348" href="javascript:void(0)" onclick="show('2095300348');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_2095300348" href="javascript:void(0)" onclick="hide('2095300348');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div id="2095300348" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2095300348"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
+<div id="2073930963" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2073930963"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
                     
                     //  Table code
-                    var table = $('#DT-ZLHVqSWo').DataTable(
+                    var table = $('#DT-htfHhlJF').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -673,23 +715,20 @@ thead input {
 }
                     );
                     
-                });
-</script>
-<div class="defaultPanelOther"><table id="DT-ZLHVqSWo" class="Simplisimo display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
-</thead>
-<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>724</td><td>43343872</td><td>37650432</td><td>37650432</td><td>302407680</td><td>00:00:00.7343750</td><td>1</td><td>724</td><td>302407680</td><td>43343872</td><td>37650432</td><td>38280</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,734375</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3592</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>38280</td><td>38280</td><td>37650432</td><td>454776</td><td>454776</td><td>41295872</td><td>41295872</td><td>60358656</td><td>60358656</td><td>318095360</td><td>318095360</td><td>True</td><td>37650432</td><td>00:00:00.2500000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.4843750</td><td>302407680</td><td>False</td><td></td><td></td><td></td><td>43343872</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>8364032</td><td>2248704</td><td>2248704</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>8364032</td><td>2248704</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2248704</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2248704</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>8364032</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>500</td><td>37576704</td><td>29556736</td><td>29556736</td><td>283746304</td><td>00:00:00.1093750</td><td>1</td><td>500</td><td>2203601969152</td><td>37576704</td><td>29556736</td><td>28416</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>0,109375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3756</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>525772</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>28416</td><td>28416</td><td>29556736</td><td>437384</td><td>437384</td><td>31969280</td><td>31969280</td><td>39489536</td><td>39489536</td><td>296144896</td><td>2203614367744</td><td>True</td><td>29556736</td><td>00:00:00.0312500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0781250</td><td>2203601969152</td><td>False</td><td></td><td></td><td></td><td>37576704</td><td></td><td></td></tr>
-<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>6488064</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>6488064</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>6488064</td><td></td><td></td></tr>
-<tr><td>audiodg</td><td>6588</td><td></td><td></td><td>211</td><td>14946304</td><td>9539584</td><td>9539584</td><td>109985792</td><td>00:00:01.8906250</td><td>0</td><td>211</td><td>2203428208640</td><td>14946304</td><td>9539584</td><td>12232</td><td></td><td></td><td>1,890625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>12232</td><td>12232</td><td>9539584</td><td>127960</td><td>127960</td><td>15138816</td><td>15138816</td><td>20959232</td><td>20959232</td><td>113295360</td><td>2203431518208</td><td></td><td>9539584</td><td>00:00:01.3906250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:13:07</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5000000</td><td>2203428208640</td><td>False</td><td></td><td></td><td></td><td>14946304</td><td></td><td></td></tr>
+                });</script>
+<div class="defaultPanelOther"><table id="DT-htfHhlJF" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
+<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>861</td><td>88231936</td><td>111923200</td><td>111923200</td><td>732209152</td><td>00:08:23.7968750</td><td>1</td><td>861</td><td>732209152</td><td>88231936</td><td>111923200</td><td>60816</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>503,796875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8548</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>4067118</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>60816</td><td>60816</td><td>111923200</td><td>870064</td><td>870064</td><td>214654976</td><td>214654976</td><td>256208896</td><td>256208896</td><td>842002432</td><td>842002432</td><td>True</td><td>111923200</td><td>00:02:09.3125000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:06:14.4843750</td><td>732209152</td><td>False</td><td></td><td></td><td></td><td>88231936</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>6492160</td><td>2383872</td><td>2383872</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>6492160</td><td>2383872</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2383872</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2383872</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>6492160</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>550</td><td>21696512</td><td>33824768</td><td>33824768</td><td>309600256</td><td>00:00:05.2343750</td><td>1</td><td>550</td><td>2203627823104</td><td>21696512</td><td>33824768</td><td>32768</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>5,234375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8876</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1966688</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>32768</td><td>32768</td><td>33824768</td><td>454224</td><td>454224</td><td>49778688</td><td>49778688</td><td>42029056</td><td>42029056</td><td>320684032</td><td>2203638906880</td><td>True</td><td>33824768</td><td>00:00:03.6718750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.5625000</td><td>2203627823104</td><td>False</td><td></td><td></td><td></td><td>21696512</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>5165056</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>5165056</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>5165056</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>8140</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>5808128</td><td>1777664</td><td>1777664</td><td>98443264</td><td>00:00:00.0468750</td><td>1</td><td>139</td><td>2203416666112</td><td>5808128</td><td>1777664</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,046875</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1777664</td><td>125896</td><td>125896</td><td>1900544</td><td>1900544</td><td>8433664</td><td>8433664</td><td>102113280</td><td>2203420336128</td><td>True</td><td>1777664</td><td>00:00:00.0468750</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416666112</td><td>False</td><td></td><td></td><td></td><td>5808128</td><td></td><td></td></tr>
 </tbody>
-</table>
-</div>
+</table></div>
 </div>
 <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
                     
                     //  Table code
-                    var table = $('#DT-FkCAedhm').DataTable(
+                    var table = $('#DT-YrIJTuIG').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -732,34 +771,28 @@ thead input {
 }
                     );
                     
-                });
-</script>
-<div class="defaultPanelOther"><table id="DT-FkCAedhm" class="Simplisimo display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
-</thead>
-<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>724</td><td>43343872</td><td>37650432</td><td>37650432</td><td>302407680</td><td>00:00:00.7343750</td><td>1</td><td>724</td><td>302407680</td><td>43343872</td><td>37650432</td><td>38280</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,734375</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3592</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>38280</td><td>38280</td><td>37650432</td><td>454776</td><td>454776</td><td>41295872</td><td>41295872</td><td>60358656</td><td>60358656</td><td>318095360</td><td>318095360</td><td>True</td><td>37650432</td><td>00:00:00.2500000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.4843750</td><td>302407680</td><td>False</td><td></td><td></td><td></td><td>43343872</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>8364032</td><td>2248704</td><td>2248704</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>8364032</td><td>2248704</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2248704</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2248704</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>8364032</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>500</td><td>37576704</td><td>29556736</td><td>29556736</td><td>283746304</td><td>00:00:00.1093750</td><td>1</td><td>500</td><td>2203601969152</td><td>37576704</td><td>29556736</td><td>28416</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>0,109375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3756</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>525772</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>28416</td><td>28416</td><td>29556736</td><td>437384</td><td>437384</td><td>31969280</td><td>31969280</td><td>39489536</td><td>39489536</td><td>296144896</td><td>2203614367744</td><td>True</td><td>29556736</td><td>00:00:00.0312500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0781250</td><td>2203601969152</td><td>False</td><td></td><td></td><td></td><td>37576704</td><td></td><td></td></tr>
-<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>6488064</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>6488064</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>6488064</td><td></td><td></td></tr>
-<tr><td>audiodg</td><td>6588</td><td></td><td></td><td>211</td><td>14946304</td><td>9539584</td><td>9539584</td><td>109985792</td><td>00:00:01.8906250</td><td>0</td><td>211</td><td>2203428208640</td><td>14946304</td><td>9539584</td><td>12232</td><td></td><td></td><td>1,890625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>12232</td><td>12232</td><td>9539584</td><td>127960</td><td>127960</td><td>15138816</td><td>15138816</td><td>20959232</td><td>20959232</td><td>113295360</td><td>2203431518208</td><td></td><td>9539584</td><td>00:00:01.3906250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:13:07</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5000000</td><td>2203428208640</td><td>False</td><td></td><td></td><td></td><td>14946304</td><td></td><td></td></tr>
+                });</script>
+<div class="defaultPanelOther"><table id="DT-YrIJTuIG" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
+<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>861</td><td>88231936</td><td>111923200</td><td>111923200</td><td>732209152</td><td>00:08:23.7968750</td><td>1</td><td>861</td><td>732209152</td><td>88231936</td><td>111923200</td><td>60816</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>503,796875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8548</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>4067118</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>60816</td><td>60816</td><td>111923200</td><td>870064</td><td>870064</td><td>214654976</td><td>214654976</td><td>256208896</td><td>256208896</td><td>842002432</td><td>842002432</td><td>True</td><td>111923200</td><td>00:02:09.3125000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:06:14.4843750</td><td>732209152</td><td>False</td><td></td><td></td><td></td><td>88231936</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>6492160</td><td>2383872</td><td>2383872</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>6492160</td><td>2383872</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2383872</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2383872</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>6492160</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>550</td><td>21696512</td><td>33824768</td><td>33824768</td><td>309600256</td><td>00:00:05.2343750</td><td>1</td><td>550</td><td>2203627823104</td><td>21696512</td><td>33824768</td><td>32768</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>5,234375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8876</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1966688</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>32768</td><td>32768</td><td>33824768</td><td>454224</td><td>454224</td><td>49778688</td><td>49778688</td><td>42029056</td><td>42029056</td><td>320684032</td><td>2203638906880</td><td>True</td><td>33824768</td><td>00:00:03.6718750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.5625000</td><td>2203627823104</td><td>False</td><td></td><td></td><td></td><td>21696512</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>5165056</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>5165056</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>5165056</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>8140</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>5808128</td><td>1777664</td><td>1777664</td><td>98443264</td><td>00:00:00.0468750</td><td>1</td><td>139</td><td>2203416666112</td><td>5808128</td><td>1777664</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,046875</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1777664</td><td>125896</td><td>125896</td><td>1900544</td><td>1900544</td><td>8433664</td><td>8433664</td><td>102113280</td><td>2203420336128</td><td>True</td><td>1777664</td><td>00:00:00.0468750</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416666112</td><td>False</td><td></td><td></td><td></td><td>5808128</td><td></td><td></td></tr>
 </tbody>
-</table>
+</table></div>
 </div>
-</div>
-<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div class="defaultPanelOther"><table class="sortable"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
-</thead>
-<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>724</td><td>43343872</td><td>37650432</td><td>37650432</td><td>302407680</td><td>00:00:00.7343750</td><td>1</td><td>724</td><td>302407680</td><td>43343872</td><td>37650432</td><td>38280</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,734375</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3592</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>38280</td><td>38280</td><td>37650432</td><td>454776</td><td>454776</td><td>41295872</td><td>41295872</td><td>60358656</td><td>60358656</td><td>318095360</td><td>318095360</td><td>True</td><td>37650432</td><td>00:00:00.2500000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.4843750</td><td>302407680</td><td>False</td><td></td><td></td><td></td><td>43343872</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>8364032</td><td>2248704</td><td>2248704</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>8364032</td><td>2248704</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2248704</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2248704</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>8364032</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>500</td><td>37576704</td><td>29556736</td><td>29556736</td><td>283746304</td><td>00:00:00.1093750</td><td>1</td><td>500</td><td>2203601969152</td><td>37576704</td><td>29556736</td><td>28416</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>0,109375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3756</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>525772</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>28416</td><td>28416</td><td>29556736</td><td>437384</td><td>437384</td><td>31969280</td><td>31969280</td><td>39489536</td><td>39489536</td><td>296144896</td><td>2203614367744</td><td>True</td><td>29556736</td><td>00:00:00.0312500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0781250</td><td>2203601969152</td><td>False</td><td></td><td></td><td></td><td>37576704</td><td></td><td></td></tr>
-<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>6488064</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>6488064</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>6488064</td><td></td><td></td></tr>
-<tr><td>audiodg</td><td>6588</td><td></td><td></td><td>211</td><td>14946304</td><td>9539584</td><td>9539584</td><td>109985792</td><td>00:00:01.8906250</td><td>0</td><td>211</td><td>2203428208640</td><td>14946304</td><td>9539584</td><td>12232</td><td></td><td></td><td>1,890625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>12232</td><td>12232</td><td>9539584</td><td>127960</td><td>127960</td><td>15138816</td><td>15138816</td><td>20959232</td><td>20959232</td><td>113295360</td><td>2203431518208</td><td></td><td>9539584</td><td>00:00:01.3906250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:13:07</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5000000</td><td>2203428208640</td><td>False</td><td></td><td></td><td></td><td>14946304</td><td></td><td></td></tr>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div class="defaultPanelOther"><table class="sortable"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
+<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>861</td><td>88231936</td><td>111923200</td><td>111923200</td><td>732209152</td><td>00:08:23.7968750</td><td>1</td><td>861</td><td>732209152</td><td>88231936</td><td>111923200</td><td>60816</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>503,796875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8548</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>4067118</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>60816</td><td>60816</td><td>111923200</td><td>870064</td><td>870064</td><td>214654976</td><td>214654976</td><td>256208896</td><td>256208896</td><td>842002432</td><td>842002432</td><td>True</td><td>111923200</td><td>00:02:09.3125000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:06:14.4843750</td><td>732209152</td><td>False</td><td></td><td></td><td></td><td>88231936</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>6492160</td><td>2383872</td><td>2383872</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>6492160</td><td>2383872</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2383872</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2383872</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>6492160</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>550</td><td>21696512</td><td>33824768</td><td>33824768</td><td>309600256</td><td>00:00:05.2343750</td><td>1</td><td>550</td><td>2203627823104</td><td>21696512</td><td>33824768</td><td>32768</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>5,234375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8876</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1966688</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>32768</td><td>32768</td><td>33824768</td><td>454224</td><td>454224</td><td>49778688</td><td>49778688</td><td>42029056</td><td>42029056</td><td>320684032</td><td>2203638906880</td><td>True</td><td>33824768</td><td>00:00:03.6718750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.5625000</td><td>2203627823104</td><td>False</td><td></td><td></td><td></td><td>21696512</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>5165056</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>5165056</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>5165056</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>8140</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>5808128</td><td>1777664</td><td>1777664</td><td>98443264</td><td>00:00:00.0468750</td><td>1</td><td>139</td><td>2203416666112</td><td>5808128</td><td>1777664</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,046875</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1777664</td><td>125896</td><td>125896</td><td>1900544</td><td>1900544</td><td>8433664</td><td>8433664</td><td>102113280</td><td>2203420336128</td><td>True</td><td>1777664</td><td>00:00:00.0468750</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416666112</td><td>False</td><td></td><td></td><td></td><td>5808128</td><td></td><td></td></tr>
 </tbody>
-</table>
-</div>
-</div>
+</table></div></div>
 <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
                     
                     //  Table code
-                    var table = $('#DT-kxpDAaed').DataTable(
+                    var table = $('#DT-ysPqpADn').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -802,36 +835,28 @@ thead input {
 }
                     );
                     
-                });
-</script>
-<div class="defaultPanelOther"><table id="DT-kxpDAaed" class="Simplisimo display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
-</thead>
-<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>724</td><td>43343872</td><td>37650432</td><td>37650432</td><td>302407680</td><td>00:00:00.7343750</td><td>1</td><td>724</td><td>302407680</td><td>43343872</td><td>37650432</td><td>38280</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,734375</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3592</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>38280</td><td>38280</td><td>37650432</td><td>454776</td><td>454776</td><td>41295872</td><td>41295872</td><td>60358656</td><td>60358656</td><td>318095360</td><td>318095360</td><td>True</td><td>37650432</td><td>00:00:00.2500000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.4843750</td><td>302407680</td><td>False</td><td></td><td></td><td></td><td>43343872</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>8364032</td><td>2248704</td><td>2248704</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>8364032</td><td>2248704</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2248704</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2248704</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>8364032</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>500</td><td>37576704</td><td>29556736</td><td>29556736</td><td>283746304</td><td>00:00:00.1093750</td><td>1</td><td>500</td><td>2203601969152</td><td>37576704</td><td>29556736</td><td>28416</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>0,109375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3756</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>525772</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>28416</td><td>28416</td><td>29556736</td><td>437384</td><td>437384</td><td>31969280</td><td>31969280</td><td>39489536</td><td>39489536</td><td>296144896</td><td>2203614367744</td><td>True</td><td>29556736</td><td>00:00:00.0312500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0781250</td><td>2203601969152</td><td>False</td><td></td><td></td><td></td><td>37576704</td><td></td><td></td></tr>
-<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>6488064</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>6488064</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>6488064</td><td></td><td></td></tr>
-<tr><td>audiodg</td><td>6588</td><td></td><td></td><td>211</td><td>14946304</td><td>9539584</td><td>9539584</td><td>109985792</td><td>00:00:01.8906250</td><td>0</td><td>211</td><td>2203428208640</td><td>14946304</td><td>9539584</td><td>12232</td><td></td><td></td><td>1,890625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>12232</td><td>12232</td><td>9539584</td><td>127960</td><td>127960</td><td>15138816</td><td>15138816</td><td>20959232</td><td>20959232</td><td>113295360</td><td>2203431518208</td><td></td><td>9539584</td><td>00:00:01.3906250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:13:07</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5000000</td><td>2203428208640</td><td>False</td><td></td><td></td><td></td><td>14946304</td><td></td><td></td></tr>
+                });</script>
+<div class="defaultPanelOther"><table id="DT-ysPqpADn" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
+<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>861</td><td>88231936</td><td>111923200</td><td>111923200</td><td>732209152</td><td>00:08:23.7968750</td><td>1</td><td>861</td><td>732209152</td><td>88231936</td><td>111923200</td><td>60816</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>503,796875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8548</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>4067118</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>60816</td><td>60816</td><td>111923200</td><td>870064</td><td>870064</td><td>214654976</td><td>214654976</td><td>256208896</td><td>256208896</td><td>842002432</td><td>842002432</td><td>True</td><td>111923200</td><td>00:02:09.3125000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:06:14.4843750</td><td>732209152</td><td>False</td><td></td><td></td><td></td><td>88231936</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>6492160</td><td>2383872</td><td>2383872</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>6492160</td><td>2383872</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2383872</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2383872</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>6492160</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>550</td><td>21696512</td><td>33824768</td><td>33824768</td><td>309600256</td><td>00:00:05.2343750</td><td>1</td><td>550</td><td>2203627823104</td><td>21696512</td><td>33824768</td><td>32768</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>5,234375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8876</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1966688</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>32768</td><td>32768</td><td>33824768</td><td>454224</td><td>454224</td><td>49778688</td><td>49778688</td><td>42029056</td><td>42029056</td><td>320684032</td><td>2203638906880</td><td>True</td><td>33824768</td><td>00:00:03.6718750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.5625000</td><td>2203627823104</td><td>False</td><td></td><td></td><td></td><td>21696512</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>5165056</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>5165056</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>5165056</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>8140</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>5808128</td><td>1777664</td><td>1777664</td><td>98443264</td><td>00:00:00.0468750</td><td>1</td><td>139</td><td>2203416666112</td><td>5808128</td><td>1777664</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,046875</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1777664</td><td>125896</td><td>125896</td><td>1900544</td><td>1900544</td><td>8433664</td><td>8433664</td><td>102113280</td><td>2203420336128</td><td>True</td><td>1777664</td><td>00:00:00.0468750</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416666112</td><td>False</td><td></td><td></td><td></td><td>5808128</td><td></td><td></td></tr>
 </tbody>
-</table>
+</table></div>
 </div>
+</div></div>
+</div></div>
+<div id="Tab-j0vr2yel" class="tabs-content"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="1 section" style="color: #ffffff;">1 section</a>
+<a id="show_1536616647" href="javascript:void(0)" onclick="show('1536616647');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1536616647" href="javascript:void(0)" onclick="hide('1536616647');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div id="Tab-fig061pu" class="tabs-content"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="1 section" style="color: #ffffff;">1 section
-</a>
-<a id="show_1547156743" href="javascript:void(0)" onclick="show('1547156743');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_1547156743" href="javascript:void(0)" onclick="hide('1547156743');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div id="1547156743" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1547156743"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                    $(document).ready(function() {
+<div id="1536616647" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1536616647"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-fig061pu" && !$.fn.dataTable.isDataTable("#DT-wNngPwWH")) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-j0vr2yel" && !$.fn.dataTable.isDataTable("#DT-hvWYqjnB")) {
                                 
                                 //  Table code
-                                var table = $('#DT-wNngPwWH').DataTable(
+                                var table = $('#DT-hvWYqjnB').DataTable(
                                     {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -876,25 +901,22 @@ thead input {
                                 
                             };
                         });
-                    });
-</script>
-<div class="defaultPanelOther"><table id="DT-wNngPwWH" class="Simplisimo display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
-</thead>
-<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>724</td><td>43343872</td><td>37650432</td><td>37650432</td><td>302407680</td><td>00:00:00.7343750</td><td>1</td><td>724</td><td>302407680</td><td>43343872</td><td>37650432</td><td>38280</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,734375</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3592</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>38280</td><td>38280</td><td>37650432</td><td>454776</td><td>454776</td><td>41295872</td><td>41295872</td><td>60358656</td><td>60358656</td><td>318095360</td><td>318095360</td><td>True</td><td>37650432</td><td>00:00:00.2500000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.4843750</td><td>302407680</td><td>False</td><td></td><td></td><td></td><td>43343872</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>8364032</td><td>2248704</td><td>2248704</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>8364032</td><td>2248704</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2248704</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2248704</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>8364032</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>500</td><td>37576704</td><td>29556736</td><td>29556736</td><td>283746304</td><td>00:00:00.1093750</td><td>1</td><td>500</td><td>2203601969152</td><td>37576704</td><td>29556736</td><td>28416</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>0,109375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3756</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>525772</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>28416</td><td>28416</td><td>29556736</td><td>437384</td><td>437384</td><td>31969280</td><td>31969280</td><td>39489536</td><td>39489536</td><td>296144896</td><td>2203614367744</td><td>True</td><td>29556736</td><td>00:00:00.0312500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0781250</td><td>2203601969152</td><td>False</td><td></td><td></td><td></td><td>37576704</td><td></td><td></td></tr>
-<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>6488064</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>6488064</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>6488064</td><td></td><td></td></tr>
-<tr><td>audiodg</td><td>6588</td><td></td><td></td><td>211</td><td>14946304</td><td>9539584</td><td>9539584</td><td>109985792</td><td>00:00:01.8906250</td><td>0</td><td>211</td><td>2203428208640</td><td>14946304</td><td>9539584</td><td>12232</td><td></td><td></td><td>1,890625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>12232</td><td>12232</td><td>9539584</td><td>127960</td><td>127960</td><td>15138816</td><td>15138816</td><td>20959232</td><td>20959232</td><td>113295360</td><td>2203431518208</td><td></td><td>9539584</td><td>00:00:01.3906250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:13:07</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5000000</td><td>2203428208640</td><td>False</td><td></td><td></td><td></td><td>14946304</td><td></td><td></td></tr>
+                    });</script>
+<div class="defaultPanelOther"><table id="DT-hvWYqjnB" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
+<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>861</td><td>88231936</td><td>111923200</td><td>111923200</td><td>732209152</td><td>00:08:23.7968750</td><td>1</td><td>861</td><td>732209152</td><td>88231936</td><td>111923200</td><td>60816</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>503,796875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8548</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>4067118</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>60816</td><td>60816</td><td>111923200</td><td>870064</td><td>870064</td><td>214654976</td><td>214654976</td><td>256208896</td><td>256208896</td><td>842002432</td><td>842002432</td><td>True</td><td>111923200</td><td>00:02:09.3125000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:06:14.4843750</td><td>732209152</td><td>False</td><td></td><td></td><td></td><td>88231936</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>6492160</td><td>2383872</td><td>2383872</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>6492160</td><td>2383872</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2383872</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2383872</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>6492160</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>550</td><td>21696512</td><td>33824768</td><td>33824768</td><td>309600256</td><td>00:00:05.2343750</td><td>1</td><td>550</td><td>2203627823104</td><td>21696512</td><td>33824768</td><td>32768</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>5,234375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8876</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1966688</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>32768</td><td>32768</td><td>33824768</td><td>454224</td><td>454224</td><td>49778688</td><td>49778688</td><td>42029056</td><td>42029056</td><td>320684032</td><td>2203638906880</td><td>True</td><td>33824768</td><td>00:00:03.6718750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.5625000</td><td>2203627823104</td><td>False</td><td></td><td></td><td></td><td>21696512</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>5165056</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>5165056</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>5165056</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>8140</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>5808128</td><td>1777664</td><td>1777664</td><td>98443264</td><td>00:00:00.0468750</td><td>1</td><td>139</td><td>2203416666112</td><td>5808128</td><td>1777664</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,046875</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1777664</td><td>125896</td><td>125896</td><td>1900544</td><td>1900544</td><td>8433664</td><td>8433664</td><td>102113280</td><td>2203420336128</td><td>True</td><td>1777664</td><td>00:00:00.0468750</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416666112</td><td>False</td><td></td><td></td><td></td><td>5808128</td><td></td><td></td></tr>
 </tbody>
-</table>
-</div>
+</table></div>
 </div>
 <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-fig061pu" && !$.fn.dataTable.isDataTable("#DT-vqvlsxOL")) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-j0vr2yel" && !$.fn.dataTable.isDataTable("#DT-PfuimVpD")) {
                                 
                                 //  Table code
-                                var table = $('#DT-vqvlsxOL').DataTable(
+                                var table = $('#DT-PfuimVpD').DataTable(
                                     {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -939,25 +961,22 @@ thead input {
                                 
                             };
                         });
-                    });
-</script>
-<div class="defaultPanelOther"><table id="DT-vqvlsxOL" class="Simplisimo display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
-</thead>
-<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>724</td><td>43343872</td><td>37650432</td><td>37650432</td><td>302407680</td><td>00:00:00.7343750</td><td>1</td><td>724</td><td>302407680</td><td>43343872</td><td>37650432</td><td>38280</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,734375</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3592</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>38280</td><td>38280</td><td>37650432</td><td>454776</td><td>454776</td><td>41295872</td><td>41295872</td><td>60358656</td><td>60358656</td><td>318095360</td><td>318095360</td><td>True</td><td>37650432</td><td>00:00:00.2500000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.4843750</td><td>302407680</td><td>False</td><td></td><td></td><td></td><td>43343872</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>8364032</td><td>2248704</td><td>2248704</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>8364032</td><td>2248704</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2248704</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2248704</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>8364032</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>500</td><td>37576704</td><td>29556736</td><td>29556736</td><td>283746304</td><td>00:00:00.1093750</td><td>1</td><td>500</td><td>2203601969152</td><td>37576704</td><td>29556736</td><td>28416</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>0,109375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3756</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>525772</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>28416</td><td>28416</td><td>29556736</td><td>437384</td><td>437384</td><td>31969280</td><td>31969280</td><td>39489536</td><td>39489536</td><td>296144896</td><td>2203614367744</td><td>True</td><td>29556736</td><td>00:00:00.0312500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0781250</td><td>2203601969152</td><td>False</td><td></td><td></td><td></td><td>37576704</td><td></td><td></td></tr>
-<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>6488064</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>6488064</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>6488064</td><td></td><td></td></tr>
-<tr><td>audiodg</td><td>6588</td><td></td><td></td><td>211</td><td>14946304</td><td>9539584</td><td>9539584</td><td>109985792</td><td>00:00:01.8906250</td><td>0</td><td>211</td><td>2203428208640</td><td>14946304</td><td>9539584</td><td>12232</td><td></td><td></td><td>1,890625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>12232</td><td>12232</td><td>9539584</td><td>127960</td><td>127960</td><td>15138816</td><td>15138816</td><td>20959232</td><td>20959232</td><td>113295360</td><td>2203431518208</td><td></td><td>9539584</td><td>00:00:01.3906250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:13:07</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5000000</td><td>2203428208640</td><td>False</td><td></td><td></td><td></td><td>14946304</td><td></td><td></td></tr>
+                    });</script>
+<div class="defaultPanelOther"><table id="DT-PfuimVpD" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
+<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>861</td><td>88231936</td><td>111923200</td><td>111923200</td><td>732209152</td><td>00:08:23.7968750</td><td>1</td><td>861</td><td>732209152</td><td>88231936</td><td>111923200</td><td>60816</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>503,796875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8548</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>4067118</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>60816</td><td>60816</td><td>111923200</td><td>870064</td><td>870064</td><td>214654976</td><td>214654976</td><td>256208896</td><td>256208896</td><td>842002432</td><td>842002432</td><td>True</td><td>111923200</td><td>00:02:09.3125000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:06:14.4843750</td><td>732209152</td><td>False</td><td></td><td></td><td></td><td>88231936</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>6492160</td><td>2383872</td><td>2383872</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>6492160</td><td>2383872</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2383872</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2383872</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>6492160</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>550</td><td>21696512</td><td>33824768</td><td>33824768</td><td>309600256</td><td>00:00:05.2343750</td><td>1</td><td>550</td><td>2203627823104</td><td>21696512</td><td>33824768</td><td>32768</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>5,234375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8876</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1966688</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>32768</td><td>32768</td><td>33824768</td><td>454224</td><td>454224</td><td>49778688</td><td>49778688</td><td>42029056</td><td>42029056</td><td>320684032</td><td>2203638906880</td><td>True</td><td>33824768</td><td>00:00:03.6718750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.5625000</td><td>2203627823104</td><td>False</td><td></td><td></td><td></td><td>21696512</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>5165056</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>5165056</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>5165056</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>8140</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>5808128</td><td>1777664</td><td>1777664</td><td>98443264</td><td>00:00:00.0468750</td><td>1</td><td>139</td><td>2203416666112</td><td>5808128</td><td>1777664</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,046875</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1777664</td><td>125896</td><td>125896</td><td>1900544</td><td>1900544</td><td>8433664</td><td>8433664</td><td>102113280</td><td>2203420336128</td><td>True</td><td>1777664</td><td>00:00:00.0468750</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416666112</td><td>False</td><td></td><td></td><td></td><td>5808128</td><td></td><td></td></tr>
 </tbody>
-</table>
-</div>
+</table></div>
 </div>
 <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                    $(document).ready(function() {
                         $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-fig061pu" && !$.fn.dataTable.isDataTable("#DT-RGKKZMFI")) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-j0vr2yel" && !$.fn.dataTable.isDataTable("#DT-KIbzqbWp")) {
                                 
                                 //  Table code
-                                var table = $('#DT-RGKKZMFI').DataTable(
+                                var table = $('#DT-KIbzqbWp').DataTable(
                                     {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -1002,23 +1021,18 @@ thead input {
                                 
                             };
                         });
-                    });
-</script>
-<div class="defaultPanelOther"><table id="DT-RGKKZMFI" class="Simplisimo display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr>
-</thead>
-<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>724</td><td>43343872</td><td>37650432</td><td>37650432</td><td>302407680</td><td>00:00:00.7343750</td><td>1</td><td>724</td><td>302407680</td><td>43343872</td><td>37650432</td><td>38280</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>0,734375</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3592</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>38280</td><td>38280</td><td>37650432</td><td>454776</td><td>454776</td><td>41295872</td><td>41295872</td><td>60358656</td><td>60358656</td><td>318095360</td><td>318095360</td><td>True</td><td>37650432</td><td>00:00:00.2500000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.4843750</td><td>302407680</td><td>False</td><td></td><td></td><td></td><td>43343872</td><td></td><td></td></tr>
-<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>8364032</td><td>2248704</td><td>2248704</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>8364032</td><td>2248704</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2248704</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2248704</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>8364032</td><td></td><td></td></tr>
-<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>500</td><td>37576704</td><td>29556736</td><td>29556736</td><td>283746304</td><td>00:00:00.1093750</td><td>1</td><td>500</td><td>2203601969152</td><td>37576704</td><td>29556736</td><td>28416</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>0,109375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3756</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>525772</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>28416</td><td>28416</td><td>29556736</td><td>437384</td><td>437384</td><td>31969280</td><td>31969280</td><td>39489536</td><td>39489536</td><td>296144896</td><td>2203614367744</td><td>True</td><td>29556736</td><td>00:00:00.0312500</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0781250</td><td>2203601969152</td><td>False</td><td></td><td></td><td></td><td>37576704</td><td></td><td></td></tr>
-<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>6488064</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>6488064</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>6488064</td><td></td><td></td></tr>
-<tr><td>audiodg</td><td>6588</td><td></td><td></td><td>211</td><td>14946304</td><td>9539584</td><td>9539584</td><td>109985792</td><td>00:00:01.8906250</td><td>0</td><td>211</td><td>2203428208640</td><td>14946304</td><td>9539584</td><td>12232</td><td></td><td></td><td>1,890625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>12232</td><td>12232</td><td>9539584</td><td>127960</td><td>127960</td><td>15138816</td><td>15138816</td><td>20959232</td><td>20959232</td><td>113295360</td><td>2203431518208</td><td></td><td>9539584</td><td>00:00:01.3906250</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:13:07</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.5000000</td><td>2203428208640</td><td>False</td><td></td><td></td><td></td><td>14946304</td><td></td><td></td></tr>
+                    });</script>
+<div class="defaultPanelOther"><table id="DT-KIbzqbWp" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
+<tbody><tr><td>1Password</td><td>13880</td><td>Normal</td><td>7.3.657</td><td>861</td><td>88231936</td><td>111923200</td><td>111923200</td><td>732209152</td><td>00:08:23.7968750</td><td>1</td><td>861</td><td>732209152</td><td>88231936</td><td>111923200</td><td>60816</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>503,796875</td><td>7.3.657</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8548</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>4067118</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>60816</td><td>60816</td><td>111923200</td><td>870064</td><td>870064</td><td>214654976</td><td>214654976</td><td>256208896</td><td>256208896</td><td>842002432</td><td>842002432</td><td>True</td><td>111923200</td><td>00:02:09.3125000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:15:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:06:14.4843750</td><td>732209152</td><td>False</td><td></td><td></td><td></td><td>88231936</td><td></td><td></td></tr>
+<tr><td>aesm_service</td><td>12284</td><td></td><td></td><td>179</td><td>6492160</td><td>2383872</td><td>2383872</td><td>89538560</td><td></td><td>0</td><td>179</td><td>2203407761408</td><td>6492160</td><td>2383872</td><td>10168</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10168</td><td>10168</td><td>2383872</td><td>104920</td><td>104920</td><td>3149824</td><td>3149824</td><td>9670656</td><td>9670656</td><td>100519936</td><td>2203418742784</td><td></td><td>2383872</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203407761408</td><td>False</td><td></td><td></td><td></td><td>6492160</td><td></td><td></td></tr>
+<tr><td>ApplicationFrameHost</td><td>19820</td><td>Normal</td><td>10.0.17763.1 (WinBuild.160101.0800)</td><td>550</td><td>21696512</td><td>33824768</td><td>33824768</td><td>309600256</td><td>00:00:05.2343750</td><td>1</td><td>550</td><td>2203627823104</td><td>21696512</td><td>33824768</td><td>32768</td><td>C:\Windows\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>5,234375</td><td>10.0.17763.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8876</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>1966688</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>32768</td><td>32768</td><td>33824768</td><td>454224</td><td>454224</td><td>49778688</td><td>49778688</td><td>42029056</td><td>42029056</td><td>320684032</td><td>2203638906880</td><td>True</td><td>33824768</td><td>00:00:03.6718750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.5625000</td><td>2203627823104</td><td>False</td><td></td><td></td><td></td><td>21696512</td><td></td><td></td></tr>
+<tr><td>AppVShNotify</td><td>4612</td><td></td><td></td><td>162</td><td>5165056</td><td>1802240</td><td>1802240</td><td>99340288</td><td></td><td>0</td><td>162</td><td>4394307584</td><td>5165056</td><td>1802240</td><td>8896</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>8896</td><td>8896</td><td>1802240</td><td>131680</td><td>131680</td><td>2027520</td><td>2027520</td><td>7577600</td><td>7577600</td><td>106680320</td><td>4401647616</td><td></td><td>1802240</td><td></td><td>AppVShNotify</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4394307584</td><td>False</td><td></td><td></td><td></td><td>5165056</td><td></td><td></td></tr>
+<tr><td>browser_broker</td><td>8140</td><td>Normal</td><td>11.00.17763.316 (WinBuild.160101.0800)</td><td>139</td><td>5808128</td><td>1777664</td><td>1777664</td><td>98443264</td><td>00:00:00.0468750</td><td>1</td><td>139</td><td>2203416666112</td><td>5808128</td><td>1777664</td><td>8832</td><td>C:\Windows\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,046875</td><td>11.00.17763.316</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1777664</td><td>125896</td><td>125896</td><td>1900544</td><td>1900544</td><td>8433664</td><td>8433664</td><td>102113280</td><td>2203420336128</td><td>True</td><td>1777664</td><td>00:00:00.0468750</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>11.04.2019 09:17:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416666112</td><td>False</td><td></td><td></td><td></td><td>5808128</td><td></td><td></td></tr>
 </tbody>
-</table>
+</table></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+</div></div>
+</div></div>
 </body>
 <!-- END BODY -->
 <!-- FOOTER -->
@@ -1029,12 +1043,6 @@ thead input {
 <!-- JS Elastic Tabs START -->
 <script type="text/javascript">var maxWidth = 0;
 var $element;
-//$(".tabs a").each(function(){
-//   $element = $(this);
-//   if($element.width() > maxWidth){
-//     maxWidth = $element.width();
-//  }
-//});
 
 $(window).on("resize", function() {
     $(".selector").hide();
@@ -1042,11 +1050,6 @@ $(window).on("resize", function() {
     var id = activeItem.data("id");
     setSelectorPosition(id);
 });
-
-//$(".tabs a").each(function(){
-//$(this).width(maxWidth);
-
-//});
 
 // Set first active link
 var activeItem = $(".tabs a[class*='active']");

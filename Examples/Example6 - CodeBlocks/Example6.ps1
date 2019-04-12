@@ -77,7 +77,7 @@ $CodeBlocksXML = @'
 </building>
 '@
 
-$HTML = New-Html -UseCssLinks -UseJavaScriptLinks -FilePath "$PSScriptRoot\Example6.html" {
+$HTML = New-Html -UseCssLinks -UseJavaScriptLinks -FilePath "$PSScriptRoot\Example6.html" -ShowHTML {
     New-HTMLTab -TabName 'Coding' {
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Group 'Test123' -Title 'PowerShell Code 1' -Theme godzilla -Highlight '2-5, 13'

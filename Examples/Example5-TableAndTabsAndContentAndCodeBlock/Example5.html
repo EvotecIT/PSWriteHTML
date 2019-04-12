@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html><!-- HEADER -->
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-03-30 09:32:10" name="revised"/>
+<meta content="2019-04-12 09:57:53" name="revised"/>
 <title></title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
@@ -15,63 +15,13 @@
 <style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
-    margin: 8px 10px 8px 10px;
 }
 
 hr {
     height: 4px;
-    /*
-    background-color: #007bff;
-    */
     background-color: #6Cf;
     border: 0px;
     width: 100%;
-}
-
-table {
-    table-layout: auto;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th {
-    vertical-align: top;
-    text-align: left;
-    padding: 2px 5px 2px 5px;
-}
-
-td {
-    vertical-align: top;
-    padding: 2px 5px 2px 5px;
-    border-top: 1px solid #bbbbbb;
-    height: 16px;
-    vertical-align: middle;
-}
-
-tr.totalrow {
-    border-top: thick double;
-}
-
-td.totalrow {
-    vertical-align: Bottom;
-    text-align: left;
-    font-size: 8pt;
-    font-weight: bold;
-    padding: 2px 5px 2px 5px;
-}
-
-div.pageTitle {
-    font-size: 14pt;
-    font-weight: bold;
-    width: 100%;
-    display: block;
-    padding: 4px 1em 0px 2px;
-    height: 2em;
-}
-
-div.ReportCreated {
-    text-align: right;
-    padding-right: 5em;
 }
 
 div.clientlogo {
@@ -99,28 +49,15 @@ div.MainLogo {
 div.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
-    /* display: inline-block; */
     margin: 5px;
     width: calc(100% - 10px);
     overflow: hidden;
-    /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
-
-    /*
-      box-sizing: border-box;
-    float: left;
-    */
 }
 
 div.defaultColumn {
-
-
     overflow: hidden;
-    /*
-     float: left;
-    box-sizing: border-box;
-    */
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 2px;
@@ -130,7 +67,6 @@ div.defaultColumn {
     display: flex;
     justify-content: space-between;
     padding: 2px;
-    border: 1px solid #ddd;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -153,8 +89,6 @@ div.defaultColumn {
 
 .defaultPanel {
     flex-basis: 100%;
-    /* padding: 5px; */
-
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -163,7 +97,6 @@ div.defaultColumn {
 .defaultCard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    /* width: 40%; */
     border-radius: 5px;
     margin: 5px;
 }
@@ -173,7 +106,6 @@ div.defaultHeader {
     margin: 0px 0px 0px 0px;
     font-weight: bold;
     color: #ffffff;
-    /* background-color: #007bff; */
     background-color: #6Cf;
 }
 
@@ -181,6 +113,8 @@ div.defaultFooter {
     padding-right: 5em;
     text-align: right;
 }
+
+
 
 td.clientlogo {
     border: 0px;
@@ -195,6 +129,8 @@ td.MainLogo {
     vertical-align: middle;
 }
 
+/*
+
 th.content {
     border-top: 1px solid #bbbbbb;
     width: 25%;
@@ -207,6 +143,7 @@ td.content {
 td.groupby {
     border-top: 3px double #bbbbbb;
 }
+*/
 
 .header {
     background-color: #616a6b;
@@ -258,34 +195,6 @@ a.current {
     color: #000000 !important;
 }
 
-/* Added to make sure plus logo fits in */
-
-td {
-    height: 27px;
-}
-
-/* Button in Table - giving it some colors */
-
-td.sorting_1::before {
-    background: #007bff !important;
-}
-
-td::before {
-    background: #007bff !important;
-}
-
-/* giving some spaces between tables being to close */
-
-div.dataTables_wrapper {
-    padding: 10px 10px 10px 10px;
-}
-
-button.dt-button {
-    color: blue !important;
-    border-radius: 5px;
-    line-height: 1 !important;
-}
-
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -300,7 +209,6 @@ img {
 
 .flex-grid {
     display: flex;
-    /* flex-wrap: wrap; */
 }
 
 .col {
@@ -379,8 +287,8 @@ h6 {
 }
 
 h1 {
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 30px;
+    line-height: 20px;
     margin: 1em 0 .6em 0;
     font-weight: normal;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
@@ -394,8 +302,8 @@ h2 {
     font-weight: normal;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 25px;
+    line-height: 20px;
 }
 
 h3 {
@@ -405,7 +313,7 @@ h3 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
     font-size: 24px;
-    line-height: 40px;
+    line-height: 20px;
 }
 
 h4 {
@@ -415,7 +323,7 @@ h4 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
     font-size: 18px;
-    line-height: 20px;
+    line-height: 16px;
 }
 
 h5 {
@@ -456,7 +364,227 @@ function hide(obj) {
 
 
 
+<!-- CSS DataTables START -->
+<style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
 
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+<!-- CSS Elastic Tabs START -->
+<style type="text/css">.tabsWrapper {
+    text-align: center;
+    margin: 10px auto;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.tabs {
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 0px;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    /*
+    display: inline-block;
+*/
+    border-radius: 4px;
+    position: relative;
+}
+
+.tabs .round {
+    border-radius: 4px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #777;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.6s;
+}
+
+.tabs a.active {
+    color: #fff;
+}
+
+.tabs a i {
+    margin-right: 5px;
+}
+
+.tabs .selector {
+    display: none;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    border-radius: 4px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: #05abe0;
+    background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1);
+}
+
+.tabs-content {
+    display: none;
+}
+
+.tabs-content.active {
+    display: block;
+}
+</style>
+<!-- CSS Elastic Tabs END -->
+
+
+<!-- JS Hide Section Code START -->
+<script type="text/javascript">function show(obj) {
+  document.getElementById(obj).style.display='block';
+  document.getElementById("hide_" + obj).style.display='';
+  document.getElementById("show_" + obj).style.display='none';
+}
+function hide(obj) {
+  document.getElementById(obj).style.display='none';
+  document.getElementById("hide_" + obj).style.display='none';
+  document.getElementById("show_" + obj).style.display='';
+}
+</script>
+<!-- JS Hide Section Code END -->
+
+
+
+<!-- CSS DataTables START -->
+<style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+<noscript><!-- CSS DataTables START -->
+<style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+th {
+    border-width: 1px;
+    padding: 3px;
+    border-style: solid;
+    border-color: black;
+    background-color: #00297A;
+    color: white;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+tr {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+</noscript>
 <!-- CSS Elastic Tabs START -->
 <style type="text/css">.tabsWrapper {
     text-align: center;
@@ -556,23 +684,18 @@ function hide(obj) {
 <!-- END HEADER -->
 <!-- BODY -->
 <body><div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-59qvu1jz"><i class="fas fa-bomb">Dashboard
-</i>
-</a>
-<a href="javascript:void(0)" data-id="Tab-ejq1rs04"><i class="fas fa-bomb">Test 2
-</i>
-</a>
+<a href="javascript:void(0)" class="active" data-id="Tab-5r61xszt"><i class="fas fa-bomb">Dashboard</i></a>
+<a href="javascript:void(0)" data-id="Tab-67wxm08b"><i class="fas fa-bomb">Test 2</i></a>
+</div></div>
+<div id="Tab-5r61xszt" class="tabs-content active"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Content" style="color: #ffffff;">Content</a>
+<a id="show_1152421352" href="javascript:void(0)" onclick="show('1152421352');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1152421352" href="javascript:void(0)" onclick="hide('1152421352');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-</div>
-<div id="Tab-59qvu1jz" class="tabs-content active"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Content" style="color: #ffffff;">Content
-</a>
-<a id="show_356234120" href="javascript:void(0)" onclick="show('356234120');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_356234120" href="javascript:void(0)" onclick="hide('356234120');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="356234120"><div class="defaultContainer defaultPanelOther collapsable" id="356234120"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
-                    $('#DT-rAeIefTR').DataTable({
+<div id="1152421352" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1152421352"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
+                    
+                    //  Table code
+                    var table = $('#DT-mqCPQBiq').DataTable(
+                        {
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -582,6 +705,7 @@ function hide(obj) {
                 ],
     "colReorder":  true,
     "paging":  true,
+    "scrollCollapse":  false,
     "pagingType":  [
                        "full_numbers"
                    ],
@@ -610,20 +734,20 @@ function hide(obj) {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});
-                });            
-</script>
-<div class="defaultPanelOther"><table id="DT-rAeIefTR" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
-</tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</tfoot>
-</table>
-</div>
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther"><table id="DT-mqCPQBiq" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
+<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
+<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
+</table></div>
 </div>
 <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
-                    $('#DT-WuysUrhe').DataTable({
+                    
+                    //  Table code
+                    var table = $('#DT-NQhToapY').DataTable(
+                        {
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -633,6 +757,7 @@ function hide(obj) {
                 ],
     "colReorder":  true,
     "paging":  true,
+    "scrollCollapse":  false,
     "pagingType":  [
                        "full_numbers"
                    ],
@@ -661,27 +786,24 @@ function hide(obj) {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});
-                });            
-</script>
-<div class="defaultPanelOther"><table id="DT-WuysUrhe" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
-</tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</tfoot>
-</table>
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther"><table id="DT-NQhToapY" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
+<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
+<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
+</table></div>
 </div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text 2" style="color: #ffffff;">My text 2</a>
+<a id="show_968638299" href="javascript:void(0)" onclick="show('968638299');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_968638299" href="javascript:void(0)" onclick="hide('968638299');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text 2" style="color: #ffffff;">My text 2
-</a>
-<a id="show_1370351562" href="javascript:void(0)" onclick="show('1370351562');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_1370351562" href="javascript:void(0)" onclick="hide('1370351562');" style="color: #ffffff;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="1370351562"><div class="defaultContainer defaultPanelOther collapsable" id="1370351562"><script>                $(document).ready(function() {
-                    $('#DT-nDIVMyjb').DataTable({
+<div id="968638299" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="968638299"><script>                $(document).ready(function() {
+                    
+                    //  Table code
+                    var table = $('#DT-eLYRrlBP').DataTable(
+                        {
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -691,6 +813,7 @@ function hide(obj) {
                 ],
     "colReorder":  true,
     "paging":  true,
+    "scrollCollapse":  false,
     "pagingType":  [
                        "full_numbers"
                    ],
@@ -719,17 +842,17 @@ function hide(obj) {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});
-                });            
-</script>
-<div class="defaultPanelOther"><table id="DT-nDIVMyjb" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
-</thead>
-<tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
-<tr><td>Guest</td><td></td><td>False</td><td></td></tr>
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther"><table id="DT-eLYRrlBP" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead>
+<tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr>
 <tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr>
 <tr><td>krbtgt</td><td></td><td>False</td><td></td></tr>
-<tr><td>Administrator Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
-<tr><td>Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
+<tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
+<tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
+<tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
 <tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr>
 <tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr>
 <tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr>
@@ -744,15 +867,15 @@ function hide(obj) {
 <tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr>
 <tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr>
 <tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr>
@@ -769,36 +892,29 @@ function hide(obj) {
 <tr><td>My User</td><td>User</td><td>True</td><td></td></tr>
 <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr>
 <tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr>
-<tr><td>Test Przemyslaw Klys1</td><td>Klys2</td><td>False</td><td></td></tr>
+<tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>False</td><td></td></tr>
 <tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr>
 <tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr>
 </tbody>
-<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
-</tfoot>
-</table>
+<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot>
+</table></div>
+</div></div>
 </div>
+</div></div>
 </div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Content New" style="color: #ffffff;">Content New</a>
+<a id="show_1016280877" href="javascript:void(0)" onclick="show('1016280877');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1016280877" href="javascript:void(0)" onclick="hide('1016280877');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
+<div id="1016280877" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1016280877"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text" style="color: #ffffff;">My text</a>
+<a id="show_1335170052" href="javascript:void(0)" onclick="show('1335170052');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1335170052" href="javascript:void(0)" onclick="hide('1335170052');" style="color: #ffffff;">(Hide)</a>
 </div>
-</div>
-</div>
-</div>
-<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Content New" style="color: #ffffff;">Content New
-</a>
-<a id="show_575538419" href="javascript:void(0)" onclick="show('575538419');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_575538419" href="javascript:void(0)" onclick="hide('575538419');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="575538419"><div class="defaultContainer defaultPanelOther collapsable" id="575538419"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text" style="color: #ffffff;">My text
-</a>
-<a id="show_717355006" href="javascript:void(0)" onclick="show('717355006');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_717355006" href="javascript:void(0)" onclick="hide('717355006');" style="color: #ffffff;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="717355006"><div class="defaultContainer defaultPanelOther collapsable" id="717355006"><script>                $(document).ready(function() {
-                    $('#DT-nVXIhXKB').DataTable({
+<div id="1335170052" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1335170052"><script>                $(document).ready(function() {
+                    
+                    //  Table code
+                    var table = $('#DT-KQXQeooZ').DataTable(
+                        {
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -808,6 +924,7 @@ function hide(obj) {
                 ],
     "colReorder":  true,
     "paging":  true,
+    "scrollCollapse":  false,
     "pagingType":  [
                        "full_numbers"
                    ],
@@ -836,30 +953,25 @@ function hide(obj) {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});
-                });            
-</script>
-<div class="defaultPanelOther"><table id="DT-nVXIhXKB" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
-</tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</tfoot>
-</table>
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther"><table id="DT-KQXQeooZ" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
+<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
+<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
+</table></div>
+</div></div>
+</div></div>
+<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text" style="color: #ffffff;">My text</a>
+<a id="show_362831376" href="javascript:void(0)" onclick="show('362831376');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_362831376" href="javascript:void(0)" onclick="hide('362831376');" style="color: #ffffff;">(Hide)</a>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text" style="color: #ffffff;">My text
-</a>
-<a id="show_1433968730" href="javascript:void(0)" onclick="show('1433968730');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_1433968730" href="javascript:void(0)" onclick="hide('1433968730');" style="color: #ffffff;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="1433968730"><div class="defaultContainer defaultPanelOther collapsable" id="1433968730"><script>                $(document).ready(function() {
-                    $('#DT-GzqJIZDh').DataTable({
+<div id="362831376" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="362831376"><script>                $(document).ready(function() {
+                    
+                    //  Table code
+                    var table = $('#DT-rasMhUxF').DataTable(
+                        {
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -869,6 +981,7 @@ function hide(obj) {
                 ],
     "colReorder":  true,
     "paging":  true,
+    "scrollCollapse":  false,
     "pagingType":  [
                        "full_numbers"
                    ],
@@ -897,30 +1010,25 @@ function hide(obj) {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});
-                });            
-</script>
-<div class="defaultPanelOther"><table id="DT-GzqJIZDh" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
-</tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</tfoot>
-</table>
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther"><table id="DT-rasMhUxF" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
+<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
+<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
+</table></div>
+</div></div>
+</div></div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text 2" style="color: #ffffff;">My text 2</a>
+<a id="show_42798292" href="javascript:void(0)" onclick="show('42798292');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_42798292" href="javascript:void(0)" onclick="hide('42798292');" style="color: #ffffff;">(Hide)</a>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text 2" style="color: #ffffff;">My text 2
-</a>
-<a id="show_1221610472" href="javascript:void(0)" onclick="show('1221610472');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_1221610472" href="javascript:void(0)" onclick="hide('1221610472');" style="color: #ffffff;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="1221610472"><div class="defaultContainer defaultPanelOther collapsable" id="1221610472"><script>                $(document).ready(function() {
-                    $('#DT-JJDzsScL').DataTable({
+<div id="42798292" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="42798292"><script>                $(document).ready(function() {
+                    
+                    //  Table code
+                    var table = $('#DT-GIJRYuuH').DataTable(
+                        {
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -930,6 +1038,7 @@ function hide(obj) {
                 ],
     "colReorder":  true,
     "paging":  true,
+    "scrollCollapse":  false,
     "pagingType":  [
                        "full_numbers"
                    ],
@@ -958,17 +1067,17 @@ function hide(obj) {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});
-                });            
-</script>
-<div class="defaultPanelOther"><table id="DT-JJDzsScL" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
-</thead>
-<tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
-<tr><td>Guest</td><td></td><td>False</td><td></td></tr>
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther"><table id="DT-GIJRYuuH" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead>
+<tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr>
 <tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr>
 <tr><td>krbtgt</td><td></td><td>False</td><td></td></tr>
-<tr><td>Administrator Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
-<tr><td>Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
+<tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
+<tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
+<tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
 <tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr>
 <tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr>
 <tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr>
@@ -983,15 +1092,15 @@ function hide(obj) {
 <tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr>
 <tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr>
 <tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr>
@@ -1008,28 +1117,21 @@ function hide(obj) {
 <tr><td>My User</td><td>User</td><td>True</td><td></td></tr>
 <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr>
 <tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr>
-<tr><td>Test Przemyslaw Klys1</td><td>Klys2</td><td>False</td><td></td></tr>
+<tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>False</td><td></td></tr>
 <tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr>
 <tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr>
 </tbody>
-<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
-</tfoot>
-</table>
+<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot>
+</table></div>
+</div></div>
 </div>
+</div></div>
 </div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language</a>
+<a id="show_1359365703" href="javascript:void(0)" onclick="show('1359365703');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1359365703" href="javascript:void(0)" onclick="hide('1359365703');" style="color: #ffffff;">(Hide)</a>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language
-</a>
-<a id="show_172862137" href="javascript:void(0)" onclick="show('172862137');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_172862137" href="javascript:void(0)" onclick="hide('172862137');" style="color: #ffffff;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="172862137"><div class="defaultContainer defaultPanelOther collapsable" id="172862137"><pre data-enlighter-language="powershell" data-enlighter-theme="godzilla" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 1" data-enlighter-highlight="2-5, 13">
+<div id="1359365703" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1359365703"><pre data-enlighter-language="powershell" data-enlighter-theme="godzilla" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 1" data-enlighter-highlight="2-5, 13">
 $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
@@ -1059,7 +1161,6 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     }
 }
 Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
-
 </pre>
 <pre data-enlighter-language="powershell" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 2">
 $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
@@ -1091,37 +1192,26 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     }
 }
 Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
-
 </pre>
+</div></div>
 </div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language</a>
+<a id="show_327045438" href="javascript:void(0)" onclick="show('327045438');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_327045438" href="javascript:void(0)" onclick="hide('327045438');" style="color: #ffffff;">(Hide)</a>
 </div>
-</div>
-<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language
-</a>
-<a id="show_508713718" href="javascript:void(0)" onclick="show('508713718');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_508713718" href="javascript:void(0)" onclick="hide('508713718');" style="color: #ffffff;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="508713718"><div class="defaultContainer defaultPanelOther collapsable" id="508713718"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
+<div id="327045438" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="327045438"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
 $(window).bind("resize", function(e) {
     if (window.RT) clearTimeout(window.RT);
     window.RT = setTimeout(function() {
         this.location.reload(false); /* false to get page from cache */
     }, 200);
-});
-</pre>
+});</pre></div></div>
 </div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="XML Language" style="color: #ffffff;">XML Language</a>
+<a id="show_1250093447" href="javascript:void(0)" onclick="show('1250093447');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1250093447" href="javascript:void(0)" onclick="hide('1250093447');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-</div>
-<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="XML Language" style="color: #ffffff;">XML Language
-</a>
-<a id="show_2137989997" href="javascript:void(0)" onclick="show('2137989997');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_2137989997" href="javascript:void(0)" onclick="hide('2137989997');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="2137989997"><div class="defaultContainer defaultPanelOther collapsable" id="2137989997"><pre data-enlighter-language="xml" data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
+<div id="1250093447" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1250093447"><pre data-enlighter-language="xml" data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
 <building name="GlobalDynamics Main Building"
     core:id="0xFA8A91C6617DFA1B" core:uid="0898213-123123123-1230898123" xmlns:core="http://www.xmlnamespace.tld">
   <core:group core:level="2">
@@ -1147,23 +1237,20 @@ $(window).bind("resize", function(e) {
       <x_room label="k89121">Lab01</x_room>
     </room>
   </core:group>
-</building>
-</pre>
+</building></pre></div></div>
 </div>
 </div>
+<div id="Tab-67wxm08b" class="tabs-content"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My other text" style="color: #ffffff;">My other text</a>
+<a id="show_1246169325" href="javascript:void(0)" onclick="show('1246169325');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1246169325" href="javascript:void(0)" onclick="hide('1246169325');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-</div>
-<div id="Tab-ejq1rs04" class="tabs-content"><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My other text" style="color: #ffffff;">My other text
-</a>
-<a id="show_1884471241" href="javascript:void(0)" onclick="show('1884471241');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_1884471241" href="javascript:void(0)" onclick="hide('1884471241');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="1884471241"><div class="defaultContainer defaultPanelOther collapsable" id="1884471241"><script>                    $(document).ready(function() {
-                        $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-ejq1rs04" && !$.fn.dataTable.isDataTable("#DT-goQDSNEB")) {
-                                $('#DT-goQDSNEB').DataTable({
+<div id="1246169325" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1246169325"><script>                    $(document).ready(function() {
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-67wxm08b" && !$.fn.dataTable.isDataTable("#DT-FHbBxfPu")) {
+                                
+                                //  Table code
+                                var table = $('#DT-FHbBxfPu').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1173,6 +1260,7 @@ $(window).bind("resize", function(e) {
                 ],
     "colReorder":  true,
     "paging":  true,
+    "scrollCollapse":  false,
     "pagingType":  [
                        "full_numbers"
                    ],
@@ -1201,19 +1289,19 @@ $(window).bind("resize", function(e) {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});
+}
+                                );
+                                
                             };
                         });
-                    });            
-</script>
-<div class="defaultPanelOther"><table id="DT-goQDSNEB" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
-</thead>
-<tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
-<tr><td>Guest</td><td></td><td>False</td><td></td></tr>
+                    });</script>
+<div class="defaultPanelOther"><table id="DT-FHbBxfPu" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead>
+<tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr>
 <tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr>
 <tr><td>krbtgt</td><td></td><td>False</td><td></td></tr>
-<tr><td>Administrator Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
-<tr><td>Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
+<tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
+<tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
+<tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
 <tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr>
 <tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr>
 <tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr>
@@ -1228,15 +1316,15 @@ $(window).bind("resize", function(e) {
 <tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr>
 <tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr>
 <tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr>
@@ -1253,28 +1341,25 @@ $(window).bind("resize", function(e) {
 <tr><td>My User</td><td>User</td><td>True</td><td></td></tr>
 <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr>
 <tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr>
-<tr><td>Test Przemyslaw Klys1</td><td>Klys2</td><td>False</td><td></td></tr>
+<tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>False</td><td></td></tr>
 <tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr>
 <tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr>
 </tbody>
-<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
-</tfoot>
-</table>
+<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot>
+</table></div>
+</div></div>
 </div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Content" style="color: #ffffff;">Content</a>
+<a id="show_911165252" href="javascript:void(0)" onclick="show('911165252');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_911165252" href="javascript:void(0)" onclick="hide('911165252');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-</div>
-</div>
-<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Content" style="color: #ffffff;">Content
-</a>
-<a id="show_747750769" href="javascript:void(0)" onclick="show('747750769');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_747750769" href="javascript:void(0)" onclick="hide('747750769');" style="color: #ffffff; display:none;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="747750769"><div class="defaultContainer defaultPanelOther collapsable" id="747750769"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                    $(document).ready(function() {
-                        $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-ejq1rs04" && !$.fn.dataTable.isDataTable("#DT-HAYNtaMN")) {
-                                $('#DT-HAYNtaMN').DataTable({
+<div id="911165252" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="911165252"><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                    $(document).ready(function() {
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-67wxm08b" && !$.fn.dataTable.isDataTable("#DT-FXhcPmpt")) {
+                                
+                                //  Table code
+                                var table = $('#DT-FXhcPmpt').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1284,6 +1369,7 @@ $(window).bind("resize", function(e) {
                 ],
     "colReorder":  true,
     "paging":  true,
+    "scrollCollapse":  false,
     "pagingType":  [
                        "full_numbers"
                    ],
@@ -1312,24 +1398,24 @@ $(window).bind("resize", function(e) {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});
+}
+                                );
+                                
                             };
                         });
-                    });            
-</script>
-<div class="defaultPanelOther"><table id="DT-HAYNtaMN" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
-</tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</tfoot>
-</table>
-</div>
+                    });</script>
+<div class="defaultPanelOther"><table id="DT-FXhcPmpt" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
+<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
+<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
+</table></div>
 </div>
 <div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ;"><script>                    $(document).ready(function() {
-                        $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-ejq1rs04" && !$.fn.dataTable.isDataTable("#DT-bRbFUqex")) {
-                                $('#DT-bRbFUqex').DataTable({
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-67wxm08b" && !$.fn.dataTable.isDataTable("#DT-rLxIohCG")) {
+                                
+                                //  Table code
+                                var table = $('#DT-rLxIohCG').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1339,6 +1425,7 @@ $(window).bind("resize", function(e) {
                 ],
     "colReorder":  true,
     "paging":  true,
+    "scrollCollapse":  false,
     "pagingType":  [
                        "full_numbers"
                    ],
@@ -1367,31 +1454,28 @@ $(window).bind("resize", function(e) {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});
+}
+                                );
+                                
                             };
                         });
-                    });            
-</script>
-<div class="defaultPanelOther"><table id="DT-bRbFUqex" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr>
-</tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr>
-</tfoot>
-</table>
+                    });</script>
+<div class="defaultPanelOther"><table id="DT-rLxIohCG" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
+<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
+<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
+</table></div>
 </div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text 2" style="color: #ffffff;">My text 2</a>
+<a id="show_211605453" href="javascript:void(0)" onclick="show('211605453');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_211605453" href="javascript:void(0)" onclick="hide('211605453');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text 2" style="color: #ffffff;">My text 2
-</a>
-<a id="show_891858685" href="javascript:void(0)" onclick="show('891858685');" style="color: #ffffff; display:none;">(Show)
-</a>
-<a id="hide_891858685" href="javascript:void(0)" onclick="hide('891858685');" style="color: #ffffff;">(Hide)
-</a>
-</div>
-<div class="defaultContainerOther" id="891858685"><div class="defaultContainer defaultPanelOther collapsable" id="891858685"><script>                    $(document).ready(function() {
-                        $('.tabs').on('click', 'a', function (event) { 
-                            if ($(event.currentTarget).attr("data-id") == "Tab-ejq1rs04" && !$.fn.dataTable.isDataTable("#DT-UJPEvHWP")) {
-                                $('#DT-UJPEvHWP').DataTable({
+<div id="211605453" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="211605453"><script>                    $(document).ready(function() {
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-67wxm08b" && !$.fn.dataTable.isDataTable("#DT-dEmYDgvf")) {
+                                
+                                //  Table code
+                                var table = $('#DT-dEmYDgvf').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     "copyHtml5",
@@ -1401,6 +1485,7 @@ $(window).bind("resize", function(e) {
                 ],
     "colReorder":  true,
     "paging":  true,
+    "scrollCollapse":  false,
     "pagingType":  [
                        "full_numbers"
                    ],
@@ -1429,19 +1514,19 @@ $(window).bind("resize", function(e) {
     "select":  true,
     "searching":  true,
     "stateSave":  true
-});
+}
+                                );
+                                
                             };
                         });
-                    });            
-</script>
-<div class="defaultPanelOther"><table id="DT-UJPEvHWP" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
-</thead>
-<tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
-<tr><td>Guest</td><td></td><td>False</td><td></td></tr>
+                    });</script>
+<div class="defaultPanelOther"><table id="DT-dEmYDgvf" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead>
+<tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr>
 <tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr>
 <tr><td>krbtgt</td><td></td><td>False</td><td></td></tr>
-<tr><td>Administrator Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
-<tr><td>Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr>
+<tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
+<tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
+<tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
 <tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr>
 <tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr>
 <tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr>
@@ -1456,15 +1541,15 @@ $(window).bind("resize", function(e) {
 <tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr>
 <tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr>
+<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr>
 <tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr>
 <tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr>
@@ -1481,19 +1566,15 @@ $(window).bind("resize", function(e) {
 <tr><td>My User</td><td>User</td><td>True</td><td></td></tr>
 <tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr>
 <tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr>
-<tr><td>Test Przemyslaw Klys1</td><td>Klys2</td><td>False</td><td></td></tr>
+<tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>False</td><td></td></tr>
 <tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr>
 <tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr>
 </tbody>
-<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr>
-</tfoot>
-</table>
+<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot>
+</table></div>
+</div></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+</div></div>
 </div>
 </div>
 </body>
@@ -1521,12 +1602,6 @@ EnlighterJS.init("pre", "code", {
 <!-- JS Elastic Tabs START -->
 <script type="text/javascript">var maxWidth = 0;
 var $element;
-//$(".tabs a").each(function(){
-//   $element = $(this);
-//   if($element.width() > maxWidth){
-//     maxWidth = $element.width();
-//  }
-//});
 
 $(window).on("resize", function() {
     $(".selector").hide();
@@ -1534,11 +1609,6 @@ $(window).on("resize", function() {
     var id = activeItem.data("id");
     setSelectorPosition(id);
 });
-
-//$(".tabs a").each(function(){
-//$(this).width(maxWidth);
-
-//});
 
 // Set first active link
 var activeItem = $(".tabs a[class*='active']");

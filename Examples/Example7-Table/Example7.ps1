@@ -1,7 +1,7 @@
 Import-Module PSWriteHTML -Force
 $Processes = Get-Process | Select-Object -First 10
 
-New-HTML -TitleText 'Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example7.html {
+New-HTML -TitleText 'Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example7.html -ShowHTML {
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
         New-HTMLPanel {

@@ -47,7 +47,7 @@ $(window).bind("resize", function(e) {
 '@
 
 
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example9.html {
+New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example9.html -ShowHTML {
     New-HTMLLogo
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
