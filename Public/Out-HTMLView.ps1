@@ -28,6 +28,7 @@ function Out-HtmlView {
     [CmdletBinding()]
     param(
         [Parameter(ValueFromPipeline = $true, Mandatory = $true)] $Table,
+        [string[]] $PriorityProperties,
         [string] $Title = 'Out-HTMLView',
         [string] $DefaultSortColumn,
         [int] $DefaultSortIndex = -1,
@@ -50,6 +51,18 @@ function Out-HtmlView {
         }
     }
     End {
+        # Code responsible for  Priority Properties
+        if ($DataTable.Count -gt 0) {
+            $Properties = $DataTable[0].PSObject.Properties.Name
+            $RemainingProperties = foreach ($Property in $Properties) {
+                if ($PriorityProperties -notcontains $Property) {
+                    $Property
+                }
+            }
+            $AllProperties = $PriorityProperties + $RemainingProperties
+            $DataTable = $DataTable | Select-Object -Property $AllProperties
+        }
+        # HTML generation part
         New-HTML -FilePath $FilePath -UseCssLinks -UseJavaScriptLinks -TitleText $Title -ShowHTML {
             New-HTMLTable -DataTable $DataTable -DefaultSortColumn $DefaultSortColumn -DefaultSortIndex $DefaultSortIndex `
                 -DisablePaging:$DisablePaging -Filtering:$Filtering -FilteringLocation $FilteringLocation `
