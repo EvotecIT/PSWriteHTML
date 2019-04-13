@@ -25,8 +25,8 @@ function New-HTMLTable {
         [switch]$Simplify,
         [string]$TextWhenNoData = 'No data available.',
         [int] $ScreenSizePercent = 0,
-        [string] $DefaultSortColumn,
-        [int] $DefaultSortIndex = -1,
+        [string[]] $DefaultSortColumn,
+        [int[]] $DefaultSortIndex,
         [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending',
         [alias('Search')][string]$Find
     )
@@ -49,7 +49,6 @@ function New-HTMLTable {
     [string] $Header = $Table | Select-Object -First 1 # this gets header
     [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
     $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
-
     $Options = [ordered] @{
         <# DOM Definition: https://datatables.net/reference/option/dom
             l - length changing input control
@@ -110,17 +109,22 @@ function New-HTMLTable {
     } else {
         $Sort = 'dsc'
     }
-    if ($DefaultSortColumn -ne '') {
-        $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($DefaultSortColumn.ToLower())
-        $Options."order" = @( $DefaultSortingNumber , $Sort )
+    if ($DefaultSortColumn.Count -gt 0) {
+        $ColumnsOrder = foreach ($Column in $DefaultSortColumn) {
+            $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($Column.ToLower())
+            if ($DefaultSortingNumber -ne -1) {
+                , @($DefaultSortingNumber, $Sort)
+            }
+        }
 
-        # there seems to be a bug in ordering and colReorder plugin
-        # Disabling colReorder
-        $Options.colReorder = $false
     }
-    if ($DefaultSortIndex -gt -1 -and $DefaultSortColumn -eq '') {
-        $Options."order" = @( $DefaultSortIndex , $Sort )
-
+    if ($DefaultSortIndex.Count -gt 0 -and $DefaultSortColumn.Count -eq 0) {
+        $ColumnsOrder = foreach ($Column in $DefaultSortIndex) {
+            if ($Column -ne -1) {
+                , @($Column, $Sort)
+            }
+        }
+        $Options."order" = @($ColumnsOrder)
         # there seems to be a bug in ordering and colReorder plugin
         # Disabling colReorder
         $Options.colReorder = $false
@@ -206,7 +210,11 @@ function New-HTMLTable {
                 $Header
             }
             New-HTMLTag -Tag 'tbody' {
-                $Table
+                #if ($ReplaceLineBreaks) {
+                $Table -replace '(?m)\s+$', "`r`n<BR>"
+                #} else {
+                #    $Table
+                #}
             }
             if (-not $HideFooter) {
                 New-HTMLTag -Tag 'tfoot' {
