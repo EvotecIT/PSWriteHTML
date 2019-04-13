@@ -84,6 +84,7 @@ function New-HTMLTable {
             @($PagingOptions, "All")
         )
         "ordering"       = -not $DisableOrdering.IsPresent
+        "order"          = @() # this makes sure there's no default ordering upon start (usually it would be 1st column)
         "info"           = -not $DisableInfo.IsPresent
         "procesing"      = -not $DisableProcessing.IsPresent
         "responsive"     = @{
