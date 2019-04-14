@@ -5,41 +5,25 @@ Function New-HTML {
         [switch] $UseCssLinks,
         [switch] $UseJavaScriptLinks,
         [String] $TitleText,
-        [String] $ColorSchemePath,
-        [string] $PrimaryColorHex,
         [string] $Author,
         [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss',
-
+        [int] $AutoRefresh,
         # save HTML options
         [Parameter(Mandatory = $false)][string]$FilePath,
         [Parameter(Mandatory = $false)][switch]$ShowHTML,
-        [int] $AutoRefresh,
         [ValidateSet('Unknown', 'String', 'Unicode', 'Byte', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'Ascii', 'Default', 'Oem', 'BigEndianUTF32')] $Encoding = 'UTF8'
     )
-
     [string] $CurrentDate = (Get-Date).ToString($DateFormat)
-
-    <#
-    $Options = New-HTMLReportOptions `
-        -RightLogoName $RightLogoName `
-        -LeftLogoName LeftLogoName  `
-        -LeftLogoString $LeftLogoString `
-        -RightLogoString $RightLogoString `
-        -CSSName $CSSName `
-        -CSSPath $CSSPath `
-        -ScriptPath $ScriptPath `
-        -ColorSchemePath $ColorSchemePath `
-        -UseCssLinks:$UseCssLinks `
-        -UseStyleLinks:$UseStyleLinks
-    #>
     $Script:HTMLSchema = @{
         TabsHeaders = [System.Collections.Generic.List[HashTable]]::new() # tracks / stores headers
         Features    = @{} # tracks features for CSS/JS implementation
         Charts      = [System.Collections.Generic.List[string]]::new()
     }
     $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
-    $Logo = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type Between
-    $OutputHTML = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type After
+    if ($null -ne $OutputHTML -and $OutputHTML.Count -gt 0) {
+        $Logo = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type Between
+        $OutputHTML = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type After
+    }
     $Features = Get-FeaturesInUse
 
     $HTML = @(
@@ -55,7 +39,6 @@ Function New-HTML {
                 if ($Autorefresh -gt 0) {
                     New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = $Autorefresh } -SelfClosing
                 }
-
                 Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome
                 Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings
                 if ($null -ne $Features) {
@@ -68,44 +51,15 @@ Function New-HTML {
             }
             '<!-- END HEADER -->'
             '<!-- BODY -->'
-            #'<body onload="hide();">'
             New-HTMLTag -Tag 'body' {
-
-                <#
-            if ($HideLogos -eq $false) {
-                $Leftlogo = $Options.Logos[$LeftLogoName]
-                $Rightlogo = $Options.Logos[$RightLogoName]
-                $LogoContent = @"
-                <table><tbody>
-                <tr>
-                    <td class="clientlogo"><img src="$Leftlogo" /></td>
-                    <td class="MainLogo"><img src="$Rightlogo" /></td>
-                </tr>
-                </tbody></table>
-"@
-                $LogoContent
-            }
-            #>
-                <# Not sure what for
-            if (!([string]::IsNullOrEmpty($PrimaryColorHex))) {
-                if ($PrimaryColorHex.Length -eq 7) {
-                    $HTML = $HTML -replace '#337E94', $PrimaryColorHex
-                } else {
-                    Write-Warning '$PrimaryColorHex must be 7 characters with hash eg "#337E94"'
-                }
-            }
-            #>
-
                 # Add logo if there is one
                 $Logo
-
                 # Add tabs header if there is one
                 if ($Script:HTMLSchema.TabsHeaders) {
                     New-HTMLTabHead
                 }
                 # Add remaining data
                 $OutputHTML
-
                 # Add charts scripts if those are there
                 foreach ($Chart in $Script:HTMLSchema.Charts) {
                     $Chart

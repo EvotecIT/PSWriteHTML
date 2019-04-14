@@ -57,7 +57,6 @@ Function New-HTMLContent {
 
     $DivHeaderStyle = "text-align: $HeaderTextAlignment;"
     $HeaderStyle = "color: $TextHeaderColorFromRGB;"
-
     if ($Invisible) {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther' } -Value {
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther defaultPanelOther' } -Value {
