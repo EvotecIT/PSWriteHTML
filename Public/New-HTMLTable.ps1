@@ -28,7 +28,8 @@ function New-HTMLTable {
         [string[]] $DefaultSortColumn,
         [int[]] $DefaultSortIndex,
         [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending',
-        [alias('Search')][string]$Find
+        [alias('Search')][string]$Find,
+        [switch] $InvokeHTMLTags
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
@@ -203,6 +204,11 @@ function New-HTMLTable {
     } else {
         $TableAttributes = @{ class = 'sortable' }
     }
+
+    if ($InvokeHTMLTags)  {
+        # By default HTML tags are displayed, in this case we're converting tags into real tags
+        $Table = $Table -replace '&lt;', '<' -replace '&gt;', '>'
+    }
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultPanelOther' } -Value {
         # Build HTML TABLE
         New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
@@ -210,11 +216,7 @@ function New-HTMLTable {
                 $Header
             }
             New-HTMLTag -Tag 'tbody' {
-                #if ($ReplaceLineBreaks) {
                 $Table -replace '(?m)\s+$', "`r`n<BR>"
-                #} else {
-                #    $Table
-                #}
             }
             if (-not $HideFooter) {
                 New-HTMLTag -Tag 'tfoot' {
