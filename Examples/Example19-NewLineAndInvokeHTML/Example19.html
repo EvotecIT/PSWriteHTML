@@ -1,0 +1,809 @@
+﻿<!DOCTYPE html>
+<html><!-- HEADER -->
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="author"/>
+<meta content="2019-04-19 12:27:00" name="revised"/>
+<title>My title</title>
+<!-- CSS Default fonts START -->
+<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
+<!-- CSS Default fonts END -->
+<!-- CSS Default fonts icons START -->
+<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
+<!-- CSS Default fonts icons END -->
+<!-- CSS Always Required Default Visual Settings START -->
+<style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+div.clientlogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+}
+
+div.MainLogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+}
+
+.central {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 900px;
+}
+
+div.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+div.defaultColumn {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px;
+}
+
+.defaultContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultContainerOther {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanelOther {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanel {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+div.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #6Cf;
+}
+
+div.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+
+
+td.clientlogo {
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+td.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+/*
+
+th.content {
+    border-top: 1px solid #bbbbbb;
+    width: 25%;
+}
+
+td.content {
+    width: 75%;
+}
+
+td.groupby {
+    border-top: 3px double #bbbbbb;
+}
+*/
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+table.sortable {
+    width: calc(100% - 10px);
+    margin: 5px;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    display: inline-block;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+table.sortable thead {
+    background-color: #eee;
+    color: #666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+/* Adding CSS */
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+
+.orange {
+    background-color: #f39c12;
+}
+
+.red {
+    background-color: #ff4136;
+}
+
+.green {
+    background-color: #2ecc40;
+}
+
+div.enlighter-default {
+    flex-basis: 100%;
+    margin: 0 !important;
+}
+</style>
+<!-- CSS Always Required Default Visual Settings END -->
+<!-- CSS Always Required Default Headings START -->
+<style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+}
+</style>
+<!-- CSS Always Required Default Headings END -->
+
+
+<!-- CSS DataTables START -->
+<style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+
+
+<!-- CSS DataTables START -->
+<style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+<noscript><!-- CSS DataTables START -->
+<style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+th {
+    border-width: 1px;
+    padding: 3px;
+    border-style: solid;
+    border-color: black;
+    background-color: #00297A;
+    color: white;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+tr {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+</noscript>
+<!-- JS DataTables Excel Features START -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script>
+<!-- JS DataTables Excel Features END -->
+<!-- JS DataTables PDF Features START -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
+<!-- JS DataTables PDF Features END -->
+<!-- CSS DataTables START -->
+<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/>
+<!-- CSS DataTables END -->
+<!-- JS DataTables START -->
+<script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script>
+<!-- JS DataTables END -->
+</head>
+<!-- END HEADER -->
+<!-- BODY -->
+<body><div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Showing how tags are invoked. So BR and other tags like A HREF should be converted" style="color: #ffffff;">Showing how tags are invoked. So BR and other tags like A HREF should be converted</a>
+<a id="show_1234179208" href="javascript:void(0)" onclick="show('1234179208');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1234179208" href="javascript:void(0)" onclick="hide('1234179208');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1234179208" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1234179208"><script>                $(document).ready(function() {
+                                    // Setup - add a text input to each footer cell
+                $('#DT-GBeQgsYe tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="' + title + '" />');
+                });
+                    //  Table code
+                    var table = $('#DT-GBeQgsYe').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           50,
+                           100,
+                           150,
+                           200
+                       ],
+                       -1,
+                       [
+                           50,
+                           100,
+                           150,
+                           200
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+}
+                    );
+                                    // Apply the search for footer cells
+                table.columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+                });</script>
+<div class="defaultPanelOther"><table id="DT-GBeQgsYe" class="display compact"><thead><tr><th>First column</th><th>Second column</th><th>Example</th></tr></thead>
+<tbody><tr><td>Test</td><td><br>MyIdol<br><strong>Test</strong></td><td><BR>
+Testing how PowerShell NewLines are treated<BR>
+ Or how HTML tags are treated<br> Get it?</td></tr></tbody>
+<tfoot><tr><th>First column</th><th>Second column</th><th>Example</th></tr></tfoot>
+</table></div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Showing how PowerShell new lines such us `r`n and [Environment]::NewLine are changed into new lines in HTML" style="color: #ffffff;">Showing how PowerShell new lines such us `r`n and [Environment]::NewLine are changed into new lines in HTML</a>
+<a id="show_1066686458" href="javascript:void(0)" onclick="show('1066686458');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1066686458" href="javascript:void(0)" onclick="hide('1066686458');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1066686458" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1066686458"><script>                $(document).ready(function() {
+                                    // Setup - add a text input to each footer cell
+                $('#DT-CayErKZW tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="' + title + '" />');
+                });
+                    //  Table code
+                    var table = $('#DT-CayErKZW').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           50,
+                           100,
+                           150,
+                           200
+                       ],
+                       -1,
+                       [
+                           50,
+                           100,
+                           150,
+                           200
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+}
+                    );
+                                    // Apply the search for footer cells
+                table.columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+                });</script>
+<div class="defaultPanelOther"><table id="DT-CayErKZW" class="display compact"><thead><tr><th>First column</th><th>Second column</th><th>Example</th></tr></thead>
+<tbody><tr><td>Test</td><td>&lt;br&gt;MyIdol&lt;br&gt;&lt;strong&gt;Test&lt;/strong&gt;</td><td><BR>
+Testing how PowerShell NewLines are treated<BR>
+ Or how HTML tags are treated&lt;br&gt; Get it?</td></tr></tbody>
+<tfoot><tr><th>First column</th><th>Second column</th><th>Example</th></tr></tfoot>
+</table></div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Showing Same data but with Disable PowerShell NewLine" style="color: #ffffff;">Showing Same data but with Disable PowerShell NewLine</a>
+<a id="show_748382819" href="javascript:void(0)" onclick="show('748382819');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_748382819" href="javascript:void(0)" onclick="hide('748382819');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="748382819" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="748382819"><script>                $(document).ready(function() {
+                                    // Setup - add a text input to each footer cell
+                $('#DT-TzRUqAgz tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="' + title + '" />');
+                });
+                    //  Table code
+                    var table = $('#DT-TzRUqAgz').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           50,
+                           100,
+                           150,
+                           200
+                       ],
+                       -1,
+                       [
+                           50,
+                           100,
+                           150,
+                           200
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+}
+                    );
+                                    // Apply the search for footer cells
+                table.columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+                });</script>
+<div class="defaultPanelOther"><table id="DT-TzRUqAgz" class="display compact"><thead><tr><th>First column</th><th>Second column</th><th>Example</th></tr></thead>
+<tbody><tr><td>Test</td><td>&lt;br&gt;MyIdol&lt;br&gt;&lt;strong&gt;Test&lt;/strong&gt;</td><td>
+Testing how PowerShell NewLines are treated 
+ Or how HTML tags are treated&lt;br&gt; Get it?</td></tr></tbody>
+<tfoot><tr><th>First column</th><th>Second column</th><th>Example</th></tr></tfoot>
+</table></div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Showing Same data but with Disable PowerShell NewLine but with InvokeHTMLTags" style="color: #ffffff;">Showing Same data but with Disable PowerShell NewLine but with InvokeHTMLTags</a>
+<a id="show_2122156491" href="javascript:void(0)" onclick="show('2122156491');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_2122156491" href="javascript:void(0)" onclick="hide('2122156491');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="2122156491" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2122156491"><script>                $(document).ready(function() {
+                                    // Setup - add a text input to each footer cell
+                $('#DT-NzLmULpL tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="' + title + '" />');
+                });
+                    //  Table code
+                    var table = $('#DT-NzLmULpL').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    "copyHtml5",
+                    "excelHtml5",
+                    "csvHtml5",
+                    "pdfHtml5"
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           50,
+                           100,
+                           150,
+                           200
+                       ],
+                       -1,
+                       [
+                           50,
+                           100,
+                           150,
+                           200
+                       ],
+                       "All"
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true
+}
+                    );
+                                    // Apply the search for footer cells
+                table.columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+                });</script>
+<div class="defaultPanelOther"><table id="DT-NzLmULpL" class="display compact"><thead><tr><th>First column</th><th>Second column</th><th>Example</th></tr></thead>
+<tbody><tr><td>Test</td><td><br>MyIdol<br><strong>Test</strong></td><td>
+Testing how PowerShell NewLines are treated 
+ Or how HTML tags are treated<br> Get it?</td></tr></tbody>
+<tfoot><tr><th>First column</th><th>Second column</th><th>Example</th></tr></tfoot>
+</table></div>
+</div></div>
+</div>
+</body>
+<!-- END BODY -->
+<!-- FOOTER -->
+<footer>
+
+
+</footer>
+<!-- END FOOTER -->
+</html>

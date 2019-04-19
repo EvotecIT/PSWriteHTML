@@ -29,7 +29,8 @@ function New-HTMLTable {
         [int[]] $DefaultSortIndex,
         [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending',
         [alias('Search')][string]$Find,
-        [switch] $InvokeHTMLTags
+        [switch] $InvokeHTMLTags,
+        [switch] $DisableNewLine
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
@@ -209,6 +210,12 @@ function New-HTMLTable {
         # By default HTML tags are displayed, in this case we're converting tags into real tags
         $Table = $Table -replace '&lt;', '<' -replace '&gt;', '>'
     }
+    if (-not $DisableNewLine) {
+        # Finds new lines and adds HTML TAG BR
+       #$Table = $Table -replace '(?m)\s+$', "`r`n<BR>"
+       $Table = $Table -replace '(?m)\s+$', "<BR>"
+    }
+
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultPanelOther' } -Value {
         # Build HTML TABLE
         New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
@@ -216,7 +223,7 @@ function New-HTMLTable {
                 $Header
             }
             New-HTMLTag -Tag 'tbody' {
-                $Table -replace '(?m)\s+$', "`r`n<BR>"
+                $Table
             }
             if (-not $HideFooter) {
                 New-HTMLTag -Tag 'tfoot' {
