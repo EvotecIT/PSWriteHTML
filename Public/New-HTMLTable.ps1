@@ -206,14 +206,14 @@ function New-HTMLTable {
         $TableAttributes = @{ class = 'sortable' }
     }
 
-    if ($InvokeHTMLTags)  {
+    if ($InvokeHTMLTags) {
         # By default HTML tags are displayed, in this case we're converting tags into real tags
-        $Table = $Table -replace '&lt;', '<' -replace '&gt;', '>'
+        $Table = $Table -replace '&lt;', '<' -replace '&gt;', '>' -replace '&amp;nbsp;', ' ' -replace '&quot;', '"' -replace '&#39;', "'"
     }
     if (-not $DisableNewLine) {
         # Finds new lines and adds HTML TAG BR
-       #$Table = $Table -replace '(?m)\s+$', "`r`n<BR>"
-       $Table = $Table -replace '(?m)\s+$', "<BR>"
+        #$Table = $Table -replace '(?m)\s+$', "`r`n<BR>"
+        $Table = $Table -replace '(?m)\s+$', "<BR>"
     }
 
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultPanelOther' } -Value {
