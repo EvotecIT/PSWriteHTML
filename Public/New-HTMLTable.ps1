@@ -169,11 +169,13 @@ function New-HTMLTable {
         $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation
         $FilteringTopCode = $FilteringOutput.FilteringTopCode
         $FilteringBottomCode = $FilteringOutput.FilteringBottomCode
+        $LoadSavedState = Add-TableState -DataTableName $DataTableName -Filtering $Filtering -FilteringLocation $FilteringLocation -SavedState (-not $DisableStateSave)
 
         if ($Tab.Active -eq $true) {
             New-HTMlTag -Tag 'script' {
                 @"
                 `$(document).ready(function() {
+                    $LoadSavedState
                     $FilteringTopCode
                     //  Table code
                     var table = `$('#$DataTableName').DataTable(
@@ -190,6 +192,7 @@ function New-HTMLTable {
                     `$(document).ready(function() {
                         `$('.tabs').on('click', 'a', function (event) {
                             if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
+                                $LoadSavedState
                                 $FilteringTopCode
                                 //  Table code
                                 var table = `$('#$DataTableName').DataTable(
