@@ -41,12 +41,12 @@ function New-HTMLTable {
     [Array] $OutputText = foreach ($Line in $Output) { [string] $Line + [System.Environment]::NewLine }
 
     $ConditionalFormattingText = foreach ($Line in $OutputText) {
-        if ($Line.StartsWith('New-HTMLTableCondition')) {
+        if ($Line.StartsWith('New-HTMLTableCondition') -or $Line.StartsWith('TableConditionalFormatting')) {
             $Line
         }
     }
     $OtherHTMLText = foreach ($Line in $OutputText) {
-        if (-not $Line.StartsWith('New-HTMLTableCondition')) {
+        if ((-not $Line.StartsWith('New-HTMLTableCondition')) -and (-not $Line.StartsWith('TableConditionalFormatting'))) {
             $Line
         }
     }

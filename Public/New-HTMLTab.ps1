@@ -3,6 +3,7 @@ function New-HTMLTab {
     param(
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $HtmlData = $(Throw "No curly brace?)"),
         [Parameter(Mandatory = $false, Position = 1)][String]$TabHeading,
+        [string] $TabIcon = 'fas fa-bomb',
         [alias('Name')][string] $TabName
     )
     $Script:HTMLSchema.Features.Tabs = $true
@@ -25,6 +26,7 @@ function New-HTMLTab {
     } else {
         $Tab.Active = $true
     }
+    $Tab.TabIcon = $TabIcon
     $Script:HTMLSchema.TabsHeaders.Add($Tab)
     # End Tab Tracking
 
