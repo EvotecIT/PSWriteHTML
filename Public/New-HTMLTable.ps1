@@ -1,9 +1,10 @@
 function New-HTMLTable {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $ConditionalFormatting,
+        [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $HTML,
+        [Parameter(Mandatory = $false, Position = 1)][ScriptBlock] $PreContent,
+        [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
-        #[Array] $ConditionalFormatting,
         [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
@@ -33,6 +34,30 @@ function New-HTMLTable {
         [switch] $DisableNewLine
     )
     # Theme creator  https://datatables.net/manual/styling/theme-creator
+
+    # Providing a way for conditional formatting and other types of HTML
+
+    [Array] $Output = $HTML.Ast.EndBlock.Statements.Extent
+    [Array] $OutputText = foreach ($Line in $Output) { [string] $Line + [System.Environment]::NewLine }
+
+    $ConditionalFormattingText = foreach ($Line in $OutputText) {
+        if ($Line.StartsWith('New-HTMLTableCondition')) {
+            $Line
+        }
+    }
+    $OtherHTMLText = foreach ($Line in $OutputText) {
+        if (-not $Line.StartsWith('New-HTMLTableCondition')) {
+            $Line
+        }
+    }
+    if ($ConditionalFormattingText.Count -gt 0) {
+        $ConditionalFormatting = [scriptblock]::Create($ConditionalFormattingText)
+    }
+    if ($OtherHTMLText.Count -gt 0) {
+        $OtherHTML = [scriptblock]::Create($OtherHTMLText)
+    }
+
+    # Building HTML Table / Script
 
     [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
     if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
@@ -219,7 +244,27 @@ function New-HTMLTable {
         $Table = $Table -replace '(?m)\s+$', "<BR>"
     }
 
+    if ($OtherHTML) {
+        $BeforeTableCode = Invoke-Command -ScriptBlock $OtherHTML
+    } else {
+        $BeforeTableCode = ''
+    }
+
+    if ($PreContent) {
+        $BeforeTable = Invoke-Command -ScriptBlock $PreContent
+    } else {
+        $BeforeTable = ''
+    }
+    if ($PostContent) {
+        $AfterTable = Invoke-Command -ScriptBlock $PostContent
+    } else {
+        $AfterTable = ''
+    }
+
+
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultPanelOther' } -Value {
+        $BeforeTableCode
+        $BeforeTable
         # Build HTML TABLE
         New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
             New-HTMLTag -Tag 'thead' {
@@ -234,5 +279,6 @@ function New-HTMLTable {
                 }
             }
         }
+        $AfterTable
     }
 }

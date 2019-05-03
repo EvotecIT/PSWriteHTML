@@ -19,6 +19,12 @@ Function New-HTML {
         Features    = @{} # tracks features for CSS/JS implementation
         Charts      = [System.Collections.Generic.List[string]]::new()
     }
+
+    #$Output = $HtmlData.Ast.EndBlock.Statements.Extent
+    #foreach ($Line in $Output) {
+    #    $Line
+    #}
+
     $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
     if ($null -ne $OutputHTML -and $OutputHTML.Count -gt 0) {
         $Logo = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type Between

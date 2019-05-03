@@ -4,10 +4,15 @@ function New-HTMLToast {
         [string] $TextHeader,
         [string] $Text,
         [ValidateSet('Green', 'Blue', 'Orange')] $Color = "Green",
-        [ValidateSet('Success', 'Information', 'Exclamation')][string] $Icon = 'Success'
+        [ValidateSet('Success', 'Information', 'Exclamation')][string] $Icon = 'Success',
+        [string] $Type = 'central'
     )
     $Script:HTMLSchema.Features.Toast = $true
-    $DivClass = "toast $($Color.ToLower()) central" 
+    if ($Type -eq 'central') {
+        $DivClass = "toast $($Color.ToLower()) central"
+    } else {
+        $DivClass = "toast $($Color.ToLower())"
+    }
     New-HTMLTag -Tag 'div' -Attributes @{ class = $DivClass } {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'toast__icon' } {
             if ($Icon -eq 'Success') {

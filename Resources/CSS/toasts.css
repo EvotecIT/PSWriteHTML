@@ -19,6 +19,8 @@
     top: 0px;
     position: relative;
     box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
+    width: 98%;
+    margin: 10px auto;
 }
 
 .toast:before {

@@ -24,6 +24,8 @@
 
 Following external libaries and frameworks are in use. They make `PSWriteHTML` what it is now. This list is dynamic and doesn't cover everything yet.
 
+For colors you can visit this [online page](https://evotec.xyz/wp-content/uploads/2019/05/Example-Colors.html).
+
 ### PSWriteHTML - External JS Framework - DataTables
 
 Following JS Framework is intergrated as part of this module. It's responsible for building Tables

@@ -28,7 +28,7 @@ div.MainLogo {
 
 .central {
     margin: 10px auto;
-    width: 100%;
+    /* width: 100%; */
     max-width: 900px;
 }
 
@@ -91,8 +91,9 @@ div.defaultHeader {
     padding: 5px;
     margin: 0px 0px 0px 0px;
     font-weight: bold;
-    color: #ffffff;
+    /* color: #ffffff;
     background-color: #6Cf;
+    */
 }
 
 div.defaultFooter {
