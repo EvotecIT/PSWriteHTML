@@ -1,3 +1,16 @@
+<center>
+
+[![PowerShellGallery Version](https://img.shields.io/powershellgallery/v/PSWriteHTML.svg)](https://www.powershellgallery.com/packages/PSWinReportingV2)
+
+[![PowerShellGallery Platform](https://img.shields.io/powershellgallery/p/PSWriteHTML.svg)](https://www.powershellgallery.com/packages/PSWinReportingV2)
+[![PowerShellGallery Preview Version](https://img.shields.io/powershellgallery/vpre/PSWriteHTML.svg?label=powershell%20gallery%20preview&colorB=yellow)](https://www.powershellgallery.com/packages/PSWriteHTML)
+
+![Top Language](https://img.shields.io/github/languages/top/evotecit/PSWriteHTML.svg)
+![Code](https://img.shields.io/github/languages/code-size/evotecit/PSWriteHTML.svg)
+[![PowerShellGallery Downloads](https://img.shields.io/powershellgallery/dt/PSWriteHTML.svg)](https://www.powershellgallery.com/packages/PSWriteHTML)
+
+</center>
+
 # PSWriteHTML - PowerShell Module
 
 `PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and possibly add more features. As it stands `PSWriteHTML` doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features as I go (fixes included).
