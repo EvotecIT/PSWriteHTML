@@ -33,6 +33,10 @@ function New-HTMLTable {
         [switch] $InvokeHTMLTags,
         [switch] $DisableNewLine
     )
+    if (-not $Script:HTMLSchema.Features) {
+        Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
+        Exit
+    }
     # Theme creator  https://datatables.net/manual/styling/theme-creator
 
     # Providing a way for conditional formatting and other types of HTML
