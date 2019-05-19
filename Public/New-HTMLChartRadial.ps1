@@ -4,27 +4,6 @@ function New-HTMLChartRadial {
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
         [ValidateSet('', 'central')][string] $Positioning,
-
-        <#
-        [bool] $Horizontal = $true,
-        [bool] $DataLabelsEnabled = $true,
-        [int] $DataLabelsOffsetX = -6,
-        [string] $DataLabelsFontSize = '12px',
-        [nullable[RGBColors]] $DataLabelsColor,
-        [Array] $Data = @(),
-        [Array] $DataNames = @(),
-        [Array] $DataCategories = @(),
-        [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category',
-        [string] $TitleText,
-        [ValidateSet('center', 'left', 'right', '')][string] $TitleAlignment = '',
-
-        [bool] $LineShow = $true,
-        [ValidateSet('straight', 'smooth')] $LineCurve = 'straight',
-        $LineWidth = 2,
-        [RGBColors[]] $LineColor,
-
-#>
-
         [Array] $Names,
         [Array] $Values,
         $Type,
