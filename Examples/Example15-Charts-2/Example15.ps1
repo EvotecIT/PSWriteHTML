@@ -1,8 +1,8 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example15.html {
-    <#
-    New-HTMLContent -HeaderText 'Bar Charts' -CanCollapse {
+
+    New-HTMLSection -HeaderText 'Bar Charts' -CanCollapse -BackgroundColor Gray {
         New-HTMLPanel {
             $Data1 = 400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380
             $DataNames1 = 'South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan', 'United States', 'China', 'Germany'
@@ -15,7 +15,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChartBar -Data $Data1, $Data2 -DataNames $DataNames1 -DataLegend 'Born', 'Died'
         }
     }
-    New-HTMLContent -HeaderText 'Bar Charts 1' -CanCollapse {
+    New-HTMLSection -HeaderText 'Bar Charts 1' -CanCollapse -HeaderTextColor Gray {
         New-HTMLPanel {
             $Data1 = 400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380
             $Data2 = 44, 55, 41, 64, 22, 43, 21
@@ -30,7 +30,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChartBar -Data $Data1, $Data2 -DataNames $DataNames1 -Type barStacked -DataLegend 'People', 'Pets'
         }
     }
-    New-HTMLContent -HeaderText 'Bar Charts 2' -CanCollapse {
+    New-HTMLSection -HeaderText 'Bar Charts 2' -CanCollapse -HeaderBackGroundColor Gray {
         New-HTMLPanel {
             $Data1 = 400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380
             $Data2 = 44, 55, 41, 64, 22, 43, 21
@@ -45,7 +45,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChartBar -Data $Data1, $Data2 -DataNames $DataNames1 -Type barStacked -DataLegend 'People', 'Pets' -Title 'Pets vs People' -TitleAlignment center
         }
     }
-    New-HTMLContent -HeaderText 'Bar Charts 3' -CanCollapse {
+    New-HTMLSection -HeaderText 'Bar Charts 3' -CanCollapse {
         New-HTMLPanel {
             $Data1 = 44, 55, 41, 37, 22, 43, 21
             $Data2 = 53, 32, 33, 52, 13, 43, 32
@@ -65,7 +65,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChartBar -Data $Data1, $Data2 -DataNames $DataNames1 -Type barStacked100Percent -DataLegend 'People', 'Pets' -Title 'Pets vs People' -TitleAlignment center -LegendPosition top
         }
     }
-    New-HTMLContent -HeaderText 'Bar Charts 4' -CanCollapse {
+    New-HTMLSection -HeaderText 'Bar Charts 4' -CanCollapse {
         New-HTMLPanel {
             $Data1 = 44, 55, 41, 37, 22, 43, 21
             $Data2 = 53, 32, 33, 52, 13, 43, 32
@@ -86,7 +86,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
         }
     }
 
-    New-HTMLContent -HeaderText 'Bar Charts 5' -CanCollapse {
+    New-HTMLSection -HeaderText 'Bar Charts 5' -CanCollapse {
         New-HTMLPanel {
             $Data1 = -0.8, -1.05, -1.06, -1.18, -1.4, -2.2, -2.85, -3.7, -3.96, -4.22, -4.3, -4.4, -4.1, -4, -4.1, -3.4, -3.1, -2.8
             $Data2 = 0.4, 0.65, 0.76, 0.88, 1.5, 2.1, 2.9, 3.8, 3.9, 4.2, 4, 4.3, 4.1, 4.2, 4.5, 3.9, 3.5, 3
@@ -113,7 +113,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
         }
     }
 
-    New-HTMLContent -HeaderText 'Bar Charts 6' -CanCollapse {
+    New-HTMLSection -HeaderText 'Bar Charts 6' -CanCollapse {
         New-HTMLPanel {
             $Data1 = 44, 55, 41, 37, 22, 43, 21
             $Data2 = 53, 32, 33, 52, 13, 43, 32
@@ -140,7 +140,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
         }
     }
 
-    New-HTMLContent -HeaderText 'Bar Charts Vertical 1' -CanCollapse {
+    New-HTMLSection -HeaderText 'Bar Charts Vertical 1' -CanCollapse {
         New-HTMLPanel {
             $Data1 = 44, 55, 41, 37, 22, 43, 21
             $Data2 = 53, 32, 33, 52, 13, 43, 32
@@ -166,7 +166,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChartBar -Data $Data1, $Data2, $Data3, $Data4 -DataNames $DataNames -DataLegend $DataLegend -Type barStacked -Title 'Compare Sales Strategy' -PatternedColors -DataLabelsEnabled $false -Horizontal $false
         }
     }
-    New-HTMLContent -HeaderText 'Bar Charts Vertical 2' -CanCollapse {
+    New-HTMLSection -HeaderText 'Bar Charts Vertical 2' -CanCollapse {
         New-HTMLPanel {
             $Data1 = 44, 55, 41, 37, 22, 43, 21
             $Data2 = 53, 32, 33, 52, 13, 43, 32
@@ -186,7 +186,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChartBar -Data $Data1, $Data2 -DataNames $DataNames1 -Type barStacked100Percent -DataLegend 'People', 'Pets' -Title 'Pets vs People' -TitleAlignment center -LegendPosition top  -Horizontal $false
         }
     }
-    New-HTMLContent -HeaderText 'Radline Charts' -CanCollapse {
+    New-HTMLSection -HeaderText 'Radline Charts' -CanCollapse {
         New-HTMLPanel {
             New-HTMLChartRadial -Names 'My data' -Values 95 -Type 1 -CircleType FullCircleTop
         }
@@ -203,7 +203,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChartRadial -Names 'My data' -Values 95 -Type 2 -CircleType Speedometer
         }
     }
-    New-HTMLContent -HeaderText 'Radline Charts 1' -CanCollapse {
+    New-HTMLSection -HeaderText 'Radline Charts 1' -CanCollapse {
         New-HTMLPanel {
             New-HTMLChartRadial -Names 'My data', 'My other' -Values 100, 20 -Type 2 -CircleType FullCircleLeft -LabelAverage 'Test'
         }
@@ -214,7 +214,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChartRadial -Names 'My data' -Values 20 -Type 1 -CircleType SemiCircleGauge -LabelAverage 'Test' -Verbose
         }
     }
-    New-HTMLContent -HeaderText 'Sparkline Charts' -CanCollapse {
+    New-HTMLSection -HeaderText 'Sparkline Charts' -CanCollapse {
         New-HTMLPanel {
             $Value1 = @(7, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46)
             New-HTMLChartSpark -Data $Value1 -TitleText '$1500,43' -SubTitleText 'Money in the bank' -Color DarkSalmon
@@ -229,9 +229,9 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChartSpark -Data $Value1, $Value2
         }
     }
-    #>
 
-    New-HTMLContent -HeaderText '-1 section' -CanCollapse {
+
+    New-HTMLSection -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
             $Data = 10, 41, 35, 51, 49, 62, 69, 91, 148
             $DataName = 'Desktops'
@@ -272,7 +272,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
     }
 
 
-    New-HTMLContent -HeaderText '-1 section' -CanCollapse {
+    New-HTMLSection -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
             $Data1 = 28, 29, 33, 36, 32, 32, 33
             $DataName1 = "High - 2013"
@@ -293,9 +293,9 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
 
 
 
-
     <#
-    New-HTMLContent -HeaderText '-1 section' -CanCollapse {
+
+    New-HTMLSection -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
             $GroupedBar = @()
             $GroupedBar += 400, 430, 448
@@ -326,7 +326,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChart -Data $Data1, $Data2, $Data3 -DataNames $DataName -DataCategories $DataCategories -Horizontal $false
         }
     }
-    New-HTMLContent -HeaderText 'Section 3rd with 3 columns' {
+    New-HTMLSection -HeaderText 'Section 3rd with 3 columns' {
         New-HTMLPanel {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
@@ -337,7 +337,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
         }
     }
-        New-HTMLContent -HeaderText '-1 section' -CanCollapse {
+        New-HTMLSection -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
             # Standard Chart Bar
             New-HTMLChart -Data @(400, 430, 448) -DataNames 'People count' -DataCategories 'Poland', 'Europe', 'Germany'
@@ -346,4 +346,5 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
         }
     }
     #>
+
 }
