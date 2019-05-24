@@ -29,6 +29,7 @@ function New-HTMLTable {
         [string[]] $DefaultSortColumn,
         [int[]] $DefaultSortIndex,
         [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending',
+        [string[]] $DateTimeSortingFormat,
         [alias('Search')][string]$Find,
         [switch] $InvokeHTMLTags,
         [switch] $DisableNewLine
@@ -195,6 +196,8 @@ function New-HTMLTable {
 
         $TableAttributes = @{ id = $DataTableName; class = "$($Style -join ' ')" }
 
+        # Enable Custom Date fromat sorting
+        $SortingFormatDateTime = Add-CustomFormatForDatetimeSorting -DateTimeSortingFormat $DateTimeSortingFormat
         $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation
         $FilteringTopCode = $FilteringOutput.FilteringTopCode
         $FilteringBottomCode = $FilteringOutput.FilteringBottomCode
@@ -204,6 +207,7 @@ function New-HTMLTable {
             New-HTMlTag -Tag 'script' {
                 @"
                 `$(document).ready(function() {
+                    $SortingFormatDateTime
                     $LoadSavedState
                     $FilteringTopCode
                     //  Table code
@@ -219,6 +223,7 @@ function New-HTMLTable {
             New-HTMlTag -Tag 'script' {
                 @"
                     `$(document).ready(function() {
+                        $SortingFormatDateTime
                         `$('.tabs').on('click', 'a', function (event) {
                             if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
                                 $LoadSavedState
