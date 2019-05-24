@@ -62,8 +62,8 @@ function Add-CustomFormatForDatetimeSorting {
     if($Script:Output){Remove-Variable Output -Scope Script}
 
     if($DateTimeSortingFormat){
-        foreach($format in $DateTimeSortingFormat){
-            [array]$Script:Output += "$.fn.dataTable.moment( '$format' );"
+        [array]$Script:Output = foreach($format in $DateTimeSortingFormat){
+            "$.fn.dataTable.moment( '$format' );"
         }
     }
     else{
