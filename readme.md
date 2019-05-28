@@ -15,6 +15,13 @@
 
 `PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and possibly add more features. As it stands `PSWriteHTML` doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features as I go (fixes included).
 
+
+## Changelog
+
+- 0.0.33 - 2019.05.28
+  - New-HTMLTable - Sorting orderd for DateTime (added by ferwe/Ferdi Weiner)
+  - Removed New-HTMLChart temporary as it will be rebuilt
+
 ## Advantages over ReportHTML:
 
 -   faster report building (from 20+ seconds to 0-2 seconds)
