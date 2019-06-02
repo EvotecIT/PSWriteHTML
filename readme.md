@@ -18,6 +18,9 @@
 
 ## Changelog
 
+- 0.0.34 - 2019.06.02
+  - Fix for New-HTMLListItem to support multiple Texts
+
 - 0.0.33 - 2019.05.28
   - New-HTMLTable - Sorting orderd for DateTime (added by ferwe/Ferdi Weiner)
   - Removed New-HTMLChart temporary as it will be rebuilt

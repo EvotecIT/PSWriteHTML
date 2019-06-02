@@ -1,7 +1,7 @@
 function New-HTMLListItem {
     [CmdletBinding()]
     param(
-        [string] $Text,
+        [string[]] $Text,
         [RGBColors[]] $Color = @(),
         [RGBColors[]] $BackGroundColor = @(),
         [int[]] $FontSize = @(),
