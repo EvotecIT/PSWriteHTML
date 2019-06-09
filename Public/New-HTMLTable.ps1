@@ -5,7 +5,7 @@ function New-HTMLTable {
         [Parameter(Mandatory = $false, Position = 1)][ScriptBlock] $PreContent,
         [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
-        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5'),
+        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
         [switch]$DisablePaging,
@@ -72,6 +72,7 @@ function New-HTMLTable {
         'New-HTMLTableButtonCopy', 'TableButtonCopy', 'EmailTableButtonCopy'
         'New-HTMLTableButtonPrint', 'TableButtonPrint', 'EmailTableButtonPrint'
         'New-HTMLTableButtonCSV', 'TableButtonCSV', 'EmailTableButtonCSV'
+        'New-HTMLTableButtonPageLength', 'TableButtonPageLength', 'EmailTableButtonPageLength'
     )
     $Exclude = $ConditionalFormattingFunctions + $ButtonFunctions
 
@@ -150,8 +151,8 @@ function New-HTMLTable {
         #>
         "pagingType"     = $PagingStyle
         "lengthMenu"     = @(
-            @($PagingOptions, - 1)
-            @($PagingOptions, "All")
+            , @($PagingOptions + (-1))
+            , @($PagingOptions + "All")
         )
         "ordering"       = -not $DisableOrdering.IsPresent
         "order"          = @() # this makes sure there's no default ordering upon start (usually it would be 1st column)

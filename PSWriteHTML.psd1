@@ -80,10 +80,11 @@
     'New-HTMLSectionHeader', 'New-HTMLSpanStyle', 'New-HTMLStatus', 
     'New-HTMLStatusItem', 'New-HTMLTab', 'New-HTMLTabHead', 'New-HTMLTable', 
     'New-HTMLTableButtonCopy', 'New-HTMLTableButtonCSV', 
-    'New-HTMLTableButtonExcel', 'New-HTMLTableButtonPDF', 
-    'New-HTMLTableButtonPrint', 'New-HTMLTableCondition', 'New-HTMLTag', 
-    'New-HTMLText', 'New-HTMLTimeline', 'New-HTMLTimelineItem', 
-    'New-HTMLToast', 'Out-HtmlView', 'Save-HTML'
+    'New-HTMLTableButtonExcel', 'New-HTMLTableButtonPageLength', 
+    'New-HTMLTableButtonPDF', 'New-HTMLTableButtonPrint', 
+    'New-HTMLTableCondition', 'New-HTMLTag', 'New-HTMLText', 
+    'New-HTMLTimeline', 'New-HTMLTimelineItem', 'New-HTMLToast', 
+    'Out-HtmlView', 'Save-HTML'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()
@@ -95,9 +96,9 @@
     AliasesToExport = 'New-HTMLColumn', 'New-ResourceCSS', 'New-CSS', 'New-ResourceJS', 
     'New-JavaScript', 'New-HTMLContent', 'TableButtonCopy', 
     'EmailTableButtonCopy', 'TableButtonCSV', 'EmailTableButtonCSV', 
-    'TableButtonExcel', 'EmailTableButtonExcel', 'TableButtonPDF', 
-    'EmailTableButtonPDF', 'TableButtonPrint', 'EmailTableButtonPrint', 
-    'Out-GridHtml', 'ohv'
+    'TableButtonExcel', 'EmailTableButtonExcel', 'TableButtonPageLength', 
+    'EmailTableButtonPageLength', 'TableButtonPDF', 'EmailTableButtonPDF', 
+    'TableButtonPrint', 'EmailTableButtonPrint', 'Out-GridHtml', 'ohv'
 
     # DSC resources to export from this module
     # DscResourcesToExport = @()
