@@ -9,5 +9,13 @@ function New-HTMLTableCondition {
         [nullable[RGBColors]] $Color,
         [nullable[RGBColors]] $BackgroundColor
     )
-    return [PSCustomObject] @{ Row = $Row; Type = $Type ; Name = $Name; Operator = $Operator; Value = $Value; Color = $Color; BackgroundColor = $BackgroundColor }
+    [PSCustomObject] @{
+        Row             = $Row;
+        Type            = $Type
+        Name            = $Name
+        Operator        = $Operator
+        Value           = $Value
+        Color           = $Color
+        BackgroundColor = $BackgroundColor
+    }
 }
