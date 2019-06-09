@@ -86,26 +86,28 @@ function New-HTMLTable {
     $ConditionalFormatting = [System.Collections.Generic.List[PSCustomObject]]::new()
     $CustomButtons = [System.Collections.Generic.List[PSCustomObject]]::new()
 
-    [Array] $Output = & $HTML
+    if ($HTML) {
+        [Array] $Output = & $HTML
 
-    if ($Output.Count -gt 0) {
-        foreach ($Parameters in $Output) {
-            if ($Parameters.Type -eq 'TableButtonPDF') {
-                $CustomButtons.Add($Parameters.Output)
-            } elseif ($Parameters.Type -eq 'TableButtonCSV') {
-                $CustomButtons.Add($Parameters.Output)
-            } elseif ($Parameters.Type -eq 'TableButtonPageLength') {
-                $CustomButtons.Add($Parameters.Output)
-            } elseif ($Parameters.Type -eq 'TableButtonExcel') {
-                $CustomButtons.Add($Parameters.Output)
-            } elseif ($Parameters.Type -eq 'TableButtonPDF') {
-                $CustomButtons.Add($Parameters.Output)
-            } elseif ($Parameters.Type -eq 'TableButtonPrint') {
-                $CustomButtons.Add($Parameters.Output)
-            } elseif ($Parameters.Type -eq 'TableButtonCopy') {
-                $CustomButtons.Add($Parameters.Output)
-            } elseif ($Parameters.Type -eq 'TableCondition') {
-                $ConditionalFormatting.Add($Parameters.Output)
+        if ($Output.Count -gt 0) {
+            foreach ($Parameters in $Output) {
+                if ($Parameters.Type -eq 'TableButtonPDF') {
+                    $CustomButtons.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableButtonCSV') {
+                    $CustomButtons.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableButtonPageLength') {
+                    $CustomButtons.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableButtonExcel') {
+                    $CustomButtons.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableButtonPDF') {
+                    $CustomButtons.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableButtonPrint') {
+                    $CustomButtons.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableButtonCopy') {
+                    $CustomButtons.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableCondition') {
+                    $ConditionalFormatting.Add($Parameters.Output)
+                }
             }
         }
     }
