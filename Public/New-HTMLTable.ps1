@@ -93,7 +93,24 @@ function New-HTMLTable {
             S - Select
         #>
         dom              = 'Bfrtip'
-        buttons          = @($Buttons)
+        #buttons          = @($Buttons)
+        buttons          = @(
+            foreach ($button in $Buttons) {
+                if ($button -ne 'pdfHtml5') {
+                    @{
+                        extend = $button
+                    }
+                } else {
+                    @{
+                        extend      = 'pdfHtml5'
+                        pageSize    = 'A3'
+                        orientation = 'landscape'
+                        #messageTop = 'PDF created by PDFMake with Buttons for DataTables.'
+                        #download = 'open'
+                    }
+                }
+            }
+        )
         "colReorder"     = -not $DisableColumnReorder.IsPresent
 
 
@@ -111,7 +128,7 @@ function New-HTMLTable {
         #>
         "pagingType"     = $PagingStyle
         "lengthMenu"     = @(
-            @($PagingOptions, -1)
+            @($PagingOptions, - 1)
             @($PagingOptions, "All")
         )
         "ordering"       = -not $DisableOrdering.IsPresent
@@ -144,7 +161,7 @@ function New-HTMLTable {
     if ($DefaultSortColumn.Count -gt 0) {
         $ColumnsOrder = foreach ($Column in $DefaultSortColumn) {
             $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($Column.ToLower())
-            if ($DefaultSortingNumber -ne -1) {
+            if ($DefaultSortingNumber -ne - 1) {
                 , @($DefaultSortingNumber, $Sort)
             }
         }
@@ -152,7 +169,7 @@ function New-HTMLTable {
     }
     if ($DefaultSortIndex.Count -gt 0 -and $DefaultSortColumn.Count -eq 0) {
         $ColumnsOrder = foreach ($Column in $DefaultSortIndex) {
-            if ($Column -ne -1) {
+            if ($Column -ne - 1) {
                 , @($Column, $Sort)
             }
         }
