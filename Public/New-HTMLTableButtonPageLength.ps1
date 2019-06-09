@@ -2,7 +2,10 @@
     [alias('TableButtonPageLength', 'EmailTableButtonPageLength')]
     [CmdletBinding()]
     param()
-    @{
-        extend = 'pageLength'
+    [PSCustomObject] @{
+        Type   = 'TableButtonPageLength'
+        Output = @{
+            extend = 'pageLength'
+        }
     }
 }

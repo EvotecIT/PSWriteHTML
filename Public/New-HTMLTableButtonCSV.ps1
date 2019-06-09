@@ -2,7 +2,10 @@
     [alias('TableButtonCSV','EmailTableButtonCSV')]
     [CmdletBinding()]
     param()
-    @{
-        extend = 'csvHtml5'
+    [PSCustomObject] @{
+        Type   = 'TableButtonCSV'
+        Output = @{
+            extend = 'csvHtml5'
+        }
     }
 }

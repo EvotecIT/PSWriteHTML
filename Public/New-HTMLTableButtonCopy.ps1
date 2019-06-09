@@ -1,8 +1,12 @@
 ﻿function New-HTMLTableButtonCopy {
-    [alias('TableButtonCopy','EmailTableButtonCopy')]
+    [alias('TableButtonCopy', 'EmailTableButtonCopy')]
     [CmdletBinding()]
     param()
-    @{
-        extend = 'copyHtml5'
+
+    [PSCustomObject] @{
+        Type   = 'TableButtonCopy'
+        Output = @{
+            extend = 'copyHtml5'
+        }
     }
 }

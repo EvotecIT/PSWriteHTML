@@ -65,6 +65,7 @@ function New-HTMLTable {
     }
     #>
 
+    <#
     $ConditionalFormattingFunctions = 'New-HTMLTableCondition', 'TableConditionalFormatting', 'EmailTableConditionalFormatting'
     $ButtonFunctions = @(
         'New-HTMLTableButtonPDF', 'TableButtonPDF', 'EmailTableButtonPDF',
@@ -80,6 +81,34 @@ function New-HTMLTable {
     $ConditionalFormatting = ConvertTo-ScriptBlock -Code $Output -Include $ConditionalFormattingFunctions
     $CustomButtons = ConvertTo-ScriptBlock -Code $Output -Include $ButtonFunctions
     $OtherHTML = ConvertTo-ScriptBlock -Code $Output -Exclude $Exclude
+    #>
+
+    $ConditionalFormatting = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $CustomButtons = [System.Collections.Generic.List[PSCustomObject]]::new()
+
+    [Array] $Output = & $HTML
+
+    if ($Output.Count -gt 0) {
+        foreach ($Parameters in $Output) {
+            if ($Parameters.Type -eq 'TableButtonPDF') {
+                $CustomButtons.Add($Parameters.Output)
+            } elseif ($Parameters.Type -eq 'TableButtonCSV') {
+                $CustomButtons.Add($Parameters.Output)
+            } elseif ($Parameters.Type -eq 'TableButtonPageLength') {
+                $CustomButtons.Add($Parameters.Output)
+            } elseif ($Parameters.Type -eq 'TableButtonExcel') {
+                $CustomButtons.Add($Parameters.Output)
+            } elseif ($Parameters.Type -eq 'TableButtonPDF') {
+                $CustomButtons.Add($Parameters.Output)
+            } elseif ($Parameters.Type -eq 'TableButtonPrint') {
+                $CustomButtons.Add($Parameters.Output)
+            } elseif ($Parameters.Type -eq 'TableButtonCopy') {
+                $CustomButtons.Add($Parameters.Output)
+            } elseif ($Parameters.Type -eq 'TableCondition') {
+                $ConditionalFormatting.Add($Parameters.Output)
+            }
+        }
+    }
 
     # Building HTML Table / Script
 
@@ -115,7 +144,7 @@ function New-HTMLTable {
         #buttons          = @($Buttons)
         buttons          = @(
             if ($CustomButtons) {
-                & $CustomButtons
+                $CustomButtons
             } else {
                 foreach ($button in $Buttons) {
                     if ($button -ne 'pdfHtml5') {
@@ -127,8 +156,6 @@ function New-HTMLTable {
                             extend      = 'pdfHtml5'
                             pageSize    = 'A3'
                             orientation = 'landscape'
-                            #messageTop = 'PDF created by PDFMake with Buttons for DataTables.'
-                            #download = 'open'
                         }
                     }
                 }
@@ -212,11 +239,12 @@ function New-HTMLTable {
     }
     $Options = $Options | ConvertTo-Json -Depth 6
 
-    if ($null -ne $ConditionalFormatting) {
-        $Conditional = Invoke-Command -ScriptBlock $ConditionalFormatting
-    }
+    #if ($null -ne $ConditionalFormatting) {
+    #$Conditional = Invoke-Command -ScriptBlock $ConditionalFormatting
+    #$ConditionalFormatting
+    #}
     # Process Conditional Formatting. Ugly JS building
-    $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $Conditional -Header $HeaderNames
+    $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames
 
 
     [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })

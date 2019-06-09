@@ -2,7 +2,10 @@
     [alias('TableButtonExcel','EmailTableButtonExcel')]
     [CmdletBinding()]
     param()
-    @{
-        extend = 'excelHtml5'
+    [PSCustomObject] @{
+        Type   = 'TableButtonExcel'
+        Output = @{
+            extend = 'excelHtml5'
+        }
     }
 }

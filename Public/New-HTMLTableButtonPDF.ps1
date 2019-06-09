@@ -113,6 +113,11 @@
     if ($Footer) {
         $Button.footer = $Footer.IsPresent
     }
+
+    [PSCustomObject] @{
+        Type   = 'TableButtonPDF'
+        Output = $Button
+    }
 }
 
 
