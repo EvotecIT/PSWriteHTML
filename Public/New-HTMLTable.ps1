@@ -42,6 +42,7 @@ function New-HTMLTable {
 
     # Providing a way for conditional formatting and other types of HTML
 
+    <#
     [Array] $Output = $HTML.Ast.EndBlock.Statements.Extent
     [Array] $OutputText = foreach ($Line in $Output) { [string] $Line + [System.Environment]::NewLine }
 
@@ -55,12 +56,29 @@ function New-HTMLTable {
             $Line
         }
     }
+
     if ($ConditionalFormattingText.Count -gt 0) {
         $ConditionalFormatting = [scriptblock]::Create($ConditionalFormattingText)
     }
     if ($OtherHTMLText.Count -gt 0) {
         $OtherHTML = [scriptblock]::Create($OtherHTMLText)
     }
+    #>
+
+    $ConditionalFormattingFunctions = 'New-HTMLTableCondition', 'TableConditionalFormatting', 'EmailTableConditionalFormatting'
+    $ButtonFunctions = @(
+        'New-HTMLTableButtonPDF', 'TableButtonPDF', 'EmailTableButtonPDF',
+        'New-HTMLTableButtonExcel', 'TableButtonExcel', 'EmailTableButtonExcel'
+        'New-HTMLTableButtonCopy', 'TableButtonCopy', 'EmailTableButtonCopy'
+        'New-HTMLTableButtonPrint', 'TableButtonPrint', 'EmailTableButtonPrint'
+        'New-HTMLTableButtonCSV', 'TableButtonCSV', 'EmailTableButtonCSV'
+    )
+    $Exclude = $ConditionalFormattingFunctions + $ButtonFunctions
+
+    [Array] $Output = ConvertFrom-ScriptBlock -ScriptBlock $HTML
+    $ConditionalFormatting = ConvertTo-ScriptBlock -Code $Output -Include $ConditionalFormattingFunctions
+    $CustomButtons = ConvertTo-ScriptBlock -Code $Output -Include $ButtonFunctions
+    $OtherHTML = ConvertTo-ScriptBlock -Code $Output -Exclude $Exclude
 
     # Building HTML Table / Script
 
@@ -95,18 +113,22 @@ function New-HTMLTable {
         dom              = 'Bfrtip'
         #buttons          = @($Buttons)
         buttons          = @(
-            foreach ($button in $Buttons) {
-                if ($button -ne 'pdfHtml5') {
-                    @{
-                        extend = $button
-                    }
-                } else {
-                    @{
-                        extend      = 'pdfHtml5'
-                        pageSize    = 'A3'
-                        orientation = 'landscape'
-                        #messageTop = 'PDF created by PDFMake with Buttons for DataTables.'
-                        #download = 'open'
+            if ($CustomButtons) {
+                & $CustomButtons
+            } else {
+                foreach ($button in $Buttons) {
+                    if ($button -ne 'pdfHtml5') {
+                        @{
+                            extend = $button
+                        }
+                    } else {
+                        @{
+                            extend      = 'pdfHtml5'
+                            pageSize    = 'A3'
+                            orientation = 'landscape'
+                            #messageTop = 'PDF created by PDFMake with Buttons for DataTables.'
+                            #download = 'open'
+                        }
                     }
                 }
             }
