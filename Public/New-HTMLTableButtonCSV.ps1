@@ -1,4 +1,5 @@
 ﻿function New-HTMLTableButtonCSV {
+    [alias('TableButtonCSV','EmailTableButtonCSV')]
     [CmdletBinding()]
     param()
     @{

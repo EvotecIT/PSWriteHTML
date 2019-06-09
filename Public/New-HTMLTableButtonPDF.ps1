@@ -1,4 +1,5 @@
 ﻿function New-HTMLTableButtonPDF {
+    [alias('TableButtonPDF','EmailTableButtonPDF')]
     [CmdletBinding()]
     param(
         [string][ValidateSet('4A0', '2A0', 'A0', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10',
