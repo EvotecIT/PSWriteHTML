@@ -3,8 +3,13 @@ function New-HTMLTabHead {
     Param (
 
     )
+    if ($Script:HTMLSchema.TabsSlim) {
+        $Style = 'display: inline-block;' # makes tabs wrapperr slim/small
+    } else {
+        $Style = '' # makes it full-width
+    }
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsWrapper' } {
-        New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabs' } {
+        New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabs' ; style = $Style } {
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'selector' }
             foreach ($Tab in $Script:HTMLSchema.TabsHeaders) {
                 $AttributesA = @{
@@ -17,7 +22,8 @@ function New-HTMLTabHead {
                     $AttributesA.class = ''
                 }
                 New-HTMLTag -Tag 'a' -Attributes $AttributesA {
-                    New-HTMLTag -Tag 'div' -Attributes @{ class = $Tab.TabIcon } -Value { $Tab.Name }
+                    New-HTMLTag -Tag 'div' -Attributes @{ class = $($Tab.Icon); style = $($Tab.StyleIcon) }
+                    New-HTMLTag -Tag 'span' -Attributes @{ style = $($Tab.StyleText ) } -Value { $Tab.Name }
                 }
             }
         }
