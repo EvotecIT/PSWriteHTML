@@ -16,7 +16,7 @@ Function New-HTML {
     [string] $CurrentDate = (Get-Date).ToString($DateFormat)
     $Script:HTMLSchema = @{
         TabsHeaders = [System.Collections.Generic.List[HashTable]]::new() # tracks / stores headers
-        Features    = @{} # tracks features for CSS/JS implementation
+        Features    = @{ } # tracks features for CSS/JS implementation
         Charts      = [System.Collections.Generic.List[string]]::new()
     }
 
@@ -30,7 +30,7 @@ Function New-HTML {
         $Logo = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type Between
         $OutputHTML = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type After
     }
-    $Features = Get-FeaturesInUse
+    $Features = Get-FeaturesInUse -PriorityFeatures 'JQuery', 'DataTables', 'Tabs'
 
     $HTML = @(
         '<!DOCTYPE html>'

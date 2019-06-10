@@ -3,7 +3,7 @@ function New-HTMLTabHead {
     Param (
 
     )
-    if ($Script:HTMLSchema.TabsSlim) {
+    if ($Script:HTMLSchema.TabOptions.SlimTabs) {
         $Style = 'display: inline-block;' # makes tabs wrapperr slim/small
     } else {
         $Style = '' # makes it full-width
