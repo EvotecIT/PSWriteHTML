@@ -105,18 +105,26 @@ $Script:Configuration = [ordered] @{
             }
         }
         Tabs             = @{
-            Comment      = 'Elastic Tabs'
-            HeaderAlways = @{
+            Comment              = 'Elastic Tabs'
+            HeaderAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.css"
             }
-            FooterAlways = @{
+            FooterAlways         = @{
                 JS = "$PSScriptRoot\..\Resources\JS\tabs-elastic.js"
+            }
+            CustomActionsReplace = @{
+                'ColorSelector' = ConvertFrom-Color -Color ([RGBColors]::DodgerBlue)
+                'ColorTarget'   = ConvertFrom-Color -Color ([RGBColors]::MediumSlateBlue)
             }
         }
         TabsGradient     = @{
-            Comment      = 'Elastic Tabs Gradient'
-            HeaderAlways = @{
+            Comment              = 'Elastic Tabs Gradient'
+            HeaderAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.gradient.css"
+            }
+            CustomActionsReplace = @{
+                'ColorSelector' = ConvertFrom-Color -Color ([RGBColors]::DodgerBlue)
+                'ColorTarget'   = ConvertFrom-Color -Color ([RGBColors]::MediumSlateBlue)
             }
         }
         TabsTransition   = @{

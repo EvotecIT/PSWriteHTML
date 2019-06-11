@@ -18,6 +18,11 @@ Function New-HTML {
         TabsHeaders = [System.Collections.Generic.List[HashTable]]::new() # tracks / stores headers
         Features    = @{ } # tracks features for CSS/JS implementation
         Charts      = [System.Collections.Generic.List[string]]::new()
+
+        # Tab settings
+        TabOptions  = @{
+            SlimTabs      = $false
+        }
     }
 
     #$Output = $HtmlData.Ast.EndBlock.Statements.Extent

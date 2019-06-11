@@ -5,7 +5,8 @@ function New-HTMLResourceCSS {
         [alias('ScriptContent')][Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content,
         [string] $Link,
         [string] $ResourceComment,
-        [string[]] $FilePath
+        [string[]] $FilePath,
+        [System.Collections.IDictionary] $ReplaceData
 
     )
     $Output = @(
@@ -15,7 +16,15 @@ function New-HTMLResourceCSS {
                 if (Test-Path -LiteralPath $File) {
                     New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
                         Write-Verbose "New-HTMLResourceCSS - Reading file from $File"
-                        Get-Content -LiteralPath $File
+                        # Replaces stuff based on $Script:Configuration CustomActionReplace Entry
+                        $FileContent = Get-Content -LiteralPath $File
+                        if ($null -ne $ReplaceData) {
+                            foreach ($_ in $ReplaceData.Keys) {
+                                $FileContent = $FileContent -replace $_, $ReplaceData[$_]
+                            }
+                        }
+                        $FileContent
+
                     }
                 }
             }

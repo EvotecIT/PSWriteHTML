@@ -48,7 +48,7 @@
     bottom: 0px;
     z-index: 1;
     border-radius: 4px;
-    background: #05abe0;
+    background: ColorSelector;
 }
 
 .tabs-content {
