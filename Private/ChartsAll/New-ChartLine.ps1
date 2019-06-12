@@ -1,4 +1,4 @@
-function New-ChartLine {
+function New-ChartInternalLine {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,

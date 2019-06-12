@@ -1,4 +1,4 @@
-function New-ChartLegend {
+function New-ChartInternalLegend {
     param(
         [System.Collections.IDictionary] $Options,
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', '')][string] $LegendPosition = ''

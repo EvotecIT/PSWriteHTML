@@ -1,4 +1,4 @@
-function New-ChartStrokeDefinition {
+function New-ChartInternalStrokeDefinition {
     param(
         [System.Collections.IDictionary] $Options,
         [bool] $LineShow = $true,

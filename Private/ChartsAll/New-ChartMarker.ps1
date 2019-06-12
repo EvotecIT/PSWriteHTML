@@ -1,4 +1,4 @@
-function New-ChartMarker {
+function New-ChartInternalMarker {
     param(
         [System.Collections.IDictionary] $Options,
         [int] $MarkerSize

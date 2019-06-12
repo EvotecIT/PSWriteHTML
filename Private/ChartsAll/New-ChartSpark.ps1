@@ -1,4 +1,4 @@
-function New-ChartSpark {
+function New-ChartInternalSpark {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,

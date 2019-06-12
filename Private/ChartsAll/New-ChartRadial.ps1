@@ -1,4 +1,4 @@
-function New-ChartRadial {
+function New-ChartInternalRadial {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
@@ -12,9 +12,9 @@ function New-ChartRadial {
     }
 
     if ($Type -eq '1') {
-        New-ChartRadialType1 -Options $Options
+        New-ChartInternalRadialType1 -Options $Options
     } elseif ($Type -eq '2') {
-        New-ChartRadialType2 -Options $Options
+        New-ChartInternalRadialType2 -Options $Options
     }
 
     $Options.series = @($Values)

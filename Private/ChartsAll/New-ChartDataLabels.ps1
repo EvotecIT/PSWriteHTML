@@ -1,4 +1,4 @@
-function New-ChartDataLabels {
+function New-ChartInternalDataLabels {
     param(
         [System.Collections.IDictionary] $Options,
         [bool] $DataLabelsEnabled = $true,

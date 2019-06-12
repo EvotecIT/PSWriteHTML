@@ -1,4 +1,4 @@
-function New-ChartSize {
+function New-ChartInternalSize {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,

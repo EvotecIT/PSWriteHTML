@@ -37,38 +37,38 @@ function New-HTMLChartArea {
 
     $Options = [ordered] @{}
 
-    New-ChartArea -Options $Options -Data $Data -DataNames $DataNames
+    New-ChartInternalArea -Options $Options -Data $Data -DataNames $DataNames
 
-    New-ChartStrokeDefinition -Options $Options `
+    New-ChartInternalStrokeDefinition -Options $Options `
         -LineShow $true `
         -LineCurve $LineCurve `
         -LineWidth $LineWidth `
         -LineColor $LineColor
 
-    New-ChartDataLabels -Options $Options `
+    New-ChartInternalDataLabels -Options $Options `
         -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX `
         -DataLabelsFontSize $DataLabelsFontSize `
         -DataLabelsColor $DataLabelsColor
 
-    New-ChartAxisX -Options $Options `
+    New-ChartInternalAxisX -Options $Options `
         -Title $TitleX `
         -DataCategoriesType $DataCategoriesType `
         -DataCategories $DataLegend
 
-    New-ChartAxisY -Options $Options `
+    New-ChartInternalAxisY -Options $Options `
         -Title $TitleY
 
-    New-ChartMarker -Options $Options -MarkerSize $MarkerSize
+    New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
 
-    New-ChartTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
-    New-ChartGridColors -Options $Options -GridColors $GridColors -GridOpacity $GridOpacity
+    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
+    New-ChartInternalGridColors -Options $Options -GridColors $GridColors -GridOpacity $GridOpacity
 
-    New-ChartLegend -Options $Options -LegendPosition $LegendPosition
+    New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
 
-    New-ChartSize -Options $Options -Height $Height -Width $Width
+    New-ChartInternalSize -Options $Options -Height $Height -Width $Width
 
-    New-ChartZoom -Options $Options -Enabled:$Zoom
-    New-ChartToolbar -Options $Options
+    New-ChartInternalZoom -Options $Options -Enabled:$Zoom
+    New-ChartInternalToolbar -Options $Options
     New-ApexChart -Positioning $Positioning -Options $Options
 }

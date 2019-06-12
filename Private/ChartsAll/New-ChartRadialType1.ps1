@@ -1,5 +1,5 @@
 
-function New-ChartRadialType1 {
+function New-ChartInternalRadialType1 {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,

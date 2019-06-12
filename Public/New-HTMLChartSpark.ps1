@@ -15,9 +15,9 @@ function New-HTMLChartSpark {
     )
 
     $Options = [ordered] @{}
-    New-ChartSpark -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Values $Data
-    New-ChartSize -Options $Options -Height $Height -Width $Width
-    New-ChartToolbar -Options $Options
+    New-ChartInternalSpark -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Values $Data
+    New-ChartInternalSize -Options $Options -Height $Height -Width $Width
+    New-ChartInternalToolbar -Options $Options
 
     New-ApexChart -Positioning $Positioning -Options $Options
 }

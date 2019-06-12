@@ -1,4 +1,4 @@
-function New-ChartRadialCircleType {
+function New-ChartInternalRadialCircleType {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,

@@ -27,15 +27,15 @@ function New-HTMLChartBar {
         [Array] $DataLegend
     )
     $Options = [ordered] @{}
-    New-ChartBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
+    New-ChartInternalBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX -DataLabelsFontSize $DataLabelsFontSize -DataLabelsColor $DataLabelsColor `
         -Data $Data -DataNames $DataNames -DataLegend $DataLegend -Title $Title -TitleAlignment $TitleAlignment `
         -Type $Type -Colors $Colors `
         -PatternedColors:$PatternedColors -Distributed:$Distributed
 
 
-    New-ChartLegend -Options $Options -LegendPosition $LegendPosition
-    New-ChartSize -Options $Options -Height $Height -Width $Width
-    New-ChartToolbar -Options $Options
+    New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
+    New-ChartInternalSize -Options $Options -Height $Height -Width $Width
+    New-ChartInternalToolbar -Options $Options
     New-ApexChart -Positioning $Positioning -Options $Options
 }

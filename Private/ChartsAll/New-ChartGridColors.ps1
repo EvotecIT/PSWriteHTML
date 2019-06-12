@@ -1,4 +1,4 @@
-function New-ChartGridColors {
+function New-ChartInternalGridColors {
     param(
         [System.Collections.IDictionary] $Options,
         [RGBColors[]] $GridColors,

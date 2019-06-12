@@ -1,4 +1,4 @@
-function New-ChartArea {
+function New-ChartInternalArea {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,

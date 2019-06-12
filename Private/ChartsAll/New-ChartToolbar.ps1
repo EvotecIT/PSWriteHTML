@@ -1,4 +1,4 @@
-function New-ChartToolbar {
+function New-ChartInternalToolbar {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,

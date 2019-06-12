@@ -1,4 +1,4 @@
-function New-ChartZoom {
+function New-ChartInternalZoom {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,

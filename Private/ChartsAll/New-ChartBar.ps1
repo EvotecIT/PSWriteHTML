@@ -1,4 +1,4 @@
-Function New-ChartBar {
+Function New-ChartInternalBar {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
@@ -82,7 +82,7 @@ Function New-ChartBar {
         #}
     }
 
-    New-ChartTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
+    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
 
      if ($PatternedColors) {
         $Options.fill = @{

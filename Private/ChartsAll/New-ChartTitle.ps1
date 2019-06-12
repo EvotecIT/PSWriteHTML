@@ -1,4 +1,4 @@
-function New-ChartTitle {
+function New-ChartInternalTitle {
     param(
         [System.Collections.IDictionary] $Options,
         [string] $Title,

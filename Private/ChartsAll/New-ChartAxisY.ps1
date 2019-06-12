@@ -1,4 +1,4 @@
-function New-ChartAxisY {
+function New-ChartInternalAxisY {
     param(
         [System.Collections.IDictionary] $Options,
         [string] $Title,

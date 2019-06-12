@@ -1,4 +1,4 @@
-function New-ChartRadialDataLabels {
+function New-ChartInternalRadialDataLabels {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
