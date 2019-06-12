@@ -20,23 +20,21 @@ function Get-FeaturesInUse {
     param(
         [string[]] $PriorityFeatures
     )
-    $Features = foreach ($Key in $Script:HTMLSchema.Features.Keys) {
+    [Array] $Features = foreach ($Key in $Script:HTMLSchema.Features.Keys) {
         if ($Script:HTMLSchema.Features[$Key]) {
             $Key
         }
     }
-    $TopFeatures = foreach ($Feature in $PriorityFeatures) {
+    [Array] $TopFeatures = foreach ($Feature in $PriorityFeatures) {
         if ($Features -contains $Feature) {
             $Feature
         }
     }
-    $RemainingFeatures = foreach ($Feature in $Features) {
+    [Array] $RemainingFeatures = foreach ($Feature in $Features) {
         if ($TopFeatures -notcontains $Feature) {
             $Feature
         }
     }
-
-
-    $AllFeatures = $TopFeatures + $RemainingFeatures
+    [Array] $AllFeatures = $TopFeatures + $RemainingFeatures
     $AllFeatures
 }
