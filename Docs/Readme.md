@@ -50,7 +50,7 @@ Creates an anchor
 ### [New-HTMLChart](New-HTMLChart.md)
 {{Fill in the Synopsis}}
 
-### [New-HTMLChartDataSet](New-HTMLChartDataSet.md)
+### [New-ChartInternalDataSet](New-ChartInternalDataSet.md)
 {{Fill in the Synopsis}}
 
 ### [New-HTMLCodeBlock](New-HTMLCodeBlock.md)

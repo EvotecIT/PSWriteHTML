@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLChartDataSet
+# New-ChartInternalDataSet
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLChartDataSet [[-Data] <Array>] [[-DataNames] <Array>] [<CommonParameters>]
+New-ChartInternalDataSet [[-Data] <Array>] [[-DataNames] <Array>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

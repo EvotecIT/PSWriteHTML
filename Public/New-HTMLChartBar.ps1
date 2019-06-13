@@ -26,7 +26,7 @@ function New-HTMLChartBar {
         [Array] $DataNames,
         [Array] $DataLegend
     )
-    $Options = [ordered] @{}
+    $Options = [ordered] @{ }
     New-ChartInternalBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX -DataLabelsFontSize $DataLabelsFontSize -DataLabelsColor $DataLabelsColor `
         -Data $Data -DataNames $DataNames -DataLegend $DataLegend -Title $Title -TitleAlignment $TitleAlignment `
