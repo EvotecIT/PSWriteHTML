@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 New-HTMLResourceCSS [[-Content] <ScriptBlock>] [-Link <String>] [-ResourceComment <String>]
- [-FilePath <String>] [<CommonParameters>]
+ [-FilePath <String[]>] [-ReplaceData <IDictionary>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -50,7 +50,7 @@ Accept wildcard characters: False
 {{Fill FilePath Description}}
 
 ```yaml
-Type: String
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
@@ -66,6 +66,21 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ReplaceData
+{{ Fill ReplaceData Description }}
+
+```yaml
+Type: IDictionary
 Parameter Sets: (All)
 Aliases:
 
@@ -92,7 +107,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

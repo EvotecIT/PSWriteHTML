@@ -5,112 +5,41 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLImage
+# New-HTMLChartRadial
 
 ## SYNOPSIS
-Short description
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-New-HTMLImage [[-Source] <String>] [[-UrlLink] <Uri>] [[-AlternativeText] <String>] [[-Class] <String>]
- [[-Target] <String>] [[-Width] <String>] [[-Height] <String>] [<CommonParameters>]
+New-HTMLChartRadial [[-Height] <Int32>] [[-Width] <Int32>] [[-Positioning] <String>] [[-Names] <Array>]
+ [[-Values] <Array>] [[-Type] <Object>] [[-CircleType] <Object>] [[-LabelAverage] <String>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Long description
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
-New-HTMLImage -Source 'https://evotec.pl/image.png' -UrlLink 'https://evotc.pl/' -AlternativeText 'My other text' -Class 'otehr' -Width '100%'
-```
+
+{{ Add example description here }}
 
 ## PARAMETERS
 
-### -Source
-Parameter description
+### -CircleType
+{{ Fill CircleType Description }}
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
-
-Required: False
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -UrlLink
-Parameter description
-
-```yaml
-Type: Uri
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AlternativeText
-Parameter description
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Class
-Parameter description
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: Logo
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Target
-Parameter description
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 5
-Default value: _blank
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Width
-Parameter description
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
+Accepted values: FullCircleTop, FullCircleBottom, FullCircleBottomLeft, FullCircleLeft, Speedometer, SemiCircleGauge
 
 Required: False
 Position: 6
@@ -120,7 +49,22 @@ Accept wildcard characters: False
 ```
 
 ### -Height
-Parameter description
+{{ Fill Height Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LabelAverage
+{{ Fill LabelAverage Description }}
 
 ```yaml
 Type: String
@@ -134,14 +78,92 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Names
+{{ Fill Names Description }}
+
+```yaml
+Type: Array
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Positioning
+{{ Fill Positioning Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: , central
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Type
+{{ Fill Type Description }}
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Values
+{{ Fill Values Description }}
+
+```yaml
+Type: Array
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Width
+{{ Fill Width Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
+### None
+
 ## OUTPUTS
 
+### System.Object
 ## NOTES
-General notes
 
 ## RELATED LINKS

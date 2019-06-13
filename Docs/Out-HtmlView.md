@@ -5,89 +5,104 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTML
+# Out-HtmlView
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Small function that allows to send output to HTML
 
 ## SYNTAX
 
 ```
-New-HTML [[-HtmlData] <ScriptBlock>] [-UseCssLinks] [-UseJavaScriptLinks] [-TitleText <String>]
- [-Author <String>] [-DateFormat <String>] [-AutoRefresh <Int32>] [-FilePath <String>] [-ShowHTML]
- [-Encoding <Object>] [<CommonParameters>]
+Out-HtmlView [-Table] <Object> [[-PriorityProperties] <String[]>] [[-Title] <String>]
+ [[-DefaultSortColumn] <String[]>] [[-DefaultSortIndex] <Int32[]>] [[-FilePath] <String>] [-DisablePaging]
+ [-PassThru] [-Filtering] [[-FilteringLocation] <String>] [[-Find] <String>] [-InvokeHTMLTags]
+ [-DisableNewLine] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Small function that allows to send output to HTML.
+When displaying in HTML it allows data to output to EXCEL, CSV and PDF.
+It allows sorting, searching and so on.
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Get-Process | Select-Object -First 5 | Out-HtmlView
+```
 
 ## PARAMETERS
 
-### -Author
-{{Fill Author Description}}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AutoRefresh
-{{ Fill AutoRefresh Description }}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DateFormat
-{{Fill DateFormat Description}}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Encoding
-{{ Fill Encoding Description }}
+### -Table
+Data you want to display
 
 ```yaml
 Type: Object
 Parameter Sets: (All)
 Aliases:
-Accepted values: Unknown, String, Unicode, Byte, BigEndianUnicode, UTF8, UTF7, UTF32, Ascii, Default, Oem, BigEndianUTF32
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -PriorityProperties
+{{ Fill PriorityProperties Description }}
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
 
 Required: False
-Position: Named
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Title
+Title of HTML Window
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: Out-HTMLView
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DefaultSortColumn
+Sort by Column Name
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DefaultSortIndex
+Sort by Column Index
+
+```yaml
+Type: Int32[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -102,29 +117,14 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -HtmlData
-{{Fill HtmlData Description}}
-
-```yaml
-Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ShowHTML
-{{ Fill ShowHTML Description }}
+### -DisablePaging
+{{ Fill DisablePaging Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -133,13 +133,43 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TitleText
-{{Fill TitleText Description}}
+### -PassThru
+{{ Fill PassThru Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Filtering
+{{ Fill Filtering Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FilteringLocation
+{{ Fill FilteringLocation Description }}
 
 ```yaml
 Type: String
@@ -147,14 +177,29 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 7
+Default value: Bottom
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Find
+{{ Fill Find Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: Search
+
+Required: False
+Position: 8
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -UseCssLinks
-{{Fill UseCssLinks Description}}
+### -InvokeHTMLTags
+{{ Fill InvokeHTMLTags Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -163,13 +208,13 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -UseJavaScriptLinks
-{{ Fill UseJavaScriptLinks Description }}
+### -DisableNewLine
+{{ Fill DisableNewLine Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -178,7 +223,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -188,11 +233,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
+General notes
 
 ## RELATED LINKS

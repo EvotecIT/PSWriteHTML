@@ -13,7 +13,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLResourceJS [[-Content] <ScriptBlock>] [-Link <String>] [<CommonParameters>]
+New-HTMLResourceJS [[-Content] <ScriptBlock>] [-Link <String[]>] [-ResourceComment <String>]
+ [-FilePath <String[]>] [-ReplaceData <IDictionary>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -45,8 +46,53 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -FilePath
+{{ Fill FilePath Description }}
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Link
 {{Fill Link Description}}
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ReplaceData
+{{ Fill ReplaceData Description }}
+
+```yaml
+Type: IDictionary
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ResourceComment
+{{ Fill ResourceComment Description }}
 
 ```yaml
 Type: String
@@ -61,7 +107,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

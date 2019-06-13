@@ -5,18 +5,19 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-HTMLLineChart
+# New-HTMLSubSection
 
 ## SYNOPSIS
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-Get-HTMLLineChart [-ChartObject] <Object> [-DataSet] <Array> [[-Options] <Object>] [<CommonParameters>]
+New-HTMLSubSection [[-Content] <ScriptBlock>] [[-Text] <String>] [[-TextHeader] <String[]>] [[-Type] <String>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
@@ -29,43 +30,59 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -ChartObject
-{{Fill ChartObject Description}}
+### -Content
+{{ Fill Content Description }}
 
 ```yaml
-Type: Object
+Type: ScriptBlock
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Text
+{{ Fill Text Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -DataSet
-{{Fill DataSet Description}}
+### -TextHeader
+{{ Fill TextHeader Description }}
 
 ```yaml
-Type: Array
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Options
-{{Fill Options Description}}
+### -Type
+{{ Fill Type Description }}
 
 ```yaml
-Type: Object
+Type: String
 Parameter Sets: (All)
 Aliases:
+Accepted values: positive, negative, neutral
 
 Required: False
 Position: 3
@@ -74,13 +91,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
+
+### None
 
 ## OUTPUTS
 
+### System.Object
 ## NOTES
 
 ## RELATED LINKS

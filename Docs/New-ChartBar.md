@@ -5,19 +5,19 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-HTMLPieChartObject
+# New-ChartBar
 
 ## SYNOPSIS
-create a Bar chart object for use with Get-HTMLBarChart
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-Get-HTMLPieChartObject [[-ChartType] <String>] [[-ColorScheme] <Object>] [<CommonParameters>]
+New-ChartBar [[-Name] <String>] [[-Value] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
@@ -30,24 +30,23 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -ChartType
-{{Fill ChartType Description}}
+### -Name
+{{ Fill Name Description }}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: pie, doughnut
 
 Required: False
 Position: 0
-Default value: Pie
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ColorScheme
-{{Fill ColorScheme Description}}
+### -Value
+{{ Fill Value Description }}
 
 ```yaml
 Type: Object
@@ -62,12 +61,15 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
+### None
+
 ## OUTPUTS
 
+### System.Object
 ## NOTES
 
 ## RELATED LINKS

@@ -5,19 +5,19 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLHorizontalLine
+# New-HTMLTableButtonPrint
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-New-HTMLHorizontalLine [<CommonParameters>]
+New-HTMLTableButtonPrint [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+{{ Fill in the Description }}
 
 ## EXAMPLES
 

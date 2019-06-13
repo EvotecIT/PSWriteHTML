@@ -5,20 +5,20 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLToast
+# New-HTMLLogo
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-New-HTMLToast [[-TextHeader] <String>] [[-Text] <String>] [[-Color] <Object>] [[-Icon] <String>]
- [[-Type] <String>] [<CommonParameters>]
+New-HTMLLogo [[-LogoPath] <String>] [[-LeftLogoName] <String>] [[-RightLogoName] <String>]
+ [[-LeftLogoString] <String>] [[-RightLogoString] <String>] [-HideLogos]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
@@ -31,40 +31,23 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -Color
-{{Fill Color Description}}
+### -HideLogos
+{{ Fill HideLogos Description }}
 
 ```yaml
-Type: Object
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
-Accepted values: Green, Blue, Orange
 
 Required: False
-Position: 2
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Icon
-{{Fill Icon Description}}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: Success, Information, Exclamation
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Text
-{{Fill Text Description}}
+### -LeftLogoName
+{{ Fill LeftLogoName Description }}
 
 ```yaml
 Type: String
@@ -78,8 +61,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TextHeader
-{{Fill TextHeader Description}}
+### -LeftLogoString
+{{ Fill LeftLogoString Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LogoPath
+{{ Fill LogoPath Description }}
 
 ```yaml
 Type: String
@@ -93,8 +91,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Type
-{{ Fill Type Description }}
+### -RightLogoName
+{{ Fill RightLogoName Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RightLogoString
+{{ Fill RightLogoString Description }}
 
 ```yaml
 Type: String
@@ -107,9 +120,6 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
-
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

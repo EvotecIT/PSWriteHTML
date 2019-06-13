@@ -13,7 +13,8 @@ Short description
 ## SYNTAX
 
 ```
-Save-HTML [[-FilePath] <String>] [-HTML] <Array> [-ShowHTML] [-Supress] [<CommonParameters>]
+Save-HTML [[-FilePath] <String>] [-HTML] <Array> [-ShowHTML] [[-Encoding] <Object>] [[-Supress] <Boolean>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -73,23 +74,38 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Supress
-{{Fill Supress Description}}
+### -Encoding
+{{ Fill Encoding Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 3
+Default value: UTF8
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Supress
+{{Fill Supress Description}}
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
 Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
