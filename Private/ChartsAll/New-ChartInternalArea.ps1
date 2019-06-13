@@ -20,7 +20,7 @@ function New-ChartInternalArea {
         type = 'area'
     }
 
-    $Options.series = @( New-HTMLChartDataSet -Data $Data -DataNames $DataNames )
+    $Options.series = @( New-ChartInternalDataSet -Data $Data -DataNames $DataNames )
 
     # X AXIS - CATEGORIES
     $Options.xaxis = [ordered] @{}

@@ -65,7 +65,7 @@ Function New-ChartInternalBar {
         $RGBColorLabel = ConvertFrom-Color -Color $DataLabelsColor
         $Options.dataLabels.style.colors = @($RGBColorLabel)
     }
-    $Options.series = @(New-HTMLChartDataSet -Data $Data -DataNames $DataLegend)
+    $Options.series = @(New-ChartInternalDataSet -Data $Data -DataNames $DataLegend)
 
     # X AXIS - CATEGORIES
     $Options.xaxis = [ordered] @{}
