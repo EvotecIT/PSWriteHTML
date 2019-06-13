@@ -5,6 +5,7 @@ $Process = Get-Process | Select-Object -First 70
 New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example20.html -Show {
     New-HTMLContent -HeaderText 'Test' -BackgroundColor Azure {
         New-HTMLTable -DataTable $Process -PagingOptions @(50, 100, 150, 200) -Find 'chrome' {
+            New-HTMLTableButtonPDF
             New-HTMLTableCondition -Name 'HandleCount' -Type number -Operator gt -Value 300 -BackgroundColor Yellow
             New-HTMLTableCondition -Name 'ID' -Type number -Operator gt -Value 16000 -BackgroundColor Green
             New-HTMLTableCondition -Name 'Name' -Type string -Operator eq -Value 'browser_broker' -BackgroundColor Gold -Row

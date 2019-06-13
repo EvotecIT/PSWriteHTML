@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-05-22 07:46:34" name="revised"/>
+<meta content="2019-06-13 15:27:33" name="revised"/>
 <title>My title</title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
@@ -349,6 +349,70 @@ h6 {
 </style>
 <!-- CSS Always Required Default Headings END -->
 
+<!-- CSS Elastic Tabs START -->
+<style type="text/css">.tabsWrapper {
+    text-align: center;
+    margin: 10px auto;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.tabs {
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 0px;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    position: relative;
+}
+
+.tabs .round {
+    border-radius: 4px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #777;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.6s;
+}
+
+.tabs a.active {
+    color: #fff;
+}
+
+.tabs a i {
+    margin-right: 5px;
+}
+
+.tabs .selector {
+    display: none;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    border-radius: 4px;
+    background: #1e90ff;
+}
+
+.tabs-content {
+    display: none;
+}
+
+.tabs-content.active {
+    display: block;
+}
+</style>
+<!-- CSS Elastic Tabs END -->
+
 
 <!-- JS Hide Section Code START -->
 <script type="text/javascript">function show(obj) {
@@ -363,145 +427,292 @@ function hide(obj) {
 }
 </script>
 <!-- JS Hide Section Code END -->
-
-
-<!-- JS Hide Section Code START -->
-<script type="text/javascript">function show(obj) {
-  document.getElementById(obj).style.display='block';
-  document.getElementById("hide_" + obj).style.display='';
-  document.getElementById("show_" + obj).style.display='none';
-}
-function hide(obj) {
-  document.getElementById(obj).style.display='none';
-  document.getElementById("hide_" + obj).style.display='none';
-  document.getElementById("show_" + obj).style.display='';
-}
-</script>
-<!-- JS Hide Section Code END -->
+<!-- JS Jquery START -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+<!-- JS Jquery END -->
 <!-- JS Apex Charts START -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script>
 <!-- JS Apex Charts END -->
 </head>
 <!-- END HEADER -->
 <!-- BODY -->
-<body><div class="defaultSection defaultCard" style="background-color:#808080"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts" style="color: #ffffff;">Bar Charts</a>
-<a id="show_1531916145" href="javascript:void(0)" onclick="show('1531916145');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1531916145" href="javascript:void(0)" onclick="hide('1531916145');" style="color: #ffffff;">(Hide)</a>
+<body><div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
+<a href="javascript:void(0)" class="active" data-id="Tab-q6wgamp7"><div class="far fa-chart-bar"></div>
+<span> Bar Charts</span>
+</a>
+<a href="javascript:void(0)" data-id="Tab-oa0w48cs"><div class="far fa-chart-bar"></div>
+<span> Bar Charts - BarStacked</span>
+</a>
+<a href="javascript:void(0)" data-id="Tab-eyvwft2c"><div class="far fa-chart-bar"></div>
+<span> Bar Charts - Bar Vertical</span>
+</a>
+<a href="javascript:void(0)" data-id="Tab-o8nl3ipx"><div class="far fa-circle"></div>
+<span> Radline Charts</span>
+</a>
+<a href="javascript:void(0)" data-id="Tab-q8z1xgy9"><div class="far fa-clock"></div>
+<span> Sparkline Charts</span>
+</a>
+</div></div>
+<div id="Tab-q6wgamp7" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test" style="color: #ffffff;">Bar Charts - Test</a>
+<a id="show_1774645048" href="javascript:void(0)" onclick="show('1774645048');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1774645048" href="javascript:void(0)" onclick="hide('1774645048');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1531916145" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1531916145"><div class="defaultPanel defaultCard"><div id="ChartID-3ts0jvo4"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-dkh6b5oc"></div></div>
+<div id="1774645048" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1774645048"><div class="defaultPanel defaultCard"><div id="ChartID-w7r1ghdf"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-5y1ic4ek"></div></div>
 </div></div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 1" style="color: #808080;">Bar Charts 1</a>
-<a id="show_1837953716" href="javascript:void(0)" onclick="show('1837953716');" style="color: #808080; display:none;">(Show)</a>
-<a id="hide_1837953716" href="javascript:void(0)" onclick="hide('1837953716');" style="color: #808080;">(Hide)</a>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar" style="color: #ffffff;">Bar Charts - Standard Bar</a>
+<a id="show_943567165" href="javascript:void(0)" onclick="show('943567165');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_943567165" href="javascript:void(0)" onclick="hide('943567165');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1837953716" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1837953716"><div class="defaultPanel defaultCard"><div id="ChartID-al0d5cvm"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-xfs3y9db"></div></div>
+<div id="943567165" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="943567165"><div class="defaultPanel defaultCard"><div id="ChartID-rewst9bl"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-18reiw3o"></div></div>
 </div></div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#808080"><a name="Bar Charts 2" style="color: #ffffff;">Bar Charts 2</a>
-<a id="show_1623138723" href="javascript:void(0)" onclick="show('1623138723');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1623138723" href="javascript:void(0)" onclick="hide('1623138723');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1623138723" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1623138723"><div class="defaultPanel defaultCard"><div id="ChartID-34hcbioa"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-gwbuzt5i"></div></div>
+<div id="Tab-oa0w48cs" class="tabs-content"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 1 - Bar Stacked" style="color: #ffffff;">Bar Charts 1 - Bar Stacked</a>
+<a id="show_1142382967" href="javascript:void(0)" onclick="show('1142382967');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1142382967" href="javascript:void(0)" onclick="hide('1142382967');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="1142382967" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1142382967"><div class="defaultPanel defaultCard"><div id="ChartID-7a9iqehk"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-w9aivrc3"></div></div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 2" style="color: #ffffff;">Bar Charts 2</a>
+<a id="show_1119994108" href="javascript:void(0)" onclick="show('1119994108');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1119994108" href="javascript:void(0)" onclick="hide('1119994108');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="1119994108" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1119994108"><div class="defaultPanel defaultCard"><div id="ChartID-63ceb0p2"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-ym3c1dlr"></div></div>
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 3" style="color: #ffffff;">Bar Charts 3</a>
-<a id="show_846107249" href="javascript:void(0)" onclick="show('846107249');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_846107249" href="javascript:void(0)" onclick="hide('846107249');" style="color: #ffffff;">(Hide)</a>
+<a id="show_1204826345" href="javascript:void(0)" onclick="show('1204826345');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1204826345" href="javascript:void(0)" onclick="hide('1204826345');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="846107249" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="846107249"><div class="defaultPanel defaultCard"><div id="ChartID-xzlr2qsw"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-1tmoe0b3"></div></div>
+<div id="1204826345" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1204826345"><div class="defaultPanel defaultCard"><div id="ChartID-ksl0qe26"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-clepaq2n"></div></div>
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 4" style="color: #ffffff;">Bar Charts 4</a>
-<a id="show_1421232612" href="javascript:void(0)" onclick="show('1421232612');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1421232612" href="javascript:void(0)" onclick="hide('1421232612');" style="color: #ffffff;">(Hide)</a>
+<a id="show_1003334684" href="javascript:void(0)" onclick="show('1003334684');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1003334684" href="javascript:void(0)" onclick="hide('1003334684');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1421232612" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1421232612"><div class="defaultPanel defaultCard"><div id="ChartID-5y9mc4lu"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-ni54zlv9"></div></div>
+<div id="1003334684" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1003334684"><div class="defaultPanel defaultCard"><div id="ChartID-wnumq0bz"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-u40mc2qj"></div></div>
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 5" style="color: #ffffff;">Bar Charts 5</a>
-<a id="show_939036192" href="javascript:void(0)" onclick="show('939036192');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_939036192" href="javascript:void(0)" onclick="hide('939036192');" style="color: #ffffff;">(Hide)</a>
+<a id="show_1673730105" href="javascript:void(0)" onclick="show('1673730105');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1673730105" href="javascript:void(0)" onclick="hide('1673730105');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="939036192" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="939036192"><div class="defaultPanel defaultCard"><div id="ChartID-afe7zrxk"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-rqilonha"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-5d3g02kx"></div></div>
+<div id="1673730105" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1673730105"><div class="defaultPanel defaultCard"><div id="ChartID-8i7gfn51"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-qoacdsbk"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-4dzen32l"></div></div>
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 6" style="color: #ffffff;">Bar Charts 6</a>
-<a id="show_1581243451" href="javascript:void(0)" onclick="show('1581243451');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1581243451" href="javascript:void(0)" onclick="hide('1581243451');" style="color: #ffffff;">(Hide)</a>
+<a id="show_1935297352" href="javascript:void(0)" onclick="show('1935297352');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1935297352" href="javascript:void(0)" onclick="hide('1935297352');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1581243451" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1581243451"><div class="defaultPanel defaultCard"><div id="ChartID-8nmhq3vc"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-q5mfsv9g"></div></div>
+<div id="1935297352" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1935297352"><div class="defaultPanel defaultCard"><div id="ChartID-1amwvoez"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-doy6pu1z"></div></div>
 </div></div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts Vertical 1" style="color: #ffffff;">Bar Charts Vertical 1</a>
-<a id="show_173560165" href="javascript:void(0)" onclick="show('173560165');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_173560165" href="javascript:void(0)" onclick="hide('173560165');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="173560165" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="173560165"><div class="defaultPanel defaultCard"><div id="ChartID-g2aks6ty"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-1ft0quew"></div></div>
+<div id="Tab-eyvwft2c" class="tabs-content"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts Vertical 1" style="color: #ffffff;">Bar Charts Vertical 1</a>
+<a id="show_326770514" href="javascript:void(0)" onclick="show('326770514');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_326770514" href="javascript:void(0)" onclick="hide('326770514');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="326770514" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="326770514"><div class="defaultPanel defaultCard"><div id="ChartID-7pqc8m9k"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-g0w8fbt4"></div></div>
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts Vertical 2" style="color: #ffffff;">Bar Charts Vertical 2</a>
-<a id="show_1386592866" href="javascript:void(0)" onclick="show('1386592866');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1386592866" href="javascript:void(0)" onclick="hide('1386592866');" style="color: #ffffff;">(Hide)</a>
+<a id="show_1775155174" href="javascript:void(0)" onclick="show('1775155174');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1775155174" href="javascript:void(0)" onclick="hide('1775155174');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1386592866" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1386592866"><div class="defaultPanel defaultCard"><div id="ChartID-cwvr1z7p"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-wctj8yim"></div></div>
+<div id="1775155174" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1775155174"><div class="defaultPanel defaultCard"><div id="ChartID-bzgyucwt"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-i82eayzk"></div></div>
 </div></div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Radline Charts" style="color: #ffffff;">Radline Charts</a>
-<a id="show_1344046708" href="javascript:void(0)" onclick="show('1344046708');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1344046708" href="javascript:void(0)" onclick="hide('1344046708');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1344046708" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1344046708"><div class="defaultPanel defaultCard"><div id="ChartID-bui3ctrk"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-t1eb6wha"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-pckgeno0"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-qbkrgl32"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-zc4eak7g"></div></div>
+<div id="Tab-o8nl3ipx" class="tabs-content"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Radline Charts" style="color: #ffffff;">Radline Charts</a>
+<a id="show_1001094369" href="javascript:void(0)" onclick="show('1001094369');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1001094369" href="javascript:void(0)" onclick="hide('1001094369');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="1001094369" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1001094369"><div class="defaultPanel defaultCard"><div id="ChartID-gks08of3"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-zo26w7pa"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-5jlyqw9b"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-8l0ao56c"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-1jrxhzls"></div></div>
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Radline Charts 1" style="color: #ffffff;">Radline Charts 1</a>
-<a id="show_247234916" href="javascript:void(0)" onclick="show('247234916');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_247234916" href="javascript:void(0)" onclick="hide('247234916');" style="color: #ffffff;">(Hide)</a>
+<a id="show_1169764240" href="javascript:void(0)" onclick="show('1169764240');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1169764240" href="javascript:void(0)" onclick="hide('1169764240');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="247234916" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="247234916"><div class="defaultPanel defaultCard"><div id="ChartID-xij5wotl"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-h5ja0yuk"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-cve2u9ai"></div></div>
+<div id="1169764240" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1169764240"><div class="defaultPanel defaultCard"><div id="ChartID-f5jiqg8b"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-glna78t6"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-se26uk4j"></div></div>
 </div></div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Sparkline Charts" style="color: #ffffff;">Sparkline Charts</a>
-<a id="show_1601153114" href="javascript:void(0)" onclick="show('1601153114');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1601153114" href="javascript:void(0)" onclick="hide('1601153114');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1601153114" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1601153114"><div class="defaultPanel defaultCard"><div id="ChartID-mjre2y6c"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-zvqxtcps"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-mub1vk7j"></div></div>
-</div></div>
+<div id="Tab-q8z1xgy9" class="tabs-content"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Sparkline Charts" style="color: #ffffff;">Sparkline Charts</a>
+<a id="show_1549550648" href="javascript:void(0)" onclick="show('1549550648');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1549550648" href="javascript:void(0)" onclick="hide('1549550648');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="-1 section" style="color: #ffffff;">-1 section</a>
-<a id="show_2022730359" href="javascript:void(0)" onclick="show('2022730359');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_2022730359" href="javascript:void(0)" onclick="hide('2022730359');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="2022730359" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2022730359"><div class="defaultPanel defaultCard"><div id="ChartID-6di4j1wy"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-5v8u3rtx"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-o35f6rpq"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-wg1hikoe"></div></div>
+<div id="1549550648" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1549550648"><div class="defaultPanel defaultCard"><div id="ChartID-nr0gvjcm"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-q1z6dxlh"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-tklirw9f"></div></div>
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="-1 section" style="color: #ffffff;">-1 section</a>
-<a id="show_1263666500" href="javascript:void(0)" onclick="show('1263666500');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1263666500" href="javascript:void(0)" onclick="hide('1263666500');" style="color: #ffffff;">(Hide)</a>
+<a id="show_457275157" href="javascript:void(0)" onclick="show('457275157');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_457275157" href="javascript:void(0)" onclick="hide('457275157');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1263666500" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1263666500"><div class="defaultPanel defaultCard"><div id="ChartID-dgyaxmu3"></div></div></div></div>
+<div id="457275157" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="457275157"><div class="defaultPanel defaultCard"><div id="ChartID-ctgoamd8"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-p1uzbli8"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-etsfvmdy"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-p51io6kf"></div></div>
+</div></div>
 </div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="-1 section" style="color: #ffffff;">-1 section</a>
+<a id="show_64187316" href="javascript:void(0)" onclick="show('64187316');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_64187316" href="javascript:void(0)" onclick="hide('64187316');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="64187316" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="64187316"><div class="defaultPanel defaultCard"><div id="ChartID-xqam765d"></div></div></div></div>
+</div>
+</div>
+<script>var options = {
+    "chart":  {
+                  "type":  "bar",
+                  "height":  350,
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  true
+                                }
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "series":  [
+                   {
+                       "name":  [
+                                    "Time"
+                                ],
+                       "data":  [
+                                    1,
+                                    2,
+                                    3
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "categories":  [
+                                     "Test",
+                                     "Test1",
+                                     "Test2"
+                                 ]
+              },
+    "title":  {
+                  "text":  ""
+              }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-w7r1ghdf'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "type":  "bar",
+                  "height":  350,
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  true
+                                }
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "series":  [
+                   {
+                       "data":  [
+                                    1,
+                                    2,
+                                    3
+                                ]
+                   },
+                   {
+                       "data":  [
+                                    2,
+                                    5,
+                                    1
+                                ]
+                   },
+                   {
+                       "data":  [
+                                    3,
+                                    7,
+                                    2
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "categories":  [
+                                     "Test",
+                                     "Test1",
+                                     "Test2"
+                                 ]
+              },
+    "title":  {
+                  "text":  ""
+              }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-5y1ic4ek'),
+            options
+        );
+chart.render();
+</script>
 <script>var options = {
     "chart":  {
                   "type":  "bar",
@@ -570,7 +781,7 @@ function hide(obj) {
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-3ts0jvo4'),
+var chart = new ApexCharts(document.querySelector('#ChartID-rewst9bl'),
             options
         );
 chart.render();
@@ -647,7 +858,7 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-dkh6b5oc'),
+var chart = new ApexCharts(document.querySelector('#ChartID-18reiw3o'),
             options
         );
 chart.render();
@@ -743,7 +954,7 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-al0d5cvm'),
+var chart = new ApexCharts(document.querySelector('#ChartID-7a9iqehk'),
             options
         );
 chart.render();
@@ -821,7 +1032,7 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-xfs3y9db'),
+var chart = new ApexCharts(document.querySelector('#ChartID-w9aivrc3'),
             options
         );
 chart.render();
@@ -917,7 +1128,7 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-34hcbioa'),
+var chart = new ApexCharts(document.querySelector('#ChartID-63ceb0p2'),
             options
         );
 chart.render();
@@ -996,7 +1207,7 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-gwbuzt5i'),
+var chart = new ApexCharts(document.querySelector('#ChartID-ym3c1dlr'),
             options
         );
 chart.render();
@@ -1116,7 +1327,7 @@ chart.render();
                }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-xzlr2qsw'),
+var chart = new ApexCharts(document.querySelector('#ChartID-ksl0qe26'),
             options
         );
 chart.render();
@@ -1201,7 +1412,7 @@ chart.render();
                }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-1tmoe0b3'),
+var chart = new ApexCharts(document.querySelector('#ChartID-clepaq2n'),
             options
         );
 chart.render();
@@ -1321,7 +1532,7 @@ chart.render();
                }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-5y9mc4lu'),
+var chart = new ApexCharts(document.querySelector('#ChartID-wnumq0bz'),
             options
         );
 chart.render();
@@ -1406,7 +1617,7 @@ chart.render();
                }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-ni54zlv9'),
+var chart = new ApexCharts(document.querySelector('#ChartID-u40mc2qj'),
             options
         );
 chart.render();
@@ -1517,7 +1728,7 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-afe7zrxk'),
+var chart = new ApexCharts(document.querySelector('#ChartID-8i7gfn51'),
             options
         );
 chart.render();
@@ -1628,7 +1839,7 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-rqilonha'),
+var chart = new ApexCharts(document.querySelector('#ChartID-qoacdsbk'),
             options
         );
 chart.render();
@@ -1743,7 +1954,7 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-5d3g02kx'),
+var chart = new ApexCharts(document.querySelector('#ChartID-4dzen32l'),
             options
         );
 chart.render();
@@ -1845,7 +2056,7 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-8nmhq3vc'),
+var chart = new ApexCharts(document.querySelector('#ChartID-1amwvoez'),
             options
         );
 chart.render();
@@ -1959,7 +2170,7 @@ chart.render();
              }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-q5mfsv9g'),
+var chart = new ApexCharts(document.querySelector('#ChartID-doy6pu1z'),
             options
         );
 chart.render();
@@ -2061,7 +2272,7 @@ chart.render();
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-g2aks6ty'),
+var chart = new ApexCharts(document.querySelector('#ChartID-7pqc8m9k'),
             options
         );
 chart.render();
@@ -2175,7 +2386,7 @@ chart.render();
              }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-1ft0quew'),
+var chart = new ApexCharts(document.querySelector('#ChartID-g0w8fbt4'),
             options
         );
 chart.render();
@@ -2295,7 +2506,7 @@ chart.render();
                }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-cwvr1z7p'),
+var chart = new ApexCharts(document.querySelector('#ChartID-bzgyucwt'),
             options
         );
 chart.render();
@@ -2380,7 +2591,7 @@ chart.render();
                }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-wctj8yim'),
+var chart = new ApexCharts(document.querySelector('#ChartID-i82eayzk'),
             options
         );
 chart.render();
@@ -2466,7 +2677,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-bui3ctrk'),
+var chart = new ApexCharts(document.querySelector('#ChartID-gks08of3'),
             options
         );
 chart.render();
@@ -2503,7 +2714,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-t1eb6wha'),
+var chart = new ApexCharts(document.querySelector('#ChartID-zo26w7pa'),
             options
         );
 chart.render();
@@ -2544,7 +2755,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-pckgeno0'),
+var chart = new ApexCharts(document.querySelector('#ChartID-5jlyqw9b'),
             options
         );
 chart.render();
@@ -2606,7 +2817,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-qbkrgl32'),
+var chart = new ApexCharts(document.querySelector('#ChartID-8l0ao56c'),
             options
         );
 chart.render();
@@ -2643,7 +2854,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-zc4eak7g'),
+var chart = new ApexCharts(document.querySelector('#ChartID-1jrxhzls'),
             options
         );
 chart.render();
@@ -2695,7 +2906,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-xij5wotl'),
+var chart = new ApexCharts(document.querySelector('#ChartID-f5jiqg8b'),
             options
         );
 chart.render();
@@ -2747,7 +2958,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-h5ja0yuk'),
+var chart = new ApexCharts(document.querySelector('#ChartID-glna78t6'),
             options
         );
 chart.render();
@@ -2820,7 +3031,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-cve2u9ai'),
+var chart = new ApexCharts(document.querySelector('#ChartID-se26uk4j'),
             options
         );
 chart.render();
@@ -2906,7 +3117,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-mjre2y6c'),
+var chart = new ApexCharts(document.querySelector('#ChartID-nr0gvjcm'),
             options
         );
 chart.render();
@@ -2989,7 +3200,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-zvqxtcps'),
+var chart = new ApexCharts(document.querySelector('#ChartID-q1z6dxlh'),
             options
         );
 chart.render();
@@ -3100,7 +3311,7 @@ chart.render();
                ]
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-mub1vk7j'),
+var chart = new ApexCharts(document.querySelector('#ChartID-tklirw9f'),
             options
         );
 chart.render();
@@ -3184,7 +3395,7 @@ chart.render();
              }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-6di4j1wy'),
+var chart = new ApexCharts(document.querySelector('#ChartID-ctgoamd8'),
             options
         );
 chart.render();
@@ -3268,7 +3479,7 @@ chart.render();
              }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-5v8u3rtx'),
+var chart = new ApexCharts(document.querySelector('#ChartID-p1uzbli8'),
             options
         );
 chart.render();
@@ -3375,7 +3586,7 @@ chart.render();
                }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-o35f6rpq'),
+var chart = new ApexCharts(document.querySelector('#ChartID-etsfvmdy'),
             options
         );
 chart.render();
@@ -3482,7 +3693,7 @@ chart.render();
                }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-wg1hikoe'),
+var chart = new ApexCharts(document.querySelector('#ChartID-p51io6kf'),
             options
         );
 chart.render();
@@ -3593,7 +3804,7 @@ chart.render();
                }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-dgyaxmu3'),
+var chart = new ApexCharts(document.querySelector('#ChartID-xqam765d'),
             options
         );
 chart.render();
@@ -3602,6 +3813,56 @@ chart.render();
 <!-- END BODY -->
 <!-- FOOTER -->
 <footer>
+
+<!-- JS Elastic Tabs START -->
+<script type="text/javascript">var maxWidth = 0;
+var $element;
+
+$(window).on("resize", function() {
+    $(".selector").hide();
+    var activeItem = $(".tabs a[class*='active']");
+    var id = activeItem.data("id");
+    setSelectorPosition(id);
+});
+
+// Set first active link
+var activeItem = $(".tabs a[class*='active']");
+var id = activeItem.data("id");
+setSelectorPosition(id);
+
+$(".tabs").on("click", "a", function(e) {
+    e.preventDefault();
+    $(".tabs a").removeClass("active");
+    $(this).addClass("active");
+
+    // Get id of link clicked
+    var id = $(this).data("id");
+
+    // Set selector position
+    setSelectorPosition(id);
+
+    // Hide all tabs
+    $(".tabs-content").hide();
+
+    // Show current tab
+    $("#" + id).show();
+});
+
+function setSelectorPosition(id) {
+    var activeItem = $(".tabs").find("[data-id='" + id + "']");
+    var activeWidth = activeItem.innerWidth();
+    var itemPos = activeItem.position();
+    $(".selector").css({
+        left: itemPos.left + "px",
+        top: itemPos.top + "px",
+        width: activeItem.innerWidth() + "px",
+        height: activeItem.innerHeight() + "px"
+    });
+    $(".selector").show();
+}
+</script>
+<!-- JS Elastic Tabs END -->
+
 
 </footer>
 <!-- END FOOTER -->
