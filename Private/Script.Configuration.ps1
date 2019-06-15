@@ -55,7 +55,7 @@ $Script:Configuration = [ordered] @{
         Jquery           = @{
             Comment = 'Jquery'
             Header  = @{
-                JsLink = 'http://code.jquery.com/jquery-3.3.1.min.js'
+                JsLink = 'https://code.jquery.com/jquery-3.3.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.3.1.min.js"
             }
         }

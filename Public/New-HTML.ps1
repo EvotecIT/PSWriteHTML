@@ -10,7 +10,7 @@ Function New-HTML {
         [int] $AutoRefresh,
         # save HTML options
         [Parameter(Mandatory = $false)][string]$FilePath,
-        [Parameter(Mandatory = $false)][switch]$ShowHTML,
+        [alias('Show', 'Open')][Parameter(Mandatory = $false)][switch]$ShowHTML,
         [ValidateSet('Unknown', 'String', 'Unicode', 'Byte', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'Ascii', 'Default', 'Oem', 'BigEndianUTF32')] $Encoding = 'UTF8'
     )
     [string] $CurrentDate = (Get-Date).ToString($DateFormat)
@@ -21,7 +21,7 @@ Function New-HTML {
 
         # Tab settings
         TabOptions  = @{
-            SlimTabs      = $false
+            SlimTabs = $false
         }
     }
 

@@ -3,12 +3,12 @@ Function New-HTMLSection {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace"),
-        [Parameter(Mandatory = $false)][string]$HeaderText,
+        [alias('Name')][Parameter(Mandatory = $false)][string]$HeaderText,
         [RGBColors]$HeaderTextColor = [RGBColors]::White,
         [string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment = 'center',
         [RGBColors]$HeaderBackGroundColor = [RGBColors]::DeepSkyBlue,
         [alias('BackgroundShade')][RGBColors]$BackgroundColor = [RGBColors]::None,
-        [Parameter(Mandatory = $false)][switch] $CanCollapse,
+        [alias('Collapsable')][Parameter(Mandatory = $false)][switch] $CanCollapse,
         [Parameter(Mandatory = $false)][switch] $IsHidden,
         [switch] $Collapsed,
         [int] $Height,
@@ -46,13 +46,13 @@ Function New-HTMLSection {
         $DivContentStyle = @{
             "display"          = 'none'
             #"width"            = "calc(100% / $Count - 15px)"
-            "height"           = if ($Height -ne 0) { "height: $($Height)px" } else { ''}
+            "height"           = if ($Height -ne 0) { "height: $($Height)px" } else { '' }
             "background-color" = ConvertFrom-Color -Color $BackgroundColor
         }
     } else {
         $DivContentStyle = @{
             # "width"            = "calc(100% / $Count - 15px)"
-            "height"           = if ($Height -ne 0) { "height: $($Height)px" } else { ''}
+            "height"           = if ($Height -ne 0) { "height: $($Height)px" } else { '' }
             "background-color" = ConvertFrom-Color -Color $BackgroundColor
         }
     }
@@ -74,7 +74,7 @@ Function New-HTMLSection {
     } else {
         # return this HTML
         New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultSection defaultCard"; 'style' = $DivContentStyle } -Value {
-            New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle  } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle } -Value {
                 New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
                 New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)'
                 New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)'

@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-06-13 10:09:53" name="revised"/>
+<meta content="2019-06-15 19:01:49" name="revised"/>
 <title>My title</title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
@@ -370,10 +370,13 @@ function hide(obj) {
 <!-- END HEADER -->
 <!-- BODY -->
 <body><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test" style="color: #ffffff;">Bar Charts - Test</a>
-<a id="show_530979019" href="javascript:void(0)" onclick="show('530979019');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_530979019" href="javascript:void(0)" onclick="hide('530979019');" style="color: #ffffff;">(Hide)</a>
+<a id="show_1058205763" href="javascript:void(0)" onclick="show('1058205763');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1058205763" href="javascript:void(0)" onclick="hide('1058205763');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="530979019" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="530979019"><div class="defaultPanel defaultCard"><div id="ChartID-s40h76em"></div></div></div></div>
+<div id="1058205763" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1058205763"><div class="defaultPanel defaultCard"><div id="ChartID-nif1x532"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-l21mx0ek"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-4l1r6qw9"></div></div>
+</div></div>
 </div>
 <script>var options = {
     "chart":  {
@@ -407,6 +410,66 @@ function hide(obj) {
                    },
     "series":  [
                    {
+                       "name":  [
+                                    "Time"
+                                ],
+                       "data":  [
+                                    1,
+                                    2,
+                                    3
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "categories":  [
+                                     "Test",
+                                     "Test1",
+                                     "Test2"
+                                 ]
+              },
+    "title":  {
+                  "text":  ""
+              }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-nif1x532'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "type":  "bar",
+                  "height":  350,
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  true
+                                }
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "series":  [
+                   {
+                       "name":  "Time",
                        "data":  [
                                     1,
                                     2,
@@ -414,6 +477,7 @@ function hide(obj) {
                                 ]
                    },
                    {
+                       "name":  "Test",
                        "data":  [
                                     2,
                                     5,
@@ -421,6 +485,7 @@ function hide(obj) {
                                 ]
                    },
                    {
+                       "name":  "Test3",
                        "data":  [
                                     3,
                                     7,
@@ -432,8 +497,7 @@ function hide(obj) {
                   "categories":  [
                                      "Test",
                                      "Test1",
-                                     "Test2",
-                                     "Test4"
+                                     "Test2"
                                  ]
               },
     "title":  {
@@ -441,7 +505,72 @@ function hide(obj) {
               }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-s40h76em'),
+var chart = new ApexCharts(document.querySelector('#ChartID-l21mx0ek'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "type":  "bar",
+                  "height":  350,
+                  "toolbar":  {
+                                  "show":  true,
+                                  "tools":  {
+                                                "download":  true,
+                                                "selection":  true,
+                                                "zoom":  true,
+                                                "zoomin":  true,
+                                                "zoomout":  true,
+                                                "pan":  true,
+                                                "reset":  true
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "plotOptions":  {
+                        "bar":  {
+                                    "horizontal":  true
+                                }
+                    },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "series":  [
+                   {
+                       "name":  [
+                                    "Time"
+                                ],
+                       "data":  [
+                                    0,
+                                    1,
+                                    2,
+                                    3,
+                                    4,
+                                    5
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "categories":  [
+                                     "Test 0",
+                                     "Test 1",
+                                     "Test 2",
+                                     "Test 3",
+                                     "Test 4",
+                                     "Test 5"
+                                 ]
+              },
+    "title":  {
+                  "text":  ""
+              }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-4l1r6qw9'),
             options
         );
 chart.render();

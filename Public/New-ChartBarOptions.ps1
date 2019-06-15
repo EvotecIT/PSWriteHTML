@@ -3,13 +3,13 @@
     [CmdletBinding()]
     param(
         [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',
-        [bool] $Horizontal = $true,
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
         [nullable[RGBColors]] $DataLabelsColor,
-        [switch] $PatternedColors,
-        [switch] $Distributed
+        [alias('PatternedColors')][switch] $Patterned,
+        [switch] $Distributed,
+        [switch] $Vertical
 
     )
     [PSCustomObject] @{
@@ -17,12 +17,12 @@
         Type               = $Type
         Title              = $Title
         TitleAlignment     = $TitleAlignment
-        Horizontal         = $Horizontal
+        Horizontal         = -not $Vertical.IsPresent
         DataLabelsEnabled  = $DataLabelsEnabled
         DataLabelsOffsetX  = $DataLabelsOffsetX
         DataLabelsFontSize = $DataLabelsFontSize
         DataLabelsColor    = $DataLabelsColor
-        PatternedColors    = $PatternedColors.IsPresent
+        PatternedColors    = $Patterned.IsPresent
         Distributed        = $Distributed.IsPresent
     }
 }

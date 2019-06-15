@@ -1,37 +1,28 @@
-﻿
-Import-Module .\PSWriteHTML.psd1 -Force
-
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example23_02.html {
-    New-HTMLTabOptions -SlimTabs
-    New-HTMLTab -Name 'Bar Charts' -IconRegular chart-bar {
-        New-HTMLSection -HeaderText 'Bar Charts 1 - Bar Stacked' -CanCollapse {
-            New-HTMLPanel {
-                $Data1 = 400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380
-                $Data2 = 44, 55, 41, 64, 22, 43, 21
-                $Data3 = 53, 32, 33, 52, 13, 44, 32
-                $DataNames1 = 'South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan', 'United States', 'China', 'Germany'
-
-                New-HTMLChart -Type 'Bar' {
-                    New-ChartBarOptions -Type barStacked
-                    New-ChartLegend -Name 'People', 'Pets', 'Furniture'
-                    for ($i = 0; $i -lt $Data1.Count; $i++) {
-                        New-ChartBar -Name $DataNames1[$i] -Value $Data1[$i], $Data2[$i], $Data3[$i]
-                    }
+﻿New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example23_02.html {
+    New-HTMLSection -HeaderText 'Bar Charts - Test' -CanCollapse {
+        New-HTMLPanel {
+            New-HTMLChart {
+                New-ChartLegend -Name 'Time' -Color Red
+                New-ChartBar -Name 'Test' -Value 1
+                New-ChartBar -Name 'Test1' -Value 2
+                New-ChartBar -Name 'Test2' -Value 3
+            }
+        }
+        New-HTMLPanel {
+            New-HTMLChart {
+                New-ChartLegend -Name 'Time', 'Test', 'Test3' -Color BlueViolet, Beige, YellowGreen
+                New-ChartBar -Name 'Test' -Value 1, 2, 3
+                New-ChartBar -Name 'Test1' -Value 2, 5, 7
+                New-ChartBar -Name 'Test2' -Value 3, 1, 2
+            }
+        }
+        New-HTMLPanel {
+            New-HTMLChart {
+                New-ChartLegend -Name 'Time'
+                for ($i = 0; $i -le 5; $i++) {
+                    New-ChartBar -Name "Test $i" -Value $i
                 }
             }
         }
-        New-HTMLSection -HeaderText 'Bar Charts 1 - Bar Stacked 2' -CanCollapse {
-            New-HTMLPanel {
-                $Data1 = 400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380
-                $Data2 = 44, 55, 41, 64, 22, 43, 21
-                $Data3 = 53, 32, 33, 52, 13, 44, 32
-                $DataNames1 = 'South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan', 'United States', 'China', 'Germany'
-                New-HTMLChartBar -Data $Data1, $Data2, $Data3 -DataNames $DataNames1 -Type barStacked -DataLegend 'People', 'Pets', 'Furniture'
-            }
-        }
     }
-} -ShowHTML
-
-
-
-
+} -Open

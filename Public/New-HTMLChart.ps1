@@ -1,4 +1,5 @@
 ﻿function New-HTMLChart {
+    [alias('Chart')]
     [CmdletBinding()]
     param(
         [ScriptBlock] $ChartSettings,
@@ -7,11 +8,18 @@
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width
     )
-
     $DataSet = [System.Collections.Generic.List[object]]::new()
     $DataName = [System.Collections.Generic.List[object]]::new()
+    $Colors = @()
 
+    # Bar default definitions
     [string] $BarType = 'bar' # Default
+    [bool] $BarHorizontal = $true
+    [bool] $BarDataLabelsEnabled = $true
+    [int] $BarDataLabelsOffsetX = -6
+    [string] $BarDataLabelsFontSize = '12px'
+    [bool] $BarPatternedColors = $false
+    [bool] $BarDistributed = $false
 
     [Array] $Settings = & $ChartSettings
     foreach ($Setting in $Settings) {
@@ -22,6 +30,9 @@
         } elseif ($Setting.ObjectType -eq 'Legend') {
             $DataLegend = $Setting.Names
             $LegendPosition = $Setting.LegendPosition
+            if ($null -ne $Setting.Color) {
+                $Colors = $Setting.Color
+            }
         } elseif ($Setting.ObjectType -eq 'BarOptions') {
             $BarType = $Setting.Type
             $BarHorizontal = $Setting.Horizontal
@@ -34,8 +45,14 @@
         }
     }
     if (-not $DataLegend) {
-        Write-Warning -Message 'Legend is missing.'
+        Write-Warning -Message 'Chart Legend is missing.'
         Exit
+    } else {
+        if ($DataLegend.Count -eq $DataSet[0].Count) {
+
+        } else {
+            Write-Warning -Message "Chart Legend count doesn't match values count. Skipping."
+        }
     }
 
     $HashTable = [ordered] @{ }
@@ -55,7 +72,13 @@
 
     if ($Type -eq 'Bar') {
         New-HTMLChartBar -Data $($HashTable.Values) -DataNames $DataName -DataLegend $DataLegend -LegendPosition $LegendPosition `
-            -Type $BarType -Title $Title -TitleAlignment $TitleAlignment #-Height $Height -Width $Width
+            -Type $BarType -Title $Title -TitleAlignment $TitleAlignment -Horizontal:$BarHorizontal `
+            -DataLabelsEnabled $BarDataLabelsEnabled `
+            -PatternedColors:$BarPatternedColors `
+            -DataLabelsOffsetX $BarDataLabelsOffsetX `
+            -DataLabelsFontSize $BarDataLabelsFontSize `
+            -Distributed:$BarDistributed `
+            -DataLabelsColor $BarDataLabelsColor -Height $Height -Width $Width -Colors $Colors
 
     }
 }
