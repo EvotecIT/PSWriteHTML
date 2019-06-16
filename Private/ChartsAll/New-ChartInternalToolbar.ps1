@@ -2,14 +2,15 @@ function New-ChartInternalToolbar {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
-        [bool] $Show = $true,
-        [bool] $Download = $true,
-        [bool] $Selection = $true,
-        [bool] $Zoom = $true,
-        [bool] $ZoomIn = $true,
-        [bool] $ZoomOut = $true,
-        [bool] $Pan = $true,
-        [bool] $Reset = $true
+        [bool] $Show = $false,
+        [bool] $Download = $false,
+        [bool] $Selection = $false,
+        [bool] $Zoom = $false,
+        [bool] $ZoomIn = $false,
+        [bool] $ZoomOut = $false,
+        [bool] $Pan = $false,
+        [bool] $Reset = $false,
+        [ValidateSet('zoom', 'selection', 'pan')][string] $AutoSelected = 'zoom'
     )
     $Options.chart.toolbar = [ordered] @{
         show         = $show
@@ -22,6 +23,6 @@ function New-ChartInternalToolbar {
             pan       = $Pan
             reset     = $Reset
         }
-        autoSelected = 'zoom'
+        autoSelected = $AutoSelected
     }
 }

@@ -250,8 +250,8 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
                 New-HTMLChartSpark -Data $Value1, $Value2
             }
         }
-
-
+    }
+    New-HTMLTab -Name 'Line Charts' -IconRegular hand-spock {
         New-HTMLSection -HeaderText '-1 section' -CanCollapse {
             New-HTMLPanel {
                 $Data = 10, 41, 35, 51, 49, 62, 69, 91, 148

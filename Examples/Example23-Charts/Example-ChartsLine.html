@@ -3,8 +3,8 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-06-15 21:58:29" name="revised"/>
-<title>My title</title>
+<meta content="2019-06-15 22:18:50" name="revised"/>
+<title>Charts - Line</title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
 <!-- CSS Default fonts END -->
@@ -349,6 +349,69 @@ h6 {
 </style>
 <!-- CSS Always Required Default Headings END -->
 
+<!-- CSS Elastic Tabs START -->
+<style type="text/css">.tabsWrapper {
+    text-align: center;
+    margin: 10px auto;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.tabs {
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 0px;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    position: relative;
+}
+
+.tabs .round {
+    border-radius: 4px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #777;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.6s;
+}
+
+.tabs a.active {
+    color: #fff;
+}
+
+.tabs a i {
+    margin-right: 5px;
+}
+
+.tabs .selector {
+    display: none;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    border-radius: 4px;
+    background: #1e90ff;
+}
+
+.tabs-content {
+    display: none;
+}
+
+.tabs-content.active {
+    display: block;
+}
+</style>
+<!-- CSS Elastic Tabs END -->
 
 <!-- JS Hide Section Code START -->
 <script type="text/javascript">function show(obj) {
@@ -363,87 +426,31 @@ function hide(obj) {
 }
 </script>
 <!-- JS Hide Section Code END -->
+
+<!-- JS Jquery START -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+<!-- JS Jquery END -->
 <!-- JS Apex Charts START -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script>
 <!-- JS Apex Charts END -->
 </head>
 <!-- END HEADER -->
 <!-- BODY -->
-<body><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test" style="color: #ffffff;">Bar Charts - Test</a>
-<a id="show_1100809187" href="javascript:void(0)" onclick="show('1100809187');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1100809187" href="javascript:void(0)" onclick="hide('1100809187');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="1100809187" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1100809187"><div class="defaultPanel defaultCard"><div id="ChartID-4cynlwf7"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-s478go3n"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-v4nstozf"></div></div>
+<body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div>
+<a href="javascript:void(0)" class="active" data-id="Tab-061mp8o7"><div class="far fa-hourglass"></div>
+<span> Line Charts</span>
+</a>
 </div></div>
+<div id="Tab-061mp8o7" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
+<a id="show_1267656139" href="javascript:void(0)" onclick="show('1267656139');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1267656139" href="javascript:void(0)" onclick="hide('1267656139');" style="color: #ffffff;">(Hide)</a>
 </div>
+<div id="1267656139" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1267656139"><div class="defaultPanel defaultCard"><div id="ChartID-62piq74s"></div></div></div></div>
+</div></div>
 <script>var options = {
     "chart":  {
-                  "type":  "bar",
                   "height":  350,
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  true,
-                                                "selection":  true,
-                                                "zoom":  true,
-                                                "zoomin":  true,
-                                                "zoomout":  true,
-                                                "pan":  true,
-                                                "reset":  true
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
-              },
-    "colors":  [
-                   "#ff0000"
-               ],
-    "plotOptions":  {
-                        "bar":  {
-                                    "horizontal":  true
-                                }
-                    },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "series":  [
-                   {
-                       "name":  [
-                                    "Time"
-                                ],
-                       "data":  [
-                                    1,
-                                    2,
-                                    3
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "categories":  [
-                                     "Test",
-                                     "Test1",
-                                     "Test2"
-                                 ]
-              },
-    "title":  {
-                  "text":  ""
-              }
-}
-
-var chart = new ApexCharts(document.querySelector('#ChartID-4cynlwf7'),
-            options
-        );
-chart.render();
-</script>
-<script>var options = {
-    "chart":  {
-                  "type":  "bar",
-                  "height":  350,
+                  "type":  "line",
                   "toolbar":  {
                                   "show":  true,
                                   "tools":  {
@@ -458,16 +465,21 @@ chart.render();
                                   "autoSelected":  "zoom"
                               }
               },
-    "colors":  [
-                   "#8a2be2",
-                   "#f5f5dc",
-                   "#9acd32"
+    "series":  [
+                   {
+
+                   }
                ],
-    "plotOptions":  {
-                        "bar":  {
-                                    "horizontal":  true
-                                }
-                    },
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Time"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  "straight"
+               },
     "dataLabels":  {
                        "enabled":  true,
                        "offsetX":  -6,
@@ -475,110 +487,24 @@ chart.render();
                                      "fontSize":  "12px"
                                  }
                    },
-    "series":  [
-                   {
-                       "name":  "Time",
-                       "data":  [
-                                    1,
-                                    2,
-                                    3
-                                ]
-                   },
-                   {
-                       "name":  "Test",
-                       "data":  [
-                                    2,
-                                    5,
-                                    1
-                                ]
-                   },
-                   {
-                       "name":  "Test3",
-                       "data":  [
-                                    3,
-                                    7,
-                                    2
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "categories":  [
-                                     "Test",
-                                     "Test1",
-                                     "Test2"
-                                 ]
+    "yaxis":  {
+
               },
     "title":  {
                   "text":  ""
-              }
+              },
+    "grid":  {
+                 "row":  {
+                             "colors":  [
+                                            "#d3d3d3",
+                                            "#f5f5f5"
+                                        ],
+                             "opacity":  0.5
+                         }
+             }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-s478go3n'),
-            options
-        );
-chart.render();
-</script>
-<script>var options = {
-    "chart":  {
-                  "type":  "bar",
-                  "height":  350,
-                  "toolbar":  {
-                                  "show":  true,
-                                  "tools":  {
-                                                "download":  true,
-                                                "selection":  true,
-                                                "zoom":  true,
-                                                "zoomin":  true,
-                                                "zoomout":  true,
-                                                "pan":  true,
-                                                "reset":  true
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
-              },
-    "plotOptions":  {
-                        "bar":  {
-                                    "horizontal":  true
-                                }
-                    },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "series":  [
-                   {
-                       "name":  [
-                                    "Time"
-                                ],
-                       "data":  [
-                                    0,
-                                    1,
-                                    2,
-                                    3,
-                                    4,
-                                    5
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "categories":  [
-                                     "Test 0",
-                                     "Test 1",
-                                     "Test 2",
-                                     "Test 3",
-                                     "Test 4",
-                                     "Test 5"
-                                 ]
-              },
-    "title":  {
-                  "text":  ""
-              }
-}
-
-var chart = new ApexCharts(document.querySelector('#ChartID-v4nstozf'),
+var chart = new ApexCharts(document.querySelector('#ChartID-62piq74s'),
             options
         );
 chart.render();
@@ -587,6 +513,56 @@ chart.render();
 <!-- END BODY -->
 <!-- FOOTER -->
 <footer>
+
+<!-- JS Elastic Tabs START -->
+<script type="text/javascript">var maxWidth = 0;
+var $element;
+
+$(window).on("resize", function() {
+    $(".selector").hide();
+    var activeItem = $(".tabs a[class*='active']");
+    var id = activeItem.data("id");
+    setSelectorPosition(id);
+});
+
+// Set first active link
+var activeItem = $(".tabs a[class*='active']");
+var id = activeItem.data("id");
+setSelectorPosition(id);
+
+$(".tabs").on("click", "a", function(e) {
+    e.preventDefault();
+    $(".tabs a").removeClass("active");
+    $(this).addClass("active");
+
+    // Get id of link clicked
+    var id = $(this).data("id");
+
+    // Set selector position
+    setSelectorPosition(id);
+
+    // Hide all tabs
+    $(".tabs-content").hide();
+
+    // Show current tab
+    $("#" + id).show();
+});
+
+function setSelectorPosition(id) {
+    var activeItem = $(".tabs").find("[data-id='" + id + "']");
+    var activeWidth = activeItem.innerWidth();
+    var itemPos = activeItem.position();
+    $(".selector").css({
+        left: itemPos.left + "px",
+        top: itemPos.top + "px",
+        width: activeItem.innerWidth() + "px",
+        height: activeItem.innerHeight() + "px"
+    });
+    $(".selector").show();
+}
+</script>
+<!-- JS Elastic Tabs END -->
+
 
 </footer>
 <!-- END FOOTER -->

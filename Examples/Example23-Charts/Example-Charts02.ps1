@@ -1,7 +1,11 @@
-﻿New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example23_02.html {
+﻿Import-Module .\PSWriteHTML.psd1 -Force
+
+
+New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example23_02.html {
     New-HTMLSection -HeaderText 'Bar Charts - Test' -CanCollapse {
         New-HTMLPanel {
             New-HTMLChart {
+                New-ChartToolbar
                 New-ChartLegend -Name 'Time' -Color Red
                 New-ChartBar -Name 'Test' -Value 1
                 New-ChartBar -Name 'Test1' -Value 2

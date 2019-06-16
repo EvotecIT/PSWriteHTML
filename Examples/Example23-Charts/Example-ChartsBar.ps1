@@ -1,6 +1,6 @@
-﻿Import-Module .\PSWriteHTML.psd1 -Force
+﻿#Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example23.html {
+New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-ChartsBar.html {
     New-HTMLTabOptions -SlimTabs
     New-HTMLTab -Name 'Bar Charts - Bar' -IconRegular chart-bar {
         New-HTMLSection -HeaderText 'Bar Charts - Test' -CanCollapse {
@@ -14,7 +14,8 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             }
             New-HTMLPanel {
                 New-HTMLChart {
-                    New-ChartLegend -Name 'Time'
+                    New-ChartToolbar -Download
+                    New-ChartLegend -Name 'Time', 'Money', 'Taxes'
                     New-ChartBar -Name 'Test' -Value 1, 2, 3
                     New-ChartBar -Name 'Test1' -Value 2, 5, 7
                     New-ChartBar -Name 'Test2' -Value 3, 1, 2
@@ -39,23 +40,23 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             }
         }
         New-HTMLSection -HeaderText 'Bar Charts - Test Colors' -CanCollapse {
-            New-HTMLPanel {
+            New-HTMLPanel -Invisible {
                 New-HTMLChart {
                     New-ChartLegend -Name 'Time'
-                    New-ChartBar -Name 'Test' -Value 1 -Color Red
-                    New-ChartBar -Name 'Test1' -Value 2 -Color Yellow
+                    New-ChartBar -Name 'Test' -Value 1
+                    New-ChartBar -Name 'Test1' -Value 2
                     New-ChartBar -Name 'Test2' -Value 3
                 }
             }
-            New-HTMLPanel {
+            New-HTMLPanel -Invisible {
                 New-HTMLChart {
-                    New-ChartLegend -Name 'Time'
+                    New-ChartLegend -Name 'Time', 'Money', 'Taxes'
                     New-ChartBar -Name 'Test' -Value 1, 2, 3
                     New-ChartBar -Name 'Test1' -Value 2, 5, 7
                     New-ChartBar -Name 'Test2' -Value 3, 1, 2
                 }
             }
-            New-HTMLPanel {
+            New-HTMLPanel -Invisible {
                 New-HTMLChart {
                     New-ChartLegend -Name 'Time'
                     for ($i = 0; $i -le 5; $i++) {
@@ -63,7 +64,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
                     }
                 }
             }
-            New-HTMLPanel {
+            New-HTMLPanel -Invisible {
                 New-HTMLChart {
                     New-ChartBarOptions -Vertical -DataLabelsColor GreenYellow
                     New-ChartLegend -Name 'Time'
@@ -157,8 +158,6 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             }
         }
     }
-
-
     New-HTMLTab -Name 'Bar Charts - Bar Stacked' -IconRegular chart-bar {
 
         New-HTMLSection -HeaderText 'Bar Charts 1 - Bar Stacked' -CanCollapse {

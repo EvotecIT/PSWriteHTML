@@ -1,6 +1,7 @@
 function New-HTMLChartBar {
     [CmdletBinding()]
     param(
+        # [ScriptBlock] $ChartSettings,
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
         [ValidateSet('', 'central')][string] $Positioning,
@@ -24,8 +25,19 @@ function New-HTMLChartBar {
 
         [Array] $Data,
         [Array] $DataNames,
-        [Array] $DataLegend
+        [Array] $DataLegend,
+        [hashtable] $Toolbar
     )
+
+    #[Array] $Settings = & $ChartSettings
+    #foreach ($Setting in $Settings) {
+    #    if ($Setting.ObjectType -eq 'Toolbar') {
+    #        $Toolbar = $Setting.Toolbar
+    #    }
+    #}
+
+
+
     $Options = [ordered] @{ }
     New-ChartInternalBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX -DataLabelsFontSize $DataLabelsFontSize -DataLabelsColor $DataLabelsColor `
@@ -36,6 +48,14 @@ function New-HTMLChartBar {
 
     New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
     New-ChartInternalSize -Options $Options -Height $Height -Width $Width
-    New-ChartInternalToolbar -Options $Options
+
+    if ($Toolbar.Count -eq 0) {
+        $Toolbar = @{
+            Show = $false
+        }
+    } else {
+        $Toolbar.Show = $true
+    }
+    New-ChartInternalToolbar -Options $Options @Toolbar
     New-ApexChart -Positioning $Positioning -Options $Options
 }

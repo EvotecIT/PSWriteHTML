@@ -70,16 +70,16 @@
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     FunctionsToExport = 'New-ChartBar', 'New-ChartBarOptions', 'New-ChartLegend', 
-    'New-ChartTheme', 'New-HTML', 'New-HTMLAnchor', 'New-HTMLAnchorLink', 
-    'New-HTMLAnchorName', 'New-HTMLChart', 'New-HTMLChartArea', 
-    'New-HTMLChartBar', 'New-HTMLChartLine', 'New-HTMLChartRadial', 
-    'New-HTMLChartSpark', 'New-HTMLCodeBlock', 'New-HTMLContainer', 
-    'New-HTMLHeading', 'New-HTMLHorizontalLine', 'New-HTMLImage', 
-    'New-HTMLList', 'New-HTMLListItem', 'New-HTMLLogo', 'New-HTMLMessage', 
-    'New-HTMLPanel', 'New-HTMLResourceCSS', 'New-HTMLResourceJS', 
-    'New-HTMLSection', 'New-HTMLSection1', 'New-HTMLSubSection', 
-    'New-HTMLSectionHeader', 'New-HTMLSpanStyle', 'New-HTMLStatus', 
-    'New-HTMLStatusItem', 'New-HTMLTab', 'New-HTMLTable', 
+    'New-ChartTheme', 'New-ChartToolbar', 'New-HTML', 'New-HTMLAnchor', 
+    'New-HTMLAnchorLink', 'New-HTMLAnchorName', 'New-HTMLChart', 
+    'New-HTMLChartArea', 'New-HTMLChartBar', 'New-HTMLChartLine', 
+    'New-HTMLChartRadial', 'New-HTMLChartSpark', 'New-HTMLCodeBlock', 
+    'New-HTMLContainer', 'New-HTMLHeading', 'New-HTMLHorizontalLine', 
+    'New-HTMLImage', 'New-HTMLList', 'New-HTMLListItem', 'New-HTMLLogo', 
+    'New-HTMLMessage', 'New-HTMLPanel', 'New-HTMLResourceCSS', 
+    'New-HTMLResourceJS', 'New-HTMLSection', 'New-HTMLSection1', 
+    'New-HTMLSubSection', 'New-HTMLSectionHeader', 'New-HTMLSpanStyle', 
+    'New-HTMLStatus', 'New-HTMLStatusItem', 'New-HTMLTab', 'New-HTMLTable', 
     'New-HTMLTableButtonCopy', 'New-HTMLTableButtonCSV', 
     'New-HTMLTableButtonExcel', 'New-HTMLTableButtonPageLength', 
     'New-HTMLTableButtonPDF', 'New-HTMLTableButtonPrint', 
@@ -94,14 +94,14 @@
     # VariablesToExport = @()
 
     # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-    AliasesToExport = 'ChartBar', 'ChartBarOptions', 'ChartLegend', 'ChartTheme', 'Chart', 
-    'New-HTMLColumn', 'New-ResourceCSS', 'New-CSS', 'New-ResourceJS', 
-    'New-JavaScript', 'New-HTMLContent', 'TableButtonCopy', 
-    'EmailTableButtonCopy', 'TableButtonCSV', 'EmailTableButtonCSV', 
-    'TableButtonExcel', 'EmailTableButtonExcel', 'TableButtonPageLength', 
-    'EmailTableButtonPageLength', 'TableButtonPDF', 'EmailTableButtonPDF', 
-    'TableButtonPrint', 'EmailTableButtonPrint', 'TabOptions', 
-    'Out-GridHtml', 'ohv'
+    AliasesToExport = 'ChartBar', 'ChartBarOptions', 'ChartLegend', 'ChartTheme', 
+    'ChartToolbar', 'Chart', 'New-HTMLColumn', 'New-ResourceCSS', 'New-CSS', 
+    'New-ResourceJS', 'New-JavaScript', 'New-HTMLContent', 
+    'TableButtonCopy', 'EmailTableButtonCopy', 'TableButtonCSV', 
+    'EmailTableButtonCSV', 'TableButtonExcel', 'EmailTableButtonExcel', 
+    'TableButtonPageLength', 'EmailTableButtonPageLength', 
+    'TableButtonPDF', 'EmailTableButtonPDF', 'TableButtonPrint', 
+    'EmailTableButtonPrint', 'TabOptions', 'Out-GridHtml', 'ohv'
 
     # DSC resources to export from this module
     # DscResourcesToExport = @()
