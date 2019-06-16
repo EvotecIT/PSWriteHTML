@@ -33,7 +33,7 @@ function New-HTMLChartLine {
         [Array] $DataLegend
     )
 
-    $Options = [ordered] @{}
+    $Options = [ordered] @{ }
 
     New-ChartInternalLine -Options $Options -Data $Data -DataNames $DataNames
 
@@ -42,6 +42,9 @@ function New-HTMLChartLine {
         -LineCurve $LineCurve `
         -LineWidth $LineWidth `
         -LineColor $LineColor
+
+    # line colors (stroke colors ) doesn't cover legend - we need to make sure it's the same even thou lines are already colored
+    New-ChartInternalColors -Options $Options -Colors $LineColor
 
     New-ChartInternalDataLabels -Options $Options `
         -DataLabelsEnabled $DataLabelsEnabled `

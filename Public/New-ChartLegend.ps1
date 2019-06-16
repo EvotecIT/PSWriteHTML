@@ -3,7 +3,7 @@
     [CmdletBinding()]
     param(
         [Array] $Names,
-        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', '')][string] $LegendPosition = '',
+        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
         [RGBColors[]] $Color
     )
     [PSCustomObject] @{

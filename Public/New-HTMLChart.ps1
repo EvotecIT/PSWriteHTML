@@ -12,6 +12,7 @@
     $DataSet = [System.Collections.Generic.List[object]]::new()
     $DataName = [System.Collections.Generic.List[object]]::new()
     $Colors = @()
+    $DataColors = [System.Collections.Generic.List[RGBColors]]::new()
 
     # Bar default definitions
     [string] $BarType = 'bar' # Default
@@ -57,6 +58,9 @@
             $Type = 'Line'
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
+            if ($null -ne $Setting.Color) {
+                $DataColors.Add($Setting.Color)
+            }
         } elseif ($Setting.ObjectType -eq 'Category') {
             $DataCategory = $Setting.Names
         }
@@ -125,7 +129,11 @@
             -DataLabelsColor $BarDataLabelsColor `
             -Height $Height `
             -Width $Width `
-            -Positioning $Positioning  #           -PatternedColors:$BarPatternedColors `       -Distributed:$BarDistributed `
+            -Positioning $Positioning -LineColor $DataColors
+
+
+
+        #           -PatternedColors:$BarPatternedColors `       -Distributed:$BarDistributed `
 
     }
 }

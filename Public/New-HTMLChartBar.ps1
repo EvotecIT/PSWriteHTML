@@ -42,9 +42,10 @@ function New-HTMLChartBar {
     New-ChartInternalBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX -DataLabelsFontSize $DataLabelsFontSize -DataLabelsColor $DataLabelsColor `
         -Data $Data -DataNames $DataNames -DataLegend $DataLegend -Title $Title -TitleAlignment $TitleAlignment `
-        -Type $Type -Colors $Colors `
+        -Type $Type `
         -PatternedColors:$PatternedColors -Distributed:$Distributed
 
+    New-ChartInternalColors -Options $Options -Colors $Colors
 
     New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
     New-ChartInternalSize -Options $Options -Height $Height -Width $Width

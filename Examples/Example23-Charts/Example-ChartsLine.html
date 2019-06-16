@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-06-16 11:27:19" name="revised"/>
+<meta content="2019-06-16 12:21:13" name="revised"/>
 <title>Charts - Line</title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
@@ -437,15 +437,17 @@ function hide(obj) {
 <!-- END HEADER -->
 <!-- BODY -->
 <body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-ar1l7x2o"><div class="far fa-hourglass"></div>
+<a href="javascript:void(0)" class="active" data-id="Tab-nja7f18m"><div class="far fa-hourglass"></div>
 <span> Line Charts</span>
 </a>
 </div></div>
-<div id="Tab-ar1l7x2o" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
-<a id="show_1951839548" href="javascript:void(0)" onclick="show('1951839548');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1951839548" href="javascript:void(0)" onclick="hide('1951839548');" style="color: #ffffff;">(Hide)</a>
+<div id="Tab-nja7f18m" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
+<a id="show_590002257" href="javascript:void(0)" onclick="show('590002257');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_590002257" href="javascript:void(0)" onclick="hide('590002257');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1951839548" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1951839548"><div class="defaultPanel defaultCard"><div id="ChartID-32y7d8xm"></div></div></div></div>
+<div id="590002257" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="590002257"><div class="defaultPanel defaultCard"><div id="ChartID-n10754sb"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-ar6lpy40"></div></div>
+</div></div>
 </div></div>
 <script>var options = {
     "chart":  {
@@ -538,7 +540,111 @@ function hide(obj) {
              }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-32y7d8xm'),
+var chart = new ApexCharts(document.querySelector('#ChartID-n10754sb'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "Incidents per month",
+                       "data":  [
+                                    10,
+                                    41,
+                                    35,
+                                    51,
+                                    49,
+                                    62,
+                                    69,
+                                    91,
+                                    148
+                                ]
+                   },
+                   {
+                       "name":  "Incidents per month resolved",
+                       "data":  [
+                                    5,
+                                    10,
+                                    20,
+                                    31,
+                                    49,
+                                    62,
+                                    69,
+                                    91,
+                                    148
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Jan",
+                                     "Feb",
+                                     "Mar",
+                                     "Apr",
+                                     "May",
+                                     "Jun",
+                                     "Jul",
+                                     "Aug",
+                                     "Sep"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  "straight",
+                   "colors":  [
+                                  "#ff0000",
+                                  "#008000"
+                              ]
+               },
+    "colors":  [
+                   "#ff0000",
+                   "#008000"
+               ],
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "yaxis":  {
+
+              },
+    "title":  {
+                  "text":  "Incidents Reported vs Solved",
+                  "align":  "center"
+              },
+    "grid":  {
+                 "row":  {
+                             "colors":  [
+                                            "#d3d3d3",
+                                            "#f5f5f5"
+                                        ],
+                             "opacity":  0.5
+                         }
+             }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-ar6lpy40'),
             options
         );
 chart.render();

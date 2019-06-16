@@ -14,7 +14,7 @@ Function New-ChartInternalBar {
         [string] $Formatter,
         [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',
 
-        [RGBColors[]] $Colors,
+        #[RGBColors[]] $Colors,
 
         [switch] $PatternedColors,
         [switch] $Distributed,
@@ -41,10 +41,10 @@ Function New-ChartInternalBar {
         }
     }
 
-    if ($Colors.Count -gt 0) {
-        $RGBColor = ConvertFrom-Color -Color $Colors
-        $Options.colors = @($RGBColor)
-    }
+    #if ($Colors.Count -gt 0) {
+    #    $RGBColor = ConvertFrom-Color -Color $Colors
+    #    $Options.colors = @($RGBColor)
+   # }
 
     $Options.plotOptions = @{
         bar = @{
