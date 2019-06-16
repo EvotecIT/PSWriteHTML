@@ -100,24 +100,6 @@
             -Colors $Colors `
             -Toolbar $Toolbar
     } elseif ($Type -eq 'Line') {
-        $HashTable = [ordered] @{ }
-        #$ArrayCount = $DataSet[0].Count
-        if ($ArrayCount -eq 1) {
-           # $HashTable.1 = $DataSet
-        } else {
-            #for ($i = 0; $i -lt $ArrayCount; $i++) {
-            #$HashTable.$i = [System.Collections.Generic.List[object]]::new()
-
-          #  foreach ($Value in $DataSet) {
-                #for ($h = 0; $h -lt $Value.Count; $h++) {
-          #      $HashTable[$i].Add($Value)
-                #}
-          #  }
-            # }
-        }
-
-
-
         New-HTMLChartLine -Data $DataSet `
             -DataNames $DataName `
             -DataLegend $DataLegend `
