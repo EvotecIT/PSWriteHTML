@@ -5,11 +5,12 @@ New-HTML -TitleText 'Charts - Line' -UseCssLinks:$true -UseJavaScriptLinks:$true
     New-HTMLTab -Name 'Line Charts' -IconRegular hourglass {
         New-HTMLSection -HeaderText 'Line Charts - Test' -CanCollapse {
             New-HTMLPanel {
-                New-HTMLChart {
-                    New-ChartLegend -Name 'Time'
-                    New-ChartLine -Name 'Test' -Value 1,15,20,30,50
-                    New-ChartLine -Name 'Test1' -Value 2,15,20,30,50
-                    New-ChartLine -Name 'Test2' -Value 3,15,20,30,50
+                New-HTMLChart -Title 'Incidents per month' {
+                    New-ChartLegend -Name 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
+                    New-ChartLine -Name 'Incidents per month sent' -Value 10, 41, 35, 51, 49, 62, 69, 91, 148
+                    New-ChartLine -Name 'Incidents per month resolved' -Value 5, 10, 20, 31, 49, 62, 69, 91, 148
+                    #New-ChartLine -Name 'Test1' -Value 2
+                    #New-ChartLine -Name 'Test2' -Value 3
                 }
             }
             <#

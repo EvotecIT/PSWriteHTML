@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-06-15 22:18:50" name="revised"/>
+<meta content="2019-06-16 10:22:04" name="revised"/>
 <title>Charts - Line</title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
@@ -437,43 +437,76 @@ function hide(obj) {
 <!-- END HEADER -->
 <!-- BODY -->
 <body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-061mp8o7"><div class="far fa-hourglass"></div>
+<a href="javascript:void(0)" class="active" data-id="Tab-t2z0rynx"><div class="far fa-hourglass"></div>
 <span> Line Charts</span>
 </a>
 </div></div>
-<div id="Tab-061mp8o7" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
-<a id="show_1267656139" href="javascript:void(0)" onclick="show('1267656139');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1267656139" href="javascript:void(0)" onclick="hide('1267656139');" style="color: #ffffff;">(Hide)</a>
+<div id="Tab-t2z0rynx" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
+<a id="show_1310021685" href="javascript:void(0)" onclick="show('1310021685');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1310021685" href="javascript:void(0)" onclick="hide('1310021685');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1267656139" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1267656139"><div class="defaultPanel defaultCard"><div id="ChartID-62piq74s"></div></div></div></div>
+<div id="1310021685" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1310021685"><div class="defaultPanel defaultCard"><div id="ChartID-rpk04jox"></div></div></div></div>
 </div></div>
 <script>var options = {
     "chart":  {
                   "height":  350,
                   "type":  "line",
                   "toolbar":  {
-                                  "show":  true,
+                                  "show":  false,
                                   "tools":  {
-                                                "download":  true,
-                                                "selection":  true,
-                                                "zoom":  true,
-                                                "zoomin":  true,
-                                                "zoomout":  true,
-                                                "pan":  true,
-                                                "reset":  true
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
                                             },
                                   "autoSelected":  "zoom"
                               }
               },
     "series":  [
                    {
-
+                       "name":  "Incidents per month sent",
+                       "data":  [
+                                    10,
+                                    41,
+                                    35,
+                                    51,
+                                    49,
+                                    62,
+                                    69,
+                                    91,
+                                    148
+                                ]
+                   },
+                   {
+                       "name":  "Incidents per month resolved",
+                       "data":  [
+                                    5,
+                                    10,
+                                    20,
+                                    31,
+                                    49,
+                                    62,
+                                    69,
+                                    91,
+                                    148
+                                ]
                    }
                ],
     "xaxis":  {
                   "type":  "category",
                   "categories":  [
-                                     "Time"
+                                     "Jan",
+                                     "Feb",
+                                     "Mar",
+                                     "Apr",
+                                     "May",
+                                     "Jun",
+                                     "Jul",
+                                     "Aug",
+                                     "Sep"
                                  ]
               },
     "stroke":  {
@@ -491,7 +524,7 @@ function hide(obj) {
 
               },
     "title":  {
-                  "text":  ""
+                  "text":  "Incidents per month"
               },
     "grid":  {
                  "row":  {
@@ -504,7 +537,7 @@ function hide(obj) {
              }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-62piq74s'),
+var chart = new ApexCharts(document.querySelector('#ChartID-rpk04jox'),
             options
         );
 chart.render();
