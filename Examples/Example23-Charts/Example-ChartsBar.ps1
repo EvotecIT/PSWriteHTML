@@ -1,4 +1,4 @@
-﻿#Import-Module .\PSWriteHTML.psd1 -Force
+﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-ChartsBar.html {
     New-HTMLTabOptions -SlimTabs
@@ -6,7 +6,6 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
         New-HTMLSection -HeaderText 'Bar Charts - Test' -CanCollapse {
             New-HTMLPanel {
                 New-HTMLChart {
-                    New-ChartLegend -Name 'Time'
                     New-ChartBar -Name 'Test' -Value 1
                     New-ChartBar -Name 'Test1' -Value 2
                     New-ChartBar -Name 'Test2' -Value 3
@@ -238,9 +237,6 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
                         New-ChartBar -Name $DataNames[$i] -Value $Data1[$i], $Data2[$i]
                     }
                 }
-
-                #New-HTMLChartBar -Data $Data1, $Data2 -DataNames $DataNames -DataLegend $DataLegend -Type barStacked -DataLabelsEnabled $true -Height 500
-
             }
             New-HTMLPanel {
                 $Data1 = -0.8, -1.05, -1.06, -1.18, -1.4, -2.2, -2.85, -3.7, -3.96, -4.22, -4.3, -4.4, -4.1, -4, -4.1, -3.4, -3.1, -2.8

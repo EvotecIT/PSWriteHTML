@@ -4,7 +4,7 @@ Function New-HTMLPanel {
     param (
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace with Content"),
         #[alias('ColumnCount', 'Columns')][ValidateSet('1', '2', '3', '4', '5 ', '6', '7', '8', '9', '10', '11', '12')][string] $Count = 1,
-        [alias('BackgroundShade')][RGBColors]$BackgroundColor,
+        [alias('BackgroundShade')][RGBColors]$BackgroundColor = [RGBColors]::None,
         [switch] $Invisible #,
         # [int] $Height
     )
@@ -13,7 +13,7 @@ Function New-HTMLPanel {
     #}
     # $StyleWidth = "width: calc(100% / $Count - 10px)"
 
-    if ($null -ne $BackgroundColor) {
+    if ($BackgroundColor -ne [RGBColors]::None) {
         $BackGroundColorFromRGB = ConvertFrom-Color -Color $BackgroundColor
         $DivColumnStyle = "background-color:$BackGroundColorFromRGB;"
     } else {

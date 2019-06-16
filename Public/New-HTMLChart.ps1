@@ -34,7 +34,7 @@
     [bool] $BarPatternedColors = $false
     [bool] $BarDistributed = $false
 
-
+    [string] $LegendPosition = 'default'
     #
 
     [Array] $Settings = & $ChartSettings
@@ -96,14 +96,14 @@
     }
 
     if ($Type -eq 'Bar') {
-        if (-not $DataLegend) {
-            Write-Warning -Message 'Chart Legend is missing.'
-            Exit
-        } else {
-            if ($DataLegend.Count -lt $DataSet[0].Count) {
-                Write-Warning -Message "Chart Legend count doesn't match values count. Skipping."
-            }
+        #if (-not $DataLegend) {
+        #    Write-Warning -Message 'Chart Legend is missing.'
+        #     Exit
+        # } else {
+        if ($DataLegend.Count -lt $DataSet[0].Count) {
+            Write-Warning -Message "Chart Legend count doesn't match values count. Skipping."
         }
+        #}
 
         # Fixes dataset/dataname to format expected by New-HTMLChartBar
         $HashTable = [ordered] @{ }
