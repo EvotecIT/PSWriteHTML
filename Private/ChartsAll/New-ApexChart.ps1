@@ -7,9 +7,11 @@ function New-ApexChart {
     $Script:HTMLSchema.Features.ChartsApex = $true
     [string] $ID = "ChartID-" + (Get-RandomStringName -Size 8)
     if ($Positioning -eq 'default') {
-        $Positioning = ''
+        $Class = ''
+    } else {
+        $Class = $Positioning
     }
-    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = $Positioning }
+    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = $Class }
     $Script = New-HTMLTag -Tag 'script' -Value {
         # Convert Dictionary to JSON and return chart within SCRIPT tag
         # Make sure to return with additional empty string

@@ -6,7 +6,8 @@
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
         [nullable[int]] $Height = 350,
-        [nullable[int]] $Width
+        [nullable[int]] $Width,
+        [ValidateSet('default', 'central')][string] $Positioning = 'default'
     )
     $DataSet = [System.Collections.Generic.List[object]]::new()
     $DataName = [System.Collections.Generic.List[object]]::new()
@@ -104,7 +105,8 @@
             -Height $Height `
             -Width $Width `
             -Colors $Colors `
-            -Toolbar $Toolbar
+            -Toolbar $Toolbar `
+            -Positioning $Positioning
     } elseif ($Type -eq 'Line') {
         if (-not $DataCategory) {
             Write-Warning -Message 'Chart Category (Chart Axis X) is missing.'
@@ -122,7 +124,8 @@
             -DataLabelsFontSize $BarDataLabelsFontSize `
             -DataLabelsColor $BarDataLabelsColor `
             -Height $Height `
-            -Width $Width  #           -PatternedColors:$BarPatternedColors `       -Distributed:$BarDistributed `
+            -Width $Width `
+            -Positioning $Positioning  #           -PatternedColors:$BarPatternedColors `       -Distributed:$BarDistributed `
 
     }
 }
