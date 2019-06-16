@@ -3,7 +3,7 @@ function New-HTMLChartRadial {
     param(
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
-        [ValidateSet('', 'central')][string] $Positioning,
+        [ValidateSet('default', 'central')][string] $Positioning,
         [Array] $Names,
         [Array] $Values,
         $Type,

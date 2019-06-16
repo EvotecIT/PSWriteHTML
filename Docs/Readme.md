@@ -14,6 +14,9 @@ Locale: {{ Update Locale }}
 ### [New-ChartBar](New-ChartBar.md)
 {{ Fill in the Synopsis }}
 
+### [New-ChartBarOptions](New-ChartBarOptions.md)
+{{ Fill in the Synopsis }}
+
 ### [New-ChartLegend](New-ChartLegend.md)
 {{ Fill in the Synopsis }}
 

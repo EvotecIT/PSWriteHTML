@@ -9,7 +9,7 @@ Function New-ChartInternalBar {
         [RGBColors[]] $DataLabelsColor,
 
         [string] $Title,
-        [ValidateSet('center', 'left', 'right', '')][string] $TitleAlignment = '',
+        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
 
         [string] $Formatter,
         [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',

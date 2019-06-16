@@ -4,14 +4,14 @@ function New-HTMLChartBar {
         # [ScriptBlock] $ChartSettings,
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
-        [ValidateSet('', 'central')][string] $Positioning,
+        [ValidateSet('default', 'central')][string] $Positioning = 'default',
         [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',
         [RGBColors[]] $Colors,
 
         [switch] $PatternedColors,
 
         [string] $Title,
-        [ValidateSet('center', 'left', 'right', '')][string] $TitleAlignment = '',
+        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
 
         [bool] $Horizontal = $true,
         [bool] $DataLabelsEnabled = $true,
@@ -21,7 +21,7 @@ function New-HTMLChartBar {
 
         [switch] $Distributed,
 
-        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', '')][string] $LegendPosition = '',
+        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
 
         [Array] $Data,
         [Array] $DataNames,

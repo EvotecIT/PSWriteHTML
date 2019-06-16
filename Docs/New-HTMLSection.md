@@ -54,7 +54,7 @@ Accept wildcard characters: False
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases:
+Aliases: Collapsable
 
 Required: False
 Position: Named
@@ -115,7 +115,7 @@ Accept wildcard characters: False
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: Name
 
 Required: False
 Position: Named

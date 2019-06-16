@@ -4,7 +4,7 @@
     param(
         [ScriptBlock] $ChartSettings,
         [string] $Title,
-        [ValidateSet('center', 'left', 'right', '')][string] $TitleAlignment = '',
+        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width
     )
@@ -27,16 +27,19 @@
     [Array] $Settings = & $ChartSettings
     foreach ($Setting in $Settings) {
         if ($Setting.ObjectType -eq 'Bar') {
+            # For Bar Charts
             $Type = 'Bar'
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
         } elseif ($Setting.ObjectType -eq 'Legend') {
+            # For Bar Charts
             $DataLegend = $Setting.Names
             $LegendPosition = $Setting.LegendPosition
             if ($null -ne $Setting.Color) {
                 $Colors = $Setting.Color
             }
         } elseif ($Setting.ObjectType -eq 'BarOptions') {
+            # For Bar Charts
             $BarType = $Setting.Type
             $BarHorizontal = $Setting.Horizontal
             $BarDataLabelsEnabled = $Setting.DataLabelsEnabled
@@ -46,25 +49,28 @@
             $BarPatternedColors = $Setting.PatternedColors
             $BarDistributed = $Setting.Distributed
         } elseif ($Setting.ObjectType -eq 'Toolbar') {
+            # For All Charts
             $Toolbar = $Setting.Toolbar
         } elseif ($Setting.ObjectType -eq 'Line') {
+            # For Line Charts
             $Type = 'Line'
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
+        } elseif ($Setting.ObjectType -eq 'Category') {
+            $DataCategory = $Setting.Names
         }
     }
-    if (-not $DataLegend) {
-        Write-Warning -Message 'Chart Legend is missing.'
-        Exit
-    } else {
-        if ($DataLegend.Count -lt $DataSet[0].Count) {
-            Write-Warning -Message "Chart Legend count doesn't match values count. Skipping."
-        }
-    }
-
-
 
     if ($Type -eq 'Bar') {
+        if (-not $DataLegend) {
+            Write-Warning -Message 'Chart Legend is missing.'
+            Exit
+        } else {
+            if ($DataLegend.Count -lt $DataSet[0].Count) {
+                Write-Warning -Message "Chart Legend count doesn't match values count. Skipping."
+            }
+        }
+
         $HashTable = [ordered] @{ }
         $ArrayCount = $DataSet[0].Count
         if ($ArrayCount -eq 1) {
@@ -100,9 +106,13 @@
             -Colors $Colors `
             -Toolbar $Toolbar
     } elseif ($Type -eq 'Line') {
+        if (-not $DataCategory) {
+            Write-Warning -Message 'Chart Category (Chart Axis X) is missing.'
+            Exit
+        }
         New-HTMLChartLine -Data $DataSet `
             -DataNames $DataName `
-            -DataLegend $DataLegend `
+            -DataLegend $DataCategory `
             -GridColors LightGrey, WhiteSmoke `
             -GridOpacity 0.5 `
             -Title $Title `

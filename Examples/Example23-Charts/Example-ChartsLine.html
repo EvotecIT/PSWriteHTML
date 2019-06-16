@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-06-16 10:22:04" name="revised"/>
+<meta content="2019-06-16 11:27:19" name="revised"/>
 <title>Charts - Line</title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
@@ -437,15 +437,15 @@ function hide(obj) {
 <!-- END HEADER -->
 <!-- BODY -->
 <body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-t2z0rynx"><div class="far fa-hourglass"></div>
+<a href="javascript:void(0)" class="active" data-id="Tab-ar1l7x2o"><div class="far fa-hourglass"></div>
 <span> Line Charts</span>
 </a>
 </div></div>
-<div id="Tab-t2z0rynx" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
-<a id="show_1310021685" href="javascript:void(0)" onclick="show('1310021685');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1310021685" href="javascript:void(0)" onclick="hide('1310021685');" style="color: #ffffff;">(Hide)</a>
+<div id="Tab-ar1l7x2o" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
+<a id="show_1951839548" href="javascript:void(0)" onclick="show('1951839548');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1951839548" href="javascript:void(0)" onclick="hide('1951839548');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="1310021685" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1310021685"><div class="defaultPanel defaultCard"><div id="ChartID-rpk04jox"></div></div></div></div>
+<div id="1951839548" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1951839548"><div class="defaultPanel defaultCard"><div id="ChartID-32y7d8xm"></div></div></div></div>
 </div></div>
 <script>var options = {
     "chart":  {
@@ -467,7 +467,7 @@ function hide(obj) {
               },
     "series":  [
                    {
-                       "name":  "Incidents per month sent",
+                       "name":  "Incidents per month",
                        "data":  [
                                     10,
                                     41,
@@ -524,7 +524,8 @@ function hide(obj) {
 
               },
     "title":  {
-                  "text":  "Incidents per month"
+                  "text":  "Incidents Reported vs Solved",
+                  "align":  "center"
               },
     "grid":  {
                  "row":  {
@@ -537,7 +538,7 @@ function hide(obj) {
              }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-rpk04jox'),
+var chart = new ApexCharts(document.querySelector('#ChartID-32y7d8xm'),
             options
         );
 chart.render();

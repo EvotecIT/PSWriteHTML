@@ -3,7 +3,7 @@ function New-HTMLChartArea {
     param(
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
-        [ValidateSet('', 'central')][string] $Positioning,
+        [ValidateSet('default', 'central')][string] $Positioning,
 
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
@@ -19,9 +19,9 @@ function New-HTMLChartArea {
         [double] $GridOpacity,
 
         [string] $Title,
-        [ValidateSet('center', 'left', 'right', '')][string] $TitleAlignment = '',
+        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
 
-        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', '')][string] $LegendPosition = '',
+        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
 
         [string] $TitleX,
         [string] $TitleY,

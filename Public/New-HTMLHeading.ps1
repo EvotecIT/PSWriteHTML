@@ -3,7 +3,7 @@ Function New-HTMLHeading {
     Param (
         [validateset('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7')][string]$Heading,
         [string]$HeadingText,
-        [validateset('', 'central')][string] $Type,
+        [validateset('default', 'central')][string] $Type = 'default',
         [switch] $Underline,
         [nullable[RGBColors]] $Color
     )

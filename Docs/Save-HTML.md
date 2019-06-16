@@ -65,7 +65,7 @@ Accept wildcard characters: False
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases:
+Aliases: Show, Open
 
 Required: False
 Position: Named

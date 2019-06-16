@@ -5,20 +5,20 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLChart
+# New-ChartToolbar
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-New-HTMLChart [[-ChartSettings] <ScriptBlock>] [[-Title] <String>] [[-TitleAlignment] <String>]
- [[-Height] <Int32>] [[-Width] <Int32>] [<CommonParameters>]
+New-ChartToolbar [-Download] [-Selection] [-Zoom] [-ZoomIn] [-ZoomOut] [-Pan] [-Reset]
+ [[-AutoSelected] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
@@ -31,13 +31,14 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -ChartSettings
-{{ Fill ChartSettings Description }}
+### -AutoSelected
+{{ Fill AutoSelected Description }}
 
 ```yaml
-Type: ScriptBlock
+Type: String
 Parameter Sets: (All)
 Aliases:
+Accepted values: zoom, selection, pan
 
 Required: False
 Position: 0
@@ -46,62 +47,106 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Height
-{{Fill Height Description}}
+### -Download
+{{ Fill Download Description }}
 
 ```yaml
-Type: Int32
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Title
-{{ Fill Title Description }}
+### -Pan
+{{ Fill Pan Description }}
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TitleAlignment
-{{Fill TitleAlignment Description}}
+### -Reset
+{{ Fill Reset Description }}
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
-Accepted values: center, left, right, none
 
 Required: False
-Position: 2
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Width
-{{Fill Width Description}}
+### -Selection
+{{ Fill Selection Description }}
 
 ```yaml
-Type: Int32
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 4
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Zoom
+{{ Fill Zoom Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ZoomIn
+{{ Fill ZoomIn Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ZoomOut
+{{ Fill ZoomOut Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

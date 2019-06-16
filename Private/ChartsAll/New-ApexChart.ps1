@@ -2,10 +2,13 @@ function New-ApexChart {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
-        [ValidateSet('', 'central')][string] $Positioning
+        [ValidateSet('default', 'central')][string] $Positioning
     )
     $Script:HTMLSchema.Features.ChartsApex = $true
     [string] $ID = "ChartID-" + (Get-RandomStringName -Size 8)
+    if ($Positioning -eq 'default') {
+        $Positioning = ''
+    }
     $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = $Positioning }
     $Script = New-HTMLTag -Tag 'script' -Value {
         # Convert Dictionary to JSON and return chart within SCRIPT tag

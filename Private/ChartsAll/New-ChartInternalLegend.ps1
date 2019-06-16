@@ -1,10 +1,10 @@
 function New-ChartInternalLegend {
     param(
         [System.Collections.IDictionary] $Options,
-        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', '')][string] $LegendPosition = ''
+        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default'
     )
     # legend
-    if ($LegendPosition -eq '' -or $LegendPosition -eq 'bottom') {
+    if ($LegendPosition -eq 'default' -or $LegendPosition -eq 'bottom') {
         # Do nothing
     } elseif ($LegendPosition -eq 'right') {
         $Options.legend = [ordered]@{

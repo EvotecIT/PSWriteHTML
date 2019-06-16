@@ -17,7 +17,7 @@ New-HTMLChartBar [[-Height] <Int32>] [[-Width] <Int32>] [[-Positioning] <String>
  [[-Colors] <RGBColors[]>] [-PatternedColors] [[-Title] <String>] [[-TitleAlignment] <String>]
  [[-Horizontal] <Boolean>] [[-DataLabelsEnabled] <Boolean>] [[-DataLabelsOffsetX] <Int32>]
  [[-DataLabelsFontSize] <String>] [[-DataLabelsColor] <RGBColors>] [-Distributed] [[-LegendPosition] <String>]
- [[-Data] <Array>] [[-DataNames] <Array>] [[-DataLegend] <Array>] [<CommonParameters>]
+ [[-Data] <Array>] [[-DataNames] <Array>] [[-DataLegend] <Array>] [[-Toolbar] <Hashtable>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -274,6 +274,21 @@ Accepted values: center, left, right,
 
 Required: False
 Position: 6
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Toolbar
+{{ Fill Toolbar Description }}
+
+```yaml
+Type: Hashtable
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 16
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
