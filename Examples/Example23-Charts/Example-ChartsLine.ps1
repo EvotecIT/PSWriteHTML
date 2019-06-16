@@ -9,8 +9,6 @@ New-HTML -TitleText 'Charts - Line' -UseCssLinks:$true -UseJavaScriptLinks:$true
                     New-ChartAxisX -Name 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
                     New-ChartLine -Name 'Incidents per month' -Value 10, 41, 35, 51, 49, 62, 69, 91, 148
                     New-ChartLine -Name 'Incidents per month resolved' -Value 5, 10, 20, 31, 49, 62, 69, 91, 148
-                    #New-ChartLine -Name 'Test1' -Value 2
-                    #New-ChartLine -Name 'Test2' -Value 3
                 }
             }
             New-HTMLPanel {
@@ -36,8 +34,6 @@ New-HTML -TitleText 'Charts - Line' -UseCssLinks:$true -UseJavaScriptLinks:$true
                     New-ChartAxisX -Name 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'
                     New-ChartLine -Name "High - 2013" -Value 28, 29, 33, 36, 32, 32, 33 #-Color Red -Cap square -Dash 5
                     New-ChartLine -Name  "Low - 2013" -Value 12, 11, 14, 18, 17, 13, 13 #-Color Green -Curve stepline -Width 10
-                    #New-ChartLine -Name 'Test1' -Value 2
-                    #New-ChartLine -Name 'Test2' -Value 3
                 }
             }
 
