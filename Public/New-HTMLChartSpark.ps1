@@ -3,7 +3,7 @@ function New-HTMLChartSpark {
     param(
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
-        [ValidateSet('default', 'central')][string] $Positioning,
+        [ValidateSet('default', 'central')][string] $Positioning = 'default',
 
         # Data to display in Spark
         [Array] $Data,

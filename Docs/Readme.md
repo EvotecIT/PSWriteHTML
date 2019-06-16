@@ -17,7 +17,19 @@ Locale: {{ Update Locale }}
 ### [New-ChartBarOptions](New-ChartBarOptions.md)
 {{ Fill in the Synopsis }}
 
+### [New-ChartCategory](New-ChartCategory.md)
+{{ Fill in the Synopsis }}
+
 ### [New-ChartLegend](New-ChartLegend.md)
+{{ Fill in the Synopsis }}
+
+### [New-ChartLine](New-ChartLine.md)
+{{ Fill in the Synopsis }}
+
+### [New-ChartTheme](New-ChartTheme.md)
+{{ Fill in the Synopsis }}
+
+### [New-ChartToolbar](New-ChartToolbar.md)
 {{ Fill in the Synopsis }}
 
 ### [New-HTML](New-HTML.md)

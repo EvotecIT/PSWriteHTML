@@ -2,7 +2,7 @@ function New-ApexChart {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
-        [ValidateSet('default', 'central')][string] $Positioning
+        [ValidateSet('default', 'central')][string] $Positioning = 'default'
     )
     $Script:HTMLSchema.Features.ChartsApex = $true
     [string] $ID = "ChartID-" + (Get-RandomStringName -Size 8)

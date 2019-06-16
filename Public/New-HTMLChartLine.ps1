@@ -3,7 +3,7 @@ function New-HTMLChartLine {
     param(
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
-        [ValidateSet('default', 'central')][string] $Positioning,
+        [ValidateSet('default', 'central')][string] $Positioning = 'default',
 
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
