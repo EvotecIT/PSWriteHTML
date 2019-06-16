@@ -84,8 +84,14 @@
             if ($Setting.LineCap) {
                 $LineCaps.Add($Setting.LineCap)
             }
-        } elseif ($Setting.ObjectType -eq 'Category') {
-            $DataCategory = $Setting.Names
+        } elseif ($Setting.ObjectType -eq 'ChartAxisX') {
+            $ChartAxisX = $Setting.ChartAxisX
+            #$DataCategory = $ChartAxisX.Names
+
+        } elseif ($Setting.ObjectType -eq 'ChartGrid') {
+            $GridOptions = $Setting.Grid
+        } elseif ($Setting.ObjectType -eq 'ChartAxisY') {
+            $ChartAxisY = $Setting.ChartAxisY
         }
     }
 
@@ -136,15 +142,12 @@
             -Toolbar $Toolbar `
             -Positioning $Positioning
     } elseif ($Type -eq 'Line') {
-        if (-not $DataCategory) {
+        if (-not $ChartAxisX) {
             Write-Warning -Message 'Chart Category (Chart Axis X) is missing.'
             Exit
         }
         New-HTMLChartLine -Data $DataSet `
             -DataNames $DataName `
-            -DataLegend $DataCategory `
-            -GridColors LightGrey, WhiteSmoke `
-            -GridOpacity 0.5 `
             -Title $Title `
             -TitleAlignment $TitleAlignment `
             -DataLabelsEnabled $BarDataLabelsEnabled `
@@ -158,7 +161,13 @@
             -LineCurve $LineCurves `
             -LineWidth $LineWidths `
             -LineDash $LineDashes `
-            -LineCap $LineCaps
+            -LineCap $LineCaps `
+            -GridOptions $GridOptions `
+            -ChartAxisX $ChartAxisX `
+            -ChartAxisY $ChartAxisY
+        #-DataLegend $DataCategory `
+        #-GridColors LightGrey, WhiteSmoke `
+        #-GridOpacity 0.5 `
 
 
 

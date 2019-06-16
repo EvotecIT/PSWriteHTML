@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLChartRadial
+# New-ChartAxisX
 
 ## SYNOPSIS
 {{ Fill in the Synopsis }}
@@ -13,9 +13,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLChartRadial [[-Height] <Int32>] [[-Width] <Int32>] [[-Positioning] <String>] [[-Names] <Array>]
- [[-Values] <Array>] [[-Type] <Object>] [[-CircleType] <Object>] [[-LabelAverage] <String>]
- [<CommonParameters>]
+New-ChartAxisX [[-Names] <Array>] [[-TitleText] <String>] [[-Type] <String>] [[-MinValue] <Int32>]
+ [[-MaxValue] <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -32,24 +31,8 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -CircleType
-{{ Fill CircleType Description }}
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-Accepted values: FullCircleTop, FullCircleBottom, FullCircleBottomLeft, FullCircleLeft, Speedometer, SemiCircleGauge
-
-Required: False
-Position: 6
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Height
-{{ Fill Height Description }}
+### -MaxValue
+{{ Fill MaxValue Description }}
 
 ```yaml
 Type: Int32
@@ -57,22 +40,22 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 0
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -LabelAverage
-{{ Fill LabelAverage Description }}
+### -MinValue
+{{ Fill MinValue Description }}
 
 ```yaml
-Type: String
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 7
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -84,26 +67,25 @@ Accept wildcard characters: False
 ```yaml
 Type: Array
 Parameter Sets: (All)
-Aliases:
+Aliases: Name
 
 Required: False
-Position: 3
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Positioning
-{{ Fill Positioning Description }}
+### -TitleText
+{{ Fill TitleText Description }}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
-Accepted values: , central
+Aliases: Title
 
 Required: False
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -113,42 +95,13 @@ Accept wildcard characters: False
 {{ Fill Type Description }}
 
 ```yaml
-Type: Object
+Type: String
 Parameter Sets: (All)
 Aliases:
+Accepted values: datetime, category, numeric
 
 Required: False
-Position: 5
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Values
-{{ Fill Values Description }}
-
-```yaml
-Type: Array
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Width
-{{ Fill Width Description }}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

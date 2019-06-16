@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 New-HTMLChart [[-ChartSettings] <ScriptBlock>] [[-Title] <String>] [[-TitleAlignment] <String>]
- [[-Height] <Int32>] [[-Width] <Int32>] [<CommonParameters>]
+ [[-Height] <Int32>] [[-Width] <Int32>] [[-Positioning] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -61,6 +61,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Positioning
+{{ Fill Positioning Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: default, central
+
+Required: False
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Title
 {{ Fill Title Description }}
 
@@ -83,7 +99,7 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: center, left, right, none
+Accepted values: center, left, right, default
 
 Required: False
 Position: 2

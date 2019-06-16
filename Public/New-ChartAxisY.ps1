@@ -1,51 +1,39 @@
-function New-ChartInternalAxisY {
+﻿function New-ChartAxisY {
+    [alias('ChartAxisY')]
     [CmdletBinding()]
     param(
-        [System.Collections.IDictionary] $Options,
+        [switch] $Show,
+        [switch] $ShowAlways,
         [string] $TitleText,
-        [int] $Min,
-        [int] $Max,
-        [bool] $Show,
-        [bool] $ShowAlways,
         [ValidateSet('90', '270')][string] $TitleRotate = '90',
         [int] $TitleOffsetX = 0,
         [int] $TitleOffsetY = 0,
         [RGBColors] $TitleStyleColor = [RGBColors]::None,
         [int] $TitleStyleFontSize = 12,
-        [string] $TitleStylefontFamily = 'Helvetica, Arial, sans-serif'
+        [string] $TitleStylefontFamily = 'Helvetica, Arial, sans-serif',
+        [int] $MinValue,
+        [int] $MaxValue
+        #[ValidateSet('top', 'topRight', 'left', 'right', 'bottom', '')][string] $LegendPosition = '',
+        # [RGBColors[]] $Color
     )
-    if (-not $Options.Contains('yaxis')) {
-        $Options.yaxis = @{ }
-    }
-
-    #if ($Show) {
-    $Options.yaxis.show = $Show
-    $Options.yaxis.showAlways = $ShowAlways
-    # }
-
-    if ($TitleText -ne '') {
-        $Options.yaxis.title = [ordered] @{ }
-        $Options.yaxis.title.text = $TitleText
-        $Options.yaxis.title.rotate = [int] $TitleRotate
-        $Options.yaxis.title.offsetX = $TitleOffsetX
-        $Options.yaxis.title.offsetY = $TitleOffsetY
-        $Options.yaxis.title.style = [ordered] @{ }
-
-        $Color = ConvertFrom-Color -Color $TitleStyleColor
-        if ($null -ne $Color) {
-            $Options.yaxis.title.style.color = $Coor
+    [PSCustomObject] @{
+        ObjectType = 'ChartAxisY'
+        ChartAxisY = @{
+            Show                 = $Show.IsPresent
+            ShowAlways           = $ShowAlways.IsPresent
+            TitleText            = $TitleText
+            TitleRotate          = $TitleRotate
+            TitleOffsetX         = $TitleOffsetX
+            TitleOffsetY         = $TitleOffsetY
+            TitleStyleColor      = $TitleStyleColor
+            TitleStyleFontSize   = $TitleStyleFontSize
+            TitleStylefontFamily = $TitleStylefontFamily
+            Min                  = $MinValue
+            Max                  = $MaxValue
         }
-        $Options.yaxis.title.style.fontSize = $TitleStyleFontSize
-        $Options.yaxis.title.style.fontFamily = $TitleStylefontFamily
-    }
-    if ($Min -gt 0) {
-        $Options.yaxis.min = $Min
-    }
-    if ($Min -gt 0) {
-        $Options.yaxis.max = $Max
     }
 
-
+    # https://apexcharts.com/docs/options/yaxis/
 }
 
 <# We can build this

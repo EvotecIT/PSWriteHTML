@@ -62,7 +62,7 @@ function New-HTMLChartArea {
     New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
 
     New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
-    New-ChartInternalGridColors -Options $Options -GridColors $GridColors -GridOpacity $GridOpacity
+    New-ChartInternalGrid -Options $Options -GridColors $GridColors -GridOpacity $GridOpacity
 
     New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
 

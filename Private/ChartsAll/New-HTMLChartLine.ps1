@@ -9,7 +9,7 @@ function New-HTMLChartLine {
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
         [RGBColors[]] $DataLabelsColor,
-        [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category',
+        # [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category',
 
         [ValidateSet('straight', 'smooth', 'stepline')][string[]] $LineCurve,
         [int[]] $LineWidth,
@@ -17,22 +17,25 @@ function New-HTMLChartLine {
         [int[]] $LineDash,
         [ValidateSet('butt', 'square', 'round')][string[]] $LineCap,
 
-        [RGBColors[]] $GridColors,
-        [double] $GridOpacity,
+        #[RGBColors[]] $GridColors,
+        #[double] $GridOpacity,
 
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
 
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
 
-        [string] $TitleX,
-        [string] $TitleY,
+        #[string] $TitleX,
+        #[string] $TitleY,
 
         [int] $MarkerSize,
 
         [Array] $Data,
         [Array] $DataNames,
-        [Array] $DataLegend
+        #[Array] $DataLegend,
+        [System.Collections.IDictionary] $GridOptions,
+        [System.Collections.IDictionary] $ChartAxisX,
+        [System.Collections.IDictionary] $ChartAxisY
     )
 
     $Options = [ordered] @{ }
@@ -71,19 +74,30 @@ function New-HTMLChartLine {
         -DataLabelsFontSize $DataLabelsFontSize `
         -DataLabelsColor $DataLabelsColor
 
-    New-ChartInternalAxisX -Options $Options `
-        -Title $TitleX `
-        -DataCategoriesType $DataCategoriesType `
-        -DataCategories $DataLegend
+    if ($ChartAxisX) {
+        New-ChartInternalAxisX -Options $Options @ChartAxisX
+    } else {
+        #New-ChartInternalAxisX -Options $Options
+        #   -Title $TitleX `
+        #  -DataCategoriesType $DataCategoriesType `
+        # -DataCategories $DataLegend
+    }
 
-    New-ChartInternalAxisY -Options $Options `
-        -Title $TitleY
+    if ($ChartAxisY) {
+        New-ChartInternalAxisY -Options $Options @ChartAxisY
+    } else {
+        #New-ChartInternalAxisY -Options $Options
+    }
 
     New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
 
     New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
-    New-ChartInternalGridColors -Options $Options -GridColors $GridColors -GridOpacity $GridOpacity
 
+    if ($GridOptions) {
+        New-ChartInternalGrid -Options $Options @GridOptions #-GridColors $GridColors -GridOpacity $GridOpacity
+    } else {
+        New-ChartInternalGrid -Options $Options
+    }
     New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
 
     New-ChartInternalSize -Options $Options -Height $Height -Width $Width

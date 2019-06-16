@@ -1,30 +1,31 @@
 function New-ChartInternalAxisX {
+    [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
-        [string] $Title,
-        [int] $MinValue,
-        [int] $MaxValue,
-        [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category',
-        $DataCategories
+        [string] $TitleText,
+        [int] $Min,
+        [int] $Max,
+        [ValidateSet('datetime', 'category', 'numeric')][string] $Type = 'category',
+        [Array] $Names
     )
 
     if (-not $Options.Contains('xaxis')) {
-        $Options.xaxis = @{}
+        $Options.xaxis = @{ }
     }
-    if ($Title -ne '') {
-        $Options.xaxis.title = @{}
-        $Options.xaxis.title.text = $Title
-    }
-    if ($MinValue -gt 0) {
-        $Options.xaxis.min = $MinValue
+    if ($TitleText -ne '') {
+        $Options.xaxis.title = @{ }
+        $Options.xaxis.title.text = $TitleText
     }
     if ($MinValue -gt 0) {
-        $Options.xaxis.max = $MaxValue
+        $Options.xaxis.min = $Min
     }
-    if ($DataCategoriesType -ne '') {
-        $Options.xaxis.type = $DataCategoriesType
+    if ($MinValue -gt 0) {
+        $Options.xaxis.max = $Max
     }
-    if ($DataCategories.Count -gt 0) {
-        $Options.xaxis.categories = $DataCategories
+    if ($Type -ne '') {
+        $Options.xaxis.type = $Type
+    }
+    if ($Names.Count -gt 0) {
+        $Options.xaxis.categories = $Names
     }
 }

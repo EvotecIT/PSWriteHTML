@@ -53,7 +53,7 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: top, topRight, left, right, bottom, 
+Accepted values: top, topRight, left, right, bottom, default
 
 Required: False
 Position: 1

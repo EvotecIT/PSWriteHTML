@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-06-16 13:54:00" name="revised"/>
+<meta content="2019-06-16 19:39:27" name="revised"/>
 <title>Charts - Line</title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
@@ -437,18 +437,43 @@ function hide(obj) {
 <!-- END HEADER -->
 <!-- BODY -->
 <body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-am3bj6eo"><div class="far fa-hourglass"></div>
+<a href="javascript:void(0)" class="active" data-id="Tab-ekoym6bq"><div class="far fa-hourglass"></div>
 <span> Line Charts</span>
 </a>
 </div></div>
-<div id="Tab-am3bj6eo" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
-<a id="show_105954093" href="javascript:void(0)" onclick="show('105954093');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_105954093" href="javascript:void(0)" onclick="hide('105954093');" style="color: #ffffff;">(Hide)</a>
+<div id="Tab-ekoym6bq" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
+<a id="show_1928672537" href="javascript:void(0)" onclick="show('1928672537');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1928672537" href="javascript:void(0)" onclick="hide('1928672537');" style="color: #ffffff;">(Hide)</a>
 </div>
-<div id="105954093" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="105954093"><div class="defaultPanel defaultCard"><div id="ChartID-yjwh9053"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-b3q94ftj"></div></div>
+<div id="1928672537" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1928672537"><div class="defaultPanel defaultCard"><div id="ChartID-pf7l1v32"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-b08ef4mh"></div></div>
 </div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
+<a id="show_2040013256" href="javascript:void(0)" onclick="show('2040013256');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_2040013256" href="javascript:void(0)" onclick="hide('2040013256');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="2040013256" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2040013256"><div class="defaultPanel defaultCard"><div id="ChartID-p6zraucs"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-flzxd90w"></div></div>
 </div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
+<a id="show_1458626088" href="javascript:void(0)" onclick="show('1458626088');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1458626088" href="javascript:void(0)" onclick="hide('1458626088');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="1458626088" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1458626088"><div class="defaultPanel defaultCard"><div id="ChartID-wdvj9pb6"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-pfe6whyn"></div></div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a>
+<a id="show_92539254" href="javascript:void(0)" onclick="show('92539254');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_92539254" href="javascript:void(0)" onclick="hide('92539254');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="92539254" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="92539254"><div class="defaultPanel defaultCard"><div id="ChartID-fwdbzmgc"></div></div>
+<div class="defaultPanel defaultCard"><div id="ChartID-237tqmow"></div></div>
+</div></div>
+</div>
+</div>
 <script>var options = {
     "chart":  {
                   "height":  350,
@@ -533,25 +558,22 @@ function hide(obj) {
                                      "fontSize":  "12px"
                                  }
                    },
-    "yaxis":  {
-
-              },
     "title":  {
                   "text":  "Incidents Reported vs Solved",
                   "align":  "center"
               },
     "grid":  {
+                 "Show":  false,
                  "row":  {
-                             "colors":  [
-                                            "#d3d3d3",
-                                            "#f5f5f5"
-                                        ],
                              "opacity":  0.5
-                         }
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
              }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-yjwh9053'),
+var chart = new ApexCharts(document.querySelector('#ChartID-pf7l1v32'),
             options
         );
 chart.render();
@@ -651,25 +673,621 @@ chart.render();
                                      "fontSize":  "12px"
                                  }
                    },
-    "yaxis":  {
-
-              },
     "title":  {
                   "text":  "Incidents Reported vs Solved",
                   "align":  "center"
               },
     "grid":  {
+                 "Show":  false,
                  "row":  {
-                             "colors":  [
-                                            "#d3d3d3",
-                                            "#f5f5f5"
-                                        ],
                              "opacity":  0.5
-                         }
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
              }
 }
 
-var chart = new ApexCharts(document.querySelector('#ChartID-b3q94ftj'),
+var chart = new ApexCharts(document.querySelector('#ChartID-b08ef4mh'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "Desktop",
+                       "data":  [
+                                    10,
+                                    41,
+                                    35,
+                                    51,
+                                    49,
+                                    62,
+                                    69,
+                                    91,
+                                    148
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Jan",
+                                     "Feb",
+                                     "Mar",
+                                     "Apr",
+                                     "May",
+                                     "Jun",
+                                     "Jul",
+                                     "Aug",
+                                     "Sep"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  [
+                                 "straight"
+                             ],
+                   "width":  [
+                                 6
+                             ],
+                   "lineCap":  [
+                                   "butt"
+                               ]
+               },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "title":  {
+                  "text":  "Product Trends by Month",
+                  "align":  "center"
+              },
+    "grid":  {
+                 "Show":  false,
+                 "row":  {
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-p6zraucs'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "High - 2013",
+                       "data":  [
+                                    28,
+                                    29,
+                                    33,
+                                    36,
+                                    32,
+                                    32,
+                                    33
+                                ]
+                   },
+                   {
+                       "name":  "Low - 2013",
+                       "data":  [
+                                    12,
+                                    11,
+                                    14,
+                                    18,
+                                    17,
+                                    13,
+                                    13
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Jan",
+                                     "Feb",
+                                     "Mar",
+                                     "Apr",
+                                     "May",
+                                     "Jun",
+                                     "Jul"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  [
+                                 "straight",
+                                 "straight"
+                             ],
+                   "width":  [
+                                 6,
+                                 6
+                             ],
+                   "lineCap":  [
+                                   "butt",
+                                   "butt"
+                               ]
+               },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "title":  {
+                  "text":  "Average High & Low Temperature",
+                  "align":  "left"
+              },
+    "grid":  {
+                 "Show":  false,
+                 "row":  {
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-flzxd90w'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "Desktop",
+                       "data":  [
+                                    10,
+                                    41,
+                                    35,
+                                    51,
+                                    49,
+                                    62,
+                                    69,
+                                    91,
+                                    148
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Jan",
+                                     "Feb",
+                                     "Mar",
+                                     "Apr",
+                                     "May",
+                                     "Jun",
+                                     "Jul",
+                                     "Aug",
+                                     "Sep"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  [
+                                 "straight"
+                             ],
+                   "width":  [
+                                 6
+                             ],
+                   "lineCap":  [
+                                   "butt"
+                               ]
+               },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "title":  {
+                  "text":  "Product Trends by Month",
+                  "align":  "center"
+              },
+    "grid":  {
+                 "Show":  false,
+                 "row":  {
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-wdvj9pb6'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "High - 2013",
+                       "data":  [
+                                    28,
+                                    29,
+                                    33,
+                                    36,
+                                    32,
+                                    32,
+                                    33
+                                ]
+                   },
+                   {
+                       "name":  "Low - 2013",
+                       "data":  [
+                                    12,
+                                    11,
+                                    14,
+                                    18,
+                                    17,
+                                    13,
+                                    13
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Jan",
+                                     "Feb",
+                                     "Mar",
+                                     "Apr",
+                                     "May",
+                                     "Jun",
+                                     "Jul"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  [
+                                 "straight",
+                                 "straight"
+                             ],
+                   "width":  [
+                                 6,
+                                 6
+                             ],
+                   "colors":  [
+                                  "#ff0000",
+                                  "#8a2be2"
+                              ],
+                   "lineCap":  [
+                                   "square",
+                                   "butt"
+                               ],
+                   "dashArray":  [
+                                     5
+                                 ]
+               },
+    "colors":  [
+                   "#ff0000",
+                   "#8a2be2"
+               ],
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "title":  {
+                  "text":  "Average High & Low Temperature",
+                  "align":  "left"
+              },
+    "grid":  {
+                 "Show":  false,
+                 "row":  {
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-pfe6whyn'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "Desktop",
+                       "data":  [
+                                    10,
+                                    41,
+                                    35,
+                                    51,
+                                    49,
+                                    62,
+                                    69,
+                                    91,
+                                    148
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "Jan",
+                                     "Feb",
+                                     "Mar",
+                                     "Apr",
+                                     "May",
+                                     "Jun",
+                                     "Jul",
+                                     "Aug",
+                                     "Sep"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  [
+                                 "stepline"
+                             ],
+                   "width":  [
+                                 10
+                             ],
+                   "lineCap":  [
+                                   "butt"
+                               ]
+               },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "title":  {
+                  "text":  "Product Trends by Month",
+                  "align":  "center"
+              },
+    "grid":  {
+                 "Show":  false,
+                 "row":  {
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-fwdbzmgc'),
+            options
+        );
+chart.render();
+</script>
+<script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "High - 2013",
+                       "data":  [
+                                    28,
+                                    29,
+                                    33,
+                                    36,
+                                    32,
+                                    32,
+                                    33
+                                ]
+                   },
+                   {
+                       "name":  "Low - 2013",
+                       "data":  [
+                                    12,
+                                    11,
+                                    14,
+                                    18,
+                                    17,
+                                    13,
+                                    13
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "title":  {
+                                "text":  "Month"
+                            },
+                  "categories":  [
+                                     "Jan",
+                                     "Feb",
+                                     "Mar",
+                                     "Apr",
+                                     "May",
+                                     "Jun",
+                                     "Jul"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  [
+                                 "smooth",
+                                 "smooth"
+                             ],
+                   "width":  [
+                                 6,
+                                 6
+                             ],
+                   "lineCap":  [
+                                   "butt",
+                                   "butt"
+                               ]
+               },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "yaxis":  {
+                  "title":  {
+                                "text":  "Temperature",
+                                "rotate":  90,
+                                "offsetX":  0,
+                                "offsetY":  0,
+                                "style":  {
+                                              "fontSize":  12,
+                                              "fontFamily":  "Helvetica, Arial, sans-serif"
+                                          }
+                            },
+                  "showAlways":  true,
+                  "show":  true
+              },
+    "title":  {
+                  "text":  "Average High & Low Temperature",
+                  "align":  "left"
+              },
+    "grid":  {
+                 "Show":  true,
+                 "strokeDashArray":  5,
+                 "position":  "front",
+                 "xaxis":  {
+                               "lines":  {
+                                             "show":  true
+                                         }
+                           },
+                 "yaxis":  {
+                               "lines":  {
+                                             "show":  false
+                                         }
+                           },
+                 "row":  {
+                             "colors":  [
+                                            "#7fffd4",
+                                            "#008b8b"
+                                        ],
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
+}
+
+var chart = new ApexCharts(document.querySelector('#ChartID-237tqmow'),
             options
         );
 chart.render();

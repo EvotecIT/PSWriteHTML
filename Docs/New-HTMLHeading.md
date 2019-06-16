@@ -85,7 +85,7 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: , central
+Accepted values: default, central
 
 Required: False
 Position: 2
