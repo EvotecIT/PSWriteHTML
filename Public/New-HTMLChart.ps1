@@ -9,10 +9,21 @@
         [nullable[int]] $Width,
         [ValidateSet('default', 'central')][string] $Positioning = 'default'
     )
+
+    # Datasets Bar/Line
     $DataSet = [System.Collections.Generic.List[object]]::new()
     $DataName = [System.Collections.Generic.List[object]]::new()
+
+
+    # Legend Variables
     $Colors = @()
-    $DataColors = [System.Collections.Generic.List[RGBColors]]::new()
+
+    # Line Variables
+    $LineColors = [System.Collections.Generic.List[RGBColors]]::new()
+    $LineCurves = [System.Collections.Generic.List[string]]::new()
+    $LineWidths = [System.Collections.Generic.List[int]]::new()
+    $LineDashes = [System.Collections.Generic.List[int]]::new()
+    $LineCaps = [System.Collections.Generic.List[string]]::new()
 
     # Bar default definitions
     [string] $BarType = 'bar' # Default
@@ -58,8 +69,20 @@
             $Type = 'Line'
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
-            if ($null -ne $Setting.Color) {
-                $DataColors.Add($Setting.Color)
+            if ($Setting.LineColor) {
+                $LineColors.Add($Setting.LineColor)
+            }
+            if ($Setting.LineCurve) {
+                $LineCurves.Add($Setting.LineCurve)
+            }
+            if ($Setting.LineWidth) {
+                $LineWidths.Add($Setting.LineWidth)
+            }
+            if ($Setting.LineDash) {
+                $LineDashes.Add($Setting.LineDash)
+            }
+            if ($Setting.LineCap) {
+                $LineCaps.Add($Setting.LineCap)
             }
         } elseif ($Setting.ObjectType -eq 'Category') {
             $DataCategory = $Setting.Names
@@ -76,6 +99,7 @@
             }
         }
 
+        # Fixes dataset/dataname to format expected by New-HTMLChartBar
         $HashTable = [ordered] @{ }
         $ArrayCount = $DataSet[0].Count
         if ($ArrayCount -eq 1) {
@@ -129,7 +153,12 @@
             -DataLabelsColor $BarDataLabelsColor `
             -Height $Height `
             -Width $Width `
-            -Positioning $Positioning -LineColor $DataColors
+            -Positioning $Positioning `
+            -LineColor $LineColors `
+            -LineCurve $LineCurves `
+            -LineWidth $LineWidths `
+            -LineDash $LineDashes `
+            -LineCap $LineCaps
 
 
 

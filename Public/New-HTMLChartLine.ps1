@@ -11,9 +11,11 @@ function New-HTMLChartLine {
         [RGBColors[]] $DataLabelsColor,
         [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category',
 
-        [ValidateSet('straight', 'smooth', 'stepline')] $LineCurve = 'straight',
-        [int] $LineWidth,
+        [ValidateSet('straight', 'smooth', 'stepline')][string[]] $LineCurve,
+        [int[]] $LineWidth,
         [RGBColors[]] $LineColor,
+        [int[]] $LineDash,
+        [ValidateSet('butt', 'square', 'round')][string[]] $LineCap,
 
         [RGBColors[]] $GridColors,
         [double] $GridOpacity,
@@ -37,11 +39,28 @@ function New-HTMLChartLine {
 
     New-ChartInternalLine -Options $Options -Data $Data -DataNames $DataNames
 
+    if ($LineCurve.Count -eq 0 -or ($LineCurve.Count -ne $DataNames.Count)) {
+        $LineCurve = for ($i = $LineCurve.Count; $i -le $DataNames.Count; $i++) {
+            'straight'
+        }
+    }
+
+    if ($LineCap.Count -eq 0 -or ($LineCap.Count -ne $DataNames.Count)) {
+        $LineCap = for ($i = $LineCap.Count; $i -le $DataNames.Count; $i++) {
+            'butt'
+        }
+    }
+    if ($LineDash.Count -eq 0) {
+
+    }
+
     New-ChartInternalStrokeDefinition -Options $Options `
         -LineShow $true `
         -LineCurve $LineCurve `
         -LineWidth $LineWidth `
-        -LineColor $LineColor
+        -LineColor $LineColor `
+        -LineCap $LineCap `
+        -LineDash $LineDash
 
     # line colors (stroke colors ) doesn't cover legend - we need to make sure it's the same even thou lines are already colored
     New-ChartInternalColors -Options $Options -Colors $LineColor

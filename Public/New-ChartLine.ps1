@@ -4,12 +4,20 @@
     param(
         [string] $Name,
         [object] $Value,
-        [RGBColors] $Color
+        [RGBColors] $Color,
+        [ValidateSet('straight', 'smooth', 'stepline')] $Curve = 'straight',
+        [int] $Width = 6,
+        [ValidateSet('butt', 'square', 'round')][string] $Cap = 'butt',
+        [int] $Dash = 0
     )
     [PSCustomObject] @{
         ObjectType = 'Line'
         Name       = $Name
         Value      = $Value
-        Color      = $Color
+        LineColor  = $Color
+        LineCurve  = $Curve
+        LineWidth  = $Width
+        LineCap    = $Cap
+        LineDash   = $Dash
     }
 }
