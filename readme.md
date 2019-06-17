@@ -18,6 +18,14 @@
 
 ## Changelog
 
+- 0.0.38 - 2019.06.17 - http://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes
+  - Added support for Bar Charts/Line Charts
+  - Added support for icons in tabs
+  - Added support for controling tabs
+  - Fixes for tables in multiple places
+  - Ability to control buttons behavior
+  - Many many more, it's a big release
+
 - 0.0.34 - 2019.06.02
   - Fix for New-HTMLListItem to support multiple Texts
 
