@@ -91,7 +91,7 @@ function New-HTMLText {
             $ParamAlignment = $Alignment[$i]
         }
 
-        $newSpanTextSplat = @{}
+        $newSpanTextSplat = @{ }
         $newSpanTextSplat.Color = $ParamColor
         $newSpanTextSplat.BackGroundColor = $ParamBackGroundColor
 
