@@ -208,7 +208,7 @@ function New-HTMLTable {
     if ($DefaultSortOrder -eq 'Ascending') {
         $Sort = 'asc'
     } else {
-        $Sort = 'dsc'
+        $Sort = 'desc'
     }
     if ($DefaultSortColumn.Count -gt 0) {
         $ColumnsOrder = foreach ($Column in $DefaultSortColumn) {
@@ -225,6 +225,8 @@ function New-HTMLTable {
                 , @($Column, $Sort)
             }
         }
+    }
+    if ($ColumnsOrder.Count -gt 0) {
         $Options."order" = @($ColumnsOrder)
         # there seems to be a bug in ordering and colReorder plugin
         # Disabling colReorder
