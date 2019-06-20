@@ -18,6 +18,10 @@
 
 ## Changelog
 
+- 0.0.39 - 2019.06.20
+  - Fix for DefaultSortColumn
+  - Fix for DefaultSortOrder when set to descending
+
 - 0.0.38 - 2019.06.17 - http://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes
   - Added support for Bar Charts/Line Charts
   - Added support for icons in tabs
