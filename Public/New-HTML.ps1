@@ -4,7 +4,7 @@ Function New-HTML {
         [Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $HtmlData = $(Throw "Have you put the open curly brace on the next line?"),
         [switch] $UseCssLinks,
         [switch] $UseJavaScriptLinks,
-        [String] $TitleText,
+        [alias('Name')][String] $TitleText,
         [string] $Author,
         [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss',
         [int] $AutoRefresh,
