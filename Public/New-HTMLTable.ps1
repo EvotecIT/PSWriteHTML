@@ -39,50 +39,6 @@ function New-HTMLTable {
         Exit
     }
     # Theme creator  https://datatables.net/manual/styling/theme-creator
-
-    # Providing a way for conditional formatting and other types of HTML
-
-    <#
-    [Array] $Output = $HTML.Ast.EndBlock.Statements.Extent
-    [Array] $OutputText = foreach ($Line in $Output) { [string] $Line + [System.Environment]::NewLine }
-
-    $ConditionalFormattingText = foreach ($Line in $OutputText) {
-        if ($Line.StartsWith('New-HTMLTableCondition') -or $Line.StartsWith('TableConditionalFormatting')) {
-            $Line
-        }
-    }
-    $OtherHTMLText = foreach ($Line in $OutputText) {
-        if ((-not $Line.StartsWith('New-HTMLTableCondition')) -and (-not $Line.StartsWith('TableConditionalFormatting'))) {
-            $Line
-        }
-    }
-
-    if ($ConditionalFormattingText.Count -gt 0) {
-        $ConditionalFormatting = [scriptblock]::Create($ConditionalFormattingText)
-    }
-    if ($OtherHTMLText.Count -gt 0) {
-        $OtherHTML = [scriptblock]::Create($OtherHTMLText)
-    }
-    #>
-
-    <#
-    $ConditionalFormattingFunctions = 'New-HTMLTableCondition', 'TableConditionalFormatting', 'EmailTableConditionalFormatting'
-    $ButtonFunctions = @(
-        'New-HTMLTableButtonPDF', 'TableButtonPDF', 'EmailTableButtonPDF',
-        'New-HTMLTableButtonExcel', 'TableButtonExcel', 'EmailTableButtonExcel'
-        'New-HTMLTableButtonCopy', 'TableButtonCopy', 'EmailTableButtonCopy'
-        'New-HTMLTableButtonPrint', 'TableButtonPrint', 'EmailTableButtonPrint'
-        'New-HTMLTableButtonCSV', 'TableButtonCSV', 'EmailTableButtonCSV'
-        'New-HTMLTableButtonPageLength', 'TableButtonPageLength', 'EmailTableButtonPageLength'
-    )
-    $Exclude = $ConditionalFormattingFunctions + $ButtonFunctions
-
-    [Array] $Output = ConvertFrom-ScriptBlock -ScriptBlock $HTML
-    $ConditionalFormatting = ConvertTo-ScriptBlock -Code $Output -Include $ConditionalFormattingFunctions
-    $CustomButtons = ConvertTo-ScriptBlock -Code $Output -Include $ButtonFunctions
-    $OtherHTML = ConvertTo-ScriptBlock -Code $Output -Exclude $Exclude
-    #>
-
     $ConditionalFormatting = [System.Collections.Generic.List[PSCustomObject]]::new()
     $CustomButtons = [System.Collections.Generic.List[PSCustomObject]]::new()
 
