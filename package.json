@@ -1,5 +1,7 @@
 ﻿{
-    "dependencies": {
+    "name": "PSWriteHTML",
+    "version": "1.0.0",
+    "devDependencies": {
         "datatables.net": "^1.10.12",
         "datatables.net-select": "^1.2.0",
         "datatables.net-src": "^1.10.12",
