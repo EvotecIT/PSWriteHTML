@@ -41,6 +41,7 @@ function New-HTMLTable {
     # Theme creator  https://datatables.net/manual/styling/theme-creator
     $ConditionalFormatting = [System.Collections.Generic.List[PSCustomObject]]::new()
     $CustomButtons = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $HeaderRows = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     if ($HTML) {
         [Array] $Output = & $HTML
@@ -63,13 +64,14 @@ function New-HTMLTable {
                     $CustomButtons.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableCondition') {
                     $ConditionalFormatting.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableHeaderRow') {
+                    $HeaderRows.Add($Parameters.Output)
                 }
             }
         }
     }
 
     # Building HTML Table / Script
-
     [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
     if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
         #return ''
@@ -86,6 +88,8 @@ function New-HTMLTable {
     }
     [string] $Header = $Table | Select-Object -First 1 # this gets header
     [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
+    $AddedHeader = Add-TableMergedHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames
+
     $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
     $Options = [ordered] @{
         <# DOM Definition: https://datatables.net/reference/option/dom
@@ -143,12 +147,16 @@ function New-HTMLTable {
         "order"          = @() # this makes sure there's no default ordering upon start (usually it would be 1st column)
         "info"           = -not $DisableInfo.IsPresent
         "procesing"      = -not $DisableProcessing.IsPresent
-        "responsive"     = @{
-            details = -not $DisableResponsiveTable.IsPresent
-        }
         "select"         = -not $DisableSelect.IsPresent
         "searching"      = -not $DisableSearch.IsPresent
         "stateSave"      = -not $DisableStateSave.IsPresent
+    }
+
+    # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
+    if (-not $DisableResponsiveTable) {
+        $Options."responsive" = @{
+            details = -not $DisableResponsiveTable.IsPresent
+        }
     }
 
     if ($OrderMulti) {
@@ -305,7 +313,11 @@ function New-HTMLTable {
         # Build HTML TABLE
         New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
             New-HTMLTag -Tag 'thead' {
-                $Header
+                if ($AddedHeader) {
+                    $AddedHeader
+                } else {
+                    $Header
+                }
             }
             New-HTMLTag -Tag 'tbody' {
                 $Table
