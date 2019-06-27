@@ -35,7 +35,9 @@ function New-HTMLTable {
         [switch] $DisableNewLine,
         [switch] $ScrollX,
         [switch] $ScrollY,
-        [int] $ScrollSizeY = 500
+        [int] $ScrollSizeY = 500,
+        [int] $FreezeColumnsLeft,
+        [int] $FreezeColumnsRight
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -168,6 +170,32 @@ function New-HTMLTable {
     if ($ScrollY) {
         $Options.'scrollY' = "$($ScrollSizeY)px"
     }
+
+    #if ($FreezeColumnsLeft -or $FreezeColumnsRight) {
+    <#
+        $LeftColumns = foreach ($_ in $FreezeColumnsLeft) {
+            $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
+            if ($Index -ne -1) {
+                $Index
+            }
+        }
+        $RightColumns = foreach ($_ in $FreezeColumnsRight) {
+            $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
+            if ($Index -ne -1) {
+                ($HeaderNames.Count - $Index)
+            }
+        }
+        #>
+    if ($FreezeColumnsLeft -or $FreezeColumnsRight) {
+        $Options.fixedColumns = [ordered] @{ }
+        if ($FreezeColumnsLeft) {
+            $Options.fixedColumns.leftColumns = $FreezeColumnsLeft
+        }
+        if ($FreezeColumnsRight) {
+            $Options.fixedColumns.rightColumns = $FreezeColumnsRight
+        }
+    }
+    #}
 
     # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
     if (-not $DisableResponsiveTable) {
