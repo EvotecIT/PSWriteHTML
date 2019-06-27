@@ -37,7 +37,9 @@ function New-HTMLTable {
         [switch] $ScrollY,
         [int] $ScrollSizeY = 500,
         [int] $FreezeColumnsLeft,
-        [int] $FreezeColumnsRight
+        [int] $FreezeColumnsRight,
+        [switch] $FixedHeader,
+        [switch] $FixedFooter
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -193,6 +195,16 @@ function New-HTMLTable {
         }
         if ($FreezeColumnsRight) {
             $Options.fixedColumns.rightColumns = $FreezeColumnsRight
+        }
+    }
+    if ($FixedHeader -or $FixedFooter) {
+        # Using FixedHeader/FixedFooter won't work with ScrollY.
+        $Options.fixedHeader = [ordered] @{ }
+        if ($FixedHeader) {
+            $Options.fixedHeader.header = $FixedHeader.IsPresent
+        }
+        if ($FixedFooter) {
+            $Options.fixedHeader.footer = $FixedFooter.IsPresent
         }
     }
     #}
