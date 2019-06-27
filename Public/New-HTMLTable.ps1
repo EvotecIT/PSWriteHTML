@@ -42,6 +42,8 @@ function New-HTMLTable {
     $ConditionalFormatting = [System.Collections.Generic.List[PSCustomObject]]::new()
     $CustomButtons = [System.Collections.Generic.List[PSCustomObject]]::new()
     $HeaderRows = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $HeaderStyle = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $HeaderTop = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     if ($HTML) {
         [Array] $Output = & $HTML
@@ -64,8 +66,12 @@ function New-HTMLTable {
                     $CustomButtons.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableCondition') {
                     $ConditionalFormatting.Add($Parameters.Output)
-                } elseif ($Parameters.Type -eq 'TableHeaderRow') {
+                } elseif ($Parameters.Type -eq 'TableHeaderMerge') {
                     $HeaderRows.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableHeaderStyle') {
+                    $HeaderStyle.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableHeaderFullRow') {
+                    $HeaderTop.Add($Parameters.Output)
                 }
             }
         }
@@ -88,7 +94,7 @@ function New-HTMLTable {
     }
     [string] $Header = $Table | Select-Object -First 1 # this gets header
     [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
-    $AddedHeader = Add-TableMergedHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames
+    $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop
 
     $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
     $Options = [ordered] @{
@@ -240,7 +246,7 @@ function New-HTMLTable {
         $LoadSavedState = Add-TableState -DataTableName $DataTableName -Filtering $Filtering -FilteringLocation $FilteringLocation -SavedState (-not $DisableStateSave)
 
         if ($Tab.Active -eq $true) {
-            New-HTMlTag -Tag 'script' {
+            New-HTMLTag -Tag 'script' {
                 @"
                 `$(document).ready(function() {
                     $SortingFormatDateTime
@@ -256,7 +262,7 @@ function New-HTMLTable {
             }
         } else {
             [string] $TabName = $Tab.Id
-            New-HTMlTag -Tag 'script' {
+            New-HTMLTag -Tag 'script' {
                 @"
                     `$(document).ready(function() {
                         $SortingFormatDateTime
