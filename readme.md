@@ -39,6 +39,15 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.40 - **Unreleased**
+  - [x] New-HTMLTable features
+    - [x] FixedHeader/FixedFooter options
+    - [x] Scrolling
+      - ScrollX,
+      - ScrollY, ScrollSizeY
+      - FreezeColumnsLeft, FreezeColumnsRight
+    - Mergin header, styling header, adding header row
+
 - 0.0.39 - 2019.06.20
   - Fix for DefaultSortColumn
   - Fix for DefaultSortOrder when set to descending
