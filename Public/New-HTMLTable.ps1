@@ -32,7 +32,10 @@ function New-HTMLTable {
         [string[]] $DateTimeSortingFormat,
         [alias('Search')][string]$Find,
         [switch] $InvokeHTMLTags,
-        [switch] $DisableNewLine
+        [switch] $DisableNewLine,
+        [switch] $ScrollX,
+        [switch] $ScrollY,
+        [int] $ScrollSizeY = 500
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -157,11 +160,19 @@ function New-HTMLTable {
         "searching"      = -not $DisableSearch.IsPresent
         "stateSave"      = -not $DisableStateSave.IsPresent
     }
+    if ($ScrollX) {
+        $Options.'scrollX' = $true
+        # disabling responsive table because it won't work with ScrollX
+        $DisableResponsiveTable = $true
+    }
+    if ($ScrollY) {
+        $Options.'scrollY' = "$($ScrollSizeY)px"
+    }
 
     # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
     if (-not $DisableResponsiveTable) {
         $Options."responsive" = @{
-            details = -not $DisableResponsiveTable.IsPresent
+            details = $true
         }
     }
 
