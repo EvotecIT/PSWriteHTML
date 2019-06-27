@@ -1,24 +1,24 @@
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
-        Default          = @{
+        Default                = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\default.css"
             }
         }
-        DefaultHeadings  = @{
+        DefaultHeadings        = @{
             Comment      = 'Always Required Default Headings'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\headings.css"
             }
         }
-        Accordion        = @{
+        Accordion              = @{
             Comment      = 'Accordion'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
             }
         }
-        CodeBlocks       = @{
+        CodeBlocks             = @{
             Comment      = 'EnlighterJS CodeBlocks'
             Header       = @{
                 CssLink = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css'
@@ -36,13 +36,13 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
             }
         }
-        Charts           = @{
+        Charts                 = @{
             Comment = 'Charts JS'
             Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js'
             }
         }
-        ChartsApex       = @{
+        ChartsApex             = @{
             Comment      = 'Apex Charts'
             Header       = @{
                 JsLink = 'https://cdn.jsdelivr.net/npm/apexcharts@latest'
@@ -52,14 +52,14 @@ $Script:Configuration = [ordered] @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
-        Jquery           = @{
+        Jquery                 = @{
             Comment = 'Jquery'
             Header  = @{
                 JsLink = 'https://code.jquery.com/jquery-3.3.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.3.1.min.js"
             }
         }
-        DataTables       = @{
+        DataTables             = @{
             Comment      = 'DataTables'
             HeaderAlways = @{
                 Css         = "$PSScriptRoot\..\Resources\CSS\datatables.css"
@@ -72,39 +72,96 @@ $Script:Configuration = [ordered] @{
                 JS      = "$PSScriptRoot\..\Resources\JS\datatables.min.js", "$PSScriptRoot\..\Resources\JS\moment.min.js", "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
             }
         }
-        DataTablesPDF    = @{
+        <# Those links need to be added instead of Datatables as above
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/autofill/2.3.3/css/autoFill.dataTables.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/1.5.0/css/colReorder.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.2.5/css/fixedColumns.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.4/css/fixedHeader.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/keytable/2.5.0/css/keyTable.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowgroup/1.1.0/css/rowGroup.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.4/css/rowReorder.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css"/>
+
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/autofill/2.3.3/js/dataTables.autoFill.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/colreorder/1.5.0/js/dataTables.colReorder.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.5/js/dataTables.fixedColumns.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.4/js/dataTables.fixedHeader.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/keytable/2.5.0/js/dataTables.keyTable.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/rowgroup/1.1.0/js/dataTables.rowGroup.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/rowreorder/1.2.4/js/dataTables.rowReorder.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
+        #>
+
+        ## Not used yet - START
+        DataTablesExperimental = @{
+            Comment = 'DataTables 1.10.19'
+            Header  = @{
+                JsLink  = 'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'
+                Js      = ""
+                Css     = ""
+                CssLink = 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css'
+            }
+        }
+        DataTablesColReorder   = @{
+            Comment = 'DataTables ColReorder'
+            Header  = @{
+                JsLink  = 'https://cdn.datatables.net/colreorder/1.5.0/js/dataTables.colReorder.min.js'
+                Js      = "$PSScriptRoot\..\Resources\JS\dataTables.colReorder.min.js"
+                Css     = "$PSScriptRoot\..\Resources\CSS\colReorder.dataTables.min.css"
+                CssLink = 'https://cdn.datatables.net/colreorder/1.5.0/css/colReorder.dataTables.min.css'
+            }
+        }
+        ## Not used yet - END
+
+
+        DataTablesPDF          = @{
             Comment = 'DataTables PDF Features'
             Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\pdfmake.min.js", "$PSScriptRoot\..\Resources\JS\vfs_fonts.min.js"
             }
         }
-        DataTablesExcel  = @{
+        DataTablesExcel        = @{
             Comment = 'DataTables Excel Features'
             Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\jszip.min.js"
             }
         }
-        Fonts            = @{
+        Fonts                  = @{
             Comment      = 'Default fonts'
             HeaderAlways = @{
                 CssLink = 'https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald'
             }
         }
-        FontsAwesome     = @{
+        FontsAwesome           = @{
             Comment      = 'Default fonts icons'
             HeaderAlways = @{
                 CssLink = 'https://use.fontawesome.com/releases/v5.7.2/css/all.css'
             }
         }
-        HideSection      = @{
+        HideSection            = @{
             Comment      = 'Hide Section Code'
             HeaderAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
             }
         }
-        Tabs             = @{
+        Tabs                   = @{
             Comment              = 'Elastic Tabs'
             HeaderAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.css"
@@ -117,7 +174,7 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color ([RGBColors]::MediumSlateBlue)
             }
         }
-        TabsGradient     = @{
+        TabsGradient           = @{
             Comment              = 'Elastic Tabs Gradient'
             HeaderAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.gradient.css"
@@ -127,31 +184,31 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color ([RGBColors]::MediumSlateBlue)
             }
         }
-        TabsTransition   = @{
+        TabsTransition         = @{
             Comment      = 'Elastic Tabs Transition'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.transition.css"
             }
         }
-        TimeLine         = @{
+        TimeLine               = @{
             Comment      = 'Timeline Simple'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\timeline-simple.css"
             }
         }
-        StatusButtonical = @{
+        StatusButtonical       = @{
             Comment      = 'Status Buttonical'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\status.css"
             }
         }
-        Toast            = @{
+        Toast                  = @{
             Comment      = 'Toasts Looking Messages'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\toasts.css"
             }
         }
-        TuiGrid          = @{
+        TuiGrid                = @{
             Comment = 'Tui Grid'
             Header  = @{
                 Css     = "$PSScriptRoot\..\Resources\CSS\tuigrid.css"
