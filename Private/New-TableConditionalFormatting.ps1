@@ -98,7 +98,7 @@ function New-TableConditionalFormatting {
         $Condition5 = '}'
 
         $Test = $Condition1 + $Condition3 + $Condition5
-        $Options = $Options -Replace ('"columnDefs":  ""', $Test)
+        $Options = $Options -Replace ('"createdRow":  ""', $Test)
     }
 
     return $Options

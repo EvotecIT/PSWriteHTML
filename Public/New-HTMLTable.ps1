@@ -39,7 +39,9 @@ function New-HTMLTable {
         [int] $FreezeColumnsLeft,
         [int] $FreezeColumnsRight,
         [switch] $FixedHeader,
-        [switch] $FixedFooter
+        [switch] $FixedFooter,
+        [string[]] $ResponsivePriorityOrder,
+        [int[]] $ResponsivePriorityOrderIndex
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -260,8 +262,47 @@ function New-HTMLTable {
     }
     if ($null -ne $ConditionalFormatting) {
         #.Count -gt 0) {
-        $Options.columnDefs = ''
+        $Options.createdRow = ''
     }
+
+    if ($ResponsivePriorityOrderIndex -or $ResponsivePriorityOrder) {
+
+        $PriorityOrder = 0
+
+        [Array] $PriorityOrderBinding = @(
+            foreach ($_ in $ResponsivePriorityOrder) {
+                $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
+                if ($Index -ne -1) {
+                    @{ responsivePriority = 0; targets = $Index }
+                }
+            }
+            foreach ($_ in $ResponsivePriorityOrderIndex) {
+                @{ responsivePriority = 0; targets = $_ }
+            }
+        )
+        $Options.columnDefs = @(
+            foreach ($_ in $PriorityOrderBinding) {
+                $PriorityOrder++
+                $_.responsivePriority = $PriorityOrder
+                $_
+            }
+        )
+
+
+        <#
+        "columnDefs": [ {
+            responsivePriority: 1,
+            targets: 0
+        },
+        {
+            responsivePriority: 2,
+            targets: 9
+        }
+        ],
+        #>
+
+    }
+
     $Options = $Options | ConvertTo-Json -Depth 6
 
     #if ($null -ne $ConditionalFormatting) {
