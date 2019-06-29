@@ -1,34 +1,44 @@
-<center>
-
-[![PowerShellGallery Version](https://img.shields.io/powershellgallery/v/PSWriteHTML.svg)](https://www.powershellgallery.com/packages/PSWriteHTML)
-
-[![PowerShellGallery Platform](https://img.shields.io/powershellgallery/p/PSWriteHTML.svg)](https://www.powershellgallery.com/packages/PSWriteHTML)
-[![PowerShellGallery Preview Version](https://img.shields.io/powershellgallery/vpre/PSWriteHTML.svg?label=powershell%20gallery%20preview&colorB=yellow)](https://www.powershellgallery.com/packages/PSWriteHTML)
-
-![Top Language](https://img.shields.io/github/languages/top/evotecit/PSWriteHTML.svg)
-![Code](https://img.shields.io/github/languages/code-size/evotecit/PSWriteHTML.svg)
-[![PowerShellGallery Downloads](https://img.shields.io/powershellgallery/dt/PSWriteHTML.svg)](https://www.powershellgallery.com/packages/PSWriteHTML)
-
 </center>
+
+<p align="center">
+  <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/v/PSWriteHTML.svg"></a>
+  <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/vpre/PSWriteHTML.svg?label=powershell%20gallery%20preview&colorB=yellow"></a>
+  <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/license/EvotecIT/PSWriteHTML.svg"></a>
+</p>
+
+<p align="center">
+  <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/p/PSWriteHTML.svg"></a>
+  <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/languages/top/evotecit/PSWriteHTML.svg"></a>
+  <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/languages/code-size/evotecit/PSWriteHTML.svg"></a>
+  <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/dt/PSWriteHTML.svg"></a>
+</p>
+
+<p align="center">
+  <a href="https://twitter.com/PrzemyslawKlys"><img src="https://img.shields.io/twitter/follow/PrzemyslawKlys.svg?label=Twitter%20%40PrzemyslawKlys&style=social"></a>
+  <a href="https://evotec.xyz/hub"><img src="https://img.shields.io/badge/Blog-evotec.xyz-2A6496.svg"></a>
+  <a href="https://www.linkedin.com/in/pklys"><img src="https://img.shields.io/badge/LinkedIn-pklys-0077B5.svg?logo=LinkedIn"></a>
+</p>
 
 # PSWriteHTML - PowerShell Module
 
-`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and possibly add more features. As it stands `PSWriteHTML` doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features as I go (fixes included).
+`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features as I go (fixes included).
 
 ## How to install
 
-While you can take sources and use it from here, **PSWriteHTML** actually is composed of multiple other of my modules. To get it up and running you will need ***PSSharedGoods**, and **PSSharedGoods** will need **Connectimo** and **PSWriteColor**. You can get all that from sources but if you **just want** to use my modules you should use `Install-Module` command. It's available in PowerShell 5.1. As an added bonus when I publish modules to **PowerShellGallery** I remove any junk, minimize modules to a single file which makes them faster to load and use. I really encourage you to use module from PowerShellGallery and treat **GitHub** as highely development version.
+While you can take sources and use it from here, **PSWriteHTML** actually is composed of multiple other of my modules. To get it up and running you will need ***PSSharedGoods**, and **PSSharedGoods** will need **Connectimo** and **PSWriteColor**. While **Connectimo** or **PSWriteColor** aren't needed for **PSWriteHTML**, **PSSharedGoods** uses them for some of the commands and it will fail without them. You can get all that from sources but if you **just want** to use my modules you should use `Install-Module` command. It's available in PowerShell 5.1. As an added bonus when I publish modules to **PowerShellGallery** I remove any junk, minimize modules to a single file which makes them faster to load and use. I really encourage you to use module from PowerShellGallery and treat **GitHub** as highely development version.
 
-Simply use:
+### To install
 
 ```powershell
-Install-Module PSWriteHTML
+Install-Module -Name PSWriteHTML -AllowClobber -Force
 ```
 
-And to update
+Force and AllowClobber aren't really nessecary but they do skip errors in case some appear.
+
+### And to update
 
 ```powershell
-Update-Module PSWriteHTML
+Update-Module -Name PSWriteHTML
 ```
 
 That's it. Whenever there's new version you simply run the command and you can enjoy it. Remember, that you may need to close, reopen PowerShell session if you have already used module before updating it.
@@ -39,14 +49,17 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.40 - **Unreleased**
+- 0.0.40 - 2019.06.29 - https://evotec.xyz/all-your-html-tables-are-belong-to-us/
   - [x] New-HTMLTable features
     - [x] FixedHeader/FixedFooter options
     - [x] Scrolling
       - ScrollX,
       - ScrollY, ScrollSizeY
       - FreezeColumnsLeft, FreezeColumnsRight
-    - Mergin header, styling header, adding header row
+    - [x] ResponivePriorityOrder, ResponsivePriorityOrderIndex
+  - [x] New-HTMLTableHeader - **new command**
+    - [x] Mergin header, styling header, adding header row
+
 
 - 0.0.39 - 2019.06.20
   - Fix for DefaultSortColumn
@@ -74,7 +87,8 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 -   bunch of different, new features
 -   easier building HTML
 
-### Credits
+
+## Credits
 
 [Matthew Quickenden](https://www.linkedin.com/in/matthewquickenden/) ([@lucidqdreams](https://github.com/lucidqdreams)) - author of  ReportHTML - without him this wouldn't be possible.
 

@@ -13,7 +13,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLText -Text 'This will be before. You can put other html here.' -Alignment center -Color Red -FontSize 20
         } -PostContent {
             New-HTMLText -Text 'This will be after table. You can put other html here.' -Alignment center -Color Blue -FontSize 20
-        }
+        } -ResponsivePriorityOrder NonpagedSystemMemorySize, PeakWorkingSet64, Company -ResponsivePriorityOrderIndex 20
         New-HTMLTable -DataTable $Process -PagingOptions @(50, 100, 150, 200) -DefaultSortColumn 'PriorityClass' {
             New-HTMLText -Text 'This also works... ' -Alignment center -Color Red -FontSize 20
             New-HTMLText -Text 'But it doesnt have the same control' -Alignment center -Color Red -FontSize 20
