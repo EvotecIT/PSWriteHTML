@@ -34,9 +34,9 @@
     }
     Remove-EmptyValues -Hashtable $Style
 
-    if ($AddRow -and $Title) {
+    if (($AddRow -and $Title) -or ($Title -and -not $Names)) {
         $Type = 'TableHeaderFullRow'
-    } elseif (-not $FullRow -and $Title) {
+    } elseif ((-not $AddRow -and $Title) -or ($Title -and $Names)) {
         $Type = 'TableHeaderMerge'
     } else {
         $Type = 'TableHeaderStyle'
