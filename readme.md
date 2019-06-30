@@ -1,5 +1,3 @@
-</center>
-
 <p align="center">
   <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/v/PSWriteHTML.svg"></a>
   <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/vpre/PSWriteHTML.svg?label=powershell%20gallery%20preview&colorB=yellow"></a>
@@ -48,6 +46,13 @@ That's it. Whenever there's new version you simply run the command and you can e
 I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Connectimo** in the future (as I only use **Colors**) from PSSharedGoods but for now it is what it is.
 
 ## Changelog
+
+- 0.0.41 - 2019.06.30
+  - [x] New-HTMLTableHeader - removing need for AddRow switch
+    - [ ] If used with only Title it will assume AddRow
+    - [ ] If used with Names it will assume merging
+    - [ ] If used with Names without Title it will assume styling
+    - [ ] Left AddRow for compatibility reasons, may remove it in future
 
 - 0.0.40 - 2019.06.29 - https://evotec.xyz/all-your-html-tables-are-belong-to-us/
   - [x] New-HTMLTable features
