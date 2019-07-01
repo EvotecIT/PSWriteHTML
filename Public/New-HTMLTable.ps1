@@ -328,7 +328,11 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTablesPDF = $true
         $Script:HTMLSchema.Features.DataTablesExcel = $true
 
-        $TableAttributes = @{ id = $DataTableName; class = "$($Style -join ' ')" }
+        if ($ScrollX) {
+            $TableAttributes = @{ id = $DataTableName; class = "$($Style -join ' ')"; width = '100%' }
+        } else {
+            $TableAttributes = @{ id = $DataTableName; class = "$($Style -join ' ')" }
+        }
 
         # Enable Custom Date fromat sorting
         $SortingFormatDateTime = Add-CustomFormatForDatetimeSorting -DateTimeSortingFormat $DateTimeSortingFormat
