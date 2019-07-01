@@ -47,6 +47,10 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.42 - 2019.07.01
+  - [x] New-HTMLTableConditionalFormatting
+    - [ ] Fix for Powershell Core, where conditional formatting wouldn't show up
+
 - 0.0.41 - 2019.06.30
   - [x] New-HTMLTableHeader - removing need for AddRow switch
     - [ ] If used with only Title it will assume AddRow
