@@ -47,6 +47,10 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.43 - 2019.07.01
+  - [x] New-HTMLTable
+    - [ ] Fix for ScrollX with low amount of columns
+
 - 0.0.42 - 2019.07.01
   - [x] New-HTMLTableConditionalFormatting
     - [ ] Fix for Powershell Core, where conditional formatting wouldn't show up
