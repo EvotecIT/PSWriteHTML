@@ -76,7 +76,14 @@ function New-TableConditionalFormatting {
             if ($null -eq $Condition.Type -or $Condition.Type -eq 'number') {
                 "if (data[$ConditionHeaderNr] $($Condition.Operator) $($Condition.Value)) {"
             } elseif ($Condition.Type -eq 'string') {
-                "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
+                switch ($Condition.Operator) {
+                    "includes" {
+                        "if (data[$($ConditionHeaderNr)].includes('$($Condition.Value)')) {"
+                    }
+                    default {
+                        "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {" 
+                    }
+                }
             } elseif ($Condition.Type -eq 'date') {
                 "if (new Date(data[$ConditionHeaderNr]) $($Condition.Operator) new Date('$($Condition.Value)')) {"
             }
