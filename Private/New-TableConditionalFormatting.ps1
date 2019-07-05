@@ -77,7 +77,7 @@ function New-TableConditionalFormatting {
                 "if (data[$ConditionHeaderNr] $($Condition.Operator) $($Condition.Value)) {"
             } elseif ($Condition.Type -eq 'string') {
                 switch ($Condition.Operator) {
-                    "includes" {
+                    "contains" {
                         "if (data[$($ConditionHeaderNr)].includes('$($Condition.Value)')) {"
                     }
                     default {
