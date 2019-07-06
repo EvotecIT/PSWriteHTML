@@ -47,6 +47,12 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.44 - **Unreleased**
+  - [x] New-HTMLTable
+    - [ ] Small improvement when no data provided
+  - [x] New-HTMLTableCondition
+    - [ ] Supports contains now - PR by Adam Cook (codamok)
+
 - 0.0.43 - 2019.07.01
   - [x] New-HTMLTable
     - [ ] Fix for ScrollX with low amount of columns
@@ -69,9 +75,9 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
       - ScrollX,
       - ScrollY, ScrollSizeY
       - FreezeColumnsLeft, FreezeColumnsRight
-    - [x] ResponivePriorityOrder, ResponsivePriorityOrderIndex
+    - [x] ResponsivePriorityOrder, ResponsivePriorityOrderIndex
   - [x] New-HTMLTableHeader - **new command**
-    - [x] Mergin header, styling header, adding header row
+    - [x] Merging header, styling header, adding header row
 
 
 - 0.0.39 - 2019.06.20
@@ -81,7 +87,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 - 0.0.38 - 2019.06.17 - http://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes
   - Added support for Bar Charts/Line Charts
   - Added support for icons in tabs
-  - Added support for controling tabs
+  - Added support for controlling tabs
   - Fixes for tables in multiple places
   - Ability to control buttons behavior
   - Many many more, it's a big release
@@ -90,7 +96,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
   - Fix for New-HTMLListItem to support multiple Texts
 
 - 0.0.33 - 2019.05.28
-  - New-HTMLTable - Sorting orderd for DateTime (added by ferwe/Ferdi Weiner)
+  - New-HTMLTable - Sorting ordered for DateTime - PR by Ferdi Weiner (ferwe)
   - Removed New-HTMLChart temporary as it will be rebuilt
 
 ## Advantages over ReportHTML:
