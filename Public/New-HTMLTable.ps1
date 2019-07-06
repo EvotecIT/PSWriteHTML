@@ -90,6 +90,8 @@ function New-HTMLTable {
     [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
     if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
         #return ''
+        $Filtering = $false # setting it to false because it's not nessecary
+        $HideFooter = $true
         $DataTable = $TextWhenNoData
     }
     if ($DataTable[0] -is [System.Collections.IDictionary]) {
