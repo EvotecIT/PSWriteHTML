@@ -52,6 +52,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
     - [ ] Small improvement when no data provided
   - [x] New-HTMLTableCondition
     - [ ] Supports contains now - PR by Adam Cook (codamok)
+  - [ ] Removed ColorSchemes - remainings of ReportHTML old code
 
 - 0.0.43 - 2019.07.01
   - [x] New-HTMLTable
