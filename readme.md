@@ -47,12 +47,12 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.44 - **Unreleased**
+- 0.0.44 - 2019.07.08
   - [x] New-HTMLTable
     - [ ] Small improvement when no data provided
   - [x] New-HTMLTableCondition
     - [ ] Supports contains now - PR by Adam Cook (codamok)
-  - [ ] Removed ColorSchemes - remainings of ReportHTML old code
+  - [ ] Removed ColorSchemes - removal of ReportHTML old code
 
 - 0.0.43 - 2019.07.01
   - [x] New-HTMLTable
