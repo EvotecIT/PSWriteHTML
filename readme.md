@@ -47,6 +47,13 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.45 - 2019.07.09
+  - [x] New-HTMLTable
+    - [ ] Added $PriorityProperties parameter - it works also on ScrollX and other types of places contrary to ResponsivePriorityProperties which only works on Responsive Table
+    - [ ] It was moved from Out-HtmlView
+  - [X] Out-HTMLView
+    - [ ] Updated with all features from New-HTMLTable as it's useful to use it for fast output
+
 - 0.0.44 - 2019.07.08
   - [x] New-HTMLTable
     - [ ] Small improvement when no data provided
