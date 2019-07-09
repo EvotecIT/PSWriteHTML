@@ -41,7 +41,8 @@ function New-HTMLTable {
         [switch] $FixedHeader,
         [switch] $FixedFooter,
         [string[]] $ResponsivePriorityOrder,
-        [int[]] $ResponsivePriorityOrderIndex
+        [int[]] $ResponsivePriorityOrderIndex,
+        [string[]] $PriorityProperties
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -83,6 +84,20 @@ function New-HTMLTable {
                     $HeaderTop.Add($Parameters.Output)
                 }
             }
+        }
+    }
+
+    # This is more direct way of PriorityProperties that will work also on Scroll and in other circumstances
+    if ($PriorityProperties) {
+        if ($DataTable.Count -gt 0) {
+            $Properties = $DataTable[0].PSObject.Properties.Name
+            $RemainingProperties = foreach ($Property in $Properties) {
+                if ($PriorityProperties -notcontains $Property) {
+                    $Property
+                }
+            }
+            $AllProperties = $PriorityProperties + $RemainingProperties
+            $DataTable = $DataTable | Select-Object -Property $AllProperties
         }
     }
 
