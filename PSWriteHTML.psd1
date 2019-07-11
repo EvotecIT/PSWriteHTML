@@ -75,17 +75,17 @@
     'New-HTMLAnchor', 'New-HTMLAnchorLink', 'New-HTMLAnchorName', 
     'New-HTMLChart', 'New-HTMLCodeBlock', 'New-HTMLContainer', 
     'New-HTMLHeading', 'New-HTMLHorizontalLine', 'New-HTMLImage', 
-    'New-HTMLList', 'New-HTMLListItem', 'New-HTMLLogo', 'New-HTMLMessage', 
-    'New-HTMLPanel', 'New-HTMLResourceCSS', 'New-HTMLResourceJS', 
-    'New-HTMLSection', 'New-HTMLSection1', 'New-HTMLSubSection', 
-    'New-HTMLSectionHeader', 'New-HTMLSpanStyle', 'New-HTMLStatus', 
-    'New-HTMLStatusItem', 'New-HTMLTab', 'New-HTMLTable', 
-    'New-HTMLTableButtonCopy', 'New-HTMLTableButtonCSV', 
-    'New-HTMLTableButtonExcel', 'New-HTMLTableButtonPageLength', 
-    'New-HTMLTableButtonPDF', 'New-HTMLTableButtonPrint', 
-    'New-HTMLTableCondition', 'New-HTMLTableHeader', 'New-HTMLTabOptions', 
-    'New-HTMLTag', 'New-HTMLText', 'New-HTMLTimeline', 
-    'New-HTMLTimelineItem', 'New-HTMLToast', 'Out-HtmlView', 'Save-HTML'
+    'New-HTMLList', 'New-HTMLListItem', 'New-HTMLLogo', 'New-HTMLPanel', 
+    'New-HTMLResourceCSS', 'New-HTMLResourceJS', 'New-HTMLSection', 
+    'New-HTMLSection1', 'New-HTMLSubSection', 'New-HTMLSectionHeader', 
+    'New-HTMLSpanStyle', 'New-HTMLStatus', 'New-HTMLStatusItem', 
+    'New-HTMLTab', 'New-HTMLTable', 'New-HTMLTableButtonCopy', 
+    'New-HTMLTableButtonCSV', 'New-HTMLTableButtonExcel', 
+    'New-HTMLTableButtonPageLength', 'New-HTMLTableButtonPDF', 
+    'New-HTMLTableButtonPrint', 'New-HTMLTableCondition', 
+    'New-HTMLTableHeader', 'New-HTMLTabOptions', 'New-HTMLTag', 
+    'New-HTMLText', 'New-HTMLTimeline', 'New-HTMLTimelineItem', 
+    'New-HTMLToast', 'Out-HtmlView', 'Save-HTML'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()
