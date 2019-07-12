@@ -101,6 +101,12 @@ function New-HTMLTable {
         }
     }
 
+    # This option disable paging if number of elements is less or equal count of elements in DataTable
+    $PagingOptions = $PagingOptions | Sort-Object
+    if ($DataTable.Count -le $PagingOptions[0]) {
+        $DisablePaging = $true
+    }
+
     # Building HTML Table / Script
     [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
     if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
