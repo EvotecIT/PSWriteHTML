@@ -49,6 +49,8 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 - 0.0.46 - Unreleased
   - [x] New-HTMLMessage - Removed as not ready, useless
+  - [x] New-HTMLTable
+    - [ ] Disable Paging when amount of objects to display is lower then PagingOptions
 
 - 0.0.45 - 2019.07.09
   - [x] New-HTMLTable
