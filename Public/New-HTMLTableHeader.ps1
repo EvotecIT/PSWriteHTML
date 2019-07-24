@@ -18,6 +18,9 @@
         [switch] $AddRow,
         [int] $ColumnCount
     )
+    if ($AddRow) {
+        Write-Warning "New-HTMLTableHeader - Using AddRow switch is deprecated. It's not nessecary anymore. Just use Title alone. It will be removed later on."
+    }
 
     $Style = @{
         Color           = $Color
