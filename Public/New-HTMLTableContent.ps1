@@ -1,13 +1,13 @@
-function New-HTMLTableCondition {
+﻿function New-HTMLTableContent {
+    [alias('TableContent', 'EmailTableContent')]
     [CmdletBinding()]
     param(
-        [alias('ColumnName')][string] $Name,
-        [alias('Type')][ValidateSet('number', 'string')][string] $ComparisonType,
-        [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'contains')][string] $Operator,
-        [Object] $Value,
-        [switch] $Row,
-        [nullable[RGBColors]] $Color,
-        [nullable[RGBColors]] $BackgroundColor,
+        [string[]] $Names,
+        [alias('Row')][int] $RowIndex,
+        [alias('Column')][int] $ColumnIndex,
+        [string] $Title,
+        [RGBColors] $Color,
+        [RGBColors] $BackGroundColor,
         [int] $FontSize,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,
@@ -16,10 +16,9 @@ function New-HTMLTableCondition {
         [ValidateSet('left', 'center', 'right', 'justify')][string] $Alignment,
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
-        [ValidateSet('rtl')][string] $Direction,
-        [switch] $Inline
-
+        [ValidateSet('rtl')][string] $Direction
     )
+
     $Style = @{
         Color           = $Color
         BackGroundColor = $BackGroundColor
@@ -35,18 +34,23 @@ function New-HTMLTableCondition {
     }
     Remove-EmptyValues -Hashtable $Style
 
-    $TableCondition = [PSCustomObject] @{
-        Row             = $Row
-        Type            = $ComparisonType
-        Name            = $Name
-        Operator        = $Operator
-        Value           = $Value
-        Color           = $Color
-        BackgroundColor = $BackgroundColor
-        Style           = ConvertTo-HTMLStyle @Style
+    if ($Title -and -not $Names) {
+        #      $Type = 'TableContentFullRow'
+    } elseif ($Title -and $Names) {
+        $Type = 'TableContentMerge'
+    } else {
+        $Type = 'TableContentStyle'
     }
-    [PSCustomObject] @{
-        Type   = if ($Inline) { 'TableConditionInline' } else { 'TableCondition' }
-        Output = $TableCondition
+
+    [PSCustomObject]@{
+        Type   = $Type
+        Output = @{
+            Names       = $Names
+            Title       = $Title
+            Row         = $RowIndex
+            ColumnIndex = $ColumnIndex
+            Style       = ConvertTo-HTMLStyle @Style
+            # ColumnCount = $ColumnCount
+        }
     }
 }

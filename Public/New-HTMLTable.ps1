@@ -54,6 +54,10 @@ function New-HTMLTable {
     $HeaderRows = [System.Collections.Generic.List[PSCustomObject]]::new()
     $HeaderStyle = [System.Collections.Generic.List[PSCustomObject]]::new()
     $HeaderTop = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $ContentRows = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $ContentStyle = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $ContentTop = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $ContentFormattingInline = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     if ($HTML) {
         [Array] $Output = & $HTML
@@ -82,6 +86,14 @@ function New-HTMLTable {
                     $HeaderStyle.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableHeaderFullRow') {
                     $HeaderTop.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableContentMerge') {
+                    $ContentRows.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableContentStyle') {
+                    $ContentStyle.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableContentFullRow') {
+                    $ContentTop.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableConditionInline') {
+                    $ContentFormattingInline.Add($Parameters.Output)
                 }
             }
         }
@@ -127,6 +139,14 @@ function New-HTMLTable {
     [string] $Header = $Table | Select-Object -First 1 # this gets header
     [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
     $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop
+
+    # This modifies Table content.
+    # It basically goes thru every single row and checks if values to add styles or inline conditional formatting
+    # It's heavier then JS, so use when nessecary
+    if ($ContentRows.Capacity -gt 0 -or $ContentStyle.Count -gt 0 -or $ContentTop.Count -gt 0 -or $ContentFormattingInline.Count -gt 0) {
+        $Table = Add-TableContent -ContentRows $ContentRows -ContentStyle $ContentStyle -ContentTop $ContentTop -ContentFormattingInline $ContentFormattingInline -Table $Table -HeaderNames $HeaderNames
+    }
+
 
     $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
     $Options = [ordered] @{
