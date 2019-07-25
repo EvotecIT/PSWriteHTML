@@ -22,6 +22,7 @@ function New-TableConditionalFormatting {
             } elseif ($Formatting.Operator -eq 'ne') {
                 $Formatting.Operator = '!='
             }
+            # Operator like/contains are taken care of below
         }
         $Condition = @(
             '"createdRow": function (row, data, dataIndex, column) {'
@@ -30,7 +31,7 @@ function New-TableConditionalFormatting {
                 $ConditionHeaderNr = $Header.ToLower().IndexOf($($Condition.Name.ToLower()))
                 $Style = $Condition.Style | ConvertTo-Json
                 [string] $StyleDefinition = ".css($Style)"
-                if ($null -eq $Condition.Type -or $Condition.Type -eq 'number') {
+                if ($null -eq $Condition.Type -or $Condition.Type -eq 'number' -or $Condition.Type -eq 'int' -or $Condition.Type -eq 'decimal') {
                     "if (data[$ConditionHeaderNr] $($Condition.Operator) $($Condition.Value)) {"
                 } elseif ($Condition.Type -eq 'string') {
                     switch ($Condition.Operator) {

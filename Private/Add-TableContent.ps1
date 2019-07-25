@@ -12,7 +12,7 @@
     # This converts inline conditonal formatting into style. It's intensive because it actually scans whole Table
     # During scan it tries to match things and when it finds a match it prepares it for ContentStyling feature
     if ($ContentFormattingInline.Count -gt 0) {
-        [Array] $AddStyles = for ($RowCount = 0; $RowCount -lt $Table.Count; $RowCount++) {
+        [Array] $AddStyles = for ($RowCount = 1; $RowCount -lt $Table.Count; $RowCount++) {
             [string[]] $RowData = $Table[$RowCount] -replace '</td></tr>' -replace '<tr><td>' -split '</td><td>'
 
             for ($ColumnCount = 0; $ColumnCount -lt $RowData.Count; $ColumnCount++) {
@@ -20,22 +20,57 @@
                     $ColumnIndexHeader = [array]::indexof($HeaderNames.ToUpper(), $($ConditionalFormatting.Name).ToUpper())
                     if ($ColumnIndexHeader -eq $ColumnCount) {
 
+                        if ($ConditionalFormatting.Type -eq 'number' -or $ConditionalFormatting.Type -eq 'decimal') {
+                            [decimal] $returnedValueLeft = 0
+                            [bool]$resultLeft = [int]::TryParse($RowData[$ColumnCount], [ref]$returnedValueLeft)
+
+                            [decimal]$returnedValueRight = 0
+                            [bool]$resultRight = [int]::TryParse($ConditionalFormatting.Value, [ref]$returnedValueRight)
+
+                            if ($resultLeft -and $resultRight) {
+                                $SideLeft = $returnedValueLeft
+                                $SideRight = $returnedValueRight
+                            } else {
+                                $SideLeft = $RowData[$ColumnCount]
+                                $SideRight = $ConditionalFormatting.Value
+                            }
+
+                        } elseif ($ConditionalFormatting.Type -eq 'int') {
+                            # Leaving this in althought only NUMBER is used.
+                            [int] $returnedValueLeft = 0
+                            [bool]$resultLeft = [int]::TryParse($RowData[$ColumnCount], [ref]$returnedValueLeft)
+
+                            [int]$returnedValueRight = 0
+                            [bool]$resultRight = [int]::TryParse($ConditionalFormatting.Value, [ref]$returnedValueRight)
+
+                            if ($resultLeft -and $resultRight) {
+                                $SideLeft = $returnedValueLeft
+                                $SideRight = $returnedValueRight
+                            } else {
+                                $SideLeft = $RowData[$ColumnCount]
+                                $SideRight = $ConditionalFormatting.Value
+                            }
+                        } else {
+                            $SideLeft = $RowData[$ColumnCount]
+                            $SideRight = $ConditionalFormatting.Value
+                        }
+
                         if ($ConditionalFormatting.Operator -eq 'gt') {
-                            $Pass = $RowData[$ColumnCount] -gt $ConditionalFormatting.Value
+                            $Pass = $SideLeft -gt $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'lt') {
-                            $Pass = $RowData[$ColumnCount] -lt $ConditionalFormatting.Value
+                            $Pass = $SideLeft -lt $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'eq') {
-                            $Pass = $RowData[$ColumnCount] -eq $ConditionalFormatting.Value
+                            $Pass = $SideLeft -eq $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'le') {
-                            $Pass = $RowData[$ColumnCount] -le $ConditionalFormatting.Value
+                            $Pass = $SideLeft -le $SideRighte
                         } elseif ($ConditionalFormatting.Operator -eq 'ge') {
-                            $Pass = $RowData[$ColumnCount] -ge $ConditionalFormatting.Value
+                            $Pass = $SideLeft -ge $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'ne') {
-                            $Pass = $RowData[$ColumnCount] -ne $ConditionalFormatting.Value
+                            $Pass = $SideLeft -ne $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'like') {
-                            $Pass = $RowData[$ColumnCount] -like $ConditionalFormatting.Value
+                            $Pass = $SideLeft -like $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'contains') {
-                            $Pass = $RowData[$ColumnCount] -contains $ConditionalFormatting.Value
+                            $Pass = $SideLeft -contains $SideRight
                         }
                         # This is generally risky, alternative business to do it, so doing above instead
                         # if (Invoke-Expression -Command "`"$($RowData[$ColumnCount])`" -$($ConditionalFormatting.Operator) `"$($ConditionalFormatting.Value)`"") {

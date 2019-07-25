@@ -1,4 +1,5 @@
 function New-HTMLTableCondition {
+    [alias('EmailTableCondition','TableConditionalFormatting')]
     [CmdletBinding()]
     param(
         [alias('ColumnName')][string] $Name,
