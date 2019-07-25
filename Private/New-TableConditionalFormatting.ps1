@@ -19,6 +19,8 @@ function New-TableConditionalFormatting {
                 $Formatting.Operator = '<='
             } elseif ($Formatting.Operator -eq 'ge') {
                 $Formatting.Operator = '>='
+            } elseif ($Formatting.Operator -eq 'ne') {
+                $Formatting.Operator = '!='
             }
         }
         $Condition = @(
@@ -33,6 +35,9 @@ function New-TableConditionalFormatting {
                 } elseif ($Condition.Type -eq 'string') {
                     switch ($Condition.Operator) {
                         "contains" {
+                            "if (data[$($ConditionHeaderNr)].includes('$($Condition.Value)')) {"
+                        }
+                        "like" {
                             "if (data[$($ConditionHeaderNr)].includes('$($Condition.Value)')) {"
                         }
                         default {

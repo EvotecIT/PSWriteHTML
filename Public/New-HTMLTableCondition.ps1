@@ -3,7 +3,7 @@ function New-HTMLTableCondition {
     param(
         [alias('ColumnName')][string] $Name,
         [alias('Type')][ValidateSet('number', 'string')][string] $ComparisonType,
-        [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'contains')][string] $Operator,
+        [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'ne', 'contains', 'like')][string] $Operator,
         [Object] $Value,
         [switch] $Row,
         [nullable[RGBColors]] $Color,
@@ -37,9 +37,9 @@ function New-HTMLTableCondition {
 
     $TableCondition = [PSCustomObject] @{
         Row             = $Row
-        Type            = $ComparisonType
+        Type            = if (-not $ComparisonType) { 'string' } else { $ComparisonType }
         Name            = $Name
-        Operator        = $Operator
+        Operator        = if (-not $Operator) { 'eq' } else { $Operator }
         Value           = $Value
         Color           = $Color
         BackgroundColor = $BackgroundColor
