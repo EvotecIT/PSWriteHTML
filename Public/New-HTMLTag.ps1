@@ -4,7 +4,8 @@ function New-HTMLTag {
         [Parameter(Mandatory = $false, Position = 0)][alias('Content')][ScriptBlock] $Value,
         [Parameter(Mandatory = $true, Position = 1)][string] $Tag,
         [System.Collections.IDictionary] $Attributes,
-        [switch] $SelfClosing
+        [switch] $SelfClosing,
+        [switch] $NewLine
     )
     $HTMLTag = [Ordered] @{
         Tag         = $Tag
@@ -12,6 +13,6 @@ function New-HTMLTag {
         Value       = if ($null -eq $Value) { '' } else { Invoke-Command -ScriptBlock $Value }
         SelfClosing = $SelfClosing
     }
-    $HTML = Set-Tag -HtmlObject $HTMLTag
+    $HTML = Set-Tag -HtmlObject $HTMLTag -NewLine:$NewLine
     return $HTML
 }

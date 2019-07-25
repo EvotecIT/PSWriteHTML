@@ -1,7 +1,8 @@
 function Set-Tag {
     [CmdletBinding()]
     param(
-        [System.Collections.IDictionary] $HtmlObject
+        [System.Collections.IDictionary] $HtmlObject,
+        [switch] $NewLine # This is needed if code requires new lines such as JavaScript
     )
     $HTML = [System.Text.StringBuilder]::new()
     [void] $HTML.Append("<$($HtmlObject.Tag)")
@@ -43,7 +44,12 @@ function Set-Tag {
                     [string] $NewObject = Set-Tag -HtmlObject ($Entry)
                     [void] $HTML.Append($NewObject)
                 } else {
-                    [void] $HTML.AppendLine([string] $Entry)
+                    # This is needed if code requires new lines such as JavaScript
+                    if ($NewLine) {
+                        [void] $HTML.AppendLine([string] $Entry)
+                    } else {
+                        [void] $HTML.Append([string] $Entry)
+                    }
                 }
             }
         }
