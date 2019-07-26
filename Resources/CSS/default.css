@@ -154,23 +154,6 @@ a.alink:hover {
     font-size: 130%;
 }
 
-table.sortable {
-    width: calc(100% - 10px);
-    margin: 5px;
-    box-sizing: border-box;
-    border-collapse: collapse;
-    display: inline-block;
-    overflow-x: auto;
-    overflow-y: auto;
-}
-
-table.sortable thead {
-    background-color: #eee;
-    color: #666666;
-    font-weight: bold;
-    cursor: default;
-}
-
 /* Adding CSS */
 
 a.paginate_button {

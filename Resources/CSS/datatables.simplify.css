@@ -1,4 +1,4 @@
-table {
+﻿table.simplify {
     border-width: 1px;
     border-style: solid;
     border-color: black;
@@ -8,7 +8,7 @@ table {
     width: 100%;
 }
 
-table th {
+table.simplify th {
     border-width: 1px;
     padding: 4px;
     border-style: solid;
@@ -21,7 +21,7 @@ table th {
     padding: 10px;
 }
 
-table td {
+table.simplify td {
     border-width: 1px;
     padding-right: 2px;
     padding-left: 2px;
@@ -36,18 +36,18 @@ table td {
 }
 
 /* Zebra striping */
-table tr:nth-of-type(odd) {
+table.simplify tr:nth-of-type(odd) {
     background: #eee;
 }
 
-table th {
+table.simplify th {
     background: #333;
     color: white;
     font-weight: bold;
 }
 
-table td,
-table th {
+table.simplify td,
+table.simplify th {
     padding: 6px;
     border: 1px solid #ccc;
     text-align: left;

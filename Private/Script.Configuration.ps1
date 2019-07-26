@@ -143,6 +143,13 @@ $Script:Configuration = [ordered] @{
                 JS     = "$PSScriptRoot\..\Resources\JS\jszip.min.js"
             }
         }
+        DataTablesSimplify                  = @{
+            Comment      = 'DataTables (not really) - Simplified'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\datatables.simplify.css"
+            }
+        }
+
         Fonts                  = @{
             Comment      = 'Default fonts'
             HeaderAlways = @{
