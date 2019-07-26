@@ -84,7 +84,6 @@
                                         RowIndex    = $RowCount
                                         ColumnIndex = ($i + 1) # Since it's 0 based index and we count from 1 we need to add 1
                                         Style       = $ConditionalFormatting.Style
-
                                     }
                                 }
                             } else {
@@ -107,38 +106,52 @@
 
     # Prepopulate hashtable with rows
     $TableRows = @{ }
-    foreach ($Content in $ContentStyle) {
-        # | Sort-Object -Property Row) {
-        $TableRows[$Content.RowIndex] = @{ }
+    if ($ContentStyle) {
+        for ($RowIndex = 0; $RowIndex -lt $Table.Count; $RowIndex++) {
+            $TableRows[$RowIndex] = @{ }
+        }
     }
 
     # Find rows in hashtable and add column to it
     foreach ($Content in $ContentStyle) {
-        if ($Content.ColumnIndex) {
+        if ($Content.RowIndex -and $Content.ColumnIndex) {
             # This takes care of Content by Column Nr
-            foreach ($_ in $Content.ColumnIndex) {
+            foreach ($ColumnIndex in $Content.ColumnIndex) {
                 # Column Index given by user is from 1 to infinity, Column Index is counted from 0
                 # We need to address this by doing - 1
-                $TableRows[$Content.RowIndex][$_ - 1] = @{
-                    #Index = ($_ - 1)
-                    #Title = $Content.Title
-                    #Count = ($Content.ColumnIndex).Count
+                $TableRows[$Content.RowIndex][$ColumnIndex - 1] = @{
                     Style = $Content.Style
-                    #Row   = $Content.RowIndex
-                    #Used  = $false
                 }
             }
-        } else {
+        } elseif ($Content.RowIndex -and $Content.Name) {
             # This takes care of Content by Column Names (Header Names)
-            foreach ($_ in $Content.Names) {
-                $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
+            foreach ($ColumnName in $Content.Name) {
+                $Index = [array]::indexof($HeaderNames.ToUpper(), $ColumnName.ToUpper())
                 $TableRows[$Content.RowIndex][$Index] = @{
-                    #Index    = $Index
-                    #Title    = $Content.Title
-                    #Count    = $Index.Count
-                    Style    = $Content.Style
-                    #RowIndex = $Content.RowIndex
-                    #Used     = $false
+                    Style = $Content.Style
+                }
+            }
+        } elseif ($Content.RowIndex -and (-not $Content.ColumnIndex -and -not $Content.Name)) {
+            for ($ColumnIndex = 0; $ColumnIndex -lt $HeaderNames.Count; $ColumnIndex++) {
+                $TableRows[$Content.RowIndex][$ColumnIndex] = @{
+                    Style = $Content.Style
+                }
+            }
+        } elseif (-not $Content.RowIndex -and ($Content.ColumnIndex -or $Content.Name)) {
+            for ($RowIndex = 1; $RowIndex -lt $($Table.Count); $RowIndex++) {
+                if ($Content.ColumnIndex) {
+                    foreach ($ColumnIndex in $Content.ColumnIndex) {
+                        $TableRows[$RowIndex][$ColumnIndex] = @{
+                            Style = $Content.Style
+                        }
+                    }
+                } else {
+                    foreach ($ColumnName in $Content.Name) {
+                        $ColumnIndex = [array]::indexof($HeaderNames.ToUpper(), $ColumnName.ToUpper())
+                        $TableRows[$RowIndex][$ColumnIndex] = @{
+                            Style = $Content.Style
+                        }
+                    }
                 }
             }
         }

@@ -2,9 +2,9 @@
     [alias('TableContent', 'EmailTableContent')]
     [CmdletBinding()]
     param(
-        [string[]] $Names,
-        [int] $RowIndex,
+        [alias('ColumnNames', 'Names', 'Name')][string[]] $ColumnName,
         [int] $ColumnIndex,
+        [int] $RowIndex,
         [string] $Title,
         [RGBColors] $Color,
         [RGBColors] $BackGroundColor,
@@ -16,8 +16,8 @@
         [ValidateSet('left', 'center', 'right', 'justify')][string] $Alignment,
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
-        [ValidateSet('rtl')][string] $Direction,
-        [switch] $Row
+        [ValidateSet('rtl')][string] $Direction
+        #   [switch] $Row
     )
 
     $Style = @{
@@ -35,9 +35,9 @@
     }
     Remove-EmptyValues -Hashtable $Style
 
-    if ($Title -and -not $Names) {
+    if ($Title -and -not ($ColumnName -or $ColumnIndex)) {
         #      $Type = 'TableContentFullRow'
-    } elseif ($Title -and $Names) {
+    } elseif ($Title -and ($ColumnName -or $ColumnIndex)) {
         $Type = 'TableContentMerge'
     } else {
         $Type = 'TableContentStyle'
@@ -46,12 +46,12 @@
     [PSCustomObject]@{
         Type   = $Type
         Output = @{
-            Names       = $Names
+            Name        = $ColumnName
             Title       = $Title
             RowIndex    = $RowIndex
             ColumnIndex = $ColumnIndex
             Style       = ConvertTo-HTMLStyle @Style
-            Row         = $Row.IsPresent
+            # Row         = $Row.IsPresent
         }
     }
 }
