@@ -46,21 +46,17 @@
     }
 
     #>
-
-    if ($Text) {
-        $Type = 'TableContentMerge'
-    } else {
-        $Type = 'TableContentStyle'
-    }
+    $Type = 'TableContentStyle'
 
     [PSCustomObject]@{
         Type   = $Type
         Output = @{
             Name        = $ColumnName
             Text        = $Text
-            RowIndex    = $RowIndex
-            ColumnIndex = $ColumnIndex
+            RowIndex    = $RowIndex | Sort-Object
+            ColumnIndex = $ColumnIndex | Sort-Object
             Style       = ConvertTo-HTMLStyle @Style
+            Used        = $false
         }
     }
 }

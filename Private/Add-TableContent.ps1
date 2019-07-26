@@ -124,6 +124,18 @@
                     $TableRows[$RowIndex][$ColumnIndex - 1] = @{
                         Style = $Content.Style
                     }
+                    if ($Content.Text) {
+                        if ($Content.Used) {
+                            $TableRows[$RowIndex][$ColumnIndex - 1]['Text'] = ''
+                            $TableRows[$RowIndex][$ColumnIndex - 1]['Remove'] = $true
+                        } else {
+                            $TableRows[$RowIndex][$ColumnIndex - 1]['Text'] = $Content.Text
+                            $TableRows[$RowIndex][$ColumnIndex - 1]['Remove'] = $false
+                            $TableRows[$RowIndex][$ColumnIndex - 1]['ColSpan'] = $($Content.ColumnIndex).Count
+                            $TableRows[$RowIndex][$ColumnIndex - 1]['RowSpan'] = $($Content.RowIndex).Count
+                            $Content.Used = $true
+                        }
+                    }
                 }
             }
         } elseif ($Content.RowIndex -and $Content.Name) {
@@ -180,8 +192,47 @@
             New-HTMLTag -Tag 'tr' {
                 for ($ColumnCount = 0; $ColumnCount -lt $RowData.Count; $ColumnCount++) {
                     if ($TableRows[$RowCount][$ColumnCount]) {
-                        New-HTMLTag -Tag 'td' -Value { $RowData[$ColumnCount] } -Attributes @{
-                            style = $TableRows[$RowCount][$ColumnCount]['Style']
+                        if (-not $TableRows[$RowCount][$ColumnCount]['Remove']) {
+                            if ($TableRows[$RowCount][$ColumnCount]['Text']) {
+                                New-HTMLTag -Tag 'td' -Value { $TableRows[$RowCount][$ColumnCount]['Text'] } -Attributes @{
+                                    style   = $TableRows[$RowCount][$ColumnCount]['Style']
+                                    colspan = if ($TableRows[$RowCount][$ColumnCount]['ColSpan'] -gt 1) { $TableRows[$RowCount][$ColumnCount]['ColSpan'] } else { }
+                                    rowspan = if ($TableRows[$RowCount][$ColumnCount]['RowSpan'] -gt 1) { $TableRows[$RowCount][$ColumnCount]['RowSpan'] } else { }
+                                }
+                                <#
+                                # Version 1 - Alternative version to workaround DataTables.NET
+                                New-HTMLTag -Tag 'td' -Value { $TableRows[$RowCount][$ColumnCount]['Text'] } -Attributes @{
+                                    style   = $TableRows[$RowCount][$ColumnCount]['Style']
+                                    #colspan = if ($TableRows[$RowCount][$ColumnCount]['ColSpan'] -gt 1) { $TableRows[$RowCount][$ColumnCount]['ColSpan'] } else { }
+                                    #rowspan = if ($TableRows[$RowCount][$ColumnCount]['RowSpan'] -gt 1) { $TableRows[$RowCount][$ColumnCount]['RowSpan'] } else { }
+                                }
+                                #>
+                            } else {
+                                New-HTMLTag -Tag 'td' -Value { $RowData[$ColumnCount] } -Attributes @{
+                                    style = $TableRows[$RowCount][$ColumnCount]['Style']
+                                }
+                            }
+                        } else {
+                            # RowSpan/ColSpan doesn't work in DataTables.net for content.
+                            # This means that this functionality is only good for Non-JS.
+                            # Normally you would just remove TD/TD and everything shopuld work
+                            # And it does work but only for NON-JS solution
+
+                            # Version 1
+                            # Alternative Approach - this assumes the text will be zeroed
+                            # From visibility side it will look like an empty cells
+                            # However content will be stored only in first cell.
+                            # requires removal of colspan/rowspan
+
+                            #New-HTMLTag -Tag 'td' -Value { '' } -Attributes @{
+                            #    style = $TableRows[$RowCount][$ColumnCount]['Style']
+                            #}
+
+                            # Version 2
+                            # Below code was suggested as a workaround - it doesn't wrok
+                            #New-HTMLTag -Tag 'td' -Value { }  -Attributes @{
+                            #    style = "display: none;"
+                            #}
                         }
                     } else {
                         New-HTMLTag -Tag 'td' -Value { $RowData[$ColumnCount] }
