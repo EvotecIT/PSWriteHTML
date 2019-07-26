@@ -82,14 +82,16 @@
                                 for ($i = 0; $i -lt $RowData.Count; $i++) {
                                     [PSCustomObject]@{
                                         RowIndex    = $RowCount
-                                        ColumnIndex = ($i + 1) # Since it's 0 based index and we count from 1 we need to add 1
+                                        ColumnIndex = ($i + 1)
+                                        # Since it's 0 based index and we count from 1 we need to add 1
                                         Style       = $ConditionalFormatting.Style
                                     }
                                 }
                             } else {
                                 [PSCustomObject]@{
                                     RowIndex    = $RowCount
-                                    ColumnIndex = ($ColumnIndexHeader + 1) # Since it's 0 based index and we count from 1 we need to add 1
+                                    ColumnIndex = ($ColumnIndexHeader + 1)
+                                    # Since it's 0 based index and we count from 1 we need to add 1
                                     Style       = $ConditionalFormatting.Style
                                 }
                             }
@@ -115,9 +117,11 @@
     # Find rows in hashtable and add column to it
     foreach ($Content in $ContentStyle) {
         if ($Content.RowIndex -and $Content.ColumnIndex) {
+
             # ROWINDEX and COLUMNINDEX - ARRAYS
             # This takes care of Content by Column Nr
             foreach ($ColumnIndex in $Content.ColumnIndex) {
+
                 # Column Index given by user is from 1 to infinity, Column Index is counted from 0
                 # We need to address this by doing - 1
                 foreach ($RowIndex in $Content.RowIndex) {
@@ -199,14 +203,12 @@
                                     colspan = if ($TableRows[$RowCount][$ColumnCount]['ColSpan'] -gt 1) { $TableRows[$RowCount][$ColumnCount]['ColSpan'] } else { }
                                     rowspan = if ($TableRows[$RowCount][$ColumnCount]['RowSpan'] -gt 1) { $TableRows[$RowCount][$ColumnCount]['RowSpan'] } else { }
                                 }
-                                <#
+
                                 # Version 1 - Alternative version to workaround DataTables.NET
-                                New-HTMLTag -Tag 'td' -Value { $TableRows[$RowCount][$ColumnCount]['Text'] } -Attributes @{
-                                    style   = $TableRows[$RowCount][$ColumnCount]['Style']
-                                    #colspan = if ($TableRows[$RowCount][$ColumnCount]['ColSpan'] -gt 1) { $TableRows[$RowCount][$ColumnCount]['ColSpan'] } else { }
-                                    #rowspan = if ($TableRows[$RowCount][$ColumnCount]['RowSpan'] -gt 1) { $TableRows[$RowCount][$ColumnCount]['RowSpan'] } else { }
-                                }
-                                #>
+                                # New-HTMLTag -Tag 'td' -Value { $TableRows[$RowCount][$ColumnCount]['Text'] } -Attributes @{
+                                #    style   = $TableRows[$RowCount][$ColumnCount]['Style']
+                                # }
+
                             } else {
                                 New-HTMLTag -Tag 'td' -Value { $RowData[$ColumnCount] } -Attributes @{
                                     style = $TableRows[$RowCount][$ColumnCount]['Style']
@@ -224,15 +226,15 @@
                             # However content will be stored only in first cell.
                             # requires removal of colspan/rowspan
 
-                            #New-HTMLTag -Tag 'td' -Value { '' } -Attributes @{
+                            # New-HTMLTag -Tag 'td' -Value { '' } -Attributes @{
                             #    style = $TableRows[$RowCount][$ColumnCount]['Style']
-                            #}
+                            # }
 
                             # Version 2
                             # Below code was suggested as a workaround - it doesn't wrok
-                            #New-HTMLTag -Tag 'td' -Value { }  -Attributes @{
-                            #    style = "display: none;"
-                            #}
+                            # New-HTMLTag -Tag 'td' -Value { }  -Attributes @{
+                            #     style = "display: none;"
+                            # }
                         }
                     } else {
                         New-HTMLTag -Tag 'td' -Value { $RowData[$ColumnCount] }

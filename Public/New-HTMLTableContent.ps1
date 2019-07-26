@@ -17,7 +17,6 @@
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl')][string] $Direction
-        #   [switch] $Row
     )
 
     $Style = @{
@@ -34,18 +33,7 @@
         Direction       = $Direction
     }
     Remove-EmptyValues -Hashtable $Style
-    <#
-    if ($Text -and -not ($ColumnName -or $ColumnIndex)) {
-        Write-Warning 'New-HTMLTableContent - Not supported option'
-        return
-        #      $Type = 'TableContentFullRow'
-    } elseif ($Text -and ($ColumnName -or $ColumnIndex)) {
-        $Type = 'TableContentMerge'
-    } else {
-        $Type = 'TableContentStyle'
-    }
 
-    #>
     $Type = 'TableContentStyle'
 
     [PSCustomObject]@{
