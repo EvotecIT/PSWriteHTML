@@ -117,17 +117,15 @@
         if ($Content.ColumnIndex) {
             # This takes care of Content by Column Nr
             foreach ($_ in $Content.ColumnIndex) {
-                #$Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
-
                 # Column Index given by user is from 1 to infinity, Column Index is counted from 0
                 # We need to address this by doing - 1
                 $TableRows[$Content.RowIndex][$_ - 1] = @{
-                    Index = ($_ - 1)
-                    Title = $Content.Title
-                    Count = ($Content.ColumnIndex).Count
+                    #Index = ($_ - 1)
+                    #Title = $Content.Title
+                    #Count = ($Content.ColumnIndex).Count
                     Style = $Content.Style
-                    Row   = $Content.RowIndex
-                    Used  = $false
+                    #Row   = $Content.RowIndex
+                    #Used  = $false
                 }
             }
         } else {
@@ -135,12 +133,12 @@
             foreach ($_ in $Content.Names) {
                 $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
                 $TableRows[$Content.RowIndex][$Index] = @{
-                    Index    = $Index
-                    Title    = $Content.Title
-                    Count    = $Index.Count
+                    #Index    = $Index
+                    #Title    = $Content.Title
+                    #Count    = $Index.Count
                     Style    = $Content.Style
-                    RowIndex = $Content.RowIndex
-                    Used     = $false
+                    #RowIndex = $Content.RowIndex
+                    #Used     = $false
                 }
             }
         }
@@ -158,7 +156,7 @@
                 for ($ColumnCount = 0; $ColumnCount -lt $RowData.Count; $ColumnCount++) {
                     if ($TableRows[$RowCount][$ColumnCount]) {
                         New-HTMLTag -Tag 'td' -Value { $RowData[$ColumnCount] } -Attributes @{
-                            style = $TableRows[$RowCount][$ColumnCount].Style
+                            style = $TableRows[$RowCount][$ColumnCount]['Style']
                         }
                     } else {
                         New-HTMLTag -Tag 'td' -Value { $RowData[$ColumnCount] }
