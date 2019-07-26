@@ -115,37 +115,49 @@
     # Find rows in hashtable and add column to it
     foreach ($Content in $ContentStyle) {
         if ($Content.RowIndex -and $Content.ColumnIndex) {
+            # ROWINDEX and COLUMNINDEX - ARRAYS
             # This takes care of Content by Column Nr
             foreach ($ColumnIndex in $Content.ColumnIndex) {
                 # Column Index given by user is from 1 to infinity, Column Index is counted from 0
                 # We need to address this by doing - 1
-                $TableRows[$Content.RowIndex][$ColumnIndex - 1] = @{
-                    Style = $Content.Style
+                foreach ($RowIndex in $Content.RowIndex) {
+                    $TableRows[$RowIndex][$ColumnIndex - 1] = @{
+                        Style = $Content.Style
+                    }
                 }
             }
         } elseif ($Content.RowIndex -and $Content.Name) {
+            # ROWINDEX AND COLUMN NAMES - ARRAYS
             # This takes care of Content by Column Names (Header Names)
             foreach ($ColumnName in $Content.Name) {
                 $Index = [array]::indexof($HeaderNames.ToUpper(), $ColumnName.ToUpper())
-                $TableRows[$Content.RowIndex][$Index] = @{
-                    Style = $Content.Style
+                foreach ($RowIndex in $Content.RowIndex) {
+                    $TableRows[$RowIndex][$Index] = @{
+                        Style = $Content.Style
+                    }
                 }
             }
         } elseif ($Content.RowIndex -and (-not $Content.ColumnIndex -and -not $Content.Name)) {
+            # Just ROW INDEX
             for ($ColumnIndex = 0; $ColumnIndex -lt $HeaderNames.Count; $ColumnIndex++) {
-                $TableRows[$Content.RowIndex][$ColumnIndex] = @{
-                    Style = $Content.Style
+                foreach ($RowIndex in $Content.RowIndex) {
+                    $TableRows[$RowIndex][$ColumnIndex] = @{
+                        Style = $Content.Style
+                    }
                 }
             }
         } elseif (-not $Content.RowIndex -and ($Content.ColumnIndex -or $Content.Name)) {
+            # JUST COLUMNINDEX or COLUMNNAMES
             for ($RowIndex = 1; $RowIndex -lt $($Table.Count); $RowIndex++) {
                 if ($Content.ColumnIndex) {
+                    # JUST COLUMN INDEX
                     foreach ($ColumnIndex in $Content.ColumnIndex) {
-                        $TableRows[$RowIndex][$ColumnIndex] = @{
+                        $TableRows[$RowIndex][$ColumnIndex - 1] = @{
                             Style = $Content.Style
                         }
                     }
                 } else {
+                    # JUST COLUMN NAMES
                     foreach ($ColumnName in $Content.Name) {
                         $ColumnIndex = [array]::indexof($HeaderNames.ToUpper(), $ColumnName.ToUpper())
                         $TableRows[$RowIndex][$ColumnIndex] = @{

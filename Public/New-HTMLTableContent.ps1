@@ -3,9 +3,9 @@
     [CmdletBinding()]
     param(
         [alias('ColumnNames', 'Names', 'Name')][string[]] $ColumnName,
-        [int] $ColumnIndex,
-        [int] $RowIndex,
-        [string] $Title,
+        [int[]] $ColumnIndex,
+        [int[]] $RowIndex,
+        [string] $Text,
         [RGBColors] $Color,
         [RGBColors] $BackGroundColor,
         [int] $FontSize,
@@ -34,10 +34,20 @@
         Direction       = $Direction
     }
     Remove-EmptyValues -Hashtable $Style
-
-    if ($Title -and -not ($ColumnName -or $ColumnIndex)) {
+    <#
+    if ($Text -and -not ($ColumnName -or $ColumnIndex)) {
+        Write-Warning 'New-HTMLTableContent - Not supported option'
+        return
         #      $Type = 'TableContentFullRow'
-    } elseif ($Title -and ($ColumnName -or $ColumnIndex)) {
+    } elseif ($Text -and ($ColumnName -or $ColumnIndex)) {
+        $Type = 'TableContentMerge'
+    } else {
+        $Type = 'TableContentStyle'
+    }
+
+    #>
+
+    if ($Text) {
         $Type = 'TableContentMerge'
     } else {
         $Type = 'TableContentStyle'
@@ -47,11 +57,10 @@
         Type   = $Type
         Output = @{
             Name        = $ColumnName
-            Title       = $Title
+            Text        = $Text
             RowIndex    = $RowIndex
             ColumnIndex = $ColumnIndex
             Style       = ConvertTo-HTMLStyle @Style
-            # Row         = $Row.IsPresent
         }
     }
 }
