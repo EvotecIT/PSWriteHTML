@@ -421,7 +421,8 @@ function New-HTMLTable {
             }
         }
     } else {
-        $TableAttributes = @{ class = 'sortable' }
+        $TableAttributes = @{ class = 'simplify' }
+        $Script:HTMLSchema.Features.DataTablesSimplify = $true
     }
 
     if ($InvokeHTMLTags) {
