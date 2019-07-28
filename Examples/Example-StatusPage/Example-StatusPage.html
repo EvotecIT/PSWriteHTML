@@ -1,78 +1,14 @@
-<!DOCTYPE html>
-<html><!-- HEADER -->
-<head><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta name="author"/>
-<meta content="2019-03-29 21:38:43" name="revised"/>
-<title>Services Status
-</title>
-<!-- CSS Default fonts START -->
-<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
-<!-- CSS Default fonts END -->
-<!-- CSS Default fonts icons START -->
-<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
-<!-- CSS Default fonts icons END -->
-<!-- CSS Always Required Default Visual Settings START -->
-<style type="text/css">body {
+﻿<!DOCTYPE html>
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-07-28 16:34:20" name="revised"/><title>Services Status</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
-    margin: 8px 10px 8px 10px;
 }
 
 hr {
     height: 4px;
-    /*
-    background-color: #007bff;
-    */
     background-color: #6Cf;
     border: 0px;
     width: 100%;
-}
-
-table {
-    table-layout: auto;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th {
-    vertical-align: top;
-    text-align: left;
-    padding: 2px 5px 2px 5px;
-}
-
-td {
-    vertical-align: top;
-    padding: 2px 5px 2px 5px;
-    border-top: 1px solid #bbbbbb;
-    height: 16px;
-    vertical-align: middle;
-}
-
-tr.totalrow {
-    border-top: thick double;
-}
-
-td.totalrow {
-    vertical-align: Bottom;
-    text-align: left;
-    font-size: 8pt;
-    font-weight: bold;
-    padding: 2px 5px 2px 5px;
-}
-
-div.pageTitle {
-    font-size: 14pt;
-    font-weight: bold;
-    width: 100%;
-    display: block;
-    padding: 4px 1em 0px 2px;
-    height: 2em;
-}
-
-div.ReportCreated {
-    text-align: right;
-    padding-right: 5em;
 }
 
 div.clientlogo {
@@ -93,35 +29,22 @@ div.MainLogo {
 
 .central {
     margin: 10px auto;
-    width: 100%;
+    /* width: 100%; */
     max-width: 900px;
 }
 
 div.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
-    /* display: inline-block; */
     margin: 5px;
     width: calc(100% - 10px);
     overflow: hidden;
-    /* NEW */
     overflow-x: hidden;
     overflow-y: hidden;
-
-    /*
-      box-sizing: border-box;
-    float: left;
-    */
 }
 
 div.defaultColumn {
-
-
     overflow: hidden;
-    /* 
-     float: left;
-    box-sizing: border-box;
-    */
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 2px;
@@ -131,7 +54,6 @@ div.defaultColumn {
     display: flex;
     justify-content: space-between;
     padding: 2px;
-    border: 1px solid #ddd;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -154,8 +76,6 @@ div.defaultColumn {
 
 .defaultPanel {
     flex-basis: 100%;
-    /* padding: 5px; */
-
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -164,7 +84,6 @@ div.defaultColumn {
 .defaultCard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    /* width: 40%; */
     border-radius: 5px;
     margin: 5px;
 }
@@ -173,15 +92,17 @@ div.defaultHeader {
     padding: 5px;
     margin: 0px 0px 0px 0px;
     font-weight: bold;
-    color: #ffffff;
-    /* background-color: #007bff; */
+    /* color: #ffffff;
     background-color: #6Cf;
+    */
 }
 
 div.defaultFooter {
     padding-right: 5em;
     text-align: right;
 }
+
+
 
 td.clientlogo {
     border: 0px;
@@ -196,6 +117,8 @@ td.MainLogo {
     vertical-align: middle;
 }
 
+/*
+
 th.content {
     border-top: 1px solid #bbbbbb;
     width: 25%;
@@ -208,6 +131,7 @@ td.content {
 td.groupby {
     border-top: 3px double #bbbbbb;
 }
+*/
 
 .header {
     background-color: #616a6b;
@@ -231,23 +155,6 @@ a.alink:hover {
     font-size: 130%;
 }
 
-table.sortable {
-    width: calc(100% - 10px);
-    margin: 5px;
-    box-sizing: border-box;
-    border-collapse: collapse;
-    display: inline-block;
-    overflow-x: auto;
-    overflow-y: auto;
-}
-
-table.sortable thead {
-    background-color: #eee;
-    color: #666666;
-    font-weight: bold;
-    cursor: default;
-}
-
 /* Adding CSS */
 
 a.paginate_button {
@@ -257,34 +164,6 @@ a.paginate_button {
 
 a.current {
     color: #000000 !important;
-}
-
-/* Added to make sure plus logo fits in */
-
-td {
-    height: 27px;
-}
-
-/* Button in Table - giving it some colors */
-
-td.sorting_1::before {
-    background: #007bff !important;
-}
-
-td::before {
-    background: #007bff !important;
-}
-
-/* giving some spaces between tables being to close */
-
-div.dataTables_wrapper {
-    padding: 10px 10px 10px 10px;
-}
-
-button.dt-button {
-    color: blue !important;
-    border-radius: 5px;
-    line-height: 1 !important;
 }
 
 .card:hover {
@@ -301,7 +180,6 @@ img {
 
 .flex-grid {
     display: flex;
-    /* flex-wrap: wrap; */
 }
 
 .col {
@@ -321,10 +199,12 @@ img {
 .green {
     background-color: #2ecc40;
 }
-</style>
-<!-- CSS Always Required Default Visual Settings END -->
-<!-- CSS Always Required Default Headings START -->
-<style type="text/css">h2:after,
+
+div.enlighter-default {
+    flex-basis: 100%;
+    margin: 0 !important;
+}
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
 h3:after,
 h4:after,
 h5:after,
@@ -375,8 +255,8 @@ h6 {
 }
 
 h1 {
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 30px;
+    line-height: 20px;
     margin: 1em 0 .6em 0;
     font-weight: normal;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
@@ -390,8 +270,8 @@ h2 {
     font-weight: normal;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 25px;
+    line-height: 20px;
 }
 
 h3 {
@@ -401,7 +281,7 @@ h3 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
     font-size: 24px;
-    line-height: 40px;
+    line-height: 20px;
 }
 
 h4 {
@@ -411,7 +291,7 @@ h4 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
     font-size: 18px;
-    line-height: 20px;
+    line-height: 16px;
 }
 
 h5 {
@@ -433,10 +313,7 @@ h6 {
     font-size: 10px;
     line-height: 12px;
 }
-</style>
-<!-- CSS Always Required Default Headings END -->
-<!-- CSS Status Buttonical START -->
-<style type="text/css">/* @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300); */
+</style><!-- CSS Always Required Default Headings END --><!-- CSS Status Buttonical START --><style type="text/css">/* @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300); */
 
 .buttonicalService {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
@@ -447,7 +324,7 @@ h6 {
 
 .buttonical {
     z-index: 0;
-    height: 80px;
+    height: 60px;
     float: none;
     margin: 10px auto;
     width: 100%;
@@ -554,11 +431,7 @@ h6 {
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
 }
-</style>
-<!-- CSS Status Buttonical END -->
-
-<!-- CSS Toasts Looking Messages START -->
-<style type="text/css">/*
+</style><!-- CSS Status Buttonical END --><!-- CSS Toasts Looking Messages START --><style type="text/css">/*
 
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i");
 */
@@ -573,12 +446,14 @@ h6 {
 
 .toast {
     text-align: left;
-    padding: 21px 0;
+    padding: 10px 0;
     background-color: #fff;
     border-radius: 4px;
     top: 0px;
     position: relative;
     box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
+    width: 98%;
+    margin: 10px auto;
 }
 
 .toast:before {
@@ -661,34 +536,41 @@ h6 {
 .orange:before {
     background-color: #ffc007;
 }
-</style>
-<!-- CSS Toasts Looking Messages END -->
-<!-- CSS Timeline Simple START -->
-<style type="text/css">/* @import url("https://fonts.googleapis.com/css?family=Oswald|Roboto:400,700"); */
+</style><!-- CSS Toasts Looking Messages END --><!-- CSS Timeline Simple START --><style type="text/css">/* @import url("https://fonts.googleapis.com/css?family=Oswald|Roboto:400,700"); */
 
-h1.timelineSimple, h2.timelineSimple, h3.timelineSimple, h4.timelineSimple, h5.timelineSimple, h6.timelineSimple {
-    font-family: "Roboto", sans-serif;
+h1.timelineSimple,
+h2.timelineSimple,
+h3.timelineSimple,
+h4.timelineSimple,
+h5.timelineSimple,
+h6.timelineSimple {
+    font-family: "Raleway", sans-serif;
     border-bottom: unset !important;
     font-weight: unset !important;
     margin: unset !important;
 }
 
 h1.timelineSimple {
-    font-size: 2rem;
+    font-size: 16px;
     margin-bottom: 0.5em;
+    line-height: unset !important;
 }
 
 p.timelineSimple {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.8rem;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px !important;
 }
 
 .timelineSimpleContainer {
     max-width: 900px;
     width: 90%;
     margin: 0 auto;
+    /*
     font-size: 14px;
+    */
+    /*
     line-height: 1.5;
+    */
     box-sizing: unset !important;
 }
 
@@ -706,13 +588,13 @@ p.timelineSimple {
 .timelineSimple-item::before {
     content: attr(date-is);
     position: absolute;
-    left: 2em;
+    /* left: 2em; */
     font-weight: bold;
-    top: 1em;
+    top: 9px;
     display: block;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    /* font-size: 0.785rem; */
+    font-family: "Raleway", sans-serif;
+    /* font-weight: 700; */
+    font-size: 16px;
 }
 
 .timelineSimple-item::after {
@@ -721,7 +603,7 @@ p.timelineSimple {
     display: block;
     top: 1em;
     position: absolute;
-    left: -7px;
+    left: -8px;
     border-radius: 10px;
     content: "";
     border: 2px solid rgba(0, 0, 0, 0.3);
@@ -729,292 +611,137 @@ p.timelineSimple {
 }
 
 .timelineSimple-item:last-child {
-    -o-border-image: linear-gradient( to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
-    border-image: -webkit-linear-gradient( top, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
-    border-image: linear-gradient( to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
+    -o-border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
+    border-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
+    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
 }
-</style>
-<!-- CSS Timeline Simple END -->
-<!-- JS Apex Charts START -->
-<script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script>
-<!-- JS Apex Charts END -->
-</head>
-<!-- END HEADER -->
-<!-- BODY -->
-<body><div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ; box-shadow: unset !important;"><div class="toast blue central"><div class="toast__icon"><svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M10,16c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2H8v4h16v-4h-1.992c-1.102,0-2-0.895-2-2L20,12H8     v4H10z"></path>
-<circle cx="16" cy="4" r="4"></circle>
-</svg>
-</div>
-<div class="toast__content"><p class="toast__type">Information
-</p>
-<p class="toast__message">Everything is running smoothly!
-</p>
-</div>
-</div>
-</div>
-<h1 Class="central">Current Status
-</h1>
-<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ; box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory
-</span>
-</div>
-<div class="middle"></div>
-<div class="status"><input checked="true" name="1459968841" value="other-item" type="radio"/>
-<span class="performance ">Operational
-</span>
-</div>
-</div>
-<div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github
-</span>
-</div>
-<div class="middle"></div>
-<div class="status"><input checked="true" name="1132866328" value="other-item" type="radio"/>
-<span class="performance ">Operational
-</span>
-</div>
-</div>
-<div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V
-</span>
-</div>
-<div class="middle"></div>
-<div class="status"><input checked="true" name="1567745698" value="other-item" type="radio"/>
-<span class="performance performanceDead">Non-functional
-</span>
-</div>
-</div>
-<div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory
-</span>
-</div>
-<div class="middle"></div>
-<div class="status"><input checked="true" name="907229459" value="other-item" type="radio"/>
-<span class="performance ">Operational
-</span>
-</div>
-</div>
-<div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure
-</span>
-</div>
-<div class="middle"></div>
-<div class="status"><input checked="true" name="659851205" value="other-item" type="radio"/>
-<span class="performance performanceProblem">Working on it
-</span>
-</div>
-</div>
-<div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter
-</span>
-</div>
-<div class="middle"></div>
-<div class="status"><input checked="true" name="1868426745" value="other-item" type="radio"/>
-<span class="performance performanceProblem">Who knows?!
-</span>
-</div>
-</div>
-</div>
-</div>
-<h1 Class="central">Scheduled Maintenance
-</h1>
-<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ; box-shadow: unset !important;"><div class="toast orange central"><div class="toast__icon"><svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M10,16c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2H8v4h16v-4h-1.992c-1.102,0-2-0.895-2-2L20,12H8     v4H10z"></path>
-<circle cx="16" cy="4" r="4"></circle>
-</svg>
-</div>
-<div class="toast__content"><p class="toast__type">Maintenance
-</p>
-<p class="toast__message">We've planned maintenance on 24th of January 2020. It will last 30 hours.
-</p>
-</div>
-</div>
-</div>
-<h1 Class="central">Incidents per day
-</h1>
-<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ; box-shadow: unset !important;"><div id="ChartID-i9tns2cj" class="central"></div>
-</div>
-<h1 Class="central">Past Incidents
-</h1>
-<div class="defaultPanel defaultCard" style="width: calc(100% / 1 - 10px); ; box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="03/28/2019 21:38:44"><h1 class="timelineSimple">Azure AD is down
-</h1>
-<p class="timelineSimple">We have huge problems
-</p>
-</div>
-<div class="timelineSimple-item" date-is="03/27/2019 21:38:44"><h1 class="timelineSimple">Azure AD ...
-</h1>
-<p class="timelineSimple">We have huge problems
-</p>
-</div>
-<div class="timelineSimple-item" date-is="03/26/2019 21:38:44"><h1 class="timelineSimple">AD just died
-</h1>
-<p class="timelineSimple">We have huge problems
-</p>
-</div>
-<div class="timelineSimple-item" date-is="03/25/2019 21:38:44"><h1 class="timelineSimple">Twitter
-</h1>
-<p class="timelineSimple">We're very soorrry! It just won't work!
-</p>
-</div>
-<div class="timelineSimple-item" date-is="03/25/2019 21:38:44"><h1 class="timelineSimple">Twitter
-</h1>
-<p class="timelineSimple">We're very soorrry! It just won't work!
-</p>
-</div>
-<div class="timelineSimple-item" date-is="03/25/2019 21:38:44"><h1 class="timelineSimple">Twitter
-</h1>
-<p class="timelineSimple">We're very soorrry! It just won't work!
-</p>
-</div>
-<div class="timelineSimple-item" date-is="03/24/2019 21:38:44"><h1 class="timelineSimple">Twitter
-</h1>
-<p class="timelineSimple">We're very soorrry! It just won't work!
-</p>
-</div>
-<div class="timelineSimple-item" date-is="03/23/2019 21:38:44"><h1 class="timelineSimple">Twitter
-</h1>
-<p class="timelineSimple">We're very soorrry! It just won't work!
-</p>
-</div>
-<div class="timelineSimple-item" date-is="03/22/2019 21:38:44"><h1 class="timelineSimple">Twitter
-</h1>
-<p class="timelineSimple">We're very soorrry! It just won't work!
-</p>
-</div>
-</div>
-</div>
-<script>var options = {
+</style><!-- CSS Timeline Simple END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- END HEADER --><!-- BODY --><body><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div class="toast blue central"><div class="toast__icon"><svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M10,16c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2H8v4h16v-4h-1.992c-1.102,0-2-0.895-2-2L20,12H8     v4H10z"></path><circle cx="16" cy="4" r="4"></circle></svg></div><div class="toast__content"><p class="toast__type">Information</p><p class="toast__message">Everything is running smoothly!</p></div></div></div><h1 Class="central">Current Status</h1><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1705233212" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="937725017" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="1381153295" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1749731381" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="229291387" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="612768295" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1 Class="central">Scheduled Maintenance</h1><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div class="toast orange central"><div class="toast__icon"><svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M10,16c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2H8v4h16v-4h-1.992c-1.102,0-2-0.895-2-2L20,12H8     v4H10z"></path><circle cx="16" cy="4" r="4"></circle></svg></div><div class="toast__content"><p class="toast__type">Maintenance</p><p class="toast__message">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div></div></div><h1 Class="central">Incidents per day</h1><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div id="ChartID-5wrp1473" class="central"></div></div><h1 Class="central">Past Incidents</h1><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="07/27/2019 16:34:20"><h1 class="timelineSimple">Azure AD is down</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/26/2019 16:34:20"><h1 class="timelineSimple">Azure AD ...</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/25/2019 16:34:20"><h1 class="timelineSimple">AD just died</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/24/2019 16:34:20"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/24/2019 16:34:20"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/24/2019 16:34:20"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/23/2019 16:34:20"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/22/2019 16:34:20"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/21/2019 16:34:20"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div></div></div><script>var options = {
     "chart":  {
                   "height":  350,
                   "type":  "line",
                   "toolbar":  {
-                                  "show":  true,
+                                  "show":  false,
                                   "tools":  {
-                                                "download":  true,
-                                                "selection":  true,
-                                                "zoom":  true,
-                                                "zoomin":  true,
-                                                "zoomout":  true,
-                                                "pan":  true,
-                                                "reset":  true
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
                                             },
                                   "autoSelected":  "zoom"
                               }
               },
-    "plotOptions":  {
-                        "bar":  {
-                                    "horizontal":  false
-                                }
-                    },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px",
-                                     "colors":  [
-                                                    null
-                                                ]
-                                 }
-                   },
     "series":  [
                    {
-                       "name":  [
-                                    "Incidents"
-                                ],
+                       "name":  "Incidents",
                        "data":  [
+                                    4,
+                                    1,
                                     2,
-                                    2,
+                                    1,
+                                    3,
+                                    3,
+                                    3,
+                                    0,
+                                    3,
+                                    3,
                                     3,
                                     4,
                                     3,
+                                    0,
+                                    4,
+                                    1,
+                                    3,
                                     3,
                                     0,
                                     0,
-                                    1,
-                                    0,
-                                    0,
-                                    2,
-                                    1,
-                                    2,
-                                    2,
-                                    2,
-                                    2,
-                                    0,
-                                    2,
+                                    4,
                                     1,
                                     1,
-                                    1,
+                                    4,
                                     2,
-                                    1,
-                                    2,
-                                    2,
-                                    2,
-                                    0,
                                     3,
-                                    0,
-                                    0
+                                    2,
+                                    2,
+                                    4,
+                                    2,
+                                    3
                                 ]
                    }
                ],
     "xaxis":  {
                   "type":  "category",
                   "categories":  [
-                                     "27.02.2019",
-                                     "28.02.2019",
-                                     "01.03.2019",
-                                     "02.03.2019",
-                                     "03.03.2019",
-                                     "04.03.2019",
-                                     "05.03.2019",
-                                     "06.03.2019",
-                                     "07.03.2019",
-                                     "08.03.2019",
-                                     "09.03.2019",
-                                     "10.03.2019",
-                                     "11.03.2019",
-                                     "12.03.2019",
-                                     "13.03.2019",
-                                     "14.03.2019",
-                                     "15.03.2019",
-                                     "16.03.2019",
-                                     "17.03.2019",
-                                     "18.03.2019",
-                                     "19.03.2019",
-                                     "20.03.2019",
-                                     "21.03.2019",
-                                     "22.03.2019",
-                                     "23.03.2019",
-                                     "24.03.2019",
-                                     "25.03.2019",
-                                     "26.03.2019",
-                                     "27.03.2019",
-                                     "28.03.2019",
-                                     "29.03.2019"
+                                     "28.06.2019",
+                                     "29.06.2019",
+                                     "30.06.2019",
+                                     "01.07.2019",
+                                     "02.07.2019",
+                                     "03.07.2019",
+                                     "04.07.2019",
+                                     "05.07.2019",
+                                     "06.07.2019",
+                                     "07.07.2019",
+                                     "08.07.2019",
+                                     "09.07.2019",
+                                     "10.07.2019",
+                                     "11.07.2019",
+                                     "12.07.2019",
+                                     "13.07.2019",
+                                     "14.07.2019",
+                                     "15.07.2019",
+                                     "16.07.2019",
+                                     "17.07.2019",
+                                     "18.07.2019",
+                                     "19.07.2019",
+                                     "20.07.2019",
+                                     "21.07.2019",
+                                     "22.07.2019",
+                                     "23.07.2019",
+                                     "24.07.2019",
+                                     "25.07.2019",
+                                     "26.07.2019",
+                                     "27.07.2019",
+                                     "28.07.2019"
                                  ]
               },
     "stroke":  {
                    "show":  true,
-                   "curve":  "straight",
-                   "width":  2,
-                   "colors":  [
-                                  "#0000ff"
-                              ]
+                   "curve":  [
+                                 "straight"
+                             ],
+                   "width":  [
+                                 6
+                             ],
+                   "lineCap":  [
+                                   "butt"
+                               ]
                },
-    "legend":  {
-                   "position":  "right",
-                   "offsetY":  100,
-                   "height":  230
-               },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
     "title":  {
+                  "text":  "Incidents per day",
                   "align":  "left"
-              }
+              },
+    "grid":  {
+                 "Show":  false,
+                 "row":  {
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-i9tns2cj'),
+var chart = new ApexCharts(document.querySelector('#ChartID-5wrp1473'),
             options
         );
 chart.render();
-</script>
-</body>
-<!-- END BODY -->
-<!-- FOOTER -->
-<footer>
-
-
-
-</footer>
-<!-- END FOOTER -->
-</html>
+</script></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>

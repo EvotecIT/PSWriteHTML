@@ -1,8 +1,6 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
-$Time = Start-TimeLog
-$DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJavaScriptLinks:$true {
-
+New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJavaScriptLinks:$true {
     New-HTMLPanel -Invisible {
         New-HTMLToast -Icon Information -Color Blue -TextHeader 'Information' -Text 'Everything is running smoothly!'
     }
@@ -33,19 +31,14 @@ $DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJava
         $Data = foreach ($Element in 30..0) {
             Get-Random -Minimum 0 -Maximum 5
         }
-        $DataName = "Incidents"
         $DataCategories = foreach ($Element in 30..0) {
             (Get-Date).AddDays(-$Element).ToShortDateString()
         }
 
-        New-HTMLChart `
-            -Data $Data `
-            -DataNames $DataName `
-            -DataCategories $DataCategories `
-            -Type 'line' `
-            -TitleText '' `
-            -TitleAlignment 'left' `
-            -LineColor 'Blue' -Horizontal $false -Positioning central
+        New-HTMLChart -Title 'Incidents per day' -TitleAlignment left -Positioning central {
+            New-ChartCategory -Name $DataCategories
+            New-ChartLine -Name 'Incidents' -Value $Data
+        }
     }
 
 
@@ -64,7 +57,4 @@ $DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJava
             New-HTMLTimelineItem -HeadingText 'Twitter' -Text "We're very soorrry! It just won't work!" -Date (Get-Date).AddDays(-7)
         }
     }
-}
-
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath 'C:\Support\GitHub\PSWriteHTML\Examples\Example-StatusPage\Example-StatusPage.html'
-Stop-TimeLog -Time $Time
+} -FilePath 'C:\Support\GitHub\PSWriteHTML\Examples\Example-StatusPage\Example-StatusPage.html' -Show
