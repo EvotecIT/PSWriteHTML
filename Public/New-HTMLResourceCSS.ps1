@@ -24,15 +24,14 @@ function New-HTMLResourceCSS {
                             }
                         }
                         $FileContent
-
-                    }
+                    } -NewLine
                 }
             }
         }
         foreach ($L in $Link) {
             if ($L -ne '') {
                 Write-Verbose "New-HTMLResourceCSS - Adding link $L"
-                New-HTMlTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $L } -SelfClosing
+                New-HTMlTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $L } -SelfClosing -NewLine
             }
         }
         "<!-- CSS $ResourceComment END -->"
