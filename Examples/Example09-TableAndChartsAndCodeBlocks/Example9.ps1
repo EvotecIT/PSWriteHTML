@@ -58,42 +58,43 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLPanel {
-            $Processes = Get-Process | Select -First 5
+            $Processes = Get-Process | select -First 5
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
-            # Standard Chart Bar
-            New-HTMLChart -Data @(400, 430, 448) -DataNames 'People count' -DataCategories 'Poland', 'Europe', 'Germany'
+            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left -Positioning central {
+                New-ChartCategory -Name  '2015', '2016', '2017'
+                New-ChartLine -Name 'People count' -Value @(400, 430, 448) -Color Blue
+                New-ChartLine -Name 'People Death' -Value @(450, 0, 200) -Color Green
+            }
 
-            New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
+            New-HTMLChart -Title 'Product Trends by Month' {
+                New-ChartBarOptions -Vertical
+                New-ChartLegend -Name 'Poland', 'Europe', 'Germany'
+                New-ChartBar -Name 'People count in  2019' -Value @(400, 430, 448)
+            }
 
-            New-HTMLChart -Data @(400, 430, 448), @(450, 0, 200) -DataNames 'People count', 'People death' -DataCategories '2015', '2016', '2017' -Type 'line' -LineColor 'Blue', 'Green'
-
-            # New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'column'
         }
         New-HTMLPanel {
-            $GroupedBar = @()
-            $GroupedBar += 400, 430, 448
-            $GroupedBar1 = @()
-            $GroupedBar1 += 420, 450, 448
-            New-HTMLChart -Data $GroupedBar, $GroupedBar1 -DataNames 'People count in  2019', 'People count in 2018' -DataCategories 'Poland', 'Europe', 'Germany'
+            $GroupedBar = @( 400, 430, 448 )
+            $GroupedBar1 = @( 420, 450, 448 )
+
+            New-HTMLChart -Title 'Product Trends by Month' {
+                New-ChartBarOptions -DataLabelsColor GreenYellow
+                New-ChartLegend -Name 'Poland', 'Europe', 'Germany'
+                New-ChartBar -Name 'People count in  2019' -Value $GroupedBar
+                New-ChartBar -Name 'People count in 2018' -Value $GroupedBar1
+            }
         }
         New-HTMLPanel {
             $Data = 10, 41, 35, 51, 49, 62, 69, 91, 148
-            $DataName = "Desktops"
             $DataCategories = 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
-            New-HTMLChart `
-                -Data $Data `
-                -DataNames $DataName `
-                -DataCategories $DataCategories `
-                -Type 'line' `
-                -TitleText 'Product Trends by Month' `
-                -TitleAlignment 'left' `
-                -LineColor 'Blue', 'Green' -Horizontal $false
-
-
+            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left -Positioning central {
+                New-ChartCategory -Name $DataCategories
+                New-ChartLine -Name "Desktops" -Value $Data -Color Blue
+            }
         }
         New-HTMLPanel {
             $Data1 = 44, 55, 57, 56, 61, 58, 63, 60, 66
@@ -101,7 +102,14 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             $Data3 = 35, 41, 36, 26, 45, 48, 52, 53, 41
             $DataName = "Net Profit", "Revenue", "Free Cash Flow"
             $DataCategories = "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"
-            New-HTMLChart -Data $Data1, $Data2, $Data3 -DataNames $DataName -DataCategories $DataCategories -Horizontal $false
+
+            New-HTMLChart -Title 'Product Trends by Month' {
+                New-ChartBarOptions -Vertical -DataLabelsColor GreenYellow
+                New-ChartLegend -Name $DataCategories
+                New-ChartBar -Name $DataName[0] -Value $Data1
+                New-ChartBar -Name $DataName[1] -Value $Data2
+                New-ChartBar -Name $DataName[2] -Value $Data3
+            }
         }
     }
     New-HTMLContent -HeaderText 'Section 3rd with 3 columns' {
@@ -109,10 +117,11 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLPanel {
-            New-HTMLChart -Data @(400, 430, 448), @(450, 0, 200) -DataNames 'People count', 'People death' -DataCategories '2015', '2016', '2017' -Type 'line' -LineColor 'Blue', 'Green'
-        }
-        New-HTMLPanel {
-            New-HTMLChart -Data @(400, 430, 448) -DataCategories 'Poland', 'Europe', 'Germany' -Type 'donut'
+            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left -Positioning central {
+                New-ChartCategory -Name  '2015', '2016', '2017'
+                New-ChartLine -Name 'People count' -Value @(400, 430, 448) -Color Blue
+                New-ChartLine -Name 'People Death' -Value @(450, 0, 200) -Color Green
+            }
         }
     }
     New-HTMLContent -HeaderText 'Another conteent' -CanCollapse {
