@@ -42,7 +42,8 @@ function New-HTMLTable {
         [switch] $FixedFooter,
         [string[]] $ResponsivePriorityOrder,
         [int[]] $ResponsivePriorityOrderIndex,
-        [string[]] $PriorityProperties
+        [string[]] $PriorityProperties,
+        [alias('DataTableName')][string] $DataTableID
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -120,7 +121,10 @@ function New-HTMLTable {
     }
 
     # Building HTML Table / Script
-    [string] $DataTableName = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
+    if (-not $DataTableID) {
+        # Only define this if user failed to deliver as per https://github.com/EvotecIT/PSWriteHTML/issues/29
+        $DataTableID = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
+    }
     if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
         #return ''
         $Filtering = $false # setting it to false because it's not nessecary
@@ -372,9 +376,9 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTablesExcel = $true
 
         if ($ScrollX) {
-            $TableAttributes = @{ id = $DataTableName; class = "$($Style -join ' ')"; width = '100%' }
+            $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = '100%' }
         } else {
-            $TableAttributes = @{ id = $DataTableName; class = "$($Style -join ' ')" }
+            $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')" }
         }
 
         # Enable Custom Date fromat sorting
@@ -382,7 +386,7 @@ function New-HTMLTable {
         $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation
         $FilteringTopCode = $FilteringOutput.FilteringTopCode
         $FilteringBottomCode = $FilteringOutput.FilteringBottomCode
-        $LoadSavedState = Add-TableState -DataTableName $DataTableName -Filtering $Filtering -FilteringLocation $FilteringLocation -SavedState (-not $DisableStateSave)
+        $LoadSavedState = Add-TableState -DataTableName $DataTableID -Filtering $Filtering -FilteringLocation $FilteringLocation -SavedState (-not $DisableStateSave)
 
         if ($Tab.Active -eq $true) {
             New-HTMLTag -Tag 'script' {
@@ -392,7 +396,7 @@ function New-HTMLTable {
                     $LoadSavedState
                     $FilteringTopCode
                     //  Table code
-                    var table = `$('#$DataTableName').DataTable(
+                    var table = `$('#$DataTableID').DataTable(
                         $($Options)
                     );
                     $FilteringBottomCode
@@ -406,11 +410,11 @@ function New-HTMLTable {
                     `$(document).ready(function() {
                         $SortingFormatDateTime
                         `$('.tabs').on('click', 'a', function (event) {
-                            if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableName")) {
+                            if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableID")) {
                                 $LoadSavedState
                                 $FilteringTopCode
                                 //  Table code
-                                var table = `$('#$DataTableName').DataTable(
+                                var table = `$('#$DataTableID').DataTable(
                                     $($Options)
                                 );
                                 $FilteringBottomCode
