@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-07-31 14:08:53" name="revised"/><title>Title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+div.clientlogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+}
+
+div.MainLogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+}
+
+.central {
+    margin: 10px auto;
+    /* width: 100%; */
+    max-width: 900px;
+}
+
+div.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+div.defaultColumn {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px;
+}
+
+.defaultContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultContainerOther {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanelOther {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanel {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+div.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+    /* color: #ffffff;
+    background-color: #6Cf;
+    */
+}
+
+div.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+
+
+td.clientlogo {
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+td.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+/*
+
+th.content {
+    border-top: 1px solid #bbbbbb;
+    width: 25%;
+}
+
+td.content {
+    width: 75%;
+}
+
+td.groupby {
+    border-top: 3px double #bbbbbb;
+}
+*/
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+/* Adding CSS */
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+
+.orange {
+    background-color: #f39c12;
+}
+
+.red {
+    background-color: #ff4136;
+}
+
+.green {
+    background-color: #2ecc40;
+}
+
+div.enlighter-default {
+    flex-basis: 100%;
+    margin: 0 !important;
+}
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+}
+</style><!-- CSS Always Required Default Headings END --><!-- CSS Toasts Looking Messages START --><style type="text/css">.toast {
+    text-align: left;
+    padding: 10px 5px 10px 5px;
+    background-color: #fff;
+    border-radius: 4px;
+    top: 0px;
+    position: relative;
+    box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
+    margin: 10px 10px 10px 10px;
+}
+
+.toastBorder {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.toastIcon {
+    position: absolute;
+    top: 35%;
+    left: 12px;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    padding: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.toastContent {
+    padding-left: 70px;
+    padding-right: 60px;
+}
+
+.toastType {
+    color: #3e3e3e;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px !important;
+}
+
+.toastMessage {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #878787;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px !important;
+}
+</style><!-- CSS Toasts Looking Messages END --></head><!-- END HEADER --><!-- BODY --><body><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="0 section" style="color: #ffffff;">0 section</a><a id="show_829610172" href="javascript:void(0)" onclick="show('829610172');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_829610172" href="javascript:void(0)" onclick="hide('829610172');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="829610172" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="829610172"><div class="defaultPanel defaultCard"><div class="toast"><div class="toastBorder" style="background-color:#0000ff"></div><div class="toastIcon fab fa-apple-pay" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastType">Maintenance</p><p class="toastMessage">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div></div><div class="toast"><div class="toastBorder" style="background-color:#228b22"></div><div class="toastIcon fab fa-500px" style="font-size:30px;color:#a9a9a9"></div><div class="toastContent"><p class="toastType">Maintenance</p><p class="toastMessage" style="color:#dcdcdc">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div></div><div class="toast"><div class="toastBorder" style="background-color:#808080"></div><div class="toastIcon far fa-eye" style="font-size:30px;color:#f0f8ff"></div><div class="toastContent"><p class="toastType" style="color:#ffd700">Maintenance</p><p class="toastMessage">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div></div></div></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>

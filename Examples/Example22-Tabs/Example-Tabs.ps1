@@ -15,16 +15,16 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
     New-HTMLTab -Name 'Test 3' -IconSolid code-branch -IconColor LimeGreen {
 
     }
-    New-HTMLTab {
+    New-HTMLTab -IconSolid bezier-curve {
 
     }
-    New-HTMLTab {
+    New-HTMLTab -IconSolid copy {
 
     }
-    New-HTMLTab {
+    New-HTMLTab -IconBrands asymmetrik {
 
     }
-    New-HTMLTab {
+    New-HTMLTab -IconRegular kiss-beam {
 
     }
 }
