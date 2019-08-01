@@ -22,7 +22,8 @@ Function New-HTMLPanel {
     if ($Invisible) {
         $DivColumnStyle = "$DivColumnStyle box-shadow: unset !important;"
     }
-    New-HTMLTag -Tag 'div' -Attributes @{ class = "defaultPanel defaultCard"; style = $DivColumnStyle } {
+   # New-HTMLTag -Tag 'div' -Attributes @{ class = "flexPanel roundedCorners"; style = $DivColumnStyle } {
+    New-HTMLTag -Tag 'div' -Attributes @{ class = "flexPanel roundedCorners"; style = $DivColumnStyle } {
         Invoke-Command -ScriptBlock $Content
     }
 }
