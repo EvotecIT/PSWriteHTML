@@ -457,7 +457,7 @@ function New-HTMLTable {
     }
 
 
-    New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultPanelOther' } -Value {
+    New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexElement' } -Value {
         $BeforeTableCode
         $BeforeTable
         # Build HTML TABLE
