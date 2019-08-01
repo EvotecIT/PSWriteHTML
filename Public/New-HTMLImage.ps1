@@ -33,7 +33,7 @@ function New-HTMLImage {
     .NOTES
     General notes
     #>
-
+    [alias('Image')]
     [CmdletBinding()]
     param(
         [string] $Source,
