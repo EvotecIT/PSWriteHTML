@@ -84,7 +84,7 @@
         $Icon = "fas fa-$IconSolid" # fa-$($FontSize)x"
     }
 
-    $Script:HTMLSchema.Features.MessagesToasts = $true
+    $Script:HTMLSchema.Features.Toasts = $true
 
     [string] $DivClass = "toast"
 
@@ -116,8 +116,6 @@
     if ($BarColorRight -ne [RGBColors]::None) {
         $StyleBarRight.'background-color' = ConvertFrom-Color -Color $BarColorRight
     }
-
-
 
     New-HTMLTag -Tag 'div' -Attributes @{ class = $DivClass } {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'toastBorderLeft'; style = $StyleBarLeft }
