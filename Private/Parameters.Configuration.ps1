@@ -168,12 +168,6 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
             }
         }
-        MessagesToasts                  = @{
-            Comment      = 'Toasts Looking Messages'
-            HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\messagesToasts.css"
-            }
-        }
         Tabs                   = @{
             Comment              = 'Elastic Tabs'
             HeaderAlways         = @{
@@ -209,16 +203,16 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\timeline-simple.css"
             }
         }
+        Toasts                  = @{
+            Comment      = 'Toasts Looking Messages'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\Toasts.css"
+            }
+        }
         StatusButtonical       = @{
             Comment      = 'Status Buttonical'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\status.css"
-            }
-        }
-        Toast                  = @{
-            Comment      = 'Toasts Looking Messages'
-            HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\toasts.css"
             }
         }
         TuiGrid                = @{
