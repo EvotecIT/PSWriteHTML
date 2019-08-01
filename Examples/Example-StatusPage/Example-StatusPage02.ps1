@@ -1,32 +1,12 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-$Time = Start-TimeLog
-$DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\StatusPage.html {
-    New-HTMLSection -Invisible {
-        New-HTMLPanel -Invisible {
-            New-HTMLToast -Icon Information -Color Blue -TextHeader 'Information' -Text 'Everything is running smoothly!' -Type ''
-            New-HTMLToast -Icon Information -Color Orange -TextHeader 'Helloo' -Text 'Everything is running smoothly!' -Type ''
-            New-HTMLToast -Icon Information -Color Blue -TextHeader 'Information' -Text 'Everything is running smoothly!' -Type ''
-        }
-        New-HTMLPanel -Invisible {
-            New-HTMLTimeline {
-                New-HTMLTimelineItem -HeadingText 'Azure AD is down' -Text "We have huge problems" -Date (Get-Date).AddDays(-1)
-                New-HTMLTimelineItem -HeadingText 'Azure AD ...' -Text "We have huge problems" -Date (Get-Date).AddDays(-2)
-                New-HTMLTimelineItem -HeadingText 'AD just died' -Text "We have huge problems" -Date (Get-Date).AddDays(-3)
-            }
-        }
-    }
-}
-
-return
-
-$DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJavaScriptLinks:$true {
+New-HTML -TitleText 'Services Status' -UseCssLinks -UseJavaScriptLinks {
 
     New-HTMLPanel -Invisible {
-        New-HTMLToast -Icon Information -Color Blue -TextHeader 'Information' -Text 'Everything is running smoothly!'
+        New-HTMLToast -TextHeader 'Information' -Text 'Everything is running smoothly!' -BarColorLeft Blue -IconSolid info-circle -IconColor Blue
     }
 
-    New-HTMLHeading -Heading h1 -HeadingText 'Current Status' -Type 'central'
+    New-HTMLHeading -Heading h1 -HeadingText 'Current Status'
 
     New-HTMLPanel -Invisible {
         New-HTMLStatus {
@@ -39,16 +19,18 @@ $DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJava
         }
     }
 
-    New-HTMLHeading -Heading h1 -HeadingText 'Scheduled Maintenance' -Type 'central'
+    New-HTMLHeading -Heading h1 -HeadingText 'Scheduled Maintenance'
 
     New-HTMLPanel -Invisible {
-        New-HTMLToast -Icon Information -Color Orange -TextHeader 'Maintenance' -Text "We've planned maintenance on 24th of January 2020. It will last 30 hours."
+        New-HTMLToast -TextHeader 'Maintenance' -Text "We've planned maintenance on 24th of January 2020. It will last 30 hours." -BarColorLeft OrangeRed -IconSolid info-circle -IconColor OrangeRed
     }
 
 
-    New-HTMLHeading -Heading h1 -HeadingText 'Incidents per day' -Type 'central'
+    New-HTMLHeading -Heading h1 -HeadingText 'Incidents per day'
 
     New-HTMLPanel -Invisible {
+
+
         $Data = foreach ($Element in 30..0) {
             Get-Random -Minimum 0 -Maximum 5
         }
@@ -56,19 +38,13 @@ $DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJava
         $DataCategories = foreach ($Element in 30..0) {
             (Get-Date).AddDays(-$Element).ToShortDateString()
         }
-
-        New-HTMLChart `
-            -Data $Data `
-            -DataNames $DataName `
-            -DataCategories $DataCategories `
-            -Type 'line' `
-            -TitleText '' `
-            -TitleAlignment 'left' `
-            -LineColor 'Blue' -Horizontal $false -Positioning central
+        New-HTMLChart -Title 'Incidents per day' -TitleAlignment left {
+            New-ChartCategory -Name $DataCategories
+            New-ChartLine -Name $DataName -Value $Data
+        }
     }
 
-
-    New-HTMLHeading -Heading h1 -HeadingText 'Past Incidents' -Type 'central'
+    New-HTMLHeading -Heading h1 -HeadingText 'Past Incidents'
 
     New-HTMLPanel -Invisible {
         New-HTMLTimeline {
@@ -83,7 +59,4 @@ $DynamicHTML = New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJava
             New-HTMLTimelineItem -HeadingText 'Twitter' -Text "We're very soorrry! It just won't work!" -Date (Get-Date).AddDays(-7)
         }
     }
-}
-
-[string] $DynamicHTMLPath = Save-HTML -HTML $DynamicHTML -FilePath 'C:\Support\GitHub\PSWriteHTML\Examples\Example-StatusPage\Example-StatusPage.html'
-Stop-TimeLog -Time $Time
+} -FilePath $PSScriptRoot\StatusPage02.html -ShowHTML
