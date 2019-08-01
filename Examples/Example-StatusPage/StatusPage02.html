@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-01 12:46:02" name="revised"/><title>Services Status</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-01 23:34:51" name="revised"/><title>Services Status</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -38,50 +38,63 @@ div.defaultSection {
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
+
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+
 }
 
+/* Not used anywhere - I think
 div.defaultColumn {
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 2px;
 }
+*/
 
 .defaultContainer {
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     padding: 2px;
+
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+
+
 }
 
 .defaultContainerOther {
     display: flex;
     justify-content: space-between;
+
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+
 }
 
-.defaultPanelOther {
+.flexElement {
     flex-basis: 100%;
+    flex: 1 auto;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+
 }
 
-.defaultPanel {
+.flexPanel {
     flex-basis: 100%;
+    flex: 1 auto;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-.defaultCard {
+.roundedCorners {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px;
@@ -117,22 +130,6 @@ td.MainLogo {
     vertical-align: middle;
 }
 
-/*
-
-th.content {
-    border-top: 1px solid #bbbbbb;
-    width: 25%;
-}
-
-td.content {
-    width: 75%;
-}
-
-td.groupby {
-    border-top: 3px double #bbbbbb;
-}
-*/
-
 .header {
     background-color: #616a6b;
     color: #f7f9f9;
@@ -154,8 +151,6 @@ a.alink:hover {
     text-decoration: underline;
     font-size: 130%;
 }
-
-/* Adding CSS */
 
 a.paginate_button {
     color: #000000 !important;
@@ -187,7 +182,7 @@ img {
     margin: 1%;
     flex: 1;
 }
-
+/*
 .orange {
     background-color: #f39c12;
 }
@@ -199,11 +194,7 @@ img {
 .green {
     background-color: #2ecc40;
 }
-
-div.enlighter-default {
-    flex-basis: 100%;
-    margin: 0 !important;
-}
+*/
 </style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
 h3:after,
 h4:after,
@@ -327,11 +318,12 @@ h6 {
     height: 60px;
     float: none;
     margin-top: 10px;
-    margin-left: 5px;
+    margin-left: 10px;
     /*
     max-width: 900px;
     width: 100%;
-   */
+    */
+    margin-right: 10px;
     border-radius: 5px;
     display: block;
     box-shadow: 0 2px 4px -1px rgba(25, 25, 25, 0.2);
@@ -376,6 +368,7 @@ h6 {
     text-align: center;
     /* border-left: 1px solid rgba(0, 0, 0, 0.05); */
 }
+
 /*
 .buttonical .label:first-child {
     border-left: none;
@@ -438,7 +431,91 @@ h6 {
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
 }
-</style><!-- CSS Status Buttonical END --><!-- CSS Toasts Looking Messages START --><style type="text/css">.toast {
+</style><!-- CSS Status Buttonical END --><!-- CSS Timeline Simple START --><style type="text/css">/* @import url("https://fonts.googleapis.com/css?family=Oswald|Roboto:400,700"); */
+
+h1.timelineSimple,
+h2.timelineSimple,
+h3.timelineSimple,
+h4.timelineSimple,
+h5.timelineSimple,
+h6.timelineSimple {
+    font-family: "Raleway", sans-serif;
+    border-bottom: unset !important;
+    font-weight: unset !important;
+    margin: unset !important;
+}
+
+h1.timelineSimple {
+    font-size: 16px;
+    margin-bottom: 0.5em;
+    line-height: unset !important;
+}
+
+p.timelineSimple {
+    font-family: "Raleway", sans-serif;
+    font-size: 14px !important;
+}
+
+.timelineSimpleContainer {
+    /*
+    max-width: 900px;
+    width: 98%;
+    margin: 0 auto;
+    */
+
+
+    /*
+    font-size: 14px;
+    */
+    /*
+    line-height: 1.5;
+    */
+    margin: 10px;
+    box-sizing: unset !important;
+}
+
+.timelineSimple-item {
+    padding: 3em 2em 2em;
+    position: relative;
+    color: rgba(0, 0, 0, 0.7);
+    border-left: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.timelineSimple-item p {
+    font-size: 1rem;
+}
+
+.timelineSimple-item::before {
+    content: attr(date-is);
+    position: absolute;
+    /* left: 2em; */
+    font-weight: bold;
+    top: 9px;
+    display: block;
+    font-family: "Raleway", sans-serif;
+    /* font-weight: 700; */
+    font-size: 16px;
+}
+
+.timelineSimple-item::after {
+    width: 10px;
+    height: 10px;
+    display: block;
+    top: 1em;
+    position: absolute;
+    left: -8px;
+    border-radius: 10px;
+    content: "";
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: white;
+}
+
+.timelineSimple-item:last-child {
+    -o-border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
+    border-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
+    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
+}
+</style><!-- CSS Timeline Simple END --><!-- CSS Toasts Looking Messages START --><style type="text/css">.toast {
     text-align: left;
     padding: 10px 5px 10px 5px;
     background-color: #fff;
@@ -488,7 +565,7 @@ h6 {
     padding-right: 60px;
 }
 
-.toastType {
+.toastTextHeader {
     color: #3e3e3e;
     font-weight: 700;
     margin-top: 0;
@@ -497,7 +574,7 @@ h6 {
     font-size: 16px !important;
 }
 
-.toastMessage {
+.toastText {
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 0;
@@ -505,91 +582,7 @@ h6 {
     font-family: "Raleway", sans-serif;
     font-size: 14px !important;
 }
-</style><!-- CSS Toasts Looking Messages END --><!-- CSS Timeline Simple START --><style type="text/css">/* @import url("https://fonts.googleapis.com/css?family=Oswald|Roboto:400,700"); */
-
-h1.timelineSimple,
-h2.timelineSimple,
-h3.timelineSimple,
-h4.timelineSimple,
-h5.timelineSimple,
-h6.timelineSimple {
-    font-family: "Raleway", sans-serif;
-    border-bottom: unset !important;
-    font-weight: unset !important;
-    margin: unset !important;
-}
-
-h1.timelineSimple {
-    font-size: 16px;
-    margin-bottom: 0.5em;
-    line-height: unset !important;
-}
-
-p.timelineSimple {
-    font-family: "Raleway", sans-serif;
-    font-size: 14px !important;
-}
-
-.timelineSimpleContainer {
-    /*
-    max-width: 900px;
-    width: 98%;
-    margin: 0 auto;
-    */
-
-
-    /*
-    font-size: 14px;
-    */
-    /*
-    line-height: 1.5;
-    */
-    margin: 7px;
-    box-sizing: unset !important;
-}
-
-.timelineSimple-item {
-    padding: 3em 2em 2em;
-    position: relative;
-    color: rgba(0, 0, 0, 0.7);
-    border-left: 2px solid rgba(0, 0, 0, 0.3);
-}
-
-.timelineSimple-item p {
-    font-size: 1rem;
-}
-
-.timelineSimple-item::before {
-    content: attr(date-is);
-    position: absolute;
-    /* left: 2em; */
-    font-weight: bold;
-    top: 9px;
-    display: block;
-    font-family: "Raleway", sans-serif;
-    /* font-weight: 700; */
-    font-size: 16px;
-}
-
-.timelineSimple-item::after {
-    width: 10px;
-    height: 10px;
-    display: block;
-    top: 1em;
-    position: absolute;
-    left: -8px;
-    border-radius: 10px;
-    content: "";
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    background: white;
-}
-
-.timelineSimple-item:last-child {
-    -o-border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
-    border-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
-    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
-}
-</style><!-- CSS Timeline Simple END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- END HEADER --><!-- BODY --><body><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastType">Information</p><p class="toastMessage">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><h1>Current Status</h1><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="354278832" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="513927034" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="158197116" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="752990403" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="1852408497" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="377262611" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1>Scheduled Maintenance</h1><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#ff4500"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#ff4500"></div><div class="toastContent"><p class="toastType">Maintenance</p><p class="toastMessage">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><h1>Incidents per day</h1><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div id="ChartID-63p4ayrc"></div></div><h1>Past Incidents</h1><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="07/31/2019 12:46:02"><h1 class="timelineSimple">Azure AD is down</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/30/2019 12:46:02"><h1 class="timelineSimple">Azure AD ...</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/29/2019 12:46:02"><h1 class="timelineSimple">AD just died</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/28/2019 12:46:02"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 12:46:02"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 12:46:02"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/27/2019 12:46:02"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/26/2019 12:46:02"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/25/2019 12:46:02"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div></div></div><script>var options = {
+</style><!-- CSS Toasts Looking Messages END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a style="color: #ffffff;"></a><a id="show_1530442787" href="javascript:void(0)" onclick="show('1530442787');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1530442787" href="javascript:void(0)" onclick="hide('1530442787');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1530442787" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="1530442787"><div class="flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><h1>Current Status</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="78637452" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="942688121" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="144108269" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1062638818" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="315599708" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="1338744977" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1>Scheduled Maintenance</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#ff4500"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#ff4500"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><h1>Incidents per day</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-38poqv7u"></div></div><h1>Past Incidents</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="07/31/2019 23:34:51"><h1 class="timelineSimple">Azure AD is down</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/30/2019 23:34:51"><h1 class="timelineSimple">Azure AD ...</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/29/2019 23:34:51"><h1 class="timelineSimple">AD just died</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/27/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/26/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/25/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div></div></div></div><div class="flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><h1>Current Status</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="661627711" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="1073412142" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="702270453" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1204681363" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="897362738" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="1364125879" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1>Scheduled Maintenance</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#ff4500"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#ff4500"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><h1>Incidents per day</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-kfpahjw0"></div></div><h1>Past Incidents</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="07/31/2019 23:34:51"><h1 class="timelineSimple">Azure AD is down</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/30/2019 23:34:51"><h1 class="timelineSimple">Azure AD ...</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/29/2019 23:34:51"><h1 class="timelineSimple">AD just died</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/27/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/26/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/25/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div></div></div></div><div class="flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><h1>Current Status</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="267605317" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="836668641" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="487743947" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1607150055" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="1057063883" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="377883115" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1>Scheduled Maintenance</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#ff4500"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#ff4500"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><h1>Incidents per day</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-4hcboj2z"></div></div><h1>Past Incidents</h1></div></div></div></div><script>var options = {
     "chart":  {
                   "height":  350,
                   "type":  "line",
@@ -611,37 +604,37 @@ p.timelineSimple {
                    {
                        "name":  "Incidents",
                        "data":  [
-                                    2,
-                                    2,
                                     4,
-                                    3,
+                                    1,
+                                    1,
+                                    0,
+                                    4,
+                                    0,
+                                    0,
+                                    4,
+                                    1,
+                                    4,
                                     2,
-                                    1,
-                                    1,
                                     4,
                                     0,
                                     4,
-                                    2,
-                                    2,
-                                    3,
-                                    3,
-                                    1,
-                                    1,
-                                    1,
-                                    3,
                                     4,
+                                    1,
+                                    1,
+                                    3,
                                     0,
-                                    2,
-                                    1,
                                     4,
+                                    3,
+                                    2,
+                                    2,
+                                    4,
+                                    2,
+                                    0,
+                                    4,
+                                    3,
                                     0,
                                     3,
-                                    3,
-                                    1,
-                                    4,
-                                    3,
-                                    4,
-                                    2
+                                    4
                                 ]
                    }
                ],
@@ -714,7 +707,265 @@ p.timelineSimple {
                             }
              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-63p4ayrc'),
+var chart = new ApexCharts(document.querySelector('#ChartID-38poqv7u'),
+            options
+        );
+chart.render();
+</script><script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "Incidents",
+                       "data":  [
+                                    4,
+                                    0,
+                                    3,
+                                    4,
+                                    0,
+                                    2,
+                                    1,
+                                    3,
+                                    0,
+                                    4,
+                                    3,
+                                    1,
+                                    2,
+                                    0,
+                                    0,
+                                    2,
+                                    3,
+                                    3,
+                                    4,
+                                    2,
+                                    3,
+                                    4,
+                                    3,
+                                    2,
+                                    0,
+                                    0,
+                                    3,
+                                    2,
+                                    2,
+                                    3,
+                                    0
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "02.07.2019",
+                                     "03.07.2019",
+                                     "04.07.2019",
+                                     "05.07.2019",
+                                     "06.07.2019",
+                                     "07.07.2019",
+                                     "08.07.2019",
+                                     "09.07.2019",
+                                     "10.07.2019",
+                                     "11.07.2019",
+                                     "12.07.2019",
+                                     "13.07.2019",
+                                     "14.07.2019",
+                                     "15.07.2019",
+                                     "16.07.2019",
+                                     "17.07.2019",
+                                     "18.07.2019",
+                                     "19.07.2019",
+                                     "20.07.2019",
+                                     "21.07.2019",
+                                     "22.07.2019",
+                                     "23.07.2019",
+                                     "24.07.2019",
+                                     "25.07.2019",
+                                     "26.07.2019",
+                                     "27.07.2019",
+                                     "28.07.2019",
+                                     "29.07.2019",
+                                     "30.07.2019",
+                                     "31.07.2019",
+                                     "01.08.2019"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  [
+                                 "straight"
+                             ],
+                   "width":  [
+                                 6
+                             ],
+                   "lineCap":  [
+                                   "butt"
+                               ]
+               },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "title":  {
+                  "text":  "Incidents per day",
+                  "align":  "left"
+              },
+    "grid":  {
+                 "Show":  false,
+                 "row":  {
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
+}
+var chart = new ApexCharts(document.querySelector('#ChartID-kfpahjw0'),
+            options
+        );
+chart.render();
+</script><script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "Incidents",
+                       "data":  [
+                                    2,
+                                    1,
+                                    2,
+                                    2,
+                                    3,
+                                    4,
+                                    2,
+                                    3,
+                                    2,
+                                    4,
+                                    3,
+                                    1,
+                                    4,
+                                    4,
+                                    1,
+                                    2,
+                                    2,
+                                    0,
+                                    3,
+                                    0,
+                                    4,
+                                    0,
+                                    0,
+                                    1,
+                                    2,
+                                    0,
+                                    1,
+                                    4,
+                                    1,
+                                    2,
+                                    3
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "02.07.2019",
+                                     "03.07.2019",
+                                     "04.07.2019",
+                                     "05.07.2019",
+                                     "06.07.2019",
+                                     "07.07.2019",
+                                     "08.07.2019",
+                                     "09.07.2019",
+                                     "10.07.2019",
+                                     "11.07.2019",
+                                     "12.07.2019",
+                                     "13.07.2019",
+                                     "14.07.2019",
+                                     "15.07.2019",
+                                     "16.07.2019",
+                                     "17.07.2019",
+                                     "18.07.2019",
+                                     "19.07.2019",
+                                     "20.07.2019",
+                                     "21.07.2019",
+                                     "22.07.2019",
+                                     "23.07.2019",
+                                     "24.07.2019",
+                                     "25.07.2019",
+                                     "26.07.2019",
+                                     "27.07.2019",
+                                     "28.07.2019",
+                                     "29.07.2019",
+                                     "30.07.2019",
+                                     "31.07.2019",
+                                     "01.08.2019"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  [
+                                 "straight"
+                             ],
+                   "width":  [
+                                 6
+                             ],
+                   "lineCap":  [
+                                   "butt"
+                               ]
+               },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "title":  {
+                  "text":  "Incidents per day",
+                  "align":  "left"
+              },
+    "grid":  {
+                 "Show":  false,
+                 "row":  {
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
+}
+var chart = new ApexCharts(document.querySelector('#ChartID-4hcboj2z'),
             options
         );
 chart.render();

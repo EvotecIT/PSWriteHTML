@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-07-31 14:08:53" name="revised"/><title>Title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-01 22:40:23" name="revised"/><title>Title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -38,50 +38,65 @@ div.defaultSection {
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+        */
 }
 
+/* Not used anywhere - I think
 div.defaultColumn {
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 2px;
 }
+*/
 
 .defaultContainer {
     display: flex;
     justify-content: space-between;
     padding: 2px;
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+
+    */
 }
 
 .defaultContainerOther {
     display: flex;
     justify-content: space-between;
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 }
 
-.defaultPanelOther {
+.flexElement {
     flex-basis: 100%;
+    flex: 1 auto;
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 }
 
-.defaultPanel {
+.flexPanel {
     flex-basis: 100%;
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+
+    */
 }
 
-.defaultCard {
+.roundedCorners {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px;
@@ -117,22 +132,6 @@ td.MainLogo {
     vertical-align: middle;
 }
 
-/*
-
-th.content {
-    border-top: 1px solid #bbbbbb;
-    width: 25%;
-}
-
-td.content {
-    width: 75%;
-}
-
-td.groupby {
-    border-top: 3px double #bbbbbb;
-}
-*/
-
 .header {
     background-color: #616a6b;
     color: #f7f9f9;
@@ -154,8 +153,6 @@ a.alink:hover {
     text-decoration: underline;
     font-size: 130%;
 }
-
-/* Adding CSS */
 
 a.paginate_button {
     color: #000000 !important;
@@ -187,7 +184,7 @@ img {
     margin: 1%;
     flex: 1;
 }
-
+/*
 .orange {
     background-color: #f39c12;
 }
@@ -199,11 +196,7 @@ img {
 .green {
     background-color: #2ecc40;
 }
-
-div.enlighter-default {
-    flex-basis: 100%;
-    margin: 0 !important;
-}
+*/
 </style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
 h3:after,
 h4:after,
@@ -313,7 +306,103 @@ h6 {
     font-size: 10px;
     line-height: 12px;
 }
-</style><!-- CSS Always Required Default Headings END --><!-- CSS Toasts Looking Messages START --><style type="text/css">.toast {
+</style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style><!-- CSS DataTables END --><noscript><!-- CSS DataTables START --><style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    width: 99%;
+}
+
+table th {
+    border-width: 1px;
+    padding: 4px;
+    border-style: solid;
+    border-color: black;
+    background-color: #616a6b;
+    color: white;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    font-weight: bold;
+    padding: 10px;
+}
+
+table td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    /* background-color: white; */
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    border-top: 1px solid #ddd;
+}
+
+/* Zebra striping */
+table tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+table th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+table td,
+table th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+</style><!-- CSS DataTables END --></noscript><!-- CSS Toasts Looking Messages START --><style type="text/css">.toast {
     text-align: left;
     padding: 10px 5px 10px 5px;
     background-color: #fff;
@@ -324,7 +413,7 @@ h6 {
     margin: 10px 10px 10px 10px;
 }
 
-.toastBorder {
+.toastBorderLeft {
     content: "";
     position: absolute;
     top: 0;
@@ -333,6 +422,17 @@ h6 {
     height: 100%;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
+}
+
+.toastBorderRight {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
 .toastIcon {
@@ -352,7 +452,7 @@ h6 {
     padding-right: 60px;
 }
 
-.toastType {
+.toastTextHeader {
     color: #3e3e3e;
     font-weight: 700;
     margin-top: 0;
@@ -361,7 +461,7 @@ h6 {
     font-size: 16px !important;
 }
 
-.toastMessage {
+.toastText {
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 0;
@@ -369,4 +469,69 @@ h6 {
     font-family: "Raleway", sans-serif;
     font-size: 14px !important;
 }
-</style><!-- CSS Toasts Looking Messages END --></head><!-- END HEADER --><!-- BODY --><body><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="0 section" style="color: #ffffff;">0 section</a><a id="show_829610172" href="javascript:void(0)" onclick="show('829610172');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_829610172" href="javascript:void(0)" onclick="hide('829610172');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="829610172" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="829610172"><div class="defaultPanel defaultCard"><div class="toast"><div class="toastBorder" style="background-color:#0000ff"></div><div class="toastIcon fab fa-apple-pay" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastType">Maintenance</p><p class="toastMessage">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div></div><div class="toast"><div class="toastBorder" style="background-color:#228b22"></div><div class="toastIcon fab fa-500px" style="font-size:30px;color:#a9a9a9"></div><div class="toastContent"><p class="toastType">Maintenance</p><p class="toastMessage" style="color:#dcdcdc">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div></div><div class="toast"><div class="toastBorder" style="background-color:#808080"></div><div class="toastIcon far fa-eye" style="font-size:30px;color:#f0f8ff"></div><div class="toastContent"><p class="toastType" style="color:#ffd700">Maintenance</p><p class="toastMessage">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div></div></div></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>
+</style><!-- CSS Toasts Looking Messages END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --></head><!-- END HEADER --><!-- BODY --><body><div class="defaultContainerOther"><div class="defaultContainerOther flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon far fa-address-card" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#228b22"></div><div class="toastIcon fab fa-500px" style="font-size:30px;color:#a9a9a9"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText" style="color:#dcdcdc">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div></div></div><div class="defaultContainerOther"><div class="defaultContainerOther flexElement"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+
+
+                    //  Table code
+                    var table = $('#DT-EYSwEHVv').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "createdRow":  ""
+}
+                    );
+
+                });</script><div class="flexElement"><table id="DT-EYSwEHVv" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>20260</td><td>Normal</td><td>7.3.684</td><td>922</td><td>108404736</td><td>159383552</td><td>159383552</td><td>744800256</td><td>00:09:31.9375000</td><td>1</td><td>922</td><td>744800256</td><td>108404736</td><td>159383552</td><td>62912</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>571,9375</td><td>7.3.684</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3812</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>7147166</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>62912</td><td>62912</td><td>159383552</td><td>792456</td><td>792456</td><td>214380544</td><td>214380544</td><td>216719360</td><td>216719360</td><td>856535040</td><td>856535040</td><td>True</td><td>159383552</td><td>00:01:23.0468750</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>29.07.2019 11:19:36</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:08:08.8906250</td><td>744800256</td><td>False</td><td></td><td></td><td></td><td>108404736</td><td></td><td></td></tr><tr><td>aesm_service</td><td>20540</td><td></td><td></td><td>189</td><td>4874240</td><td>3354624</td><td>3354624</td><td>94785536</td><td></td><td>0</td><td>189</td><td>2203413008384</td><td>4874240</td><td>3354624</td><td>11120</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>11120</td><td>11120</td><td>3354624</td><td>115248</td><td>115248</td><td>5300224</td><td>5300224</td><td>13950976</td><td>13950976</td><td>120578048</td><td>2203438800896</td><td></td><td>3354624</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203413008384</td><td>False</td><td></td><td></td><td></td><td>4874240</td><td></td><td></td></tr><tr><td>ApplicationFrameHost</td><td>18880</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>490</td><td>16855040</td><td>28921856</td><td>28921856</td><td>273506304</td><td>00:00:01.4687500</td><td>1</td><td>490</td><td>2203591729152</td><td>16855040</td><td>28921856</td><td>29504</td><td>C:\WINDOWS\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>1,46875</td><td>10.0.18362.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6924</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>5838852</td><td>Settings</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29504</td><td>29504</td><td>28921856</td><td>402616</td><td>402616</td><td>33415168</td><td>33415168</td><td>36896768</td><td>36896768</td><td>287379456</td><td>2203605602304</td><td>True</td><td>28921856</td><td>00:00:01.2031250</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>29.07.2019 11:20:31</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2656250</td><td>2203591729152</td><td>False</td><td></td><td></td><td></td><td>16855040</td><td></td><td></td></tr><tr><td>Calculator</td><td>21648</td><td>Normal</td><td>10.1905.30.0</td><td>575</td><td>606208</td><td>36397056</td><td>36397056</td><td>549433344</td><td>00:00:00.2968750</td><td>1</td><td>575</td><td>4844400640</td><td>606208</td><td>36397056</td><td>30592</td><td>C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.1905.30.0_x64__8wekyb3d8bbwe\Calculator.exe</td><td>Microsoft Corporation</td><td>0,296875</td><td>10.1905.30.0</td><td>Calculator.exe</td><td>Microsoft Calculator</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1204</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>5180836</td><td>Calculator</td><td>System.Diagnostics.ProcessModule (Calculator.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>30592</td><td>30592</td><td>36397056</td><td>716784</td><td>716784</td><td>48742400</td><td>48742400</td><td>73523200</td><td>73523200</td><td>552579072</td><td>4847546368</td><td>True</td><td>36397056</td><td>00:00:00.1562500</td><td>Calculator</td><td>65535</td><td>False</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>29.07.2019 13:23:43</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1406250</td><td>4844400640</td><td>False</td><td></td><td></td><td></td><td>606208</td><td></td><td></td></tr><tr><td>Code</td><td>1168</td><td>Normal</td><td>1.36.1</td><td>236</td><td>15228928</td><td>27086848</td><td>27086848</td><td>416968704</td><td>00:00:00.2187500</td><td>1</td><td>236</td><td>2203735191552</td><td>15228928</td><td>27086848</td><td>21664</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,21875</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5452</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>21664</td><td>21664</td><td>27086848</td><td>432976</td><td>432976</td><td>28852224</td><td>28852224</td><td>38916096</td><td>38916096</td><td>422211584</td><td>2203740434432</td><td>True</td><td>27086848</td><td>00:00:00.0468750</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>30.07.2019 12:07:38</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1718750</td><td>2203735191552</td><td>False</td><td></td><td></td><td></td><td>15228928</td><td></td><td></td></tr><tr><td>Code</td><td>1320</td><td>Normal</td><td>1.36.1</td><td>745</td><td>137121792</td><td>-2090991616</td><td>-2090991616</td><td>-189128704</td><td>00:14:27.2187500</td><td>1</td><td>745</td><td>2207424061440</td><td>137121792</td><td>2203975680</td><td>254472</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>867,21875</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5104</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>254472</td><td>254472</td><td>2203975680</td><td>874464</td><td>874464</td><td>-1410502656</td><td>2884464640</td><td>235868160</td><td>235868160</td><td>378839040</td><td>2207992029184</td><td>True</td><td>2203975680</td><td>00:02:55.2500000</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>29.07.2019 13:38:41</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:11:31.9687500</td><td>2207424061440</td><td>False</td><td></td><td></td><td></td><td>137121792</td><td></td><td></td></tr><tr><td>Code</td><td>1988</td><td>Normal</td><td>1.36.1</td><td>425</td><td>66203648</td><td>73945088</td><td>73945088</td><td>597303296</td><td>00:05:02.3593750</td><td>1</td><td>425</td><td>2203915526144</td><td>66203648</td><td>73945088</td><td>45512</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>302,359375</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8984</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>45512</td><td>45512</td><td>73945088</td><td>463352</td><td>463352</td><td>106504192</td><td>106504192</td><td>115675136</td><td>115675136</td><td>620371968</td><td>2203938594816</td><td>True</td><td>73945088</td><td>00:01:31.1250000</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>29.07.2019 13:38:44</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:03:31.2343750</td><td>2203915526144</td><td>False</td><td></td><td></td><td></td><td>66203648</td><td></td><td></td></tr><tr><td>Code</td><td>2612</td><td>Normal</td><td>1.36.1</td><td>236</td><td>16498688</td><td>25436160</td><td>25436160</td><td>415526912</td><td>00:00:00.2343750</td><td>1</td><td>236</td><td>2203733749760</td><td>16498688</td><td>25436160</td><td>20848</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,234375</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5828</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>20848</td><td>20848</td><td>25436160</td><td>428880</td><td>428880</td><td>26886144</td><td>26886144</td><td>38985728</td><td>38985728</td><td>420827136</td><td>2203739049984</td><td>True</td><td>25436160</td><td>00:00:00.0781250</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.07.2019 11:56:38</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1562500</td><td>2203733749760</td><td>False</td><td></td><td></td><td></td><td>16498688</td><td></td><td></td></tr><tr><td>Code</td><td>3348</td><td>Normal</td><td>1.36.1</td><td>236</td><td>83443712</td><td>96604160</td><td>96604160</td><td>514813952</td><td>00:00:28.6250000</td><td>1</td><td>236</td><td>2203833036800</td><td>83443712</td><td>96604160</td><td>40160</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>28,625</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5392</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>40160</td><td>40160</td><td>96604160</td><td>437072</td><td>437072</td><td>545660928</td><td>545660928</td><td>532574208</td><td>532574208</td><td>975515648</td><td>2204293738496</td><td>True</td><td>96604160</td><td>00:00:03.1718750</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.07.2019 13:50:22</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:25.4531250</td><td>2203833036800</td><td>False</td><td></td><td></td><td></td><td>83443712</td><td></td><td></td></tr><tr><td>Code</td><td>9260</td><td>Normal</td><td>1.36.1</td><td>1660</td><td>23089152</td><td>27701248</td><td>27701248</td><td>431779840</td><td>00:00:00.5000000</td><td>1</td><td>1660</td><td>2203750002688</td><td>23089152</td><td>27701248</td><td>23976</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,5</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3204</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>23976</td><td>23976</td><td>27701248</td><td>446216</td><td>446216</td><td>35123200</td><td>35123200</td><td>46096384</td><td>46096384</td><td>438071296</td><td>2203756294144</td><td>True</td><td>27701248</td><td>00:00:00.2031250</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.07.2019 11:56:25</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2968750</td><td>2203750002688</td><td>False</td><td></td><td></td><td></td><td>23089152</td><td></td><td></td></tr><tr><td>Code</td><td>13688</td><td>Normal</td><td>1.36.1</td><td>703</td><td>526614528</td><td>618229760</td><td>618229760</td><td>1582354432</td><td>00:21:50.1093750</td><td>1</td><td>703</td><td>2204900577280</td><td>526614528</td><td>618229760</td><td>144008</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>1310,109375</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6712</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>144008</td><td>144008</td><td>618229760</td><td>701600</td><td>701600</td><td>770629632</td><td>770629632</td><td>658604032</td><td>658604032</td><td>1692127232</td><td>2205010350080</td><td>True</td><td>618229760</td><td>00:01:05.2343750</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.07.2019 13:50:17</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:20:44.8750000</td><td>2204900577280</td><td>False</td><td></td><td></td><td></td><td>526614528</td><td></td><td></td></tr><tr><td>Code</td><td>13868</td><td>Normal</td><td>1.36.1</td><td>559</td><td>258805760</td><td>414257152</td><td>414257152</td><td>1167048704</td><td>00:10:00.9687500</td><td>1</td><td>559</td><td>2204485271552</td><td>258805760</td><td>414257152</td><td>103376</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>600,96875</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4564</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>103376</td><td>103376</td><td>414257152</td><td>680232</td><td>680232</td><td>500731904</td><td>500731904</td><td>444989440</td><td>444989440</td><td>1351467008</td><td>2204669689856</td><td>True</td><td>414257152</td><td>00:00:31.1250000</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>29.07.2019 13:38:41</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:09:29.8437500</td><td>2204485271552</td><td>False</td><td></td><td></td><td></td><td>258805760</td><td></td><td></td></tr><tr><td>Code</td><td>13956</td><td>Normal</td><td>1.36.1</td><td>523</td><td>149921792</td><td>187703296</td><td>187703296</td><td>827777024</td><td>00:01:06.7187500</td><td>1</td><td>523</td><td>2204145999872</td><td>149921792</td><td>187703296</td><td>71648</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>66,71875</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9860</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>71648</td><td>71648</td><td>187703296</td><td>676664</td><td>676664</td><td>227688448</td><td>227688448</td><td>246358016</td><td>246358016</td><td>986505216</td><td>2204304728064</td><td>True</td><td>187703296</td><td>00:00:04.7968750</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>29.07.2019 22:18:52</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:01:01.9218750</td><td>2204145999872</td><td>False</td><td></td><td></td><td></td><td>149921792</td><td></td><td></td></tr><tr><td>Code</td><td>15984</td><td>Normal</td><td>1.36.1</td><td>1281</td><td>97435648</td><td>71176192</td><td>71176192</td><td>706576384</td><td>00:22:35.4531250</td><td>1</td><td>1281</td><td>2204024799232</td><td>97435648</td><td>71176192</td><td>63328</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>1355,453125</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6432</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>12391000</td><td>PSWriteHTML - Example25.ps1</td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>63328</td><td>63328</td><td>71176192</td><td>910456</td><td>910456</td><td>74432512</td><td>74432512</td><td>120889344</td><td>120889344</td><td>815521792</td><td>2204133744640</td><td>True</td><td>71176192</td><td>00:11:20.6250000</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>29.07.2019 13:38:41</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:11:14.8281250</td><td>2204024799232</td><td>False</td><td></td><td></td><td></td><td>97435648</td><td></td><td></td></tr><tr><td>Code</td><td>19188</td><td>Normal</td><td>1.36.1</td><td>548</td><td>159629312</td><td>195833856</td><td>195833856</td><td>833208320</td><td>00:00:39.5781250</td><td>1</td><td>548</td><td>2204151431168</td><td>159629312</td><td>195833856</td><td>73640</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>39,578125</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1396</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>73640</td><td>73640</td><td>195833856</td><td>691752</td><td>691752</td><td>251502592</td><td>251502592</td><td>280313856</td><td>280313856</td><td>990101504</td><td>2204308324352</td><td>True</td><td>195833856</td><td>00:00:02.7968750</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.07.2019 11:19:54</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:36.7812500</td><td>2204151431168</td><td>False</td><td></td><td></td><td></td><td>159629312</td><td></td><td></td></tr><tr><td>Code</td><td>20848</td><td>Normal</td><td>1.36.1</td><td>236</td><td>16072704</td><td>66093056</td><td>66093056</td><td>464220160</td><td>00:00:00.4531250</td><td>1</td><td>236</td><td>2203782443008</td><td>16072704</td><td>66093056</td><td>23840</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,453125</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>8116</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>23840</td><td>23840</td><td>66093056</td><td>428880</td><td>428880</td><td>103444480</td><td>103444480</td><td>114962432</td><td>114962432</td><td>495882240</td><td>2203814105088</td><td>True</td><td>66093056</td><td>00:00:00.0468750</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.07.2019 11:56:38</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.4062500</td><td>2203782443008</td><td>False</td><td></td><td></td><td></td><td>16072704</td><td></td><td></td></tr><tr><td>Code</td><td>23892</td><td>Normal</td><td>1.36.1</td><td>536</td><td>183009280</td><td>258330624</td><td>258330624</td><td>879177728</td><td>00:03:01.7656250</td><td>1</td><td>536</td><td>2204197400576</td><td>183009280</td><td>258330624</td><td>79480</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>181,765625</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>7656</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>79480</td><td>79480</td><td>258330624</td><td>694760</td><td>694760</td><td>308191232</td><td>308191232</td><td>310812672</td><td>310812672</td><td>1169276928</td><td>2204487499776</td><td>True</td><td>258330624</td><td>00:00:11.7656250</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>30.07.2019 11:53:45</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:02:50</td><td>2204197400576</td><td>False</td><td></td><td></td><td></td><td>183009280</td><td></td><td></td></tr><tr><td>Code</td><td>25040</td><td>Normal</td><td>1.36.1</td><td>236</td><td>37146624</td><td>31666176</td><td>31666176</td><td>443510784</td><td>00:00:02.2500000</td><td>1</td><td>236</td><td>2203761733632</td><td>37146624</td><td>31666176</td><td>26288</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>2,25</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>7932</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>26288</td><td>26288</td><td>31666176</td><td>437072</td><td>437072</td><td>52391936</td><td>52391936</td><td>56197120</td><td>56197120</td><td>454115328</td><td>2203772338176</td><td>True</td><td>31666176</td><td>00:00:00.3593750</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.07.2019 14:40:05</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.8906250</td><td>2203761733632</td><td>False</td><td></td><td></td><td></td><td>37146624</td><td></td><td></td></tr><tr><td>Code</td><td>26484</td><td>Normal</td><td>1.36.1</td><td>389</td><td>5758976</td><td>6569984</td><td>6569984</td><td>241557504</td><td>00:00:00.0781250</td><td>1</td><td>389</td><td>2203559780352</td><td>5758976</td><td>6569984</td><td>15888</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,078125</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3740</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>15888</td><td>15888</td><td>6569984</td><td>411904</td><td>411904</td><td>6660096</td><td>6660096</td><td>13946880</td><td>13946880</td><td>246800384</td><td>2203565023232</td><td>True</td><td>6569984</td><td>00:00:00.0156250</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>29.07.2019 13:38:42</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0625000</td><td>2203559780352</td><td>False</td><td></td><td></td><td></td><td>5758976</td><td></td><td></td></tr><tr><td>Code</td><td>28176</td><td>Normal</td><td>1.36.1</td><td>401</td><td>341667840</td><td>405397504</td><td>405397504</td><td>1946095616</td><td>00:02:07.2187500</td><td>1</td><td>401</td><td>2205264318464</td><td>341667840</td><td>405397504</td><td>133968</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>127,21875</td><td>1.36.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6700</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>133968</td><td>133968</td><td>405397504</td><td>465424</td><td>465424</td><td>559988736</td><td>559988736</td><td>489426944</td><td>489426944</td><td>2050887680</td><td>2205369110528</td><td>True</td><td>405397504</td><td>00:00:13.5312500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>31.07.2019 13:50:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:01:53.6875000</td><td>2205264318464</td><td>False</td><td></td><td></td><td></td><td>341667840</td><td></td><td></td></tr></tbody></table></div></div></div><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#808080"></div><div class="toastIcon far fa-eye" style="font-size:30px;color:#f0f8ff"></div><div class="toastContent"><p class="toastTextHeader" style="color:#ffd700">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fab fa-app-store" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon far fa-surprise" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-bell" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fab fa-cloudsmith" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fab fa-accessible-icon" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fab fa-accusoft" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight" style="background-color:#00ced1"></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>

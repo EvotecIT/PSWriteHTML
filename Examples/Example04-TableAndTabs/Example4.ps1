@@ -5,7 +5,7 @@ $ReportTitle = 'Test'
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
 
 New-HTML -TitleText $ReportTitle -UseCssLinks -UseJavaScriptLinks -FilePath "$PSScriptRoot\Example4.html" {
-    New-HTMLTab -TabName 'Dashboard' -TabIcon '' {
+    New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText "Groups" {
             New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable -Verbose
@@ -18,8 +18,8 @@ New-HTML -TitleText $ReportTitle -UseCssLinks -UseJavaScriptLinks -FilePath "$PS
 
         }
     }
-    New-HTMLTab -TabName 'Something' -TabIcon 'fa address-book-ofa'  {
+    New-HTMLTab -TabName 'Something' {
 
     }
-}
+} -ShowHTML
 Stop-TimeLog -Time $Time -Option OneLiner

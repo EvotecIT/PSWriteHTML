@@ -81,21 +81,21 @@ div.defaultColumn {
     overflow-y: hidden;
 }
 
-.defaultPanelOther {
+.flexElement {
     flex-basis: 100%;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-.defaultPanel {
+.flexPanel {
     flex-basis: 100%;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-.defaultCard {
+.roundedCorners {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px;
@@ -1252,7 +1252,7 @@ $.fn.dataTable.moment = function ( format, locale ) {
 			// Strip out surrounding white space
 			d = $.trim( d );
 		}
-		
+
 		return !moment(d, format, locale, true).isValid() ?
 			Infinity :
 			parseInt( moment( d, format, locale, true ).format( 'x' ), 10 );
@@ -1300,8 +1300,8 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
 <!-- BODY -->
 <body><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
-                    
-                    
+
+
                     //  Table code
                     var table = $('#DT-NaSdnJec').DataTable(
                         {
@@ -1347,9 +1347,9 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
     "createdRow":  ""
 }
                     );
-                    
+
                 });</script>
-<div class="defaultPanelOther">
+<div class="flexElement">
 
 <table id="DT-NaSdnJec" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
 <tbody><tr><td>1Password</td><td>18424</td><td>Normal</td><td>7.3.684</td><td>927</td><td>97583104</td><td>123850752</td><td>123850752</td><td>710328320</td><td>00:18:03.9687500</td><td>1</td><td>927</td><td>710328320</td><td>97583104</td><td>123850752</td><td>63248</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1083,96875</td><td>7.3.684</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4400</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>920640</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>63248</td><td>63248</td><td>123850752</td><td>759312</td><td>759312</td><td>157483008</td><td>157483008</td><td>182861824</td><td>182861824</td><td>812736512</td><td>812736512</td><td>True</td><td>123850752</td><td>00:02:52.5781250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>10.07.2019 22:03:41</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:15:11.3906250</td><td>710328320</td><td>False</td><td></td><td></td><td></td><td>97583104</td><td></td><td></td></tr>
@@ -1373,8 +1373,8 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
 </div>
 <script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
-                    
-                    
+
+
                     //  Table code
                     var table = $('#DT-amVEBeAc').DataTable(
                         {
@@ -1420,9 +1420,9 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
     "createdRow":  ""
 }
                     );
-                    
+
                 });</script>
-<div class="defaultPanelOther">
+<div class="flexElement">
 
 <table id="DT-amVEBeAc" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
 <tbody><tr><td>1Password</td><td>18424</td><td>Normal</td><td>7.3.684</td><td>927</td><td>97583104</td><td>123850752</td><td>123850752</td><td>710328320</td><td>00:18:04.0156250</td><td>1</td><td>927</td><td>710328320</td><td>97583104</td><td>123850752</td><td>63248</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1084,015625</td><td>7.3.684</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>2556</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>920640</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>63248</td><td>63248</td><td>123850752</td><td>759312</td><td>759312</td><td>157483008</td><td>157483008</td><td>182861824</td><td>182861824</td><td>812736512</td><td>812736512</td><td>True</td><td>123850752</td><td>00:02:52.5937500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>10.07.2019 22:03:41</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:15:11.4218750</td><td>710328320</td><td>False</td><td></td><td></td><td></td><td>97583104</td><td></td><td></td></tr>
@@ -1461,8 +1461,8 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
 </div>
 <script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
-                    
-                    
+
+
                     //  Table code
                     var table = $('#DT-NMRyKXvc').DataTable(
                         {
@@ -1508,9 +1508,9 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
     "createdRow":  ""
 }
                     );
-                    
+
                 });</script>
-<div class="defaultPanelOther">
+<div class="flexElement">
 
 <table id="DT-NMRyKXvc" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
 <tbody><tr><td>1Password</td><td>18424</td><td>Normal</td><td>7.3.684</td><td>927</td><td>97583104</td><td>123850752</td><td>123850752</td><td>710328320</td><td>00:18:04.0937500</td><td>1</td><td>927</td><td>710328320</td><td>97583104</td><td>123850752</td><td>63248</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1084,09375</td><td>7.3.684</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>2556</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>920640</td><td>1Password</td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>63248</td><td>63248</td><td>123850752</td><td>759312</td><td>759312</td><td>157483008</td><td>157483008</td><td>182861824</td><td>182861824</td><td>812736512</td><td>812736512</td><td>True</td><td>123850752</td><td>00:02:52.5937500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>10.07.2019 22:03:41</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:15:11.5000000</td><td>710328320</td><td>False</td><td></td><td></td><td></td><td>97583104</td><td></td><td></td></tr>

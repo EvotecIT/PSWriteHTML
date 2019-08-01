@@ -83,21 +83,21 @@
                 overflow-y: hidden;
             }
 
-            .defaultPanelOther {
+            .flexElement {
                 flex-basis: 100%;
                 overflow: hidden;
                 overflow-x: hidden;
                 overflow-y: hidden;
             }
 
-            .defaultPanel {
+            .flexPanel {
                 flex-basis: 100%;
                 overflow: hidden;
                 overflow-x: hidden;
                 overflow-y: hidden;
             }
 
-            .defaultCard {
+            .roundedCorners {
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                 transition: 0.3s;
                 border-radius: 5px;
@@ -516,16 +516,16 @@ td.groupby {
     <!-- BODY -->
 
     <body>
-        <div class="defaultSection defaultCard">
+        <div class="defaultSection roundedCorners">
             <div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="0 section"
                     style="color: #ffffff;">0 section</a><a id="show_1905549847" href="javascript:void(0)"
                     onclick="show('1905549847');" style="color: #ffffff; display:none;">(Show)</a><a
                     id="hide_1905549847" href="javascript:void(0)" onclick="hide('1905549847');"
                     style="color: #ffffff; display:none;">(Hide)</a></div>
             <div id="1905549847" class="defaultContainerOther">
-                <div class="defaultContainer defaultPanelOther collapsable" id="1905549847">
-                    <div class="defaultPanel defaultCard">
-                        <div class="defaultPanelOther">
+                <div class="defaultContainer flexElement collapsable" id="1905549847">
+                    <div class="flexPanel roundedCorners">
+                        <div class="flexElement">
                             <table class="simplify">
                                 <thead>
                                     <tr>
@@ -664,15 +664,15 @@ td.groupby {
                 </div>
             </div>
         </div>
-        <div class="defaultSection defaultCard">
+        <div class="defaultSection roundedCorners">
             <div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Section 1"
                     style="color: #ffffff;">Section 1</a><a id="show_2146294078" href="javascript:void(0)"
                     onclick="show('2146294078');" style="color: #ffffff; display:none;">(Show)</a><a
                     id="hide_2146294078" href="javascript:void(0)" onclick="hide('2146294078');"
                     style="color: #ffffff; display:none;">(Hide)</a></div>
             <div id="2146294078" class="defaultContainerOther">
-                <div class="defaultContainer defaultPanelOther collapsable" id="2146294078">
-                    <div class="defaultPanel defaultCard">
+                <div class="defaultContainer flexElement collapsable" id="2146294078">
+                    <div class="flexPanel roundedCorners">
                         <script>
                             $(document).ready(function () {
                                 $.fn.dataTable.moment('L');
@@ -738,7 +738,7 @@ td.groupby {
 
                             });
                         </script>
-                        <div class="defaultPanelOther">
+                        <div class="flexElement">
                             <table id="DT-AtMHUjFG" class="display compact">
                                 <thead>
                                     <tr>

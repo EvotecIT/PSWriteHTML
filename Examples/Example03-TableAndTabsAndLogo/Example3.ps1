@@ -1,4 +1,4 @@
-Import-Module ..\PSWriteHTML -Force
+Import-Module .\PSWriteHTML.psd1 -Force
 
 $Time = Start-TimeLog
 
@@ -28,6 +28,6 @@ New-HTML -TitleText $ReportTitle -UseJavaScriptLinks -UseCssLinks -FilePath "$PS
     New-HTMLTab -TabName 'This is long title' {
 
     }
-}
+} -ShowHTML
 
 Stop-TimeLog -Time $Time -Option OneLiner

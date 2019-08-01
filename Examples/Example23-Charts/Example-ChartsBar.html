@@ -1,18 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER -->
-<head><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta name="author"/>
-<meta content="2019-06-26 18:18:16" name="revised"/>
-<title>My title</title>
-<!-- CSS Default fonts START -->
-<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
-<!-- CSS Default fonts END -->
-<!-- CSS Default fonts icons START -->
-<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
-<!-- CSS Default fonts icons END -->
-<!-- CSS Always Required Default Visual Settings START -->
-<style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-01 23:56:14" name="revised"/><title>My title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -24,7 +11,7 @@ hr {
     width: 100%;
 }
 
-div.clientlogo {
+.clientlogo {
     border: 0px;
     vertical-align: middle;
     text-align: left;
@@ -32,7 +19,7 @@ div.clientlogo {
     width: 50%;
 }
 
-div.MainLogo {
+.MainLogo {
     border: 0px;
     vertical-align: middle;
     text-align: right;
@@ -40,61 +27,79 @@ div.MainLogo {
     width: 50%;
 }
 
+/*
 .central {
     margin: 10px auto;
-    /* width: 100%; */
+    width: 100%;
     max-width: 900px;
 }
+*/
 
-div.defaultSection {
+.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
+
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+
 }
 
+/* Not used anywhere - I think
 div.defaultColumn {
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 2px;
 }
+*/
 
 .defaultContainer {
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     padding: 2px;
+
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+
+
 }
 
 .defaultContainerOther {
     display: flex;
     justify-content: space-between;
+
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+
 }
 
-.defaultPanelOther {
+.flexElement {
     flex-basis: 100%;
+    flex: 1 auto;
+
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+
 }
 
-.defaultPanel {
+
+.flexPanel {
     flex-basis: 100%;
+
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-.defaultCard {
+
+.roundedCorners {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px;
@@ -110,7 +115,7 @@ div.defaultHeader {
     */
 }
 
-div.defaultFooter {
+.defaultFooter {
     padding-right: 5em;
     text-align: right;
 }
@@ -129,22 +134,6 @@ td.MainLogo {
     text-align: right;
     vertical-align: middle;
 }
-
-/*
-
-th.content {
-    border-top: 1px solid #bbbbbb;
-    width: 25%;
-}
-
-td.content {
-    width: 75%;
-}
-
-td.groupby {
-    border-top: 3px double #bbbbbb;
-}
-*/
 
 .header {
     background-color: #616a6b;
@@ -167,25 +156,6 @@ a.alink:hover {
     text-decoration: underline;
     font-size: 130%;
 }
-
-table.sortable {
-    width: calc(100% - 10px);
-    margin: 5px;
-    box-sizing: border-box;
-    border-collapse: collapse;
-    display: inline-block;
-    overflow-x: auto;
-    overflow-y: auto;
-}
-
-table.sortable thead {
-    background-color: #eee;
-    color: #666666;
-    font-weight: bold;
-    cursor: default;
-}
-
-/* Adding CSS */
 
 a.paginate_button {
     color: #000000 !important;
@@ -218,6 +188,7 @@ img {
     flex: 1;
 }
 
+/*
 .orange {
     background-color: #f39c12;
 }
@@ -229,15 +200,8 @@ img {
 .green {
     background-color: #2ecc40;
 }
-
-div.enlighter-default {
-    flex-basis: 100%;
-    margin: 0 !important;
-}
-</style>
-<!-- CSS Always Required Default Visual Settings END -->
-<!-- CSS Always Required Default Headings START -->
-<style type="text/css">h2:after,
+*/
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
 h3:after,
 h4:after,
 h5:after,
@@ -346,11 +310,7 @@ h6 {
     font-size: 10px;
     line-height: 12px;
 }
-</style>
-<!-- CSS Always Required Default Headings END -->
-
-<!-- CSS Elastic Tabs START -->
-<style type="text/css">.tabsWrapper {
+</style><!-- CSS Always Required Default Headings END --><!-- CSS Elastic Tabs START --><style type="text/css">.tabsWrapper {
     text-align: center;
     margin: 10px auto;
     font-family: 'Roboto', sans-serif !important;
@@ -410,11 +370,7 @@ h6 {
 .tabs-content.active {
     display: block;
 }
-</style>
-<!-- CSS Elastic Tabs END -->
-
-<!-- JS Hide Section Code START -->
-<script type="text/javascript">function show(obj) {
+</style><!-- CSS Elastic Tabs END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
   document.getElementById(obj).style.display='block';
   document.getElementById("hide_" + obj).style.display='';
   document.getElementById("show_" + obj).style.display='none';
@@ -424,102 +380,7 @@ function hide(obj) {
   document.getElementById("hide_" + obj).style.display='none';
   document.getElementById("show_" + obj).style.display='';
 }
-</script>
-<!-- JS Hide Section Code END -->
-
-<!-- JS Jquery START -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
-<!-- JS Jquery END -->
-<!-- JS Apex Charts START -->
-<script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script>
-<!-- JS Apex Charts END -->
-</head>
-<!-- END HEADER -->
-<!-- BODY -->
-<body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-yki3pdzf"><div class="far fa-chart-bar"></div>
-<span> Bar Charts - Bar</span>
-</a>
-<a href="javascript:void(0)" data-id="Tab-is5phabg"><div class="far fa-chart-bar"></div>
-<span> Bar Charts - Bar Stacked</span>
-</a>
-<a href="javascript:void(0)" data-id="Tab-uxhdr7q2"><div class="fas fa-audio-description"></div>
-<span> Bar Charts - Bar Stacked 100%</span>
-</a>
-<a href="javascript:void(0)" data-id="Tab-4ruzyc9d"><div class="far fa-file"></div>
-<span> Bar Charts - Bar Stacked Plus/Minus</span>
-</a>
-</div></div>
-<div id="Tab-yki3pdzf" class="tabs-content active"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test" style="color: #ffffff;">Bar Charts - Test</a>
-<a id="show_1177871148" href="javascript:void(0)" onclick="show('1177871148');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1177871148" href="javascript:void(0)" onclick="hide('1177871148');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="1177871148" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1177871148"><div class="defaultPanel defaultCard"><div id="ChartID-0fmgup8w"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-edtr2bwn"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-5gim7xua"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-p6vfhr5u"></div></div>
-</div></div>
-</div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test Colors" style="color: #ffffff;">Bar Charts - Test Colors</a>
-<a id="show_1226195089" href="javascript:void(0)" onclick="show('1226195089');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1226195089" href="javascript:void(0)" onclick="hide('1226195089');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="1226195089" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1226195089"><div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div id="ChartID-49ofp0bg"></div></div>
-<div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div id="ChartID-k97r0hmy"></div></div>
-<div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div id="ChartID-menk6fzx"></div></div>
-<div class="defaultPanel defaultCard" style=" box-shadow: unset !important;"><div id="ChartID-n3jfe89o"></div></div>
-</div></div>
-</div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar" style="color: #ffffff;">Bar Charts - Standard Bar</a>
-<a id="show_1767887146" href="javascript:void(0)" onclick="show('1767887146');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1767887146" href="javascript:void(0)" onclick="hide('1767887146');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="1767887146" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1767887146"><div class="defaultPanel defaultCard"><div id="ChartID-tzbp7c9e"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-bqpy9tlx"></div></div>
-</div></div>
-</div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar Vertical" style="color: #ffffff;">Bar Charts - Standard Bar Vertical</a>
-<a id="show_1306949725" href="javascript:void(0)" onclick="show('1306949725');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1306949725" href="javascript:void(0)" onclick="hide('1306949725');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="1306949725" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1306949725"><div class="defaultPanel defaultCard"><div id="ChartID-yageupn0"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-gmjhx27f"></div></div>
-</div></div>
-</div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar Vertical & Patterned" style="color: #ffffff;">Bar Charts - Standard Bar Vertical & Patterned</a>
-<a id="show_1382699488" href="javascript:void(0)" onclick="show('1382699488');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1382699488" href="javascript:void(0)" onclick="hide('1382699488');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="1382699488" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1382699488"><div class="defaultPanel defaultCard"><div id="ChartID-5nf1mzap"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-k85mtcnj"></div></div>
-</div></div>
-</div>
-</div>
-<div id="Tab-is5phabg" class="tabs-content"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 1 - Bar Stacked" style="color: #ffffff;">Bar Charts 1 - Bar Stacked</a>
-<a id="show_535186482" href="javascript:void(0)" onclick="show('535186482');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_535186482" href="javascript:void(0)" onclick="hide('535186482');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="535186482" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="535186482"><div class="defaultPanel defaultCard"><div id="ChartID-5luh10ro"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-smc539dx"></div></div>
-</div></div>
-</div></div>
-<div id="Tab-uxhdr7q2" class="tabs-content"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Stacked 100%" style="color: #ffffff;">Bar Charts - Stacked 100%</a>
-<a id="show_1937664873" href="javascript:void(0)" onclick="show('1937664873');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1937664873" href="javascript:void(0)" onclick="hide('1937664873');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="1937664873" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1937664873"><div class="defaultPanel defaultCard"><div id="ChartID-yafiwes3"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-i3m7egw5"></div></div>
-</div></div>
-</div></div>
-<div id="Tab-4ruzyc9d" class="tabs-content"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Stacked 100%" style="color: #ffffff;">Bar Charts - Stacked 100%</a>
-<a id="show_2062618847" href="javascript:void(0)" onclick="show('2062618847');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_2062618847" href="javascript:void(0)" onclick="hide('2062618847');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="2062618847" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2062618847"><div class="defaultPanel defaultCard"><div id="ChartID-wjics9py"></div></div>
-<div class="defaultPanel defaultCard"><div id="ChartID-ri4mq8cf"></div></div>
-</div></div>
-</div></div>
-<script>var options = {
+</script><!-- JS Hide Section Code END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-takp9h6n"><div class="far fa-chart-bar"></div><span> Bar Charts - Bar</span></a><a href="javascript:void(0)" data-id="Tab-ycg8smnw"><div class="far fa-chart-bar"></div><span> Bar Charts - Bar Stacked</span></a><a href="javascript:void(0)" data-id="Tab-6kqw9nst"><div class="fas fa-audio-description"></div><span> Bar Charts - Bar Stacked 100%</span></a><a href="javascript:void(0)" data-id="Tab-6m87tl5i"><div class="far fa-file"></div><span> Bar Charts - Bar Stacked Plus/Minus</span></a></div></div><div id="Tab-takp9h6n" class="tabs-content active"><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test" style="color: #ffffff;">Bar Charts - Test</a><a id="show_50228421" href="javascript:void(0)" onclick="show('50228421');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_50228421" href="javascript:void(0)" onclick="hide('50228421');" style="color: #ffffff;">(Hide)</a></div><div id="50228421" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="50228421"><div class="flexPanel roundedCorners"><div id="ChartID-kpuo47mn"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-87ylaoqb"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-3n8o5k1c"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-s5qz26n4"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test Colors" style="color: #ffffff;">Bar Charts - Test Colors</a><a id="show_128903294" href="javascript:void(0)" onclick="show('128903294');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_128903294" href="javascript:void(0)" onclick="hide('128903294');" style="color: #ffffff;">(Hide)</a></div><div id="128903294" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="128903294"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-v427tlir"></div></div><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-jr0tlxvc"></div></div><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-be689p31"></div></div><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-t8q6s4g5"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar" style="color: #ffffff;">Bar Charts - Standard Bar</a><a id="show_529548427" href="javascript:void(0)" onclick="show('529548427');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_529548427" href="javascript:void(0)" onclick="hide('529548427');" style="color: #ffffff;">(Hide)</a></div><div id="529548427" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="529548427"><div class="flexPanel roundedCorners"><div id="ChartID-6xf3b5hc"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-djw3cnk7"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar Vertical" style="color: #ffffff;">Bar Charts - Standard Bar Vertical</a><a id="show_869194479" href="javascript:void(0)" onclick="show('869194479');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_869194479" href="javascript:void(0)" onclick="hide('869194479');" style="color: #ffffff;">(Hide)</a></div><div id="869194479" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="869194479"><div class="flexPanel roundedCorners"><div id="ChartID-woeuj1d2"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-4i3owy2r"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar Vertical & Patterned" style="color: #ffffff;">Bar Charts - Standard Bar Vertical & Patterned</a><a id="show_366120207" href="javascript:void(0)" onclick="show('366120207');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_366120207" href="javascript:void(0)" onclick="hide('366120207');" style="color: #ffffff;">(Hide)</a></div><div id="366120207" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="366120207"><div class="flexPanel roundedCorners"><div id="ChartID-gawndqkz"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-w4dagy3q"></div></div></div></div></div></div><div id="Tab-ycg8smnw" class="tabs-content"><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 1 - Bar Stacked" style="color: #ffffff;">Bar Charts 1 - Bar Stacked</a><a id="show_291998416" href="javascript:void(0)" onclick="show('291998416');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_291998416" href="javascript:void(0)" onclick="hide('291998416');" style="color: #ffffff;">(Hide)</a></div><div id="291998416" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="291998416"><div class="flexPanel roundedCorners"><div id="ChartID-obqmfcvr"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-s24t1j6y"></div></div></div></div></div></div><div id="Tab-6kqw9nst" class="tabs-content"><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Stacked 100%" style="color: #ffffff;">Bar Charts - Stacked 100%</a><a id="show_1970566483" href="javascript:void(0)" onclick="show('1970566483');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1970566483" href="javascript:void(0)" onclick="hide('1970566483');" style="color: #ffffff;">(Hide)</a></div><div id="1970566483" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="1970566483"><div class="flexPanel roundedCorners"><div id="ChartID-uxbi5kce"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-wr6oa73d"></div></div></div></div></div></div><div id="Tab-6m87tl5i" class="tabs-content"><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Stacked 100%" style="color: #ffffff;">Bar Charts - Stacked 100%</a><a id="show_1987636662" href="javascript:void(0)" onclick="show('1987636662');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1987636662" href="javascript:void(0)" onclick="hide('1987636662');" style="color: #ffffff;">(Hide)</a></div><div id="1987636662" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="1987636662"><div class="flexPanel roundedCorners"><div id="ChartID-rni26eh1"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-j6l20au1"></div></div></div></div></div></div><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -569,13 +430,11 @@ function hide(obj) {
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-0fmgup8w'),
+var chart = new ApexCharts(document.querySelector('#ChartID-kpuo47mn'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -642,13 +501,11 @@ chart.render();
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-edtr2bwn'),
+var chart = new ApexCharts(document.querySelector('#ChartID-87ylaoqb'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -707,13 +564,11 @@ chart.render();
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-5gim7xua'),
+var chart = new ApexCharts(document.querySelector('#ChartID-3n8o5k1c'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -775,13 +630,11 @@ chart.render();
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-p6vfhr5u'),
+var chart = new ApexCharts(document.querySelector('#ChartID-s5qz26n4'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -834,13 +687,11 @@ chart.render();
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-49ofp0bg'),
+var chart = new ApexCharts(document.querySelector('#ChartID-v427tlir'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -907,13 +758,11 @@ chart.render();
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-k97r0hmy'),
+var chart = new ApexCharts(document.querySelector('#ChartID-jr0tlxvc'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -972,13 +821,11 @@ chart.render();
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-menk6fzx'),
+var chart = new ApexCharts(document.querySelector('#ChartID-be689p31'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -1040,13 +887,11 @@ chart.render();
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-n3jfe89o'),
+var chart = new ApexCharts(document.querySelector('#ChartID-t8q6s4g5'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -1113,13 +958,11 @@ chart.render();
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-tzbp7c9e'),
+var chart = new ApexCharts(document.querySelector('#ChartID-6xf3b5hc'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -1191,13 +1034,11 @@ chart.render();
                   "align":  "center"
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-bqpy9tlx'),
+var chart = new ApexCharts(document.querySelector('#ChartID-djw3cnk7'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -1264,13 +1105,11 @@ chart.render();
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-yageupn0'),
+var chart = new ApexCharts(document.querySelector('#ChartID-woeuj1d2'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -1342,13 +1181,11 @@ chart.render();
                   "align":  "center"
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-gmjhx27f'),
+var chart = new ApexCharts(document.querySelector('#ChartID-4i3owy2r'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -1427,13 +1264,11 @@ chart.render();
                  "type":  "pattern"
              }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-5nf1mzap'),
+var chart = new ApexCharts(document.querySelector('#ChartID-gawndqkz'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -1517,13 +1352,11 @@ chart.render();
                  "type":  "pattern"
              }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-k85mtcnj'),
+var chart = new ApexCharts(document.querySelector('#ChartID-w4dagy3q'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "stacked":  true,
@@ -1619,13 +1452,11 @@ chart.render();
                   "text":  ""
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-5luh10ro'),
+var chart = new ApexCharts(document.querySelector('#ChartID-obqmfcvr'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "stacked":  true,
@@ -1698,13 +1529,11 @@ chart.render();
                   "align":  "center"
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-smc539dx'),
+var chart = new ApexCharts(document.querySelector('#ChartID-s24t1j6y'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "stacked":  true,
@@ -1818,13 +1647,11 @@ chart.render();
                    "offsetX":  40
                }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-yafiwes3'),
+var chart = new ApexCharts(document.querySelector('#ChartID-uxbi5kce'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "stacked":  true,
@@ -1898,13 +1725,11 @@ chart.render();
                   "align":  "center"
               }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-i3m7egw5'),
+var chart = new ApexCharts(document.querySelector('#ChartID-wr6oa73d'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "stacked":  true,
@@ -2014,13 +1839,11 @@ chart.render();
                    "offsetX":  40
                }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-wjics9py'),
+var chart = new ApexCharts(document.querySelector('#ChartID-rni26eh1'),
             options
         );
 chart.render();
-</script>
-<script>var options = {
+</script><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "stacked":  true,
@@ -2130,19 +1953,11 @@ chart.render();
                    "offsetX":  40
                }
 }
-
-var chart = new ApexCharts(document.querySelector('#ChartID-ri4mq8cf'),
+var chart = new ApexCharts(document.querySelector('#ChartID-j6l20au1'),
             options
         );
 chart.render();
-</script>
-</body>
-<!-- END BODY -->
-<!-- FOOTER -->
-<footer>
-
-<!-- JS Elastic Tabs START -->
-<script type="text/javascript">var maxWidth = 0;
+</script></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS Elastic Tabs START --><script type="text/javascript">var maxWidth = 0;
 var $element;
 
 $(window).on("resize", function() {
@@ -2187,10 +2002,4 @@ function setSelectorPosition(id) {
     });
     $(".selector").show();
 }
-</script>
-<!-- JS Elastic Tabs END -->
-
-
-</footer>
-<!-- END FOOTER -->
-</html>
+</script><!-- JS Elastic Tabs END --></footer><!-- END FOOTER --></html>

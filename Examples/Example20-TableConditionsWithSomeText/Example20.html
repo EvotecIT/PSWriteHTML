@@ -80,21 +80,21 @@ div.defaultColumn {
     overflow-y: hidden;
 }
 
-.defaultPanelOther {
+.flexElement {
     flex-basis: 100%;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-.defaultPanel {
+.flexPanel {
     flex-basis: 100%;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-.defaultCard {
+.roundedCorners {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px;
@@ -454,14 +454,14 @@ td {
 </head>
 <!-- END HEADER -->
 <!-- BODY -->
-<body><div class="defaultSection defaultCard" style="background-color:#f0ffff"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Test" style="color: #ffffff;">Test</a>
+<body><div class="defaultSection roundedCorners" style="background-color:#f0ffff"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Test" style="color: #ffffff;">Test</a>
 <a id="show_2005144398" href="javascript:void(0)" onclick="show('2005144398');" style="color: #ffffff; display:none;">(Show)</a>
 <a id="hide_2005144398" href="javascript:void(0)" onclick="hide('2005144398');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="2005144398" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2005144398"><script>                $(document).ready(function() {
+<div id="2005144398" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="2005144398"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
-                    
-                    
+
+
                     //  Table code
                     var table = $('#DT-MuyIHCiy').DataTable(
                         {
@@ -537,9 +537,9 @@ td {
                    ]
 }
                     );
-                    
+
                 });</script>
-<div class="defaultPanelOther">
+<div class="flexElement">
 <div><div Align="center"><span style="font-size:20px;color:#ff0000;text-align:center">This will be before. You can put other html here.</span></div></div>
 <table id="DT-MuyIHCiy" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
 <tbody><tr><td>1Password</td><td>20300</td><td>Normal</td><td>7.3.684</td><td>942</td><td>83591168</td><td>159911936</td><td>159911936</td><td>759975936</td><td>00:27:10.8125000</td><td>1</td><td>942</td><td>759975936</td><td>83591168</td><td>159911936</td><td>65616</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1630,8125</td><td>7.3.684</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9496</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>65616</td><td>65616</td><td>159911936</td><td>760584</td><td>760584</td><td>185888768</td><td>185888768</td><td>204132352</td><td>204132352</td><td>826089472</td><td>826089472</td><td>True</td><td>159911936</td><td>00:04:15.8437500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>22.06.2019 13:20:48</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:22:54.9687500</td><td>759975936</td><td>False</td><td></td><td></td><td></td><td>83591168</td><td></td><td></td></tr>
@@ -619,8 +619,8 @@ td {
 </div>
 <script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
-                    
-                    
+
+
                     //  Table code
                     var table = $('#DT-lPRXBqXh').DataTable(
                         {
@@ -688,9 +688,9 @@ td {
 }); }}
 }
                     );
-                    
+
                 });</script>
-<div class="defaultPanelOther">
+<div class="flexElement">
 
 <table id="DT-lPRXBqXh" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
 <tbody><tr><td>1Password</td><td>20300</td><td>Normal</td><td>7.3.684</td><td>942</td><td>83591168</td><td>159911936</td><td>159911936</td><td>759975936</td><td>00:27:10.8125000</td><td>1</td><td>942</td><td>759975936</td><td>83591168</td><td>159911936</td><td>65616</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1630,8125</td><td>7.3.684</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9496</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>65616</td><td>65616</td><td>159911936</td><td>760584</td><td>760584</td><td>185888768</td><td>185888768</td><td>204132352</td><td>204132352</td><td>826089472</td><td>826089472</td><td>True</td><td>159911936</td><td>00:04:15.8437500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>22.06.2019 13:20:48</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:22:54.9687500</td><td>759975936</td><td>False</td><td></td><td></td><td></td><td>83591168</td><td></td><td></td></tr>
@@ -770,15 +770,15 @@ td {
 </div>
 </div></div>
 </div>
-<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Test" style="color: #ffffff;">Test</a>
+<div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Test" style="color: #ffffff;">Test</a>
 <a id="show_1635707564" href="javascript:void(0)" onclick="show('1635707564');" style="color: #ffffff; display:none;">(Show)</a>
 <a id="hide_1635707564" href="javascript:void(0)" onclick="hide('1635707564');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="1635707564" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1635707564"><div class="defaultPanelOther"><div><div Align="center"><span style="font-size:20px;color:#ff0000;text-align:center">You can also use Container for that</span></div></div>
+<div id="1635707564" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="1635707564"><div class="flexElement"><div><div Align="center"><span style="font-size:20px;color:#ff0000;text-align:center">You can also use Container for that</span></div></div>
 <script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
-                    
-                    
+
+
                     //  Table code
                     var table = $('#DT-bVlVTDGQ').DataTable(
                         {
@@ -846,9 +846,9 @@ td {
 }); }}
 }
                     );
-                    
+
                 });</script>
-<div class="defaultPanelOther">
+<div class="flexElement">
 
 <table id="DT-bVlVTDGQ" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
 <tbody><tr><td>1Password</td><td>20300</td><td>Normal</td><td>7.3.684</td><td>942</td><td>83591168</td><td>159911936</td><td>159911936</td><td>759975936</td><td>00:27:10.8125000</td><td>1</td><td>942</td><td>759975936</td><td>83591168</td><td>159911936</td><td>65616</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1630,8125</td><td>7.3.684</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9496</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>65616</td><td>65616</td><td>159911936</td><td>760584</td><td>760584</td><td>185888768</td><td>185888768</td><td>204132352</td><td>204132352</td><td>826089472</td><td>826089472</td><td>True</td><td>159911936</td><td>00:04:15.8437500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>22.06.2019 13:20:48</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:22:54.9687500</td><td>759975936</td><td>False</td><td></td><td></td><td></td><td>83591168</td><td></td><td></td></tr>
@@ -929,8 +929,8 @@ td {
 <div><div Align="center"><span style="font-size:20px;color:#ff0000;text-align:center">See?</span></div></div>
 <script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
-                    
-                    
+
+
                     //  Table code
                     var table = $('#DT-lTAWvxQM').DataTable(
                         {
@@ -998,9 +998,9 @@ td {
 }); }}
 }
                     );
-                    
+
                 });</script>
-<div class="defaultPanelOther">
+<div class="flexElement">
 
 <table id="DT-lTAWvxQM" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
 <tbody><tr><td>1Password</td><td>20300</td><td>Normal</td><td>7.3.684</td><td>942</td><td>83591168</td><td>159911936</td><td>159911936</td><td>759975936</td><td>00:27:10.8125000</td><td>1</td><td>942</td><td>759975936</td><td>83591168</td><td>159911936</td><td>65616</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1630,8125</td><td>7.3.684</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9496</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>65616</td><td>65616</td><td>159911936</td><td>760584</td><td>760584</td><td>185888768</td><td>185888768</td><td>204132352</td><td>204132352</td><td>826089472</td><td>826089472</td><td>True</td><td>159911936</td><td>00:04:15.8437500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>22.06.2019 13:20:48</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:22:54.9687500</td><td>759975936</td><td>False</td><td></td><td></td><td></td><td>83591168</td><td></td><td></td></tr>
@@ -1079,11 +1079,11 @@ td {
 
 </div>
 </div>
-<div class="defaultPanelOther"><div><div Align="center"><span style="font-size:20px;color:#ff0000;text-align:center">Test test1</span></div></div>
+<div class="flexElement"><div><div Align="center"><span style="font-size:20px;color:#ff0000;text-align:center">Test test1</span></div></div>
 <script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
-                    
-                    
+
+
                     //  Table code
                     var table = $('#DT-RzzvPDjm').DataTable(
                         {
@@ -1151,9 +1151,9 @@ td {
 }); }}
 }
                     );
-                    
+
                 });</script>
-<div class="defaultPanelOther">
+<div class="flexElement">
 
 <table id="DT-RzzvPDjm" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
 <tbody><tr><td>1Password</td><td>20300</td><td>Normal</td><td>7.3.684</td><td>942</td><td>83591168</td><td>159911936</td><td>159911936</td><td>759975936</td><td>00:27:10.8125000</td><td>1</td><td>942</td><td>759975936</td><td>83591168</td><td>159911936</td><td>65616</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1630,8125</td><td>7.3.684</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9496</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>65616</td><td>65616</td><td>159911936</td><td>760584</td><td>760584</td><td>185888768</td><td>185888768</td><td>204132352</td><td>204132352</td><td>826089472</td><td>826089472</td><td>True</td><td>159911936</td><td>00:04:15.8437500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>22.06.2019 13:20:48</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:22:54.9687500</td><td>759975936</td><td>False</td><td></td><td></td><td></td><td>83591168</td><td></td><td></td></tr>
@@ -1237,8 +1237,8 @@ td {
 </div>
 <script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
-                    
-                    
+
+
                     //  Table code
                     var table = $('#DT-RKjKVzAm').DataTable(
                         {
@@ -1307,9 +1307,9 @@ td {
 }); }}
 }
                     );
-                    
+
                 });</script>
-<div class="defaultPanelOther">
+<div class="flexElement">
 
 <table id="DT-RKjKVzAm" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead>
 <tbody><tr><td>1Password</td><td>20300</td><td>Normal</td><td>7.3.684</td><td>942</td><td>83591168</td><td>159911936</td><td>159911936</td><td>759975936</td><td>00:27:10.8125000</td><td>1</td><td>942</td><td>759975936</td><td>83591168</td><td>159911936</td><td>65616</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1630,8125</td><td>7.3.684</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>9496</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>65616</td><td>65616</td><td>159911936</td><td>760584</td><td>760584</td><td>185888768</td><td>185888768</td><td>204132352</td><td>204132352</td><td>826089472</td><td>826089472</td><td>True</td><td>159911936</td><td>00:04:15.8437500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>22.06.2019 13:20:48</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:22:54.9687500</td><td>759975936</td><td>False</td><td></td><td></td><td></td><td>83591168</td><td></td><td></td></tr>

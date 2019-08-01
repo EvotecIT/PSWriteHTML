@@ -1,0 +1,134 @@
+﻿<style>
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    caption {
+        display: none;
+    }
+
+    div {
+        box-sizing: border-box;
+    }
+
+    .table-container {
+        margin: 1em auto;
+        width: 90%;
+        max-width: 600px;
+        border-collapse: collapse;
+    }
+
+    .flag-icon {
+        margin-right: 0.1em;
+    }
+
+    td {
+        border: 1px solid #d9d9d9;
+        padding: 0.5em;
+    }
+
+    th {
+        background: #1565C0;
+        color: white;
+        padding: 0.5em;
+        border: 1px solid #1565C0;
+    }
+
+    .flex-row {
+        width: 25%;
+    }
+
+    .flex-row,
+    .flex-cell {
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 767px) {
+
+        th,
+        td {
+            width: auto;
+            display: block;
+            border: 0;
+        }
+
+        th {
+            border-left: solid 1px #1565C0;
+            border-right: solid 1px #1565C0;
+            border-bottom: solid 1px #1565C0;
+        }
+
+        td {
+            border-left: solid 1px #d9d9d9;
+            border-right: solid 1px #d9d9d9;
+            border-bottom: solid 1px #d9d9d9;
+        }
+
+        .flex-row {
+            width: 100%;
+        }
+    }
+</style>
+
+<table class="table-container" width="100%" role="table" aria-label="Destinations">
+    <thead>
+        <tr class="flex-table header" role="">
+            <th class="flex-row first" role="columnheader">Country</th>
+            <th class="flex-row" role="columnheader">Events</th>
+            <th class="flex-row" role="columnheader">Time</th>
+            <th class="flex-row" role="columnheader">Fees</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="flex-table row" role="">
+            <td class="flex-row first" role="cell"><span class="flag-icon flag-icon-gb"></span> United Kingdom</td>
+            <td class="flex-row" role="cell">Stonehenge, Windsor and Bath with Pub Lunch </td>
+            <td class="flex-row" role="cell">19 Sep, 1p.m.</td>
+            <td class="flex-row" role="cell">US$500</td>
+        </tr>
+
+        <tr class="flex-table row" role="rowgroup">
+            <td class="flex-row first" role="cell"><span class="flag-icon flag-icon-ca"></span> Canada</td>
+            <td class="flex-row" role="cell">Vancouver to Victoria and Butchart Gardens Tour </td>
+            <td class="flex-row" role="cell">23 Sep, 1:30p.m.</td>
+            <td class="flex-row" role="cell">US$387</td>
+        </tr>
+        <tr>
+            <td class="flex-row rowspan first" rowspan="4"><span class="flag-icon flag-icon-us"></span> United States
+            </td>
+        </tr>
+
+        <tr>
+            <td class="flex-row" role="cell">Napa and Sonoma Wine Country Tour</td>
+            <td class="flex-row" role="cell">5 Sep, 9p.m.</td>
+            <td class="flex-row" role="cell">US$600</td>
+        </tr>
+
+        <tr>
+            <td class="flex-row" role="cell">Day Trip to Martha's Vineyard</td>
+            <td class="flex-row" role="cell">12 Sep, 5p.m.</td>
+            <td class="flex-row" role="cell">US$600</td>
+        </tr>
+        <tr>
+            <td class="flex-row" role="cell">Grand Canyon West Rim and Hoover Dam Tour</td>
+            <td class="flex-row" role="cell">5 Sep, 2p.m.</td>
+            <td class="flex-row" role="cell">US$550</td>
+        </tr>
+
+        <tr class="flex-table row" role="rowgroup">
+            <td class="flex-row first" role="cell"><span class="flag-icon flag-icon-au"></span> Australia</td>
+            <td class="flex-row" role="cell">Blue Mountains Tours</td>
+            <td class="flex-row" role="cell">9 Sep, 2p.m.</td>
+            <td class="flex-row" role="cell">US$400</td>
+        </tr>
+        <tr class="flex-table row" role="rowgroup">
+            <td class="flex-row first" role="cell"><span class="flag-icon flag-icon-nz"></span> New Zealand</td>
+            <td class="flex-row" role="cell">Milford Sound Coach & Cruise</td>
+            <td class="flex-row" role="cell">12 Sep, 2p.m.</td>
+            <td class="flex-row" role="cell">US$400</td>
+        </tr>
+    </tbody>
+</table>
