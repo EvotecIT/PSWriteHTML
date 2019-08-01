@@ -1,29 +1,15 @@
-/*
-
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i");
-*/
-
-.add-margin {
-    margin-top: 20px;
-}
-
-.toast__svg {
-    fill: #fff;
-}
-
-.toast {
+﻿.toast {
     text-align: left;
-    padding: 10px 0;
+    padding: 10px 5px 10px 5px;
     background-color: #fff;
     border-radius: 4px;
     top: 0px;
     position: relative;
     box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
-    width: 98%;
-    margin: 10px auto;
+    margin: 10px 10px 10px 10px;
 }
 
-.toast:before {
+.toastBorderLeft {
     content: "";
     position: absolute;
     top: 0;
@@ -34,10 +20,21 @@
     border-bottom-left-radius: 4px;
 }
 
-.toast__icon {
+.toastBorderRight {
+    content: "";
     position: absolute;
-    top: 50%;
-    left: 22px;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.toastIcon {
+    position: absolute;
+    top: 35%;
+    left: 12px;
     transform: translateY(-50%);
     width: 14px;
     height: 14px;
@@ -46,7 +43,12 @@
     display: inline-block;
 }
 
-.toast__type {
+.toastContent {
+    padding-left: 70px;
+    padding-right: 60px;
+}
+
+.toastTextHeader {
     color: #3e3e3e;
     font-weight: 700;
     margin-top: 0;
@@ -55,51 +57,11 @@
     font-size: 16px !important;
 }
 
-.toast__message {
+.toastText {
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 0;
     color: #878787;
     font-family: "Raleway", sans-serif;
     font-size: 14px !important;
-}
-
-.toast__content {
-    padding-left: 70px;
-    padding-right: 60px;
-}
-
-.toast__close {
-    position: absolute;
-    right: 22px;
-    top: 50%;
-    width: 14px;
-    cursor: pointer;
-    height: 14px;
-    fill: #878787;
-    transform: translateY(-50%);
-}
-
-.green .toast__icon {
-    background-color: #2bde3f;
-}
-
-.green:before {
-    background-color: #2bde3f;
-}
-
-.blue .toast__icon {
-    background-color: #1d72f3;
-}
-
-.blue:before {
-    background-color: #1d72f3;
-}
-
-.orange .toast__icon {
-    background-color: #ffc007;
-}
-
-.orange:before {
-    background-color: #ffc007;
 }
