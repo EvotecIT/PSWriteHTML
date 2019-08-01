@@ -281,8 +281,9 @@
     /* padding: 24px 30px 30px; */
 }
 
+/*
 .sentiment-wrapper>div {
-    /*
+
     display: inline-block;
     width: 33.3%;
 
@@ -290,15 +291,13 @@
     box-sizing: border-box;
     vertical-align: top;
     cursor: default;
-*/
 
-    /*
     max-width: 390px;
     padding: 0 5px;
-    */
+
 
 }
-
+*/
 .sentiment-wrapper>div>div {
 
     width: 100%;

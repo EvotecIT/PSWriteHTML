@@ -24,15 +24,20 @@ p.timelineSimple {
 }
 
 .timelineSimpleContainer {
+    /*
     max-width: 900px;
-    width: 90%;
+    width: 98%;
     margin: 0 auto;
+    */
+
+
     /*
     font-size: 14px;
     */
     /*
     line-height: 1.5;
     */
+    margin: 10px;
     box-sizing: unset !important;
 }
 

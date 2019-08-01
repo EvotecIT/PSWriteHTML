@@ -11,17 +11,24 @@
     z-index: 0;
     height: 60px;
     float: none;
-    margin: 10px auto;
-    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+    /*
     max-width: 900px;
-    border-radius: 40px;
+    width: 100%;
+    */
+    margin-right: 10px;
+    border-radius: 5px;
     display: block;
     box-shadow: 0 2px 4px -1px rgba(25, 25, 25, 0.2);
 }
 
+
 .buttonical input {
     display: none;
 }
+
+
 
 .buttonical .label {
     display: table;
@@ -56,6 +63,7 @@
     /* border-left: 1px solid rgba(0, 0, 0, 0.05); */
 }
 
+/*
 .buttonical .label:first-child {
     border-left: none;
     border-radius: 40px 0 0 40px;
@@ -64,6 +72,7 @@
 .buttonical .label:last-child {
     border-radius: 0 40px 40px 0;
 }
+*/
 
 .buttonical .performance {
     font-size: 19px;
