@@ -64,7 +64,7 @@ Function New-HTMLSection {
     $HeaderStyle = "color: $TextHeaderColorFromRGB;"
     if ($Invisible) {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther' } -Value {
-            New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther defaultPanelOther' } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther flexElement' } -Value {
                 $Object = Invoke-Command -ScriptBlock $Content
                 if ($null -ne $Object) {
                     $Object
@@ -73,14 +73,14 @@ Function New-HTMLSection {
         }
     } else {
         # return this HTML
-        New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultSection defaultCard"; 'style' = $DivContentStyle } -Value {
+        New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultSection roundedCorners"; 'style' = $DivContentStyle } -Value {
             New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle } -Value {
                 New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
                 New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)'
                 New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)'
             }
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainerOther'; id = $RandomNumber; Style = $HiddenDivStyle } -Value {
-                New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainer defaultPanelOther collapsable'; id = $RandomNumber; } -Value {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultContainer flexElement collapsable'; id = $RandomNumber; } -Value {
                     $Object = Invoke-Command -ScriptBlock $Content
                     if ($null -ne $Object) {
                         $Object
