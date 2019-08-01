@@ -101,69 +101,9 @@ function New-HTMLTab {
         $StyleIcon.'color' = ConvertFrom-Color -Color $IconColor
     }
 
-
-
-
-    <#
-    DynamicParam {
-        $ParameterSetBrands = New-Object System.Management.Automation.ParameterAttribute
-        $ParameterSetBrands.Mandatory = $false
-        $ParameterSetBrands.ParameterSetName = 'FontAwesomeBrands'
-
-        $ParameterSetRegular = New-Object System.Management.Automation.ParameterAttribute
-        $ParameterSetRegular.Mandatory = $false
-        $ParameterSetRegular.ParameterSetName = 'FontAwesomeRegular'
-
-        $ParameterSetSolid = New-Object System.Management.Automation.ParameterAttribute
-        $ParameterSetSolid.Mandatory = $false
-        $ParameterSetSolid.ParameterSetName = 'FontAwesomeSolid'
-
-
-        $IconsBrands = New-Object  System.Collections.ObjectModel.Collection[System.Attribute]
-        $IconsBrands.Add($ParameterSetBrands)
-        $IconsBrands.Add((New-Object System.Management.Automation.ValidateSetAttribute($Script:FontAwesomeBrands)))
-        $IconsBrandsRuntime = New-Object System.Management.Automation.RuntimeDefinedParameter('IconBrands', [string], $IconsBrands)
-        $IconsBrandsRuntime.Value = 'safari'
-
-        $IconsRegular = New-Object  System.Collections.ObjectModel.Collection[System.Attribute]
-        $IconsRegular.Add($ParameterSetRegular)
-        $IconsRegular.Add((New-Object System.Management.Automation.ValidateSetAttribute($Script:FontAwesomeRegular)))
-        $IconsRegularRuntime = New-Object System.Management.Automation.RuntimeDefinedParameter('IconRegular', [string], $IconsRegular)
-
-        $IconsSolid = New-Object  System.Collections.ObjectModel.Collection[System.Attribute]
-        $IconsSolid.Add($ParameterSetSolid)
-        $IconsSolid.Add((New-Object System.Management.Automation.ValidateSetAttribute($Script:FontAwesomeSolid)))
-        $IconsSolidRuntime = New-Object System.Management.Automation.RuntimeDefinedParameter('IconSolid', [string], $IconsSolid)
-
-        # Finalization
-        $RuntimeParamDic = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
-        $RuntimeParamDic.Add('IconBrands', $IconsBrandsRuntime)
-        $RuntimeParamDic.Add('IconRegular', $IconsRegularRuntime)
-        $RuntimeParamDic.Add('IconSolid', $IconsSolidRuntime)
-        return $RuntimeParamDic
-    }
-    #>
-
-
     $Script:HTMLSchema.Features.Tabs = $true
     $Script:HTMLSchema.Features.JQuery = $true
 
-
-    <#
-        $IconsBrandsIcon = $PSBoundParameters.IconBrands
-        $IconsRegularIcon = $PSBoundParameters.IconRegular
-        $IconsSolidIcon = $PSBoundParameters.IconSolid
-
-        if ($IconsBrandsIcon) {
-            Write-Warning $IconsBrandsIcon
-        }
-        if ($IconsRegularIcon) {
-            Write-Warning $IconsRegularIcon
-        }
-        if ($IconsSolidIcon) {
-            Write-Warning $IconsSolidIcon
-        }
-        #>
     # Reset all Tabs Headers to make sure there are no Current Tab Set
     # This is required for New-HTMLTable
 
