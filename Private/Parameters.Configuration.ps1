@@ -30,16 +30,10 @@ $Script:Configuration = [ordered] @{
 
             }
             HeaderAlways = @{
-
+                Css     = "$PSScriptRoot\..\Resources\CSS\enlighterjs.css"
             }
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
-            }
-        }
-        Charts                 = @{
-            Comment = 'Charts JS'
-            Header  = @{
-                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js'
             }
         }
         ChartsApex             = @{
