@@ -1,4 +1,5 @@
 function New-HTMLLogo {
+    [CmdletBinding()]
     param(
         [String] $LogoPath,
         [string] $LeftLogoName = "Sample",
@@ -36,6 +37,6 @@ function New-HTMLLogo {
 "@
         $LogoContent
         '<!-- END LOGO -->'
-     
-    }       
+
+    }
 }
