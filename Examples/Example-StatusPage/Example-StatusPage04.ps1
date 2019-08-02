@@ -3,7 +3,7 @@
 New-HTML -TitleText 'Services Status' -UseCssLinks -UseJavaScriptLinks {
 
     New-HTMLSection -Invisible {
-        New-HTMLContainer -FlexBasis '900px' -Margin 'auto' {
+        New-HTMLContainer -Width '900px' -Margin 'auto' {
             New-HTMLPanel -Invisible {
                 New-HTMLToast -TextHeader 'Information' -Text 'Everything is running smoothly!' -BarColorLeft Blue -IconSolid info-circle -IconColor Blue
             }
