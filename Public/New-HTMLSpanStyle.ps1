@@ -15,7 +15,6 @@ function New-HTMLSpanStyle {
         [ValidateSet('rtl')][string] $Direction,
         [switch] $LineBreak
     )
-    Write-Verbose 'New-SpanStyle - BEGIN'
     if ($FontSize -eq 0) {
         $Size = ''
     } else {
