@@ -12,7 +12,7 @@
     RootModule = 'PSWriteHTML.psm1'
 
     # Version number of this module.
-    ModuleVersion = '0.0.45'
+    ModuleVersion = '0.0.46'
 
     # Supported PSEditions
     CompatiblePSEditions = 'Desktop', 'Core'
@@ -76,15 +76,15 @@
     'New-HTMLChart', 'New-HTMLCodeBlock', 'New-HTMLContainer', 
     'New-HTMLHeading', 'New-HTMLHorizontalLine', 'New-HTMLImage', 
     'New-HTMLList', 'New-HTMLListItem', 'New-HTMLLogo', 'New-HTMLPanel', 
-    'New-HTMLResourceCSS', 'New-HTMLResourceJS', 'New-HTMLSection', 
-    'New-HTMLSpanStyle', 'New-HTMLStatus', 'New-HTMLStatusItem', 
-    'New-HTMLTab', 'New-HTMLTable', 'New-HTMLTableButtonCopy', 
-    'New-HTMLTableButtonCSV', 'New-HTMLTableButtonExcel', 
-    'New-HTMLTableButtonPageLength', 'New-HTMLTableButtonPDF', 
-    'New-HTMLTableButtonPrint', 'New-HTMLTableCondition', 
-    'New-HTMLTableContent', 'New-HTMLTableHeader', 'New-HTMLTabOptions', 
-    'New-HTMLTag', 'New-HTMLText', 'New-HTMLTimeline', 
-    'New-HTMLTimelineItem', 'New-HTMLToast', 'Out-HtmlView', 'Save-HTML'
+    'New-HTMLSection', 'New-HTMLSpanStyle', 'New-HTMLStatus', 
+    'New-HTMLStatusItem', 'New-HTMLTab', 'New-HTMLTable', 
+    'New-HTMLTableButtonCopy', 'New-HTMLTableButtonCSV', 
+    'New-HTMLTableButtonExcel', 'New-HTMLTableButtonPageLength', 
+    'New-HTMLTableButtonPDF', 'New-HTMLTableButtonPrint', 
+    'New-HTMLTableCondition', 'New-HTMLTableContent', 
+    'New-HTMLTableHeader', 'New-HTMLTabOptions', 'New-HTMLTag', 
+    'New-HTMLText', 'New-HTMLTimeline', 'New-HTMLTimelineItem', 
+    'New-HTMLToast', 'Out-HtmlView', 'Save-HTML'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()
@@ -96,7 +96,6 @@
     AliasesToExport = 'ChartCategory', 'ChartAxisX', 'New-ChartCategory', 'ChartAxisY', 
     'ChartBar', 'ChartBarOptions', 'ChartGrid', 'ChartLegend', 'ChartLine', 
     'ChartTheme', 'ChartToolbar', 'Chart', 'Image', 'New-HTMLColumn', 
-    'New-ResourceCSS', 'New-CSS', 'New-ResourceJS', 'New-JavaScript', 
     'New-HTMLContent', 'TableButtonCopy', 'EmailTableButtonCopy', 
     'TableButtonCSV', 'EmailTableButtonCSV', 'TableButtonExcel', 
     'EmailTableButtonExcel', 'TableButtonPageLength', 
