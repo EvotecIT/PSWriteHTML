@@ -23,6 +23,8 @@ Function New-HTML {
         TabOptions  = @{
             SlimTabs = $false
         }
+
+        CustomCSS   = [System.Collections.Generic.List[Array]]::new()
     }
 
     $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
@@ -53,6 +55,9 @@ Function New-HTML {
                     Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Header' -Features $Features
                 }
             }
+
+            New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomCSS
+
             '<!-- END HEADER -->'
             '<!-- BODY -->'
             New-HTMLTag -Tag 'body' {
