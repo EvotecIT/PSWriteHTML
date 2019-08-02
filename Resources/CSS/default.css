@@ -10,73 +10,47 @@ hr {
     width: 100%;
 }
 
-/*
-div.clientlogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: left;
-    display: inline-block;
-    width: 50%;
-}
-
-div.MainLogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: right;
-    display: inline-block;
-    width: 50%;
-}
-*/
-
-/*
-.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-*/
-
 .defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
 
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 
 }
 
-/* Not used anywhere - I think
-div.defaultColumn {
+.overflowHidden {
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding: 2px;
 }
-*/
 
-.defaultContainer {
+.flexParent {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     padding: 2px;
-
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-
-
+    */
 }
 
-.defaultContainerOther {
+.flexParentInvisible {
     display: flex;
     justify-content: space-between;
 
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 
 }
 
@@ -84,18 +58,22 @@ div.defaultColumn {
     flex-basis: 100%;
     flex: 1 auto;
 
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 
 }
 
 .flexPanel {
     flex-basis: 100%;
 
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 }
 
 .roundedCorners {
@@ -109,9 +87,6 @@ div.defaultColumn {
     padding: 5px;
     margin: 0px 0px 0px 0px;
     font-weight: bold;
-    /* color: #ffffff;
-    background-color: #6Cf;
-    */
 }
 
 .defaultFooter {
@@ -184,17 +159,3 @@ img {
     margin: 1%;
     flex: 1;
 }
-
-/*
-.orange {
-    background-color: #f39c12;
-}
-
-.red {
-    background-color: #ff4136;
-}
-
-.green {
-    background-color: #2ecc40;
-}
-*/
