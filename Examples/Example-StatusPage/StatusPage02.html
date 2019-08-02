@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-01 23:34:51" name="revised"/><title>Services Status</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-02 14:45:14" name="revised"/><title>Services Status</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -11,6 +11,7 @@ hr {
     width: 100%;
 }
 
+/*
 div.clientlogo {
     border: 0px;
     vertical-align: middle;
@@ -26,14 +27,17 @@ div.MainLogo {
     display: inline-block;
     width: 50%;
 }
+*/
 
+/*
 .central {
     margin: 10px auto;
-    /* width: 100%; */
+    width: 100%;
     max-width: 900px;
 }
+*/
 
-div.defaultSection {
+.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
     margin: 5px;
@@ -54,7 +58,7 @@ div.defaultColumn {
 }
 */
 
-.defaultContainer {
+.flexParent {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -67,7 +71,7 @@ div.defaultColumn {
 
 }
 
-.defaultContainerOther {
+.flexParentInvisible {
     display: flex;
     justify-content: space-between;
 
@@ -80,6 +84,7 @@ div.defaultColumn {
 .flexElement {
     flex-basis: 100%;
     flex: 1 auto;
+
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -88,7 +93,7 @@ div.defaultColumn {
 
 .flexPanel {
     flex-basis: 100%;
-    flex: 1 auto;
+
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -101,7 +106,7 @@ div.defaultColumn {
     margin: 5px;
 }
 
-div.defaultHeader {
+.defaultHeader {
     padding: 5px;
     margin: 0px 0px 0px 0px;
     font-weight: bold;
@@ -110,20 +115,18 @@ div.defaultHeader {
     */
 }
 
-div.defaultFooter {
+.defaultFooter {
     padding-right: 5em;
     text-align: right;
 }
 
-
-
-td.clientlogo {
+.clientlogo {
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-td.MainLogo {
+.MainLogo {
     border: 0px;
     padding-right: 5em;
     text-align: right;
@@ -182,6 +185,7 @@ img {
     margin: 1%;
     flex: 1;
 }
+
 /*
 .orange {
     background-color: #f39c12;
@@ -582,7 +586,7 @@ p.timelineSimple {
     font-family: "Raleway", sans-serif;
     font-size: 14px !important;
 }
-</style><!-- CSS Toasts Looking Messages END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a style="color: #ffffff;"></a><a id="show_1530442787" href="javascript:void(0)" onclick="show('1530442787');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1530442787" href="javascript:void(0)" onclick="hide('1530442787');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1530442787" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="1530442787"><div class="flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><h1>Current Status</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="78637452" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="942688121" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="144108269" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1062638818" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="315599708" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="1338744977" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1>Scheduled Maintenance</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#ff4500"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#ff4500"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><h1>Incidents per day</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-38poqv7u"></div></div><h1>Past Incidents</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="07/31/2019 23:34:51"><h1 class="timelineSimple">Azure AD is down</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/30/2019 23:34:51"><h1 class="timelineSimple">Azure AD ...</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/29/2019 23:34:51"><h1 class="timelineSimple">AD just died</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/27/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/26/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/25/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div></div></div></div><div class="flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><h1>Current Status</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="661627711" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="1073412142" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="702270453" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1204681363" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="897362738" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="1364125879" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1>Scheduled Maintenance</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#ff4500"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#ff4500"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><h1>Incidents per day</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-kfpahjw0"></div></div><h1>Past Incidents</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="07/31/2019 23:34:51"><h1 class="timelineSimple">Azure AD is down</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/30/2019 23:34:51"><h1 class="timelineSimple">Azure AD ...</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/29/2019 23:34:51"><h1 class="timelineSimple">AD just died</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/27/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/26/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/25/2019 23:34:51"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div></div></div></div><div class="flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><h1>Current Status</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="267605317" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="836668641" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="487743947" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1607150055" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="1057063883" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="377883115" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1>Scheduled Maintenance</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#ff4500"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#ff4500"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><h1>Incidents per day</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-4hcboj2z"></div></div><h1>Past Incidents</h1></div></div></div></div><script>var options = {
+</style><!-- CSS Toasts Looking Messages END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a style="color: #ffffff;"></a><a id="show_466499484" href="javascript:void(0)" onclick="show('466499484');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_466499484" href="javascript:void(0)" onclick="hide('466499484');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="466499484" class="flexParent"><div class="flexParent flexElement collapsable" id="466499484"><div class="flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><h1>Current Status</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="547001254" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="1623102506" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="892469702" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="2050588413" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="1365721996" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="1049557915" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1>Scheduled Maintenance</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#ff4500"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#ff4500"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><h1>Incidents per day</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-258pyskr"></div></div><h1>Past Incidents</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="08/01/2019 14:45:14"><h1 class="timelineSimple">Azure AD is down</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/31/2019 14:45:14"><h1 class="timelineSimple">Azure AD ...</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/30/2019 14:45:14"><h1 class="timelineSimple">AD just died</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/29/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/29/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/29/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/27/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/26/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div></div></div></div><div class="flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><h1>Current Status</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1214912847" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="200998492" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="219036243" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="886234454" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="1880337418" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="1562473448" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1>Scheduled Maintenance</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#ff4500"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#ff4500"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><h1>Incidents per day</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-q64wxrod"></div></div><h1>Past Incidents</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="08/01/2019 14:45:14"><h1 class="timelineSimple">Azure AD is down</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/31/2019 14:45:14"><h1 class="timelineSimple">Azure AD ...</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/30/2019 14:45:14"><h1 class="timelineSimple">AD just died</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/29/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/29/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/29/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/28/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/27/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div><div class="timelineSimple-item" date-is="07/26/2019 14:45:14"><h1 class="timelineSimple">Twitter</h1><p class="timelineSimple">We're very soorrry! It just won't work!</p></div></div></div></div><div class="flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><h1>Current Status</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="buttonicalService"><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1861605807" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Github</span></div><div class="middle"></div><div class="status"><input checked="true" name="1857195086" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #ff5a64;"><div class="label"><span class="performance">Hyper-V</span></div><div class="middle"></div><div class="status"><input checked="true" name="1078616057" value="other-item" type="radio"/><span class="performance performanceDead">Non-functional</span></div></div><div class="buttonical" style="background-color: #0ef49b;"><div class="label"><span class="performance">Active Directory</span></div><div class="middle"></div><div class="status"><input checked="true" name="1338019703" value="other-item" type="radio"/><span class="performance ">Operational</span></div></div><div class="buttonical" style="background-color: #d2dc69;"><div class="label"><span class="performance">Azure</span></div><div class="middle"></div><div class="status"><input checked="true" name="239371834" value="other-item" type="radio"/><span class="performance performanceProblem">Working on it</span></div></div><div class="buttonical" style="background-color: #faa04b;"><div class="label"><span class="performance">Twitter</span></div><div class="middle"></div><div class="status"><input checked="true" name="791042551" value="other-item" type="radio"/><span class="performance performanceProblem">Who knows?!</span></div></div></div></div><h1>Scheduled Maintenance</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#ff4500"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#ff4500"></div><div class="toastContent"><p class="toastTextHeader">Maintenance</p><p class="toastText">We've planned maintenance on 24th of January 2020. It will last 30 hours.</p></div><div class="toastBorderRight"></div></div></div><h1>Incidents per day</h1><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-waql5eid"></div></div><h1>Past Incidents</h1></div></div></div></div><script>var options = {
     "chart":  {
                   "height":  350,
                   "type":  "line",
@@ -606,279 +610,24 @@ p.timelineSimple {
                        "data":  [
                                     4,
                                     1,
-                                    1,
-                                    0,
-                                    4,
-                                    0,
-                                    0,
-                                    4,
-                                    1,
+                                    2,
+                                    3,
+                                    3,
                                     4,
                                     2,
-                                    4,
-                                    0,
-                                    4,
-                                    4,
-                                    1,
-                                    1,
-                                    3,
-                                    0,
-                                    4,
-                                    3,
                                     2,
-                                    2,
-                                    4,
-                                    2,
-                                    0,
-                                    4,
                                     3,
                                     0,
-                                    3,
-                                    4
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "type":  "category",
-                  "categories":  [
-                                     "02.07.2019",
-                                     "03.07.2019",
-                                     "04.07.2019",
-                                     "05.07.2019",
-                                     "06.07.2019",
-                                     "07.07.2019",
-                                     "08.07.2019",
-                                     "09.07.2019",
-                                     "10.07.2019",
-                                     "11.07.2019",
-                                     "12.07.2019",
-                                     "13.07.2019",
-                                     "14.07.2019",
-                                     "15.07.2019",
-                                     "16.07.2019",
-                                     "17.07.2019",
-                                     "18.07.2019",
-                                     "19.07.2019",
-                                     "20.07.2019",
-                                     "21.07.2019",
-                                     "22.07.2019",
-                                     "23.07.2019",
-                                     "24.07.2019",
-                                     "25.07.2019",
-                                     "26.07.2019",
-                                     "27.07.2019",
-                                     "28.07.2019",
-                                     "29.07.2019",
-                                     "30.07.2019",
-                                     "31.07.2019",
-                                     "01.08.2019"
-                                 ]
-              },
-    "stroke":  {
-                   "show":  true,
-                   "curve":  [
-                                 "straight"
-                             ],
-                   "width":  [
-                                 6
-                             ],
-                   "lineCap":  [
-                                   "butt"
-                               ]
-               },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "title":  {
-                  "text":  "Incidents per day",
-                  "align":  "left"
-              },
-    "grid":  {
-                 "Show":  false,
-                 "row":  {
-                             "opacity":  0.5
-                         },
-                 "column":  {
-                                "opacity":  null
-                            }
-             }
-}
-var chart = new ApexCharts(document.querySelector('#ChartID-38poqv7u'),
-            options
-        );
-chart.render();
-</script><script>var options = {
-    "chart":  {
-                  "height":  350,
-                  "type":  "line",
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  false,
-                                                "selection":  false,
-                                                "zoom":  false,
-                                                "zoomin":  false,
-                                                "zoomout":  false,
-                                                "pan":  false,
-                                                "reset":  false
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
-              },
-    "series":  [
-                   {
-                       "name":  "Incidents",
-                       "data":  [
                                     4,
-                                    0,
-                                    3,
-                                    4,
-                                    0,
                                     2,
                                     1,
-                                    3,
-                                    0,
                                     4,
+                                    0,
                                     3,
                                     1,
-                                    2,
-                                    0,
-                                    0,
-                                    2,
-                                    3,
-                                    3,
-                                    4,
-                                    2,
-                                    3,
-                                    4,
-                                    3,
-                                    2,
-                                    0,
-                                    0,
-                                    3,
-                                    2,
-                                    2,
-                                    3,
-                                    0
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "type":  "category",
-                  "categories":  [
-                                     "02.07.2019",
-                                     "03.07.2019",
-                                     "04.07.2019",
-                                     "05.07.2019",
-                                     "06.07.2019",
-                                     "07.07.2019",
-                                     "08.07.2019",
-                                     "09.07.2019",
-                                     "10.07.2019",
-                                     "11.07.2019",
-                                     "12.07.2019",
-                                     "13.07.2019",
-                                     "14.07.2019",
-                                     "15.07.2019",
-                                     "16.07.2019",
-                                     "17.07.2019",
-                                     "18.07.2019",
-                                     "19.07.2019",
-                                     "20.07.2019",
-                                     "21.07.2019",
-                                     "22.07.2019",
-                                     "23.07.2019",
-                                     "24.07.2019",
-                                     "25.07.2019",
-                                     "26.07.2019",
-                                     "27.07.2019",
-                                     "28.07.2019",
-                                     "29.07.2019",
-                                     "30.07.2019",
-                                     "31.07.2019",
-                                     "01.08.2019"
-                                 ]
-              },
-    "stroke":  {
-                   "show":  true,
-                   "curve":  [
-                                 "straight"
-                             ],
-                   "width":  [
-                                 6
-                             ],
-                   "lineCap":  [
-                                   "butt"
-                               ]
-               },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "title":  {
-                  "text":  "Incidents per day",
-                  "align":  "left"
-              },
-    "grid":  {
-                 "Show":  false,
-                 "row":  {
-                             "opacity":  0.5
-                         },
-                 "column":  {
-                                "opacity":  null
-                            }
-             }
-}
-var chart = new ApexCharts(document.querySelector('#ChartID-kfpahjw0'),
-            options
-        );
-chart.render();
-</script><script>var options = {
-    "chart":  {
-                  "height":  350,
-                  "type":  "line",
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  false,
-                                                "selection":  false,
-                                                "zoom":  false,
-                                                "zoomin":  false,
-                                                "zoomout":  false,
-                                                "pan":  false,
-                                                "reset":  false
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
-              },
-    "series":  [
-                   {
-                       "name":  "Incidents",
-                       "data":  [
-                                    2,
                                     1,
                                     2,
-                                    2,
-                                    3,
                                     4,
-                                    2,
-                                    3,
-                                    2,
-                                    4,
-                                    3,
-                                    1,
-                                    4,
-                                    4,
-                                    1,
-                                    2,
-                                    2,
                                     0,
                                     3,
                                     0,
@@ -888,9 +637,6 @@ chart.render();
                                     1,
                                     2,
                                     0,
-                                    1,
-                                    4,
-                                    1,
                                     2,
                                     3
                                 ]
@@ -899,7 +645,6 @@ chart.render();
     "xaxis":  {
                   "type":  "category",
                   "categories":  [
-                                     "02.07.2019",
                                      "03.07.2019",
                                      "04.07.2019",
                                      "05.07.2019",
@@ -929,7 +674,8 @@ chart.render();
                                      "29.07.2019",
                                      "30.07.2019",
                                      "31.07.2019",
-                                     "01.08.2019"
+                                     "01.08.2019",
+                                     "02.08.2019"
                                  ]
               },
     "stroke":  {
@@ -965,7 +711,265 @@ chart.render();
                             }
              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-4hcboj2z'),
+var chart = new ApexCharts(document.querySelector('#ChartID-258pyskr'),
+            options
+        );
+chart.render();
+</script><script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "Incidents",
+                       "data":  [
+                                    4,
+                                    0,
+                                    2,
+                                    0,
+                                    3,
+                                    2,
+                                    4,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    4,
+                                    1,
+                                    2,
+                                    1,
+                                    1,
+                                    0,
+                                    1,
+                                    1,
+                                    0,
+                                    1,
+                                    3,
+                                    3,
+                                    4,
+                                    4,
+                                    0,
+                                    2,
+                                    4,
+                                    3,
+                                    3,
+                                    1
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "03.07.2019",
+                                     "04.07.2019",
+                                     "05.07.2019",
+                                     "06.07.2019",
+                                     "07.07.2019",
+                                     "08.07.2019",
+                                     "09.07.2019",
+                                     "10.07.2019",
+                                     "11.07.2019",
+                                     "12.07.2019",
+                                     "13.07.2019",
+                                     "14.07.2019",
+                                     "15.07.2019",
+                                     "16.07.2019",
+                                     "17.07.2019",
+                                     "18.07.2019",
+                                     "19.07.2019",
+                                     "20.07.2019",
+                                     "21.07.2019",
+                                     "22.07.2019",
+                                     "23.07.2019",
+                                     "24.07.2019",
+                                     "25.07.2019",
+                                     "26.07.2019",
+                                     "27.07.2019",
+                                     "28.07.2019",
+                                     "29.07.2019",
+                                     "30.07.2019",
+                                     "31.07.2019",
+                                     "01.08.2019",
+                                     "02.08.2019"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  [
+                                 "straight"
+                             ],
+                   "width":  [
+                                 6
+                             ],
+                   "lineCap":  [
+                                   "butt"
+                               ]
+               },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "title":  {
+                  "text":  "Incidents per day",
+                  "align":  "left"
+              },
+    "grid":  {
+                 "Show":  false,
+                 "row":  {
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
+}
+var chart = new ApexCharts(document.querySelector('#ChartID-q64wxrod'),
+            options
+        );
+chart.render();
+</script><script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "line",
+                  "toolbar":  {
+                                  "show":  false,
+                                  "tools":  {
+                                                "download":  false,
+                                                "selection":  false,
+                                                "zoom":  false,
+                                                "zoomin":  false,
+                                                "zoomout":  false,
+                                                "pan":  false,
+                                                "reset":  false
+                                            },
+                                  "autoSelected":  "zoom"
+                              }
+              },
+    "series":  [
+                   {
+                       "name":  "Incidents",
+                       "data":  [
+                                    1,
+                                    1,
+                                    3,
+                                    4,
+                                    1,
+                                    3,
+                                    4,
+                                    3,
+                                    4,
+                                    0,
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    2,
+                                    3,
+                                    2,
+                                    3,
+                                    3,
+                                    0,
+                                    1,
+                                    0,
+                                    3,
+                                    4,
+                                    2,
+                                    2,
+                                    0,
+                                    0,
+                                    0,
+                                    1,
+                                    0
+                                ]
+                   }
+               ],
+    "xaxis":  {
+                  "type":  "category",
+                  "categories":  [
+                                     "03.07.2019",
+                                     "04.07.2019",
+                                     "05.07.2019",
+                                     "06.07.2019",
+                                     "07.07.2019",
+                                     "08.07.2019",
+                                     "09.07.2019",
+                                     "10.07.2019",
+                                     "11.07.2019",
+                                     "12.07.2019",
+                                     "13.07.2019",
+                                     "14.07.2019",
+                                     "15.07.2019",
+                                     "16.07.2019",
+                                     "17.07.2019",
+                                     "18.07.2019",
+                                     "19.07.2019",
+                                     "20.07.2019",
+                                     "21.07.2019",
+                                     "22.07.2019",
+                                     "23.07.2019",
+                                     "24.07.2019",
+                                     "25.07.2019",
+                                     "26.07.2019",
+                                     "27.07.2019",
+                                     "28.07.2019",
+                                     "29.07.2019",
+                                     "30.07.2019",
+                                     "31.07.2019",
+                                     "01.08.2019",
+                                     "02.08.2019"
+                                 ]
+              },
+    "stroke":  {
+                   "show":  true,
+                   "curve":  [
+                                 "straight"
+                             ],
+                   "width":  [
+                                 6
+                             ],
+                   "lineCap":  [
+                                   "butt"
+                               ]
+               },
+    "dataLabels":  {
+                       "enabled":  true,
+                       "offsetX":  -6,
+                       "style":  {
+                                     "fontSize":  "12px"
+                                 }
+                   },
+    "title":  {
+                  "text":  "Incidents per day",
+                  "align":  "left"
+              },
+    "grid":  {
+                 "Show":  false,
+                 "row":  {
+                             "opacity":  0.5
+                         },
+                 "column":  {
+                                "opacity":  null
+                            }
+             }
+}
+var chart = new ApexCharts(document.querySelector('#ChartID-waql5eid'),
             options
         );
 chart.render();

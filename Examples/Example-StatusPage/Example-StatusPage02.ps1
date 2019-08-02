@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'Services Status' -UseCssLinks -UseJavaScriptLinks -Display wrap {
+New-HTML -TitleText 'Services Status' -UseCssLinks -UseJavaScriptLinks {
 
     New-HTMLContent {
         New-HTMLContainer {

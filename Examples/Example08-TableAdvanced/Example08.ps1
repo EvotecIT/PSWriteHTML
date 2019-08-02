@@ -33,9 +33,9 @@ New-HTML -TitleText 'Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePa
                 New-HTMLTableHeader -Names 'Name' -BackGroundColor Red -Color WhiteSmoke
                 New-HTMLTableHeader -Names 'Id' -BackGroundColor Blue -Color White
                 New-HTMLTableHeader -Names 'PriorityClass', 'FileVersion', 'HandleCount' -BackGroundColor Gold -Color White
-                New-HTMLTableHeader -BackGroundColor Green -Color White -AddRow -Title 'Full Title'
+                New-HTMLTableHeader -BackGroundColor Green -Color White  -Title 'Full Title'
                 New-HTMLTableCondition -Name 'HandleCount' -ComparisonType number -Operator gt 500 -BackgroundColor Gray -Color White -Row
-            }
+            } -Filtering
         }
     }
 
@@ -46,8 +46,8 @@ New-HTML -TitleText 'Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePa
                 New-HTMLTableHeader -Names 'PriorityClass', 'FileVersion', 'HandleCount' -BackGroundColor Gold -Color White
                 New-HTMLTableHeader -Names 'PriorityClass', 'FileVersion', 'HandleCount', 'WorkingSet' -Title 'Merge' -BackGroundColor Orchid
                 New-HTMLTableHeader -Names 'PagedMemorySize', 'PrivateMemorySize', 'VirtualMemorySize' -Title 'Memory'
-                New-HTMLTableHeader -BackGroundColor Green -Color White -AddRow -Title 'Half Title' -ColumnCount 3
-                New-HTMLTableHeader -BackGroundColor Red -Color White -AddRow -Title 'Other Half Title'
+                New-HTMLTableHeader -BackGroundColor Green -Color White  -Title 'Half Title' -ColumnCount 3
+                New-HTMLTableHeader -BackGroundColor Red -Color White  -Title 'Other Half Title'
             } -Filtering
         }
     }
@@ -64,9 +64,9 @@ New-HTML -TitleText 'Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePa
         New-HTMLPanel {
             New-HTMLTable -DataTable $Processes  {
                 New-HTMLTableHeader -Names 'PriorityClass', 'FileVersion', 'HandleCount' -BackGroundColor Gold -Color White
-                New-HTMLTableHeader -BackGroundColor Red -Color White -AddRow -Title '1 Half Title' -ColumnCount 3
-                New-HTMLTableHeader -BackGroundColor Yellow -Color Black -AddRow -Title '2 Half Title' -ColumnCount 3
-                New-HTMLTableHeader -BackGroundColor Green -Color White -AddRow -Title '3 Half Title'
+                New-HTMLTableHeader -BackGroundColor Red -Color White  -Title '1 Half Title' -ColumnCount 3
+                New-HTMLTableHeader -BackGroundColor Yellow -Color Black  -Title '2 Half Title' -ColumnCount 3
+                New-HTMLTableHeader -BackGroundColor Green -Color White  -Title '3 Half Title'
             } -HideFooter
         }
     }

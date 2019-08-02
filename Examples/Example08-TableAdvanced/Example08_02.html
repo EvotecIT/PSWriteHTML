@@ -1,10 +1,363 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-07-25 09:21:06" name="revised"/><title>Title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {    font-family: Roboto Condensed, Helvetica Neue, sans-serif;    font-size: 8pt;}hr {    height: 4px;    background-color: #6Cf;    border: 0px;    width: 100%;}div.clientlogo {    border: 0px;    vertical-align: middle;    text-align: left;    display: inline-block;    width: 50%;}div.MainLogo {    border: 0px;    vertical-align: middle;    text-align: right;    display: inline-block;    width: 50%;}.central {    margin: 10px auto;    /* width: 100%; */    max-width: 900px;}div.defaultSection {    border: 1px solid #bbbbbb;    padding-bottom: 0px;    margin: 5px;    width: calc(100% - 10px);    overflow: hidden;    overflow-x: hidden;    overflow-y: hidden;}div.defaultColumn {    overflow: hidden;    overflow-x: hidden;    overflow-y: hidden;    padding: 2px;}.defaultContainer {    display: flex;    justify-content: space-between;    padding: 2px;    overflow: hidden;    overflow-x: hidden;    overflow-y: hidden;}.defaultContainerOther {    display: flex;    justify-content: space-between;    overflow: hidden;    overflow-x: hidden;    overflow-y: hidden;}.flexElement {    flex-basis: 100%;    overflow: hidden;    overflow-x: hidden;    overflow-y: hidden;}.flexPanel {    flex-basis: 100%;    overflow: hidden;    overflow-x: hidden;    overflow-y: hidden;}.roundedCorners {    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);    transition: 0.3s;    border-radius: 5px;    margin: 5px;}div.defaultHeader {    padding: 5px;    margin: 0px 0px 0px 0px;    font-weight: bold;    /* color: #ffffff;    background-color: #6Cf;    */}div.defaultFooter {    padding-right: 5em;    text-align: right;}td.clientlogo {    border: 0px;    padding-left: 0px;    vertical-align: middle;}td.MainLogo {    border: 0px;    padding-right: 5em;    text-align: right;    vertical-align: middle;}/*th.content {    border-top: 1px solid #bbbbbb;    width: 25%;}td.content {    width: 75%;}td.groupby {    border-top: 3px double #bbbbbb;}*/.header {    background-color: #616a6b;    color: #f7f9f9;}a.alink:link {    color: #007bff;    text-decoration: none;    font-size: 120%;}a.alink:visited {    color: #ff8400;    text-decoration: none;    font-size: 120%;}a.alink:hover {    text-decoration: underline;    font-size: 130%;}table.sortable {    width: calc(100% - 10px);    margin: 5px;    box-sizing: border-box;    border-collapse: collapse;    display: inline-block;    overflow-x: auto;    overflow-y: auto;}table.sortable thead {    background-color: #eee;    color: #666666;    font-weight: bold;    cursor: default;}/* Adding CSS */a.paginate_button {    color: #000000 !important;    font-size: 10px;}a.current {    color: #000000 !important;}.card:hover {    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);}img {    border-radius: 5px 5px 0 0;}.container {    padding: 2px 16px;}.flex-grid {    display: flex;}.col {    padding: 20px;    margin: 1%;    flex: 1;}.orange {    background-color: #f39c12;}.red {    background-color: #ff4136;}.green {    background-color: #2ecc40;}div.enlighter-default {    flex-basis: 100%;    margin: 0 !important;}</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,h3:after,h4:after,h5:after,h6:after {    position: absolute;    content: "";    left: 0;    top: 0;    bottom: 0;    width: 5px;    border-radius: 2px;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);}h2:after {    background: #0AF;}h3:after {    background: #3BF;}h4:after,h5:after,h6:after {    background: #6Cf;}h1.white,h2.white,h3.white,h4.white,h5.white,h6.white {    color: white;}h1,h2,h3,h4,h5,h6 {    font-family: 'Hammersmith One', sans-serif;    /*    font-family: 'Questrial', sans-serif;    */}h1 {    font-size: 30px;    line-height: 20px;    margin: 1em 0 .6em 0;    font-weight: normal;    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);    position: relative;    color: #6Cf;}h2 {    margin: 1em 0 .6em 0;    padding: 0 0 0 20px;    font-weight: normal;    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);    position: relative;    font-size: 25px;    line-height: 20px;}h3 {    margin: 1em 0 .6em 0;    padding: 0 0 0 20px;    font-weight: normal;    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);    position: relative;    font-size: 24px;    line-height: 20px;}h4 {    margin: 1em 0 .6em 0;    padding: 0 0 0 20px;    font-weight: normal;    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);    position: relative;    font-size: 18px;    line-height: 16px;}h5 {    margin: 1em 0 .6em 0;    padding: 0 0 0 20px;    font-weight: normal;    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);    position: relative;    font-size: 14px;    line-height: 16px;}h6 {    margin: 1em 0 .6em 0;    padding: 0 0 0 20px;    font-weight: normal;    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);    position: relative;    font-size: 10px;    line-height: 12px;}</style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */td {    height: 27px;}/* Button in Table - giving it some colors */td.sorting_1::before {    background: #007bff !important;}td::before {    background: #007bff !important;}/* giving some spaces between tables being to close */div.dataTables_wrapper {    padding: 10px 10px 10px 10px;}button.dt-button {    color: blue !important;    border-radius: 5px;    line-height: 1 !important;}/* Filtering at the bottom */tfoot input {    width: 100%;    padding: -3px;    box-sizing: border-box;    font-size: 8pt;}/* Filtering at the top */thead input {    width: 100%;    padding: -3px;    box-sizing: border-box;    font-size: 8pt;}</style><!-- CSS DataTables END --><noscript><!-- CSS DataTables START --><style type="text/css">table {    border-width: 1px;    border-style: solid;    border-color: black;    border-collapse: collapse;    font-family: Roboto Condensed, Helvetica Neue, sans-serif;    font-size: 8pt;}th {    border-width: 1px;    padding: 3px;    border-style: solid;    border-color: black;    background-color: #00297A;    color: white;    font-family: Roboto Condensed, Helvetica Neue, sans-serif;    font-size: 8pt;}tr {    font-family: Roboto Condensed, Helvetica Neue, sans-serif;    font-size: 8pt;}td {    border-width: 1px;    padding-right: 2px;    padding-left: 2px;    padding-top: 0px;    padding-bottom: 0px;    border-style: solid;    border-color: black;    background-color: white;    font-family: Roboto Condensed, Helvetica Neue, sans-serif;    font-size: 8pt;}</style><!-- CSS DataTables END --></noscript><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --></head><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="2 section" style="color: #ffffff;">2 section</a><a id="show_1801713907" href="javascript:void(0)" onclick="show('1801713907');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1801713907" href="javascript:void(0)" onclick="hide('1801713907');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1801713907" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="1801713907"><div class="flexPanel roundedCorners"><script>                $(document).ready(function() {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-02 15:02:08" name="revised"/><title>Title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+}
+
+.flexParent {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 2px;
+
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+
+}
+
+.flexParentInvisible {
+    display: flex;
+    justify-content: space-between;
+
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+}
+
+.flexElement {
+    flex-basis: 100%;
+    flex: 1 auto;
+
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+}
+
+.flexPanel {
+    flex-basis: 100%;
+
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.roundedCorners {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+.clientlogo {
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+}
+</style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style><!-- CSS DataTables END --><noscript><!-- CSS DataTables START --><style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    width: 99%;
+}
+
+table th {
+    border-width: 1px;
+    padding: 4px;
+    border-style: solid;
+    border-color: black;
+    background-color: #616a6b;
+    color: white;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    font-weight: bold;
+    padding: 10px;
+}
+
+table td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    /* background-color: white; */
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    border-top: 1px solid #ddd;
+}
+
+/* Zebra striping */
+table tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+table th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+table td,
+table th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+</style><!-- CSS DataTables END --></noscript><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="2 section" style="color: #ffffff;">2 section</a><a id="show_2043110273" href="javascript:void(0)" onclick="show('2043110273');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_2043110273" href="javascript:void(0)" onclick="hide('2043110273');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="2043110273" class="flexParent"><div class="flexParent flexElement collapsable" id="2043110273"><div class="flexPanel roundedCorners"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
-
-
+                    
+                    
                     //  Table code
-                    var table = $('#DT-DfAGzBQv').DataTable(
+                    var table = $('#DT-ioOwJEmF').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -63,5 +416,5 @@
     "createdRow":  ""
 }
                     );
-
-                });</script><div class="flexElement"><table id="DT-DfAGzBQv" class="display compact"><thead><tr><th colspan="10">Process Information</th></tr><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th></tr></thead><tbody><tr><td>1Password</td><td>18424</td><td>Normal</td><td>7.3.684</td><td>1067</td><td>41250816</td><td>152485888</td><td>152485888</td><td>808894464</td><td>02:17:23.6718750</td></tr><tr><td>aesm_service</td><td>19808</td><td></td><td></td><td>189</td><td>3948544</td><td>3362816</td><td>3362816</td><td>94781440</td><td></td></tr><tr><td>ApplicationFrameHost</td><td>22228</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>576</td><td>20373504</td><td>42393600</td><td>42393600</td><td>316379136</td><td>00:00:06.3281250</td></tr><tr><td>AppVShNotify</td><td>25296</td><td>Normal</td><td>5.1.150.0</td><td>162</td><td>6090752</td><td>2068480</td><td>2068480</td><td>105861120</td><td>00:00:00</td></tr><tr><td>AppVShNotify</td><td>44640</td><td></td><td></td><td>157</td><td>5627904</td><td>1818624</td><td>1818624</td><td>84791296</td><td></td></tr><tr><td>audiodg</td><td>14992</td><td></td><td></td><td>179</td><td>11972608</td><td>6537216</td><td>6537216</td><td>85491712</td><td>00:00:00.0625000</td></tr><tr><td>browser_broker</td><td>17092</td><td>Normal</td><td>11.00.18362.1 (WinBuild.160101.0800)</td><td>135</td><td>3477504</td><td>1945600</td><td>1945600</td><td>97878016</td><td>00:00:00.0625000</td></tr><tr><td>Calculator</td><td>49384</td><td>Normal</td><td>10.1905.30.0</td><td>575</td><td>376832</td><td>36515840</td><td>36515840</td><td>548397056</td><td>00:00:00.4062500</td></tr><tr><td>Code</td><td>13512</td><td>Normal</td><td>1.36.1</td><td>624</td><td>109555712</td><td>846430208</td><td>846430208</td><td>1927696384</td><td>00:02:22</td></tr><tr><td>Code</td><td>23704</td><td>Normal</td><td>1.36.1</td><td>399</td><td>244236288</td><td>301387776</td><td>301387776</td><td>1819238400</td><td>00:00:44.2187500</td></tr><tr><td>Code</td><td>25384</td><td>Normal</td><td>1.36.1</td><td>1258</td><td>100388864</td><td>60129280</td><td>60129280</td><td>658657280</td><td>00:04:19.2500000</td></tr><tr><td>Code</td><td>28884</td><td>Normal</td><td>1.36.1</td><td>388</td><td>69902336</td><td>57577472</td><td>57577472</td><td>547287040</td><td>00:00:16.6718750</td></tr><tr><td>Code</td><td>30924</td><td>Normal</td><td>1.36.1</td><td>241</td><td>75444224</td><td>67616768</td><td>67616768</td><td>489111552</td><td>00:00:09.2031250</td></tr><tr><td>Code</td><td>31912</td><td>Normal</td><td>1.36.1</td><td>254</td><td>10215424</td><td>6520832</td><td>6520832</td><td>241672192</td><td>00:00:00.0625000</td></tr><tr><td>Code</td><td>43800</td><td>Normal</td><td>1.36.1</td><td>244</td><td>30261248</td><td>19329024</td><td>19329024</td><td>415383552</td><td>00:00:00.0781250</td></tr><tr><td>Code</td><td>44196</td><td>Normal</td><td>1.36.1</td><td>387</td><td>38510592</td><td>178774016</td><td>178774016</td><td>1745133568</td><td>00:00:04.2656250</td></tr><tr><td>Code</td><td>44600</td><td>Normal</td><td>1.36.1</td><td>236</td><td>22118400</td><td>26820608</td><td>26820608</td><td>431112192</td><td>00:00:00.7500000</td></tr><tr><td>Code</td><td>46680</td><td>Normal</td><td>1.36.1</td><td>525</td><td>140316672</td><td>172171264</td><td>172171264</td><td>768020480</td><td>00:00:13.5000000</td></tr><tr><td>Code</td><td>47496</td><td>Normal</td><td>1.36.1</td><td>236</td><td>83775488</td><td>93233152</td><td>93233152</td><td>516374528</td><td>00:00:05.2031250</td></tr><tr><td>Code</td><td>48208</td><td>Normal</td><td>1.36.1</td><td>563</td><td>382590976</td><td>431697920</td><td>431697920</td><td>1242206208</td><td>00:10:48.2968750</td></tr><tr><td>CodeHelper</td><td>13500</td><td>Normal</td><td>1.0.0.0</td><td>663</td><td>14364672</td><td>12185600</td><td>12185600</td><td>164147200</td><td>00:00:00.1718750</td></tr><tr><td>CodeHelper</td><td>35076</td><td>Normal</td><td>1.0.0.0</td><td>206</td><td>9629696</td><td>7950336</td><td>7950336</td><td>135909376</td><td>00:00:00.0312500</td></tr><tr><td>com.barraider.shadowplay</td><td>12124</td><td>Normal</td><td>1.0.0.0</td><td>891</td><td>7442432</td><td>25391104</td><td>25391104</td><td>200294400</td><td>00:00:02.0156250</td></tr><tr><td>com.barraider.spotify</td><td>6152</td><td>Normal</td><td>1.0.0.0</td><td>916</td><td>7184384</td><td>23003136</td><td>23003136</td><td>200359936</td><td>00:00:01.9531250</td></tr><tr><td>CompPkgSrv</td><td>18068</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>160</td><td>4657152</td><td>4063232</td><td>4063232</td><td>98955264</td><td>00:00:00.7343750</td></tr><tr><td>conhost</td><td>6156</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>2707456</td><td>6672384</td><td>6672384</td><td>112984064</td><td>00:00:00.0468750</td></tr><tr><td>conhost</td><td>9256</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>2703360</td><td>6680576</td><td>6680576</td><td>112984064</td><td>00:00:00.0312500</td></tr><tr><td>conhost</td><td>17528</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>2637824</td><td>6672384</td><td>6672384</td><td>112984064</td><td>00:00:00.0156250</td></tr><tr><td>conhost</td><td>17608</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>2641920</td><td>6680576</td><td>6680576</td><td>112984064</td><td>00:00:00.0156250</td></tr><tr><td>conhost</td><td>17684</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>2633728</td><td>6688768</td><td>6688768</td><td>112984064</td><td>00:00:00.0156250</td></tr></tbody></table></div></div></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>
+                    
+                });</script><div class="flexElement"><table id="DT-ioOwJEmF" class="display compact"><thead><tr><th colspan="10">Process Information</th></tr><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th></tr></thead><tbody><tr><td>1Password</td><td>17180</td><td>Normal</td><td>7.3.684</td><td>856</td><td>39702528</td><td>40370176</td><td>40370176</td><td>299380736</td><td>00:00:01.0937500</td></tr><tr><td>aesm_service</td><td>25340</td><td></td><td></td><td>189</td><td>8048640</td><td>2482176</td><td>2482176</td><td>94785536</td><td></td></tr><tr><td>ApplicationFrameHost</td><td>2020</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>475</td><td>24997888</td><td>27009024</td><td>27009024</td><td>269266944</td><td>00:00:00.2031250</td></tr><tr><td>audiodg</td><td>7676</td><td></td><td></td><td>177</td><td>12128256</td><td>6672384</td><td>6672384</td><td>85495808</td><td>00:00:00.1406250</td></tr><tr><td>Calculator</td><td>2748</td><td>Normal</td><td>10.1905.30.0</td><td>575</td><td>462848</td><td>36745216</td><td>36745216</td><td>548401152</td><td>00:00:00.2343750</td></tr><tr><td>Code</td><td>6644</td><td>Normal</td><td>1.36.1</td><td>236</td><td>22011904</td><td>28364800</td><td>28364800</td><td>413822976</td><td>00:00:00.1250000</td></tr><tr><td>Code</td><td>9332</td><td>Normal</td><td>1.36.1</td><td>1051</td><td>91570176</td><td>50102272</td><td>50102272</td><td>628428800</td><td>00:02:35.2812500</td></tr><tr><td>Code</td><td>13468</td><td>Normal</td><td>1.36.1</td><td>386</td><td>34340864</td><td>132333568</td><td>132333568</td><td>585486336</td><td>00:00:01.6718750</td></tr><tr><td>Code</td><td>15888</td><td>Normal</td><td>1.36.1</td><td>407</td><td>390004736</td><td>418553856</td><td>418553856</td><td>2022445056</td><td>00:01:13.7968750</td></tr><tr><td>Code</td><td>17108</td><td>Normal</td><td>1.36.1</td><td>236</td><td>37027840</td><td>23470080</td><td>23470080</td><td>420442112</td><td>00:00:00.3437500</td></tr><tr><td>Code</td><td>17580</td><td>Normal</td><td>1.36.1</td><td>660</td><td>115425280</td><td>733294592</td><td>733294592</td><td>1710964736</td><td>00:01:25.5468750</td></tr><tr><td>Code</td><td>17784</td><td>Normal</td><td>1.36.1</td><td>244</td><td>30396416</td><td>19914752</td><td>19914752</td><td>415395840</td><td>00:00:00.0937500</td></tr><tr><td>Code</td><td>19576</td><td>Normal</td><td>1.36.1</td><td>582</td><td>461295616</td><td>497844224</td><td>497844224</td><td>1353498624</td><td>00:06:28.6250000</td></tr><tr><td>Code</td><td>19836</td><td>Normal</td><td>1.36.1</td><td>401</td><td>74526720</td><td>62758912</td><td>62758912</td><td>550969344</td><td>00:00:13.5781250</td></tr><tr><td>Code</td><td>20080</td><td>Normal</td><td>1.36.1</td><td>259</td><td>10022912</td><td>6524928</td><td>6524928</td><td>241557504</td><td>00:00:00.0468750</td></tr><tr><td>Code</td><td>21532</td><td>Normal</td><td>1.36.1</td><td>236</td><td>22548480</td><td>27693056</td><td>27693056</td><td>413298688</td><td>00:00:00.1718750</td></tr><tr><td>Code</td><td>22092</td><td>Normal</td><td>1.36.1</td><td>530</td><td>175218688</td><td>214331392</td><td>214331392</td><td>821706752</td><td>00:00:12.3906250</td></tr><tr><td>Code</td><td>22664</td><td>Normal</td><td>1.36.1</td><td>395</td><td>38359040</td><td>213811200</td><td>213811200</td><td>1843089408</td><td>00:00:11.7812500</td></tr><tr><td>Code</td><td>22668</td><td>Normal</td><td>1.36.1</td><td>236</td><td>23183360</td><td>80965632</td><td>80965632</td><td>508522496</td><td>00:00:02.5625000</td></tr><tr><td>Code</td><td>23616</td><td>Normal</td><td>1.36.1</td><td>236</td><td>21934080</td><td>27856896</td><td>27856896</td><td>413822976</td><td>00:00:00.2343750</td></tr><tr><td>Code</td><td>24936</td><td>Normal</td><td>1.36.1</td><td>488</td><td>145567744</td><td>167346176</td><td>167346176</td><td>771293184</td><td>00:00:11.1875000</td></tr><tr><td>Code</td><td>25892</td><td>Normal</td><td>1.36.1</td><td>236</td><td>98942976</td><td>105242624</td><td>105242624</td><td>541290496</td><td>00:00:22.4687500</td></tr><tr><td>CodeHelper</td><td>13096</td><td>Normal</td><td>1.0.0.0</td><td>276</td><td>10702848</td><td>10846208</td><td>10846208</td><td>158846976</td><td>00:00:00.0312500</td></tr><tr><td>CodeHelper</td><td>20040</td><td>Normal</td><td>1.0.0.0</td><td>548</td><td>13963264</td><td>11870208</td><td>11870208</td><td>158912512</td><td>00:00:00.1875000</td></tr><tr><td>CodeHelper</td><td>22768</td><td>Normal</td><td>1.0.0.0</td><td>276</td><td>10768384</td><td>10866688</td><td>10866688</td><td>158846976</td><td>00:00:00.0625000</td></tr><tr><td>com.barraider.shadowplay</td><td>5648</td><td>Normal</td><td>1.0.0.0</td><td>425</td><td>27484160</td><td>28901376</td><td>28901376</td><td>217436160</td><td>00:00:00.3593750</td></tr><tr><td>com.barraider.spotify</td><td>19548</td><td>Normal</td><td>1.0.0.0</td><td>836</td><td>24514560</td><td>26165248</td><td>26165248</td><td>215461888</td><td>00:00:00.5156250</td></tr><tr><td>conhost</td><td>4860</td><td></td><td></td><td>118</td><td>4329472</td><td>6594560</td><td>6594560</td><td>91930624</td><td></td></tr><tr><td>conhost</td><td>6300</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>4808704</td><td>6684672</td><td>6684672</td><td>112996352</td><td>00:00:00.0156250</td></tr><tr><td>conhost</td><td>8044</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>118</td><td>4829184</td><td>6680576</td><td>6680576</td><td>113004544</td><td>00:00:00</td></tr></tbody></table></div></div></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>

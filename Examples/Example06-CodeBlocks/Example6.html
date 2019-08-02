@@ -63,7 +63,7 @@ div.defaultColumn {
     padding: 2px;
 }
 
-.defaultContainer {
+.flexParent {
     display: flex;
     justify-content: space-between;
     padding: 2px;
@@ -72,7 +72,7 @@ div.defaultColumn {
     overflow-y: hidden;
 }
 
-.defaultContainerOther {
+.flexParentInvisible {
     display: flex;
     justify-content: space-between;
     overflow: hidden;
@@ -437,7 +437,7 @@ h6 {
 <a id="show_1208664344" href="javascript:void(0)" onclick="show('1208664344');" style="color: #ffffff; display:none;">(Show)</a>
 <a id="hide_1208664344" href="javascript:void(0)" onclick="hide('1208664344');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="1208664344" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="1208664344"><pre data-enlighter-language="powershell" data-enlighter-theme="godzilla" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 1" data-enlighter-highlight="2-5, 13">
+<div id="1208664344" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1208664344"><pre data-enlighter-language="powershell" data-enlighter-theme="godzilla" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 1" data-enlighter-highlight="2-5, 13">
 $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
@@ -505,7 +505,7 @@ Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
 <a id="show_963491133" href="javascript:void(0)" onclick="show('963491133');" style="color: #ffffff; display:none;">(Show)</a>
 <a id="hide_963491133" href="javascript:void(0)" onclick="hide('963491133');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="963491133" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="963491133"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
+<div id="963491133" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="963491133"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
 $(window).bind("resize", function(e) {
     if (window.RT) clearTimeout(window.RT);
     window.RT = setTimeout(function() {
@@ -517,7 +517,7 @@ $(window).bind("resize", function(e) {
 <a id="show_1569997435" href="javascript:void(0)" onclick="show('1569997435');" style="color: #ffffff; display:none;">(Show)</a>
 <a id="hide_1569997435" href="javascript:void(0)" onclick="hide('1569997435');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="1569997435" class="defaultContainerOther"><div class="defaultContainer flexElement collapsable" id="1569997435"><pre data-enlighter-language="xml" data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
+<div id="1569997435" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1569997435"><pre data-enlighter-language="xml" data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
 <building name="GlobalDynamics Main Building"
     core:id="0xFA8A91C6617DFA1B" core:uid="0898213-123123123-1230898123" xmlns:core="http://www.xmlnamespace.tld">
   <core:group core:level="2">
