@@ -2,7 +2,8 @@ function Add-TableFiltering {
     [CmdletBinding()]
     param(
         [bool] $Filtering,
-        [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom'
+        [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom',
+        [string] $DataTableName
     )
     $Output = @{}
     if ($Filtering) {
