@@ -1,18 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER -->
-<head><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta name="author"/>
-<meta content="2019-04-12 09:57:53" name="revised"/>
-<title></title>
-<!-- CSS Default fonts START -->
-<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
-<!-- CSS Default fonts END -->
-<!-- CSS Default fonts icons START -->
-<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
-<!-- CSS Default fonts icons END -->
-<!-- CSS Always Required Default Visual Settings START -->
-<style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-02 22:29:32" name="revised"/><title></title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -24,74 +11,69 @@ hr {
     width: 100%;
 }
 
-div.clientlogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: left;
-    display: inline-block;
-    width: 50%;
-}
-
-div.MainLogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: right;
-    display: inline-block;
-    width: 50%;
-}
-
-.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-
-div.defaultSection {
+.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
+
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
+
 }
 
-div.defaultColumn {
+.overflowHidden {
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding: 2px;
 }
 
 .flexParent {
     display: flex;
     justify-content: space-between;
     padding: 2px;
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 }
 
 .flexParentInvisible {
     display: flex;
     justify-content: space-between;
+
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
+
 }
 
 .flexElement {
     flex-basis: 100%;
+    flex: 1 auto;
+
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
+
 }
 
 .flexPanel {
     flex-basis: 100%;
+
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 }
 
 .roundedCorners {
@@ -101,49 +83,29 @@ div.defaultColumn {
     margin: 5px;
 }
 
-div.defaultHeader {
+.defaultHeader {
     padding: 5px;
     margin: 0px 0px 0px 0px;
     font-weight: bold;
-    color: #ffffff;
-    background-color: #6Cf;
 }
 
-div.defaultFooter {
+.defaultFooter {
     padding-right: 5em;
     text-align: right;
 }
 
-
-
-td.clientlogo {
+.clientlogo {
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-td.MainLogo {
+.MainLogo {
     border: 0px;
     padding-right: 5em;
     text-align: right;
     vertical-align: middle;
 }
-
-/*
-
-th.content {
-    border-top: 1px solid #bbbbbb;
-    width: 25%;
-}
-
-td.content {
-    width: 75%;
-}
-
-td.groupby {
-    border-top: 3px double #bbbbbb;
-}
-*/
 
 .header {
     background-color: #616a6b;
@@ -166,25 +128,6 @@ a.alink:hover {
     text-decoration: underline;
     font-size: 130%;
 }
-
-table.sortable {
-    width: calc(100% - 10px);
-    margin: 5px;
-    box-sizing: border-box;
-    border-collapse: collapse;
-    display: inline-block;
-    overflow-x: auto;
-    overflow-y: auto;
-}
-
-table.sortable thead {
-    background-color: #eee;
-    color: #666666;
-    font-weight: bold;
-    cursor: default;
-}
-
-/* Adding CSS */
 
 a.paginate_button {
     color: #000000 !important;
@@ -216,27 +159,7 @@ img {
     margin: 1%;
     flex: 1;
 }
-
-.orange {
-    background-color: #f39c12;
-}
-
-.red {
-    background-color: #ff4136;
-}
-
-.green {
-    background-color: #2ecc40;
-}
-
-div.enlighter-default {
-    flex-basis: 100%;
-    margin: 0 !important;
-}
-</style>
-<!-- CSS Always Required Default Visual Settings END -->
-<!-- CSS Always Required Default Headings START -->
-<style type="text/css">h2:after,
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
 h3:after,
 h4:after,
 h5:after,
@@ -345,27 +268,7 @@ h6 {
     font-size: 10px;
     line-height: 12px;
 }
-</style>
-<!-- CSS Always Required Default Headings END -->
-
-<!-- JS Hide Section Code START -->
-<script type="text/javascript">function show(obj) {
-  document.getElementById(obj).style.display='block';
-  document.getElementById("hide_" + obj).style.display='';
-  document.getElementById("show_" + obj).style.display='none';
-}
-function hide(obj) {
-  document.getElementById(obj).style.display='none';
-  document.getElementById("hide_" + obj).style.display='none';
-  document.getElementById("show_" + obj).style.display='';
-}
-</script>
-<!-- JS Hide Section Code END -->
-
-
-
-<!-- CSS DataTables START -->
-<style type="text/css">/* Added to make sure plus logo fits in */
+</style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
 td {
     height: 27px;
 }
@@ -407,170 +310,30 @@ thead input {
     box-sizing: border-box;
     font-size: 8pt;
 }
-</style>
-<!-- CSS DataTables END -->
-<!-- CSS Elastic Tabs START -->
-<style type="text/css">.tabsWrapper {
-    text-align: center;
-    margin: 10px auto;
-    font-family: 'Roboto', sans-serif !important;
-}
-
-.tabs {
-    margin-top: 10px;
-    font-size: 15px;
-    padding: 0px;
-    list-style: none;
-    background: #fff;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-    /*
-    display: inline-block;
-*/
-    border-radius: 4px;
-    position: relative;
-}
-
-.tabs .round {
-    border-radius: 4px;
-}
-
-.tabs a {
-    text-decoration: none;
-    color: #777;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    transition-duration: 0.6s;
-}
-
-.tabs a.active {
-    color: #fff;
-}
-
-.tabs a i {
-    margin-right: 5px;
-}
-
-.tabs .selector {
-    display: none;
-    height: 100%;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1;
-    border-radius: 4px;
-    transition-duration: 0.6s;
-    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    background: #05abe0;
-    background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-    background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-    background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1);
-}
-
-.tabs-content {
-    display: none;
-}
-
-.tabs-content.active {
-    display: block;
-}
-</style>
-<!-- CSS Elastic Tabs END -->
-
-
-<!-- JS Hide Section Code START -->
-<script type="text/javascript">function show(obj) {
-  document.getElementById(obj).style.display='block';
-  document.getElementById("hide_" + obj).style.display='';
-  document.getElementById("show_" + obj).style.display='none';
-}
-function hide(obj) {
-  document.getElementById(obj).style.display='none';
-  document.getElementById("hide_" + obj).style.display='none';
-  document.getElementById("show_" + obj).style.display='';
-}
-</script>
-<!-- JS Hide Section Code END -->
-
-
-
-<!-- CSS DataTables START -->
-<style type="text/css">/* Added to make sure plus logo fits in */
-td {
-    height: 27px;
-}
-
-/* Button in Table - giving it some colors */
-
-td.sorting_1::before {
-    background: #007bff !important;
-}
-
-td::before {
-    background: #007bff !important;
-}
-
-/* giving some spaces between tables being to close */
-
-div.dataTables_wrapper {
-    padding: 10px 10px 10px 10px;
-}
-
-button.dt-button {
-    color: blue !important;
-    border-radius: 5px;
-    line-height: 1 !important;
-}
-
-/* Filtering at the bottom */
-tfoot input {
-    width: 100%;
-    padding: -3px;
-    box-sizing: border-box;
-    font-size: 8pt;
-}
-
-/* Filtering at the top */
-thead input {
-    width: 100%;
-    padding: -3px;
-    box-sizing: border-box;
-    font-size: 8pt;
-}
-</style>
-<!-- CSS DataTables END -->
-<noscript><!-- CSS DataTables START -->
-<style type="text/css">table {
+</style><!-- CSS DataTables END --><noscript><!-- CSS DataTables START --><style type="text/css">table {
     border-width: 1px;
     border-style: solid;
     border-color: black;
     border-collapse: collapse;
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    width: 99%;
 }
 
-th {
+table th {
     border-width: 1px;
-    padding: 3px;
+    padding: 4px;
     border-style: solid;
     border-color: black;
-    background-color: #00297A;
+    background-color: #616a6b;
     color: white;
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    font-weight: bold;
+    padding: 10px;
 }
 
-tr {
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
-}
-
-td {
+table td {
     border-width: 1px;
     padding-right: 2px;
     padding-left: 2px;
@@ -578,15 +341,30 @@ td {
     padding-bottom: 0px;
     border-style: solid;
     border-color: black;
-    background-color: white;
-    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
-    font-size: 8pt;
+    /* background-color: white; */
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    border-top: 1px solid #ddd;
 }
-</style>
-<!-- CSS DataTables END -->
-</noscript>
-<!-- CSS Elastic Tabs START -->
-<style type="text/css">.tabsWrapper {
+
+/* Zebra striping */
+table tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+table th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+table td,
+table th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+</style><!-- CSS DataTables END --></noscript><!-- CSS Elastic Tabs START --><style type="text/css">.tabsWrapper {
     text-align: center;
     margin: 10px auto;
     font-family: 'Roboto', sans-serif !important;
@@ -599,9 +377,6 @@ td {
     list-style: none;
     background: #fff;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-    /*
-    display: inline-block;
-*/
     border-radius: 4px;
     position: relative;
 }
@@ -639,13 +414,7 @@ td {
     bottom: 0px;
     z-index: 1;
     border-radius: 4px;
-    transition-duration: 0.6s;
-    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    background: #05abe0;
-    background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-    background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-    background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1);
+    background: #1e90ff;
 }
 
 .tabs-content {
@@ -655,53 +424,176 @@ td {
 .tabs-content.active {
     display: block;
 }
-</style>
-<!-- CSS Elastic Tabs END -->
-
-<!-- JS DataTables PDF Features START -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
-<!-- JS DataTables PDF Features END -->
-<!-- JS Jquery START -->
-<script src="http://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
-<!-- JS Jquery END -->
-<!-- CSS EnlighterJS CodeBlocks START -->
-<link href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css" type="text/css" rel="stylesheet"/>
-<!-- CSS EnlighterJS CodeBlocks END -->
-<!-- JS EnlighterJS CodeBlocks START -->
-<script src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js" type="text/javascript"></script>
-<!-- JS EnlighterJS CodeBlocks END -->
-<!-- CSS DataTables START -->
-<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/>
-<!-- CSS DataTables END -->
-<!-- JS DataTables START -->
-<script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script>
-<!-- JS DataTables END -->
-<!-- JS DataTables Excel Features START -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script>
-<!-- JS DataTables Excel Features END -->
-</head>
-<!-- END HEADER -->
-<!-- BODY -->
-<body><div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-5r61xszt"><i class="fas fa-bomb">Dashboard</i></a>
-<a href="javascript:void(0)" data-id="Tab-67wxm08b"><i class="fas fa-bomb">Test 2</i></a>
-</div></div>
-<div id="Tab-5r61xszt" class="tabs-content active"><div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Content" style="color: #ffffff;">Content</a>
-<a id="show_1152421352" href="javascript:void(0)" onclick="show('1152421352');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1152421352" href="javascript:void(0)" onclick="hide('1152421352');" style="color: #ffffff; display:none;">(Hide)</a>
-</div>
-<div id="1152421352" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1152421352"><div class="flexPanel roundedCorners" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
-
+</style><!-- CSS Elastic Tabs END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
+  document.getElementById(obj).style.display='block';
+  document.getElementById("hide_" + obj).style.display='';
+  document.getElementById("show_" + obj).style.display='none';
+}
+function hide(obj) {
+  document.getElementById(obj).style.display='none';
+  document.getElementById("hide_" + obj).style.display='none';
+  document.getElementById("show_" + obj).style.display='';
+}
+</script><!-- JS Hide Section Code END --><!-- CSS EnlighterJS CodeBlocks START --><style type="text/css">div.enlighter-default {
+    flex-basis: 100%;
+    margin: 0 !important;
+}
+</style><!-- CSS EnlighterJS CodeBlocks END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- CSS EnlighterJS CodeBlocks START --><link href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css" type="text/css" rel="stylesheet"/><!-- CSS EnlighterJS CodeBlocks END --><!-- JS EnlighterJS CodeBlocks START --><script src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js" type="text/javascript"></script><!-- JS EnlighterJS CodeBlocks END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-wtap567j"><div></div><span> Dashboard</span></a><a href="javascript:void(0)" data-id="Tab-19tnm4vy"><div></div><span> Test 2</span></a></div></div><div id="Tab-wtap567j" class="tabs-content active"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Content" style="color: #ffffff;">Content</a><a id="show_1413991136" href="javascript:void(0)" onclick="show('1413991136');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1413991136" href="javascript:void(0)" onclick="hide('1413991136');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1413991136" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1413991136"><div class="flexPanel roundedCorners overflowHidden"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
                     //  Table code
-                    var table = $('#DT-mqCPQBiq').DataTable(
+                    var table = $('#DT-HFWEGzbO').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement"><table id="DT-HFWEGzbO" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="flexPanel roundedCorners overflowHidden"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-RfKTRaTR').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement"><table id="DT-RfKTRaTR" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text 2" style="color: #ffffff;">My text 2</a><a id="show_1896192168" href="javascript:void(0)" onclick="show('1896192168');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1896192168" href="javascript:void(0)" onclick="hide('1896192168');" style="color: #ffffff;">(Hide)</a></div><div id="1896192168" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1896192168"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-AfUhoxwX').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
                 ],
     "colReorder":  true,
     "paging":  true,
@@ -714,46 +606,189 @@ td {
                            15,
                            25,
                            50,
-                           100
+                           100,
+                           -1
                        ],
-                       -1,
                        [
                            15,
                            25,
                            50,
-                           100
-                       ],
-                       "All"
+                           100,
+                           "All"
+                       ]
                    ],
     "ordering":  true,
+    "order":  [
+
+              ],
     "info":  true,
     "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
     "responsive":  {
                        "details":  true
                    },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
+    "createdRow":  ""
 }
                     );
-
-                });</script>
-<div class="flexElement"><table id="DT-mqCPQBiq" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
-</table></div>
-</div>
-<div class="flexPanel roundedCorners" style="width: calc(100% / 1 - 10px); ;"><script>                $(document).ready(function() {
-
+                    
+                });</script><div class="flexElement"><table id="DT-AfUhoxwX" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Content New" style="color: #ffffff;">Content New</a><a id="show_2011717623" href="javascript:void(0)" onclick="show('2011717623');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_2011717623" href="javascript:void(0)" onclick="hide('2011717623');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="2011717623" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="2011717623"><div class="flexPanel roundedCorners overflowHidden"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text" style="color: #ffffff;">My text</a><a id="show_549775314" href="javascript:void(0)" onclick="show('549775314');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_549775314" href="javascript:void(0)" onclick="hide('549775314');" style="color: #ffffff;">(Hide)</a></div><div id="549775314" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="549775314"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
                     //  Table code
-                    var table = $('#DT-NQhToapY').DataTable(
+                    var table = $('#DT-LjbFEGFH').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement"><table id="DT-LjbFEGFH" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div></div></div></div><div class="flexPanel roundedCorners overflowHidden"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text" style="color: #ffffff;">My text</a><a id="show_1907000447" href="javascript:void(0)" onclick="show('1907000447');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1907000447" href="javascript:void(0)" onclick="hide('1907000447');" style="color: #ffffff;">(Hide)</a></div><div id="1907000447" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1907000447"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-SAisAKLm').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement"><table id="DT-SAisAKLm" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text 2" style="color: #ffffff;">My text 2</a><a id="show_1761075768" href="javascript:void(0)" onclick="show('1761075768');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1761075768" href="javascript:void(0)" onclick="hide('1761075768');" style="color: #ffffff;">(Hide)</a></div><div id="1761075768" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1761075768"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-CAtDsxbp').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
                 ],
     "colReorder":  true,
     "paging":  true,
@@ -766,372 +801,34 @@ td {
                            15,
                            25,
                            50,
-                           100
+                           100,
+                           -1
                        ],
-                       -1,
                        [
                            15,
                            25,
                            50,
-                           100
-                       ],
-                       "All"
+                           100,
+                           "All"
+                       ]
                    ],
     "ordering":  true,
+    "order":  [
+
+              ],
     "info":  true,
     "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
     "responsive":  {
                        "details":  true
                    },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
+    "createdRow":  ""
 }
                     );
-
-                });</script>
-<div class="flexElement"><table id="DT-NQhToapY" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
-</table></div>
-</div>
-<div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text 2" style="color: #ffffff;">My text 2</a>
-<a id="show_968638299" href="javascript:void(0)" onclick="show('968638299');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_968638299" href="javascript:void(0)" onclick="hide('968638299');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="968638299" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="968638299"><script>                $(document).ready(function() {
-
-                    //  Table code
-                    var table = $('#DT-eLYRrlBP').DataTable(
-                        {
-    "dom":  "Bfrtip",
-    "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
-                ],
-    "colReorder":  true,
-    "paging":  true,
-    "scrollCollapse":  false,
-    "pagingType":  [
-                       "full_numbers"
-                   ],
-    "lengthMenu":  [
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       -1,
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       "All"
-                   ],
-    "ordering":  true,
-    "info":  true,
-    "procesing":  true,
-    "responsive":  {
-                       "details":  true
-                   },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
-}
-                    );
-
-                });</script>
-<div class="flexElement"><table id="DT-eLYRrlBP" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead>
-<tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr>
-<tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr>
-<tr><td>krbtgt</td><td></td><td>False</td><td></td></tr>
-<tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
-<tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
-<tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
-<tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr>
-<tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr>
-<tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr>
-<tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr>
-<tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr>
-<tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr>
-<tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr>
-<tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr>
-<tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr>
-<tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr>
-<tr><td>My User</td><td>User</td><td>True</td><td></td></tr>
-<tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr>
-<tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr>
-<tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>False</td><td></td></tr>
-<tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr>
-<tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr>
-</tbody>
-<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot>
-</table></div>
-</div></div>
-</div>
-</div></div>
-</div>
-<div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Content New" style="color: #ffffff;">Content New</a>
-<a id="show_1016280877" href="javascript:void(0)" onclick="show('1016280877');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1016280877" href="javascript:void(0)" onclick="hide('1016280877');" style="color: #ffffff; display:none;">(Hide)</a>
-</div>
-<div id="1016280877" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1016280877"><div class="flexPanel roundedCorners" style="width: calc(100% / 1 - 10px); ;"><div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text" style="color: #ffffff;">My text</a>
-<a id="show_1335170052" href="javascript:void(0)" onclick="show('1335170052');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1335170052" href="javascript:void(0)" onclick="hide('1335170052');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="1335170052" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1335170052"><script>                $(document).ready(function() {
-
-                    //  Table code
-                    var table = $('#DT-KQXQeooZ').DataTable(
-                        {
-    "dom":  "Bfrtip",
-    "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
-                ],
-    "colReorder":  true,
-    "paging":  true,
-    "scrollCollapse":  false,
-    "pagingType":  [
-                       "full_numbers"
-                   ],
-    "lengthMenu":  [
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       -1,
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       "All"
-                   ],
-    "ordering":  true,
-    "info":  true,
-    "procesing":  true,
-    "responsive":  {
-                       "details":  true
-                   },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
-}
-                    );
-
-                });</script>
-<div class="flexElement"><table id="DT-KQXQeooZ" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
-</table></div>
-</div></div>
-</div></div>
-<div class="flexPanel roundedCorners" style="width: calc(100% / 1 - 10px); ;"><div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text" style="color: #ffffff;">My text</a>
-<a id="show_362831376" href="javascript:void(0)" onclick="show('362831376');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_362831376" href="javascript:void(0)" onclick="hide('362831376');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="362831376" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="362831376"><script>                $(document).ready(function() {
-
-                    //  Table code
-                    var table = $('#DT-rasMhUxF').DataTable(
-                        {
-    "dom":  "Bfrtip",
-    "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
-                ],
-    "colReorder":  true,
-    "paging":  true,
-    "scrollCollapse":  false,
-    "pagingType":  [
-                       "full_numbers"
-                   ],
-    "lengthMenu":  [
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       -1,
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       "All"
-                   ],
-    "ordering":  true,
-    "info":  true,
-    "procesing":  true,
-    "responsive":  {
-                       "details":  true
-                   },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
-}
-                    );
-
-                });</script>
-<div class="flexElement"><table id="DT-rasMhUxF" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
-</table></div>
-</div></div>
-</div></div>
-<div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text 2" style="color: #ffffff;">My text 2</a>
-<a id="show_42798292" href="javascript:void(0)" onclick="show('42798292');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_42798292" href="javascript:void(0)" onclick="hide('42798292');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="42798292" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="42798292"><script>                $(document).ready(function() {
-
-                    //  Table code
-                    var table = $('#DT-GIJRYuuH').DataTable(
-                        {
-    "dom":  "Bfrtip",
-    "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
-                ],
-    "colReorder":  true,
-    "paging":  true,
-    "scrollCollapse":  false,
-    "pagingType":  [
-                       "full_numbers"
-                   ],
-    "lengthMenu":  [
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       -1,
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       "All"
-                   ],
-    "ordering":  true,
-    "info":  true,
-    "procesing":  true,
-    "responsive":  {
-                       "details":  true
-                   },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
-}
-                    );
-
-                });</script>
-<div class="flexElement"><table id="DT-GIJRYuuH" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead>
-<tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr>
-<tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr>
-<tr><td>krbtgt</td><td></td><td>False</td><td></td></tr>
-<tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
-<tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
-<tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
-<tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr>
-<tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr>
-<tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr>
-<tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr>
-<tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr>
-<tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr>
-<tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr>
-<tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr>
-<tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr>
-<tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr>
-<tr><td>My User</td><td>User</td><td>True</td><td></td></tr>
-<tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr>
-<tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr>
-<tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>False</td><td></td></tr>
-<tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr>
-<tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr>
-</tbody>
-<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot>
-</table></div>
-</div></div>
-</div>
-</div></div>
-</div>
-<div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language</a>
-<a id="show_1359365703" href="javascript:void(0)" onclick="show('1359365703');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1359365703" href="javascript:void(0)" onclick="hide('1359365703');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="1359365703" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1359365703"><pre data-enlighter-language="powershell" data-enlighter-theme="godzilla" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 1" data-enlighter-highlight="2-5, 13">
+                    
+                });</script><div class="flexElement"><table id="DT-CAtDsxbp" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language</a><a id="show_1660630736" href="javascript:void(0)" onclick="show('1660630736');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1660630736" href="javascript:void(0)" onclick="hide('1660630736');" style="color: #ffffff;">(Hide)</a></div><div id="1660630736" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1660630736"><pre data-enlighter-language="powershell" data-enlighter-theme="godzilla" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 1" data-enlighter-highlight="2-5, 13">
 $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
@@ -1161,8 +858,7 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     }
 }
 Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
-</pre>
-<pre data-enlighter-language="powershell" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 2">
+</pre><pre data-enlighter-language="powershell" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 2">
 $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
@@ -1192,26 +888,13 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     }
 }
 Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
-</pre>
-</div></div>
-</div>
-<div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language</a>
-<a id="show_327045438" href="javascript:void(0)" onclick="show('327045438');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_327045438" href="javascript:void(0)" onclick="hide('327045438');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="327045438" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="327045438"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
+</pre></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language</a><a id="show_1154200068" href="javascript:void(0)" onclick="show('1154200068');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1154200068" href="javascript:void(0)" onclick="hide('1154200068');" style="color: #ffffff;">(Hide)</a></div><div id="1154200068" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1154200068"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
 $(window).bind("resize", function(e) {
     if (window.RT) clearTimeout(window.RT);
     window.RT = setTimeout(function() {
         this.location.reload(false); /* false to get page from cache */
     }, 200);
-});</pre></div></div>
-</div>
-<div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="XML Language" style="color: #ffffff;">XML Language</a>
-<a id="show_1250093447" href="javascript:void(0)" onclick="show('1250093447');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1250093447" href="javascript:void(0)" onclick="hide('1250093447');" style="color: #ffffff; display:none;">(Hide)</a>
-</div>
-<div id="1250093447" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1250093447"><pre data-enlighter-language="xml" data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
+});</pre></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="XML Language" style="color: #ffffff;">XML Language</a><a id="show_221201399" href="javascript:void(0)" onclick="show('221201399');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_221201399" href="javascript:void(0)" onclick="hide('221201399');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="221201399" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="221201399"><pre data-enlighter-language="xml" data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
 <building name="GlobalDynamics Main Building"
     core:id="0xFA8A91C6617DFA1B" core:uid="0898213-123123123-1230898123" xmlns:core="http://www.xmlnamespace.tld">
   <core:group core:level="2">
@@ -1237,26 +920,34 @@ $(window).bind("resize", function(e) {
       <x_room label="k89121">Lab01</x_room>
     </room>
   </core:group>
-</building></pre></div></div>
-</div>
-</div>
-<div id="Tab-67wxm08b" class="tabs-content"><div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My other text" style="color: #ffffff;">My other text</a>
-<a id="show_1246169325" href="javascript:void(0)" onclick="show('1246169325');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1246169325" href="javascript:void(0)" onclick="hide('1246169325');" style="color: #ffffff; display:none;">(Hide)</a>
-</div>
-<div id="1246169325" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1246169325"><script>                    $(document).ready(function() {
+</building></pre></div></div></div></div><div id="Tab-19tnm4vy" class="tabs-content"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My other text" style="color: #ffffff;">My other text</a><a id="show_1864660583" href="javascript:void(0)" onclick="show('1864660583');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1864660583" href="javascript:void(0)" onclick="hide('1864660583');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1864660583" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1864660583"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
                         $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-67wxm08b" && !$.fn.dataTable.isDataTable("#DT-FHbBxfPu")) {
-
+                            if ($(event.currentTarget).attr("data-id") == "Tab-19tnm4vy" && !$.fn.dataTable.isDataTable("#DT-HTPHvIOh")) {
+                                
+                                
                                 //  Table code
-                                var table = $('#DT-FHbBxfPu').DataTable(
+                                var table = $('#DT-HTPHvIOh').DataTable(
                                     {
     "dom":  "Bfrtip",
     "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
                 ],
     "colReorder":  true,
     "paging":  true,
@@ -1269,103 +960,201 @@ $(window).bind("resize", function(e) {
                            15,
                            25,
                            50,
-                           100
+                           100,
+                           -1
                        ],
-                       -1,
                        [
                            15,
                            25,
                            50,
-                           100
-                       ],
-                       "All"
+                           100,
+                           "All"
+                       ]
                    ],
     "ordering":  true,
+    "order":  [
+
+              ],
     "info":  true,
     "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
     "responsive":  {
                        "details":  true
                    },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
+    "createdRow":  ""
 }
                                 );
-
+                                
                             };
                         });
-                    });</script>
-<div class="flexElement"><table id="DT-FHbBxfPu" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead>
-<tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr>
-<tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr>
-<tr><td>krbtgt</td><td></td><td>False</td><td></td></tr>
-<tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
-<tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
-<tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
-<tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr>
-<tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr>
-<tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr>
-<tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr>
-<tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr>
-<tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr>
-<tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr>
-<tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr>
-<tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr>
-<tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr>
-<tr><td>My User</td><td>User</td><td>True</td><td></td></tr>
-<tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr>
-<tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr>
-<tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>False</td><td></td></tr>
-<tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr>
-<tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr>
-</tbody>
-<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot>
-</table></div>
-</div></div>
-</div>
-<div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="Content" style="color: #ffffff;">Content</a>
-<a id="show_911165252" href="javascript:void(0)" onclick="show('911165252');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_911165252" href="javascript:void(0)" onclick="hide('911165252');" style="color: #ffffff; display:none;">(Hide)</a>
-</div>
-<div id="911165252" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="911165252"><div class="flexPanel roundedCorners" style="width: calc(100% / 1 - 10px); ;"><script>                    $(document).ready(function() {
+                    });</script><div class="flexElement"><table id="DT-HTPHvIOh" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Content" style="color: #ffffff;">Content</a><a id="show_785142360" href="javascript:void(0)" onclick="show('785142360');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_785142360" href="javascript:void(0)" onclick="hide('785142360');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="785142360" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="785142360"><div class="flexPanel roundedCorners overflowHidden"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
                         $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-67wxm08b" && !$.fn.dataTable.isDataTable("#DT-FXhcPmpt")) {
-
+                            if ($(event.currentTarget).attr("data-id") == "Tab-19tnm4vy" && !$.fn.dataTable.isDataTable("#DT-UMGVVTXq")) {
+                                
+                                
                                 //  Table code
-                                var table = $('#DT-FXhcPmpt').DataTable(
+                                var table = $('#DT-UMGVVTXq').DataTable(
                                     {
     "dom":  "Bfrtip",
     "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "createdRow":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script><div class="flexElement"><table id="DT-UMGVVTXq" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="flexPanel roundedCorners overflowHidden"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-19tnm4vy" && !$.fn.dataTable.isDataTable("#DT-nxgJuewj")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-nxgJuewj').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "createdRow":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script><div class="flexElement"><table id="DT-nxgJuewj" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text 2" style="color: #ffffff;">My text 2</a><a id="show_1506219144" href="javascript:void(0)" onclick="show('1506219144');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1506219144" href="javascript:void(0)" onclick="hide('1506219144');" style="color: #ffffff;">(Hide)</a></div><div id="1506219144" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1506219144"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-19tnm4vy" && !$.fn.dataTable.isDataTable("#DT-kMcGuYYH")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-kMcGuYYH').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
                 ],
     "colReorder":  true,
     "paging":  true,
@@ -1378,229 +1167,36 @@ $(window).bind("resize", function(e) {
                            15,
                            25,
                            50,
-                           100
+                           100,
+                           -1
                        ],
-                       -1,
                        [
                            15,
                            25,
                            50,
-                           100
-                       ],
-                       "All"
+                           100,
+                           "All"
+                       ]
                    ],
     "ordering":  true,
+    "order":  [
+
+              ],
     "info":  true,
     "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
     "responsive":  {
                        "details":  true
                    },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
+    "createdRow":  ""
 }
                                 );
-
+                                
                             };
                         });
-                    });</script>
-<div class="flexElement"><table id="DT-FXhcPmpt" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
-</table></div>
-</div>
-<div class="flexPanel roundedCorners" style="width: calc(100% / 1 - 10px); ;"><script>                    $(document).ready(function() {
-                        $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-67wxm08b" && !$.fn.dataTable.isDataTable("#DT-rLxIohCG")) {
-
-                                //  Table code
-                                var table = $('#DT-rLxIohCG').DataTable(
-                                    {
-    "dom":  "Bfrtip",
-    "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
-                ],
-    "colReorder":  true,
-    "paging":  true,
-    "scrollCollapse":  false,
-    "pagingType":  [
-                       "full_numbers"
-                   ],
-    "lengthMenu":  [
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       -1,
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       "All"
-                   ],
-    "ordering":  true,
-    "info":  true,
-    "procesing":  true,
-    "responsive":  {
-                       "details":  true
-                   },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
-}
-                                );
-
-                            };
-                        });
-                    });</script>
-<div class="flexElement"><table id="DT-rLxIohCG" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead>
-<tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody>
-<tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot>
-</table></div>
-</div>
-<div class="defaultSection roundedCorners" style="width: calc(100% / 1 - 15px); ; "><div class="defaultHeader" style="text-align: center;"><a name="My text 2" style="color: #ffffff;">My text 2</a>
-<a id="show_211605453" href="javascript:void(0)" onclick="show('211605453');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_211605453" href="javascript:void(0)" onclick="hide('211605453');" style="color: #ffffff;">(Hide)</a>
-</div>
-<div id="211605453" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="211605453"><script>                    $(document).ready(function() {
-                        $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-67wxm08b" && !$.fn.dataTable.isDataTable("#DT-dEmYDgvf")) {
-
-                                //  Table code
-                                var table = $('#DT-dEmYDgvf').DataTable(
-                                    {
-    "dom":  "Bfrtip",
-    "buttons":  [
-                    "copyHtml5",
-                    "excelHtml5",
-                    "csvHtml5",
-                    "pdfHtml5"
-                ],
-    "colReorder":  true,
-    "paging":  true,
-    "scrollCollapse":  false,
-    "pagingType":  [
-                       "full_numbers"
-                   ],
-    "lengthMenu":  [
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       -1,
-                       [
-                           15,
-                           25,
-                           50,
-                           100
-                       ],
-                       "All"
-                   ],
-    "ordering":  true,
-    "info":  true,
-    "procesing":  true,
-    "responsive":  {
-                       "details":  true
-                   },
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true
-}
-                                );
-
-                            };
-                        });
-                    });</script>
-<div class="flexElement"><table id="DT-dEmYDgvf" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead>
-<tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr>
-<tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr>
-<tr><td>krbtgt</td><td></td><td>False</td><td></td></tr>
-<tr><td>Administrator</td><td></td><td>True</td><td></td></tr>
-<tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
-<tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr>
-<tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr>
-<tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr>
-<tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr>
-<tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr>
-<tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr>
-<tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr>
-<tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr>
-<tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr>
-<tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr>
-<tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr>
-<tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr>
-<tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr>
-<tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr>
-<tr><td>My User</td><td>User</td><td>True</td><td></td></tr>
-<tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr>
-<tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr>
-<tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>False</td><td></td></tr>
-<tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr>
-<tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr>
-</tbody>
-<tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot>
-</table></div>
-</div></div>
-</div>
-</div></div>
-</div>
-</div>
-</body>
-<!-- END BODY -->
-<!-- FOOTER -->
-<footer>
-
-
-
-<!-- JS EnlighterJS CodeBlocks START -->
-<script type="text/javascript">// INIT CODE - simple page-wide initialization based on css selectors
-// - highlight all pre + code tags (CSS3 selectors)
-// - use javascript as default language
-// - use theme "enlighter" as default theme
-// - replace tabs with 2 spaces
-EnlighterJS.init("pre", "code", {
-    language: "powershell",
-    theme: "enlighter",
-    indent: 2
-});
-</script>
-<!-- JS EnlighterJS CodeBlocks END -->
-
-
-<!-- JS Elastic Tabs START -->
-<script type="text/javascript">var maxWidth = 0;
+                    });</script><div class="flexElement"><table id="DT-kMcGuYYH" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div></div></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS Elastic Tabs START --><script type="text/javascript">var maxWidth = 0;
 var $element;
 
 $(window).on("resize", function() {
@@ -1645,9 +1241,14 @@ function setSelectorPosition(id) {
     });
     $(".selector").show();
 }
-</script>
-<!-- JS Elastic Tabs END -->
-
-</footer>
-<!-- END FOOTER -->
-</html>
+</script><!-- JS Elastic Tabs END --><!-- JS EnlighterJS CodeBlocks START --><script type="text/javascript">// INIT CODE - simple page-wide initialization based on css selectors
+// - highlight all pre + code tags (CSS3 selectors)
+// - use javascript as default language
+// - use theme "enlighter" as default theme
+// - replace tabs with 2 spaces
+EnlighterJS.init("pre", "code", {
+    language: "powershell",
+    theme: "enlighter",
+    indent: 2
+});
+</script><!-- JS EnlighterJS CodeBlocks END --></footer><!-- END FOOTER --></html>

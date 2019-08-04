@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-01 23:56:14" name="revised"/><title>My title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-04 13:46:53" name="revised"/><title>My title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -11,71 +11,46 @@ hr {
     width: 100%;
 }
 
-.clientlogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: left;
-    display: inline-block;
-    width: 50%;
-}
-
-.MainLogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: right;
-    display: inline-block;
-    width: 50%;
-}
-
-/*
-.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-*/
-
 .defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
 
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 
 }
 
-/* Not used anywhere - I think
-div.defaultColumn {
+.overflowHidden {
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding: 2px;
 }
-*/
 
 .flexParent {
     display: flex;
-    flex-wrap: nowrap;
     justify-content: space-between;
     padding: 2px;
-
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-
-
+    */
 }
 
 .flexParentInvisible {
     display: flex;
     justify-content: space-between;
 
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 
 }
 
@@ -83,21 +58,23 @@ div.defaultColumn {
     flex-basis: 100%;
     flex: 1 auto;
 
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 
 }
-
 
 .flexPanel {
     flex-basis: 100%;
 
+    /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    */
 }
-
 
 .roundedCorners {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -106,13 +83,10 @@ div.defaultColumn {
     margin: 5px;
 }
 
-div.defaultHeader {
+.defaultHeader {
     padding: 5px;
     margin: 0px 0px 0px 0px;
     font-weight: bold;
-    /* color: #ffffff;
-    background-color: #6Cf;
-    */
 }
 
 .defaultFooter {
@@ -120,15 +94,13 @@ div.defaultHeader {
     text-align: right;
 }
 
-
-
-td.clientlogo {
+.clientlogo {
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-td.MainLogo {
+.MainLogo {
     border: 0px;
     padding-right: 5em;
     text-align: right;
@@ -187,20 +159,6 @@ img {
     margin: 1%;
     flex: 1;
 }
-
-/*
-.orange {
-    background-color: #f39c12;
-}
-
-.red {
-    background-color: #ff4136;
-}
-
-.green {
-    background-color: #2ecc40;
-}
-*/
 </style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
 h3:after,
 h4:after,
@@ -259,6 +217,7 @@ h1 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
     color: #6Cf;
+    margin: 10px 10px 10px 10px;
 }
 
 h2 {
@@ -269,6 +228,7 @@ h2 {
     position: relative;
     font-size: 25px;
     line-height: 20px;
+    margin: 10px 10px 10px 10px;
 }
 
 h3 {
@@ -279,6 +239,7 @@ h3 {
     position: relative;
     font-size: 24px;
     line-height: 20px;
+    margin: 10px 10px 10px 10px;
 }
 
 h4 {
@@ -289,6 +250,7 @@ h4 {
     position: relative;
     font-size: 18px;
     line-height: 16px;
+    margin: 10px 10px 10px 10px;
 }
 
 h5 {
@@ -299,6 +261,7 @@ h5 {
     position: relative;
     font-size: 14px;
     line-height: 16px;
+    margin: 10px 10px 10px 10px;
 }
 
 h6 {
@@ -309,6 +272,7 @@ h6 {
     position: relative;
     font-size: 10px;
     line-height: 12px;
+    margin: 10px 10px 10px 10px;
 }
 </style><!-- CSS Always Required Default Headings END --><!-- CSS Elastic Tabs START --><style type="text/css">.tabsWrapper {
     text-align: center;
@@ -380,7 +344,7 @@ function hide(obj) {
   document.getElementById("hide_" + obj).style.display='none';
   document.getElementById("show_" + obj).style.display='';
 }
-</script><!-- JS Hide Section Code END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-takp9h6n"><div class="far fa-chart-bar"></div><span> Bar Charts - Bar</span></a><a href="javascript:void(0)" data-id="Tab-ycg8smnw"><div class="far fa-chart-bar"></div><span> Bar Charts - Bar Stacked</span></a><a href="javascript:void(0)" data-id="Tab-6kqw9nst"><div class="fas fa-audio-description"></div><span> Bar Charts - Bar Stacked 100%</span></a><a href="javascript:void(0)" data-id="Tab-6m87tl5i"><div class="far fa-file"></div><span> Bar Charts - Bar Stacked Plus/Minus</span></a></div></div><div id="Tab-takp9h6n" class="tabs-content active"><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test" style="color: #ffffff;">Bar Charts - Test</a><a id="show_50228421" href="javascript:void(0)" onclick="show('50228421');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_50228421" href="javascript:void(0)" onclick="hide('50228421');" style="color: #ffffff;">(Hide)</a></div><div id="50228421" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="50228421"><div class="flexPanel roundedCorners"><div id="ChartID-kpuo47mn"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-87ylaoqb"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-3n8o5k1c"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-s5qz26n4"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test Colors" style="color: #ffffff;">Bar Charts - Test Colors</a><a id="show_128903294" href="javascript:void(0)" onclick="show('128903294');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_128903294" href="javascript:void(0)" onclick="hide('128903294');" style="color: #ffffff;">(Hide)</a></div><div id="128903294" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="128903294"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-v427tlir"></div></div><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-jr0tlxvc"></div></div><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-be689p31"></div></div><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div id="ChartID-t8q6s4g5"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar" style="color: #ffffff;">Bar Charts - Standard Bar</a><a id="show_529548427" href="javascript:void(0)" onclick="show('529548427');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_529548427" href="javascript:void(0)" onclick="hide('529548427');" style="color: #ffffff;">(Hide)</a></div><div id="529548427" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="529548427"><div class="flexPanel roundedCorners"><div id="ChartID-6xf3b5hc"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-djw3cnk7"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar Vertical" style="color: #ffffff;">Bar Charts - Standard Bar Vertical</a><a id="show_869194479" href="javascript:void(0)" onclick="show('869194479');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_869194479" href="javascript:void(0)" onclick="hide('869194479');" style="color: #ffffff;">(Hide)</a></div><div id="869194479" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="869194479"><div class="flexPanel roundedCorners"><div id="ChartID-woeuj1d2"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-4i3owy2r"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar Vertical & Patterned" style="color: #ffffff;">Bar Charts - Standard Bar Vertical & Patterned</a><a id="show_366120207" href="javascript:void(0)" onclick="show('366120207');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_366120207" href="javascript:void(0)" onclick="hide('366120207');" style="color: #ffffff;">(Hide)</a></div><div id="366120207" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="366120207"><div class="flexPanel roundedCorners"><div id="ChartID-gawndqkz"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-w4dagy3q"></div></div></div></div></div></div><div id="Tab-ycg8smnw" class="tabs-content"><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 1 - Bar Stacked" style="color: #ffffff;">Bar Charts 1 - Bar Stacked</a><a id="show_291998416" href="javascript:void(0)" onclick="show('291998416');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_291998416" href="javascript:void(0)" onclick="hide('291998416');" style="color: #ffffff;">(Hide)</a></div><div id="291998416" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="291998416"><div class="flexPanel roundedCorners"><div id="ChartID-obqmfcvr"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-s24t1j6y"></div></div></div></div></div></div><div id="Tab-6kqw9nst" class="tabs-content"><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Stacked 100%" style="color: #ffffff;">Bar Charts - Stacked 100%</a><a id="show_1970566483" href="javascript:void(0)" onclick="show('1970566483');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1970566483" href="javascript:void(0)" onclick="hide('1970566483');" style="color: #ffffff;">(Hide)</a></div><div id="1970566483" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1970566483"><div class="flexPanel roundedCorners"><div id="ChartID-uxbi5kce"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-wr6oa73d"></div></div></div></div></div></div><div id="Tab-6m87tl5i" class="tabs-content"><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Stacked 100%" style="color: #ffffff;">Bar Charts - Stacked 100%</a><a id="show_1987636662" href="javascript:void(0)" onclick="show('1987636662');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1987636662" href="javascript:void(0)" onclick="hide('1987636662');" style="color: #ffffff;">(Hide)</a></div><div id="1987636662" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1987636662"><div class="flexPanel roundedCorners"><div id="ChartID-rni26eh1"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-j6l20au1"></div></div></div></div></div></div><script>var options = {
+</script><!-- JS Hide Section Code END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-mhdlyxj6"><div class="far fa-chart-bar"></div><span> Bar Charts - Bar</span></a><a href="javascript:void(0)" data-id="Tab-7jkyfiqg"><div class="far fa-chart-bar"></div><span> Bar Charts - Bar Stacked</span></a><a href="javascript:void(0)" data-id="Tab-fnjvhdux"><div class="fas fa-audio-description"></div><span> Bar Charts - Bar Stacked 100%</span></a><a href="javascript:void(0)" data-id="Tab-quetokw4"><div class="far fa-file"></div><span> Bar Charts - Bar Stacked Plus/Minus</span></a></div></div><div id="Tab-mhdlyxj6" class="tabs-content active"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test" style="color: #ffffff;">Bar Charts - Test</a><a id="show_2059542113" href="javascript:void(0)" onclick="show('2059542113');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_2059542113" href="javascript:void(0)" onclick="hide('2059542113');" style="color: #ffffff;">(Hide)</a></div><div id="2059542113" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="2059542113"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-mia3d2fk"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-b3ax04is"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-lbs5pndu"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-r28jyz14"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Test Colors" style="color: #ffffff;">Bar Charts - Test Colors</a><a id="show_1032161649" href="javascript:void(0)" onclick="show('1032161649');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1032161649" href="javascript:void(0)" onclick="hide('1032161649');" style="color: #ffffff;">(Hide)</a></div><div id="1032161649" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1032161649"><div class="flexPanel overflowHidden roundedCorners overflowHidden" style=" box-shadow: unset !important;"><div id="ChartID-m8y0j2s4"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden" style=" box-shadow: unset !important;"><div id="ChartID-hbyjw1d5"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden" style=" box-shadow: unset !important;"><div id="ChartID-k4fec2bw"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden" style=" box-shadow: unset !important;"><div id="ChartID-bkopdemu"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar" style="color: #ffffff;">Bar Charts - Standard Bar</a><a id="show_709458243" href="javascript:void(0)" onclick="show('709458243');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_709458243" href="javascript:void(0)" onclick="hide('709458243');" style="color: #ffffff;">(Hide)</a></div><div id="709458243" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="709458243"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-a9sv23cz"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-qoykt3m6"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar Vertical" style="color: #ffffff;">Bar Charts - Standard Bar Vertical</a><a id="show_189394295" href="javascript:void(0)" onclick="show('189394295');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_189394295" href="javascript:void(0)" onclick="hide('189394295');" style="color: #ffffff;">(Hide)</a></div><div id="189394295" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="189394295"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-2678slig"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-ojmpeziw"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Standard Bar Vertical & Patterned" style="color: #ffffff;">Bar Charts - Standard Bar Vertical & Patterned</a><a id="show_1276404847" href="javascript:void(0)" onclick="show('1276404847');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1276404847" href="javascript:void(0)" onclick="hide('1276404847');" style="color: #ffffff;">(Hide)</a></div><div id="1276404847" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1276404847"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-ex1wtob2"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-gdwque1j"></div></div></div></div></div></div><div id="Tab-7jkyfiqg" class="tabs-content"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts 1 - Bar Stacked" style="color: #ffffff;">Bar Charts 1 - Bar Stacked</a><a id="show_1836605252" href="javascript:void(0)" onclick="show('1836605252');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1836605252" href="javascript:void(0)" onclick="hide('1836605252');" style="color: #ffffff;">(Hide)</a></div><div id="1836605252" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1836605252"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-dzfpbu9e"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-hm2rqdty"></div></div></div></div></div></div><div id="Tab-fnjvhdux" class="tabs-content"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Stacked 100%" style="color: #ffffff;">Bar Charts - Stacked 100%</a><a id="show_1834716032" href="javascript:void(0)" onclick="show('1834716032');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1834716032" href="javascript:void(0)" onclick="hide('1834716032');" style="color: #ffffff;">(Hide)</a></div><div id="1834716032" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1834716032"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-n78pfag4"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-c5njav1b"></div></div></div></div></div></div><div id="Tab-quetokw4" class="tabs-content"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Bar Charts - Stacked 100%" style="color: #ffffff;">Bar Charts - Stacked 100%</a><a id="show_1155713953" href="javascript:void(0)" onclick="show('1155713953');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1155713953" href="javascript:void(0)" onclick="hide('1155713953');" style="color: #ffffff;">(Hide)</a></div><div id="1155713953" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1155713953"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-lesg4ozk"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-t0dvau3r"></div></div></div></div></div></div><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -430,7 +394,7 @@ function hide(obj) {
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-kpuo47mn'),
+var chart = new ApexCharts(document.querySelector('#ChartID-mia3d2fk'),
             options
         );
 chart.render();
@@ -501,7 +465,7 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-87ylaoqb'),
+var chart = new ApexCharts(document.querySelector('#ChartID-b3ax04is'),
             options
         );
 chart.render();
@@ -564,7 +528,7 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-3n8o5k1c'),
+var chart = new ApexCharts(document.querySelector('#ChartID-lbs5pndu'),
             options
         );
 chart.render();
@@ -630,7 +594,7 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-s5qz26n4'),
+var chart = new ApexCharts(document.querySelector('#ChartID-r28jyz14'),
             options
         );
 chart.render();
@@ -687,7 +651,7 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-v427tlir'),
+var chart = new ApexCharts(document.querySelector('#ChartID-m8y0j2s4'),
             options
         );
 chart.render();
@@ -758,7 +722,7 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-jr0tlxvc'),
+var chart = new ApexCharts(document.querySelector('#ChartID-hbyjw1d5'),
             options
         );
 chart.render();
@@ -821,7 +785,7 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-be689p31'),
+var chart = new ApexCharts(document.querySelector('#ChartID-k4fec2bw'),
             options
         );
 chart.render();
@@ -887,7 +851,7 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-t8q6s4g5'),
+var chart = new ApexCharts(document.querySelector('#ChartID-bkopdemu'),
             options
         );
 chart.render();
@@ -958,7 +922,7 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-6xf3b5hc'),
+var chart = new ApexCharts(document.querySelector('#ChartID-a9sv23cz'),
             options
         );
 chart.render();
@@ -1034,7 +998,7 @@ chart.render();
                   "align":  "center"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-djw3cnk7'),
+var chart = new ApexCharts(document.querySelector('#ChartID-qoykt3m6'),
             options
         );
 chart.render();
@@ -1105,7 +1069,7 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-woeuj1d2'),
+var chart = new ApexCharts(document.querySelector('#ChartID-2678slig'),
             options
         );
 chart.render();
@@ -1181,7 +1145,7 @@ chart.render();
                   "align":  "center"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-4i3owy2r'),
+var chart = new ApexCharts(document.querySelector('#ChartID-ojmpeziw'),
             options
         );
 chart.render();
@@ -1264,7 +1228,7 @@ chart.render();
                  "type":  "pattern"
              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-gawndqkz'),
+var chart = new ApexCharts(document.querySelector('#ChartID-ex1wtob2'),
             options
         );
 chart.render();
@@ -1352,7 +1316,7 @@ chart.render();
                  "type":  "pattern"
              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-w4dagy3q'),
+var chart = new ApexCharts(document.querySelector('#ChartID-gdwque1j'),
             options
         );
 chart.render();
@@ -1452,7 +1416,7 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-obqmfcvr'),
+var chart = new ApexCharts(document.querySelector('#ChartID-dzfpbu9e'),
             options
         );
 chart.render();
@@ -1529,7 +1493,7 @@ chart.render();
                   "align":  "center"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-s24t1j6y'),
+var chart = new ApexCharts(document.querySelector('#ChartID-hm2rqdty'),
             options
         );
 chart.render();
@@ -1647,7 +1611,7 @@ chart.render();
                    "offsetX":  40
                }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-uxbi5kce'),
+var chart = new ApexCharts(document.querySelector('#ChartID-n78pfag4'),
             options
         );
 chart.render();
@@ -1725,7 +1689,7 @@ chart.render();
                   "align":  "center"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-wr6oa73d'),
+var chart = new ApexCharts(document.querySelector('#ChartID-c5njav1b'),
             options
         );
 chart.render();
@@ -1839,7 +1803,7 @@ chart.render();
                    "offsetX":  40
                }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-rni26eh1'),
+var chart = new ApexCharts(document.querySelector('#ChartID-lesg4ozk'),
             options
         );
 chart.render();
@@ -1953,7 +1917,7 @@ chart.render();
                    "offsetX":  40
                }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-j6l20au1'),
+var chart = new ApexCharts(document.querySelector('#ChartID-t0dvau3r'),
             options
         );
 chart.render();

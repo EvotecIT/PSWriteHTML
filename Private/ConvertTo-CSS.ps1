@@ -4,16 +4,14 @@
         [string] $ClassName,
         [System.Collections.IDictionary] $Attributes
     )
-
     $Css = @(
         ".$ClassName {"
-
         foreach ($_ in $Attributes.Keys) {
-            "$($_): $($Attributes[$_]);"
+            if ($null -ne $Attributes[$_]) {
+                "$($_): $($Attributes[$_]);"
+            }
         }
-
         '}'
     ) -join "`n"
     $CSS
-
 }

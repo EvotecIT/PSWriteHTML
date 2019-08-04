@@ -51,6 +51,8 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
   - [x] New-HTMLMessage - Removed as not ready, useless
   - [x] New-HTMLTable
     - [ ] Disable Paging when amount of objects to display is lower then PagingOptions
+  - [x] New-HTMLTableContent - Added with plenty of new features
+  - [ ]
 
 - 0.0.45 - 2019.07.09
   - [x] New-HTMLTable
@@ -112,13 +114,12 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
   - New-HTMLTable - Sorting ordered for DateTime - PR by Ferdi Weiner (ferwe)
   - Removed New-HTMLChart temporary as it will be rebuilt
 
-## Advantages over ReportHTML:
+## Advantages over ReportHTML
 
--   faster report building (from 20+ seconds to 0-2 seconds)
--   updated libraries
--   bunch of different, new features
--   easier building HTML
-
+- faster report building (from 20+ seconds to 0-2 seconds)
+- updated libraries
+- bunch of different, new features
+- easier building HTML
 
 ## Credits
 

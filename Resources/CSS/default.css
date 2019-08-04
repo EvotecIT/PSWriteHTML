@@ -32,7 +32,6 @@ hr {
 
 .flexParent {
     display: flex;
-    flex-wrap: nowrap;
     justify-content: space-between;
     padding: 2px;
     /*

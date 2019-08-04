@@ -12,7 +12,12 @@ Function New-HTMLSection {
         [Parameter(Mandatory = $false)][switch] $IsHidden,
         [switch] $Collapsed,
         [int] $Height,
-        [switch] $Invisible
+        [switch] $Invisible,
+        # Following are based on https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+        [string][ValidateSet('wrap', 'nowrap', 'wrap-reverse')] $Wrap,
+        [string][ValidateSet('row', 'row-reverse', 'column', 'column-reverse')] $Direction,
+        [string][ValidateSet('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch')] $AlignContent,
+        [string][ValidateSet('stretch', 'flex-start', 'flex-end', 'center', 'baseline')] $AlignItems
 
     )
     $RandomNumber = Get-Random
@@ -27,7 +32,7 @@ Function New-HTMLSection {
             if ($Collapsed) {
                 $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
                 $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button
-                $HiddenDivStyle = 'display:none;'
+                $HiddenDivStyle = 'display:none; '
             } else {
                 $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
                 $HideStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button
@@ -57,14 +62,46 @@ Function New-HTMLSection {
         }
     }
 
+    <#
+    .flexParent {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 2px;
+        /*
+        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        */
+    }
+    #>
+
+    if ($Wrap -or $Direction) {
+        [string] $ClassName = "flexParent$(Get-RandomStringName -Size 8 -LettersOnly)"
+        $Attributes = @{
+            'display'        = 'flex'
+            'flex-wrap'      = if ($Wrap) { $Wrap };
+            'flex-direction' = if ($Direction) { $Direction };
+            'align-content'  = if ($AlignContent) { $AlignContent };
+            'align-items'    = if ($AlignItems) { $AlignItems };
+        }
+        $Css = ConvertTo-CSS -ClassName $ClassName -Attributes $Attributes
+
+        $Script:HTMLSchema.CustomCSS.Add($Css)
+    } else {
+        [string] $ClassName = 'flexParent'
+    }
+
     $DivHeaderStyle = @{
         "text-align"       = $HeaderTextAlignment
         "background-color" = ConvertFrom-Color -Color $HeaderBackGroundColor
     }
     $HeaderStyle = "color: $TextHeaderColorFromRGB;"
     if ($Invisible) {
-        New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParentInvisible' } -Value {
-            New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParentInvisible flexElement' } -Value {
+        #New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParentInvisible' } -Value {
+        New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName flexElement" } -Value {
+                # New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParentInvisible flexElement' } -Value {
                 $Object = Invoke-Command -ScriptBlock $Content
                 if ($null -ne $Object) {
                     $Object
@@ -79,8 +116,8 @@ Function New-HTMLSection {
                 New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)'
                 New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)'
             }
-            New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParent overflowHidden'; id = $RandomNumber; Style = $HiddenDivStyle } -Value {
-                New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParent flexElement collapsable overflowHidden'; id = $RandomNumber; } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName overflowHidden"; id = $RandomNumber; Style = $HiddenDivStyle } -Value {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName flexElement collapsable overflowHidden"; id = $RandomNumber; } -Value {
                     $Object = Invoke-Command -ScriptBlock $Content
                     if ($null -ne $Object) {
                         $Object
