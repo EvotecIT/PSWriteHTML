@@ -1,4 +1,5 @@
 function New-HTMLTable {
+    [alias('Table', 'EmailTable')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $HTML,

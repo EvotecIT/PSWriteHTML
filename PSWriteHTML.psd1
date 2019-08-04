@@ -12,7 +12,7 @@
     RootModule = 'PSWriteHTML.psm1'
 
     # Version number of this module.
-    ModuleVersion = '0.0.46'
+    ModuleVersion = '0.0.47'
 
     # Supported PSEditions
     CompatiblePSEditions = 'Desktop', 'Core'
@@ -96,9 +96,9 @@
     AliasesToExport = 'ChartCategory', 'ChartAxisX', 'New-ChartCategory', 'ChartAxisY', 
     'ChartBar', 'ChartBarOptions', 'ChartGrid', 'ChartLegend', 'ChartLine', 
     'ChartTheme', 'ChartToolbar', 'Chart', 'Image', 'New-HTMLColumn', 
-    'New-HTMLContent', 'TableButtonCopy', 'EmailTableButtonCopy', 
-    'TableButtonCSV', 'EmailTableButtonCSV', 'TableButtonExcel', 
-    'EmailTableButtonExcel', 'TableButtonPageLength', 
+    'New-HTMLContent', 'Table', 'EmailTable', 'TableButtonCopy', 
+    'EmailTableButtonCopy', 'TableButtonCSV', 'EmailTableButtonCSV', 
+    'TableButtonExcel', 'EmailTableButtonExcel', 'TableButtonPageLength', 
     'EmailTableButtonPageLength', 'TableButtonPDF', 'EmailTableButtonPDF', 
     'TableButtonPrint', 'EmailTableButtonPrint', 'EmailTableCondition', 
     'TableConditionalFormatting', 'TableContent', 'EmailTableContent', 
