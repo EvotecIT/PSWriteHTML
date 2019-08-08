@@ -44,7 +44,8 @@ function New-HTMLTable {
         [string[]] $ResponsivePriorityOrder,
         [int[]] $ResponsivePriorityOrderIndex,
         [string[]] $PriorityProperties,
-        [alias('DataTableName')][string] $DataTableID
+        [alias('DataTableName')][string] $DataTableID,
+        [switch] $ImmediatelyShowHiddenDetails
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -261,8 +262,16 @@ function New-HTMLTable {
 
     # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
     if (-not $DisableResponsiveTable) {
-        $Options."responsive" = @{
-            details = $true
+        if ($ImmediatelyShowHiddenDetails) {
+            $Options."responsive" = @{
+                details = @{
+                    display = '$.fn.dataTable.Responsive.display.childRowImmediate'
+                }
+            }
+        } else {
+            $Options."responsive" = @{
+                details = $true
+            }
         }
     }
 
@@ -352,6 +361,12 @@ function New-HTMLTable {
     }
 
     $Options = $Options | ConvertTo-Json -Depth 6
+
+    # cleans up $Options for ImmediatelyShowHiddenDetails
+    # Since it's JavaScript inside we're basically removing double quotes from JSON in favor of no quotes at all
+    # Before: "display": "$.fn.dataTable.Responsive.display.childRowImmediate"
+    # After: "display": $.fn.dataTable.Responsive.display.childRowImmediate
+    $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.childRowImmediate)"', '$1'
 
     #if ($null -ne $ConditionalFormatting) {
     #$Conditional = Invoke-Command -ScriptBlock $ConditionalFormatting
