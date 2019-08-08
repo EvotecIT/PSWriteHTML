@@ -224,21 +224,6 @@ function New-HTMLTable {
         $Options.'scrollY' = "$($ScrollSizeY)px"
     }
 
-    #if ($FreezeColumnsLeft -or $FreezeColumnsRight) {
-    <#
-        $LeftColumns = foreach ($_ in $FreezeColumnsLeft) {
-            $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
-            if ($Index -ne -1) {
-                $Index
-            }
-        }
-        $RightColumns = foreach ($_ in $FreezeColumnsRight) {
-            $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
-            if ($Index -ne -1) {
-                ($HeaderNames.Count - $Index)
-            }
-        }
-        #>
     if ($FreezeColumnsLeft -or $FreezeColumnsRight) {
         $Options.fixedColumns = [ordered] @{ }
         if ($FreezeColumnsLeft) {
@@ -368,10 +353,6 @@ function New-HTMLTable {
     # After: "display": $.fn.dataTable.Responsive.display.childRowImmediate
     $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.childRowImmediate)"', '$1'
 
-    #if ($null -ne $ConditionalFormatting) {
-    #$Conditional = Invoke-Command -ScriptBlock $ConditionalFormatting
-    #$ConditionalFormatting
-    #}
     # Process Conditional Formatting. Ugly JS building
     $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames
 
