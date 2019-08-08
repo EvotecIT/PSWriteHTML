@@ -47,12 +47,18 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.46 - Unreleased
+- 0.0.47 - Unreleased
+  - [x] Fix for LOGO in PowerShell Core
+  - [x] New-HTMLTable
+    - [ ] Added ImmediatelyShowHiddenDetails - Responsive has the ability to display the details that it has hidden in a variety of different ways. Its default is to allow the end user to toggle the the display by clicking on a row and showing the information in a DataTables child row. At times it can be useful not to require end user interaction to display the hidden data in a responsive manner, which can be done with the childRowImmediate display type.
+
+- 0.0.46 - 2019.08.04 - Blog post about release: https://evotec.xyz/working-with-html-in-powershell-just-got-better/
   - [x] New-HTMLMessage - Removed as not ready, useless
   - [x] New-HTMLTable
     - [ ] Disable Paging when amount of objects to display is lower then PagingOptions
+    - [ ] Added DataTableID for special use cases
   - [x] New-HTMLTableContent - Added with plenty of new features
-  - [ ]
+  - [ ] New HTMLTableConditionalFormatting - Added inline parameter
 
 - 0.0.45 - 2019.07.09
   - [x] New-HTMLTable
