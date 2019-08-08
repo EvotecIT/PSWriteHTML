@@ -40,3 +40,35 @@ function New-HTMLLogo {
 
     }
 }
+
+<#
+
+<table><tbody>
+<tr>
+    <td class="clientlogo"><img src="$Leftlogo" /></td>
+    <td class="MainLogo"><img src="$Rightlogo" /></td>
+</tr>
+</tbody></table>
+#>
+<#
+$Attributes = @{
+    src = "https://$Rightlogo"
+    style = @{
+        color = 'red'
+        'background-color' = 'yellow'
+    }
+}
+
+New-HTMLTag -Tag 'Table' {
+    New-HTMLTag -Tag 'tbody' {
+        New-HTMLTag -Tag 'tr' {
+            New-HTMLTag -Tag 'td' -Attributes @{ class = 'clientLogo' } {
+                New-HTMLTag -Tag 'img' -Attributes $Attributes
+            }
+            New-HTMLTag -Tag 'td' -Attributes @{ class = 'MainLogo' } {
+                New-HTMLTag -Tag 'img' -Attributes @{ src = "https://$Rightlogo" }
+            }
+        }
+    }
+}
+#>
