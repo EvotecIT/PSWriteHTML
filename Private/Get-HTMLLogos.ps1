@@ -14,22 +14,21 @@ Function Get-HTMLLogos {
         [string]$RightLogoString
 
     )
-    $LogoSources = @{}
-    $LogoPath = @()
-
-    if ([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
-        if ([String]::IsNullOrEmpty($RightLogoString) -eq $false) {
-            $LogoSources.Add($RightLogoName, $RightLogoString)
+    $LogoSources = @{ }
+    $LogoPath = @(
+        if ([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
+            if ([String]::IsNullOrEmpty($RightLogoString) -eq $false) {
+                $LogoSources.Add($RightLogoName, $RightLogoString)
+            }
+            if ([String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
+                $LogoSources.Add($LeftLogoName, $LeftLogoString)
+            }
+        } else {
+            "$PSScriptRoot\..\Resources\Images\Other"
         }
-        if ([String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
-            $LogoSources.Add($LeftLogoName, $LeftLogoString)
-        }
-    } else {
-        $LogoPath += "$PSScriptRoot\..\Resources\Images\Other"
-    }
-    $LogoPath += "$PSScriptRoot\..\Resources\Images\DataTables"
-
-    $ImageFiles = Get-ChildItem -Path (join-path $LogoPath '\*') -Include *.jpg, *.png, *.bmp -Recurse
+        "$PSScriptRoot\..\Resources\Images\DataTables"
+    )
+    $ImageFiles = Get-ChildItem -Path (Join-Path $LogoPath '\*') -Include *.jpg, *.png, *.bmp -Recurse
     foreach ($ImageFile in $ImageFiles) {
         if ($ImageFile.Extension -eq '.jpg') {
             $FileType = 'jpeg'
@@ -37,7 +36,13 @@ Function Get-HTMLLogos {
             $FileType = $ImageFile.Extension.Replace('.', '')
         }
         Write-Verbose "Converting $($ImageFile.FullName) to base64 ($FileType)"
-        $LogoSources.Add($ImageFile.BaseName, "data:image/$FileType;base64," + [Convert]::ToBase64String((Get-Content $ImageFile.FullName -Encoding Byte)))
+
+        if ($PSEdition -eq 'Core') {
+            $ImageContent = Get-Content -AsByteStream -LiteralPath $ImageFile.FullName
+        } else {
+            $ImageContent = Get-Content -LiteralPath $ImageFile.FullName -Encoding Byte
+        }
+        $LogoSources.Add($ImageFile.BaseName, "data:image/$FileType;base64," + [Convert]::ToBase64String(($ImageContent)))
     }
     Write-Output $LogoSources
 }
