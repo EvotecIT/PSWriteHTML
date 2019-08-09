@@ -55,9 +55,10 @@ hr {
 
 .flexElement {
     flex-basis: 100%;
-    flex: 1 auto;
+
 
     /*
+    flex: 1 auto;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;

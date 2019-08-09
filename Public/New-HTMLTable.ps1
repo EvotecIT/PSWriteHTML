@@ -448,7 +448,7 @@ function New-HTMLTable {
     }
 
 
-    New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexElement' } -Value {
+    New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexElement overflowHidden' } -Value {
         $BeforeTableCode
         $BeforeTable
         # Build HTML TABLE
