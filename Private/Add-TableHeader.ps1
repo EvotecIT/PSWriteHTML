@@ -4,9 +4,10 @@
         [System.Collections.Generic.List[PSCustomObject]] $HeaderRows,
         [System.Collections.Generic.List[PSCUstomObject]] $HeaderStyle,
         [System.Collections.Generic.List[PSCUstomObject]] $HeaderTop,
+        [System.Collections.Generic.List[PSCUstomObject]] $HeaderResponsiveOperations,
         [string[]] $HeaderNames
     )
-    if ($HeaderRows.Count -eq 0 -and $HeaderStyle.Count -eq 0 -and $HeaderTop.Count -eq 0) {
+    if ($HeaderRows.Count -eq 0 -and $HeaderStyle.Count -eq 0 -and $HeaderTop.Count -eq 0 -and $HeaderResponsiveOperations.Count -eq 0) {
         return
     }
 
@@ -24,6 +25,18 @@
                 Count = $Index.Count
                 Style = $Row.Style
                 Used  = $false
+            }
+        }
+    }
+
+    $ResponsiveOperations = @{ }
+    foreach ($Row in $HeaderResponsiveOperations) {
+        foreach ($_ in $Row.Names) {
+            $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
+            $ResponsiveOperations[$Index] = @{
+                Index                = $Index
+                ResponsiveOperations = $Row.ResponsiveOperations
+                Used                 = $false
             }
         }
     }
@@ -75,7 +88,7 @@
                 foreach ($_ in $MergeColumns) {
                     if ($_.Index -contains $i) {
                         if ($_.Used -eq $false) {
-                            New-HTMLTag -Tag 'th' -Attributes @{ colspan = $_.Count; style = ($_.Style) } -Value { $_.Title }
+                            New-HTMLTag -Tag 'th' -Attributes @{ colspan = $_.Count; style = ($_.Style); class = $ResponsiveOperations[$i] } -Value { $_.Title }
                             $_.Used = $true
                             $Found = $true
                         } else {
@@ -88,13 +101,13 @@
                     if ($MergeColumns.Count -eq 0) {
                         # if there are no columns that are supposed to get a Title (merged Title over 2 or more columns) we remove rowspan completly and just apply style
                         # the style will apply, however if Style will be empty it will be removed by New-HTMLTag function
-                        New-HTMLTag -Tag 'th' { $HeaderNames[$i] } -Attributes @{ style = $Styles[$i].Style }
+                        New-HTMLTag -Tag 'th' { $HeaderNames[$i] } -Attributes @{ style = $Styles[$i].Style; class = $ResponsiveOperations[$i].ResponsiveOperations }
                     } else {
                         # Since we're adding Title we need to use Rowspan. Rowspan = 2 means spaning row over 2 rows
-                        New-HTMLTag -Tag 'th' { $HeaderNames[$i] } -Attributes @{ rowspan = 2; style = $Styles[$i].Style }
+                        New-HTMLTag -Tag 'th' { $HeaderNames[$i] } -Attributes @{ rowspan = 2; style = $Styles[$i].Style; class = $ResponsiveOperations[$i].ResponsiveOperations }
                     }
                 } else {
-                    $Head = New-HTMLTag -Tag 'th' { $HeaderNames[$i] } -Attributes @{ style = $Styles[$i].Style }
+                    $Head = New-HTMLTag -Tag 'th' { $HeaderNames[$i] } -Attributes @{ style = $Styles[$i].Style; class = $ResponsiveOperations[$i].ResponsiveOperations }
                     $NewHeader.Add($Head)
                 }
             }
