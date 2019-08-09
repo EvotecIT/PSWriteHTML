@@ -16,7 +16,41 @@
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl')][string] $Direction,
         [switch] $AddRow,
-        [int] $ColumnCount
+        [int] $ColumnCount,
+        [ValidateSet(
+            'all',
+            'none',
+            'never',
+            'desktop',
+            'not-desktop',
+            'tablet-l',
+            'tablet-p',
+            'mobile-l',
+            'mobile-p',
+            'min-desktop',
+            'max-desktop',
+            'tablet',
+            'not-tablet',
+            'min-tablet',
+            'max-tablet',
+            'not-tablet-l',
+            'min-tablet-l',
+            'max-tablet-l',
+            'not-tablet-p',
+            'min-tablet-p',
+            'max-tablet-p',
+            'mobile',
+            'not-mobile',
+            'min-mobile',
+            'max-mobile',
+            'not-mobile-l',
+            'min-mobile-l',
+            'max-mobile-l',
+            'not-mobile-p',
+            'min-mobile-p',
+            'max-mobile-p'
+        )][string] $ResponsiveOperations
+
     )
     if ($AddRow) {
         Write-Warning "New-HTMLTableHeader - Using AddRow switch is deprecated. It's not nessecary anymore. Just use Title alone. It will be removed later on."
@@ -41,6 +75,11 @@
         $Type = 'TableHeaderFullRow'
     } elseif ((-not $AddRow -and $Title) -or ($Title -and $Names)) {
         $Type = 'TableHeaderMerge'
+    } elseif ($Names -and $ResponsiveOperations) {
+        $Type = 'TableHeaderResponsiveOperations'
+    } elseif ($ResponsiveOperations) {
+        Write-Warning 'New-HTMLTableHeader - ResponsiveOperations require Names (ColumnNames) to apply operation to.'
+        return
     } else {
         $Type = 'TableHeaderStyle'
     }
@@ -48,10 +87,11 @@
     [PSCustomObject]@{
         Type   = $Type
         Output = @{
-            Names       = $Names
-            Title       = $Title
-            Style       = ConvertTo-HTMLStyle @Style
-            ColumnCount = $ColumnCount
+            Names                = $Names
+            ResponsiveOperations = $ResponsiveOperations
+            Title                = $Title
+            Style                = ConvertTo-HTMLStyle @Style
+            ColumnCount          = $ColumnCount
         }
     }
 }

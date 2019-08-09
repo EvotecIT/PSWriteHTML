@@ -45,7 +45,8 @@ function New-HTMLTable {
         [int[]] $ResponsivePriorityOrderIndex,
         [string[]] $PriorityProperties,
         [alias('DataTableName')][string] $DataTableID,
-        [switch] $ImmediatelyShowHiddenDetails
+        [switch] $ImmediatelyShowHiddenDetails,
+        [alias('RemoveShowButton')][switch] $HideShowButton
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -57,6 +58,7 @@ function New-HTMLTable {
     $HeaderRows = [System.Collections.Generic.List[PSCustomObject]]::new()
     $HeaderStyle = [System.Collections.Generic.List[PSCustomObject]]::new()
     $HeaderTop = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $HeaderResponsiveOperations = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ContentRows = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ContentStyle = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ContentTop = [System.Collections.Generic.List[PSCustomObject]]::new()
@@ -97,6 +99,8 @@ function New-HTMLTable {
                     $ContentTop.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableConditionInline') {
                     $ContentFormattingInline.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableHeaderResponsiveOperations') {
+                    $HeaderResponsiveOperations.Add($Parameters.Output)
                 }
             }
         }
@@ -144,7 +148,7 @@ function New-HTMLTable {
     }
     [string] $Header = $Table | Select-Object -First 1 # this gets header
     [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
-    $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop
+    $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
 
     # This modifies Table content.
     # It basically goes thru every single row and checks if values to add styles or inline conditional formatting
@@ -247,18 +251,23 @@ function New-HTMLTable {
 
     # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
     if (-not $DisableResponsiveTable) {
+        $Options["responsive"] = @{ }
+        $Options["responsive"]['details'] = @{ }
         if ($ImmediatelyShowHiddenDetails) {
-            $Options."responsive" = @{
-                details = @{
-                    display = '$.fn.dataTable.Responsive.display.childRowImmediate'
-                }
-            }
-        } else {
-            $Options."responsive" = @{
-                details = $true
-            }
+            $Options["responsive"]['details']['display'] = '$.fn.dataTable.Responsive.display.childRowImmediate'
         }
+        if ($HideShowButton) {
+            $Options["responsive"]['details']['type'] = 'none' # this makes button invisible
+        } else {
+            $Options["responsive"]['details']['type'] = 'inline' # this adds a button
+        }
+    } else {
+        # HideSHowButton doesn't work
+        # ImmediatelyShowHiddenDetails doesn't work
+        # Maybe I should communicate this??
+        # Better would be with parametersets but don't want to play now
     }
+
 
     if ($OrderMulti) {
         $Options.orderMulti = $OrderMulti.IsPresent
@@ -303,7 +312,6 @@ function New-HTMLTable {
         $Options."scrollY" = "$($ScreenSizePercent)vh"
     }
     if ($null -ne $ConditionalFormatting) {
-        #.Count -gt 0) {
         $Options.createdRow = ''
     }
 
@@ -329,20 +337,6 @@ function New-HTMLTable {
                 $_
             }
         )
-
-
-        <#
-        "columnDefs": [ {
-            responsivePriority: 1,
-            targets: 0
-        },
-        {
-            responsivePriority: 2,
-            targets: 9
-        }
-        ],
-        #>
-
     }
 
     $Options = $Options | ConvertTo-Json -Depth 6
