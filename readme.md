@@ -50,9 +50,11 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 - 0.0.47 - Unreleased
   - [x] Fix for LOGO in PowerShell Core
   - [x] New-HTMLTable
-    - [ ] Added ImmediatelyShowHiddenDetails - Responsive has the ability to display the details that it has hidden in a variety of different ways. Its default is to allow the end user to toggle the the display by clicking on a row and showing the information in a DataTables child row. At times it can be useful not to require end user interaction to display the hidden data in a responsive manner, which can be done with the childRowImmediate display type.
+    - [x] Added ImmediatelyShowHiddenDetails switch - Responsive has the ability to display the details that it has hidden in a variety of different ways. Its default is to allow the end user to toggle the the display by clicking on a row and showing the information in a DataTables child row. At times it can be useful not to require end user interaction to display the hidden data in a responsive manner, which can be done with the childRowImmediate display type.
+  - [x] Fix for New-HTML wrong positioning in certain conditions - bug introduced in 0.0.46
+  - [x] Fix for Table Simplify with margins
 
-- 0.0.46 - 2019.08.04 - Blog post about release: https://evotec.xyz/working-with-html-in-powershell-just-got-better/
+- 0.0.46 - 2019.08.04 - [Blog post about release](https://evotec.xyz/working-with-html-in-powershell-just-got-better/)
   - [x] New-HTMLMessage - Removed as not ready, useless
   - [x] New-HTMLTable
     - [ ] Disable Paging when amount of objects to display is lower then PagingOptions
@@ -89,7 +91,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
     - [ ] If used with Names without Title it will assume styling
     - [ ] Left AddRow for compatibility reasons, may remove it in future
 
-- 0.0.40 - 2019.06.29 - https://evotec.xyz/all-your-html-tables-are-belong-to-us/
+- 0.0.40 - 2019.06.29 - [Blog post about release](https://evotec.xyz/all-your-html-tables-are-belong-to-us/)
   - [x] New-HTMLTable features
     - [x] FixedHeader/FixedFooter options
     - [x] Scrolling
@@ -105,7 +107,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
   - Fix for DefaultSortColumn
   - Fix for DefaultSortOrder when set to descending
 
-- 0.0.38 - 2019.06.17 - http://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes
+- 0.0.38 - 2019.06.17 - [Blog post about release](http://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes)
   - Added support for Bar Charts/Line Charts
   - Added support for icons in tabs
   - Added support for controlling tabs
@@ -152,11 +154,11 @@ Following JS Framework is intergrated as part of this module. It's responsible f
 
 It was downloaded from https://datatables.net/download/ with following settings.
 
--   [x] Styling Framework:
-    -   [x] DataTables' default styling.v1.10.18
--   [x] Selected Packages:
-    -   [x] jQuery 3 DataTables requires jQuery. Don't select either version if you already have it.v3.3.1
-    -   [x] Enhance HTML tables with advanced interaction controls.v1.10.18
+- [x] Styling Framework:
+  - [x] DataTables' default styling.v1.10.18
+- [x] Selected Packages:
+  -   [x] jQuery 3 DataTables requires jQuery. Don't select either version if you already have it.v3.3.1
+  -   [x] Enhance HTML tables with advanced interaction controls.v1.10.18
 -   [x] Extensions:
     -   [x] AutoFill Excel-like click and drag copying and filling of data.v2.3.2
     -   [x] Buttons A common framework for user interaction buttons.v1.5.4
@@ -194,62 +196,62 @@ JSZip and PDFMake are not downloaded as part of this package. They fail to impor
 
 This allows for **code blocks** support. Currently it uses Release Candidate version as it's first version to support **PowerShell highlighting** and many additional languages. It will be updated to new version
 
--   [x] Downloaded from https://github.com/EnlighterJS/EnlighterJS/tree/v3.0.0-RC1
+- [x] Downloaded from https://github.com/EnlighterJS/EnlighterJS/tree/v3.0.0-RC1
 
 #### Following languages are supported for New-HTMLCodeBlock
 
--   [x] **Assembly** (assembly, asm)
--   [x] **AVR Assembly** (avrassembly, avrasm)
--   [x] **C/C++** (c,cpp, c++)
--   [x] **C#** (csharp)
--   [x] **CSS** (css)
--   [x] **Cython** (cython)
--   [x] **CordPro** (cordpro)
--   [x] **diff** (diff)
--   [x] **Dockerfile** (docker, dockerfile)
--   [x] **Generic** (generic, standard) - default highlighting scheme
--   [x] **Groovy** (groovy)
--   [x] **Go** (go, golang)
--   [x] **HTML** (html)
--   [x] **Ini** (ini, conf)
--   [x] **Java** (java)
--   [x] **Javascript** (js, javascript, jquery, mootools, ext.js)
--   [x] **JSON** (json)
--   [x] **Kotlin** (kotlin)
--   [x] **LESS** (less)
--   [x] **LUA** (lua)
--   [x] **Markdown** (gfm, md, markdown)
--   [x] **Matlab/Octave** (octave, matlab)
--   [x] **NSIS** (nsis)
--   [x] **PHP** (php)
--   [x] **Powerhsell** (powershell)
--   [x] **Prolog** (prolog)
--   [x] **Python** (py, python)
--   [x] **RAW** (raw) - raw code without highlighting with EnlighterJS container styles!
--   [x] **Ruby** (ruby)
--   [x] **Rust** (rust)
--   [x] **SCSS** (scss, sass)
--   [x] **Shellscript** (shell, bash)
--   [x] **SQL** (sql)
--   [x] **Squirrel** (squirrel)
--   [x] **Swift** (swift)
--   [x] **Typescript** (typescript)
--   [x] **VHDL** (vhdl)
--   [x] **VisualBasic** (visualbasic, vb)
--   [x] **XML** (xml)
--   [x] **YAML** (yaml)
+- [x] **Assembly** (assembly, asm)
+- [x] **AVR Assembly** (avrassembly, avrasm)
+- [x] **C/C++** (c,cpp, c++)
+- [x] **C#** (csharp)
+- [x] **CSS** (css)
+- [x] **Cython** (cython)
+- [x] **CordPro** (cordpro)
+- [x] **diff** (diff)
+- [x] **Dockerfile** (docker, dockerfile)
+- [x] **Generic** (generic, standard) - default highlighting scheme
+- [x] **Groovy** (groovy)
+- [x] **Go** (go, golang)
+- [x] **HTML** (html)
+- [x] **Ini** (ini, conf)
+- [x] **Java** (java)
+- [x] **Javascript** (js, javascript, jquery, mootools, ext.js)
+- [x] **JSON** (json)
+- [x] **Kotlin** (kotlin)
+- [x] **LESS** (less)
+- [x] **LUA** (lua)
+- [x] **Markdown** (gfm, md, markdown)
+- [x] **Matlab/Octave** (octave, matlab)
+- [x] **NSIS** (nsis)
+- [x] **PHP** (php)
+- [x] **Powerhsell** (powershell)
+- [x] **Prolog** (prolog)
+- [x] **Python** (py, python)
+- [x] **RAW** (raw) - raw code without highlighting with EnlighterJS container styles!
+- [x] **Ruby** (ruby)
+- [x] **Rust** (rust)
+- [x] **SCSS** (scss, sass)
+- [x] **Shellscript** (shell, bash)
+- [x] **SQL** (sql)
+- [x] **Squirrel** (squirrel)
+- [x] **Swift** (swift)
+- [x] **Typescript** (typescript)
+- [x] **VHDL** (vhdl)
+- [x] **VisualBasic** (visualbasic, vb)
+- [x] **XML** (xml)
+- [x] **YAML** (yaml)
 
 #### Following themes are supported for New-HTMLCodeBlock
 
--   [x] **Enlighter** (enlighter, standard) - Enlighter`s default Theme
--   [x] **Classic** (classic) - SyntaxHighlighter inspired
--   [x] **Bootstrap** (bootstrap4) - Bootstrap 4 inpired themes, high contrast
--   [x] **Beyond** (beyond) - BeyondTechnology Theme
--   [x] **Godzilla** (godzilla) - A MDN inspired Theme
--   [x] **Eclipse** (eclipse) - Eclipse inspired
--   [x] **MooTwo** (mootwo) - Inspired by the MooTools Website
--   [x] **Droide** (droide) - Modern, minimalistic
--   [x] **Minimal** (minimal) - Bright, High contrast
--   [x] **Atomic** (atomic) - Dark, Colorful
--   [x] **Dracula** (dracula) - Dark, using official [draculatheme](https://draculatheme.com/) colorscheme
--   [x] **Rowhammer** (rowhammer) - Light, Transparent, divided rows
+- [x] **Enlighter** (enlighter, standard) - Enlighter`s default Theme
+- [x] **Classic** (classic) - SyntaxHighlighter inspired
+- [x] **Bootstrap** (bootstrap4) - Bootstrap 4 inpired themes, high contrast
+- [x] **Beyond** (beyond) - BeyondTechnology Theme
+- [x] **Godzilla** (godzilla) - A MDN inspired Theme
+- [x] **Eclipse** (eclipse) - Eclipse inspired
+- [x] **MooTwo** (mootwo) - Inspired by the MooTools Website
+- [x] **Droide** (droide) - Modern, minimalistic
+- [x] **Minimal** (minimal) - Bright, High contrast
+- [x] **Atomic** (atomic) - Dark, Colorful
+- [x] **Dracula** (dracula) - Dark, using official [draculatheme](https://draculatheme.com/) colorscheme
+- [x] **Rowhammer** (rowhammer) - Light, Transparent, divided rows
