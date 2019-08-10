@@ -4,8 +4,12 @@
     border-color: black;
     border-collapse: collapse;
     /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
-    /* font-size: 8pt; */
-    width: 100%;
+    /* font-size: 8pt;
+     width: 100%;
+    */
+
+    box-sizing: border-box;
+    width: calc(100% - 20px);
     margin: 10px;
 }
 
