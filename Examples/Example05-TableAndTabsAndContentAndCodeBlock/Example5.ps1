@@ -1,4 +1,4 @@
-Import-Module PSWriteHTML.psd1 -Force
+Import-Module .\PSWriteHTML.psd1 -Force
 
 $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, SchemaMaster
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName

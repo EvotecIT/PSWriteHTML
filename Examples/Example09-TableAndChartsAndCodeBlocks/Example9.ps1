@@ -58,7 +58,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLPanel {
-            $Processes = Get-Process | select -First 5
+            $Processes = Get-Process | Select-Object -First 5
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
     }

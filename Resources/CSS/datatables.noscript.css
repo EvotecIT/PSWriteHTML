@@ -9,8 +9,8 @@ table {
     */
 
     box-sizing: border-box;
-    width: calc(100% - 20px);
-    margin: 10px;
+    width: calc(100% - 16px);
+    margin: 8px;
 }
 
 table th {

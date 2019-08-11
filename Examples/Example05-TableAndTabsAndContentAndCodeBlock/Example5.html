@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-02 22:29:32" name="revised"/><title></title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-11 21:10:48" name="revised"/><title></title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -56,9 +56,10 @@ hr {
 
 .flexElement {
     flex-basis: 100%;
-    flex: 1 auto;
+
 
     /*
+    flex: 1 auto;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -217,6 +218,7 @@ h1 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
     color: #6Cf;
+    margin: 10px 10px 10px 10px;
 }
 
 h2 {
@@ -227,6 +229,7 @@ h2 {
     position: relative;
     font-size: 25px;
     line-height: 20px;
+    margin: 10px 10px 10px 10px;
 }
 
 h3 {
@@ -237,6 +240,7 @@ h3 {
     position: relative;
     font-size: 24px;
     line-height: 20px;
+    margin: 10px 10px 10px 10px;
 }
 
 h4 {
@@ -247,6 +251,7 @@ h4 {
     position: relative;
     font-size: 18px;
     line-height: 16px;
+    margin: 10px 10px 10px 10px;
 }
 
 h5 {
@@ -257,6 +262,7 @@ h5 {
     position: relative;
     font-size: 14px;
     line-height: 16px;
+    margin: 10px 10px 10px 10px;
 }
 
 h6 {
@@ -267,6 +273,7 @@ h6 {
     position: relative;
     font-size: 10px;
     line-height: 12px;
+    margin: 10px 10px 10px 10px;
 }
 </style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
 td {
@@ -316,8 +323,13 @@ thead input {
     border-color: black;
     border-collapse: collapse;
     /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
-    /* font-size: 8pt; */
-    width: 99%;
+    /* font-size: 8pt;
+      width: 99%;
+    */
+
+    box-sizing: border-box;
+    width: calc(100% - 20px);
+    margin: 10px;
 }
 
 table th {
@@ -425,25 +437,25 @@ table th {
     display: block;
 }
 </style><!-- CSS Elastic Tabs END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
-  document.getElementById(obj).style.display='block';
-  document.getElementById("hide_" + obj).style.display='';
-  document.getElementById("show_" + obj).style.display='none';
+  document.getElementById(obj).style.display = 'block';
+  document.getElementById("hide_" + obj).style.display = '';
+  document.getElementById("show_" + obj).style.display = 'none';
 }
 function hide(obj) {
-  document.getElementById(obj).style.display='none';
-  document.getElementById("hide_" + obj).style.display='none';
-  document.getElementById("show_" + obj).style.display='';
+  document.getElementById(obj).style.display = 'none';
+  document.getElementById("hide_" + obj).style.display = 'none';
+  document.getElementById("show_" + obj).style.display = '';
 }
 </script><!-- JS Hide Section Code END --><!-- CSS EnlighterJS CodeBlocks START --><style type="text/css">div.enlighter-default {
     flex-basis: 100%;
     margin: 0 !important;
 }
-</style><!-- CSS EnlighterJS CodeBlocks END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- CSS EnlighterJS CodeBlocks START --><link href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css" type="text/css" rel="stylesheet"/><!-- CSS EnlighterJS CodeBlocks END --><!-- JS EnlighterJS CodeBlocks START --><script src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js" type="text/javascript"></script><!-- JS EnlighterJS CodeBlocks END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-wtap567j"><div></div><span> Dashboard</span></a><a href="javascript:void(0)" data-id="Tab-19tnm4vy"><div></div><span> Test 2</span></a></div></div><div id="Tab-wtap567j" class="tabs-content active"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Content" style="color: #ffffff;">Content</a><a id="show_1413991136" href="javascript:void(0)" onclick="show('1413991136');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1413991136" href="javascript:void(0)" onclick="hide('1413991136');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1413991136" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1413991136"><div class="flexPanel roundedCorners overflowHidden"><script>                $(document).ready(function() {
+</style><!-- CSS EnlighterJS CodeBlocks END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- CSS EnlighterJS CodeBlocks START --><link href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css" type="text/css" rel="stylesheet"/><!-- CSS EnlighterJS CodeBlocks END --><!-- JS EnlighterJS CodeBlocks START --><script src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js" type="text/javascript"></script><!-- JS EnlighterJS CodeBlocks END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-2rly47qz"><div></div><span> Dashboard</span></a><a href="javascript:void(0)" data-id="Tab-ko4lc52g"><div></div><span> Test 2</span></a></div></div><div id="Tab-2rly47qz" class="tabs-content active"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Content" style="color: #ffffff;">Content</a><a id="show_1279017755" href="javascript:void(0)" onclick="show('1279017755');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1279017755" href="javascript:void(0)" onclick="hide('1279017755');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1279017755" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1279017755"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
                     //  Table code
-                    var table = $('#DT-HFWEGzbO').DataTable(
+                    var table = $('#DT-xCBrncsI').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -497,18 +509,20 @@ function hide(obj) {
     "searching":  true,
     "stateSave":  true,
     "responsive":  {
-                       "details":  true
+                       "details":  {
+                                       "type":  "inline"
+                                   }
                    },
     "createdRow":  ""
 }
                     );
                     
-                });</script><div class="flexElement"><table id="DT-HFWEGzbO" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="flexPanel roundedCorners overflowHidden"><script>                $(document).ready(function() {
+                });</script><div class="flexElement overflowHidden"><table id="DT-xCBrncsI" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
                     //  Table code
-                    var table = $('#DT-RfKTRaTR').DataTable(
+                    var table = $('#DT-AmPKHoYh').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -562,18 +576,20 @@ function hide(obj) {
     "searching":  true,
     "stateSave":  true,
     "responsive":  {
-                       "details":  true
+                       "details":  {
+                                       "type":  "inline"
+                                   }
                    },
     "createdRow":  ""
 }
                     );
                     
-                });</script><div class="flexElement"><table id="DT-RfKTRaTR" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text 2" style="color: #ffffff;">My text 2</a><a id="show_1896192168" href="javascript:void(0)" onclick="show('1896192168');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1896192168" href="javascript:void(0)" onclick="hide('1896192168');" style="color: #ffffff;">(Hide)</a></div><div id="1896192168" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1896192168"><script>                $(document).ready(function() {
+                });</script><div class="flexElement overflowHidden"><table id="DT-AmPKHoYh" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text 2" style="color: #ffffff;">My text 2</a><a id="show_1386061307" href="javascript:void(0)" onclick="show('1386061307');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1386061307" href="javascript:void(0)" onclick="hide('1386061307');" style="color: #ffffff;">(Hide)</a></div><div id="1386061307" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1386061307"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
                     //  Table code
-                    var table = $('#DT-AfUhoxwX').DataTable(
+                    var table = $('#DT-aiWFuGDv').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -627,18 +643,20 @@ function hide(obj) {
     "searching":  true,
     "stateSave":  true,
     "responsive":  {
-                       "details":  true
+                       "details":  {
+                                       "type":  "inline"
+                                   }
                    },
     "createdRow":  ""
 }
                     );
                     
-                });</script><div class="flexElement"><table id="DT-AfUhoxwX" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Content New" style="color: #ffffff;">Content New</a><a id="show_2011717623" href="javascript:void(0)" onclick="show('2011717623');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_2011717623" href="javascript:void(0)" onclick="hide('2011717623');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="2011717623" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="2011717623"><div class="flexPanel roundedCorners overflowHidden"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text" style="color: #ffffff;">My text</a><a id="show_549775314" href="javascript:void(0)" onclick="show('549775314');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_549775314" href="javascript:void(0)" onclick="hide('549775314');" style="color: #ffffff;">(Hide)</a></div><div id="549775314" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="549775314"><script>                $(document).ready(function() {
+                });</script><div class="flexElement overflowHidden"><table id="DT-aiWFuGDv" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Content New" style="color: #ffffff;">Content New</a><a id="show_5307346" href="javascript:void(0)" onclick="show('5307346');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_5307346" href="javascript:void(0)" onclick="hide('5307346');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="5307346" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="5307346"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text" style="color: #ffffff;">My text</a><a id="show_1332450303" href="javascript:void(0)" onclick="show('1332450303');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1332450303" href="javascript:void(0)" onclick="hide('1332450303');" style="color: #ffffff;">(Hide)</a></div><div id="1332450303" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1332450303"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
                     //  Table code
-                    var table = $('#DT-LjbFEGFH').DataTable(
+                    var table = $('#DT-GaexFkQd').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -692,18 +710,20 @@ function hide(obj) {
     "searching":  true,
     "stateSave":  true,
     "responsive":  {
-                       "details":  true
+                       "details":  {
+                                       "type":  "inline"
+                                   }
                    },
     "createdRow":  ""
 }
                     );
                     
-                });</script><div class="flexElement"><table id="DT-LjbFEGFH" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div></div></div></div><div class="flexPanel roundedCorners overflowHidden"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text" style="color: #ffffff;">My text</a><a id="show_1907000447" href="javascript:void(0)" onclick="show('1907000447');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1907000447" href="javascript:void(0)" onclick="hide('1907000447');" style="color: #ffffff;">(Hide)</a></div><div id="1907000447" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1907000447"><script>                $(document).ready(function() {
+                });</script><div class="flexElement overflowHidden"><table id="DT-GaexFkQd" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div></div></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text" style="color: #ffffff;">My text</a><a id="show_960538965" href="javascript:void(0)" onclick="show('960538965');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_960538965" href="javascript:void(0)" onclick="hide('960538965');" style="color: #ffffff;">(Hide)</a></div><div id="960538965" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="960538965"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
                     //  Table code
-                    var table = $('#DT-SAisAKLm').DataTable(
+                    var table = $('#DT-leFDShNJ').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -757,18 +777,20 @@ function hide(obj) {
     "searching":  true,
     "stateSave":  true,
     "responsive":  {
-                       "details":  true
+                       "details":  {
+                                       "type":  "inline"
+                                   }
                    },
     "createdRow":  ""
 }
                     );
                     
-                });</script><div class="flexElement"><table id="DT-SAisAKLm" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text 2" style="color: #ffffff;">My text 2</a><a id="show_1761075768" href="javascript:void(0)" onclick="show('1761075768');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1761075768" href="javascript:void(0)" onclick="hide('1761075768');" style="color: #ffffff;">(Hide)</a></div><div id="1761075768" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1761075768"><script>                $(document).ready(function() {
+                });</script><div class="flexElement overflowHidden"><table id="DT-leFDShNJ" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text 2" style="color: #ffffff;">My text 2</a><a id="show_1069108632" href="javascript:void(0)" onclick="show('1069108632');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1069108632" href="javascript:void(0)" onclick="hide('1069108632');" style="color: #ffffff;">(Hide)</a></div><div id="1069108632" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1069108632"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
                     //  Table code
-                    var table = $('#DT-CAtDsxbp').DataTable(
+                    var table = $('#DT-vWWFGCWx').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -822,13 +844,15 @@ function hide(obj) {
     "searching":  true,
     "stateSave":  true,
     "responsive":  {
-                       "details":  true
+                       "details":  {
+                                       "type":  "inline"
+                                   }
                    },
     "createdRow":  ""
 }
                     );
                     
-                });</script><div class="flexElement"><table id="DT-CAtDsxbp" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language</a><a id="show_1660630736" href="javascript:void(0)" onclick="show('1660630736');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1660630736" href="javascript:void(0)" onclick="hide('1660630736');" style="color: #ffffff;">(Hide)</a></div><div id="1660630736" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1660630736"><pre data-enlighter-language="powershell" data-enlighter-theme="godzilla" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 1" data-enlighter-highlight="2-5, 13">
+                });</script><div class="flexElement overflowHidden"><table id="DT-vWWFGCWx" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language</a><a id="show_600540337" href="javascript:void(0)" onclick="show('600540337');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_600540337" href="javascript:void(0)" onclick="hide('600540337');" style="color: #ffffff;">(Hide)</a></div><div id="600540337" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="600540337"><pre data-enlighter-language="powershell" data-enlighter-theme="godzilla" data-enlighter-group="test123" data-enlighter-title="PowerShell Code 1" data-enlighter-highlight="2-5, 13">
 $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
@@ -888,13 +912,13 @@ $HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
     }
 }
 Save-HTML -FilePath $HTMLPath -ShowHTML -HTML $HTML
-</pre></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language</a><a id="show_1154200068" href="javascript:void(0)" onclick="show('1154200068');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1154200068" href="javascript:void(0)" onclick="hide('1154200068');" style="color: #ffffff;">(Hide)</a></div><div id="1154200068" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1154200068"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
+</pre></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="This shows PowerShell Language" style="color: #ffffff;">This shows PowerShell Language</a><a id="show_538804159" href="javascript:void(0)" onclick="show('538804159');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_538804159" href="javascript:void(0)" onclick="hide('538804159');" style="color: #ffffff;">(Hide)</a></div><div id="538804159" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="538804159"><pre data-enlighter-language="javascript" data-enlighter-theme="enlighter" data-enlighter-highlight="2, 5">//refresh page on browser resize
 $(window).bind("resize", function(e) {
     if (window.RT) clearTimeout(window.RT);
     window.RT = setTimeout(function() {
         this.location.reload(false); /* false to get page from cache */
     }, 200);
-});</pre></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="XML Language" style="color: #ffffff;">XML Language</a><a id="show_221201399" href="javascript:void(0)" onclick="show('221201399');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_221201399" href="javascript:void(0)" onclick="hide('221201399');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="221201399" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="221201399"><pre data-enlighter-language="xml" data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
+});</pre></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="XML Language" style="color: #ffffff;">XML Language</a><a id="show_612547448" href="javascript:void(0)" onclick="show('612547448');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_612547448" href="javascript:void(0)" onclick="hide('612547448');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="612547448" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="612547448"><pre data-enlighter-language="xml" data-enlighter-highlight="12, 19"><!--?xml version="1.0" encoding="UTF-8"?-->
 <building name="GlobalDynamics Main Building"
     core:id="0xFA8A91C6617DFA1B" core:uid="0898213-123123123-1230898123" xmlns:core="http://www.xmlnamespace.tld">
   <core:group core:level="2">
@@ -920,14 +944,14 @@ $(window).bind("resize", function(e) {
       <x_room label="k89121">Lab01</x_room>
     </room>
   </core:group>
-</building></pre></div></div></div></div><div id="Tab-19tnm4vy" class="tabs-content"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My other text" style="color: #ffffff;">My other text</a><a id="show_1864660583" href="javascript:void(0)" onclick="show('1864660583');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1864660583" href="javascript:void(0)" onclick="hide('1864660583');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1864660583" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1864660583"><script>                    $(document).ready(function() {
+</building></pre></div></div></div></div><div id="Tab-ko4lc52g" class="tabs-content"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My other text" style="color: #ffffff;">My other text</a><a id="show_197718766" href="javascript:void(0)" onclick="show('197718766');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_197718766" href="javascript:void(0)" onclick="hide('197718766');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="197718766" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="197718766"><script>                    $(document).ready(function() {
                         $.fn.dataTable.moment( 'L' );
                         $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-19tnm4vy" && !$.fn.dataTable.isDataTable("#DT-HTPHvIOh")) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-ko4lc52g" && !$.fn.dataTable.isDataTable("#DT-vtaGJyOD")) {
                                 
                                 
                                 //  Table code
-                                var table = $('#DT-HTPHvIOh').DataTable(
+                                var table = $('#DT-vtaGJyOD').DataTable(
                                     {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -981,7 +1005,9 @@ $(window).bind("resize", function(e) {
     "searching":  true,
     "stateSave":  true,
     "responsive":  {
-                       "details":  true
+                       "details":  {
+                                       "type":  "inline"
+                                   }
                    },
     "createdRow":  ""
 }
@@ -989,14 +1015,14 @@ $(window).bind("resize", function(e) {
                                 
                             };
                         });
-                    });</script><div class="flexElement"><table id="DT-HTPHvIOh" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Content" style="color: #ffffff;">Content</a><a id="show_785142360" href="javascript:void(0)" onclick="show('785142360');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_785142360" href="javascript:void(0)" onclick="hide('785142360');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="785142360" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="785142360"><div class="flexPanel roundedCorners overflowHidden"><script>                    $(document).ready(function() {
+                    });</script><div class="flexElement overflowHidden"><table id="DT-vtaGJyOD" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Content" style="color: #ffffff;">Content</a><a id="show_333730415" href="javascript:void(0)" onclick="show('333730415');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_333730415" href="javascript:void(0)" onclick="hide('333730415');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="333730415" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="333730415"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><script>                    $(document).ready(function() {
                         $.fn.dataTable.moment( 'L' );
                         $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-19tnm4vy" && !$.fn.dataTable.isDataTable("#DT-UMGVVTXq")) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-ko4lc52g" && !$.fn.dataTable.isDataTable("#DT-creyyDaf")) {
                                 
                                 
                                 //  Table code
-                                var table = $('#DT-UMGVVTXq').DataTable(
+                                var table = $('#DT-creyyDaf').DataTable(
                                     {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -1050,7 +1076,9 @@ $(window).bind("resize", function(e) {
     "searching":  true,
     "stateSave":  true,
     "responsive":  {
-                       "details":  true
+                       "details":  {
+                                       "type":  "inline"
+                                   }
                    },
     "createdRow":  ""
 }
@@ -1058,14 +1086,14 @@ $(window).bind("resize", function(e) {
                                 
                             };
                         });
-                    });</script><div class="flexElement"><table id="DT-UMGVVTXq" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="flexPanel roundedCorners overflowHidden"><script>                    $(document).ready(function() {
+                    });</script><div class="flexElement overflowHidden"><table id="DT-creyyDaf" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><script>                    $(document).ready(function() {
                         $.fn.dataTable.moment( 'L' );
                         $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-19tnm4vy" && !$.fn.dataTable.isDataTable("#DT-nxgJuewj")) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-ko4lc52g" && !$.fn.dataTable.isDataTable("#DT-rSTtybAq")) {
                                 
                                 
                                 //  Table code
-                                var table = $('#DT-nxgJuewj').DataTable(
+                                var table = $('#DT-rSTtybAq').DataTable(
                                     {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -1119,7 +1147,9 @@ $(window).bind("resize", function(e) {
     "searching":  true,
     "stateSave":  true,
     "responsive":  {
-                       "details":  true
+                       "details":  {
+                                       "type":  "inline"
+                                   }
                    },
     "createdRow":  ""
 }
@@ -1127,14 +1157,14 @@ $(window).bind("resize", function(e) {
                                 
                             };
                         });
-                    });</script><div class="flexElement"><table id="DT-nxgJuewj" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text 2" style="color: #ffffff;">My text 2</a><a id="show_1506219144" href="javascript:void(0)" onclick="show('1506219144');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1506219144" href="javascript:void(0)" onclick="hide('1506219144');" style="color: #ffffff;">(Hide)</a></div><div id="1506219144" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1506219144"><script>                    $(document).ready(function() {
+                    });</script><div class="flexElement overflowHidden"><table id="DT-rSTtybAq" class="display compact"><thead><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></thead><tbody><tr><td>Windows2012R2Forest</td><td>ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr></tbody><tfoot><tr><th>ForestMode</th><th>Name</th><th>RootDomain</th><th>SchemaMaster</th></tr></tfoot></table></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="My text 2" style="color: #ffffff;">My text 2</a><a id="show_349731415" href="javascript:void(0)" onclick="show('349731415');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_349731415" href="javascript:void(0)" onclick="hide('349731415');" style="color: #ffffff;">(Hide)</a></div><div id="349731415" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="349731415"><script>                    $(document).ready(function() {
                         $.fn.dataTable.moment( 'L' );
                         $('.tabs').on('click', 'a', function (event) {
-                            if ($(event.currentTarget).attr("data-id") == "Tab-19tnm4vy" && !$.fn.dataTable.isDataTable("#DT-kMcGuYYH")) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-ko4lc52g" && !$.fn.dataTable.isDataTable("#DT-pWybicFG")) {
                                 
                                 
                                 //  Table code
-                                var table = $('#DT-kMcGuYYH').DataTable(
+                                var table = $('#DT-pWybicFG').DataTable(
                                     {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -1188,7 +1218,9 @@ $(window).bind("resize", function(e) {
     "searching":  true,
     "stateSave":  true,
     "responsive":  {
-                       "details":  true
+                       "details":  {
+                                       "type":  "inline"
+                                   }
                    },
     "createdRow":  ""
 }
@@ -1196,7 +1228,7 @@ $(window).bind("resize", function(e) {
                                 
                             };
                         });
-                    });</script><div class="flexElement"><table id="DT-kMcGuYYH" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div></div></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS Elastic Tabs START --><script type="text/javascript">var maxWidth = 0;
+                    });</script><div class="flexElement overflowHidden"><table id="DT-pWybicFG" class="display compact"><thead><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></thead><tbody><tr><td>Guest</td><td></td><td>False</td><td></td></tr><tr><td>DefaultAccount</td><td></td><td>False</td><td></td></tr><tr><td>krbtgt</td><td></td><td>False</td><td></td></tr><tr><td>Administrator</td><td></td><td>True</td><td></td></tr><tr><td>Administrator Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Przemysław Kłys</td><td>Kłys</td><td>True</td><td></td></tr><tr><td>Service Task Scheduler</td><td>Scheduler</td><td>False</td><td></td></tr><tr><td>Test User Test</td><td>Test</td><td>True</td><td></td></tr><tr><td>New n. New</td><td>New</td><td>False</td><td></td></tr><tr><td>EVOTECPL$</td><td></td><td>True</td><td></td></tr><tr><td>Exchange Online-ApplicationAccount</td><td></td><td>True</td><td></td></tr><tr><td>Microsoft Exchange Approval Assistant</td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>False</td><td></td></tr><tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>False</td><td></td></tr><tr><td>Discovery Search Mailbox</td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>False</td><td></td></tr><tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>False</td><td></td></tr><tr><td>Special Test User</td><td>Test User</td><td>True</td><td></td></tr><tr><td>Expiration Date Test</td><td>Date Test</td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>False</td><td></td></tr><tr><td>Some Mailbox</td><td>Mailbox</td><td>True</td><td></td></tr><tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>True</td><td></td></tr><tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>True</td><td></td></tr><tr><td>My User</td><td>User</td><td>True</td><td></td></tr><tr><td>MSOL_6f0d1d4965ec</td><td></td><td>True</td><td></td></tr><tr><td>My User 2</td><td>User 2</td><td>True</td><td></td></tr><tr><td>Test Przemyslaw Klys</td><td>Klys</td><td>True</td><td></td></tr><tr><td>Weird Name, with $,.</td><td>Name, with $</td><td>False</td><td></td></tr><tr><td>Test My, User</td><td>My User</td><td>False</td><td></td></tr><tr><td>Temporary Admin</td><td>Admin</td><td>True</td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Surname</th><th>Enabled</th><th>DisplayName</th></tr></tfoot></table></div></div></div></div></div></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS Elastic Tabs START --><script type="text/javascript">var maxWidth = 0;
 var $element;
 
 $(window).on("resize", function() {

@@ -1,6 +1,5 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
-$Time = Start-TimeLog
 $ReportTitle = 'Test'
 $EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
 
@@ -22,4 +21,3 @@ New-HTML -TitleText $ReportTitle -UseCssLinks -UseJavaScriptLinks -FilePath "$PS
 
     }
 } -ShowHTML
-Stop-TimeLog -Time $Time -Option OneLiner

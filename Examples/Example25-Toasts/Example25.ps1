@@ -1,6 +1,4 @@
-﻿Import-Module .\PSWriteHTML.psd1 -Force
-
-$Processes = Get-Process | Select-Object -First 20
+﻿$Processes = Get-Process | Select-Object -First 20
 
 New-HTML -TitleText 'Title' -UseCssLinks -UseJavaScriptLinks -FilePath $PSScriptRoot\Example25.html {
     New-HTMLContent -Invisible {
