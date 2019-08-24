@@ -49,6 +49,7 @@ function Out-HtmlView {
         [switch]$Filtering,
         [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom',
         [string[]][ValidateSet('display', 'cell-border', 'compact', 'hover', 'nowrap', 'order-column', 'row-border', 'stripe')] $Style = @('display', 'compact'),
+        [switch]$Simplify,
         [string]$TextWhenNoData = 'No data available.',
         [int] $ScreenSizePercent = 0,
         [string[]] $DefaultSortColumn,
@@ -68,7 +69,13 @@ function Out-HtmlView {
         [string[]] $ResponsivePriorityOrder,
         [int[]] $ResponsivePriorityOrderIndex,
         [string[]] $PriorityProperties,
-        [switch] $AllProperties
+        [switch] $ImmediatelyShowHiddenDetails,
+        [alias('RemoveShowButton')][switch] $HideShowButton,
+        [switch] $AllProperties,
+        [switch] $Compare,
+        [alias('CompareWithColors')][switch] $HighlightDifferences,
+        [int] $First,
+        [int] $Last
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -99,7 +106,10 @@ function Out-HtmlView {
                     -Filtering:$Filtering -FilteringLocation $FilteringLocation `
                     -InvokeHTMLTags:$InvokeHTMLTags -DisableNewLine:$DisableNewLine -ScrollX:$ScrollX -ScrollY:$ScrollY -ScrollSizeY $ScrollSizeY `
                     -FreezeColumnsLeft $FreezeColumnsLeft -FreezeColumnsRight $FreezeColumnsRight `
-                    -FixedHeader:$FixedHeader -FixedFooter:$FixedFooter -ResponsivePriorityOrder $ResponsivePriorityOrder -ResponsivePriorityOrderIndex $ResponsivePriorityOrderIndex -PriorityProperties $PriorityProperties -AllProperties:$AllProperties
+                    -FixedHeader:$FixedHeader -FixedFooter:$FixedFooter -ResponsivePriorityOrder $ResponsivePriorityOrder `
+                    -ResponsivePriorityOrderIndex $ResponsivePriorityOrderIndex -PriorityProperties $PriorityProperties -AllProperties:$AllProperties `
+                    -Compare:$Compare -HighlightDifferences:$HighlightDifferences -First $First -Last $Last `
+                    -ImmediatelyShowHiddenDetails:$ImmediatelyShowHiddenDetails -Simplify:$Simplify -HideShowButton:$HideShowButton
             }
             if ($PassThru) {
                 # This isn't really real PassThru but just passing final object further down the pipe when needed

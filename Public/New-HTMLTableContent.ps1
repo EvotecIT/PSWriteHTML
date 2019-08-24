@@ -5,7 +5,7 @@
         [alias('ColumnNames', 'Names', 'Name')][string[]] $ColumnName,
         [int[]] $ColumnIndex,
         [int[]] $RowIndex,
-        [string] $Text,
+        [string[]] $Text,
         [RGBColors] $Color,
         [RGBColors] $BackGroundColor,
         [int] $FontSize,
