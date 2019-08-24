@@ -46,7 +46,8 @@ function New-HTMLTable {
         [string[]] $PriorityProperties,
         [alias('DataTableName')][string] $DataTableID,
         [switch] $ImmediatelyShowHiddenDetails,
-        [alias('RemoveShowButton')][switch] $HideShowButton
+        [alias('RemoveShowButton')][switch] $HideShowButton,
+        [switch] $AllProperties
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -106,22 +107,28 @@ function New-HTMLTable {
         }
     }
 
+    if ($AllProperties) {
+        $Properties = Select-Properties -Objects $DataTable -AllProperties:$AllProperties
+        $DataTable = $DataTable | Select-Object -Property $Properties
+    }
+
     # This is more direct way of PriorityProperties that will work also on Scroll and in other circumstances
     if ($PriorityProperties) {
         if ($DataTable.Count -gt 0) {
             $Properties = $DataTable[0].PSObject.Properties.Name
+            # $Properties = Select-Properties -Objects $DataTable -AllProperties:$AllProperties
             $RemainingProperties = foreach ($Property in $Properties) {
                 if ($PriorityProperties -notcontains $Property) {
                     $Property
                 }
             }
-            $AllProperties = $PriorityProperties + $RemainingProperties
-            $DataTable = $DataTable | Select-Object -Property $AllProperties
+            $BoundedProperties = $PriorityProperties + $RemainingProperties
+            $DataTable = $DataTable | Select-Object -Property $BoundedProperties
         }
     }
 
     # This option disable paging if number of elements is less or equal count of elements in DataTable
-    $PagingOptions = $PagingOptions | Sort-Object
+    $PagingOptions = $PagingOptions | Sort-Object -Unique
     if ($DataTable.Count -le $PagingOptions[0]) {
         $DisablePaging = $true
     }

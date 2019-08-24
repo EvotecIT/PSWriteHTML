@@ -67,7 +67,8 @@ function Out-HtmlView {
         [switch] $FixedFooter,
         [string[]] $ResponsivePriorityOrder,
         [int[]] $ResponsivePriorityOrderIndex,
-        [string[]] $PriorityProperties
+        [string[]] $PriorityProperties,
+        [switch] $AllProperties
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -76,56 +77,37 @@ function Out-HtmlView {
         }
     }
     Process {
-        foreach ($T in $Table) {
-            $DataTable.Add($T)
+        if ($null -ne $Table) {
+            foreach ($T in $Table) {
+                $DataTable.Add($T)
+            }
         }
     }
     End {
-        <# Not needed - part of New-HTMLTable
-        # Code responsible for Priority Properties
-        if ($PriorityProperties) {
-            if ($DataTable.Count -gt 0) {
-
-                $Properties = $DataTable[0].PSObject.Properties.Name
-                $RemainingProperties = foreach ($Property in $Properties) {
-                    if ($PriorityProperties -notcontains $Property) {
-                        $Property
-                    }
-                }
-                $AllProperties = $PriorityProperties + $RemainingProperties
-                $DataTable = $DataTable | Select-Object -Property $AllProperties
+        if ($null -ne $Table) {
+            # HTML generation part
+            New-HTML -FilePath $FilePath -UseCssLinks -UseJavaScriptLinks -TitleText $Title -ShowHTML {
+                New-HTMLTable -DataTable $DataTable `
+                    -HideFooter:$HideFooter `
+                    -Buttons $Buttons -PagingStyle $PagingStyle -PagingOptions $PagingOptions `
+                    -DisablePaging:$DisablePaging -DisableOrdering:$DisableOrdering -DisableInfo:$DisableInfo -DisableColumnReorder:$DisableColumnReorder -DisableProcessing:$DisableProcessing `
+                    -DisableResponsiveTable:$DisableResponsiveTable -DisableSelect:$DisableSelect -DisableStateSave:$DisableStateSave -DisableSearch:$DisableSearch -ScrollCollapse:$ScrollCollapse `
+                    -Style $Style -TextWhenNoData:$TextWhenNoData -ScreenSizePercent $ScreenSizePercent `
+                    -HTML $HTML -PreContent $PreContent -PostContent $PostContent `
+                    -DefaultSortColumn $DefaultSortColumn -DefaultSortIndex $DefaultSortIndex -DefaultSortOrder $DefaultSortOrder `
+                    -DateTimeSortingFormat $DateTimeSortingFormat -Find $Find -OrderMulti:$OrderMulti `
+                    -Filtering:$Filtering -FilteringLocation $FilteringLocation `
+                    -InvokeHTMLTags:$InvokeHTMLTags -DisableNewLine:$DisableNewLine -ScrollX:$ScrollX -ScrollY:$ScrollY -ScrollSizeY $ScrollSizeY `
+                    -FreezeColumnsLeft $FreezeColumnsLeft -FreezeColumnsRight $FreezeColumnsRight `
+                    -FixedHeader:$FixedHeader -FixedFooter:$FixedFooter -ResponsivePriorityOrder $ResponsivePriorityOrder -ResponsivePriorityOrderIndex $ResponsivePriorityOrderIndex -PriorityProperties $PriorityProperties -AllProperties:$AllProperties
             }
-        }
-        #>
-        # HTML generation part
-        New-HTML -FilePath $FilePath -UseCssLinks -UseJavaScriptLinks -TitleText $Title -ShowHTML {
-            <#
-            New-HTMLTable -DataTable $DataTable `
-                -DefaultSortColumn $DefaultSortColumn `
-                -DefaultSortIndex $DefaultSortIndex `
-                -DisablePaging:$DisablePaging -Filtering:$Filtering -FilteringLocation $FilteringLocation `
-                -Find $Find -InvokeHTMLTags:$InvokeHTMLTags -DisableNewLine:$DisableNewLine `
-                -PriorityProperties $PriorityProperties
-            #>
-
-            New-HTMLTable -DataTable $DataTable `
-                -HideFooter:$HideFooter `
-                -Buttons $Buttons -PagingStyle $PagingStyle -PagingOptions $PagingOptions `
-                -DisablePaging:$DisablePaging -DisableOrdering:$DisableOrdering -DisableInfo:$DisableInfo -DisableColumnReorder:$DisableColumnReorder -DisableProcessing:$DisableProcessing `
-                -DisableResponsiveTable:$DisableResponsiveTable -DisableSelect:$DisableSelect -DisableStateSave:$DisableStateSave -DisableSearch:$DisableSearch -ScrollCollapse:$ScrollCollapse `
-                -Style $Style -TextWhenNoData:$TextWhenNoData -ScreenSizePercent $ScreenSizePercent `
-                -HTML $HTML -PreContent $PreContent -PostContent $PostContent `
-                -DefaultSortColumn $DefaultSortColumn -DefaultSortIndex $DefaultSortIndex -DefaultSortOrder $DefaultSortOrder `
-                -DateTimeSortingFormat $DateTimeSortingFormat -Find $Find -OrderMulti:$OrderMulti `
-                -Filtering:$Filtering -FilteringLocation $FilteringLocation `
-                -InvokeHTMLTags:$InvokeHTMLTags -DisableNewLine:$DisableNewLine -ScrollX:$ScrollX -ScrollY:$ScrollY -ScrollSizeY $ScrollSizeY `
-                -FreezeColumnsLeft $FreezeColumnsLeft -FreezeColumnsRight $FreezeColumnsRight `
-                -FixedHeader:$FixedHeader -FixedFooter:$FixedFooter -ResponsivePriorityOrder $ResponsivePriorityOrder -ResponsivePriorityOrderIndex $ResponsivePriorityOrderIndex -PriorityProperties $PriorityProperties
-        }
-        if ($PassThru) {
-            # This isn't really real PassThru but just passing final object further down the pipe when needed
-            # real PassThru requires significant work - if you're up to it, let me know.
-            $DataTable
+            if ($PassThru) {
+                # This isn't really real PassThru but just passing final object further down the pipe when needed
+                # real PassThru requires significant work - if you're up to it, let me know.
+                $DataTable
+            }
+        } else {
+            Write-Warning 'Out-HtmlView - No data available.'
         }
     }
 }

@@ -33,10 +33,10 @@ Function Save-HTML {
     )
     if ([string]::IsNullOrEmpty($FilePath)) {
         $FilePath = Get-FileName -Temporary -Extension 'html'
-        Write-Warning "Save-HTML - FilePath parameter $FilePath is empty, using Temporary $FilePath"
+        Write-Verbose "Save-HTML - FilePath parameter is empty, using Temporary $FilePath"
     } else {
         if (Test-Path -LiteralPath $FilePath) {
-            Write-Warning "Save-HTML - Path $FilePath already exists. Report will be overwritten."
+            Write-Verbose "Save-HTML - Path $FilePath already exists. Report will be overwritten."
         }
     }
     Write-Verbose "Save-HTML - Saving HTML to file $FilePath"
@@ -54,7 +54,7 @@ Function Save-HTML {
             Invoke-Item -LiteralPath $FilePath -ErrorAction Stop
         } catch {
             $ErrorMessage = $_.Exception.Message -replace "`n", " " -replace "`r", " "
-            Write-Warning "Save-HTML - couldn't open file $FilePath in a browser. Error: $ErrorMessage"
+            Write-Verbose "Save-HTML - couldn't open file $FilePath in a browser. Error: $ErrorMessage"
         }
     }
 
