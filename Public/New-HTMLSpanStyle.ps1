@@ -39,7 +39,7 @@ function New-HTMLSpanStyle {
     }
 
     if ($Alignment) {
-        $StyleDiv = @{}
+        $StyleDiv = @{ }
         $StyleDiv.Align = $Alignment
 
         New-HTMLTag -Tag 'div' -Attributes $StyleDiv {
