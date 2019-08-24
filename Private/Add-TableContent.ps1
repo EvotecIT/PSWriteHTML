@@ -146,10 +146,22 @@
             # ROWINDEX AND COLUMN NAMES - ARRAYS
             # This takes care of Content by Column Names (Header Names)
             foreach ($ColumnName in $Content.Name) {
-                $Index = [array]::indexof($HeaderNames.ToUpper(), $ColumnName.ToUpper())
+                $ColumnIndex = ([array]::indexof($HeaderNames.ToUpper(), $ColumnName.ToUpper()))
                 foreach ($RowIndex in $Content.RowIndex) {
-                    $TableRows[$RowIndex][$Index] = @{
+                    $TableRows[$RowIndex][$ColumnIndex] = @{
                         Style = $Content.Style
+                    }
+                    if ($Content.Text) {
+                        if ($Content.Used) {
+                            $TableRows[$RowIndex][$ColumnIndex]['Text'] = ''
+                            $TableRows[$RowIndex][$ColumnIndex]['Remove'] = $true
+                        } else {
+                            $TableRows[$RowIndex][$ColumnIndex]['Text'] = $Content.Text
+                            $TableRows[$RowIndex][$ColumnIndex]['Remove'] = $false
+                            $TableRows[$RowIndex][$ColumnIndex]['ColSpan'] = $($Content.ColumnIndex).Count
+                            $TableRows[$RowIndex][$ColumnIndex]['RowSpan'] = $($Content.RowIndex).Count
+                            $Content.Used = $true
+                        }
                     }
                 }
             }
