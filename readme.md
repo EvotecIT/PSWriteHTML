@@ -47,14 +47,18 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.48 - Unreleased
+- 0.0.49 - 2019.08.25 - [Blog post about release](https://evotec.xyz/comparing-two-or-more-objects-visually-in-powershell-cross-platform/)
   - [x] Save-HTML
     - [ ] Moved some warnings to Verbose
     - [ ] Fixed weird message
   - [x] New-HTMLTable, Out-HTMLView
     - [ ] Added AllProperties switch
+    - [ ] Added Compare/Replacements
 
-- 0.0.47 - 2019.08.12
+- 0.0.48 - 2019.08.11
+  - I don't know. Got confused what was changed :-p
+
+- 0.0.47 - 2019.08.04
   - [x] Fix for LOGO in PowerShell Core
   - [x] New-HTMLTable
     - [x] Added ImmediatelyShowHiddenDetails switch - Responsive has the ability to display the details that it has hidden in a variety of different ways. Its default is to allow the end user to toggle the the display by clicking on a row and showing the information in a DataTables child row. At times it can be useful not to require end user interaction to display the hidden data in a responsive manner, which can be done with the childRowImmediate display type.

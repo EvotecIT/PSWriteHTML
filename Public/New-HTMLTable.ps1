@@ -51,7 +51,8 @@ function New-HTMLTable {
         [switch] $Compare,
         [alias('CompareWithColors')][switch] $HighlightDifferences,
         [int] $First,
-        [int] $Last
+        [int] $Last,
+        [alias('Replace')][Array] $CompareReplace
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -68,52 +69,7 @@ function New-HTMLTable {
     $ContentStyle = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ContentTop = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ContentFormattingInline = [System.Collections.Generic.List[PSCustomObject]]::new()
-
-    # Limit objects count First or Last
-    if ($First -or $Last) {
-        $DataTable = $DataTable | Select-Object -First $First -Last $Last
-    }
-
-    if ($Compare) {
-        $Splitter = "`r`n"
-        $DataTable = Compare-MultipleObjects -Objects $DataTable -Summary -Splitter $Splitter -FormatOutput -AllProperties:$AllProperties
-
-        if ($HighlightDifferences) {
-            $Highlight = for ($i = 0; $i -lt $DataTable.Count; $i++) {
-                if ($DataTable[$i].Status -eq $false) {
-                    # Different row
-                    foreach ($DifferenceColumn in $DataTable[$i].Different) {
-                        $DataSame = $DataTable[$i]."$DifferenceColumn-Same" -join $Splitter
-                        $DataAdd = $DataTable[$i]."$DifferenceColumn-Add" -join $Splitter
-                        $DataRemove = $DataTable[$i]."$DifferenceColumn-Remove" -join $Splitter
-
-                        if ($DataSame -ne '') {
-                            $DataSame = "$DataSame$Splitter"
-                        }
-                        if ($DataAdd -ne '') {
-                            $DataAdd = "$DataAdd$Splitter"
-                        }
-                        if ($DataRemove -ne '') {
-                            $DataRemove = "$DataRemove$Splitter"
-                        }
-                        $Text = New-HTMLText -Text $DataSame, $DataRemove, $DataAdd -Color Black, Red, Blue -TextDecoration none, line-through, none -FontWeight normal, bold, bold
-                        New-HTMLTableContent -ColumnName "$DifferenceColumn" -RowIndex ($i + 1) -Text "$Text"
-                    }
-                } else {
-                    # Same row
-                    # New-HTMLTableContent -RowIndex ($i + 1) -BackGroundColor Green -Color White
-                }
-            }
-        }
-        $Properties = Select-Properties -Objects $DataTable -ExcludeProperty '*-*', 'Same', 'Different'
-        $DataTable = $DataTable | Select-Object -Property $Properties
-
-        if ($HighlightDifferences) {
-            foreach ($Parameter in $Highlight.Output) {
-                $ContentStyle.Add($Parameter)
-            }
-        }
-    }
+    $ReplaceCompare = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
 
     if ($HTML) {
         [Array] $Output = & $HTML
@@ -152,7 +108,63 @@ function New-HTMLTable {
                     $ContentFormattingInline.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableHeaderResponsiveOperations') {
                     $HeaderResponsiveOperations.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableReplaceCompare') {
+                    $ReplaceCompare.Add($Parameters.Output)
                 }
+            }
+        }
+    }
+
+
+    # Limit objects count First or Last
+    if ($First -or $Last) {
+        $DataTable = $DataTable | Select-Object -First $First -Last $Last
+    }
+
+    if ($Compare) {
+        $Splitter = "`r`n"
+
+        if ($ReplaceCompare) {
+            foreach ($R in $CompareReplace) {
+                $ReplaceCompare.Add($R)
+            }
+        }
+
+        $DataTable = Compare-MultipleObjects -Objects $DataTable -Summary -Splitter $Splitter -FormatOutput -AllProperties:$AllProperties -Replace $ReplaceCompare
+
+        if ($HighlightDifferences) {
+            $Highlight = for ($i = 0; $i -lt $DataTable.Count; $i++) {
+                if ($DataTable[$i].Status -eq $false) {
+                    # Different row
+                    foreach ($DifferenceColumn in $DataTable[$i].Different) {
+                        $DataSame = $DataTable[$i]."$DifferenceColumn-Same" -join $Splitter
+                        $DataAdd = $DataTable[$i]."$DifferenceColumn-Add" -join $Splitter
+                        $DataRemove = $DataTable[$i]."$DifferenceColumn-Remove" -join $Splitter
+
+                        if ($DataSame -ne '') {
+                            $DataSame = "$DataSame$Splitter"
+                        }
+                        if ($DataAdd -ne '') {
+                            $DataAdd = "$DataAdd$Splitter"
+                        }
+                        if ($DataRemove -ne '') {
+                            $DataRemove = "$DataRemove$Splitter"
+                        }
+                        $Text = New-HTMLText -Text $DataSame, $DataRemove, $DataAdd -Color Black, Red, Blue -TextDecoration none, line-through, none -FontWeight normal, bold, bold
+                        New-HTMLTableContent -ColumnName "$DifferenceColumn" -RowIndex ($i + 1) -Text "$Text"
+                    }
+                } else {
+                    # Same row
+                    # New-HTMLTableContent -RowIndex ($i + 1) -BackGroundColor Green -Color White
+                }
+            }
+        }
+        $Properties = Select-Properties -Objects $DataTable -ExcludeProperty '*-*', 'Same', 'Different'
+        $DataTable = $DataTable | Select-Object -Property $Properties
+
+        if ($HighlightDifferences) {
+            foreach ($Parameter in $Highlight.Output) {
+                $ContentStyle.Add($Parameter)
             }
         }
     }

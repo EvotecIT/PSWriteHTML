@@ -27,6 +27,9 @@ function Out-HtmlView {
     [alias('Out-GridHtml', 'ohv')]
     [CmdletBinding()]
     param(
+        [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $HTML,
+        [Parameter(Mandatory = $false, Position = 1)][ScriptBlock] $PreContent,
+        [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
         [alias('ArrayOfObjects', 'Object', 'DataTable')][Parameter(ValueFromPipeline = $true, Mandatory = $true)] $Table,
         [string] $FilePath,
         [string] $Title = 'Out-HTMLView',
@@ -75,7 +78,8 @@ function Out-HtmlView {
         [switch] $Compare,
         [alias('CompareWithColors')][switch] $HighlightDifferences,
         [int] $First,
-        [int] $Last
+        [int] $Last,
+        [alias('Replace')][Array] $CompareReplace
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -109,7 +113,7 @@ function Out-HtmlView {
                     -FixedHeader:$FixedHeader -FixedFooter:$FixedFooter -ResponsivePriorityOrder $ResponsivePriorityOrder `
                     -ResponsivePriorityOrderIndex $ResponsivePriorityOrderIndex -PriorityProperties $PriorityProperties -AllProperties:$AllProperties `
                     -Compare:$Compare -HighlightDifferences:$HighlightDifferences -First $First -Last $Last `
-                    -ImmediatelyShowHiddenDetails:$ImmediatelyShowHiddenDetails -Simplify:$Simplify -HideShowButton:$HideShowButton
+                    -ImmediatelyShowHiddenDetails:$ImmediatelyShowHiddenDetails -Simplify:$Simplify -HideShowButton:$HideShowButton -CompareReplace $CompareReplace
             }
             if ($PassThru) {
                 # This isn't really real PassThru but just passing final object further down the pipe when needed
