@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="author"/><meta name="revised" content="2019-08-25 12:25:38"/><title></title><!-- CSS Default fonts START --><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+
+}
+
+.overflowHidden {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.flexParent {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+}
+
+.flexParentInvisible {
+    display: flex;
+    justify-content: space-between;
+
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+
+}
+
+.flexElement {
+    flex-basis: 100%;
+
+
+    /*
+    flex: 1 auto;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+
+}
+
+.flexPanel {
+    flex-basis: 100%;
+
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+}
+
+.roundedCorners {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+.clientlogo {
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+    margin: 10px 10px 10px 10px;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+    margin: 10px 10px 10px 10px;
+}
+</style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style><!-- CSS DataTables END --><noscript><!-- CSS DataTables START --><style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt;
+      width: 99%;
+    */
+
+    box-sizing: border-box;
+    width: calc(100% - 16px);
+    margin: 8px;
+}
+
+table th {
+    border-width: 1px;
+    padding: 4px;
+    border-style: solid;
+    border-color: black;
+    background-color: #616a6b;
+    color: white;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    font-weight: bold;
+    padding: 10px;
+}
+
+table td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    /* background-color: white; */
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    border-top: 1px solid #ddd;
+}
+
+/* Zebra striping */
+table tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+table th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+table td,
+table th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+</style><!-- CSS DataTables END --></noscript><!-- CSS DataTables START --><link rel="stylesheet" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners overflowHidden"><div style="text-align:center;background-color:#00bfff" class="defaultHeader"><a name="Comparing Object with Highlighting Differences (Domain Controllers)" style="color: #ffffff;">Comparing Object with Highlighting Differences (Domain Controllers)</a><a id="show_1259896674" href="javascript:void(0)" onclick="show('1259896674');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1259896674" href="javascript:void(0)" onclick="hide('1259896674');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1259896674" class="flexParent overflowHidden"><div id="1259896674" class="flexParent flexElement collapsable overflowHidden"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-VYwRUCrA').DataTable(
+                        {
+  "dom": "Bfrtip",
+  "buttons": [
+    {
+      "extend": "copyHtml5"
+    },
+    {
+      "extend": "excelHtml5"
+    },
+    {
+      "extend": "csvHtml5"
+    },
+    {
+      "extend": "pdfHtml5",
+      "pageSize": "A3",
+      "orientation": "landscape"
+    },
+    {
+      "extend": "pageLength"
+    }
+  ],
+  "colReorder": true,
+  "paging": false,
+  "scrollCollapse": false,
+  "pagingType": [
+    "full_numbers"
+  ],
+  "lengthMenu": [
+    [
+      15,
+      25,
+      50,
+      100,
+      -1
+    ],
+    [
+      15,
+      25,
+      50,
+      100,
+      "All"
+    ]
+  ],
+  "ordering": true,
+  "order": [],
+  "info": true,
+  "procesing": true,
+  "select": true,
+  "searching": true,
+  "stateSave": true,
+  "responsive": {
+    "details": {
+      "type": "inline"
+    }
+  },
+  "createdRow": ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table id="DT-VYwRUCrA" class="display compact"><thead><tr><th>Name</th><th>Status</th><th>Source</th><th>1</th><th>2</th></tr></thead><tbody><tr><td>Properties</td><td>True</td><td>DistinguishedName<BR>
+DNSHostName<BR>
+Enabled<BR>
+Name<BR>
+ObjectClass<BR>
+ObjectGUID<BR>
+SamAccountName<BR>
+SID<BR>
+UserPrincipalName<BR>
+PropertyNames<BR>
+AddedProperties<BR>
+RemovedProperties<BR>
+ModifiedProperties<BR>
+PropertyCount</td><td>DistinguishedName<BR>
+DNSHostName<BR>
+Enabled<BR>
+Name<BR>
+ObjectClass<BR>
+ObjectGUID<BR>
+SamAccountName<BR>
+SID<BR>
+UserPrincipalName<BR>
+PropertyNames<BR>
+AddedProperties<BR>
+RemovedProperties<BR>
+ModifiedProperties<BR>
+PropertyCount</td><td>DistinguishedName<BR>
+DNSHostName<BR>
+Enabled<BR>
+Name<BR>
+ObjectClass<BR>
+ObjectGUID<BR>
+SamAccountName<BR>
+SID<BR>
+UserPrincipalName<BR>
+PropertyNames<BR>
+AddedProperties<BR>
+RemovedProperties<BR>
+ModifiedProperties<BR>
+PropertyCount</td></tr><tr><td>DistinguishedName</td><td>True</td><td>CN=AD3,OU=Domain Controllers,DC=ad,DC=evotec,DC=xyz</td><td>CN=AD2,OU=Domain Controllers,DC=ad,DC=evotec,DC=xyz</td><td>CN=AD1,OU=Domain Controllers,DC=ad,DC=evotec,DC=xyz</td></tr><tr><td>DNSHostName</td><td>True</td><td>AD3.ad.evotec.xyz</td><td>AD2.ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td></tr><tr><td>Enabled</td><td>True</td><td>True</td><td>True</td><td>True</td></tr><tr><td>Name</td><td>True</td><td>AD3</td><td>AD2</td><td>AD1</td></tr><tr><td>ObjectClass</td><td>True</td><td>computer</td><td>computer</td><td>computer</td></tr><tr><td>ObjectGUID</td><td>False</td><td>cbe87709-50a8-421d-aa83-f5c8bc51fa81</td><td><div><span style="font-weight:normal;color:#000000;text-decoration:none"></span><span style="font-weight:bold;color:#ff0000;text-decoration:line-through">54e84446-183e-4c95-a015-1a01fa3e24f1<BR>
+</span><span style="font-weight:bold;color:#0000ff;text-decoration:none">cbe87709-50a8-421d-aa83-f5c8bc51fa81<BR>
+</span></div></td><td><div><span style="font-weight:normal;color:#000000;text-decoration:none"></span><span style="font-weight:bold;color:#ff0000;text-decoration:line-through">cf82e7f9-48e1-428a-a033-3aa1d3a09fae<BR>
+</span><span style="font-weight:bold;color:#0000ff;text-decoration:none">cbe87709-50a8-421d-aa83-f5c8bc51fa81<BR>
+</span></div></td></tr><tr><td>SamAccountName</td><td>True</td><td>AD3$</td><td>AD2$</td><td>AD1$</td></tr><tr><td>SID</td><td>False</td><td>S-1-5-21-853615985-2870445339-3163598659-3101</td><td><div><span style="font-weight:normal;color:#000000;text-decoration:none"></span><span style="font-weight:bold;color:#ff0000;text-decoration:line-through">S-1-5-21-853615985-2870445339-3163598659-1107<BR>
+</span><span style="font-weight:bold;color:#0000ff;text-decoration:none">S-1-5-21-853615985-2870445339-3163598659-3101<BR>
+</span></div></td><td><div><span style="font-weight:normal;color:#000000;text-decoration:none"></span><span style="font-weight:bold;color:#ff0000;text-decoration:line-through">S-1-5-21-853615985-2870445339-3163598659-1000<BR>
+</span><span style="font-weight:bold;color:#0000ff;text-decoration:none">S-1-5-21-853615985-2870445339-3163598659-3101<BR>
+</span></div></td></tr><tr><td>UserPrincipalName</td><td>True</td><td></td><td></td><td></td></tr><tr><td>PropertyNames</td><td>True</td><td>DistinguishedName<BR>
+DNSHostName<BR>
+Enabled<BR>
+Name<BR>
+ObjectClass<BR>
+ObjectGUID<BR>
+SamAccountName<BR>
+SID<BR>
+UserPrincipalName</td><td>DistinguishedName<BR>
+DNSHostName<BR>
+Enabled<BR>
+Name<BR>
+ObjectClass<BR>
+ObjectGUID<BR>
+SamAccountName<BR>
+SID<BR>
+UserPrincipalName</td><td>DistinguishedName<BR>
+DNSHostName<BR>
+Enabled<BR>
+Name<BR>
+ObjectClass<BR>
+ObjectGUID<BR>
+SamAccountName<BR>
+SID<BR>
+UserPrincipalName</td></tr><tr><td>AddedProperties</td><td>True</td><td></td><td></td><td></td></tr><tr><td>RemovedProperties</td><td>True</td><td></td><td></td><td></td></tr><tr><td>ModifiedProperties</td><td>True</td><td></td><td></td><td></td></tr><tr><td>PropertyCount</td><td>True</td><td>9</td><td>9</td><td>9</td></tr></tbody><tfoot><tr><th>Name</th><th>Status</th><th>Source</th><th>1</th><th>2</th></tr></tfoot></table></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div style="text-align:center;background-color:#00bfff" class="defaultHeader"><a name="Comparing Object with Highlighting Differences (Hashtables)" style="color: #ffffff;">Comparing Object with Highlighting Differences (Hashtables)</a><a id="show_710822306" href="javascript:void(0)" onclick="show('710822306');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_710822306" href="javascript:void(0)" onclick="hide('710822306');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="710822306" class="flexParent overflowHidden"><div id="710822306" class="flexParent flexElement collapsable overflowHidden"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-DtEKczrs').DataTable(
+                        {
+  "dom": "Bfrtip",
+  "buttons": [
+    {
+      "extend": "copyHtml5"
+    },
+    {
+      "extend": "excelHtml5"
+    },
+    {
+      "extend": "csvHtml5"
+    },
+    {
+      "extend": "pdfHtml5",
+      "pageSize": "A3",
+      "orientation": "landscape"
+    },
+    {
+      "extend": "pageLength"
+    }
+  ],
+  "colReorder": true,
+  "paging": false,
+  "scrollCollapse": false,
+  "pagingType": [
+    "full_numbers"
+  ],
+  "lengthMenu": [
+    [
+      15,
+      25,
+      50,
+      100,
+      -1
+    ],
+    [
+      15,
+      25,
+      50,
+      100,
+      "All"
+    ]
+  ],
+  "ordering": true,
+  "order": [],
+  "info": true,
+  "procesing": true,
+  "select": true,
+  "searching": true,
+  "stateSave": true,
+  "responsive": {
+    "details": {
+      "type": "inline"
+    }
+  },
+  "createdRow": ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table id="DT-DtEKczrs" class="display compact"><thead><tr><th>Name</th><th>Status</th><th>Source</th><th>1</th></tr></thead><tbody><tr><td>Properties</td><td>True</td><td>Test<BR>
+Test1</td><td>Test<BR>
+Test1</td></tr><tr><td>Test</td><td>False</td><td>My value 1</td><td><div><span style="font-weight:normal;color:#000000;text-decoration:none"></span><span style="font-weight:bold;color:#ff0000;text-decoration:line-through">My value 2<BR>
+</span><span style="font-weight:bold;color:#0000ff;text-decoration:none">My value 1<BR>
+</span></div></td></tr><tr><td>Test1</td><td>True</td><td>My value1</td><td>My value1</td></tr></tbody><tfoot><tr><th>Name</th><th>Status</th><th>Source</th><th>1</th></tr></tfoot></table></div></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>
