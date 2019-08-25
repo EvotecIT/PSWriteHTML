@@ -34,10 +34,8 @@
     }
     Remove-EmptyValues -Hashtable $Style
 
-    $Type = 'TableContentStyle'
-
     [PSCustomObject]@{
-        Type   = $Type
+        Type   = 'TableContentStyle'
         Output = @{
             Name        = $ColumnName
             Text        = $Text
