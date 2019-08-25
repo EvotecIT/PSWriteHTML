@@ -15,8 +15,6 @@ Get-ADComputer -SearchBase 'OU=Domain Controllers,DC=ad,DC=evotec,DC=xyz' -Filte
 
 Get-ADComputer -SearchBase 'OU=Domain Controllers,DC=ad,DC=evotec,DC=xyz' -Filter * -Properties * | Select-Object -First 5 | Out-HtmlView -Compare -HighlightDifferences
 
-return
-
 
 $Objects2 = @(
     Get-ADComputer -SearchBase 'OU=Domain Controllers,DC=ad,DC=evotec,DC=xyz' -Filter * -Properties *
@@ -36,14 +34,8 @@ $Replace = @(
     #@{ '' = 'AD3', 'AD1' }
 )
 
-#$Object1 =  [PSCustomObject] @{ Test = 'My value'; Test1 = 'My value1' }
+#Compare-MultipleObjects -Objects $Objects2 -FormatOutput -Summary -Replace $Replace -ExcludeProperty SID | ft -AutoSize
 
-#$Object1.Values -replace $($Replace.Values)[0], $($Replace.Values)[1]
-#$Object1 | ft -a
-
-Compare-MultipleObjects -Objects $Objects2 -FormatOutput -Summary -Replace $Replace -ExcludeProperty SID | ft -AutoSize
-
-#return
 
 New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-Comparing03.html {
     New-HTMLSection -HeaderText 'Comparing Object with Highlighting Differences (Domain Controllers)' {
