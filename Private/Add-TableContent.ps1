@@ -62,7 +62,7 @@
                         } elseif ($ConditionalFormatting.Operator -eq 'eq') {
                             $Pass = $SideLeft -eq $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'le') {
-                            $Pass = $SideLeft -le $SideRighte
+                            $Pass = $SideLeft -le $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'ge') {
                             $Pass = $SideLeft -ge $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'ne') {
@@ -72,7 +72,7 @@
                         } elseif ($ConditionalFormatting.Operator -eq 'contains') {
                             $Pass = $SideLeft -contains $SideRight
                         }
-                        # This is generally risky, alternative business to do it, so doing above instead
+                        # This is generally risky, alternative way to do it, so doing above instead
                         # if (Invoke-Expression -Command "`"$($RowData[$ColumnCount])`" -$($ConditionalFormatting.Operator) `"$($ConditionalFormatting.Value)`"") {
 
                         if ($Pass) {
