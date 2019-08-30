@@ -47,6 +47,10 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.50 - 2019.08.30
+  - [x] Add-TableContent
+    - [ ] Fix for a typo on LE (tnx gregwold)
+
 - 0.0.49 - 2019.08.25 - [Blog post about release](https://evotec.xyz/comparing-two-or-more-objects-visually-in-powershell-cross-platform/)
   - [x] Save-HTML
     - [ ] Moved some warnings to Verbose
