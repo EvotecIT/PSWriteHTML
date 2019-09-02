@@ -113,8 +113,8 @@ Function New-HTMLSection {
         New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultSection roundedCorners overflowHidden"; 'style' = $DivContentStyle } -Value {
             New-HTMLTag -Tag 'div' -Attributes @{ 'class' = "defaultHeader"; 'style' = $DivHeaderStyle } -Value {
                 New-HTMLAnchor -Name $HeaderText -Text $HeaderText -Style $HeaderStyle
-                New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)'
-                New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)'
+                New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text ' (Show)'
+                New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text ' (Hide)'
             }
             New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName overflowHidden"; id = $RandomNumber; Style = $HiddenDivStyle } -Value {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName flexElement collapsable overflowHidden"; id = $RandomNumber; } -Value {
