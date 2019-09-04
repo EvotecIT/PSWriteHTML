@@ -108,7 +108,26 @@ Function New-HTMLCodeBlock {
         'data-enlighter-highlight'   = "$Highlight"
         'data-enlighter-lineoffset'  = "$LineOffset".ToLower()
     }
+
+    # Cleanup code (if there are spaces before code it fixes that)
+    $ExtraCode = $Code.Split([System.Environment]::NewLine)
+    [int] $Length = 5000
+    $NewCode = foreach ($Line in $ExtraCode) {
+        if ($Line.Trim() -ne '') {
+            [int] $TempLength = $Line.Length - (($Line -replace '^(\s+)').Length)
+            #$TempLength = ($line -replace '^(\s+).+$', '$1').Length
+            if ($TempLength -le $Length) {
+                $Length = $TempLength
+            }
+            $Line
+        }
+    }
+    $FixedCode = foreach ($Line in $NewCode) {
+        $Line.Substring($Length)
+    }
+    $FinalCode = $FixedCode -join [System.Environment]::NewLine
+    # Prepare HTML
     New-HTMLTag -Tag 'pre' -Attributes $Attributes {
-        $Code
+        $FinalCode
     }
 }
