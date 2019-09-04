@@ -18,6 +18,27 @@ New-HTML -TitleText $ReportTitle -UseJavaScriptLinks -UseCssLinks -FilePath "$PS
                 }
             }
         }
+        New-HTMLSection {
+
+            $Data = @(
+                'string dfdsfsdfsd fsdf sdf dsf sdfsdf sdf fsd fsd fsdf sdf sdf sdlfksd fsdjkf hsdfk hsdfks hfksdh fkshdf sdf sdf fs dfsdfdsfs dfsdfsdfsdfsdfsdsdfsdf sdfsdf sdfsf sdf fsdfsd fsdf sdfsdf sdfs dfsdfsd f'
+                'string dfdsfsdfsd fsdf sdf dsf sdfsdf sdf fsd fsd fsdf sdf sdf sdlfksd fsdjkf hsdfk hsdfks hfksdh fkshdf sdf sdf fs dfsdfdsfs dfsdfsdfsdfsdfsdsdfsdf sdfsdf sdfsf sdf fsdfsd fsdf sdfsdf sdfs dfsdfsd f'
+            )
+
+            New-HTMLTable -DataTable $Data
+        }
+        New-HTMLSection {
+
+            $Data = 'string dfdsfsdfsd fsdf sdf dsf sdfsdf sdf fsd fsd fsdf sdf sdf sdlfksd fsdjkf hsdfk hsdfks hfksdh fkshdf sdf sdf fs dfsdfdsfs dfsdfsdfsdfsdfsdsdfsdf sdfsdf sdfsf sdf fsdfsd fsdf sdfsdf sdfs dfsdfsd f string dfdsfsdfsd fsdf sdf dsf sdfsdf sdf fsd fsd fsdf sdf sdf sdlfksd fsdjkf hsdfk hsdfks hfksdh fkshdf sdf sdf fs dfsdfdsfs dfsdfsdfsdfsdfsdsdfsdf sdfsdf sdfsf sdf fsdfsd fsdf sdfsdf sdfs dfsdfsd f'
+
+            New-HTMLTable -DataTable $Data
+        }
+        New-HTMLSection {
+
+            $Data = 'stringfdggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggdfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddfffffffffffffffffffffffffffffffffffffffffffff'
+
+            New-HTMLTable -DataTable $Data
+        }
     }
     New-HTMLTab -TabName 'Something' {
 

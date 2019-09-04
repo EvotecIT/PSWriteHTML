@@ -1,4 +1,4 @@
-Import-Module PSWriteHTML -Force
+#Import-Module PSWriteHTML -Force
 
 # Code Block for PowerShell Code (Showing how <pre> tags work)
 $CodeBlock = @'
