@@ -47,7 +47,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.51 - 2019.09.04
+- 0.0.51 - 2019.09.05
   - [x] New-HTMLCode
     - [ ] Added some formatting of whitespaces for code
 
