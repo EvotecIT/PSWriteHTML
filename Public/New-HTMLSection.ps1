@@ -80,10 +80,10 @@ Function New-HTMLSection {
         [string] $ClassName = "flexParent$(Get-RandomStringName -Size 8 -LettersOnly)"
         $Attributes = @{
             'display'        = 'flex'
-            'flex-wrap'      = if ($Wrap) { $Wrap };
-            'flex-direction' = if ($Direction) { $Direction };
-            'align-content'  = if ($AlignContent) { $AlignContent };
-            'align-items'    = if ($AlignItems) { $AlignItems };
+            'flex-wrap'      = if ($Wrap) { $Wrap } else { }
+            'flex-direction' = if ($Direction) { $Direction } else {}
+            'align-content'  = if ($AlignContent) { $AlignContent } else { }
+            'align-items'    = if ($AlignItems) { $AlignItems } else {}
         }
         $Css = ConvertTo-CSS -ClassName $ClassName -Attributes $Attributes
 
