@@ -2,7 +2,7 @@
     [alias('ChartTheme')]
     [CmdletBinding()]
     param(
-        [ValidateSet('light', 'dark')][string] $Mode,
+        [ValidateSet('light', 'dark')][string] $Mode = 'light',
         [ValidateSet(
             'palette1',
             'palette2',
@@ -18,17 +18,19 @@
         ][string] $Palette = 'palette1',
         [switch] $Monochrome,
         [RGBColors] $Color = [RGBColors]::DodgerBlue,
-        [ValidateSet('light', 'dark')][string] $ShadeTo = 'lightF',
+        [ValidateSet('light', 'dark')][string] $ShadeTo = 'light',
         [double] $ShadeIntensity = 0.65
     )
 
     [PSCustomObject] @{
-        ObjectType     = 'Theme'
-        Mode           = $Mode
-        Palette        = $Palette
-        Monochrome     = $Monochrome.IsPresent
-        Color          = $Color
-        ShadeTo        = $ShadeTo
-        ShadeIntensity = $ShadeIntensity
+        ObjectType = 'Theme'
+        Theme      = @{
+            Mode           = $Mode
+            Palette        = $Palette
+            Monochrome     = $Monochrome.IsPresent
+            Color          = $Color
+            ShadeTo        = $ShadeTo
+            ShadeIntensity = $ShadeIntensity
+        }
     }
 }

@@ -31,16 +31,18 @@ function New-ChartInternalTheme {
         ][string] $Palette = 'palette1',
         [switch] $Monochrome,
         [RGBColors] $Color = [RGBColors]::DodgerBlue,
-        [ValidateSet('light', 'dark')][string] $ShadeTo = 'lightF',
+        [ValidateSet('light', 'dark')][string] $ShadeTo = 'light',
         [double] $ShadeIntensity = 0.65
     )
+
+    $RGBColor = ConvertFrom-Color -Color $Color
 
     $Options.theme = [ordered] @{
         mode       = $Mode
         palette    = $Palette
         monochrome = [ordered] @{
             enabled        = $Monochrome.IsPresent
-            color          = $Color
+            color          = $RGBColor
             shadeTo        = $ShadeTo
             shadeIntensity = $ShadeIntensity
         }

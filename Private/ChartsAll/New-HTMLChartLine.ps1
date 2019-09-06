@@ -3,7 +3,6 @@ function New-HTMLChartLine {
     param(
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
-        [ValidateSet('default', 'central')][string] $Positioning = 'default',
 
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
@@ -20,9 +19,6 @@ function New-HTMLChartLine {
         #[RGBColors[]] $GridColors,
         #[double] $GridOpacity,
 
-        [string] $Title,
-        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
-
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
 
         #[string] $TitleX,
@@ -33,9 +29,18 @@ function New-HTMLChartLine {
         [Array] $Data,
         [Array] $DataNames,
         #[Array] $DataLegend,
-        [System.Collections.IDictionary] $GridOptions,
         [System.Collections.IDictionary] $ChartAxisX,
-        [System.Collections.IDictionary] $ChartAxisY
+        [System.Collections.IDictionary] $ChartAxisY,
+
+
+
+        [string] $Title,
+        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
+        [switch] $PatternedColors,
+        [switch] $GradientColors,
+        [System.Collections.IDictionary] $GridOptions,
+        [System.Collections.IDictionary] $Toolbar,
+        [System.Collections.IDictionary] $Theme
     )
 
     $Options = [ordered] @{ }
@@ -64,43 +69,31 @@ function New-HTMLChartLine {
         -LineColor $LineColor `
         -LineCap $LineCap `
         -LineDash $LineDash
-
     # line colors (stroke colors ) doesn't cover legend - we need to make sure it's the same even thou lines are already colored
     New-ChartInternalColors -Options $Options -Colors $LineColor
-
     New-ChartInternalDataLabels -Options $Options `
         -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX `
         -DataLabelsFontSize $DataLabelsFontSize `
         -DataLabelsColor $DataLabelsColor
-
     if ($ChartAxisX) {
         New-ChartInternalAxisX -Options $Options @ChartAxisX
-    } else {
-        #New-ChartInternalAxisX -Options $Options
-        #   -Title $TitleX `
-        #  -DataCategoriesType $DataCategoriesType `
-        # -DataCategories $DataLegend
     }
-
     if ($ChartAxisY) {
         New-ChartInternalAxisY -Options $Options @ChartAxisY
-    } else {
-        #New-ChartInternalAxisY -Options $Options
     }
-
     New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
-
-    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
-
-    if ($GridOptions) {
-        New-ChartInternalGrid -Options $Options @GridOptions #-GridColors $GridColors -GridOpacity $GridOpacity
-    } else {
-        New-ChartInternalGrid -Options $Options
-    }
     New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
 
+
+
+    # Default for all charts
+    if ($PatternedColors) { New-ChartInternalPattern }
+    if ($GradientColors) { New-ChartInternalGradient }
+    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
     New-ChartInternalSize -Options $Options -Height $Height -Width $Width
-    New-ChartInternalToolbar -Options $Options
-    New-ApexChart -Positioning $Positioning -Options $Options
+    if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
+    if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
+    if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }
+    New-ApexChart -Options $Options
 }

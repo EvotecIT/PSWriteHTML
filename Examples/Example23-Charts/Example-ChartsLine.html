@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-01 22:43:08" name="revised"/><title>Charts - Line</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-09-06 17:01:51" name="revised"/><title>Charts - Line</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -11,48 +11,25 @@ hr {
     width: 100%;
 }
 
-div.clientlogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: left;
-    display: inline-block;
-    width: 50%;
-}
-
-div.MainLogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: right;
-    display: inline-block;
-    width: 50%;
-}
-
-.central {
-    margin: 10px auto;
-    /* width: 100%; */
-    max-width: 900px;
-}
-
-div.defaultSection {
+.defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
+
     /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-        */
+    */
+
 }
 
-/* Not used anywhere - I think
-div.defaultColumn {
+.overflowHidden {
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding: 2px;
 }
-*/
 
 .flexParent {
     display: flex;
@@ -62,37 +39,41 @@ div.defaultColumn {
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-
     */
 }
 
 .flexParentInvisible {
     display: flex;
     justify-content: space-between;
+
     /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
     */
+
 }
 
 .flexElement {
     flex-basis: 100%;
-    flex: 1 auto;
+
+
     /*
+    flex: 1 auto;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
     */
+
 }
 
 .flexPanel {
     flex-basis: 100%;
+
     /*
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-
     */
 }
 
@@ -103,29 +84,24 @@ div.defaultColumn {
     margin: 5px;
 }
 
-div.defaultHeader {
+.defaultHeader {
     padding: 5px;
     margin: 0px 0px 0px 0px;
     font-weight: bold;
-    /* color: #ffffff;
-    background-color: #6Cf;
-    */
 }
 
-div.defaultFooter {
+.defaultFooter {
     padding-right: 5em;
     text-align: right;
 }
 
-
-
-td.clientlogo {
+.clientlogo {
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-td.MainLogo {
+.MainLogo {
     border: 0px;
     padding-right: 5em;
     text-align: right;
@@ -184,19 +160,6 @@ img {
     margin: 1%;
     flex: 1;
 }
-/*
-.orange {
-    background-color: #f39c12;
-}
-
-.red {
-    background-color: #ff4136;
-}
-
-.green {
-    background-color: #2ecc40;
-}
-*/
 </style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
 h3:after,
 h4:after,
@@ -255,6 +218,7 @@ h1 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
     color: #6Cf;
+    margin: 10px 10px 10px 10px;
 }
 
 h2 {
@@ -265,6 +229,7 @@ h2 {
     position: relative;
     font-size: 25px;
     line-height: 20px;
+    margin: 10px 10px 10px 10px;
 }
 
 h3 {
@@ -275,6 +240,7 @@ h3 {
     position: relative;
     font-size: 24px;
     line-height: 20px;
+    margin: 10px 10px 10px 10px;
 }
 
 h4 {
@@ -285,6 +251,7 @@ h4 {
     position: relative;
     font-size: 18px;
     line-height: 16px;
+    margin: 10px 10px 10px 10px;
 }
 
 h5 {
@@ -295,6 +262,7 @@ h5 {
     position: relative;
     font-size: 14px;
     line-height: 16px;
+    margin: 10px 10px 10px 10px;
 }
 
 h6 {
@@ -305,6 +273,7 @@ h6 {
     position: relative;
     font-size: 10px;
     line-height: 12px;
+    margin: 10px 10px 10px 10px;
 }
 </style><!-- CSS Always Required Default Headings END --><!-- CSS Elastic Tabs START --><style type="text/css">.tabsWrapper {
     text-align: center;
@@ -367,32 +336,19 @@ h6 {
     display: block;
 }
 </style><!-- CSS Elastic Tabs END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
-  document.getElementById(obj).style.display='block';
-  document.getElementById("hide_" + obj).style.display='';
-  document.getElementById("show_" + obj).style.display='none';
+  document.getElementById(obj).style.display = 'block';
+  document.getElementById("hide_" + obj).style.display = '';
+  document.getElementById("show_" + obj).style.display = 'none';
 }
 function hide(obj) {
-  document.getElementById(obj).style.display='none';
-  document.getElementById("hide_" + obj).style.display='none';
-  document.getElementById("show_" + obj).style.display='';
+  document.getElementById(obj).style.display = 'none';
+  document.getElementById("hide_" + obj).style.display = 'none';
+  document.getElementById("show_" + obj).style.display = '';
 }
-</script><!-- JS Hide Section Code END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-0alfwor3"><div class="far fa-hourglass"></div><span> Line Charts</span></a></div></div><div id="Tab-0alfwor3" class="tabs-content active"><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_1601540458" href="javascript:void(0)" onclick="show('1601540458');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1601540458" href="javascript:void(0)" onclick="hide('1601540458');" style="color: #ffffff;">(Hide)</a></div><div id="1601540458" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1601540458"><div class="flexPanel roundedCorners"><div id="ChartID-oi0heva7"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-7xbkowhd"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_867727798" href="javascript:void(0)" onclick="show('867727798');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_867727798" href="javascript:void(0)" onclick="hide('867727798');" style="color: #ffffff;">(Hide)</a></div><div id="867727798" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="867727798"><div class="flexPanel roundedCorners"><div id="ChartID-5hs9qlf8"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-pb832nj1"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_1741749276" href="javascript:void(0)" onclick="show('1741749276');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1741749276" href="javascript:void(0)" onclick="hide('1741749276');" style="color: #ffffff;">(Hide)</a></div><div id="1741749276" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1741749276"><div class="flexPanel roundedCorners"><div id="ChartID-prn3o6lt"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-b5s3kfqc"></div></div></div></div></div><div class="defaultSection roundedCorners"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_1994115703" href="javascript:void(0)" onclick="show('1994115703');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1994115703" href="javascript:void(0)" onclick="hide('1994115703');" style="color: #ffffff;">(Hide)</a></div><div id="1994115703" class="flexParentInvisible"><div class="flexParent flexElement collapsable" id="1994115703"><div class="flexPanel roundedCorners"><div id="ChartID-j24lt8wd"></div></div><div class="flexPanel roundedCorners"><div id="ChartID-61swu4pm"></div></div></div></div></div></div><script>var options = {
+</script><!-- JS Hide Section Code END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-d9c7tsri"><div class="far fa-hourglass"></div><span> Line Charts</span></a></div></div><div id="Tab-d9c7tsri" class="tabs-content active"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_823370451" href="javascript:void(0)" onclick="show('823370451');" style="color: #ffffff; display:none;"> (Show)</a><a id="hide_823370451" href="javascript:void(0)" onclick="hide('823370451');" style="color: #ffffff;"> (Hide)</a></div><div id="823370451" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="823370451"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-hvzkt0w8"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-lonzp954"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_158153506" href="javascript:void(0)" onclick="show('158153506');" style="color: #ffffff; display:none;"> (Show)</a><a id="hide_158153506" href="javascript:void(0)" onclick="hide('158153506');" style="color: #ffffff;"> (Hide)</a></div><div id="158153506" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="158153506"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-wfknu3eq"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-48dmti1h"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_1832959725" href="javascript:void(0)" onclick="show('1832959725');" style="color: #ffffff; display:none;"> (Show)</a><a id="hide_1832959725" href="javascript:void(0)" onclick="hide('1832959725');" style="color: #ffffff;"> (Hide)</a></div><div id="1832959725" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1832959725"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-sfd7tq51"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-jifxtrhe"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_1946166217" href="javascript:void(0)" onclick="show('1946166217');" style="color: #ffffff; display:none;"> (Show)</a><a id="hide_1946166217" href="javascript:void(0)" onclick="hide('1946166217');" style="color: #ffffff;"> (Hide)</a></div><div id="1946166217" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1946166217"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-hd6925ys"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-qg0fyam8"></div></div></div></div></div></div><script>var options = {
     "chart":  {
                   "height":  350,
-                  "type":  "line",
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  false,
-                                                "selection":  false,
-                                                "zoom":  false,
-                                                "zoomin":  false,
-                                                "zoomout":  false,
-                                                "pan":  false,
-                                                "reset":  false
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
+                  "type":  "line"
               },
     "series":  [
                    {
@@ -463,38 +419,16 @@ function hide(obj) {
     "title":  {
                   "text":  "Incidents Reported vs Solved",
                   "align":  "center"
-              },
-    "grid":  {
-                 "Show":  false,
-                 "row":  {
-                             "opacity":  0.5
-                         },
-                 "column":  {
-                                "opacity":  null
-                            }
-             }
+              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-oi0heva7'),
+var chart = new ApexCharts(document.querySelector('#ChartID-hvzkt0w8'),
             options
         );
 chart.render();
 </script><script>var options = {
     "chart":  {
                   "height":  350,
-                  "type":  "line",
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  false,
-                                                "selection":  false,
-                                                "zoom":  false,
-                                                "zoomin":  false,
-                                                "zoomout":  false,
-                                                "pan":  false,
-                                                "reset":  false
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
+                  "type":  "line"
               },
     "series":  [
                    {
@@ -576,38 +510,16 @@ chart.render();
     "title":  {
                   "text":  "Incidents Reported vs Solved",
                   "align":  "center"
-              },
-    "grid":  {
-                 "Show":  false,
-                 "row":  {
-                             "opacity":  0.5
-                         },
-                 "column":  {
-                                "opacity":  null
-                            }
-             }
+              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-7xbkowhd'),
+var chart = new ApexCharts(document.querySelector('#ChartID-lonzp954'),
             options
         );
 chart.render();
 </script><script>var options = {
     "chart":  {
                   "height":  350,
-                  "type":  "line",
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  false,
-                                                "selection":  false,
-                                                "zoom":  false,
-                                                "zoomin":  false,
-                                                "zoomout":  false,
-                                                "pan":  false,
-                                                "reset":  false
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
+                  "type":  "line"
               },
     "series":  [
                    {
@@ -661,38 +573,16 @@ chart.render();
     "title":  {
                   "text":  "Product Trends by Month",
                   "align":  "center"
-              },
-    "grid":  {
-                 "Show":  false,
-                 "row":  {
-                             "opacity":  0.5
-                         },
-                 "column":  {
-                                "opacity":  null
-                            }
-             }
+              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-5hs9qlf8'),
+var chart = new ApexCharts(document.querySelector('#ChartID-wfknu3eq'),
             options
         );
 chart.render();
 </script><script>var options = {
     "chart":  {
                   "height":  350,
-                  "type":  "line",
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  false,
-                                                "selection":  false,
-                                                "zoom":  false,
-                                                "zoomin":  false,
-                                                "zoomout":  false,
-                                                "pan":  false,
-                                                "reset":  false
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
+                  "type":  "line"
               },
     "series":  [
                    {
@@ -757,38 +647,16 @@ chart.render();
     "title":  {
                   "text":  "Average High & Low Temperature",
                   "align":  "left"
-              },
-    "grid":  {
-                 "Show":  false,
-                 "row":  {
-                             "opacity":  0.5
-                         },
-                 "column":  {
-                                "opacity":  null
-                            }
-             }
+              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-pb832nj1'),
+var chart = new ApexCharts(document.querySelector('#ChartID-48dmti1h'),
             options
         );
 chart.render();
 </script><script>var options = {
     "chart":  {
                   "height":  350,
-                  "type":  "line",
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  false,
-                                                "selection":  false,
-                                                "zoom":  false,
-                                                "zoomin":  false,
-                                                "zoomout":  false,
-                                                "pan":  false,
-                                                "reset":  false
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
+                  "type":  "line"
               },
     "series":  [
                    {
@@ -842,38 +710,16 @@ chart.render();
     "title":  {
                   "text":  "Product Trends by Month",
                   "align":  "center"
-              },
-    "grid":  {
-                 "Show":  false,
-                 "row":  {
-                             "opacity":  0.5
-                         },
-                 "column":  {
-                                "opacity":  null
-                            }
-             }
+              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-prn3o6lt'),
+var chart = new ApexCharts(document.querySelector('#ChartID-sfd7tq51'),
             options
         );
 chart.render();
 </script><script>var options = {
     "chart":  {
                   "height":  350,
-                  "type":  "line",
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  false,
-                                                "selection":  false,
-                                                "zoom":  false,
-                                                "zoomin":  false,
-                                                "zoomout":  false,
-                                                "pan":  false,
-                                                "reset":  false
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
+                  "type":  "line"
               },
     "series":  [
                    {
@@ -949,38 +795,16 @@ chart.render();
     "title":  {
                   "text":  "Average High & Low Temperature",
                   "align":  "left"
-              },
-    "grid":  {
-                 "Show":  false,
-                 "row":  {
-                             "opacity":  0.5
-                         },
-                 "column":  {
-                                "opacity":  null
-                            }
-             }
+              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-b5s3kfqc'),
+var chart = new ApexCharts(document.querySelector('#ChartID-jifxtrhe'),
             options
         );
 chart.render();
 </script><script>var options = {
     "chart":  {
                   "height":  350,
-                  "type":  "line",
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  false,
-                                                "selection":  false,
-                                                "zoom":  false,
-                                                "zoomin":  false,
-                                                "zoomout":  false,
-                                                "pan":  false,
-                                                "reset":  false
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
+                  "type":  "line"
               },
     "series":  [
                    {
@@ -1034,38 +858,16 @@ chart.render();
     "title":  {
                   "text":  "Product Trends by Month",
                   "align":  "center"
-              },
-    "grid":  {
-                 "Show":  false,
-                 "row":  {
-                             "opacity":  0.5
-                         },
-                 "column":  {
-                                "opacity":  null
-                            }
-             }
+              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-j24lt8wd'),
+var chart = new ApexCharts(document.querySelector('#ChartID-hd6925ys'),
             options
         );
 chart.render();
 </script><script>var options = {
     "chart":  {
                   "height":  350,
-                  "type":  "line",
-                  "toolbar":  {
-                                  "show":  false,
-                                  "tools":  {
-                                                "download":  false,
-                                                "selection":  false,
-                                                "zoom":  false,
-                                                "zoomin":  false,
-                                                "zoomout":  false,
-                                                "pan":  false,
-                                                "reset":  false
-                                            },
-                                  "autoSelected":  "zoom"
-                              }
+                  "type":  "line"
               },
     "series":  [
                    {
@@ -1174,7 +976,7 @@ chart.render();
                             }
              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-61swu4pm'),
+var chart = new ApexCharts(document.querySelector('#ChartID-qg0fyam8'),
             options
         );
 chart.render();

@@ -7,7 +7,8 @@
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
-        [ValidateSet('default', 'central')][string] $Positioning = 'default'
+        [alias('GradientColors')][switch] $Gradient,
+        [alias('PatternedColors')][switch] $Patterned
     )
 
     # Datasets Bar/Line
@@ -25,13 +26,14 @@
     $LineDashes = [System.Collections.Generic.List[int]]::new()
     $LineCaps = [System.Collections.Generic.List[string]]::new()
 
+    $RadialColors = [System.Collections.Generic.List[RGBColors]]::new()
+    $SparkColors = [System.Collections.Generic.List[RGBColors]]::new()
+
     # Bar default definitions
-    [string] $BarType = 'bar' # Default
     [bool] $BarHorizontal = $true
     [bool] $BarDataLabelsEnabled = $true
     [int] $BarDataLabelsOffsetX = -6
     [string] $BarDataLabelsFontSize = '12px'
-    [bool] $BarPatternedColors = $false
     [bool] $BarDistributed = $false
 
     [string] $LegendPosition = 'default'
@@ -41,9 +43,33 @@
     foreach ($Setting in $Settings) {
         if ($Setting.ObjectType -eq 'Bar') {
             # For Bar Charts
-            $Type = 'Bar'
+            $Type = $Setting.ObjectType
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
+
+        } elseif ($Setting.ObjectType -eq 'Pie' -or $Setting.ObjectType -eq 'Donut') {
+            # For Pie Charts
+            $Type = $Setting.ObjectType
+            $DataSet.Add($Setting.Value)
+            $DataName.Add($Setting.Name)
+        } elseif ($Setting.ObjectType -eq 'Spark') {
+            # For Spark Charts
+            $Type = $Setting.ObjectType
+            $DataSet.Add($Setting.Value)
+            $DataName.Add($Setting.Name)
+
+
+            if ($Setting.Color) {
+                $SparkColors.Add($Setting.Color)
+            }
+        } elseif ($Setting.ObjectType -eq 'Radial') {
+            $Type = $Setting.ObjectType
+            $DataSet.Add($Setting.Value)
+            $DataName.Add($Setting.Name)
+
+            if ($Setting.Color) {
+                $RadialColors.Add($Setting.Color)
+            }
         } elseif ($Setting.ObjectType -eq 'Legend') {
             # For Bar Charts
             $DataLegend = $Setting.Names
@@ -53,20 +79,30 @@
             }
         } elseif ($Setting.ObjectType -eq 'BarOptions') {
             # For Bar Charts
-            $BarType = $Setting.Type
+            $Type = $Setting.Type
             $BarHorizontal = $Setting.Horizontal
             $BarDataLabelsEnabled = $Setting.DataLabelsEnabled
             $BarDataLabelsOffsetX = $Setting.DataLabelsOffsetX
             $BarDataLabelsFontSize = $Setting.DataLabelsFontSize
             $BarDataLabelsColor = $Setting.DataLabelsColor
-            $BarPatternedColors = $Setting.PatternedColors
             $BarDistributed = $Setting.Distributed
+
+            # This is required to support legacy ChartBarOptions - Gradient -Patterned
+            if ($null -ne $Setting.PatternedColors) {
+                $Patterned = $Setting.PatternedColors
+            }
+            if ($null -ne $Setting.GradientColors) {
+                $Gradient = $Setting.GradientColors
+            }
         } elseif ($Setting.ObjectType -eq 'Toolbar') {
             # For All Charts
             $Toolbar = $Setting.Toolbar
+        } elseif ($Setting.ObjectType -eq 'Theme') {
+            # For All Charts
+            $Theme = $Setting.Theme
         } elseif ($Setting.ObjectType -eq 'Line') {
             # For Line Charts
-            $Type = 'Line'
+            $Type = $Setting.ObjectType
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
             if ($Setting.LineColor) {
@@ -96,15 +132,9 @@
     }
 
     if ($Type -eq 'Bar') {
-        #if (-not $DataLegend) {
-        #    Write-Warning -Message 'Chart Legend is missing.'
-        #     Exit
-        # } else {
         if ($DataLegend.Count -lt $DataSet[0].Count) {
             Write-Warning -Message "Chart Legend count doesn't match values count. Skipping."
         }
-        #}
-
         # Fixes dataset/dataname to format expected by New-HTMLChartBar
         $HashTable = [ordered] @{ }
         $ArrayCount = $DataSet[0].Count
@@ -126,12 +156,11 @@
             -DataNames $DataName `
             -DataLegend $DataLegend `
             -LegendPosition $LegendPosition `
-            -Type $BarType `
+            -Type $Type `
             -Title $Title `
             -TitleAlignment $TitleAlignment `
             -Horizontal:$BarHorizontal `
             -DataLabelsEnabled $BarDataLabelsEnabled `
-            -PatternedColors:$BarPatternedColors `
             -DataLabelsOffsetX $BarDataLabelsOffsetX `
             -DataLabelsFontSize $BarDataLabelsFontSize `
             -Distributed:$BarDistributed `
@@ -139,8 +168,7 @@
             -Height $Height `
             -Width $Width `
             -Colors $Colors `
-            -Toolbar $Toolbar `
-            -Positioning $Positioning
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
     } elseif ($Type -eq 'Line') {
         if (-not $ChartAxisX) {
             Write-Warning -Message 'Chart Category (Chart Axis X) is missing.'
@@ -148,30 +176,43 @@
         }
         New-HTMLChartLine -Data $DataSet `
             -DataNames $DataName `
-            -Title $Title `
-            -TitleAlignment $TitleAlignment `
             -DataLabelsEnabled $BarDataLabelsEnabled `
             -DataLabelsOffsetX $BarDataLabelsOffsetX `
             -DataLabelsFontSize $BarDataLabelsFontSize `
             -DataLabelsColor $BarDataLabelsColor `
-            -Height $Height `
-            -Width $Width `
-            -Positioning $Positioning `
             -LineColor $LineColors `
             -LineCurve $LineCurves `
             -LineWidth $LineWidths `
             -LineDash $LineDashes `
             -LineCap $LineCaps `
-            -GridOptions $GridOptions `
             -ChartAxisX $ChartAxisX `
-            -ChartAxisY $ChartAxisY
-        #-DataLegend $DataCategory `
-        #-GridColors LightGrey, WhiteSmoke `
-        #-GridOpacity 0.5 `
+            -ChartAxisY $ChartAxisY `
+            -Title $Title -TitleAlignment $TitleAlignment `
+            -Height $Height -Width $Width `
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
 
-
-
-        #           -PatternedColors:$BarPatternedColors `       -Distributed:$BarDistributed `
-
+    } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
+        New-HTMLChartPie `
+            -Type $Type `
+            -Data $DataSet `
+            -DataNames $DataName `
+            -Title $Title -TitleAlignment $TitleAlignment `
+            -Height $Height -Width $Width `
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
+    } elseif ($Type -eq 'Spark') {
+        New-HTMLChartSpark `
+            -Data $DataSet `
+            -DataNames $DataName `
+            -Title $Title -TitleAlignment $TitleAlignment `
+            -Height $Height -Width $Width `
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
+    } elseif ($Type -eq 'Radial') {
+        New-HTMLChartRadial `
+            -Data $DataSet `
+            -DataNames $DataName `
+            -Colors $RadialColors `
+            -Title $Title -TitleAlignment $TitleAlignment `
+            -Height $Height -Width $Width `
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
     }
 }

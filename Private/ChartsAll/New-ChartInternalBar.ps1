@@ -7,16 +7,12 @@ Function New-ChartInternalBar {
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
         [RGBColors[]] $DataLabelsColor,
-
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
-
         [string] $Formatter,
         [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',
-
         #[RGBColors[]] $Colors,
 
-        [switch] $PatternedColors,
         [switch] $Distributed,
 
         [Array] $Data,
@@ -41,11 +37,6 @@ Function New-ChartInternalBar {
         }
     }
 
-    #if ($Colors.Count -gt 0) {
-    #    $RGBColor = ConvertFrom-Color -Color $Colors
-    #    $Options.colors = @($RGBColor)
-   # }
-
     $Options.plotOptions = @{
         bar = @{
             horizontal = $Horizontal
@@ -68,7 +59,7 @@ Function New-ChartInternalBar {
     $Options.series = @(New-ChartInternalDataSet -Data $Data -DataNames $DataLegend)
 
     # X AXIS - CATEGORIES
-    $Options.xaxis = [ordered] @{}
+    $Options.xaxis = [ordered] @{ }
     # if ($DataCategoriesType -ne '') {
     #    $Options.xaxis.type = $DataCategoriesType
     #}
@@ -82,15 +73,5 @@ Function New-ChartInternalBar {
         #}
     }
 
-    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
 
-     if ($PatternedColors) {
-        $Options.fill = @{
-            type    = 'pattern'
-            opacity = 1
-            pattern = @{
-                style = @('circles', 'slantedLines', 'verticalLines', 'horizontalLines')
-            }
-        }
-    }
 }

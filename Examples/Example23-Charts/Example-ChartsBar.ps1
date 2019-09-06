@@ -4,14 +4,14 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
     New-HTMLTabOptions -SlimTabs
     New-HTMLTab -Name 'Bar Charts - Bar' -IconRegular chart-bar {
         New-HTMLSection -HeaderText 'Bar Charts - Test' -CanCollapse {
-            New-HTMLPanel  {
+            New-HTMLPanel {
                 New-HTMLChart {
                     New-ChartBar -Name 'Test' -Value 1
                     New-ChartBar -Name 'Test1' -Value 2
                     New-ChartBar -Name 'Test2' -Value 3
                 }
             }
-            New-HTMLPanel  {
+            New-HTMLPanel {
                 New-HTMLChart {
                     New-ChartToolbar -Download
                     New-ChartLegend -Name 'Time', 'Money', 'Taxes'
@@ -20,7 +20,17 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
                     New-ChartBar -Name 'Test2' -Value 3, 1, 2
                 }
             }
-            New-HTMLPanel  {
+            New-HTMLPanel {
+                New-HTMLChart {
+                    New-ChartToolbar -Download
+                    New-ChartBarOptions -Gradient
+                    New-ChartLegend -Name 'Time', 'Money', 'Taxes'
+                    New-ChartBar -Name 'Test' -Value 1, 2, 3
+                    New-ChartBar -Name 'Test1' -Value 2, 5, 7
+                    New-ChartBar -Name 'Test2' -Value 3, 1, 2
+                }
+            }
+            New-HTMLPanel {
                 New-HTMLChart {
                     New-ChartLegend -Name 'Time'
                     for ($i = 0; $i -le 5; $i++) {
@@ -28,7 +38,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
                     }
                 }
             }
-            New-HTMLPanel  {
+            New-HTMLPanel {
                 New-HTMLChart {
                     New-ChartBarOptions -Vertical -DataLabelsColor GreenYellow
                     New-ChartLegend -Name 'Time'
@@ -65,7 +75,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             }
             New-HTMLPanel -Invisible {
                 New-HTMLChart {
-                    New-ChartBarOptions -Vertical -DataLabelsColor GreenYellow
+                    New-ChartBarOptions -Vertical -DataLabelsColor GreenYellow -Gradient
                     New-ChartLegend -Name 'Time'
                     for ($i = 0; $i -le 5; $i++) {
                         New-ChartBar -Name "Test $i" -Value $i
@@ -213,7 +223,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
                 $Data2 = 53, 32, 33, 52, 13, 44, 32
                 $DataNames1 = 2001, 2002, 2003, 2004, 2005, 2006, 2007
                 New-HTMLChart -Title 'Pets vs People' -TitleAlignment center {
-                    New-ChartBarOptions -Type barStacked100Percent
+                    New-ChartBarOptions -Type barStacked100Percent -Gradient
                     New-ChartLegend -Names 'People', 'Pets' -LegendPosition bottom
                     for ($i = 0; $i -lt $Data1.Count; $i++) {
                         New-ChartBar -Name $DataNames1[$i] -Value $Data1[$i], $Data2[$i]

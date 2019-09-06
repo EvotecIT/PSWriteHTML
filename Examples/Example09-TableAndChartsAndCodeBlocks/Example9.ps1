@@ -64,7 +64,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
     }
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
-            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left -Positioning central {
+            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left {
                 New-ChartCategory -Name  '2015', '2016', '2017'
                 New-ChartLine -Name 'People count' -Value @(400, 430, 448) -Color Blue
                 New-ChartLine -Name 'People Death' -Value @(450, 0, 200) -Color Green
@@ -91,7 +91,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
         New-HTMLPanel {
             $Data = 10, 41, 35, 51, 49, 62, 69, 91, 148
             $DataCategories = 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
-            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left -Positioning central {
+            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left {
                 New-ChartCategory -Name $DataCategories
                 New-ChartLine -Name "Desktops" -Value $Data -Color Blue
             }
@@ -117,7 +117,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter
         }
         New-HTMLPanel {
-            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left -Positioning central {
+            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left  {
                 New-ChartCategory -Name  '2015', '2016', '2017'
                 New-ChartLine -Name 'People count' -Value @(400, 430, 448) -Color Blue
                 New-ChartLine -Name 'People Death' -Value @(450, 0, 200) -Color Green

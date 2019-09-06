@@ -2,8 +2,6 @@ function New-HTMLChartArea {
     [CmdletBinding()]
     param(
         [nullable[int]] $Height = 350,
-        [nullable[int]] $Width,
-        [ValidateSet('default', 'central')][string] $Positioning = 'default',
 
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
@@ -18,9 +16,6 @@ function New-HTMLChartArea {
         [RGBColors[]] $GridColors,
         [double] $GridOpacity,
 
-        [string] $Title,
-        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
-
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
 
         [string] $TitleX,
@@ -32,11 +27,20 @@ function New-HTMLChartArea {
         [Array] $DataNames,
         [Array] $DataLegend,
 
-        [switch] $Zoom
+        [switch] $Zoom,
+
+
+
+        [string] $Title,
+        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
+        [switch] $PatternedColors,
+        [switch] $GradientColors,
+        [System.Collections.IDictionary] $GridOptions,
+        [System.Collections.IDictionary] $Toolbar,
+        [System.Collections.IDictionary] $Theme
     )
 
-    $Options = [ordered] @{}
-
+    $Options = [ordered] @{ }
     New-ChartInternalArea -Options $Options -Data $Data -DataNames $DataNames
 
     New-ChartInternalStrokeDefinition -Options $Options `
@@ -56,19 +60,19 @@ function New-HTMLChartArea {
         -DataCategoriesType $DataCategoriesType `
         -DataCategories $DataLegend
 
-    New-ChartInternalAxisY -Options $Options `
-        -Title $TitleY
-
+    New-ChartInternalAxisY -Options $Options -Title $TitleY
     New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
-
-    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
-    New-ChartInternalGrid -Options $Options -GridColors $GridColors -GridOpacity $GridOpacity
-
+    New-ChartInternalZoom -Options $Options -Enabled:$Zoom
     New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
 
-    New-ChartInternalSize -Options $Options -Height $Height -Width $Width
 
-    New-ChartInternalZoom -Options $Options -Enabled:$Zoom
-    New-ChartInternalToolbar -Options $Options
-    New-ApexChart -Positioning $Positioning -Options $Options
+    # Default for all charts
+    if ($PatternedColors) { New-ChartInternalPattern }
+    if ($GradientColors) { New-ChartInternalGradient }
+    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
+    New-ChartInternalSize -Options $Options -Height $Height -Width $Width
+    if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
+    if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
+    if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }
+    New-ApexChart -Options $Options
 }

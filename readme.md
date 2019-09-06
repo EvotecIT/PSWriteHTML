@@ -47,6 +47,12 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.52 - Unreleased
+  - Library updates:
+    - ApexCharts update 3.8.5
+  - New-HTMLChart
+    - Removed Positioning parameter
+
 - 0.0.51 - 2019.09.05
   - [x] New-HTMLCode
     - [ ] Added some formatting of whitespaces for code

@@ -1,16 +1,19 @@
-function New-HTMLChartRadial {
+﻿function New-HTMLChartPie {
     [CmdletBinding()]
     param(
+        [string] $Type,
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
 
-        [Array] $DataNames,
+        [bool] $DataLabelsEnabled = $true,
+        [int] $DataLabelsOffsetX = -6,
+        [string] $DataLabelsFontSize = '12px',
+        [RGBColors[]] $DataLabelsColor,
         [Array] $Data,
-        [string] $Type,
-        [ValidateSet('FullCircleTop', 'FullCircleBottom', 'FullCircleBottomLeft', 'FullCircleLeft', 'Speedometer', 'SemiCircleGauge')] $CircleType = 'FullCircleTop',
-        [string] $LabelAverage,
+        [Array] $DataNames,
 
-        [RGBColors[]] $Colors,
+
+        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
 
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
@@ -19,18 +22,12 @@ function New-HTMLChartRadial {
         [System.Collections.IDictionary] $GridOptions,
         [System.Collections.IDictionary] $Toolbar,
         [System.Collections.IDictionary] $Theme
+
     )
 
     $Options = [ordered] @{ }
+    New-ChartInternalPie -Options $Options -Names $DataNames -Values $Data -Type $Type
 
-    New-ChartInternalRadial -Options $Options -Names $DataNames -Values $Data -Type $Type
-    # This controls how the circle starts / left , right and so on
-    New-ChartInternalRadialCircleType -Options $Options -CircleType $CircleType
-    # This added label. It's useful if there's more then one data
-    New-ChartInternalRadialDataLabels -Options $Options -Label $LabelAverage
-
-
-    New-ChartInternalColors -Options $Options -Colors $Colors
 
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
