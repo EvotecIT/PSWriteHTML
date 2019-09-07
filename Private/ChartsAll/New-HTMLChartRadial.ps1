@@ -10,8 +10,9 @@ function New-HTMLChartRadial {
         [ValidateSet('FullCircleTop', 'FullCircleBottom', 'FullCircleBottomLeft', 'FullCircleLeft', 'Speedometer', 'SemiCircleGauge')] $CircleType = 'FullCircleTop',
         [string] $LabelAverage,
 
-        [RGBColors[]] $Colors,
 
+
+        [RGBColors[]] $Colors,
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
         [switch] $PatternedColors,
@@ -31,7 +32,6 @@ function New-HTMLChartRadial {
 
 
     New-ChartInternalColors -Options $Options -Colors $Colors
-
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }

@@ -37,5 +37,16 @@ New-HTML -TitleText 'My charts' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fi
                 }
             }
         }
+        New-HTMLSection -HeaderText 'Pie Charts - Diff colors' -CanCollapse {
+            New-HTMLPanel {
+                New-HTMLChart {
+                    New-ChartPie -Name 'Test' -Value 20 -Color Red
+                    New-ChartPie -Name 'Test1' -Value 30 -Color Red
+                    New-ChartPie -Name 'Test2' -Value 40 -Color DarkGrey
+                    New-ChartPie -Name 'Test1' -Value 30 -Color LimeGreen
+                    New-ChartPie -Name 'Test2' -Value 40 -Color MediumVioletRed
+                }
+            }
+        }
     }
 } -ShowHTML

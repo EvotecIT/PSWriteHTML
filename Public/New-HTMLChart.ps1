@@ -17,17 +17,17 @@
 
 
     # Legend Variables
-    $Colors = @()
+    $Colors = [System.Collections.Generic.List[RGBColors]]::new()
 
     # Line Variables
-    $LineColors = [System.Collections.Generic.List[RGBColors]]::new()
+    # $LineColors = [System.Collections.Generic.List[RGBColors]]::new()
     $LineCurves = [System.Collections.Generic.List[string]]::new()
     $LineWidths = [System.Collections.Generic.List[int]]::new()
     $LineDashes = [System.Collections.Generic.List[int]]::new()
     $LineCaps = [System.Collections.Generic.List[string]]::new()
 
-    $RadialColors = [System.Collections.Generic.List[RGBColors]]::new()
-    $SparkColors = [System.Collections.Generic.List[RGBColors]]::new()
+    #$RadialColors = [System.Collections.Generic.List[RGBColors]]::new()
+    #$SparkColors = [System.Collections.Generic.List[RGBColors]]::new()
 
     # Bar default definitions
     [bool] $BarHorizontal = $true
@@ -52,15 +52,18 @@
             $Type = $Setting.ObjectType
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
+
+            if ($Setting.Color) {
+                $Colors.Add($Setting.Color)
+            }
         } elseif ($Setting.ObjectType -eq 'Spark') {
             # For Spark Charts
             $Type = $Setting.ObjectType
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
 
-
             if ($Setting.Color) {
-                $SparkColors.Add($Setting.Color)
+                $Colors.Add($Setting.Color)
             }
         } elseif ($Setting.ObjectType -eq 'Radial') {
             $Type = $Setting.ObjectType
@@ -68,7 +71,7 @@
             $DataName.Add($Setting.Name)
 
             if ($Setting.Color) {
-                $RadialColors.Add($Setting.Color)
+                $Colors.Add($Setting.Color)
             }
         } elseif ($Setting.ObjectType -eq 'Legend') {
             # For Bar Charts
@@ -106,7 +109,7 @@
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
             if ($Setting.LineColor) {
-                $LineColors.Add($Setting.LineColor)
+                $Colors.Add($Setting.LineColor)
             }
             if ($Setting.LineCurve) {
                 $LineCurves.Add($Setting.LineCurve)
@@ -180,7 +183,7 @@
             -DataLabelsOffsetX $BarDataLabelsOffsetX `
             -DataLabelsFontSize $BarDataLabelsFontSize `
             -DataLabelsColor $BarDataLabelsColor `
-            -LineColor $LineColors `
+            -LineColor $Colors `
             -LineCurve $LineCurves `
             -LineWidth $LineWidths `
             -LineDash $LineDashes `
@@ -196,6 +199,7 @@
             -Type $Type `
             -Data $DataSet `
             -DataNames $DataName `
+            -Colors $Colors `
             -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
@@ -203,6 +207,7 @@
         New-HTMLChartSpark `
             -Data $DataSet `
             -DataNames $DataName `
+            -Colors $Colors `
             -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
@@ -210,7 +215,7 @@
         New-HTMLChartRadial `
             -Data $DataSet `
             -DataNames $DataName `
-            -Colors $RadialColors `
+            -Colors $Colors `
             -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient

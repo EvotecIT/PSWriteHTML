@@ -5,6 +5,7 @@
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
 
+
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
@@ -15,6 +16,8 @@
 
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
 
+
+        [RGBColors[]] $Colors,
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
         [switch] $PatternedColors,
@@ -29,6 +32,7 @@
     New-ChartInternalPie -Options $Options -Names $DataNames -Values $Data -Type $Type
 
 
+    New-ChartInternalColors -Options $Options -Colors $Colors
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
