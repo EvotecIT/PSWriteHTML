@@ -47,7 +47,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.52 - Unreleased
+- 0.0.52 - 2019.09.07
   - Library updates:
     - ApexCharts update 3.8.5
   - [x] New-HTMLChart
