@@ -76,7 +76,7 @@ function New-ChartInternalRadialType1 {
             type             = 'horizontal'
             shadeIntensity   = 0.5
             gradientToColors = @('#ABE5A1')
-            inverseColors    = true
+            inverseColors    = $true
             opacityFrom      = 1
             opacityTo        = 1
             stops            = @(0, 100)
@@ -93,7 +93,7 @@ function New-ChartInternalRadialType1 {
         gradient = @{
             shade          = 'dark'
             shadeIntensity = 0.15
-            inverseColors  = false
+            inverseColors  = $false
             opacityFrom    = 1
             opacityTo      = 1
             stops          = @(0, 50, 65, 91)
