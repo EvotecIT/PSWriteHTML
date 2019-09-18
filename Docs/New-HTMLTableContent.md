@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLTableCondition
+# New-HTMLTableContent
 
 ## SYNOPSIS
 {{ Fill in the Synopsis }}
@@ -13,11 +13,11 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLTableCondition [[-Name] <String>] [[-ComparisonType] <String>] [[-Operator] <String>]
- [[-Value] <Object>] [-Row] [[-Color] <RGBColors>] [[-BackgroundColor] <RGBColors>] [[-FontSize] <Int32>]
+New-HTMLTableContent [[-ColumnName] <String[]>] [[-ColumnIndex] <Int32[]>] [[-RowIndex] <Int32[]>]
+ [[-Text] <String[]>] [[-Color] <RGBColors>] [[-BackGroundColor] <RGBColors>] [[-FontSize] <Int32>]
  [[-FontWeight] <String>] [[-FontStyle] <String>] [[-FontVariant] <String>] [[-FontFamily] <String>]
  [[-Alignment] <String>] [[-TextDecoration] <String>] [[-TextTransform] <String>] [[-Direction] <String>]
- [-Inline] [<CommonParameters>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -50,8 +50,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -BackgroundColor
-{{ Fill BackgroundColor Description }}
+### -BackGroundColor
+{{ Fill BackGroundColor Description }}
 
 ```yaml
 Type: RGBColors
@@ -82,17 +82,31 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ComparisonType
-{{ Fill ComparisonType Description }}
+### -ColumnIndex
+{{ Fill ColumnIndex Description }}
 
 ```yaml
-Type: String
+Type: Int32[]
 Parameter Sets: (All)
-Aliases: Type
-Accepted values: number, string
+Aliases:
 
 Required: False
 Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ColumnName
+{{ Fill ColumnName Description }}
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases: ColumnNames, Names, Name
+
+Required: False
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -192,44 +206,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Inline
-{{ Fill Inline Description }}
+### -RowIndex
+{{ Fill RowIndex Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: Int32[]
 Parameter Sets: (All)
 Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Name
-{{ Fill Name Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: ColumnName
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Operator
-{{ Fill Operator Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: lt, le, eq, ge, gt, ne, contains, like
 
 Required: False
 Position: 2
@@ -238,16 +221,16 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Row
-{{ Fill Row Description }}
+### -Text
+{{ Fill Text Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -280,21 +263,6 @@ Accepted values: uppercase, lowercase, capitalize
 
 Required: False
 Position: 13
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Value
-{{ Fill Value Description }}
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLContainer [[-HTML] <ScriptBlock>] [<CommonParameters>]
+New-HTMLContainer [[-HTML] <ScriptBlock>] [-Width <String>] [-Margin <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -40,6 +40,36 @@ Aliases:
 
 Required: False
 Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Margin
+{{ Fill Margin Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Width
+{{ Fill Width Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

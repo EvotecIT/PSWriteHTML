@@ -11,6 +11,12 @@ Locale: {{ Update Locale }}
 {{Manually Enter Description Here}}
 
 ## PSWriteHTML Cmdlets
+### [New-ChartAxisX](New-ChartAxisX.md)
+{{ Fill in the Synopsis }}
+
+### [New-ChartAxisY](New-ChartAxisY.md)
+{{ Fill in the Synopsis }}
+
 ### [New-ChartBar](New-ChartBar.md)
 {{ Fill in the Synopsis }}
 
@@ -18,6 +24,9 @@ Locale: {{ Update Locale }}
 {{ Fill in the Synopsis }}
 
 ### [New-ChartCategory](New-ChartCategory.md)
+{{ Fill in the Synopsis }}
+
+### [New-ChartGrid](New-ChartGrid.md)
 {{ Fill in the Synopsis }}
 
 ### [New-ChartLegend](New-ChartLegend.md)
@@ -46,21 +55,6 @@ Creates an anchor
 
 ### [New-HTMLChart](New-HTMLChart.md)
 {{Fill in the Synopsis}}
-
-### [New-HTMLChartArea](New-HTMLChartArea.md)
-{{ Fill in the Synopsis }}
-
-### [New-HTMLChartBar](New-HTMLChartBar.md)
-{{ Fill in the Synopsis }}
-
-### [New-HTMLChartLine](New-HTMLChartLine.md)
-{{ Fill in the Synopsis }}
-
-### [New-HTMLChartRadial](New-HTMLChartRadial.md)
-{{ Fill in the Synopsis }}
-
-### [New-HTMLChartSpark](New-HTMLChartSpark.md)
-{{ Fill in the Synopsis }}
 
 ### [New-HTMLCodeBlock](New-HTMLCodeBlock.md)
 {{Fill in the Synopsis}}
@@ -92,25 +86,10 @@ Short description
 ### [New-HTMLLogo](New-HTMLLogo.md)
 {{ Fill in the Synopsis }}
 
-### [New-HTMLMessage](New-HTMLMessage.md)
-{{Fill in the Synopsis}}
-
 ### [New-HTMLPanel](New-HTMLPanel.md)
 {{ Fill in the Synopsis }}
 
-### [New-HTMLResourceCSS](New-HTMLResourceCSS.md)
-{{Fill in the Synopsis}}
-
-### [New-HTMLResourceJS](New-HTMLResourceJS.md)
-{{Fill in the Synopsis}}
-
 ### [New-HTMLSection](New-HTMLSection.md)
-{{ Fill in the Synopsis }}
-
-### [New-HTMLSection1](New-HTMLSection1.md)
-{{ Fill in the Synopsis }}
-
-### [New-HTMLSectionHeader](New-HTMLSectionHeader.md)
 {{ Fill in the Synopsis }}
 
 ### [New-HTMLSpanStyle](New-HTMLSpanStyle.md)
@@ -121,9 +100,6 @@ Short description
 
 ### [New-HTMLStatusItem](New-HTMLStatusItem.md)
 {{Fill in the Synopsis}}
-
-### [New-HTMLSubSection](New-HTMLSubSection.md)
-{{ Fill in the Synopsis }}
 
 ### [New-HTMLTab](New-HTMLTab.md)
 {{Fill in the Synopsis}}

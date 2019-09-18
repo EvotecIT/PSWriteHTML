@@ -5,20 +5,19 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLStatusItem
+# New-HTMLTableReplace
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-New-HTMLStatusItem [[-ServiceName] <String>] [[-ServiceStatus] <String>] [[-Icon] <Object>]
- [[-Percentage] <String>] [<CommonParameters>]
+New-HTMLTableReplace [[-FieldName] <String>] [[-Replacements] <String[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
@@ -31,40 +30,8 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -Icon
-{{Fill Icon Description}}
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-Accepted values: Dead, Bad, Good
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Percentage
-{{Fill Percentage Description}}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: 0%, 10%, 30%, 70%, 100%
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ServiceName
-{{Fill ServiceName Description}}
+### -FieldName
+{{ Fill FieldName Description }}
 
 ```yaml
 Type: String
@@ -78,11 +45,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ServiceStatus
-{{Fill ServiceStatus Description}}
+### -Replacements
+{{ Fill Replacements Description }}
 
 ```yaml
-Type: String
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 

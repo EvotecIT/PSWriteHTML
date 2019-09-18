@@ -13,7 +13,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLPanel [[-Content] <ScriptBlock>] [-BackgroundColor <RGBColors>] [-Invisible] [<CommonParameters>]
+New-HTMLPanel [[-Content] <ScriptBlock>] [-BackgroundColor <RGBColors>] [-Invisible] [-Width <String>]
+ [-Margin <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -68,6 +69,36 @@ Accept wildcard characters: False
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Margin
+{{ Fill Margin Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Width
+{{ Fill Width Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: flex-basis
 
 Required: False
 Position: Named

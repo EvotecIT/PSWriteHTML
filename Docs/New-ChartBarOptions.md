@@ -14,8 +14,8 @@ schema: 2.0.0
 
 ```
 New-ChartBarOptions [[-Type] <Object>] [[-DataLabelsEnabled] <Boolean>] [[-DataLabelsOffsetX] <Int32>]
- [[-DataLabelsFontSize] <String>] [[-DataLabelsColor] <RGBColors>] [-Patterned] [-Distributed] [-Vertical]
- [<CommonParameters>]
+ [[-DataLabelsFontSize] <String>] [[-DataLabelsColor] <RGBColors>] [-Patterned] [-Gradient] [-Distributed]
+ [-Vertical] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -100,6 +100,21 @@ Accept wildcard characters: False
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Gradient
+{{ Fill Gradient Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: GradientColors
 
 Required: False
 Position: Named

@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLTag [[-Value] <ScriptBlock>] [-Tag] <String> [-Attributes <IDictionary>] [-SelfClosing]
+New-HTMLTag [[-Value] <ScriptBlock>] [-Tag] <String> [-Attributes <IDictionary>] [-SelfClosing] [-NewLine]
  [<CommonParameters>]
 ```
 
@@ -36,6 +36,21 @@ PS C:\> {{ Add example code here }}
 
 ```yaml
 Type: IDictionary
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -NewLine
+{{ Fill NewLine Description }}
+
+```yaml
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 

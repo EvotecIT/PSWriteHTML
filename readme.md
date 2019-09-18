@@ -47,6 +47,9 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.53 - Unreleased
+  - Bugfix chart inverse colors [#42](https://github.com/EvotecIT/PSWriteHTML/issues/42) - Thanks Ferdi Weiner
+
 - 0.0.52 - 2019.09.07
   - Library updates:
     - ApexCharts update 3.8.5

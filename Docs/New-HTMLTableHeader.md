@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLTableCondition
+# New-HTMLTableHeader
 
 ## SYNOPSIS
 {{ Fill in the Synopsis }}
@@ -13,11 +13,11 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLTableCondition [[-Name] <String>] [[-ComparisonType] <String>] [[-Operator] <String>]
- [[-Value] <Object>] [-Row] [[-Color] <RGBColors>] [[-BackgroundColor] <RGBColors>] [[-FontSize] <Int32>]
- [[-FontWeight] <String>] [[-FontStyle] <String>] [[-FontVariant] <String>] [[-FontFamily] <String>]
- [[-Alignment] <String>] [[-TextDecoration] <String>] [[-TextTransform] <String>] [[-Direction] <String>]
- [-Inline] [<CommonParameters>]
+New-HTMLTableHeader [[-Names] <String[]>] [[-Title] <String>] [[-Color] <RGBColors>]
+ [[-BackGroundColor] <RGBColors>] [[-FontSize] <Int32>] [[-FontWeight] <String>] [[-FontStyle] <String>]
+ [[-FontVariant] <String>] [[-FontFamily] <String>] [[-Alignment] <String>] [[-TextDecoration] <String>]
+ [[-TextTransform] <String>] [[-Direction] <String>] [-AddRow] [[-ColumnCount] <Int32>]
+ [[-ResponsiveOperations] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -34,6 +34,21 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
+### -AddRow
+{{ Fill AddRow Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Alignment
 {{ Fill Alignment Description }}
 
@@ -44,14 +59,14 @@ Aliases:
 Accepted values: left, center, right, justify
 
 Required: False
-Position: 11
+Position: 9
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -BackgroundColor
-{{ Fill BackgroundColor Description }}
+### -BackGroundColor
+{{ Fill BackGroundColor Description }}
 
 ```yaml
 Type: RGBColors
@@ -60,7 +75,7 @@ Aliases:
 Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
-Position: 5
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -76,23 +91,22 @@ Aliases:
 Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
-Position: 4
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ComparisonType
-{{ Fill ComparisonType Description }}
+### -ColumnCount
+{{ Fill ColumnCount Description }}
 
 ```yaml
-Type: String
+Type: Int32
 Parameter Sets: (All)
-Aliases: Type
-Accepted values: number, string
+Aliases:
 
 Required: False
-Position: 1
+Position: 13
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -108,7 +122,7 @@ Aliases:
 Accepted values: rtl
 
 Required: False
-Position: 14
+Position: 12
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -123,7 +137,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 10
+Position: 8
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -138,7 +152,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 6
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -154,7 +168,7 @@ Aliases:
 Accepted values: normal, italic, oblique
 
 Required: False
-Position: 8
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -170,7 +184,7 @@ Aliases:
 Accepted values: normal, small-caps
 
 Required: False
-Position: 9
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -186,34 +200,19 @@ Aliases:
 Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
-Position: 7
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Inline
-{{ Fill Inline Description }}
+### -Names
+{{ Fill Names Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String[]
 Parameter Sets: (All)
 Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Name
-{{ Fill Name Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: ColumnName
 
 Required: False
 Position: 0
@@ -222,32 +221,17 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Operator
-{{ Fill Operator Description }}
+### -ResponsiveOperations
+{{ Fill ResponsiveOperations Description }}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: lt, le, eq, ge, gt, ne, contains, like
+Accepted values: all, none, never, desktop, not-desktop, tablet-l, tablet-p, mobile-l, mobile-p, min-desktop, max-desktop, tablet, not-tablet, min-tablet, max-tablet, not-tablet-l, min-tablet-l, max-tablet-l, not-tablet-p, min-tablet-p, max-tablet-p, mobile, not-mobile, min-mobile, max-mobile, not-mobile-l, min-mobile-l, max-mobile-l, not-mobile-p, min-mobile-p, max-mobile-p
 
 Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Row
-{{ Fill Row Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
+Position: 14
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -263,7 +247,7 @@ Aliases:
 Accepted values: none, line-through, overline, underline
 
 Required: False
-Position: 12
+Position: 10
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -279,22 +263,22 @@ Aliases:
 Accepted values: uppercase, lowercase, capitalize
 
 Required: False
-Position: 13
+Position: 11
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Value
-{{ Fill Value Description }}
+### -Title
+{{ Fill Title Description }}
 
 ```yaml
-Type: Object
+Type: String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

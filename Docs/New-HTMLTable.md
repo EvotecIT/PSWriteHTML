@@ -20,7 +20,12 @@ New-HTMLTable [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostConte
  [-OrderMulti] [-Filtering] [-FilteringLocation <String>] [-Style <String[]>] [-Simplify]
  [-TextWhenNoData <String>] [-ScreenSizePercent <Int32>] [-DefaultSortColumn <String[]>]
  [-DefaultSortIndex <Int32[]>] [-DefaultSortOrder <String>] [-DateTimeSortingFormat <String[]>]
- [-Find <String>] [-InvokeHTMLTags] [-DisableNewLine] [<CommonParameters>]
+ [-Find <String>] [-InvokeHTMLTags] [-DisableNewLine] [-ScrollX] [-ScrollY] [-ScrollSizeY <Int32>]
+ [-FreezeColumnsLeft <Int32>] [-FreezeColumnsRight <Int32>] [-FixedHeader] [-FixedFooter]
+ [-ResponsivePriorityOrder <String[]>] [-ResponsivePriorityOrderIndex <Int32[]>]
+ [-PriorityProperties <String[]>] [-DataTableID <String>] [-ImmediatelyShowHiddenDetails] [-HideShowButton]
+ [-AllProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>] [-CompareReplace <Array>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -36,6 +41,21 @@ PS C:\> {{ Add example code here }}
 {{ Add example description here }}
 
 ## PARAMETERS
+
+### -AllProperties
+{{ Fill AllProperties Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -Buttons
 {{Fill Buttons Description}}
@@ -53,6 +73,36 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Compare
+{{ Fill Compare Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -CompareReplace
+{{ Fill CompareReplace Description }}
+
+```yaml
+Type: Array
+Parameter Sets: (All)
+Aliases: Replace
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -DataTable
 {{Fill DataTable Description}}
 
@@ -60,6 +110,21 @@ Accept wildcard characters: False
 Type: Array
 Parameter Sets: (All)
 Aliases: ArrayOfObjects, Object, Table
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DataTableID
+{{ Fill DataTableID Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: DataTableName
 
 Required: False
 Position: Named
@@ -325,6 +390,81 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -First
+Gets only the specified number of objects. Enter the number of objects to get.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FixedFooter
+{{ Fill FixedFooter Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FixedHeader
+{{ Fill FixedHeader Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FreezeColumnsLeft
+{{ Fill FreezeColumnsLeft Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FreezeColumnsRight
+{{ Fill FreezeColumnsRight Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -HTML
 {{ Fill HTML Description }}
 
@@ -355,11 +495,71 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -HideShowButton
+{{ Fill HideShowButton Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: RemoveShowButton
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HighlightDifferences
+{{ Fill HighlightDifferences Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: CompareWithColors
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ImmediatelyShowHiddenDetails
+{{ Fill ImmediatelyShowHiddenDetails Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -InvokeHTMLTags
 {{ Fill InvokeHTMLTags Description }}
 
 ```yaml
 Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Last
+{{ Fill Last Description }}
+
+```yaml
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
@@ -446,6 +646,51 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -PriorityProperties
+{{ Fill PriorityProperties Description }}
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ResponsivePriorityOrder
+{{ Fill ResponsivePriorityOrder Description }}
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ResponsivePriorityOrderIndex
+{{ Fill ResponsivePriorityOrderIndex Description }}
+
+```yaml
+Type: Int32[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -ScreenSizePercent
 {{ Fill ScreenSizePercent Description }}
 
@@ -463,6 +708,51 @@ Accept wildcard characters: False
 
 ### -ScrollCollapse
 {{ Fill ScrollCollapse Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ScrollSizeY
+{{ Fill ScrollSizeY Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ScrollX
+{{ Fill ScrollX Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ScrollY
+{{ Fill ScrollY Description }}
 
 ```yaml
 Type: SwitchParameter

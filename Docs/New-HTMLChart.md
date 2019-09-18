@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 New-HTMLChart [[-ChartSettings] <ScriptBlock>] [[-Title] <String>] [[-TitleAlignment] <String>]
- [[-Height] <Int32>] [[-Width] <Int32>] [[-Positioning] <String>] [<CommonParameters>]
+ [[-Height] <Int32>] [[-Width] <Int32>] [-Gradient] [-Patterned] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -46,6 +46,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Gradient
+{{ Fill Gradient Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: GradientColors
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Height
 {{Fill Height Description}}
 
@@ -61,17 +76,16 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Positioning
-{{ Fill Positioning Description }}
+### -Patterned
+{{ Fill Patterned Description }}
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
-Aliases:
-Accepted values: default, central
+Aliases: PatternedColors
 
 Required: False
-Position: 5
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

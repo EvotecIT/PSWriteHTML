@@ -144,7 +144,7 @@ Accept wildcard characters: False
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: Name, Title
 
 Required: False
 Position: Named

@@ -15,7 +15,8 @@ schema: 2.0.0
 ```
 New-HTMLSection [[-Content] <ScriptBlock>] [-HeaderText <String>] [-HeaderTextColor <RGBColors>]
  [-HeaderTextAlignment <String>] [-HeaderBackGroundColor <RGBColors>] [-BackgroundColor <RGBColors>]
- [-CanCollapse] [-IsHidden] [-Collapsed] [-Height <Int32>] [-Invisible] [<CommonParameters>]
+ [-CanCollapse] [-IsHidden] [-Collapsed] [-Height <Int32>] [-Invisible] [-Wrap <String>] [-Direction <String>]
+ [-AlignContent <String>] [-AlignItems <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,6 +32,38 @@ PS C:\> {{ Add example code here }}
 {{ Add example description here }}
 
 ## PARAMETERS
+
+### -AlignContent
+{{ Fill AlignContent Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: flex-start, flex-end, center, space-between, space-around, stretch
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AlignItems
+{{ Fill AlignItems Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: stretch, flex-start, flex-end, center, baseline
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -BackgroundColor
 {{ Fill BackgroundColor Description }}
@@ -88,6 +121,22 @@ Aliases:
 
 Required: False
 Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Direction
+{{ Fill Direction Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: row, row-reverse, column, column-reverse
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -193,6 +242,22 @@ Accept wildcard characters: False
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Wrap
+{{ Fill Wrap Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: wrap, nowrap, wrap-reverse
 
 Required: False
 Position: Named
