@@ -47,7 +47,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.53 - Unreleased
+- 0.0.53 - 2019.09.19
   - Bugfix chart inverse colors [#42](https://github.com/EvotecIT/PSWriteHTML/issues/42) - Thanks Ferdi Weiner
 
 - 0.0.52 - 2019.09.07
