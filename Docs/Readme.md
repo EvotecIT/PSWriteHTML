@@ -26,6 +26,9 @@ Locale: {{ Update Locale }}
 ### [New-ChartCategory](New-ChartCategory.md)
 {{ Fill in the Synopsis }}
 
+### [New-ChartDonut](New-ChartDonut.md)
+{{ Fill in the Synopsis }}
+
 ### [New-ChartGrid](New-ChartGrid.md)
 {{ Fill in the Synopsis }}
 
@@ -33,6 +36,12 @@ Locale: {{ Update Locale }}
 {{ Fill in the Synopsis }}
 
 ### [New-ChartLine](New-ChartLine.md)
+{{ Fill in the Synopsis }}
+
+### [New-ChartPie](New-ChartPie.md)
+{{ Fill in the Synopsis }}
+
+### [New-ChartRadial](New-ChartRadial.md)
 {{ Fill in the Synopsis }}
 
 ### [New-ChartTheme](New-ChartTheme.md)
@@ -126,6 +135,15 @@ Allows more control when adding buttons to Table
 {{ Fill in the Synopsis }}
 
 ### [New-HTMLTableCondition](New-HTMLTableCondition.md)
+{{ Fill in the Synopsis }}
+
+### [New-HTMLTableContent](New-HTMLTableContent.md)
+{{ Fill in the Synopsis }}
+
+### [New-HTMLTableHeader](New-HTMLTableHeader.md)
+{{ Fill in the Synopsis }}
+
+### [New-HTMLTableReplace](New-HTMLTableReplace.md)
 {{ Fill in the Synopsis }}
 
 ### [New-HTMLTabOptions](New-HTMLTabOptions.md)
