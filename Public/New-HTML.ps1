@@ -18,6 +18,7 @@ Function New-HTML {
         TabsHeaders = [System.Collections.Generic.List[HashTable]]::new() # tracks / stores headers
         Features    = @{ } # tracks features for CSS/JS implementation
         Charts      = [System.Collections.Generic.List[string]]::new()
+        Diagrams    = [System.Collections.Generic.List[string]]::new()
 
         # Tab settings
         TabOptions  = @{
@@ -72,6 +73,9 @@ Function New-HTML {
                 # Add charts scripts if those are there
                 foreach ($Chart in $Script:HTMLSchema.Charts) {
                     $Chart
+                }
+                foreach ($Diagram in $Script:HTMLSchema.Diagrams) {
+                    $Diagram
                 }
             }
             '<!-- END BODY -->'
