@@ -19,12 +19,58 @@
         #[string] $ImagePaddingTop,
         #[string] $ImagePaddingBottom,
         #[string] $UseImageSize,
-        [RGBColors] $Background,
+        [alias('BackgroundColor')][RGBColors] $Color,
         [RGBColors] $Border,
         [RGBColors] $HighlightBackground,
         [RGBColors] $HighlightBorder,
         [RGBColors] $HoverBackground,
-        [RGBColors] $HoverBorder
+        [RGBColors] $HoverBorder,
+
+
+          # ICON BRANDS
+          [ArgumentCompleter(
+            {
+                param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
+                ($Global:HTMLIcons.FontAwesomeBrands)
+            }
+        )]
+        [ValidateScript(
+            {
+                $_ -in (($Global:HTMLIcons.FontAwesomeBrands))
+            }
+        )]
+        #[parameter(ParameterSetName = "FontAwesomeBrands")]
+        [string] $IconBrands,
+
+        # ICON REGULAR
+        [ArgumentCompleter(
+            {
+                param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
+                ($Global:HTMLIcons.FontAwesomeRegular)
+            }
+        )]
+        [ValidateScript(
+            {
+                $_ -in (($Global:HTMLIcons.FontAwesomeRegular))
+            }
+        )]
+        #[parameter(ParameterSetName = "FontAwesomeRegular")]
+        [string] $IconRegular,
+
+        # ICON SOLID
+        [ArgumentCompleter(
+            {
+                param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
+                ($Global:HTMLIcons.FontAwesomeSolid)
+            }
+        )]
+        [ValidateScript(
+            {
+                $_ -in (($Global:HTMLIcons.FontAwesomeSolid))
+            }
+        )]
+        #[parameter(ParameterSetName = "FontAwesomeSolid")]
+        [string] $IconSolid
     )
 
     if (-not $Label) {
@@ -42,6 +88,10 @@
         $ID = $Label
     }
 
+    if ($IconBrands -or $IconRegular -or $IconSolid) {
+        $IconUse = '\uf233'
+    }
+
     $Object.Settings = [ordered] @{
         ID                  = $Id
         Label               = $Label
@@ -51,8 +101,10 @@
         Shape               = $Shape
         Size = $Size
 
+Icon = $IconUse
+
         Border              = $Border
-        Background          = $Background
+        Background          = $Color
         HighlightBackground = $HighlightBackground
         HighlightBorder     = $HighlightBorder
         HoverBorder         = $HoverBorder

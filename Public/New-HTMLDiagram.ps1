@@ -81,6 +81,16 @@
             $Node['size'] = $_.Size
         }
 
+        if ($_.Icon) {
+            $Node['icon'] = @{
+                face = 'FontAwesome'
+                code = $_.Icon
+                size = $_.Size
+                color = ConvertFrom-Color -Color $_.Background
+            }
+
+        }
+
         $Node | ConvertTo-Json -Depth 5
     }
     $Edges = foreach ($_ in $Data) {
