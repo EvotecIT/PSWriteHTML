@@ -153,7 +153,7 @@ $Script:Configuration = [ordered] @{
         FontsAwesome           = @{
             Comment      = 'Default fonts icons'
             HeaderAlways = @{
-                CssLink = 'https://use.fontawesome.com/releases/v5.7.2/css/all.css'
+                CssLink = 'https://use.fontawesome.com/releases/v5.11.2/css/all.css'
             }
         }
         HideSection            = @{

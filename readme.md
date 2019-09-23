@@ -49,6 +49,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 - 0.0.54 - Unreleased
   - Basic support for Diagrams (work in progress)
+  - Font Awesome update to 5.11.2
 
 - 0.0.53 - 2019.09.19
   - Bugfix chart inverse colors [#42](https://github.com/EvotecIT/PSWriteHTML/issues/42) - Thanks Ferdi Weiner

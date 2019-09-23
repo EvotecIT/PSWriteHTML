@@ -31,12 +31,12 @@
           [ArgumentCompleter(
             {
                 param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
-                ($Global:HTMLIcons.FontAwesomeBrands)
+                ($Global:HTMLIcons.FontAwesomeBrands.Keys)
             }
         )]
         [ValidateScript(
             {
-                $_ -in (($Global:HTMLIcons.FontAwesomeBrands))
+                $_ -in (($Global:HTMLIcons.FontAwesomeBrands.Keys))
             }
         )]
         #[parameter(ParameterSetName = "FontAwesomeBrands")]
@@ -46,12 +46,12 @@
         [ArgumentCompleter(
             {
                 param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
-                ($Global:HTMLIcons.FontAwesomeRegular)
+                ($Global:HTMLIcons.FontAwesomeRegular.Keys)
             }
         )]
         [ValidateScript(
             {
-                $_ -in (($Global:HTMLIcons.FontAwesomeRegular))
+                $_ -in (($Global:HTMLIcons.FontAwesomeRegular.Keys))
             }
         )]
         #[parameter(ParameterSetName = "FontAwesomeRegular")]
@@ -61,12 +61,12 @@
         [ArgumentCompleter(
             {
                 param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
-                ($Global:HTMLIcons.FontAwesomeSolid)
+                ($Global:HTMLIcons.FontAwesomeSolid.Keys)
             }
         )]
         [ValidateScript(
             {
-                $_ -in (($Global:HTMLIcons.FontAwesomeSolid))
+                $_ -in (($Global:HTMLIcons.FontAwesomeSolid.Keys))
             }
         )]
         #[parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -89,7 +89,7 @@
     }
 
     if ($IconBrands -or $IconRegular -or $IconSolid) {
-        $IconUse = '\uf233'
+        $IconUse = "/\uf36e"
     }
 
     $Object.Settings = [ordered] @{
