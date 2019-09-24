@@ -1,4 +1,4 @@
-﻿function New-DiagramNode {
+function New-DiagramNode {
     [alias('DiagramNode')]
     [CmdletBinding()]
     param(
@@ -7,11 +7,10 @@
         [string[]] $To,
         [string][ValidateSet(
             'circle', 'dot', 'diamond', 'ellipse', 'database', 'box', 'square', 'triangle', 'triangleDown', 'text', 'star', 'hexagon',
-            'icon',
-            'circularImage',
-            'image', 'default')] $Shape = 'default',
-
-        [int] $Size = 25,
+            'default')] $Shape = 'default',
+        [ValidateSet('squareImage', 'circularImage')][string] $ImageType = 'circularImage',
+        [string] $Image,
+        [int] $Size,
         #[string] $BrokenImage,
         #[string] $ImagePadding,
         #[string] $ImagePaddingLeft,
@@ -26,9 +25,8 @@
         [RGBColors] $HoverBackground,
         [RGBColors] $HoverBorder,
 
-
-          # ICON BRANDS
-          [ArgumentCompleter(
+        # ICON BRANDS
+        [ArgumentCompleter(
             {
                 param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
                 ($Global:HTMLIcons.FontAwesomeBrands.Keys)
@@ -89,7 +87,16 @@
     }
 
     if ($IconBrands -or $IconRegular -or $IconSolid) {
-        $IconUse = "/\uf36e"
+        $IconUse = "\uf36e"
+        $NodeShape = 'icon'
+    } elseif ($Image) {
+        if ($Image -eq 'squareImage') { 
+            $NodeShape = 'image'
+        } else {
+            $NodeShape = 'circularImage'
+        }
+    } else {
+        $NodeShape = $Shape
     }
 
     $Object.Settings = [ordered] @{
@@ -98,10 +105,11 @@
         From                = if ($To) { $Id } else { '' }
         To                  = if ($To) { $To } else { '' }
 
-        Shape               = $Shape
-        Size = $Size
+        Shape               = $NodeShape
+        Size                = $Size
 
-Icon = $IconUse
+        Image               = $Image
+        Icon                = $IconUse
 
         Border              = $Border
         Background          = $Color
