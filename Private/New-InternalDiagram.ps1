@@ -1,4 +1,4 @@
-﻿function New-InternalDiagram {
+function New-InternalDiagram {
     [CmdletBinding()]
     param(
         [System.Collections.IList] $Nodes,
@@ -32,7 +32,7 @@
         "};"
 
         if ($Options) {
-            $ConvertedOptions = $Options | ConvertTo-Json -Depth 5
+            $ConvertedOptions = $Options | ConvertTo-Json -Depth 5 | ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
             "var options = $ConvertedOptions;"
         } else {
             "var options = {};"
