@@ -23,6 +23,8 @@ Function New-HTMLSection {
     $RandomNumber = Get-Random
     $TextHeaderColorFromRGB = ConvertFrom-Color -Color $HeaderTextColor
 
+    $HiddenDivStyle = @{ }
+
     if ($CanCollapse) {
         $Script:HTMLSchema.Features.HideSection = $true
         if ($IsHidden) {
@@ -32,7 +34,8 @@ Function New-HTMLSection {
             if ($Collapsed) {
                 $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
                 $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button
-                $HiddenDivStyle = 'display:none; '
+                # $HiddenDivStyle = 'display:none; '
+                $HiddenDivStyle['display'] = 'none'
             } else {
                 $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
                 $HideStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button
@@ -51,16 +54,18 @@ Function New-HTMLSection {
         $DivContentStyle = @{
             "display"          = 'none'
             #"width"            = "calc(100% / $Count - 15px)"
-            "height"           = if ($Height -ne 0) { "height: $($Height)px" } else { '' }
+            #"height"           = if ($Height -ne 0) { "$($Height)px" } else { '' }
             "background-color" = ConvertFrom-Color -Color $BackgroundColor
         }
     } else {
         $DivContentStyle = @{
             # "width"            = "calc(100% / $Count - 15px)"
-            "height"           = if ($Height -ne 0) { "height: $($Height)px" } else { '' }
+            #"height"           = if ($Height -ne 0) { "$($Height)px" } else { '' }
             "background-color" = ConvertFrom-Color -Color $BackgroundColor
         }
     }
+
+    $HiddenDivStyle['height'] = if ($Height -ne 0) { "$($Height)px" } else { '' }
 
     <#
     .flexParent {
@@ -81,9 +86,9 @@ Function New-HTMLSection {
         $Attributes = @{
             'display'        = 'flex'
             'flex-wrap'      = if ($Wrap) { $Wrap } else { }
-            'flex-direction' = if ($Direction) { $Direction } else {}
+            'flex-direction' = if ($Direction) { $Direction } else { }
             'align-content'  = if ($AlignContent) { $AlignContent } else { }
-            'align-items'    = if ($AlignItems) { $AlignItems } else {}
+            'align-items'    = if ($AlignItems) { $AlignItems } else { }
         }
         $Css = ConvertTo-CSS -ClassName $ClassName -Attributes $Attributes
 
