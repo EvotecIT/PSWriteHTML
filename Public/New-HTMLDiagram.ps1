@@ -1,4 +1,4 @@
-﻿function New-HTMLDiagram {
+function New-HTMLDiagram {
     [alias('Diagram')]
     [CmdletBinding()]
     param(
@@ -37,6 +37,9 @@
     nodes.push({id: 3, label: 'Wireless', image: DIR + 'Network-Pipe-icon.png', shape: 'image'});
     {id: 3,  shape: 'image', image: DIR + '3.png', label: "imagePadding{2,10,8,20}+size", imagePadding: { left: 2, top: 10, right: 8, bottom: 20}, size: 40, color: { border: 'green', background: 'yellow', highlight: { border: 'yellow', background: 'green' }, hover: { border: 'orange', background: 'grey' } } },
     {id: 9,  shape: 'image', image: DIR + '9.png', label: "useImageSize + imagePadding:15", shapeProperties: { useImageSize: true }, imagePadding: 30, color: { border: 'blue', background: 'orange', highlight: { border: 'orange', background: 'blue' }, hover: { border: 'orange', background: 'grey' } } },
+    var url = "data:image/svg+xml;charset=utf-8,"+ encodeURIComponent(svg);
+    {id: 2, label: 'Using SVG', image: url, shape: 'image'}
+   
     #>
 
 
@@ -88,7 +91,9 @@
                 size = $_.Size
                 color = ConvertFrom-Color -Color $_.Background
             }
-
+        } elseif ($_.Image) {
+           # {id: 2, label: 'Using SVG', image: url, shape: 'image'}
+           $Node['image'] = $_.Image
         }
 
         $Node | ConvertTo-Json -Depth 5
