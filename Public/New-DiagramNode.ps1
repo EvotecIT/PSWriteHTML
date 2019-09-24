@@ -9,7 +9,7 @@ function New-DiagramNode {
             'circle', 'dot', 'diamond', 'ellipse', 'database', 'box', 'square', 'triangle', 'triangleDown', 'text', 'star', 'hexagon',
             'default')] $Shape = 'default',
         [ValidateSet('squareImage', 'circularImage')][string] $ImageType = 'circularImage',
-        [string] $Image,
+        [uri] $Image,
         [int] $Size,
         #[string] $BrokenImage,
         #[string] $ImagePadding,
@@ -90,7 +90,7 @@ function New-DiagramNode {
         $IconUse = "\uf36e"
         $NodeShape = 'icon'
     } elseif ($Image) {
-        if ($Image -eq 'squareImage') { 
+        if ($Image -eq 'squareImage') {
             $NodeShape = 'image'
         } else {
             $NodeShape = 'circularImage'
@@ -121,3 +121,4 @@ function New-DiagramNode {
 
     $Object
 }
+#Invoke-WebRequest -Uri 'https://cdn.imgbin.com/7/21/22/imgbin-microsoft-exchange-server-exchange-online-microsoft-outlook-office-365-email-email-1k5ceWxjFxVisLpLpxgJLF0Y0.jpg' -OutFile $PSScriptRoot\test.jpg

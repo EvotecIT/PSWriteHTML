@@ -46,3 +46,7 @@ Function Get-HTMLLogos {
     }
     Write-Output $LogoSources
 }
+
+
+#$t = 'C:\Support\GitHub\PSWriteHTML\Private\Get-HTMLLogos.ps1'
+#$t -as [System.IO.FileInfo]

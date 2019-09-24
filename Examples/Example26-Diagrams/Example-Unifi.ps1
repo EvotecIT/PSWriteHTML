@@ -1,8 +1,7 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-Diagrams03.html {
-
-    New-HTMLSection -HeaderText 'Diagram - My Network' -CanCollapse -Height 1024 {
+New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-Unifi.html {
+    New-HTMLSection -HeaderText 'Diagram - My Network' -CanCollapse {
         New-HTMLPanel {
             New-HTMLDiagram {
                 New-DiagramOptionsInteraction -Hover $true
@@ -19,13 +18,14 @@ New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks
                 New-DiagramNode -Label 'AD3' -ImageType circularImage -Image 'https://cdn.imgbin.com/6/11/3/imgbin-computer-icons-router-cisco-systems-computer-network-network-switch-network-S4pvESiV3pT4EzEjP4sZyc8Rf.jpg'
                 New-DiagramNode -Label 'DC1' -Image 'https://cdn.imgbin.com/6/23/7/imgbin-computer-icons-electronics-active-directory-directory-service-others-A8ikiBt9nN77x6EbsXCWTc7M2.jpg'
                 New-DiagramNode -Label 'DC2' -Image 'https://cdn.imgbin.com/6/23/7/imgbin-computer-icons-electronics-active-directory-directory-service-others-A8ikiBt9nN77x6EbsXCWTc7M2.jpg'
-               
-               
-            }
+            } #-BundleImages
         }
         New-HTMLPanel {
-            #New-HTMLTable -DataTable (Get-Process | Select-Object -First 5)
+            $DomainControllers = Get-WinADForestControllers
+            New-HTMLTable -DataTable $DomainControllers
         }
     }
 
 } -ShowHTML
+
+#[uri]'https://cdn.imgbin.com/7/21/22/imgbin-microsoft-exchange-server-exchange-online-microsoft-outlook-office-365-email-email-1k5ceWxjFxVisLpLpxgJLF0Y0.jpg'

@@ -2,7 +2,8 @@ function New-HTMLDiagram {
     [alias('Diagram')]
     [CmdletBinding()]
     param(
-        [ScriptBlock] $Diagram
+        [ScriptBlock] $Diagram,
+        [switch] $BundleImages
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLDiagram - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -39,7 +40,7 @@ function New-HTMLDiagram {
     {id: 9,  shape: 'image', image: DIR + '9.png', label: "useImageSize + imagePadding:15", shapeProperties: { useImageSize: true }, imagePadding: 30, color: { border: 'blue', background: 'orange', highlight: { border: 'orange', background: 'blue' }, hover: { border: 'orange', background: 'grey' } } },
     var url = "data:image/svg+xml;charset=utf-8,"+ encodeURIComponent(svg);
     {id: 2, label: 'Using SVG', image: url, shape: 'image'}
-   
+
     #>
 
 
@@ -86,14 +87,18 @@ function New-HTMLDiagram {
 
         if ($_.Icon) {
             $Node['icon'] = @{
-                face = 'FontAwesome'
-                code = $_.Icon
-                size = $_.Size
+                face  = 'FontAwesome'
+                code  = $_.Icon
+                size  = $_.Size
                 color = ConvertFrom-Color -Color $_.Background
             }
         } elseif ($_.Image) {
-           # {id: 2, label: 'Using SVG', image: url, shape: 'image'}
-           $Node['image'] = $_.Image
+            # {id: 2, label: 'Using SVG', image: url, shape: 'image'}
+            if ($BundleImages) {
+                $Node['image'] = Convert-Image -Image $_.Image
+            } else {
+                $Node['image'] = $_.Image
+            }
         }
 
         $Node | ConvertTo-Json -Depth 5
