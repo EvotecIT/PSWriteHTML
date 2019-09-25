@@ -1,8 +1,9 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My charts' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-Diagrams02_DashimoStyle.html {
-    Diagram {
+New-HTML -TitleText 'My charts' -UseCssLinks -UseJavaScriptLinks -FilePath $PSScriptRoot\Example-Diagrams02_DashimoStyle.html {
+    Diagram -Height '540px' {
         DiagramOptionsInteraction -Hover $true
+        DiagramOptionsPhysics -Enabled $false
         DiagramNode -Label '1 test' -To '3', '6', '7' -Background Bisque
         DiagramNode -Label '2' -To '5', '1 test'
         DiagramNode -Label '3'
