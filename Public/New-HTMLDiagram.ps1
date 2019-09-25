@@ -3,6 +3,8 @@ function New-HTMLDiagram {
     [CmdletBinding()]
     param(
         [ScriptBlock] $Diagram,
+        [string] $Height,
+        [string] $Width,
         [switch] $BundleImages
     )
     if (-not $Script:HTMLSchema.Features) {
@@ -20,9 +22,16 @@ function New-HTMLDiagram {
             $DiagramOptionsInteraction = $Node.Settings
         } elseif ($Node.Type -eq 'DiagramOptionsManipulation') {
             $DiagramOptionsManipulation = $Node.Settings
+        } elseif ($Node.Type -eq 'DiagramOptionsPhysics') {
+            $DiagramOptionsPhysics = $Node.Settings
+        } elseif ($Node.Type -eq 'DiagramOptionsLayout') {
+            $DiagramOptionsLayout = $Node.Settings
+        } elseif ($Node.Type -eq 'DiagramOptionsNodes') {
+            $DiagramOptionsNodes = $Node.Settings        
+        } elseif ($Node.Type -eq 'DiagramOptionsEdges') {
+            $DiagramOptionsEdges = $Node.Settings
         }
     }
-
     <#
     {id: 14, shape: 'circularImage', image: DIR + '14.png'},
     {id: 15, shape: 'circularImage', image: DIR + 'missing.png', brokenImage: DIR + 'missingBrokenImage.png', label:"when images\nfail\nto load"},
@@ -125,7 +134,27 @@ function New-HTMLDiagram {
             $Options['manipulation'] = $DiagramOptionsManipulation['manipulation']
         }
     }
+    if ($DiagramOptionsPhysics) {
+        if ($DiagramOptionsPhysics['physics']) {
+            $Options['physics'] = $DiagramOptionsPhysics['physics']
+        }
+    }
+    if ($DiagramOptionsLayout) {
+        if ($DiagramOptionsLayout['layout']) {
+            $Options['layout'] = $DiagramOptionsLayout['layout']
+        }
+    }
+    if ($DiagramOptionsEdges) {
+        if ($DiagramOptionsEdges['edges']) {
+            $Options['edges'] = $DiagramOptionsEdges['edges']
+        }
+    }
+    if ($DiagramOptionsNodes) {
+        if ($DiagramOptionsNodes['nodes']) {
+            $Options['nodes'] = $DiagramOptionsNodes['nodes']
+        }
+    }
 
 
-    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options
+    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height
 }
