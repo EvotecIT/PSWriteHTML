@@ -1,3 +1,6 @@
+# Another way to access
+# https://use.fontawesome.com/releases/v5.11.2/svgs/brands/accessible-icon.svg 
+
 $Global:HTMLIcons = @{
     FontAwesomeBrands  = [ordered] @{
         '500px'                          = 'f26e'

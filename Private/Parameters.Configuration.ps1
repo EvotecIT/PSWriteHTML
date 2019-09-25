@@ -155,6 +155,9 @@ $Script:Configuration = [ordered] @{
             HeaderAlways = @{
                 CssLink = 'https://use.fontawesome.com/releases/v5.11.2/css/all.css'
             }
+            Other = @{
+                Link = 'https://use.fontawesome.com/releases/v5.11.2/svgs/'
+            }
         }
         HideSection            = @{
             Comment      = 'Hide Section Code'

@@ -3,16 +3,24 @@ function New-InternalDiagram {
     param(
         [System.Collections.IList] $Nodes,
         [System.Collections.IList] $Edges,
-        [System.Collections.IDictionary] $Options
+        [System.Collections.IDictionary] $Options,
+        [string] $Height,
+        [string] $Width
     )
     $Script:HTMLSchema.Features.VisNetwork = $true
 
+    if ($Width -or $Height) {
+        $Style = @{
+            'width' = $Width
+            'height' = $Height
+        }
+    }
+
     [string] $ID = "Diagram-" + (Get-RandomStringName -Size 8)
-    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = 'diagram' }
+    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = 'diagram'; style = $Style }
 
     $ConvertedNodes = $Nodes -join ','
     $ConvertedEdges = $Edges -join ','
-
 
     $Script = New-HTMLTag -Tag 'script' -Value {
         # Convert Dictionary to JSON and return chart within SCRIPT tag
