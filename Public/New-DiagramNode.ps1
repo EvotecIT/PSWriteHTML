@@ -87,10 +87,27 @@ function New-DiagramNode {
     }
 
     if ($IconBrands -or $IconRegular -or $IconSolid) {
-        $IconUse = "\uf36e"
-        $NodeShape = 'icon'
+        #$IconUse = "\uf36e"
+        #$NodeShape = 'icon'
+
+        # Workaround using image for Fonts
+        # https://use.fontawesome.com/releases/v5.11.2/svgs/brands/accessible-icon.svg
+
+        #if ($ImageType -eq 'squareImage') {
+            $NodeShape = 'image'
+        #} else {
+           # $NodeShape = 'circularImage'
+        #}
+        if ($IconBrands) {
+            $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'brands/', $IconBrands, '.svg')
+        } elseif ($IconRegular) {
+            $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'regular/', $IconRegular, '.svg')
+        } else {
+            $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'solid/', $IconSolid, '.svg')
+        }       
+
     } elseif ($Image) {
-        if ($Image -eq 'squareImage') {
+        if ($ImageType -eq 'squareImage') {
             $NodeShape = 'image'
         } else {
             $NodeShape = 'circularImage'
@@ -111,12 +128,12 @@ function New-DiagramNode {
         Image               = $Image
         Icon                = $IconUse
 
-        Border              = $Border
-        Background          = $Color
-        HighlightBackground = $HighlightBackground
-        HighlightBorder     = $HighlightBorder
-        HoverBorder         = $HoverBorder
-        HoverBackground     = $HoverBackground
+        Border              =  $Border
+        Background          =  $Color
+        HighlightBackground =  $HighlightBackground
+        HighlightBorder     =  $HighlightBorder
+        HoverBorder         =  $HoverBorder
+        HoverBackground     =  $HoverBackground
     }
 
     $Object
