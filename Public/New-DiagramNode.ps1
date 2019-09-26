@@ -6,8 +6,7 @@ function New-DiagramNode {
         [string] $Label,
         [string[]] $To,
         [string][ValidateSet(
-            'circle', 'dot', 'diamond', 'ellipse', 'database', 'box', 'square', 'triangle', 'triangleDown', 'text', 'star', 'hexagon',
-            'default')] $Shape = 'default',
+            'circle', 'dot', 'diamond', 'ellipse', 'database', 'box', 'square', 'triangle', 'triangleDown', 'text', 'star', 'hexagon')] $Shape = 'ellipse',
         [ValidateSet('squareImage', 'circularImage')][string] $ImageType = 'circularImage',
         [uri] $Image,
         #[string] $BrokenImage,
@@ -101,6 +100,7 @@ function New-DiagramNode {
     $Object = [PSCustomObject] @{
         Type     = 'DiagramNode'
         Settings = [ordered] @{ }
+        Edges = [ordered] @{ }
     }
 
     # If ID is not defined use label
@@ -138,24 +138,60 @@ function New-DiagramNode {
         $NodeShape = $Shape
     }
 
+    $Object.Edges = [ordered] @{
+      From                = if ($To) { $Id } else { '' }
+      To                  = if ($To) { $To } else { '' }
+    }
+
     $Object.Settings = [ordered] @{
-        ID                  = $Id
-        Label               = $Label
-        From                = if ($To) { $Id } else { '' }
-        To                  = if ($To) { $To } else { '' }
+        id                  = $Id
+        label               = $Label
+        shape               = $NodeShape
 
-        Shape               = $NodeShape
-        Size                = $Size
+        image               = $Image
+        #icon                = $IconUse
 
-        Image               = $Image
-        Icon                = $IconUse
+        #Border              = $ColorBorder
+        #Background          = $ColorBackground
+        #HighlightBackground = $ColorHighlightBackground
+        #HighlightBorder     = $ColorHighlightBorder
+        #HoverBorder         = $ColorHoverBorder
+        #HoverBackground     = $ColorHoverBackground
 
-        Border              = $ColorBorder
-        Background          = $ColorBackground
-        HighlightBackground = $ColorHighlightBackground
-        HighlightBorder     = $ColorHighlightBorder
-        HoverBorder         = $ColorHoverBorder
-        HoverBackground     = $ColorHoverBackground
+        borderWidth         = $BorderWidth
+        borderWidthSelected = $BorderWidthSelected
+        brokenImage         = $BrokenImage
+        
+        chosen              = $Chosen
+        color               = [ordered]@{
+          border     = ConvertFrom-Color -Color $ColorBorder
+          background = ConvertFrom-Color -Color $ColorBackground
+          highlight  = [ordered]@{
+            border     = ConvertFrom-Color -Color $ColorHighlightBorder
+            background = ConvertFrom-Color -Color $ColorHighlightBackground
+          }
+          hover      = [ordered]@{
+            border     = ConvertFrom-Color -Color $ColorHoverBorder
+            background = ConvertFrom-Color -Color $ColorHoverBackground
+          }
+        }
+        fixed               = [ordered]@{
+          x = $FixedX
+          y = $FixedY
+        }
+        font                = [ordered]@{
+          color       = ConvertFrom-Color -Color $FontColor
+          size        = $FontSize #// px
+          face        = $FontName
+          background  = ConvertFrom-Color -Color $FontBackground
+          strokeWidth = $FontStrokeWidth #// px
+          strokeColor = ConvertFrom-Color -Color $FontStrokeColor
+          align       = $FontAlign
+          multi       = $FontMulti
+          vadjust     = $FontVAdjust
+        }
+        size                = $Size
+        widthConstraint     = $WidthConstrain
     }
 
     Remove-EmptyValues -Hashtable $Object.Settings -Recursive

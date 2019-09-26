@@ -12,12 +12,19 @@ function New-HTMLDiagram {
         Exit
     }
 
-    $Data = [System.Collections.Generic.List[object]]::new()
+    $DataEdges = [ordered] @{}
+    $DataNodes = [ordered] @{}
+
 
     [Array] $Settings = & $Diagram
     foreach ($Node in $Settings) {
         if ($Node.Type -eq 'DiagramNode') {
-            $Data.Add($Node.Settings)
+            $ID = $Node.Settings['id']
+            $DataNodes[$ID] = $Node.Settings
+           # $DataNodes.Add($Node.Settings)
+            $IDFrom = $Node.Edges['from']
+            $DataEdges[$IDFrom] = $Node.Edges
+           # $DataEdges.Add($Node.Edges)
         } elseif ($Node.Type -eq 'DiagramOptionsInteraction') {
             $DiagramOptionsInteraction = $Node.Settings
         } elseif ($Node.Type -eq 'DiagramOptionsManipulation') {
@@ -53,68 +60,17 @@ function New-HTMLDiagram {
     #>
 
 
-    $Nodes = foreach ($_ in $Data) {
-        $Node = [ordered] @{ }
-        $Node['id'] = $_.ID
-        $Node['label'] = $_.Label
-
-        # Play with colors
-        if ($_.Border -or $_.Background -or $_.HighlightBackground -or $_.HighlightBorder -or $_.HoverBackground -or $_.HoverBorder) {
-            $Node['color'] = @{ }
-            if ($_.Background) {
-                $Node['color']['background'] = ConvertFrom-Color -Color $_.Background
-            }
-            if ($_.Border) {
-                $Node['color']['border'] = ConvertFrom-Color -Color $_.Border
-            }
-            if ($_.HighlightBackground -or $_.HighlightBorder) {
-                $Node['color']['highlight'] = @{ }
-                if ($_.HighlightBackground) {
-                    $Node['color']['highlight']['background'] = ConvertFrom-Color -Color $_.HighlightBackground
-                }
-                if ($_.HighlightBorder) {
-                    $Node['color']['highlight']['border'] = ConvertFrom-Color -Color $_.HighlightBorder
-                }
-            }
-
-            if ($_.HoverBackground -or $_.HoverBorder) {
-                $Node['color']['hover'] = @{ }
-                if ($_.HoverBackground) {
-                    $Node['color']['hover']['background'] = ConvertFrom-Color -Color $_.HoverBackground
-                }
-                if ($_.HoverBorder) {
-                    $Node['color']['hover']['border'] = ConvertFrom-Color -Color $_.HoverBorder
-                }
-            }
-        }
-        if ($_.Shape -ne 'default') {
-            $Node['shape'] = $_.Shape
-        }
-        if ($_.Size) {
-            $Node['size'] = $_.Size
-        }
-
-        if ($_.Icon) {
-            $Node['icon'] = @{
-                face  = 'FontAwesome'
-                code  = $_.Icon
-                size  = $_.Size
-                color = ConvertFrom-Color -Color $_.Background
-            }
-        } elseif ($_.Image) {
-            # {id: 2, label: 'Using SVG', image: url, shape: 'image'}
+    $Nodes = foreach ($_ in $DataNodes.Keys) {
+        if ($DataNodes[$_]['image']) {
             if ($BundleImages) {
-                $Node['image'] = Convert-Image -Image $_.Image
-            } else {
-                $Node['image'] = $_.Image
+                $DataNodes[$_]['image'] = Convert-Image -Image $Node.Image
             }
         }
-
-        $Node | ConvertTo-Json -Depth 5
+        $DataNodes[$_] | ConvertTo-Json -Depth 5
     }
-    $Edges = foreach ($_ in $Data) {
-        if ($_.From -and $_.To) {
-            foreach ($SingleTo in $_.To) {
+    $Edges = foreach ($_ in $DataEdges.Keys) {
+        if ($DataEdges[$_].From -and $DataEdges[$_].To) {
+            foreach ($SingleTo in $DataEdges[$_].To) {
                 [ordered] @{
                     from = $_.From
                     to   = $SingleTo
