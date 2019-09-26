@@ -3,7 +3,7 @@ function New-DiagramOptionsNodes {
   param(            
     [int] $BorderWidth = 1,
     [int] $BorderWidthSelected = 2,
-    [string] $BrokenImages,
+    [string] $BrokenImage,
     [bool] $Chosen = $true,                     
     [RGBColors] $ColorBorder = [RGBColors]::None,
     [RGBColors] $ColorBackground = [RGBColors]::None,     
@@ -31,7 +31,7 @@ function New-DiagramOptionsNodes {
       nodes = [ordered] @{
         borderWidth         = $BorderWidth
         borderWidthSelected = $BorderWidthSelected
-        brokenImage         = $BrokenImages
+        brokenImage         = $BrokenImage
         chosen              = $Chosen
         color               = [ordered]@{
           border     = ConvertFrom-Color -Color $ColorBorder
@@ -65,6 +65,7 @@ function New-DiagramOptionsNodes {
       }
     }
   }
+  Remove-EmptyValues -Hashtable $Object.Settings -Recursive 
   $Object
 }
 

@@ -16,7 +16,7 @@ function New-DiagramOptionsEdges {
     [RGBColors] $ColorHighlight = [RGBColors]::None,
     [RGBColors] $ColorHover = [RGBColors]::None,
     [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit = 'from',
-    [double] $ColorOpacity = 1.0,   # range between 0 and 1     
+    [double] $ColorOpacity = 1.0, # range between 0 and 1     
     [bool] $Dashes = $false
   )
   $Object = [PSCustomObject] @{
@@ -53,28 +53,33 @@ function New-DiagramOptionsEdges {
       }
     }
   }
+  Remove-EmptyValues -Hashtable $Object.Settings -Recursive 
   $Object
 }
 
 function Remove-EmptyValues {
   [CmdletBinding()]
   param(
-      [System.Collections.IDictionary] $Hashtable
+    [System.Collections.IDictionary] $Hashtable,
+    [switch] $Recursive
   )
   foreach ($_ in [string[]] $Hashtable.Keys) {
-      if ($null -eq $Hashtable[$_] -or $Hashtable[$_] -eq '') {
+    
+    if ($Recursive) {
+      if ($Hashtable[$_] -is [System.Collections.IDictionary]) {
+        Remove-EmptyValues -Hashtable $Hashtable[$_] -Recursive:$true
+      } else {
+        if ($null -eq $Hashtable[$_] -or $Hashtable[$_] -eq '') {
           $Hashtable.Remove($_)
+        }
       }
+    } else {
+      if ($null -eq $Hashtable[$_] -or $Hashtable[$_] -eq '') {
+        $Hashtable.Remove($_)
+      }
+    }
   }
 }
-
-$Test = New-DiagramOptionsEdges
-
-$Test.Settings.edges.color
-Remove-EmptyValues -Hashtable $Test.Settings
-
-$Test.Settings.edges.color
-
 <#
 // these are all options in full.
 var options = {

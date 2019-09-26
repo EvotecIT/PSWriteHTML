@@ -31,6 +31,7 @@ function New-DiagramOptionsPhysics {
             }
         }
     }
+    Remove-EmptyValues -Hashtable $Object.Settings -Recursive 
     $Object
 }
 

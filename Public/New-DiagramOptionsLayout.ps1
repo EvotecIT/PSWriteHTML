@@ -35,6 +35,7 @@ function New-DiagramOptionsLayout {
             }
         }
     }
+    Remove-EmptyValues -Hashtable $Object.Settings -Recursive 
     $Object
 }
 
