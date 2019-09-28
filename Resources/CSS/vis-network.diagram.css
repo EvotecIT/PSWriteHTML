@@ -3,3 +3,7 @@
     height: 100%;
     border: 0px solid unset;
 }
+
+.vis-network:focus {
+    outline: none;
+}

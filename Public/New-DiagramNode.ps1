@@ -1,14 +1,26 @@
 function New-DiagramNode {
   [alias('DiagramNode')]
-  [CmdletBinding()]
+  [CmdLetBinding(DefaultParameterSetName = 'Shape')]
   param(
-    [string] $Id,
-    [string] $Label,
-    [string[]] $To,
-    [string][ValidateSet(
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][string] $Id,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")] [string] $Label,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][string[]] $To,
+    [parameter(ParameterSetName = "Shape")][string][ValidateSet(
       'circle', 'dot', 'diamond', 'ellipse', 'database', 'box', 'square', 'triangle', 'triangleDown', 'text', 'star', 'hexagon')] $Shape = 'ellipse',
-    [ValidateSet('squareImage', 'circularImage')][string] $ImageType = 'circularImage',
-    [uri] $Image,
+    [parameter(ParameterSetName = "Image")][ValidateSet('squareImage', 'circularImage')][string] $ImageType = 'circularImage',
+    [parameter(ParameterSetName = "Image")][uri] $Image,
     #[string] $BrokenImage,
     #[string] $ImagePadding,
     #[string] $ImagePaddingLeft,
@@ -22,32 +34,115 @@ function New-DiagramNode {
     #[RGBColors] $HighlightBorder,
     #[RGBColors] $HoverBackground,
     #[RGBColors] $HoverBorder,
-    [int] $BorderWidth = 1,
-    [int] $BorderWidthSelected = 2,
-    [string] $BrokenImages,
-    [bool] $Chosen = $true,
-    [RGBColors] $ColorBorder = [RGBColors]::None,
-    [RGBColors] $ColorBackground = [RGBColors]::None,
-    [RGBColors] $ColorHighlightBorder = [RGBColors]::None,
-    [RGBColors] $ColorHighlightBackground = [RGBColors]::None,
-    [RGBColors] $ColorHoverBorder = [RGBColors]::None,
-    [RGBColors] $ColorHoverBackground = [RGBColors]::None,
-    [bool]$FixedX = $false,
-    [bool]$FixedY = $false,
-    [RGBColors] $FontColor = [RGBColors]::None,
-    [int] $FontSize = 14, #// px
-    [string] $FontName = 'arial',
-    [RGBColors] $FontBackground = [RGBColors]::None,
-    [int] $FontStrokeWidth = 0, #// px
-    [RGBColors] $FontStrokeColor = [RGBColors]::None,
-    [ValidateSet('center', 'left')][string] $FontAlign = 'center',
-    [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
-    [int] $FontVAdjust = 0,
-    [int] $Size = 25,
-    [bool]$WidthConstraint = $false,
-    [nullable[int]] $X,
-    [nullable[int]] $Y,
-    #[RGBColors] $IconColor = [RGBColors]::None,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][int] $BorderWidth = 1,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][int] $BorderWidthSelected = 2,
+    [parameter(ParameterSetName = "Image")][string] $BrokenImages,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][bool] $Chosen = $true,
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][RGBColors] $ColorBorder = [RGBColors]::None,
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][RGBColors] $ColorBackground = [RGBColors]::None,
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][RGBColors] $ColorHighlightBorder = [RGBColors]::None,
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][RGBColors] $ColorHighlightBackground = [RGBColors]::None,
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][RGBColors] $ColorHoverBorder = [RGBColors]::None,
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][RGBColors] $ColorHoverBackground = [RGBColors]::None,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][bool]$FixedX = $false,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][bool]$FixedY = $false,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][RGBColors] $FontColor = [RGBColors]::None,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][int] $FontSize = 14, #// px
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][string] $FontName = 'arial',
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][RGBColors] $FontBackground = [RGBColors]::None,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][int] $FontStrokeWidth = 0, #// px
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][RGBColors] $FontStrokeColor = [RGBColors]::None,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][ValidateSet('center', 'left')][string] $FontAlign = 'center',
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][int] $FontVAdjust = 0,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][int] $Size = 25,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][bool]$WidthConstraint = $false,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][nullable[int]] $X,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "Image")]
+    [parameter(ParameterSetName = "Shape")][nullable[int]] $Y,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")][switch] $IconAsImage,
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")][RGBColors] $IconColor = [RGBColors]::None,
     # ICON BRANDS
     [ArgumentCompleter(
       {
@@ -60,7 +155,7 @@ function New-DiagramNode {
         $_ -in (($Global:HTMLIcons.FontAwesomeBrands.Keys))
       }
     )]
-    #[parameter(ParameterSetName = "FontAwesomeBrands")]
+    [parameter(ParameterSetName = "FontAwesomeBrands")]
     [string] $IconBrands,
 
     # ICON REGULAR
@@ -75,7 +170,7 @@ function New-DiagramNode {
         $_ -in (($Global:HTMLIcons.FontAwesomeRegular.Keys))
       }
     )]
-    #[parameter(ParameterSetName = "FontAwesomeRegular")]
+    [parameter(ParameterSetName = "FontAwesomeRegular")]
     [string] $IconRegular,
 
     # ICON SOLID
@@ -90,7 +185,7 @@ function New-DiagramNode {
         $_ -in (($Global:HTMLIcons.FontAwesomeSolid.Keys))
       }
     )]
-    #[parameter(ParameterSetName = "FontAwesomeSolid")]
+    [parameter(ParameterSetName = "FontAwesomeSolid")]
     [string] $IconSolid
   )
 
@@ -113,38 +208,49 @@ function New-DiagramNode {
 
   if ($IconBrands -or $IconRegular -or $IconSolid) {
     if ($IconBrands) {
-      # Workaround using image for Fonts
-      # https://use.fontawesome.com/releases/v5.11.2/svgs/brands/accessible-icon.svg
-      <# Until all Icons work, using images instead. Currently only Brands work fine / Solid/Regular is weird
-      $NodeShape = 'icon'
-      $icon = @{
-        face  = '"Font Awesome 5 Brands"'
-        code  = -join ('\u', $Global:HTMLIcons.FontAwesomeBrands[$IconBrands])    # "\uf007"
-        color = ConvertFrom-Color -Color $IconColor
+      if (-not $IconAsImage) {
+        # Workaround using image for Fonts
+        # https://use.fontawesome.com/releases/v5.11.2/svgs/brands/accessible-icon.svg
+        <# Until all Icons work, using images instead. Currently only Brands work fine / Solid/Regular is weird #>
+        $NodeShape = 'icon'
+        $icon = @{
+          face   = '"Font Awesome 5 Brands"'
+          code   = -join ('\u', $Global:HTMLIcons.FontAwesomeBrands[$IconBrands])    # "\uf007"
+          color  = ConvertFrom-Color -Color $IconColor
+          weight = 'bold'
+        }
+
+      } else {
+        $NodeShape = 'image'
+        $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'brands/', $IconBrands, '.svg')
       }
-      #>
-      $NodeShape = 'image'
-      $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'brands/', $IconBrands, '.svg')
     } elseif ($IconRegular) {
-      <#
-      $icon = @{
-        face  = '"Font Awesome 5 Free"'
-        code  = -join ('\u', $Global:HTMLIcons.FontAwesomeRegular[$IconRegular])    # "\uf007"
-        color = ConvertFrom-Color -Color $IconColor
+      if (-not $IconAsImage) {
+        $NodeShape = 'icon'
+        $icon = @{
+          face   = '"Font Awesome 5 Free"'
+          code   = -join ('\u', $Global:HTMLIcons.FontAwesomeRegular[$IconRegular])    # "\uf007"
+          color  = ConvertFrom-Color -Color $IconColor
+          weight = 'bold'
+        }
+      } else {
+        $NodeShape = 'image'
+        $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'regular/', $IconRegular, '.svg')
       }
-      #>
-      $NodeShape = 'image'
-      $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'regular/', $IconRegular, '.svg')
     } else {
-      <#
-      $icon = @{
-        face  = '"Font Awesome 5 Free"'
-        code  = -join ('\u', $Global:HTMLIcons.FontAwesomeSolid[$IconSolid])    # "\uf007"
-        color = ConvertFrom-Color -Color $IconColor
+      if (-not $IconAsImage) {
+        $NodeShape = 'icon'
+        $icon = @{
+          face   = '"Font Awesome 5 Free"'
+          code   = -join ('\u', $Global:HTMLIcons.FontAwesomeSolid[$IconSolid])    # "\uf007"
+          color  = ConvertFrom-Color -Color $IconColor
+          weight = 'bold'
+        }
+
+      } else {
+        $NodeShape = 'image'
+        $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'solid/', $IconSolid, '.svg')
       }
-      #>
-      $NodeShape = 'image'
-      $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'solid/', $IconSolid, '.svg')
     }
   } elseif ($Image) {
     if ($ImageType -eq 'squareImage') {
@@ -205,8 +311,8 @@ function New-DiagramNode {
     }
     size                = $Size
     widthConstraint     = $WidthConstrain
-    x = $X
-    y = $Y
+    x                   = $X
+    y                   = $Y
   }
 
   Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2

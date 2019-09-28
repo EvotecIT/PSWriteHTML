@@ -80,7 +80,7 @@ function New-HTMLDiagram {
     [Array] $Nodes = foreach ($_ in $DataNodes.Keys) {
         if ($DataNodes[$_]['image']) {
             if ($BundleImages) {
-                $DataNodes[$_]['image'] = Convert-Image -Image $Node.Image
+                $DataNodes[$_]['image'] = Convert-Image -Image $DataNodes[$_]['image']
             }
         }
         $NodeJson = $DataNodes[$_] | ConvertTo-Json -Depth 5 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }

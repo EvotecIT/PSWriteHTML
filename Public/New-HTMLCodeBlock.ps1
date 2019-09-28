@@ -69,22 +69,22 @@ Function New-HTMLCodeBlock {
         [Parameter(Mandatory = $false)]
         [ValidateSet(
             'enlighter',
-            'standard',
-            'classic',
-            'bootstrap4',
             'beyond',
+            'classic',
             'godzilla',
-            'eclipse',
-            'mootwo',
+            'atomic',
             'droide',
             'minimal',
-            'atomic',
+            'eclipse',
+            'mowtwo',
+            'rowhammer',
+            'bootstrap4',
             'dracula',
-            'rowhammer'
+            'monokai'
         )][String] $Theme,
         [Parameter(Mandatory = $false)][String] $Group,
         [Parameter(Mandatory = $false)][String] $Title,
-        [Parameter(Mandatory = $false)][String] $Highlight,
+        [Parameter(Mandatory = $false)][String[]] $Highlight,
         [Parameter(Mandatory = $false)][nullable[bool]] $ShowLineNumbers,
         [Parameter(Mandatory = $false)][String] $LineOffset
     )
@@ -98,6 +98,10 @@ Function New-HTMLCodeBlock {
         data-enlighter-highlight (string) - A List of lines to point out, comma seperated (ranges are supported) e.g. "2,3,6-10" | Block Content option
         data-enlighter-lineoffset (number) - Start value of line-numbering e.g. "5" to start with line 5 - attribute start of the ol tag is set | Block Content option
     #>
+
+    if ($null -eq $ShowLineNumbers -and $Highlight) {
+        $ShowLineNumbers = $true
+    }
 
     $Attributes = [ordered]@{
         'data-enlighter-language'    = "$Style".ToLower()

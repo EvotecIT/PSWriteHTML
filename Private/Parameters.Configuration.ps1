@@ -21,9 +21,9 @@ $Script:Configuration = [ordered] @{
         CodeBlocks             = @{
             Comment      = 'EnlighterJS CodeBlocks'
             Header       = @{
-                CssLink = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.css'
+                CssLink = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\enlighterjs.min.css"
-                JsLink  = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs.min.js'
+                JsLink  = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.js'
                 JS      = "$PSScriptRoot\..\Resources\JS\enlighterjs.min.js"
             }
             Footer       = @{

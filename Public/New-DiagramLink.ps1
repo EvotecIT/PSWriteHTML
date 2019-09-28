@@ -66,7 +66,7 @@
         inherit   = $ColorInherit
         opacity   = $ColorOpacity
       }
-      font                = [ordered]@{
+      font               = [ordered]@{
         color       = ConvertFrom-Color -Color $FontColor
         size        = $FontSize #// px
         face        = $FontName

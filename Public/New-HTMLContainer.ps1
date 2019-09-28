@@ -1,7 +1,7 @@
 ﻿function New-HTMLContainer {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $HTML,
+        [alias('Content')][Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $HTML,
         [string] $Width,
         [string] $Margin
     )
