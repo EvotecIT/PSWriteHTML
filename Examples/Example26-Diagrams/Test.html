@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+  <title>network - Fixed scale</title>
+
+  <style type="text/css">
+    #mynetwork {
+      border: 1px solid black;
+      background: white;
+      display: inline-block;
+    }
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.9.0/vis.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.9.0/vis.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<p>
+  The following network has a fixed scale and position, such that the networks viewport exactly matches the pixels of the HTML canvas.
+</p>
+
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+  // create an array with nodes
+  var nodes = new vis.DataSet([
+    {id: 1, label: 'x=200, y=200', x: 200, y: 200},
+    {id: 2, label: 'node 2', x: 0, y: 0},
+    {id: 3, label: 'node 3', x: 0, y: 400},
+    {id: 4, label: 'node 4', x: 400, y: 400},
+    {id: 5, label: 'node 5', x: 400, y: 0}
+  ]);
+
+  // create an array with edges
+  var edges = new vis.DataSet([
+    {from: 1, to: 2, label: 'to x=0, y=0'},
+    {from: 1, to: 3, label: 'to x=0, y=400'},
+    {from: 1, to: 4, label: 'to x=400, y=400'},
+    {from: 1, to: 5, label: 'to x=400, y=0'}
+  ]);
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var width = 400;
+  var height = 400;
+  var options = {
+    width: width + 'px',
+    height: height + 'px',
+    nodes: {
+      shape: 'dot'
+    },
+    edges: {
+      smooth: false
+    },
+    physics: false,
+    interaction: {
+      dragNodes: false,// do not allow dragging nodes
+      zoomView: false, // do not allow zooming
+      dragView: false  // do not allow dragging
+    }
+  };
+  var network = new vis.Network(container, data, options);
+
+  // Set the coordinate system of Network such that it exactly
+  // matches the actual pixels of the HTML canvas on screen
+  // this must correspond with the width and height set for
+  // the networks container element.
+  network.moveTo({
+    position: {x: 0, y: 0},
+    offset: {x: -width/2, y: -height/2},
+    scale: 1,
+  })
+</script>
+
+</body>
+</html>
