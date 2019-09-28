@@ -76,6 +76,7 @@
         [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconSolid
     )
 
+    [string] $Icon = ''
     if ($IconBrands) {
         $Icon = "fab fa-$IconBrands" # fa-$($FontSize)x"
     } elseif ($IconRegular) {

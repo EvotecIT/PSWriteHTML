@@ -76,7 +76,7 @@ function New-HTMLTab {
     #if (-not $IconBrands -and -not $IconRegular -and -not $IconSolid) {
     #    $IconSolid = 'x-ray'
     #}
-
+    [string] $Icon = ''
     if ($IconBrands) {
         $Icon = "fab fa-$IconBrands" # fa-$($FontSize)x"
     } elseif ($IconRegular) {

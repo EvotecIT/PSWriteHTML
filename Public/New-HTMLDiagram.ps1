@@ -12,8 +12,8 @@ function New-HTMLDiagram {
         Exit
     }
 
-    $DataEdges = [ordered] @{}
-    $DataNodes = [ordered] @{}
+    $DataEdges = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
+    $DataNodes = [ordered] @{ }
 
 
     [Array] $Settings = & $Diagram
@@ -21,10 +21,15 @@ function New-HTMLDiagram {
         if ($Node.Type -eq 'DiagramNode') {
             $ID = $Node.Settings['id']
             $DataNodes[$ID] = $Node.Settings
-           # $DataNodes.Add($Node.Settings)
-            $IDFrom = $Node.Edges['from']
-            $DataEdges[$IDFrom] = $Node.Edges
-           # $DataEdges.Add($Node.Edges)
+            #$DataEdges.Add($Node.Edges)
+            foreach ($From in $Node.Edges.From) {
+                foreach ($To in $Node.Edges.To) {
+                    $Edge = $Node.Edges.Clone()
+                    $Edge['from'] = $From
+                    $Edge['to'] = $To
+                    $DataEdges.Add($Edge)
+                }
+            }
         } elseif ($Node.Type -eq 'DiagramOptionsInteraction') {
             $DiagramOptionsInteraction = $Node.Settings
         } elseif ($Node.Type -eq 'DiagramOptionsManipulation') {
@@ -34,9 +39,21 @@ function New-HTMLDiagram {
         } elseif ($Node.Type -eq 'DiagramOptionsLayout') {
             $DiagramOptionsLayout = $Node.Settings
         } elseif ($Node.Type -eq 'DiagramOptionsNodes') {
-            $DiagramOptionsNodes = $Node.Settings        
+            $DiagramOptionsNodes = $Node.Settings
         } elseif ($Node.Type -eq 'DiagramOptionsEdges') {
             $DiagramOptionsEdges = $Node.Settings
+        } elseif ($Node.Type -eq 'DiagramLink') {
+            if ($Node.Settings.From -and $Node.Settings.To) {
+                foreach ($From in $Node.Settings.From) {
+                    foreach ($To in $Node.Settings.To) {
+                        $Edge = $Node.Edges.Clone()
+                        $Edge['from'] = $From
+                        $Edge['to'] = $To
+                        $DataEdges.Add($Edge)
+                    }
+                }
+            }
+            $DataEdges.Add($Node.Edges)
         }
     }
     <#
@@ -60,23 +77,40 @@ function New-HTMLDiagram {
     #>
 
 
-    $Nodes = foreach ($_ in $DataNodes.Keys) {
+    [Array] $Nodes = foreach ($_ in $DataNodes.Keys) {
         if ($DataNodes[$_]['image']) {
             if ($BundleImages) {
                 $DataNodes[$_]['image'] = Convert-Image -Image $Node.Image
             }
         }
-        $DataNodes[$_] | ConvertTo-Json -Depth 5
-    }
-    $Edges = foreach ($_ in $DataEdges.Keys) {
-        if ($DataEdges[$_].From -and $DataEdges[$_].To) {
-            foreach ($SingleTo in $DataEdges[$_].To) {
-                [ordered] @{
-                    from = $_.From
-                    to   = $SingleTo
-                } | ConvertTo-Json -Depth 5
-            }
+        $NodeJson = $DataNodes[$_] | ConvertTo-Json -Depth 5 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
+
+        # We need to fix wrong escaped chars, Unescape breaks other parts
+        $Replace = @{
+            '"\"Font Awesome 5 Solid\""'   = "'`"Font Awesome 5 Solid`"'"
+            '"\"Font Awesome 5 Brands\""'  = "'`"Font Awesome 5 Brands`"'"
+            '"\"Font Awesome 5 Regular\""' = "'`"Font Awesome 5 Regular`"'"
+            '"\"Font Awesome 5 Free\""'    = "'`"Font Awesome 5 Free`"'"
+            '"\"Font Awesome 5 Free Regular\""'    = "'`"Font Awesome 5 Free Regular`"'"
+            '"\"Font Awesome 5 Free Solid\""'    = "'`"Font Awesome 5 Free Solid`"'"
+            '"\"Font Awesome 5 Free Brands\""'    = "'`"Font Awesome 5 Free Brands`"'"
+            '"\\u'                         = '"\u'
         }
+        foreach ($R in $Replace.Keys) {
+            $NodeJson = $NodeJson.Replace($R, $Replace[$R])
+        }
+        $NodeJson
+    }
+    [Array] $Edges = foreach ($_ in $DataEdges) {
+        #if ($_.From -and $_.To) {
+        #    foreach ($SingleTo in $_.To) {
+        # [ordered] @{
+        #    from = $_.From
+        #     to   = $SingleTo
+        # } | ConvertTo-Json -Depth 5
+        $_ | ConvertTo-Json -Depth 5 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
+        #}
+        #}
     }
 
     $Options = @{ }
