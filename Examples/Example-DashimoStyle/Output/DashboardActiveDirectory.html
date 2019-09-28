@@ -1,0 +1,3640 @@
+﻿<!DOCTYPE html>
+<html><!-- HEADER -->
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="author"/>
+<meta content="2019-06-09 19:44:03" name="revised"/>
+<title>Dashimo Test</title>
+<!-- CSS Default fonts START -->
+<link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
+<!-- CSS Default fonts END -->
+<!-- CSS Default fonts icons START -->
+<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/>
+<!-- CSS Default fonts icons END -->
+<!-- CSS Always Required Default Visual Settings START -->
+<style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+div.clientlogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+}
+
+div.MainLogo {
+    border: 0px;
+    vertical-align: middle;
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+}
+
+.central {
+    margin: 10px auto;
+    /* width: 100%; */
+    max-width: 900px;
+}
+
+div.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+div.defaultColumn {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px;
+}
+
+.defaultContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultContainerOther {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanelOther {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultPanel {
+    flex-basis: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.defaultCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+div.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+    /* color: #ffffff;
+    background-color: #6Cf;
+    */
+}
+
+div.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+
+
+td.clientlogo {
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+td.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+/*
+
+th.content {
+    border-top: 1px solid #bbbbbb;
+    width: 25%;
+}
+
+td.content {
+    width: 75%;
+}
+
+td.groupby {
+    border-top: 3px double #bbbbbb;
+}
+*/
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+table.sortable {
+    width: calc(100% - 10px);
+    margin: 5px;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    display: inline-block;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+table.sortable thead {
+    background-color: #eee;
+    color: #666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+/* Adding CSS */
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+
+.orange {
+    background-color: #f39c12;
+}
+
+.red {
+    background-color: #ff4136;
+}
+
+.green {
+    background-color: #2ecc40;
+}
+
+div.enlighter-default {
+    flex-basis: 100%;
+    margin: 0 !important;
+}
+</style>
+<!-- CSS Always Required Default Visual Settings END -->
+<!-- CSS Always Required Default Headings START -->
+<style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+}
+</style>
+<!-- CSS Always Required Default Headings END -->
+
+<!-- JS Hide Section Code START -->
+<script type="text/javascript">function show(obj) {
+  document.getElementById(obj).style.display='block';
+  document.getElementById("hide_" + obj).style.display='';
+  document.getElementById("show_" + obj).style.display='none';
+}
+function hide(obj) {
+  document.getElementById(obj).style.display='none';
+  document.getElementById("hide_" + obj).style.display='none';
+  document.getElementById("show_" + obj).style.display='';
+}
+</script>
+<!-- JS Hide Section Code END -->
+
+
+<!-- CSS DataTables START -->
+<style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+<!-- CSS Elastic Tabs START -->
+<style type="text/css">.tabsWrapper {
+    text-align: center;
+    margin: 10px auto;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.tabs {
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 0px;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    /*
+    display: inline-block;
+*/
+    border-radius: 4px;
+    position: relative;
+}
+
+.tabs .round {
+    border-radius: 4px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #777;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.6s;
+}
+
+.tabs a.active {
+    color: #fff;
+}
+
+.tabs a i {
+    margin-right: 5px;
+}
+
+.tabs .selector {
+    display: none;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    border-radius: 4px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: #05abe0;
+    background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1);
+}
+
+.tabs-content {
+    display: none;
+}
+
+.tabs-content.active {
+    display: block;
+}
+</style>
+<!-- CSS Elastic Tabs END -->
+
+
+<!-- JS Hide Section Code START -->
+<script type="text/javascript">function show(obj) {
+  document.getElementById(obj).style.display='block';
+  document.getElementById("hide_" + obj).style.display='';
+  document.getElementById("show_" + obj).style.display='none';
+}
+function hide(obj) {
+  document.getElementById(obj).style.display='none';
+  document.getElementById("hide_" + obj).style.display='none';
+  document.getElementById("show_" + obj).style.display='';
+}
+</script>
+<!-- JS Hide Section Code END -->
+
+
+<!-- CSS DataTables START -->
+<style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+<noscript><!-- CSS DataTables START -->
+<style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+th {
+    border-width: 1px;
+    padding: 3px;
+    border-style: solid;
+    border-color: black;
+    background-color: #00297A;
+    color: white;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+tr {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+</style>
+<!-- CSS DataTables END -->
+</noscript>
+<!-- CSS Elastic Tabs START -->
+<style type="text/css">.tabsWrapper {
+    text-align: center;
+    margin: 10px auto;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.tabs {
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 0px;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    /*
+    display: inline-block;
+*/
+    border-radius: 4px;
+    position: relative;
+}
+
+.tabs .round {
+    border-radius: 4px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #777;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.6s;
+}
+
+.tabs a.active {
+    color: #fff;
+}
+
+.tabs a i {
+    margin-right: 5px;
+}
+
+.tabs .selector {
+    display: none;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    border-radius: 4px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: #05abe0;
+    background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1);
+}
+
+.tabs-content {
+    display: none;
+}
+
+.tabs-content.active {
+    display: block;
+}
+</style>
+<!-- CSS Elastic Tabs END -->
+
+<!-- JS DataTables PDF Features START -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
+<!-- JS DataTables PDF Features END -->
+<!-- JS Jquery START -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+<!-- JS Jquery END -->
+<!-- CSS DataTables START -->
+<link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/>
+<!-- CSS DataTables END -->
+<!-- JS DataTables START -->
+<script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script>
+<!-- JS DataTables END -->
+<!-- JS DataTables Excel Features START -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script>
+<!-- JS DataTables Excel Features END -->
+</head>
+<!-- END HEADER -->
+<!-- BODY -->
+<body><div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
+<a href="javascript:void(0)" class="active" data-id="Tab-waxo6id8"><div class="fas fa-bomb">Forest</div></a>
+<a href="javascript:void(0)" data-id="Tab-y0gquws1"><div class="fas fa-bomb">ad.evotec.pl</div></a>
+<a href="javascript:void(0)" data-id="Tab-918wskox"><div class="fas fa-bomb">ad.evotec.xyz</div></a>
+<a href="javascript:void(0)" data-id="Tab-hre5vxqj"><div class="fas fa-bomb">Changes in Last 7 days</div></a>
+</div></div>
+<div id="Tab-waxo6id8" class="tabs-content active"><div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Forest Information" style="color: #ffffff;">Forest Information</a>
+<a id="show_459336548" href="javascript:void(0)" onclick="show('459336548');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_459336548" href="javascript:void(0)" onclick="hide('459336548');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="459336548" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="459336548"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-RKkzySht').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-RKkzySht" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<tbody><tr><td>Name</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Root Domain</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Forest Distingushed Name</td><td>DC=ad,DC=evotec,DC=xyz</td></tr>
+<tr><td>Forest Functional Level</td><td>Windows2012R2Forest</td></tr>
+<tr><td>Domains Count</td><td>2</td></tr>
+<tr><td>Sites Count</td><td>3</td></tr>
+<tr><td>Domains</td><td>ad.evotec.xyz, ad.evotec.pl</td></tr>
+<tr><td>Sites</td><td>KATOWICE-1, GLIWICE, KATOWICE-2</td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="FSMO Roles" style="color: #ffffff;">FSMO Roles</a>
+<a id="show_1309241659" href="javascript:void(0)" onclick="show('1309241659');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1309241659" href="javascript:void(0)" onclick="hide('1309241659');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1309241659" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1309241659"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-fnwFFKZq').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-fnwFFKZq" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<tbody><tr><td>Domain Naming Master</td><td>AD1.ad.evotec.xyz</td></tr>
+<tr><td>Schema Master</td><td>AD1.ad.evotec.xyz</td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+</div></div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Forest Domain Controllers" style="color: #ffffff;">Forest Domain Controllers</a>
+<a id="show_1617907397" href="javascript:void(0)" onclick="show('1617907397');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1617907397" href="javascript:void(0)" onclick="hide('1617907397');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="1617907397" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1617907397"><div class="defaultPanel defaultCard"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-XihPKnpX').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-XihPKnpX" class="display compact"><thead><tr><th>Domain</th><th>HostName</th><th>Forest</th><th>IPV4Address</th><th>IPV6Address</th><th>IsGlobalCatalog</th><th>IsReadOnly</th><th>Site</th><th>SchemaMaster</th><th>DomainNamingMasterMaster</th><th>PDCEmulator</th><th>RIDMaster</th><th>InfrastructureMaster</th><th>LdapPort</th><th>SslPort</th><th>Comment</th></tr></thead>
+<tbody><tr><td>ad.evotec.xyz</td><td>AD2.ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>192.168.240.192</td><td></td><td>True</td><td>False</td><td>KATOWICE-1</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td></tr>
+<tr><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>192.168.240.189</td><td></td><td>True</td><td>False</td><td>KATOWICE-1</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td><td>389</td><td>636</td><td></td></tr>
+<tr><td>ad.evotec.xyz</td><td>AD3.ad.evotec.xyz</td><td>ad.evotec.xyz</td><td>192.168.240.236</td><td></td><td>True</td><td>False</td><td>KATOWICE-1</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td></tr>
+<tr><td>ad.evotec.pl</td><td>ADPreview2019.ad.evotec.pl</td><td>ad.evotec.xyz</td><td>192.168.240.201</td><td></td><td>True</td><td>False</td><td>KATOWICE-2</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td></tr>
+<tr><td>ad.evotec.pl</td><td>DC1.ad.evotec.pl</td><td>ad.evotec.xyz</td><td>192.168.240.238</td><td></td><td>True</td><td>False</td><td>KATOWICE-1</td><td>False</td><td>False</td><td>True</td><td>True</td><td>True</td><td>389</td><td>636</td><td></td></tr>
+<tr><td>ad.evotec.pl</td><td>ADRODC.ad.evotec.pl</td><td>ad.evotec.xyz</td><td>192.168.240.207</td><td></td><td>True</td><td>True</td><td>KATOWICE-1</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Forest Optional Features / UPN Suffixes / SPN Suffixes" style="color: #ffffff;">Forest Optional Features / UPN Suffixes / SPN Suffixes</a>
+<a id="show_381114601" href="javascript:void(0)" onclick="show('381114601');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_381114601" href="javascript:void(0)" onclick="hide('381114601');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="381114601" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="381114601"><div class="defaultPanel defaultCard"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-mpxzDPwJ').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-mpxzDPwJ" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<tbody><tr><td>Recycle Bin Enabled</td><td>False</td></tr>
+<tr><td>Privileged Access Management Feature Enabled</td><td>False</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="defaultPanel defaultCard"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-jIsUcfQu').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-jIsUcfQu" class="display compact"><thead><tr><th>Name</th><th>Type</th></tr></thead>
+<tbody><tr><td>ad.evotec.xyz</td><td>Primary / Default UPN</td></tr>
+<tr><td>evotec.xyz</td><td>Secondary</td></tr>
+<tr><td>evotec.pl</td><td>Secondary</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="defaultPanel defaultCard"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-alCzDqDB').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-alCzDqDB" class="display compact"><thead><tr><th>*</th></tr></thead>
+<tbody><tr><td>No data available.</td></tr></tbody>
+</table>
+
+</div>
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Sites / Subnets / SiteLinks" style="color: #ffffff;">Sites / Subnets / SiteLinks</a>
+<a id="show_1124869095" href="javascript:void(0)" onclick="show('1124869095');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1124869095" href="javascript:void(0)" onclick="hide('1124869095');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="1124869095" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1124869095"><div class="defaultPanel defaultCard"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-SSeweOHk').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-SSeweOHk" class="display compact"><thead><tr><th>Name</th><th>DisplayName</th><th>Description</th><th>CanonicalName</th><th>DistinguishedName</th><th>Location</th><th>ManagedBy</th><th>Created</th><th>Modified</th><th>Deleted</th><th>ProtectedFromAccidentalDeletion</th><th>RedundantServerTopologyEnabled</th><th>AutomaticInterSiteTopologyGenerationEnabled</th><th>AutomaticTopologyGenerationEnabled</th><th>Subnets</th><th>sDRightsEffective</th><th>TopologyCleanupEnabled</th><th>TopologyDetectStaleEnabled</th><th>TopologyMinimumHopsEnabled</th><th>UniversalGroupCachingEnabled</th><th>UniversalGroupCachingRefreshSite</th><th>WindowsServer2000BridgeheadSelectionMethodEnabled</th><th>WindowsServer2000KCCISTGSelectionBehaviorEnabled</th><th>WindowsServer2003KCCBehaviorEnabled</th><th>WindowsServer2003KCCIgnoreScheduleEnabled</th><th>WindowsServer2003KCCSiteLinkBridgingEnabled</th></tr></thead>
+<tbody><tr><td>KATOWICE-1</td><td></td><td>Main location</td><td>ad.evotec.xyz/Configuration/Sites/KATOWICE-1</td><td>CN=KATOWICE-1,CN=Sites,CN=Configuration,DC=ad,DC=evotec,DC=xyz</td><td>Poland</td><td></td><td>20.05.2018 09:55:23</td><td>30.07.2018 15:45:06</td><td></td><td>False</td><td>False</td><td>True</td><td>True</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>15</td><td>True</td><td>True</td><td>True</td><td>True</td><td></td><td>True</td><td>False</td><td>False</td><td>False</td><td>False</td></tr>
+<tr><td>GLIWICE</td><td></td><td>Some description</td><td>ad.evotec.xyz/Configuration/Sites/GLIWICE</td><td>CN=GLIWICE,CN=Sites,CN=Configuration,DC=ad,DC=evotec,DC=xyz</td><td>Poland</td><td></td><td>21.07.2018 19:41:01</td><td>30.07.2018 15:44:34</td><td></td><td>False</td><td>False</td><td>True</td><td>True</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>15</td><td>True</td><td>True</td><td>True</td><td>True</td><td></td><td>True</td><td>False</td><td>False</td><td>False</td><td>False</td></tr>
+<tr><td>KATOWICE-2</td><td></td><td></td><td>ad.evotec.xyz/Configuration/Sites/KATOWICE-2</td><td>CN=KATOWICE-2,CN=Sites,CN=Configuration,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td>21.07.2018 19:41:14</td><td>21.07.2018 19:41:53</td><td></td><td>False</td><td>False</td><td>True</td><td>True</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>15</td><td>True</td><td>True</td><td>True</td><td>True</td><td></td><td>True</td><td>False</td><td>False</td><td>False</td><td>False</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="defaultPanel defaultCard"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-WhUxnUjI').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-WhUxnUjI" class="display compact"><thead><tr><th>Name</th><th>DisplayName</th><th>Description</th><th>Site</th><th>ProtectedFromAccidentalDeletion</th><th>Created</th><th>Modified</th><th>Deleted</th></tr></thead>
+<tbody><tr><td>192.168.240.0/24</td><td></td><td></td><td>CN=KATOWICE-1,CN=Sites,CN=Configuration,DC=ad,DC=evotec,DC=xyz</td><td>True</td><td>29.07.2018 20:40:45</td><td>30.07.2018 15:28:11</td><td></td></tr>
+<tr><td>192.168.241.0/24</td><td></td><td></td><td></td><td>False</td><td>29.07.2018 20:40:57</td><td>29.07.2018 20:41:00</td><td></td></tr>
+<tr><td>192.168.239.0/24</td><td></td><td>This is my site</td><td>CN=KATOWICE-1,CN=Sites,CN=Configuration,DC=ad,DC=evotec,DC=xyz</td><td>False</td><td>29.07.2018 23:13:33</td><td>30.07.2018 15:27:49</td><td></td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="defaultPanel defaultCard"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-EwNtidBo').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                    );
+                    
+                });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-EwNtidBo" class="display compact"><thead><tr><th>Name</th><th>Cost</th><th>ReplicationFrequencyInMinutes</th><th>ReplInterval</th><th>ReplicationSchedule</th><th>Created</th><th>Modified</th><th>Deleted</th><th>InterSiteTransportProtocol</th><th>DistinguishedName</th><th>ProtectedFromAccidentalDeletion</th></tr></thead>
+<tbody><tr><td>DEFAULTIPSITELINK</td><td>100</td><td>180</td><td>180</td><td></td><td>20.05.2018 09:55:23</td><td>29.05.2019 16:18:05</td><td></td><td>IP</td><td>CN=DEFAULTIPSITELINK,CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=ad,DC=evotec,DC=xyz</td><td>False</td></tr></tbody>
+</table>
+
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div id="Tab-y0gquws1" class="tabs-content"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Domain Controllers / FSMO Roles" style="color: #ffffff;">Domain Controllers / FSMO Roles</a>
+<a id="show_1106950598" href="javascript:void(0)" onclick="show('1106950598');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1106950598" href="javascript:void(0)" onclick="hide('1106950598');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1106950598" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1106950598"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-y0gquws1" && !$.fn.dataTable.isDataTable("#DT-SarxXGsi")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-SarxXGsi').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-SarxXGsi" class="display compact"><thead><tr><th>Name</th><th>Host Name</th><th>Operating System</th><th>Site</th><th>Ipv4</th><th>Ipv6</th><th>Global Catalog?</th><th>Read Only?</th><th>Ldap Port</th><th>SSL Port</th></tr></thead>
+<tbody><tr><td>ADPREVIEW2019</td><td>ADPreview2019.ad.evotec.pl</td><td>Windows Server 2019 Standard</td><td>KATOWICE-2</td><td>192.168.240.201</td><td></td><td>True</td><td>False</td><td>389</td><td>636</td></tr>
+<tr><td>DC1</td><td>DC1.ad.evotec.pl</td><td>Windows Server 2019 Standard Evaluation</td><td>KATOWICE-1</td><td>192.168.240.238</td><td></td><td>True</td><td>False</td><td>389</td><td>636</td></tr>
+<tr><td>ADRODC</td><td>ADRODC.ad.evotec.pl</td><td>Windows Server 2016 Standard</td><td>KATOWICE-1</td><td>192.168.240.207</td><td></td><td>True</td><td>True</td><td>389</td><td>636</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-y0gquws1" && !$.fn.dataTable.isDataTable("#DT-FPiBHMeS")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-FPiBHMeS').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-FPiBHMeS" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<tbody><tr><td>PDC Emulator</td><td>DC1.ad.evotec.pl</td></tr>
+<tr><td>RID Master</td><td>DC1.ad.evotec.pl</td></tr>
+<tr><td>Infrastructure Master</td><td>DC1.ad.evotec.pl</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div></div>
+</div>
+<div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Default Password Policy" style="color: #ffffff;">Default Password Policy</a>
+<a id="show_1479416016" href="javascript:void(0)" onclick="show('1479416016');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1479416016" href="javascript:void(0)" onclick="hide('1479416016');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1479416016" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1479416016"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-y0gquws1" && !$.fn.dataTable.isDataTable("#DT-ojmVFIev")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-ojmVFIev').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-ojmVFIev" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<tbody><tr><td>Complexity Enabled</td><td>True</td></tr>
+<tr><td>Lockout Duration</td><td>30</td></tr>
+<tr><td>Lockout Observation Window</td><td>30</td></tr>
+<tr><td>Lockout Threshold</td><td>0</td></tr>
+<tr><td>Max Password Age</td><td>180</td></tr>
+<tr><td>Min Password Length</td><td>10</td></tr>
+<tr><td>Min Password Age</td><td>0</td></tr>
+<tr><td>Password History Count</td><td>10</td></tr>
+<tr><td>Reversible Encryption Enabled</td><td>False</td></tr>
+<tr><td>Distinguished Name</td><td>DC=ad,DC=evotec,DC=pl</td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Domain Fine Grained Policies" style="color: #ffffff;">Domain Fine Grained Policies</a>
+<a id="show_1707652785" href="javascript:void(0)" onclick="show('1707652785');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1707652785" href="javascript:void(0)" onclick="hide('1707652785');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1707652785" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1707652785"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-y0gquws1" && !$.fn.dataTable.isDataTable("#DT-UBcesKSX")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-UBcesKSX').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-UBcesKSX" class="display compact"><thead><tr><th>Name</th><th>Complexity Enabled</th><th>Lockout Duration</th><th>Lockout Observation Window</th><th>Lockout Threshold</th><th>Max Password Age</th><th>Min Password Length</th><th>Min Password Age</th><th>Password History Count</th><th>Reversible Encryption Enabled</th><th>Precedence</th><th>Applies To</th><th>Distinguished Name</th></tr></thead>
+<tbody><tr><td>Fine Policy Test</td><td>False</td><td>00:30:00</td><td>00:30:00</td><td>0</td><td>00:00:00</td><td>4</td><td>00:00:00</td><td>0</td><td>True</td><td>200</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>CN=Fine Policy Test,CN=Password Settings Container,CN=System,DC=ad,DC=evotec,DC=pl</td></tr></tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+</div></div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Users" style="color: #ffffff;">Users</a>
+<a id="show_181709704" href="javascript:void(0)" onclick="show('181709704');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_181709704" href="javascript:void(0)" onclick="hide('181709704');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="181709704" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="181709704"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-y0gquws1" && !$.fn.dataTable.isDataTable("#DT-WLvVdETA")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-WLvVdETA').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-WLvVdETA" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>SamAccountName</th><th>DisplayName</th><th>GivenName</th><th>Surname</th><th>EmailAddress</th><th>PasswordExpired</th><th>PasswordLastSet</th><th>PasswordLastChanged(Days)</th><th>PasswordNotRequired</th><th>PasswordNeverExpires</th><th>Enabled</th><th>Manager</th><th>ManagerEmail</th><th>DateExpiry</th><th>DaysToExpire</th><th>AccountExpirationDate</th><th>AccountLockoutTime</th><th>AllowReversiblePasswordEncryption</th><th>BadLogonCount</th><th>CannotChangePassword</th><th>CanonicalName</th><th>Description</th><th>DistinguishedName</th><th>EmployeeID</th><th>EmployeeNumber</th><th>LastBadPasswordAttempt</th><th>LastLogonDate</th><th>Created</th><th>Modified</th><th>Protected</th><th>Primary Group</th><th>Member Of</th><th>Domain</th></tr></thead>
+<tbody><tr><td>Guest</td><td></td><td>Guest</td><td></td><td></td><td></td><td></td><td>False</td><td></td><td></td><td>True</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.pl/Users/Guest</td><td>Built-in account for guest access to the computer/domain</td><td>CN=Guest,CN=Users,DC=ad,DC=evotec,DC=pl</td><td></td><td></td><td></td><td></td><td>26.07.2018 12:59:52</td><td>26.05.2019 18:34:16</td><td>False</td><td>Domain Guests</td><td>Guests</td><td>ad.evotec.pl</td></tr>
+<tr><td>Administrator</td><td></td><td>Administrator</td><td></td><td></td><td></td><td></td><td>False</td><td>26.07.2018 12:42:34</td><td>318</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.pl/Users/Administrator</td><td>Built-in account for administering the computer/domain</td><td>CN=Administrator,CN=Users,DC=ad,DC=evotec,DC=pl</td><td></td><td></td><td>29.05.2019 17:47:17</td><td>29.05.2019 16:22:01</td><td>26.07.2018 12:59:52</td><td>29.05.2019 17:14:46</td><td>False</td><td>Domain Users</td><td>Administrators<BR>
+Domain Admins<BR>
+Group Policy Creator Owners</td><td>ad.evotec.pl</td></tr>
+<tr><td>krbtgt</td><td></td><td>krbtgt</td><td></td><td></td><td></td><td></td><td>True</td><td>26.07.2018 13:00:26</td><td>318</td><td>False</td><td>False</td><td>False</td><td></td><td></td><td>22.01.2019 12:00:26</td><td>-138</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.pl/Users/krbtgt</td><td>Key Distribution Center Service Account</td><td>CN=krbtgt,CN=Users,DC=ad,DC=evotec,DC=pl</td><td></td><td></td><td></td><td></td><td>26.07.2018 13:00:26</td><td>26.05.2019 18:34:16</td><td>False</td><td>Domain Users</td><td>Denied RODC Password Replication Group</td><td>ad.evotec.pl</td></tr>
+<tr><td>EVOTEC$</td><td></td><td>EVOTEC$</td><td></td><td></td><td></td><td></td><td>False</td><td>15.05.2019 09:38:15</td><td>25</td><td>True</td><td>False</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.pl/Users/EVOTEC$</td><td></td><td>CN=EVOTEC$,CN=Users,DC=ad,DC=evotec,DC=pl</td><td></td><td></td><td></td><td></td><td>26.07.2018 13:10:27</td><td>26.05.2019 18:34:16</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.pl</td></tr>
+<tr><td>krbtgt_16721</td><td></td><td>krbtgt_16721</td><td></td><td></td><td></td><td></td><td>True</td><td>21.08.2018 15:30:53</td><td>292</td><td>False</td><td>False</td><td>False</td><td></td><td></td><td>17.02.2019 14:30:53</td><td>-112</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.pl/Users/krbtgt_16721</td><td>Key Distribution Center service account for read-only domain controller</td><td>CN=krbtgt_16721,CN=Users,DC=ad,DC=evotec,DC=pl</td><td></td><td></td><td></td><td></td><td>21.08.2018 15:30:53</td><td>26.05.2019 18:34:29</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.pl</td></tr>
+<tr><td>Green Bug</td><td>green.bug@evotec.pl</td><td>green.bug</td><td>Green Bug</td><td>Green</td><td>Bug</td><td></td><td>False</td><td>14.08.2018 16:47:47</td><td>299</td><td>False</td><td>False</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.pl/Production/Users/Green Bug</td><td></td><td>CN=Green Bug,OU=Users,OU=Production,DC=ad,DC=evotec,DC=pl</td><td></td><td></td><td></td><td></td><td>14.08.2018 16:47:47</td><td>26.05.2019 18:34:29</td><td>False</td><td>Domain Users</td><td>GDS-FineGrainedPolicy-Test</td><td>ad.evotec.pl</td></tr>
+<tr><td>Test Test 2</td><td>TestingAD@ad.evotec.pl</td><td>TestingAD</td><td>Test Test 2</td><td>Test</td><td>Test 2</td><td>myrandomemail@test.com</td><td>False</td><td>02.10.2018 17:00:57</td><td>250</td><td>False</td><td>True</td><td>True</td><td>Green Bug</td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.pl/Production/Users/Test Test 2</td><td>Description Is</td><td>CN=Test Test 2,OU=Users,OU=Production,DC=ad,DC=evotec,DC=pl</td><td></td><td></td><td></td><td></td><td>02.10.2018 17:00:57</td><td>26.05.2019 18:34:29</td><td>False</td><td>Domain Users</td><td>GDS-FineGrainedPolicy-Test</td><td>ad.evotec.pl</td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Computers" style="color: #ffffff;">Computers</a>
+<a id="show_1508992314" href="javascript:void(0)" onclick="show('1508992314');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1508992314" href="javascript:void(0)" onclick="hide('1508992314');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1508992314" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1508992314"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-y0gquws1" && !$.fn.dataTable.isDataTable("#DT-CPfTfREb")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-CPfTfREb').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-CPfTfREb" class="display compact"><thead><tr><th>*</th></tr></thead>
+<tbody><tr><td>No data available.</td></tr></tbody>
+</table>
+
+</div>
+</div></div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Groups Priviliged" style="color: #ffffff;">Groups Priviliged</a>
+<a id="show_1361467249" href="javascript:void(0)" onclick="show('1361467249');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1361467249" href="javascript:void(0)" onclick="hide('1361467249');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1361467249" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1361467249"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-y0gquws1" && !$.fn.dataTable.isDataTable("#DT-kZkjUtQC")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-kZkjUtQC').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-kZkjUtQC" class="display compact"><thead><tr><th>Group Name</th><th>Group Category</th><th>Group Scope</th><th>Group SID</th><th>High Privileged Group</th><th>Member Count</th><th>MemberOf Count</th><th>Manager</th><th>Manager Email</th><th>Group Members</th><th>Group Members DN</th><th>Domain</th></tr></thead>
+<tbody><tr><td>Administrators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-544</td><td>True</td><td>3</td><td>0</td><td>Administrator</td><td></td><td>Administrator<BR>
+Domain Admins</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Network Configuration Operators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-556</td><td>False</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Event Log Readers</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-573</td><td>False</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Hyper-V Administrators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-578</td><td>False</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Remote Management Users</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-580</td><td>False</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Domain Admins</td><td>Security</td><td>Global</td><td>S-1-5-21-3661168273-3802070955-2987026695-512</td><td>True</td><td>1</td><td>2</td><td>Administrator</td><td></td><td>Administrator</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Group Policy Creator Owners</td><td>Security</td><td>Global</td><td>S-1-5-21-3661168273-3802070955-2987026695-520</td><td>False</td><td>1</td><td>1</td><td></td><td></td><td>Administrator</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Backup Operators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-551</td><td>True</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Print Operators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-550</td><td>True</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Replicator</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-552</td><td>True</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Account Operators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-548</td><td>True</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+<tr><td>Server Operators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-549</td><td>True</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.pl</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="defaultPanel defaultCard"></div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Organizational Units" style="color: #ffffff;">Organizational Units</a>
+<a id="show_871345482" href="javascript:void(0)" onclick="show('871345482');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_871345482" href="javascript:void(0)" onclick="hide('871345482');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="871345482" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="871345482"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-y0gquws1" && !$.fn.dataTable.isDataTable("#DT-ccZXeFLE")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-ccZXeFLE').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-ccZXeFLE" class="display compact"><thead><tr><th>Canonical Name</th><th>Managed</th><th>Manager Email</th><th>Protected</th><th>Description</th><th>Created</th><th>Modified</th><th>Deleted</th><th>PostalCode</th><th>City</th><th>Country</th><th>State</th><th>StreetAddress</th><th>DistinguishedName</th><th>ObjectGUID</th></tr></thead>
+<tbody><tr><td>ad.evotec.pl/Domain Controllers</td><td></td><td></td><td>False</td><td>Default container for domain controllers</td><td>26.07.2018 12:59:51</td><td>26.05.2019 18:34:16</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Domain Controllers,DC=ad,DC=evotec,DC=pl</td><td>a723e73e-1fda-483c-80de-738e7158d598</td></tr>
+<tr><td>ad.evotec.pl/Production</td><td></td><td></td><td>False</td><td></td><td>14.08.2018 16:45:49</td><td>26.05.2019 18:34:29</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Production,DC=ad,DC=evotec,DC=pl</td><td>0e71828b-83ee-44e1-a355-e4cc8b03d075</td></tr>
+<tr><td>ad.evotec.pl/Production/Groups</td><td></td><td></td><td>True</td><td></td><td>14.08.2018 16:46:47</td><td>26.05.2019 18:34:29</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Groups,OU=Production,DC=ad,DC=evotec,DC=pl</td><td>b2b557b8-ee2e-4fee-a2dc-bbae6c38eac5</td></tr>
+<tr><td>ad.evotec.pl/Production/Users</td><td></td><td></td><td>False</td><td></td><td>14.08.2018 16:46:07</td><td>26.05.2019 18:34:29</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Users,OU=Production,DC=ad,DC=evotec,DC=pl</td><td>4847f553-53ea-412c-abe5-d403f96d9aca</td></tr>
+<tr><td>ad.evotec.pl/Production/Users-Special</td><td></td><td></td><td>True</td><td></td><td>14.08.2018 16:46:18</td><td>26.05.2019 18:34:29</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Users-Special,OU=Production,DC=ad,DC=evotec,DC=pl</td><td>28c7690f-2b11-49ba-a310-68d46b12aa17</td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="OU ACL Basic" style="color: #ffffff;">OU ACL Basic</a>
+<a id="show_1148173348" href="javascript:void(0)" onclick="show('1148173348');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1148173348" href="javascript:void(0)" onclick="hide('1148173348');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1148173348" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1148173348"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-y0gquws1" && !$.fn.dataTable.isDataTable("#DT-rWsjAOxw")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-rWsjAOxw').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-rWsjAOxw" class="display compact"><thead><tr><th>Distinguished Name</th><th>Type</th><th>Owner</th><th>Group</th><th>Are AccessRules Protected</th><th>Are AuditRules Protected</th><th>Are AccessRules Canonical</th><th>Are AuditRules Canonical</th></tr></thead>
+<tbody><tr><td>OU=Domain Controllers,DC=ad,DC=evotec,DC=pl</td><td>Organizational Unit</td><td>EVOTECPL\Domain Admins</td><td>EVOTECPL\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Production,DC=ad,DC=evotec,DC=pl</td><td>Organizational Unit</td><td>EVOTECPL\Domain Admins</td><td>EVOTECPL\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Users,OU=Production,DC=ad,DC=evotec,DC=pl</td><td>Organizational Unit</td><td>EVOTECPL\Domain Admins</td><td>EVOTECPL\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Users-Special,OU=Production,DC=ad,DC=evotec,DC=pl</td><td>Organizational Unit</td><td>EVOTECPL\Domain Admins</td><td>EVOTECPL\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Groups,OU=Production,DC=ad,DC=evotec,DC=pl</td><td>Organizational Unit</td><td>EVOTECPL\Domain Admins</td><td>EVOTECPL\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="OU ACL Extended" style="color: #ffffff;">OU ACL Extended</a>
+<a id="show_1541135415" href="javascript:void(0)" onclick="show('1541135415');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1541135415" href="javascript:void(0)" onclick="hide('1541135415');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1541135415" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1541135415"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-y0gquws1" && !$.fn.dataTable.isDataTable("#DT-mGLoDqXe")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-mGLoDqXe').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-mGLoDqXe" class="display compact"><thead><tr><th>*</th></tr></thead>
+<tbody><tr><td>No data available.</td></tr></tbody>
+</table>
+
+</div>
+</div></div></div>
+</div>
+</div>
+<div id="Tab-918wskox" class="tabs-content"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Domain Controllers / FSMO Roles" style="color: #ffffff;">Domain Controllers / FSMO Roles</a>
+<a id="show_1490343424" href="javascript:void(0)" onclick="show('1490343424');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1490343424" href="javascript:void(0)" onclick="hide('1490343424');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1490343424" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1490343424"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-918wskox" && !$.fn.dataTable.isDataTable("#DT-kwOGPyqm")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-kwOGPyqm').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-kwOGPyqm" class="display compact"><thead><tr><th>Name</th><th>Host Name</th><th>Operating System</th><th>Site</th><th>Ipv4</th><th>Ipv6</th><th>Global Catalog?</th><th>Read Only?</th><th>Ldap Port</th><th>SSL Port</th></tr></thead>
+<tbody><tr><td>AD2</td><td>AD2.ad.evotec.xyz</td><td>Windows Server 2016 Standard</td><td>KATOWICE-1</td><td>192.168.240.192</td><td></td><td>True</td><td>False</td><td>389</td><td>636</td></tr>
+<tr><td>AD1</td><td>AD1.ad.evotec.xyz</td><td>Windows Server 2016 Standard</td><td>KATOWICE-1</td><td>192.168.240.189</td><td></td><td>True</td><td>False</td><td>389</td><td>636</td></tr>
+<tr><td>AD3</td><td>AD3.ad.evotec.xyz</td><td>Windows Server 2019 Standard Evaluation</td><td>KATOWICE-1</td><td>192.168.240.236</td><td></td><td>True</td><td>False</td><td>389</td><td>636</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-918wskox" && !$.fn.dataTable.isDataTable("#DT-GlMPyWIJ")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-GlMPyWIJ').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-GlMPyWIJ" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<tbody><tr><td>PDC Emulator</td><td>AD1.ad.evotec.xyz</td></tr>
+<tr><td>RID Master</td><td>AD1.ad.evotec.xyz</td></tr>
+<tr><td>Infrastructure Master</td><td>AD1.ad.evotec.xyz</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div></div>
+</div>
+<div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Default Password Policy" style="color: #ffffff;">Default Password Policy</a>
+<a id="show_1738653242" href="javascript:void(0)" onclick="show('1738653242');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1738653242" href="javascript:void(0)" onclick="hide('1738653242');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1738653242" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1738653242"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-918wskox" && !$.fn.dataTable.isDataTable("#DT-HyWQZiTA")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-HyWQZiTA').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-HyWQZiTA" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<tbody><tr><td>Complexity Enabled</td><td>True</td></tr>
+<tr><td>Lockout Duration</td><td>30</td></tr>
+<tr><td>Lockout Observation Window</td><td>30</td></tr>
+<tr><td>Lockout Threshold</td><td>0</td></tr>
+<tr><td>Max Password Age</td><td>42</td></tr>
+<tr><td>Min Password Length</td><td>7</td></tr>
+<tr><td>Min Password Age</td><td>1</td></tr>
+<tr><td>Password History Count</td><td>24</td></tr>
+<tr><td>Reversible Encryption Enabled</td><td>False</td></tr>
+<tr><td>Distinguished Name</td><td>DC=ad,DC=evotec,DC=xyz</td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Domain Fine Grained Policies" style="color: #ffffff;">Domain Fine Grained Policies</a>
+<a id="show_916131309" href="javascript:void(0)" onclick="show('916131309');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_916131309" href="javascript:void(0)" onclick="hide('916131309');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="916131309" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="916131309"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-918wskox" && !$.fn.dataTable.isDataTable("#DT-HGKrhHjF")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-HGKrhHjF').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-HGKrhHjF" class="display compact"><thead><tr><th>*</th></tr></thead>
+<tbody><tr><td>No data available.</td></tr></tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+</div></div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Users" style="color: #ffffff;">Users</a>
+<a id="show_1680157126" href="javascript:void(0)" onclick="show('1680157126');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1680157126" href="javascript:void(0)" onclick="hide('1680157126');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1680157126" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1680157126"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-918wskox" && !$.fn.dataTable.isDataTable("#DT-EOcJEOMf")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-EOcJEOMf').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-EOcJEOMf" class="display compact"><thead><tr><th>Name</th><th>UserPrincipalName</th><th>SamAccountName</th><th>DisplayName</th><th>GivenName</th><th>Surname</th><th>EmailAddress</th><th>PasswordExpired</th><th>PasswordLastSet</th><th>PasswordLastChanged(Days)</th><th>PasswordNotRequired</th><th>PasswordNeverExpires</th><th>Enabled</th><th>Manager</th><th>ManagerEmail</th><th>DateExpiry</th><th>DaysToExpire</th><th>AccountExpirationDate</th><th>AccountLockoutTime</th><th>AllowReversiblePasswordEncryption</th><th>BadLogonCount</th><th>CannotChangePassword</th><th>CanonicalName</th><th>Description</th><th>DistinguishedName</th><th>EmployeeID</th><th>EmployeeNumber</th><th>LastBadPasswordAttempt</th><th>LastLogonDate</th><th>Created</th><th>Modified</th><th>Protected</th><th>Primary Group</th><th>Member Of</th><th>Domain</th></tr></thead>
+<tbody><tr><td>Guest</td><td></td><td>Guest</td><td>Guest</td><td></td><td></td><td></td><td>False</td><td></td><td></td><td>True</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>1</td><td>False</td><td>ad.evotec.xyz/Users/Guest</td><td>Built-in account for guest access to the computer/domain</td><td>CN=Guest,CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td>28.12.2018 07:56:30</td><td></td><td>20.05.2018 09:55:29</td><td>22.10.2018 18:59:43</td><td>False</td><td>Domain Guests</td><td>Guests</td><td>ad.evotec.xyz</td></tr>
+<tr><td>DefaultAccount</td><td></td><td>DefaultAccount</td><td> (offboarded)</td><td></td><td></td><td></td><td>False</td><td></td><td></td><td>True</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>1</td><td>False</td><td>ad.evotec.xyz/Users/DefaultAccount</td><td>A user account managed by the system.</td><td>CN=DefaultAccount,CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td>27.12.2018 15:14:04</td><td></td><td>20.05.2018 09:55:29</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>krbtgt</td><td></td><td>krbtgt</td><td> (offboarded)</td><td></td><td></td><td></td><td>True</td><td>20.05.2018 09:56:36</td><td>385</td><td>False</td><td>False</td><td>False</td><td></td><td></td><td>01.07.2018 09:56:36</td><td>-343</td><td></td><td></td><td>False</td><td>9</td><td>False</td><td>ad.evotec.xyz/Users/krbtgt</td><td>Key Distribution Center Service Account</td><td>CN=krbtgt,CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td>09.10.2018 01:26:53</td><td></td><td>20.05.2018 09:56:36</td><td>09.11.2018 18:02:16</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Administrator</td><td>Administrator@ad.evotec.xyz</td><td>Administrator</td><td>Administrator</td><td></td><td></td><td>Administrator@ad.evotec.xyz</td><td>False</td><td>19.05.2018 21:08:11</td><td>385</td><td>False</td><td>True</td><td>True</td><td>Przemysław Kłys</td><td>przemyslaw.klys@evotec.pl</td><td></td><td>0</td><td></td><td></td><td>False</td><td>2</td><td>False</td><td>ad.evotec.xyz/Production/Users/Administrator</td><td>Built-in account for administering the computer/domain</td><td>CN=Administrator,OU=Users,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td>06.06.2019 09:24:35</td><td>29.05.2019 16:14:55</td><td>20.05.2018 09:55:29</td><td>29.05.2019 18:31:14</td><td>False</td><td>Domain Users</td><td>Administrators<BR>
+Domain Admins<BR>
+Enterprise Admins<BR>
+GDS-TestGroup1<BR>
+GDS-TestGroup2<BR>
+GDS-TestGroup4<BR>
+Group Policy Creator Owners<BR>
+Organization Management<BR>
+Schema Admins</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Administrator Przemysław Kłys</td><td>adm.pklys@ad.evotec.xyz</td><td>adm.pklys</td><td>Administrator Przemysław Kłys</td><td>Administrator Przemysław</td><td>Kłys</td><td></td><td>False</td><td>20.05.2018 10:22:34</td><td>385</td><td>False</td><td>True</td><td>True</td><td>Przemysław Kłys</td><td>przemyslaw.klys@evotec.pl</td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Production/Users/Administrator Przemysław Kłys</td><td></td><td>CN=Administrator Przemysław Kłys,OU=Users,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td>20.05.2018 15:47:46</td><td>20.05.2018 10:22:34</td><td>09.11.2018 18:02:16</td><td>False</td><td>Domain Users</td><td>Domain Admins<BR>
+GDS-TestGroup1<BR>
+GDS-TestGroup2<BR>
+GDS-TestGroup4</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Przemysław Kłys</td><td>przemyslaw.klys@evotec.pl</td><td>przemyslaw.klys</td><td>Przemysław Kłys</td><td>Przemysław</td><td>Kłys</td><td>przemyslaw.klys@evotec.pl</td><td>False</td><td>09.03.2019 10:27:33</td><td>92</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Production/Users/Przemysław Kłys</td><td></td><td>CN=Przemysław Kłys,OU=Users,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td>29.05.2019 08:09:52</td><td>04.06.2019 13:43:26</td><td>20.05.2018 16:09:12</td><td>04.06.2019 13:43:41</td><td>False</td><td>Domain Users</td><td>Domain Admins<BR>
+Enterprise Admins<BR>
+Schema Admins</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Service Task Scheduler</td><td>svcTaskScheduler@ad.evotec.xyz</td><td>svcTaskScheduler</td><td>Service Task Scheduler</td><td>Service Task</td><td>Scheduler</td><td></td><td>False</td><td>28.04.2019 17:03:45</td><td>42</td><td>False</td><td>True</td><td>False</td><td>Przemysław Kłys</td><td>przemyslaw.klys@evotec.pl</td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Production/Users-Offboarded/Service Task Scheduler</td><td></td><td>CN=Service Task Scheduler,OU=Users-Offboarded,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td>11.07.2018 12:02:14</td><td>09.07.2018 18:44:25</td><td>09.07.2018 18:29:52</td><td>28.04.2019 17:04:37</td><td>False</td><td>Domain Users</td><td>GDS-TestGroup3<BR>
+GDS-TestGroup4<BR>
+GDS-TestGroup5</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Test User Test</td><td>test@ad.evotec.xyz</td><td>test</td><td>Test User Test</td><td>Test User</td><td>Test</td><td></td><td>True</td><td></td><td></td><td>False</td><td>False</td><td>True</td><td>Przemysław Kłys</td><td>przemyslaw.klys@evotec.pl</td><td></td><td>0</td><td></td><td></td><td>False</td><td>2</td><td>False</td><td>ad.evotec.xyz/Production/Users-O365/Test User Test</td><td></td><td>CN=Test User Test,OU=Users-O365,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td>28.12.2018 10:05:29</td><td></td><td>09.07.2018 20:39:49</td><td>20.11.2018 16:54:15</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>New n. New</td><td>new@ad.evotec.xyz</td><td>new</td><td>New n. New</td><td>New</td><td>New</td><td>pklys@evotec.pl</td><td>True</td><td></td><td></td><td>False</td><td>False</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>1</td><td>False</td><td>ad.evotec.xyz/Production/Users-Offboarded/New n. New</td><td></td><td>CN=New n. New,OU=Users-Offboarded,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td>27.12.2018 23:48:53</td><td></td><td>16.07.2018 13:53:58</td><td>28.04.2019 17:03:39</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>EVOTECPL$</td><td></td><td>EVOTECPL$</td><td> (offboarded)</td><td></td><td></td><td></td><td>False</td><td>15.05.2019 09:38:15</td><td>25</td><td>True</td><td>False</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Users/EVOTECPL$</td><td></td><td>CN=EVOTECPL$,CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>26.07.2018 12:59:52</td><td>15.05.2019 09:38:30</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Exchange Online-ApplicationAccount</td><td>Exchange_Online-ApplicationAccount@ad.evotec.xyz</td><td>$E31000-VQ0GNFC5U2JU</td><td> (offboarded)</td><td></td><td></td><td></td><td>True</td><td></td><td></td><td>True</td><td>False</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Users/Exchange Online-ApplicationAccount</td><td></td><td>CN=Exchange Online-ApplicationAccount,CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>05.08.2018 09:54:57</td><td>22.10.2018 12:34:19</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Microsoft Exchange Approval Assistant</td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td>SM_6152b2ecbc6b4d8fb</td><td>Microsoft Exchange Approval Assistant</td><td></td><td>MSExchApproval 1f05a927-3be2-4fb9-aa03-b59fe3b56f4c</td><td>SystemMailbox{1f05a927-d2bf-4ddc-92db-28bdc645a9a6}@ad.evotec.xyz</td><td>True</td><td></td><td></td><td>False</td><td>False</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Users/Microsoft Exchange Approval Assistant</td><td></td><td>CN=Microsoft Exchange Approval Assistant,CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>05.08.2018 09:54:58</td><td>22.10.2018 19:00:36</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Microsoft Exchange (offboarded)</td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td>SM_c383d4fac8c34f62a</td><td>Microsoft Exchange (offboarded)</td><td></td><td>SystemMailbox bb558c35-97f1-4cb9-8ff7-d53741dc928c</td><td>SystemMailbox{bb558c35-97f1-4cb9-8ff7-d53741dc928c}@ad.evotec.xyz</td><td>True</td><td></td><td></td><td>False</td><td>False</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Users/Microsoft Exchange (offboarded)</td><td></td><td>CN=Microsoft Exchange (offboarded),CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>05.08.2018 09:54:58</td><td>22.10.2018 12:34:19</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@ad.evotec.xyz</td><td>SM_2501271fcd0143199</td><td>Microsoft Exchange (offboarded)</td><td></td><td>MsExchDiscovery e0dc1c29-89c3-4034-b678-e6c29d823ed9</td><td>SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}@ad.evotec.xyz</td><td>True</td><td></td><td></td><td>False</td><td>False</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Users/SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9}</td><td></td><td>CN=SystemMailbox{e0dc1c29-89c3-4034-b678-e6c29d823ed9},CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>05.08.2018 09:54:58</td><td>22.10.2018 12:34:19</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Discovery Search Mailbox</td><td>DiscoverySearchMailbox {D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td>SM_e6e481ec2d2f4f938</td><td>Discovery Search Mailbox</td><td></td><td>MsExchDiscoveryMailbox D919BA05-46A6-415f-80AD-7E09334BB852</td><td>DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@ad.evotec.xyz</td><td>True</td><td></td><td></td><td>False</td><td>False</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Users/Discovery Search Mailbox</td><td></td><td>CN=Discovery Search Mailbox,CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>05.08.2018 09:54:58</td><td>22.10.2018 19:00:36</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Microsoft Exchange Migration</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td>SM_8fcde8d3dfd241bfb</td><td>Microsoft Exchange Migration</td><td></td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136</td><td>Migration.8f3e7716-2011-43e4-96b1-aba62d229136@ad.evotec.xyz</td><td>True</td><td></td><td></td><td>False</td><td>False</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Users/Microsoft Exchange Migration</td><td></td><td>CN=Microsoft Exchange Migration,CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>05.08.2018 09:54:59</td><td>22.10.2018 19:01:02</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Microsoft Exchange Federation Mailbox</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td>SM_541db8fc4c894be19</td><td>Microsoft Exchange Federation Mailbox</td><td></td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042</td><td>FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042@ad.evotec.xyz</td><td>True</td><td></td><td></td><td>False</td><td>False</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Users/Microsoft Exchange Federation Mailbox</td><td></td><td>CN=Microsoft Exchange Federation Mailbox,CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>05.08.2018 09:54:59</td><td>22.10.2018 19:01:02</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Special Test User</td><td>SpecialTestUser@ad.evotec.xyz</td><td>SpecialTestUser</td><td>Special Test User</td><td>Special</td><td>Test User</td><td>pklys@evotec.pl</td><td>True</td><td>28.03.2019 20:36:20</td><td>72</td><td>False</td><td>False</td><td>True</td><td>Przemysław Kłys</td><td>przemyslaw.klys@evotec.pl</td><td>09.05.2019 21:36:20</td><td>-30</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Production/Users-O365/Special Test User</td><td></td><td>CN=Special Test User,OU=Users-O365,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>05.08.2018 21:22:17</td><td>22.05.2019 19:07:05</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Expiration Date Test</td><td>expiration@evotec.xyz</td><td>expiration</td><td>Expiration Date Test</td><td>Expiration</td><td>Date Test</td><td>expiration@evotec.xyz</td><td>True</td><td></td><td></td><td>False</td><td>False</td><td>False</td><td>Przemysław Kłys</td><td>przemyslaw.klys@evotec.pl</td><td></td><td>0</td><td>17.09.2018 00:00:00</td><td></td><td>True</td><td>0</td><td>False</td><td>ad.evotec.xyz/Production/Users-Offboarded/Expiration Date Test</td><td></td><td>CN=Expiration Date Test,OU=Users-Offboarded,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>17.08.2018 21:17:47</td><td>18.11.2018 17:03:25</td><td>False</td><td>Domain Users</td><td>GDS-TestGroup5</td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td>HealthMailboxceaf9714b5e8497aabe5d8c7d390c762@ad.evotec.xyz</td><td>HealthMailboxceaf971</td><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td></td><td>HealthMailboxceaf9714b5e8497aabe5d8c7d390c762@ad.evotec.xyz</td><td>False</td><td>22.10.2018 07:54:30</td><td>230</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-Mailbox-Database-1527735546 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td>14.10.2018 09:24:09</td><td>24.08.2018 22:12:31</td><td>27.10.2018 10:43:49</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td>HealthMailboxbb779b7f61384f1abd85a4cc2e793321@ad.evotec.xyz</td><td>HealthMailboxbb779b7</td><td>HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td></td><td>HealthMailboxbb779b7f61384f1abd85a4cc2e793321@ad.evotec.xyz</td><td>False</td><td>24.08.2018 22:13:05</td><td>288</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-002 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-002 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>24.08.2018 22:13:05</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td>HealthMailbox14193432ba1143fda716adf2892e98c6@ad.evotec.xyz</td><td>HealthMailbox1419343</td><td>HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td></td><td>HealthMailbox14193432ba1143fda716adf2892e98c6@ad.evotec.xyz</td><td>False</td><td>22.10.2018 07:54:37</td><td>230</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-001 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-001 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td>14.10.2018 09:20:24</td><td>24.08.2018 22:12:52</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td>HealthMailbox60155b13835f4e669b2fabf5b95dfd74@ad.evotec.xyz</td><td>HealthMailbox60155b1</td><td>HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td></td><td>HealthMailbox60155b13835f4e669b2fabf5b95dfd74@ad.evotec.xyz</td><td>False</td><td>24.08.2018 22:13:16</td><td>288</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-003 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-003 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>24.08.2018 22:13:16</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td>HealthMailboxe03c754075c6456cac3e996649243352@ad.evotec.xyz</td><td>HealthMailboxe03c754</td><td>HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td></td><td>HealthMailboxe03c754075c6456cac3e996649243352@ad.evotec.xyz</td><td>False</td><td>24.08.2018 22:13:27</td><td>288</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-004 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-004 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>24.08.2018 22:13:27</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td>HealthMailbox61f9b982483640bf8ce51c097113cc94@ad.evotec.xyz</td><td>HealthMailbox61f9b98</td><td>HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td></td><td>HealthMailbox61f9b982483640bf8ce51c097113cc94@ad.evotec.xyz</td><td>False</td><td>24.08.2018 22:13:38</td><td>288</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-005 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-005 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>24.08.2018 22:13:38</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td>HealthMailboxc57ed73ae291405da8589c3f2d9a94da@ad.evotec.xyz</td><td>HealthMailboxc57ed73</td><td>HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td></td><td>HealthMailboxc57ed73ae291405da8589c3f2d9a94da@ad.evotec.xyz</td><td>False</td><td>24.08.2018 22:13:48</td><td>288</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-006 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-006 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>24.08.2018 22:13:48</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td>HealthMailboxd9af295</td><td>HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td></td><td>HealthMailboxd9af2950e74d411cb88eed998353ae6e@ad.evotec.xyz</td><td>False</td><td>24.08.2018 22:15:46</td><td>288</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-009 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-009 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>24.08.2018 22:15:46</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td>HealthMailboxfcd7e01b1f1246449c76ee183185ee32@ad.evotec.xyz</td><td>HealthMailboxfcd7e01</td><td>HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td></td><td>HealthMailboxfcd7e01b1f1246449c76ee183185ee32@ad.evotec.xyz</td><td>False</td><td>24.08.2018 22:15:15</td><td>288</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-007 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-007 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>24.08.2018 22:15:15</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td>HealthMailbox751984c8c5c54b849143e72fccb98a27@ad.evotec.xyz</td><td>HealthMailbox751984c</td><td>HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td></td><td>HealthMailbox751984c8c5c54b849143e72fccb98a27@ad.evotec.xyz</td><td>False</td><td>24.08.2018 22:15:32</td><td>288</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-008 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-008 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>24.08.2018 22:15:32</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td>HealthMailbox603739f5e90b43539922000fece40c6b@ad.evotec.xyz</td><td>HealthMailbox603739f</td><td>HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td></td><td>HealthMailbox603739f5e90b43539922000fece40c6b@ad.evotec.xyz</td><td>False</td><td>24.08.2018 22:15:57</td><td>288</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox-EX2013X3-010 (offboarded)</td><td></td><td>CN=HealthMailbox-EX2013X3-010 (offboarded),CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>24.08.2018 22:15:57</td><td>22.10.2018 18:54:35</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Some Mailbox</td><td>some@evotec.xyz</td><td>some</td><td>Some Mailbox</td><td>Some</td><td>Mailbox</td><td>SomeMailbox@ad.evotec.xyz</td><td>True</td><td>17.09.2018 20:39:50</td><td>264</td><td>False</td><td>False</td><td>True</td><td></td><td></td><td>29.10.2018 19:39:50</td><td>-223</td><td></td><td></td><td>False</td><td>1</td><td>False</td><td>ad.evotec.xyz/Production/Users-O365/Some Mailbox</td><td></td><td>CN=Some Mailbox,OU=Users-O365,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td>04.10.2018 18:31:08</td><td>17.09.2018 20:40:45</td><td>17.09.2018 20:37:57</td><td>20.11.2018 16:23:34</td><td>False</td><td>Domain Users</td><td>GDS-TestGroup5</td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td>HealthMailboxb328954</td><td>HealthMailbox-EX2013X3-Mailbox-Database-1527735546</td><td></td><td></td><td>HealthMailboxb3289545c3e744818c6aeece7ab43c2a@ad.evotec.xyz</td><td>False</td><td>30.04.2019 11:57:08</td><td>40</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailboxb3289545c3e744818c6aeece7ab43c2a</td><td></td><td>CN=HealthMailboxb3289545c3e744818c6aeece7ab43c2a,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td>30.04.2019 11:57:21</td><td>27.10.2018 10:27:26</td><td>30.04.2019 11:57:21</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td>HealthMailboxcd3fe85</td><td>HealthMailbox-EX2013X3-001</td><td></td><td></td><td>HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8@ad.evotec.xyz</td><td>False</td><td>30.04.2019 11:57:14</td><td>40</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8</td><td></td><td>CN=HealthMailboxcd3fe85ae75442aeb5487fd56b8b2cd8,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td>30.04.2019 11:57:31</td><td>27.10.2018 10:27:50</td><td>30.04.2019 11:57:31</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5@ad.evotec.xyz</td><td>HealthMailbox4bbdf1b</td><td>HealthMailbox-EX2013X3-002</td><td></td><td></td><td>HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5@ad.evotec.xyz</td><td>False</td><td>27.10.2018 10:28:04</td><td>225</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5</td><td></td><td>CN=HealthMailbox4bbdf1b0c959451bbabc05a9e40713d5,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>27.10.2018 10:28:04</td><td>27.10.2018 10:28:15</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da@ad.evotec.xyz</td><td>HealthMailbox5c21e4f</td><td>HealthMailbox-EX2013X3-003</td><td></td><td></td><td>HealthMailbox5c21e4f881c0456cadd937c9f64a61da@ad.evotec.xyz</td><td>False</td><td>27.10.2018 10:28:15</td><td>225</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox5c21e4f881c0456cadd937c9f64a61da</td><td></td><td>CN=HealthMailbox5c21e4f881c0456cadd937c9f64a61da,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>27.10.2018 10:28:15</td><td>27.10.2018 10:28:26</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox49c425434f14404789901106b55279ad</td><td>HealthMailbox49c425434f14404789901106b55279ad@ad.evotec.xyz</td><td>HealthMailbox49c4254</td><td>HealthMailbox-EX2013X3-004</td><td></td><td></td><td>HealthMailbox49c425434f14404789901106b55279ad@ad.evotec.xyz</td><td>False</td><td>27.10.2018 10:28:26</td><td>225</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox49c425434f14404789901106b55279ad</td><td></td><td>CN=HealthMailbox49c425434f14404789901106b55279ad,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>27.10.2018 10:28:26</td><td>27.10.2018 10:28:36</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox2d50e3005c484d25a609113593de2c33</td><td>HealthMailbox2d50e3005c484d25a609113593de2c33@ad.evotec.xyz</td><td>HealthMailbox2d50e30</td><td>HealthMailbox-EX2013X3-005</td><td></td><td></td><td>HealthMailbox2d50e3005c484d25a609113593de2c33@ad.evotec.xyz</td><td>False</td><td>27.10.2018 10:28:37</td><td>225</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox2d50e3005c484d25a609113593de2c33</td><td></td><td>CN=HealthMailbox2d50e3005c484d25a609113593de2c33,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>27.10.2018 10:28:37</td><td>27.10.2018 10:28:48</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4@ad.evotec.xyz</td><td>HealthMailboxb1a64c2</td><td>HealthMailbox-EX2013X3-006</td><td></td><td></td><td>HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4@ad.evotec.xyz</td><td>False</td><td>27.10.2018 10:28:48</td><td>225</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4</td><td></td><td>CN=HealthMailboxb1a64c238bb847ceaafd3f7eadc15ef4,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>27.10.2018 10:28:48</td><td>27.10.2018 10:28:59</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a@ad.evotec.xyz</td><td>HealthMailbox8d5e4eb</td><td>HealthMailbox-EX2013X3-007</td><td></td><td></td><td>HealthMailbox8d5e4ebac4be48c1957878877a544d1a@ad.evotec.xyz</td><td>False</td><td>27.10.2018 10:28:59</td><td>225</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox8d5e4ebac4be48c1957878877a544d1a</td><td></td><td>CN=HealthMailbox8d5e4ebac4be48c1957878877a544d1a,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>27.10.2018 10:28:59</td><td>27.10.2018 10:29:20</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2@ad.evotec.xyz</td><td>HealthMailbox9bf79ab</td><td>HealthMailbox-EX2013X3-008</td><td></td><td></td><td>HealthMailbox9bf79ab078f34b8da31862a98411a3f2@ad.evotec.xyz</td><td>False</td><td>27.10.2018 10:29:09</td><td>225</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailbox9bf79ab078f34b8da31862a98411a3f2</td><td></td><td>CN=HealthMailbox9bf79ab078f34b8da31862a98411a3f2,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>27.10.2018 10:29:09</td><td>27.10.2018 10:29:20</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c@ad.evotec.xyz</td><td>HealthMailboxdcb7fda</td><td>HealthMailbox-EX2013X3-009</td><td></td><td></td><td>HealthMailboxdcb7fda57f054f458ddc4592d90a209c@ad.evotec.xyz</td><td>False</td><td>27.10.2018 10:29:20</td><td>225</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailboxdcb7fda57f054f458ddc4592d90a209c</td><td></td><td>CN=HealthMailboxdcb7fda57f054f458ddc4592d90a209c,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>27.10.2018 10:29:20</td><td>27.10.2018 10:29:31</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8@ad.evotec.xyz</td><td>HealthMailboxf7e9bcb</td><td>HealthMailbox-EX2013X3-010</td><td></td><td></td><td>HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8@ad.evotec.xyz</td><td>False</td><td>27.10.2018 10:29:30</td><td>225</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Microsoft Exchange System Objects/Monitoring Mailboxes/HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8</td><td></td><td>CN=HealthMailboxf7e9bcb0f2e14c60896a7c2b5bc3fef8,CN=Monitoring Mailboxes,CN=Microsoft Exchange System Objects,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>27.10.2018 10:29:30</td><td>27.10.2018 10:29:45</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>My User</td><td>myuserPrincipal@evotec.pl</td><td>myuser</td><td>My User</td><td>My</td><td>User</td><td>my.user2@evotec.pl</td><td>True</td><td>03.11.2018 18:05:01</td><td>218</td><td>False</td><td>False</td><td>True</td><td></td><td></td><td>15.12.2018 18:05:01</td><td>-176</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Production/Users-O365/My User</td><td></td><td>CN=My User,OU=Users-O365,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td>03.11.2018 18:12:44</td><td>03.11.2018 18:05:01</td><td>29.11.2018 17:28:31</td><td>False</td><td>Domain Users</td><td>Disabled Users</td><td>ad.evotec.xyz</td></tr>
+<tr><td>MSOL_6f0d1d4965ec</td><td></td><td>MSOL_6f0d1d4965ec</td><td></td><td></td><td></td><td></td><td>False</td><td>09.11.2018 17:54:07</td><td>212</td><td>False</td><td>True</td><td>True</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Users/MSOL_6f0d1d4965ec</td><td>Account created by Microsoft Azure Active Directory Connect with installation identifier 6f0d1d4965ec48c099ccd88ef7e36532 running on computer ADCONNECT configured to synchronize to tenant evotec.pl. This account must have directory replication permissions in the local Active Directory and write permission on certain attributes to enable Hybrid Deployment.</td><td>CN=MSOL_6f0d1d4965ec,CN=Users,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td>27.05.2019 10:19:56</td><td>09.11.2018 17:32:13</td><td>30.05.2019 21:15:58</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>My User 2</td><td>myUser2@ad.evotec.xyz</td><td>myUser2</td><td>My User 2</td><td>My</td><td>User 2</td><td></td><td>True</td><td>12.11.2018 21:23:59</td><td>208</td><td>False</td><td>False</td><td>True</td><td></td><td></td><td>24.12.2018 21:23:59</td><td>-166</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Production/Users-O365/My User 2</td><td></td><td>CN=My User 2,OU=Users-O365,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>12.11.2018 21:23:59</td><td>22.05.2019 19:08:14</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Test Przemyslaw Klys</td><td>test.przemyslaw.klys@ad.evotec.xyz</td><td>test.przemyslaw.klys</td><td>Test Przemyslaw Klys</td><td>Test Przemyslaw</td><td>Klys</td><td></td><td>False</td><td>14.05.2019 18:43:47</td><td>26</td><td>False</td><td>False</td><td>True</td><td>Przemysław Kłys</td><td>przemyslaw.klys@evotec.pl</td><td>25.06.2019 18:43:47</td><td>15</td><td></td><td></td><td>False</td><td>0</td><td>False</td><td>ad.evotec.xyz/Production/Users/Test Przemyslaw Klys</td><td></td><td>CN=Test Przemyslaw Klys,OU=Users,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>07.01.2019 19:20:13</td><td>22.05.2019 19:56:50</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Weird Name, with $,.</td><td>myweirdtest@ad.evotec.xyz</td><td>myweirdtest</td><td>Weird Name, with $,.</td><td>Weird</td><td>Name, with $</td><td></td><td>False</td><td>11.01.2019 19:51:06</td><td>148</td><td>False</td><td>True</td><td>False</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Production/Users-Offboarded/Weird Name, with $,.</td><td>df</td><td>CN=Weird Name\, with $\,.,OU=Users-Offboarded,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>11.01.2019 19:51:06</td><td>16.02.2019 18:17:16</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Test My, User</td><td>testmyuser@ad.evotec.xyz</td><td>testmyuser</td><td>Test My, User</td><td>Test</td><td>My User</td><td></td><td>True</td><td>27.01.2019 13:03:50</td><td>133</td><td>False</td><td>False</td><td>False</td><td></td><td></td><td>10.03.2019 13:03:50</td><td>-91</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Production/Users-Offboarded/Test My, User</td><td></td><td>CN=Test My\, User,OU=Users-Offboarded,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td></td><td>27.01.2019 13:03:50</td><td>16.02.2019 18:17:16</td><td>False</td><td>Domain Users</td><td></td><td>ad.evotec.xyz</td></tr>
+<tr><td>Temporary Admin</td><td>TemporaryAdmin@ad.evotec.xyz</td><td>TemporaryAdmin</td><td>Temporary Admin</td><td>Temporary</td><td>Admin</td><td>pklys@evotec.pl</td><td>False</td><td>01.05.2019 19:12:53</td><td>39</td><td>False</td><td>False</td><td>True</td><td></td><td></td><td>12.06.2019 19:12:53</td><td>2</td><td></td><td></td><td>False</td><td></td><td>False</td><td>ad.evotec.xyz/Production/Users/Temporary Admin</td><td></td><td>CN=Temporary Admin,OU=Users,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td></td><td></td><td></td><td>01.05.2019 19:13:14</td><td>01.05.2019 19:12:53</td><td>22.05.2019 19:57:09</td><td>False</td><td>Domain Users</td><td>Domain Admins</td><td>ad.evotec.xyz</td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Computers" style="color: #ffffff;">Computers</a>
+<a id="show_2025110159" href="javascript:void(0)" onclick="show('2025110159');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_2025110159" href="javascript:void(0)" onclick="hide('2025110159');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="2025110159" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2025110159"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-918wskox" && !$.fn.dataTable.isDataTable("#DT-AJHXCCZj")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-AJHXCCZj').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-AJHXCCZj" class="display compact"><thead><tr><th>SamAccountName</th><th>Enabled</th><th>OperatingSystem</th><th>PasswordLastSet</th><th>PasswordLastChanged(Days)</th><th>IPv4Address</th><th>IPv6Address</th><th>Name</th><th>DNSHostName</th><th>Manager</th><th>ManagerEmail</th><th>OperatingSystemVersion</th><th>OperatingSystemHotfix</th><th>OperatingSystemServicePack</th><th>PasswordNeverExpires</th><th>PasswordNotRequired</th><th>UserPrincipalName</th><th>LastLogonDate</th><th>LastLogonDate(Days)</th><th>LockedOut</th><th>LogonCount</th><th>CanonicalName</th><th>SID</th><th>Created</th><th>Modified</th><th>Deleted</th><th>Protected</th><th>PrimaryGroup</th><th>MemberOf</th></tr></thead>
+<tbody><tr><td>EVO1$</td><td>False</td><td>Windows 10 Enterprise</td><td>19.02.2019 01:27:49</td><td>110</td><td>192.168.240.50</td><td></td><td>EVO1</td><td>EVO1.ad.evotec.xyz</td><td></td><td></td><td>10.0 (17763)</td><td></td><td></td><td>False</td><td>False</td><td></td><td>02.03.2019 07:43:48</td><td>99</td><td>False</td><td>445</td><td>ad.evotec.xyz/Production/Computers/EVO1</td><td>S-1-5-21-853615985-2870445339-3163598659-1104</td><td>20.05.2018 15:47:47</td><td>28.04.2019 17:04:57</td><td></td><td>False</td><td>Domain Computers</td><td>Event Log Readers</td></tr>
+<tr><td>DESKTOP-CQESSGI$</td><td>True</td><td>Windows 10 Pro</td><td>30.05.2019 09:26:26</td><td>10</td><td>192.168.240.204</td><td></td><td>DESKTOP-CQESSGI</td><td>DESKTOP-CQESSGI.ad.evotec.xyz</td><td></td><td></td><td>10.0 (18362)</td><td></td><td></td><td>False</td><td>False</td><td></td><td>30.05.2019 09:11:28</td><td>10</td><td>False</td><td>138</td><td>ad.evotec.xyz/Production/Computers/DESKTOP-CQESSGI</td><td>S-1-5-21-853615985-2870445339-3163598659-1143</td><td>07.08.2018 12:18:47</td><td>30.05.2019 11:21:12</td><td></td><td>False</td><td>Domain Computers</td><td></td></tr>
+<tr><td>DESKTOP-68J4BAT$</td><td>True</td><td>Windows 10 Pro N Insider Preview</td><td>05.05.2019 01:06:36</td><td>35</td><td>192.168.240.203</td><td></td><td>DESKTOP-68J4BAT</td><td>DESKTOP-68J4BAT.ad.evotec.xyz</td><td></td><td></td><td>10.0 (18898)</td><td></td><td></td><td>False</td><td>False</td><td></td><td>25.05.2019 09:51:18</td><td>15</td><td>False</td><td>324</td><td>ad.evotec.xyz/Production/Computers/DESKTOP-68J4BAT</td><td>S-1-5-21-853615985-2870445339-3163598659-1603</td><td>07.08.2018 12:19:19</td><td>25.05.2019 09:51:33</td><td></td><td>False</td><td>Domain Computers</td><td></td></tr>
+<tr><td>EVOWIN$</td><td>True</td><td>Windows 10 Enterprise</td><td>27.05.2019 20:42:18</td><td>12</td><td>172.16.254.1</td><td></td><td>EVOWIN</td><td>EVOWIN.ad.evotec.xyz</td><td></td><td></td><td>10.0 (18362)</td><td></td><td></td><td>False</td><td>False</td><td></td><td>05.06.2019 21:34:44</td><td>3</td><td>False</td><td>136</td><td>ad.evotec.xyz/Computers/EVOWIN</td><td>S-1-5-21-853615985-2870445339-3163598659-3601</td><td>09.03.2019 10:28:36</td><td>05.06.2019 21:34:44</td><td></td><td>False</td><td>Domain Computers</td><td>Event Log Readers</td></tr>
+<tr><td>EVOMACWIN$</td><td>False</td><td>Windows 10 Pro</td><td>26.05.2019 11:08:50</td><td>14</td><td>192.168.240.210</td><td></td><td>EVOMACWIN</td><td>EvoMacWin.ad.evotec.xyz</td><td></td><td></td><td>10.0 (18362)</td><td></td><td></td><td>False</td><td>False</td><td></td><td>26.05.2019 11:08:50</td><td>14</td><td>False</td><td>10</td><td>ad.evotec.xyz/Computers/EVOMACWIN</td><td>S-1-5-21-853615985-2870445339-3163598659-3609</td><td>26.05.2019 11:08:50</td><td>29.05.2019 22:04:59</td><td></td><td>False</td><td>Domain Computers</td><td></td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Groups Priviliged" style="color: #ffffff;">Groups Priviliged</a>
+<a id="show_1938776068" href="javascript:void(0)" onclick="show('1938776068');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1938776068" href="javascript:void(0)" onclick="hide('1938776068');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1938776068" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1938776068"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-918wskox" && !$.fn.dataTable.isDataTable("#DT-qSLGiIrO")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-qSLGiIrO').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-qSLGiIrO" class="display compact"><thead><tr><th>Group Name</th><th>Group Category</th><th>Group Scope</th><th>Group SID</th><th>High Privileged Group</th><th>Member Count</th><th>MemberOf Count</th><th>Manager</th><th>Manager Email</th><th>Group Members</th><th>Group Members DN</th><th>Domain</th></tr></thead>
+<tbody><tr><td>Administrators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-544</td><td>True</td><td>3</td><td>0</td><td></td><td></td><td>Administrator<BR>
+Domain Admins<BR>
+Enterprise Admins</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Network Configuration Operators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-556</td><td>False</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Event Log Readers</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-573</td><td>False</td><td>2</td><td>0</td><td></td><td></td><td>EVO1$<BR>
+EVOWIN$</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Hyper-V Administrators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-578</td><td>False</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Remote Management Users</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-580</td><td>False</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Incoming Forest Trust Builders</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-557</td><td>False</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Domain Admins</td><td>Security</td><td>Global</td><td>S-1-5-21-853615985-2870445339-3163598659-512</td><td>True</td><td>5</td><td>2</td><td></td><td></td><td>adm.pklys<BR>
+Administrator<BR>
+GDS-TestGroup3<BR>
+przemyslaw.klys<BR>
+TemporaryAdmin</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Schema Admins</td><td>Security</td><td>Universal</td><td>S-1-5-21-853615985-2870445339-3163598659-518</td><td>True</td><td>2</td><td>1</td><td></td><td></td><td>Administrator<BR>
+przemyslaw.klys</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Group Policy Creator Owners</td><td>Security</td><td>Global</td><td>S-1-5-21-853615985-2870445339-3163598659-520</td><td>False</td><td>1</td><td>1</td><td></td><td></td><td>Administrator</td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Print Operators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-550</td><td>True</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Replicator</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-552</td><td>True</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Server Operators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-549</td><td>True</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Account Operators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-548</td><td>True</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+<tr><td>Backup Operators</td><td>Security</td><td>DomainLocal</td><td>S-1-5-32-551</td><td>True</td><td>0</td><td>0</td><td></td><td></td><td></td><td>Microsoft.ActiveDirectory.Management.ADPropertyValueCollection</td><td>ad.evotec.xyz</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="defaultPanel defaultCard"></div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Organizational Units" style="color: #ffffff;">Organizational Units</a>
+<a id="show_1288159510" href="javascript:void(0)" onclick="show('1288159510');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1288159510" href="javascript:void(0)" onclick="hide('1288159510');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1288159510" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1288159510"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-918wskox" && !$.fn.dataTable.isDataTable("#DT-tHIrYlYT")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-tHIrYlYT').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-tHIrYlYT" class="display compact"><thead><tr><th>Canonical Name</th><th>Managed</th><th>Manager Email</th><th>Protected</th><th>Description</th><th>Created</th><th>Modified</th><th>Deleted</th><th>PostalCode</th><th>City</th><th>Country</th><th>State</th><th>StreetAddress</th><th>DistinguishedName</th><th>ObjectGUID</th></tr></thead>
+<tbody><tr><td>ad.evotec.xyz/Domain Controllers</td><td></td><td></td><td>False</td><td>Default container for domain controllers</td><td>20.05.2018 09:55:29</td><td>01.06.2018 00:22:48</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Domain Controllers,DC=ad,DC=evotec,DC=xyz</td><td>32d9da3d-f757-4462-94f8-da46e4de8ab8</td></tr>
+<tr><td>ad.evotec.xyz/Microsoft Exchange Security Groups</td><td></td><td></td><td>False</td><td></td><td>05.08.2018 09:54:34</td><td>05.08.2018 09:54:42</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Microsoft Exchange Security Groups,DC=ad,DC=evotec,DC=xyz</td><td>98dc1c0a-2f3f-4cb7-992e-b5e9f4040963</td></tr>
+<tr><td>ad.evotec.xyz/Production</td><td></td><td></td><td>True</td><td></td><td>27.05.2018 00:16:12</td><td>01.06.2018 00:22:55</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>891686b2-6244-43e9-a769-8ae2f775318c</td></tr>
+<tr><td>ad.evotec.xyz/Production/Computers</td><td>Przemysław Kłys</td><td>przemyslaw.klys@evotec.pl</td><td>False</td><td></td><td>06.08.2018 22:45:35</td><td>28.04.2019 17:07:37</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Computers,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>cde80304-8bde-4095-81e7-f9c6246c905b</td></tr>
+<tr><td>ad.evotec.xyz/Production/Contacts</td><td></td><td></td><td>True</td><td></td><td>26.08.2018 09:46:19</td><td>09.09.2018 15:38:10</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Contacts,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>303b0d4f-deaf-4751-8a8b-4814bf42c7e0</td></tr>
+<tr><td>ad.evotec.xyz/Production/Groups</td><td></td><td></td><td>True</td><td></td><td>27.05.2018 00:16:19</td><td>01.06.2018 00:22:55</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Groups,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>56ad0edd-01c0-4964-b306-7b7514f707e9</td></tr>
+<tr><td>ad.evotec.xyz/Production/Groups/SecurityGroups</td><td></td><td></td><td>True</td><td></td><td>27.05.2018 00:16:36</td><td>01.06.2018 00:22:55</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=SecurityGroups,OU=Groups,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>f53b7cd9-4678-429d-8619-cd88c930e579</td></tr>
+<tr><td>ad.evotec.xyz/Production/Servers</td><td></td><td></td><td>True</td><td></td><td>07.08.2018 12:25:36</td><td>29.04.2019 13:44:39</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Servers,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>2cf23faf-6fcd-4785-af30-77572a7b8505</td></tr>
+<tr><td>ad.evotec.xyz/Production/Users</td><td></td><td></td><td>True</td><td></td><td>16.07.2018 13:54:34</td><td>05.05.2019 21:30:50</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Users,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>58861966-df5d-46dd-b2fc-b6d5bbfa9cfc</td></tr>
+<tr><td>ad.evotec.xyz/Production/Users-O365</td><td>Przemysław Kłys</td><td>przemyslaw.klys@evotec.pl</td><td>True</td><td>OU for Synchronization of Users to Office 365</td><td>09.11.2018 17:38:32</td><td>19.11.2018 22:54:47</td><td></td><td></td><td></td><td>PL</td><td></td><td></td><td>OU=Users-O365,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>62c610b7-7bd4-4925-9ba3-5981e75e965e</td></tr>
+<tr><td>ad.evotec.xyz/Production/Users-O365/Helllo</td><td></td><td></td><td>False</td><td></td><td>05.05.2019 22:15:04</td><td>05.05.2019 22:15:19</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Helllo,OU=Users-O365,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>32bb4d0f-a6b4-4520-b10b-5eac1b96c197</td></tr>
+<tr><td>ad.evotec.xyz/Production/Users-Offboarded</td><td></td><td></td><td>True</td><td></td><td>05.08.2018 12:07:04</td><td>05.08.2018 12:07:19</td><td></td><td></td><td></td><td></td><td></td><td></td><td>OU=Users-Offboarded,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>1ad639b4-8ed9-4715-ae4b-96a5a71e6652</td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="OU ACL Basic" style="color: #ffffff;">OU ACL Basic</a>
+<a id="show_2072262413" href="javascript:void(0)" onclick="show('2072262413');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_2072262413" href="javascript:void(0)" onclick="hide('2072262413');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="2072262413" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2072262413"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-918wskox" && !$.fn.dataTable.isDataTable("#DT-oOfinpwK")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-oOfinpwK').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-oOfinpwK" class="display compact"><thead><tr><th>Distinguished Name</th><th>Type</th><th>Owner</th><th>Group</th><th>Are AccessRules Protected</th><th>Are AuditRules Protected</th><th>Are AccessRules Canonical</th><th>Are AuditRules Canonical</th></tr></thead>
+<tbody><tr><td>OU=Domain Controllers,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Groups,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=SecurityGroups,OU=Groups,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Users,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Microsoft Exchange Security Groups,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Users-Offboarded,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Computers,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Servers,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Contacts,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Users-O365,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+<tr><td>OU=Helllo,OU=Users-O365,OU=Production,DC=ad,DC=evotec,DC=xyz</td><td>Organizational Unit</td><td>EVOTEC\Domain Admins</td><td>EVOTEC\Domain Admins</td><td>False</td><td>False</td><td>True</td><td>True</td></tr>
+</tbody>
+</table>
+
+</div>
+</div></div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="OU ACL Extended" style="color: #ffffff;">OU ACL Extended</a>
+<a id="show_1611685695" href="javascript:void(0)" onclick="show('1611685695');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1611685695" href="javascript:void(0)" onclick="hide('1611685695');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1611685695" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1611685695"><div class="defaultPanel defaultCard"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-918wskox" && !$.fn.dataTable.isDataTable("#DT-HASKnyox")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-HASKnyox').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-HASKnyox" class="display compact"><thead><tr><th>*</th></tr></thead>
+<tbody><tr><td>No data available.</td></tr></tbody>
+</table>
+
+</div>
+</div></div></div>
+</div>
+</div>
+<div id="Tab-hre5vxqj" class="tabs-content"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Group Changes" style="color: #ffffff;">Group Changes</a>
+<a id="show_268146791" href="javascript:void(0)" onclick="show('268146791');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_268146791" href="javascript:void(0)" onclick="hide('268146791');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="268146791" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="268146791"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-hre5vxqj" && !$.fn.dataTable.isDataTable("#DT-fxMAnTcE")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-fxMAnTcE').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-fxMAnTcE" class="display compact"><thead><tr><th>*</th></tr></thead>
+<tbody><tr><td>No data available.</td></tr></tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="User Status" style="color: #ffffff;">User Status</a>
+<a id="show_168315250" href="javascript:void(0)" onclick="show('168315250');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_168315250" href="javascript:void(0)" onclick="hide('168315250');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="168315250" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="168315250"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-hre5vxqj" && !$.fn.dataTable.isDataTable("#DT-oXitsmQX")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-oXitsmQX').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-oXitsmQX" class="display compact"><thead><tr><th>*</th></tr></thead>
+<tbody><tr><td>No data available.</td></tr></tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="User Changes" style="color: #ffffff;">User Changes</a>
+<a id="show_1198691504" href="javascript:void(0)" onclick="show('1198691504');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1198691504" href="javascript:void(0)" onclick="hide('1198691504');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="1198691504" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1198691504"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-hre5vxqj" && !$.fn.dataTable.isDataTable("#DT-kXUjrtDt")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-kXUjrtDt').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-kXUjrtDt" class="display compact"><thead><tr><th>*</th></tr></thead>
+<tbody><tr><td>No data available.</td></tr></tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="User Lockouts" style="color: #ffffff;">User Lockouts</a>
+<a id="show_1001577533" href="javascript:void(0)" onclick="show('1001577533');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1001577533" href="javascript:void(0)" onclick="hide('1001577533');" style="color: #ffffff;">(Hide)</a>
+</div>
+<div id="1001577533" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1001577533"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-hre5vxqj" && !$.fn.dataTable.isDataTable("#DT-QGbuZYaV")) {
+                                
+                                
+                                //  Table code
+                                var table = $('#DT-QGbuZYaV').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "columnDefs":  ""
+}
+                                );
+                                
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-QGbuZYaV" class="display compact"><thead><tr><th>*</th></tr></thead>
+<tbody><tr><td>No data available.</td></tr></tbody>
+</table>
+
+</div>
+</div></div>
+</div>
+</div>
+</body>
+<!-- END BODY -->
+<!-- FOOTER -->
+<footer>
+
+
+
+
+<!-- JS Elastic Tabs START -->
+<script type="text/javascript">var maxWidth = 0;
+var $element;
+
+$(window).on("resize", function() {
+    $(".selector").hide();
+    var activeItem = $(".tabs a[class*='active']");
+    var id = activeItem.data("id");
+    setSelectorPosition(id);
+});
+
+// Set first active link
+var activeItem = $(".tabs a[class*='active']");
+var id = activeItem.data("id");
+setSelectorPosition(id);
+
+$(".tabs").on("click", "a", function(e) {
+    e.preventDefault();
+    $(".tabs a").removeClass("active");
+    $(this).addClass("active");
+
+    // Get id of link clicked
+    var id = $(this).data("id");
+
+    // Set selector position
+    setSelectorPosition(id);
+
+    // Hide all tabs
+    $(".tabs-content").hide();
+
+    // Show current tab
+    $("#" + id).show();
+});
+
+function setSelectorPosition(id) {
+    var activeItem = $(".tabs").find("[data-id='" + id + "']");
+    var activeWidth = activeItem.innerWidth();
+    var itemPos = activeItem.position();
+    $(".selector").css({
+        left: itemPos.left + "px",
+        top: itemPos.top + "px",
+        width: activeItem.innerWidth() + "px",
+        height: activeItem.innerHeight() + "px"
+    });
+    $(".selector").show();
+}
+</script>
+<!-- JS Elastic Tabs END -->
+
+</footer>
+<!-- END FOOTER -->
+</html>
