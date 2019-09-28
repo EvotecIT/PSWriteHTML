@@ -1,7 +1,8 @@
 Function New-HTML {
+    [alias('Dashboard')]
     [CmdletBinding()]
     param(
-        [Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $HtmlData = $(Throw "Have you put the open curly brace on the next line?"),
+        [alias('Content')][Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $HtmlData = $(Throw "Have you put the open curly brace on the next line?"),
         [switch] $UseCssLinks,
         [switch] $UseJavaScriptLinks,
         [alias('Name', 'Title')][String] $TitleText,

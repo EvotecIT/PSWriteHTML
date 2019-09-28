@@ -1,4 +1,5 @@
 function New-HTMLTab {
+    [alias('Tab')]
     [CmdLetBinding(DefaultParameterSetName = 'FontAwesomeBrands')]
     param(
         [parameter(ParameterSetName = "FontAwesomeBrands")]

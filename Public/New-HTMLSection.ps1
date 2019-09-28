@@ -1,12 +1,12 @@
 Function New-HTMLSection {
-    [alias('New-HTMLContent')]
+    [alias('New-HTMLContent', 'Section')]
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace"),
         [alias('Name')][Parameter(Mandatory = $false)][string]$HeaderText,
-        [RGBColors]$HeaderTextColor = [RGBColors]::White,
-        [string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment = 'center',
-        [RGBColors]$HeaderBackGroundColor = [RGBColors]::DeepSkyBlue,
+        [alias('TextColor')][RGBColors]$HeaderTextColor = [RGBColors]::White,
+        [alias('TextAlignment')][string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment = 'center',
+        [alias('TextBackGroundColor')][RGBColors]$HeaderBackGroundColor = [RGBColors]::DeepSkyBlue,
         [alias('BackgroundShade')][RGBColors]$BackgroundColor = [RGBColors]::None,
         [alias('Collapsable')][Parameter(Mandatory = $false)][switch] $CanCollapse,
         [Parameter(Mandatory = $false)][switch] $IsHidden,

@@ -1,5 +1,5 @@
 Function New-HTMLPanel {
-    [alias('New-HTMLColumn')]
+    [alias('New-HTMLColumn', 'Panel')]
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace with Content"),
