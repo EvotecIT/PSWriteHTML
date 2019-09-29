@@ -1,5 +1,5 @@
 function New-HTMLText {
-    [alias('HTMLText')]
+    [alias('HTMLText', 'Text')]
     [CmdletBinding()]
     param(
         [string[]] $Text,

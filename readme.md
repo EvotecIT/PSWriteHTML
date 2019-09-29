@@ -47,9 +47,11 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.54 - Unreleased
-  - Basic support for Diagrams (work in progress)
+- 0.0.54 - 2019.09.29
+  - **Support for Diagrams**
   - Font Awesome update to 5.11.2
+  - Enlighter updated to 3.0
+  - **Dashimo** integrated to **PSWriteHTML** as aliases
 
 - 0.0.53 - 2019.09.19
   - Bugfix chart inverse colors [#42](https://github.com/EvotecIT/PSWriteHTML/issues/42) - Thanks Ferdi Weiner
