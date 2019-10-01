@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-Unifi2.html {
+New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-UnifiWithMultiline.html {
     New-HTMLSection -HeaderText 'Diagram - My Network' -CanCollapse {
         New-HTMLPanel {
             New-HTMLDiagram {
@@ -18,6 +18,11 @@ New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks
                 New-DiagramNode -Label 'AD3' -ImageType circularImage -Image 'https://cdn.imgbin.com/6/11/3/imgbin-computer-icons-router-cisco-systems-computer-network-network-switch-network-S4pvESiV3pT4EzEjP4sZyc8Rf.jpg'
                 New-DiagramNode -Label 'DC1' -Image 'https://cdn.imgbin.com/6/23/7/imgbin-computer-icons-electronics-active-directory-directory-service-others-A8ikiBt9nN77x6EbsXCWTc7M2.jpg'
                 New-DiagramNode -Label 'DC2' -Image 'https://cdn.imgbin.com/6/23/7/imgbin-computer-icons-electronics-active-directory-directory-service-others-A8ikiBt9nN77x6EbsXCWTc7M2.jpg'
+                # Show multiline
+                $Label1 = 'Test1' + [System.Environment]::NewLine + 'Test2'
+                New-DiagramNode -Label $Label1
+                $Label2 = 'Test3' + "`r`n" + 'Test4'
+                New-DiagramNode -Label $Label2
             } #-BundleImages
         }
     }
