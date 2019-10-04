@@ -38,12 +38,16 @@
 
     [string] $LegendPosition = 'default'
     #
+    [string] $Type = ''
 
     [Array] $Settings = & $ChartSettings
     foreach ($Setting in $Settings) {
         if ($Setting.ObjectType -eq 'Bar') {
             # For Bar Charts
-            $Type = $Setting.ObjectType
+            if (-not $Type) {
+                # thiss makes sure type is not set if BarOptions is used which already set type to BarStacked or similar
+                $Type = $Setting.ObjectType
+            }
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
 
@@ -134,7 +138,7 @@
         }
     }
 
-    if ($Type -eq 'Bar') {
+    if ($Type -in @('bar', 'barStacked', 'barStacked100Percent')) {
         if ($DataLegend.Count -lt $DataSet[0].Count) {
             Write-Warning -Message "Chart Legend count doesn't match values count. Skipping."
         }
