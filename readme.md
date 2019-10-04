@@ -47,6 +47,10 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.55 - Unrelased
+  - Fix for Underlined space when using -Collapsable [#51](https://github.com/EvotecIT/PSWriteHTML/issues/51) - Thanks Tuxhedoh
+  -
+
 - 0.0.54 - 2019.09.29
   - **Support for Diagrams**
   - Font Awesome update to 5.11.2
