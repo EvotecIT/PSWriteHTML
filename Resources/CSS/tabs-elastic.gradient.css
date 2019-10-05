@@ -1,4 +1,13 @@
-﻿.tabs .selector {
+﻿/*
+.tabs .selector {
+    background: -moz-linear-gradient(45deg, ColorSelector 0%, ColorTarget 100%);
+    background: -webkit-linear-gradient(45deg, ColorSelector 0%, ColorTarget 100%);
+    background: linear-gradient(45deg, ColorSelector 0%, ColorTarget 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='ColorSelector', endColorstr='ColorTarget', GradientType=1);
+}
+*/
+
+[data-tabs] .active {
     background: -moz-linear-gradient(45deg, ColorSelector 0%, ColorTarget 100%);
     background: -webkit-linear-gradient(45deg, ColorSelector 0%, ColorTarget 100%);
     background: linear-gradient(45deg, ColorSelector 0%, ColorTarget 100%);

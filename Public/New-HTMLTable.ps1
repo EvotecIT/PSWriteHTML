@@ -463,6 +463,7 @@ function New-HTMLTable {
                 });
 "@
             }
+
         } else {
             [string] $TabName = $Tab.Id
             New-HTMLTag -Tag 'script' {

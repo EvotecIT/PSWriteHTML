@@ -16,25 +16,38 @@ Function New-HTML {
     )
     [string] $CurrentDate = (Get-Date).ToString($DateFormat)
     $Script:HTMLSchema = @{
-        TabsHeaders = [System.Collections.Generic.List[HashTable]]::new() # tracks / stores headers
-        Features    = @{ } # tracks features for CSS/JS implementation
-        Charts      = [System.Collections.Generic.List[string]]::new()
-        Diagrams    = [System.Collections.Generic.List[string]]::new()
+        TabsHeaders       = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
+        TabsHeadersNested = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
+        Features          = @{ } # tracks features for CSS/JS implementation
+        Charts            = [System.Collections.Generic.List[string]]::new()
+        Diagrams          = [System.Collections.Generic.List[string]]::new()
 
         # Tab settings
-        TabOptions  = @{
+        TabOptions        = @{
             SlimTabs = $false
         }
 
-        CustomCSS   = [System.Collections.Generic.List[Array]]::new()
+        CustomCSS         = [System.Collections.Generic.List[Array]]::new()
     }
 
-    $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
-    if ($null -ne $OutputHTML -and $OutputHTML.Count -gt 0) {
-        $Logo = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type Between
-        $OutputHTML = Get-HTMLPartContent -Content $OutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type After
+    [Array] $TempOutputHTML = Invoke-Command -ScriptBlock $HtmlData
+    if ($null -ne $TempOutputHTML -and $TempOutputHTML.Count -gt 0) {
+        $Logo = Get-HTMLPartContent -Content $TempOutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type Between
+        $TempOutputHTML = Get-HTMLPartContent -Content $TempOutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type After
     }
     $Features = Get-FeaturesInUse -PriorityFeatures 'JQuery', 'DataTables', 'Tabs'
+    # this gets rid of any non-strings
+    # it's added here to track nested tabs
+    $OutputHTML = foreach ($_ in $TempOutputHTML) {
+        if ($_ -isnot [System.Collections.IDictionary]) {
+            $_
+        }
+    }
+    # This removes Nested Tabs from primary Tabs
+    foreach ($_ in $Script:HTMLSchema.TabsHeadersNested) {
+        $null = $Script:HTMLSchema.TabsHeaders.Remove($_)
+    }
+
 
     $HTML = @(
         '<!DOCTYPE html>'
@@ -68,9 +81,14 @@ Function New-HTML {
                 # Add tabs header if there is one
                 if ($Script:HTMLSchema.TabsHeaders) {
                     New-HTMLTabHead
+                    New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
+                        # Add remaining data
+                        $OutputHTML
+                    }
+                } else {
+                    # Add remaining data
+                    $OutputHTML
                 }
-                # Add remaining data
-                $OutputHTML
                 # Add charts scripts if those are there
                 foreach ($Chart in $Script:HTMLSchema.Charts) {
                     $Chart
