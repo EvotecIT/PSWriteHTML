@@ -50,6 +50,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 - 0.0.55 - Unrelased
   - Fix for Underlined space when using -Collapsable [#51](https://github.com/EvotecIT/PSWriteHTML/issues/51) - Thanks Tuxhedoh
   - Fix for Stacked Charts [#59](https://github.com/EvotecIT/PSWriteHTML/issues/59) - Thanks for reporting colin-hall
+  - Fix for Section -Invisible switch
 
 - 0.0.54 - 2019.09.29
   - **Support for Diagrams**
