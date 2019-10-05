@@ -12,8 +12,13 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             }
         }
         New-HTMLTab -Name '2nd Level Tab - Test 2' -IconRegular address-card {
-            New-HTMLSection -HeaderText 'Pie Charts - Nope' -CanCollapse {
-                New-HTMLTable -DataTable $Test
+            New-HTMLSection -HeaderText 'Test' {
+                New-HTMLSection -HeaderText 'Pie Charts - Nope' -CanCollapse {
+                    New-HTMLTable -DataTable $Test
+                }
+                New-HTMLSection -HeaderText 'Pie Charts - Nope' -CanCollapse {
+                    New-HTMLTable -DataTable $Test
+                }
             }
         }
 

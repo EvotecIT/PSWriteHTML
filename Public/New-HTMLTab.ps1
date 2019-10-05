@@ -116,6 +116,7 @@ function New-HTMLTab {
     #$Tab.Used = $true
     $Tab.Current = $true
 
+
     if ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
         $Tab.Active = $false
     } else {
@@ -123,16 +124,19 @@ function New-HTMLTab {
     }
 
    # $Tab.Active = $true
+   # $Tab.Active = $true
     $Tab.Icon = $Icon
     # End Tab Tracking
 
     # This is building HTML
+
     if ($Tab.Active) {
         $Class = 'tabs-content active'
     } else {
         $Class = 'tabs-content'
     }
-    New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $Class } {
+
+    New-HTMLTag -Tag 'div' { # -Attributes @{ id = $Tab.ID; class = $Class } {
         if (-not [string]::IsNullOrWhiteSpace($Heading)) {
             New-HTMLTag -Tag 'h7' {
                 $Heading
