@@ -30,4 +30,4 @@ New-HTML {
             }
         }
     }
-} -ShowHTML -FilePath $PSScriptRoot\test.html -UseCssLinks -UseJavaScriptLinks
+} -ShowHTML -FilePath $PSScriptRoot\Example-ChartsBarDonuts.html -UseCssLinks -UseJavaScriptLinks

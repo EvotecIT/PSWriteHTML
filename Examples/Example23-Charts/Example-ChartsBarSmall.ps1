@@ -33,4 +33,4 @@ New-HTML {
             }
         }
     }
-} -ShowHTML -FilePath $PSScriptRoot\test.html -UseCssLinks -UseJavaScriptLinks
+} -ShowHTML -FilePath $PSScriptRoot\Example-ChartsBarSmall.html -UseCssLinks -UseJavaScriptLinks
