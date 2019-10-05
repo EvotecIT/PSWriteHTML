@@ -5,7 +5,9 @@ function New-HTMLDiagram {
         [ScriptBlock] $Diagram,
         [string] $Height,
         [string] $Width,
-        [switch] $BundleImages
+        [switch] $BundleImages,
+        [uri] $BackGroundImage,
+        [string] $BackgroundSize = '100% 100%'
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLDiagram - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -145,6 +147,11 @@ function New-HTMLDiagram {
         }
     }
 
+    if ($BundleImages -and $BackGroundImage) {
+        $Image = Convert-Image -Image $BackGroundImage
+    } else {
+        $Image = $BackGroundImage
+    }
 
-    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height
+    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height -BackgroundImage $Image
 }

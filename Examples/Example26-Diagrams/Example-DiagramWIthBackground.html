@@ -1,0 +1,684 @@
+﻿<!DOCTYPE html>
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-05 19:29:25" name="revised"/><title>My charts</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+
+}
+
+.overflowHidden {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.flexParent {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+}
+
+.flexParentInvisible {
+    display: flex;
+    justify-content: space-between;
+
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+
+}
+
+.flexElement {
+    flex-basis: 100%;
+
+
+    /*
+    flex: 1 auto;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+
+}
+
+.flexPanel {
+    flex-basis: 100%;
+
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+}
+
+.roundedCorners {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+.clientlogo {
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+    margin: 10px 10px 10px 10px;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+    margin: 10px 10px 10px 10px;
+}
+</style><!-- CSS Always Required Default Headings END --><!-- CSS Elastic Tabs START --><style type="text/css">.tabsWrapper {
+    text-align: center;
+    margin: 10px auto;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.tabs {
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 0px;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    position: relative;
+}
+
+.tabs .round {
+    border-radius: 4px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #777;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.6s;
+}
+
+.tabs a.active {
+    color: #fff;
+}
+
+.tabs a i {
+    margin-right: 5px;
+}
+
+.tabs .selector {
+    display: none;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    border-radius: 4px;
+    background: #1e90ff;
+}
+
+.tabs-content {
+    display: none;
+}
+
+.tabs-content.active {
+    display: block;
+}
+</style><!-- CSS Elastic Tabs END --><!-- CSS VIS Network Dynamic, browser based visualization libraries START --><style type="text/css">.diagram {
+    width: 100%;
+    height: 100%;
+    border: 0px solid unset;
+}
+
+.vis-network:focus {
+    outline: none;
+}
+</style><!-- CSS VIS Network Dynamic, browser based visualization libraries END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
+  document.getElementById(obj).style.display = 'block';
+  document.getElementById("hide_" + obj).style.display = '';
+  document.getElementById("show_" + obj).style.display = 'none';
+}
+function hide(obj) {
+  document.getElementById(obj).style.display = 'none';
+  document.getElementById("hide_" + obj).style.display = 'none';
+  document.getElementById("show_" + obj).style.display = '';
+}
+</script><!-- JS Hide Section Code END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- CSS VIS Network Dynamic, browser based visualization libraries START --><link href="https://unpkg.com/vis-network@latest/dist/vis-network.min.css" type="text/css" rel="stylesheet"/><!-- CSS VIS Network Dynamic, browser based visualization libraries END --><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script src="https://unpkg.com/vis-network@latest/dist/vis-network.min.js" type="text/javascript"></script><!-- JS VIS Network Dynamic, browser based visualization libraries END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-7ro6y41w"><div class="far fa-arrow-alt-circle-left"></div><span> Diagrams</span></a></div></div><div id="Tab-7ro6y41w" class="tabs-content active"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Diagram - Defaults" style="color: #ffffff;">Diagram - Defaults </a><a id="show_10250911" href="javascript:void(0)" onclick="show('10250911');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_10250911" href="javascript:void(0)" onclick="hide('10250911');" style="color: #ffffff;">(Hide)</a></div><div id="10250911" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="10250911"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div style="background:url('https://cdn.imgbin.com/5/2/1/imgbin-bart-simpson-homer-simpson-supreme-drawing-bart-simpson-bard-simpsons-jAfrtPtYNPTK5rQrcKULn5XBn.jpg');background-size:100% 100%" id="Diagram-8xg04imo" class="diagram"></div></div></div></div></div></div><script>// create an array with nodes
+var nodes = new vis.DataSet([{
+    "id":  "1 test",
+    "label":  "1 test",
+    "shape":  "ellipse",
+    "borderWidth":  1,
+    "borderWidthSelected":  2,
+    "chosen":  true,
+    "color":  {
+                  "background":  "#ffe4c4"
+              },
+    "fixed":  {
+                  "x":  false,
+                  "y":  false
+              },
+    "font":  {
+                 "size":  14,
+                 "face":  "arial",
+                 "strokeWidth":  0,
+                 "align":  "center",
+                 "vadjust":  0
+             },
+    "size":  25
+}, {
+    "id":  "2",
+    "label":  "2",
+    "shape":  "ellipse",
+    "borderWidth":  1,
+    "borderWidthSelected":  2,
+    "chosen":  true,
+    "fixed":  {
+                  "x":  false,
+                  "y":  false
+              },
+    "font":  {
+                 "size":  14,
+                 "face":  "arial",
+                 "strokeWidth":  0,
+                 "align":  "center",
+                 "vadjust":  0
+             },
+    "size":  25
+}, {
+    "id":  "3",
+    "label":  "3",
+    "shape":  "ellipse",
+    "borderWidth":  1,
+    "borderWidthSelected":  2,
+    "chosen":  true,
+    "fixed":  {
+                  "x":  false,
+                  "y":  false
+              },
+    "font":  {
+                 "size":  14,
+                 "face":  "arial",
+                 "strokeWidth":  0,
+                 "align":  "center",
+                 "vadjust":  0
+             },
+    "size":  25
+}, {
+    "id":  "Size based on name",
+    "label":  "Size based on name",
+    "shape":  "database",
+    "borderWidth":  1,
+    "borderWidthSelected":  2,
+    "chosen":  true,
+    "fixed":  {
+                  "x":  false,
+                  "y":  false
+              },
+    "font":  {
+                 "size":  14,
+                 "face":  "arial",
+                 "strokeWidth":  0,
+                 "align":  "center",
+                 "vadjust":  0
+             },
+    "size":  10
+}, {
+    "id":  "Przemyslaw Klys",
+    "label":  "Przemyslaw Klys",
+    "shape":  "ellipse",
+    "borderWidth":  1,
+    "borderWidthSelected":  2,
+    "chosen":  true,
+    "fixed":  {
+                  "x":  false,
+                  "y":  false
+              },
+    "font":  {
+                 "size":  14,
+                 "face":  "arial",
+                 "strokeWidth":  0,
+                 "align":  "center",
+                 "vadjust":  0
+             },
+    "size":  25
+}, {
+    "id":  "6",
+    "label":  "6",
+    "shape":  "ellipse",
+    "borderWidth":  1,
+    "borderWidthSelected":  2,
+    "chosen":  true,
+    "color":  {
+                  "border":  "#7fffd4",
+                  "background":  "#ffff00"
+              },
+    "fixed":  {
+                  "x":  false,
+                  "y":  false
+              },
+    "font":  {
+                 "size":  14,
+                 "face":  "arial",
+                 "strokeWidth":  0,
+                 "align":  "center",
+                 "vadjust":  0
+             },
+    "size":  25
+}, {
+    "id":  "7",
+    "label":  "7",
+    "shape":  "diamond",
+    "borderWidth":  1,
+    "borderWidthSelected":  2,
+    "chosen":  true,
+    "color":  {
+                  "highlight":  {
+                                    "background":  "#ff0000"
+                                }
+              },
+    "fixed":  {
+                  "x":  false,
+                  "y":  false
+              },
+    "font":  {
+                 "size":  14,
+                 "face":  "arial",
+                 "strokeWidth":  0,
+                 "align":  "center",
+                 "vadjust":  0
+             },
+    "size":  25
+}, {
+    "id":  "8",
+    "label":  "8",
+    "shape":  "diamond",
+    "borderWidth":  1,
+    "borderWidthSelected":  2,
+    "chosen":  true,
+    "color":  {
+                  "hover":  {
+                                "border":  "#ffff00"
+                            }
+              },
+    "fixed":  {
+                  "x":  false,
+                  "y":  false
+              },
+    "font":  {
+                 "size":  14,
+                 "face":  "arial",
+                 "strokeWidth":  0,
+                 "align":  "center",
+                 "vadjust":  0
+             },
+    "size":  25
+}]); 
+// create an array with edges
+var edges = new vis.DataSet([{
+    "from":  "1 test",
+    "to":  "3"
+}, {
+    "from":  "1 test",
+    "to":  "6"
+}, {
+    "from":  "1 test",
+    "to":  "7"
+}, {
+    "from":  "2",
+    "to":  "Przemyslaw Klys"
+}, {
+    "from":  "2",
+    "to":  "1 test"
+}, {
+    "from":  "6",
+    "to":  "Przemyslaw Klys"
+}, {
+    "from":  "7",
+    "to":  "Przemyslaw Klys"
+}, {
+    "from":  "8",
+    "to":  "Przemyslaw Klys"
+}]); 
+// create a network
+var Container = document.getElementById('Diagram-8xg04imo'); 
+var data = { 
+   nodes: nodes, 
+   edges: edges
+ }; 
+var options = {
+    "interaction":  {
+                        "dragNodes":  true,
+                        "dragView":  true,
+                        "hideEdgesOnDrag":  false,
+                        "hideEdgesOnZoom":  false,
+                        "hideNodesOnDrag":  false,
+                        "hover":  true,
+                        "hoverConnectedEdges":  true,
+                        "keyboard":  {
+                                         "bindToWindow":  true,
+                                         "speed":  {
+                                                       "y":  10,
+                                                       "zoom":  0.02,
+                                                       "x":  10
+                                                   },
+                                         "enabled":  false
+                                     },
+                        "multiselect":  false,
+                        "navigationButtons":  false,
+                        "selectable":  true,
+                        "selectConnectedEdges":  true,
+                        "tooltipDelay":  300,
+                        "zoomView":  true
+                    }
+}; 
+var network = new vis.Network(Container, data, options); 
+</script></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS Elastic Tabs START --><script type="text/javascript">var maxWidth = 0;
+var $element;
+
+$(window).on("resize", function() {
+    $(".selector").hide();
+    var activeItem = $(".tabs a[class*='active']");
+    var id = activeItem.data("id");
+    setSelectorPosition(id);
+});
+
+// Set first active link
+var activeItem = $(".tabs a[class*='active']");
+var id = activeItem.data("id");
+setSelectorPosition(id);
+
+$(".tabs").on("click", "a", function(e) {
+    e.preventDefault();
+    $(".tabs a").removeClass("active");
+    $(this).addClass("active");
+
+    // Get id of link clicked
+    var id = $(this).data("id");
+
+    // Set selector position
+    setSelectorPosition(id);
+
+    // Hide all tabs
+    $(".tabs-content").hide();
+
+    // Show current tab
+    $("#" + id).show();
+});
+
+function setSelectorPosition(id) {
+    var activeItem = $(".tabs").find("[data-id='" + id + "']");
+    var activeWidth = activeItem.innerWidth();
+    var itemPos = activeItem.position();
+    $(".selector").css({
+        left: itemPos.left + "px",
+        top: itemPos.top + "px",
+        width: activeItem.innerWidth() + "px",
+        height: activeItem.innerHeight() + "px"
+    });
+    $(".selector").show();
+}
+</script><!-- JS Elastic Tabs END --><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script type="text/javascript">function clusterByCid() {
+    network.setData(data);
+    var clusterOptionsByData = {
+        joinCondition: function (childOptions) {
+            return childOptions.cid == 1;
+        },
+        clusterNodeProperties: { id: 'cidCluster', borderWidth: 3, shape: 'database' }
+    };
+    network.cluster(clusterOptionsByData);
+}
+function clusterByColor() {
+    network.setData(data);
+    var colors = ['orange', 'lime', 'DarkViolet'];
+    var clusterOptionsByData;
+    for (var i = 0; i < colors.length; i++) {
+        var color = colors[i];
+        clusterOptionsByData = {
+            joinCondition: function (childOptions) {
+                return childOptions.color.background == color; // the color is fully defined in the node.
+            },
+            processProperties: function (clusterOptions, childNodes, childEdges) {
+                var totalMass = 0;
+                for (var i = 0; i < childNodes.length; i++) {
+                    totalMass += childNodes[i].mass;
+                }
+                clusterOptions.mass = totalMass;
+                return clusterOptions;
+            },
+            clusterNodeProperties: { id: 'cluster:' + color, borderWidth: 3, shape: 'database', color: color, label: 'color:' + color }
+        };
+        network.cluster(clusterOptionsByData);
+    }
+}
+function clusterByConnection() {
+    network.setData(data);
+    network.clusterByConnection(1)
+}
+function clusterOutliers() {
+    network.setData(data);
+    network.clusterOutliers();
+}
+function clusterByHubsize() {
+    network.setData(data);
+    var clusterOptionsByData = {
+        processProperties: function (clusterOptions, childNodes) {
+            clusterOptions.label = "[" + childNodes.length + "]";
+            return clusterOptions;
+        },
+        clusterNodeProperties: { borderWidth: 3, shape: 'box', font: { size: 30 } }
+    };
+    network.clusterByHubsize(undefined, clusterOptionsByData);
+}
+</script><!-- JS VIS Network Dynamic, browser based visualization libraries END --></footer><!-- END FOOTER --></html>
