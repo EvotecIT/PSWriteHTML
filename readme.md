@@ -19,7 +19,7 @@
 
 # PSWriteHTML - PowerShell Module
 
-`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features as I go (fixes included).
+`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is complete rewrite and  doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features.
 
 ## How to install
 
@@ -47,13 +47,18 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.55 - Unrelased
+- 0.0.56 - Unreleased
+  - Updated Visjs to 6.1.1 (local version), linked version is always newest
+
+- 0.0.55 - 2019.09.29
   - Fix for Underlined space when using -Collapsable [#51](https://github.com/EvotecIT/PSWriteHTML/issues/51) - Thanks Tuxhedoh
   - Fix for Stacked Charts [#59](https://github.com/EvotecIT/PSWriteHTML/issues/59) - Thanks for reporting colin-hall
   - Fix for Section -Invisible switch
-  - Added BackgroundImage,BackgroundImageSize for New-HTMLDiagram (doesn't work for Export thou)
+  - Fix for Section impacting charts positioning
+  - Added BackgroundImage,BackgroundImageSize for New-HTMLDiagram (doesn't work for Export)
+  - Added Nested Tabs
 
-- 0.0.54 - 2019.09.29
+- 0.0.54 - 2019.09.29 - [Blog Post about release](https://evotec.xyz/easy-way-to-create-diagrams-using-powershell-and-pswritehtml/)
   - **Support for Diagrams**
   - Font Awesome update to 5.11.2
   - Enlighter updated to 3.0
@@ -168,6 +173,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Advantages over ReportHTML
 
+- complete rewrite
 - faster report building (from 20+ seconds to 0-2 seconds)
 - updated libraries
 - bunch of different, new features
@@ -190,13 +196,22 @@ Following external libaries and frameworks are in use. They make `PSWriteHTML` w
 
 For colors you can visit this [online page](https://evotec.xyz/wp-content/uploads/2019/05/Example-Colors.html).
 
-### PSWriteHTML - External JS Framework - DataTables
+## 3rd Party Libraries
+
+**PSWriteHTML** uses some 3rd party libraries to deliver it's functionality. It requires those. There are two ways to use it
+
+- With links to CSS/JS which makes code cleaner and easy to see what is happening
+- With code inline in HTML which makes HTML much bigger
+
+Below you can find some of 3rd party libraries being used.
+
+### External JS Framework - DataTables
 
 Following JS Framework is intergrated as part of this module. It's responsible for building Tables
 
-![DataTables Example](https://evotec.xyz/wp-content/uploads/2019/03/img_5c9fe366e4906.png)
+- [x] Downloaded from https://datatables.net/download/
 
-It was downloaded from https://datatables.net/download/ with following settings.
+![DataTables Example](https://evotec.xyz/wp-content/uploads/2019/03/img_5c9fe366e4906.png)
 
 - [x] Styling Framework:
   - [x] DataTables' default styling.v1.10.18
@@ -232,7 +247,7 @@ JSZip and PDFMake are not downloaded as part of this package. They fail to impor
     -   [x] ChartJS Package - https://github.com/chartjs/Chart.js/releases
         -   [x] ChartJS - version 2.7.3 (required for charts)
 
-### PSWriteHTML - External JS Framework -EnlighterJS
+### External JS Framework -EnlighterJS (Mozilla Public License Version 2.0 LICENSE)
 
 **PSWriteHTML** provides built-in EnlighterJS JavaScript. It's responsible for building Code Blocks
 
@@ -240,7 +255,7 @@ JSZip and PDFMake are not downloaded as part of this package. They fail to impor
 
 This allows for **code blocks** support. Currently it uses Release Candidate version as it's first version to support **PowerShell highlighting** and many additional languages. It will be updated to new version
 
-- [x] Downloaded from https://github.com/EnlighterJS/EnlighterJS/tree/v3.0.0-RC1
+- [x] Downloaded from https://github.com/EnlighterJS/EnlighterJS
 
 #### Following languages are supported for New-HTMLCodeBlock
 
@@ -299,3 +314,7 @@ This allows for **code blocks** support. Currently it uses Release Candidate ver
 - [x] **Atomic** (atomic) - Dark, Colorful
 - [x] **Dracula** (dracula) - Dark, using official [draculatheme](https://draculatheme.com/) colorscheme
 - [x] **Rowhammer** (rowhammer) - Light, Transparent, divided rows
+
+### External JS Framework - VIS Network (MIT LICENSE)
+
+- [x] Downloaded from https://github.com/visjs/vis-network
