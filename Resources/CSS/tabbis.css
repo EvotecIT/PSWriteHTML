@@ -11,6 +11,7 @@
     padding: 0px;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    justify-content: center;
 }
 
 [data-tabs]>* {
