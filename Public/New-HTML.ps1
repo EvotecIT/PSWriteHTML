@@ -18,7 +18,7 @@ Function New-HTML {
     $Script:HTMLSchema = @{
         TabsHeaders       = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
         TabsHeadersNested = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
-        Features          = @{ } # tracks features for CSS/JS implementation
+        Features          = [ordered] @{ } # tracks features for CSS/JS implementation
         Charts            = [System.Collections.Generic.List[string]]::new()
         Diagrams          = [System.Collections.Generic.List[string]]::new()
 
