@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 $Test = Get-Process | Select-Object -First 2 #-Property Name, Id, PriorityClass, HandleCount, WorkingSet
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-Tabs01.html -Show {
+New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-Tabs02.html -Show {
     #New-HTMLTabOptions -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue
     New-HTMLTab -Name 'First Level Tab - Test 1' -IconBrands acquisitions-incorporated {
         New-HTMLTab -Name '2nd Level Tab - Test 1' -IconRegular address-card {
@@ -36,31 +36,33 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
     }
     New-HTMLTab -Name 'First Level Tab - Test 4' -IconSolid bezier-curve {
         New-HTMLTab -Name '2nd Level Tab - Test 4/1' -IconBrands app-store {
-            New-HTMLSection -HeaderText 'Pie Charts - Defaults' -CanCollapse {
-                New-HTMLPanel {
-                    New-HTMLChart -Gradient {
-                        New-ChartPie -Name 'Test' -Value 20
-                        New-ChartPie -Name 'Test1' -Value 30
-                        New-ChartPie -Name 'Test2' -Value 40
-                        New-ChartPie -Name 'Test1' -Value 30
-                        New-ChartPie -Name 'Test2' -Value 40
+            New-HTMLSection -Invisible {
+                New-HTMLSection -HeaderText 'Pie Charts - Defaults' -CanCollapse {
+                    New-HTMLPanel {
+                        New-HTMLChart -Gradient {
+                            New-ChartPie -Name 'Test' -Value 20
+                            New-ChartPie -Name 'Test1' -Value 30
+                            New-ChartPie -Name 'Test2' -Value 40
+                            New-ChartPie -Name 'Test1' -Value 30
+                            New-ChartPie -Name 'Test2' -Value 40
+                        }
                     }
                 }
-            }
-            New-HTMLSection -HeaderText 'Pie Charts - Defaults' -CanCollapse {
-                New-HTMLPanel {
-                    New-HTMLChart -Gradient {
-                        New-ChartPie -Name 'Test' -Value 20
-                        New-ChartPie -Name 'Test1' -Value 30
-                        New-ChartPie -Name 'Test2' -Value 40
-                        New-ChartPie -Name 'Test1' -Value 30
-                        New-ChartPie -Name 'Test2' -Value 40
+                New-HTMLSection -HeaderText 'Pie Charts - Defaults' -CanCollapse {
+                    New-HTMLPanel {
+                        New-HTMLChart -Gradient {
+                            New-ChartPie -Name 'Test' -Value 20
+                            New-ChartPie -Name 'Test1' -Value 30
+                            New-ChartPie -Name 'Test2' -Value 40
+                            New-ChartPie -Name 'Test1' -Value 30
+                            New-ChartPie -Name 'Test2' -Value 40
+                        }
                     }
                 }
+                New-HTMLTable -ArrayOfObjects $Processes -HideFooter {
+                    New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
+                } -ImmediatelyShowHiddenDetails
             }
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter {
-                New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
-            } -ImmediatelyShowHiddenDetails
         }
         New-HTMLTab -Name '2nd Level Tab - Test 4/2' {
             New-HTMLTable -ArrayOfObjects $Processes -HideFooter {

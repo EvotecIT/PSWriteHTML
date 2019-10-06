@@ -1,10 +1,4 @@
-﻿/*
-.tabs .selector {
-    transition-duration: 0.6s;
-    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-*/
-[data-tabs] .active {
+﻿[data-tabs] .active {
     transition-duration: 0.6s;
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
