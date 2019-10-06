@@ -43,5 +43,4 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             }
         }
     }
-
 }
