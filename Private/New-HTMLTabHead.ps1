@@ -1,13 +1,15 @@
 function New-HTMLTabHead {
     [CmdletBinding()]
     Param (
-
+        [Array] $TabsCollection
     )
+
     if ($Script:HTMLSchema.TabOptions.SlimTabs) {
         $Style = 'display: inline-block;' # makes tabs wrapperr slim/small
     } else {
         $Style = '' # makes it full-width
     }
+    <#
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsWrapper' } {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabs' ; style = $Style } {
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'selector' }
@@ -28,4 +30,24 @@ function New-HTMLTabHead {
             }
         }
     }
+    #>
+
+    if ($TabsCollection.Count -gt 0) {
+        $Tabs = $TabsCollection
+    } else {
+        $Tabs = $Script:HTMLSchema.TabsHeaders
+    }
+    New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsWrapper' } {
+        New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabs' ; style = $Style } {
+            New-HTMLTag -Tag 'div' -Attributes @{ 'data-tabs' = 'true' } {
+                foreach ($Tab in $Tabs) {
+                    New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID } {
+                        New-HTMLTag -Tag 'div' -Attributes @{ class = $($Tab.Icon); style = $($Tab.StyleIcon) }
+                        New-HTMLTag -Tag 'span' -Attributes @{ style = $($Tab.StyleText ) } -Value { $Tab.Name }
+                    }
+                }
+            }
+        }
+    }
+
 }

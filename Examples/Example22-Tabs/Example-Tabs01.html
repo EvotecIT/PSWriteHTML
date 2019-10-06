@@ -1,0 +1,1157 @@
+﻿<!DOCTYPE html>
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-06 13:44:26" name="revised"/><title>My title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+
+}
+
+.overflowHidden {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.flexParent {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+}
+
+.flexParentInvisible {
+    display: flex;
+    justify-content: space-between;
+
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+
+}
+
+.flexElement {
+    flex-basis: 100%;
+
+
+    /*
+    flex: 1 auto;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+
+}
+
+.flexPanel {
+    flex-basis: 100%;
+
+    /*
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+}
+
+.roundedCorners {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+.clientlogo {
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+.MainLogo {
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+    margin: 10px 10px 10px 10px;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+    margin: 10px 10px 10px 10px;
+}
+</style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style><!-- CSS DataTables END --><noscript><!-- CSS DataTables START --><style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt;
+      width: 99%;
+    */
+
+    box-sizing: border-box;
+    width: calc(100% - 16px);
+    margin: 8px;
+}
+
+table th {
+    border-width: 1px;
+    padding: 4px;
+    border-style: solid;
+    border-color: black;
+    background-color: #616a6b;
+    color: white;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    font-weight: bold;
+    padding: 10px;
+}
+
+table td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    /* background-color: white; */
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    border-top: 1px solid #ddd;
+}
+
+/* Zebra striping */
+table tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+table th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+table td,
+table th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+</style><!-- CSS DataTables END --></noscript><!-- CSS Elastic Tabbis START --><style type="text/css">.tabsWrapper {
+    text-align: center;
+    margin: 10px auto;
+    font-family: 'Roboto', sans-serif !important;
+    text-transform: uppercase;
+}
+[data-tabs] {
+    display: flex;
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 0px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+[data-tabs]>* {
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+[data-tabs] .active {
+    background: #31a3e8;
+    color: #fff;
+    border-radius: 4px;
+}
+
+[data-panes]>* {
+    display: none;
+}
+
+[data-panes]>.active {
+    display: block;
+}
+</style><!-- CSS Elastic Tabbis END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div data-tabs="true"><div id="Tab-840de3of"><div class="fab fa-acquisitions-incorporated"></div><span> Test 1</span></div><div id="Tab-rcybjxo9"><div class="far fa-check-circle" style="color:#87cefa"></div><span> Test 2</span></div><div id="Tab-h1q3nft5"><div class="fas fa-code-branch" style="color:#32cd32"></div><span> Test 3</span></div><div id="Tab-9fcyxe36"><div class="fas fa-bezier-curve"></div><span> Test 4</span></div><div id="Tab-hw1g0fy4"><div class="fas fa-copy"></div><span> Test 5</span></div><div id="Tab-oetc5l3n"><div class="fab fa-asymmetrik"></div><span> Test</span></div><div id="Tab-9e04yz78"><div class="far fa-kiss-beam"></div><span> Test</span></div></div></div></div><div data-panes="true"><div id="Tab-840de3of"><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div data-tabs="true"><div id="Tab-ire290om"><div></div><span> Nested Tab 1</span></div><div id="Tab-vce48h2w"><div></div><span> Nested Tab 2</span></div></div></div></div><div data-panes="true"><div id="Tab-ire290om"><div class="flexParent"><div class="flexParent flexElement overflowHidden"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-evVvklvv').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-evVvklvv" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>16996</td><td>Normal</td><td>7.3.712</td><td>1060</td><td>35823616</td><td>41287680</td><td>41287680</td><td>252903424</td><td>00:00:02.2500000</td><td>1</td><td>1060</td><td>252903424</td><td>35823616</td><td>41287680</td><td>50992</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>2,25</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1188</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>50992</td><td>50992</td><td>41287680</td><td>369848</td><td>369848</td><td>41717760</td><td>41717760</td><td>69181440</td><td>69181440</td><td>270643200</td><td>270643200</td><td>True</td><td>41287680</td><td>00:00:00.2812500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>05.10.2019 09:24:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.9687500</td><td>252903424</td><td>False</td><td></td><td></td><td></td><td>35823616</td><td></td><td></td></tr><tr><td>aesm_service</td><td>7288</td><td></td><td></td><td>193</td><td>7491584</td><td>3084288</td><td>3084288</td><td>117383168</td><td></td><td>0</td><td>193</td><td>4412350464</td><td>7491584</td><td>3084288</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3084288</td><td>159352</td><td>159352</td><td>5201920</td><td>5201920</td><td>17629184</td><td>17629184</td><td>134443008</td><td>4429410304</td><td></td><td>3084288</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412350464</td><td>False</td><td></td><td></td><td></td><td>7491584</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-6vezndc4"></div></div></div></div></div><div id="Tab-vce48h2w"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Test" style="color: #ffffff;">Test </a><a id="show_791718264" href="javascript:void(0)" onclick="show('791718264');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_791718264" href="javascript:void(0)" onclick="hide('791718264');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="791718264" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="791718264"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-cdfdjWgL').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-cdfdjWgL" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>16996</td><td>Normal</td><td>7.3.712</td><td>1060</td><td>35823616</td><td>41287680</td><td>41287680</td><td>252903424</td><td>00:00:02.2500000</td><td>1</td><td>1060</td><td>252903424</td><td>35823616</td><td>41287680</td><td>50992</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>2,25</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1188</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>50992</td><td>50992</td><td>41287680</td><td>369848</td><td>369848</td><td>41717760</td><td>41717760</td><td>69181440</td><td>69181440</td><td>270643200</td><td>270643200</td><td>True</td><td>41287680</td><td>00:00:00.2812500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>05.10.2019 09:24:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.9687500</td><td>252903424</td><td>False</td><td></td><td></td><td></td><td>35823616</td><td></td><td></td></tr><tr><td>aesm_service</td><td>7288</td><td></td><td></td><td>193</td><td>7491584</td><td>3084288</td><td>3084288</td><td>117383168</td><td></td><td>0</td><td>193</td><td>4412350464</td><td>7491584</td><td>3084288</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3084288</td><td>159352</td><td>159352</td><td>5201920</td><td>5201920</td><td>17629184</td><td>17629184</td><td>134443008</td><td>4429410304</td><td></td><td>3084288</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412350464</td><td>False</td><td></td><td></td><td></td><td>7491584</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div></div></div></div></div></div><div id="Tab-rcybjxo9"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-PIYCPVSU').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-PIYCPVSU" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>16996</td><td>Normal</td><td>7.3.712</td><td>1060</td><td>35823616</td><td>41287680</td><td>41287680</td><td>252903424</td><td>00:00:02.2500000</td><td>1</td><td>1060</td><td>252903424</td><td>35823616</td><td>41287680</td><td>50992</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>2,25</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1188</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>50992</td><td>50992</td><td>41287680</td><td>369848</td><td>369848</td><td>41717760</td><td>41717760</td><td>69181440</td><td>69181440</td><td>270643200</td><td>270643200</td><td>True</td><td>41287680</td><td>00:00:00.2812500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>05.10.2019 09:24:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.9687500</td><td>252903424</td><td>False</td><td></td><td></td><td></td><td>35823616</td><td></td><td></td></tr><tr><td>aesm_service</td><td>7288</td><td></td><td></td><td>193</td><td>7491584</td><td>3084288</td><td>3084288</td><td>117383168</td><td></td><td>0</td><td>193</td><td>4412350464</td><td>7491584</td><td>3084288</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3084288</td><td>159352</td><td>159352</td><td>5201920</td><td>5201920</td><td>17629184</td><td>17629184</td><td>134443008</td><td>4429410304</td><td></td><td>3084288</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412350464</td><td>False</td><td></td><td></td><td></td><td>7491584</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div><div id="Tab-h1q3nft5"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-sJodudtu').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-sJodudtu" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>16996</td><td>Normal</td><td>7.3.712</td><td>1060</td><td>35823616</td><td>41287680</td><td>41287680</td><td>252903424</td><td>00:00:02.2500000</td><td>1</td><td>1060</td><td>252903424</td><td>35823616</td><td>41287680</td><td>50992</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>2,25</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1188</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>50992</td><td>50992</td><td>41287680</td><td>369848</td><td>369848</td><td>41717760</td><td>41717760</td><td>69181440</td><td>69181440</td><td>270643200</td><td>270643200</td><td>True</td><td>41287680</td><td>00:00:00.2812500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>05.10.2019 09:24:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.9687500</td><td>252903424</td><td>False</td><td></td><td></td><td></td><td>35823616</td><td></td><td></td></tr><tr><td>aesm_service</td><td>7288</td><td></td><td></td><td>193</td><td>7491584</td><td>3084288</td><td>3084288</td><td>117383168</td><td></td><td>0</td><td>193</td><td>4412350464</td><td>7491584</td><td>3084288</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3084288</td><td>159352</td><td>159352</td><td>5201920</td><td>5201920</td><td>17629184</td><td>17629184</td><td>134443008</td><td>4429410304</td><td></td><td>3084288</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412350464</td><td>False</td><td></td><td></td><td></td><td>7491584</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Test" style="color: #ffffff;">Test </a><a id="show_1531257206" href="javascript:void(0)" onclick="show('1531257206');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1531257206" href="javascript:void(0)" onclick="hide('1531257206');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1531257206" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1531257206"></div></div></div></div><div id="Tab-9fcyxe36"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-ukJUrZDr').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-ukJUrZDr" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>16996</td><td>Normal</td><td>7.3.712</td><td>1060</td><td>35823616</td><td>41287680</td><td>41287680</td><td>252903424</td><td>00:00:02.2500000</td><td>1</td><td>1060</td><td>252903424</td><td>35823616</td><td>41287680</td><td>50992</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>2,25</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1188</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>50992</td><td>50992</td><td>41287680</td><td>369848</td><td>369848</td><td>41717760</td><td>41717760</td><td>69181440</td><td>69181440</td><td>270643200</td><td>270643200</td><td>True</td><td>41287680</td><td>00:00:00.2812500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>05.10.2019 09:24:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.9687500</td><td>252903424</td><td>False</td><td></td><td></td><td></td><td>35823616</td><td></td><td></td></tr><tr><td>aesm_service</td><td>7288</td><td></td><td></td><td>193</td><td>7491584</td><td>3084288</td><td>3084288</td><td>117383168</td><td></td><td>0</td><td>193</td><td>4412350464</td><td>7491584</td><td>3084288</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3084288</td><td>159352</td><td>159352</td><td>5201920</td><td>5201920</td><td>17629184</td><td>17629184</td><td>134443008</td><td>4429410304</td><td></td><td>3084288</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412350464</td><td>False</td><td></td><td></td><td></td><td>7491584</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div><div id="Tab-hw1g0fy4"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-jCprLahp').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-jCprLahp" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>16996</td><td>Normal</td><td>7.3.712</td><td>1060</td><td>35823616</td><td>41287680</td><td>41287680</td><td>252903424</td><td>00:00:02.2500000</td><td>1</td><td>1060</td><td>252903424</td><td>35823616</td><td>41287680</td><td>50992</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>2,25</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1188</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>50992</td><td>50992</td><td>41287680</td><td>369848</td><td>369848</td><td>41717760</td><td>41717760</td><td>69181440</td><td>69181440</td><td>270643200</td><td>270643200</td><td>True</td><td>41287680</td><td>00:00:00.2812500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>05.10.2019 09:24:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.9687500</td><td>252903424</td><td>False</td><td></td><td></td><td></td><td>35823616</td><td></td><td></td></tr><tr><td>aesm_service</td><td>7288</td><td></td><td></td><td>193</td><td>7491584</td><td>3084288</td><td>3084288</td><td>117383168</td><td></td><td>0</td><td>193</td><td>4412350464</td><td>7491584</td><td>3084288</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3084288</td><td>159352</td><td>159352</td><td>5201920</td><td>5201920</td><td>17629184</td><td>17629184</td><td>134443008</td><td>4429410304</td><td></td><td>3084288</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412350464</td><td>False</td><td></td><td></td><td></td><td>7491584</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div><div id="Tab-oetc5l3n"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-VLcalihp').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-VLcalihp" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>16996</td><td>Normal</td><td>7.3.712</td><td>1060</td><td>35823616</td><td>41287680</td><td>41287680</td><td>252903424</td><td>00:00:02.2500000</td><td>1</td><td>1060</td><td>252903424</td><td>35823616</td><td>41287680</td><td>50992</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>2,25</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1188</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>50992</td><td>50992</td><td>41287680</td><td>369848</td><td>369848</td><td>41717760</td><td>41717760</td><td>69181440</td><td>69181440</td><td>270643200</td><td>270643200</td><td>True</td><td>41287680</td><td>00:00:00.2812500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>05.10.2019 09:24:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.9687500</td><td>252903424</td><td>False</td><td></td><td></td><td></td><td>35823616</td><td></td><td></td></tr><tr><td>aesm_service</td><td>7288</td><td></td><td></td><td>193</td><td>7491584</td><td>3084288</td><td>3084288</td><td>117383168</td><td></td><td>0</td><td>193</td><td>4412350464</td><td>7491584</td><td>3084288</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3084288</td><td>159352</td><td>159352</td><td>5201920</td><td>5201920</td><td>17629184</td><td>17629184</td><td>134443008</td><td>4429410304</td><td></td><td>3084288</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412350464</td><td>False</td><td></td><td></td><td></td><td>7491584</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div><div id="Tab-9e04yz78"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-GWkhImRe').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-GWkhImRe" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>16996</td><td>Normal</td><td>7.3.712</td><td>1060</td><td>35823616</td><td>41287680</td><td>41287680</td><td>252903424</td><td>00:00:02.2500000</td><td>1</td><td>1060</td><td>252903424</td><td>35823616</td><td>41287680</td><td>50992</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>2,25</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1188</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>50992</td><td>50992</td><td>41287680</td><td>369848</td><td>369848</td><td>41717760</td><td>41717760</td><td>69181440</td><td>69181440</td><td>270643200</td><td>270643200</td><td>True</td><td>41287680</td><td>00:00:00.2812500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>05.10.2019 09:24:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.9687500</td><td>252903424</td><td>False</td><td></td><td></td><td></td><td>35823616</td><td></td><td></td></tr><tr><td>aesm_service</td><td>7288</td><td></td><td></td><td>193</td><td>7491584</td><td>3084288</td><td>3084288</td><td>117383168</td><td></td><td>0</td><td>193</td><td>4412350464</td><td>7491584</td><td>3084288</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3084288</td><td>159352</td><td>159352</td><td>5201920</td><td>5201920</td><td>17629184</td><td>17629184</td><td>134443008</td><td>4429410304</td><td></td><td>3084288</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412350464</td><td>False</td><td></td><td></td><td></td><td>7491584</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div></div><script>var options = {
+    "chart":  {
+                  "height":  350,
+                  "type":  "pie"
+              },
+    "series":  [
+                   20,
+                   30,
+                   40,
+                   30,
+                   40
+               ],
+    "labels":  [
+                   "Test",
+                   "Test1",
+                   "Test2",
+                   "Test1",
+                   "Test2"
+               ],
+    "fill":  {
+                 "type":  "gradient",
+                 "gradient":  {
+                                  "shade":  "dark",
+                                  "type":  "horizontal",
+                                  "shadeIntensity":  0.5,
+                                  "gradientToColors":  [
+                                                           "#ABE5A1"
+                                                       ],
+                                  "inverseColors":  true,
+                                  "opacityFrom":  1,
+                                  "opacityTo":  1,
+                                  "stops":  [
+                                                0,
+                                                100
+                                            ]
+                              }
+             },
+    "title":  {
+                  "text":  ""
+              }
+}
+var chart = new ApexCharts(document.querySelector('#ChartID-6vezndc4'),
+            options
+        );
+chart.render();
+</script></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS Elastic Tabbis START --><script type="text/javascript">var tabbis = (function () {
+    var fn = {};
+
+    var data;
+    var types = ['tab', 'pane'];
+    var type;
+    var groups = [];
+    var activeGroups = [];
+    var activeChildren = [];
+    var activeItems = [];
+    var indexGroup;
+    var indexItem;
+    var memory = [];
+
+    fn.init = function (options) {
+        data = options;
+        fn.setDefaults();
+        fn.setMemory();
+
+        groups['tab'] = document.querySelectorAll(data.tabGroup);
+        groups['pane'] = document.querySelectorAll(data.paneGroup);
+
+        for (var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++) {
+            var tabItems = groups['tab'][groupIndex].children;
+
+            for (var itemIndex = 0; itemIndex < tabItems.length; itemIndex++) {
+                tabItems[itemIndex].addEventListener('click', fn.onClick.bind(this, groupIndex, itemIndex), false);
+
+                indexGroup = groupIndex;
+                indexItem = itemIndex;
+
+                if (!fn.hasMemory()) continue;
+                fn.setNodes(groupIndex, itemIndex);
+            }
+        }
+    };
+
+    fn.onClick = function (groupIndex, itemIndex) {
+        fn.setNodes(groupIndex, itemIndex);
+        fn.setCallback(indexGroup, indexItem);
+    };
+
+    fn.setNodes = function (groupIndex, itemIndex) {
+        indexGroup = groupIndex;
+        indexItem = itemIndex;
+
+        for (var i = 0; i < types.length; i++) {
+            type = types[i];
+
+            fn.setActiveGroup();
+            fn.setActiveChildren();
+            fn.setActiveItems();
+            fn.putActiveClass();
+        }
+
+        memory[groupIndex] = [];
+        memory[groupIndex][itemIndex] = true;
+
+        localStorage.setItem('tabbis', JSON.stringify(memory));
+    };
+
+    fn.hasMemory = function () {
+        if (typeof memory === 'undefined') return;
+        if (typeof memory[indexGroup] === 'undefined') return;
+        if (typeof memory[indexGroup][indexItem] === 'undefined') return;
+        if (memory[indexGroup][indexItem] !== true) return;
+        return true;
+    };
+
+    fn.setMemory = function () {
+        if (localStorage.getItem('tabbis') === null) return;
+        if (localStorage.getItem('tabbis').length == 0) return;
+
+        memory = Object.values(JSON.parse(localStorage.getItem('tabbis')));
+    };
+
+    fn.putActiveClass = function () {
+        for (var i = 0; i < activeChildren[type].length; i++) {
+            activeChildren[type][i].classList.remove(data[type + 'Active']);
+        }
+
+        activeItems[type].classList.add(data[type + 'Active']);
+    };
+
+    fn.setDefaults = function () {
+        for (var i = 0; i < types.length; i++) {
+            type = types[i];
+
+            fn.setOption(type + 'Group', '[data-' + type + 's]');
+            fn.setOption(type + 'Active', 'active');
+        }
+    };
+
+    fn.setOption = function (key, value) {
+        data = data || [];
+        data[key] = data[key] || value;
+    };
+
+    fn.setActiveGroup = function () {
+        activeGroups[type] = groups[type][indexGroup];
+    };
+
+    fn.setActiveChildren = function () {
+        activeChildren[type] = activeGroups[type].children;
+    };
+
+    fn.setActiveItems = function () {
+        activeItems[type] = activeChildren[type][indexItem];
+    };
+
+    fn.setCallback = function () {
+        if (typeof data.callback === "function") {
+            data.callback(activeItems.tab, activeItems.pane);
+        }
+    };
+
+    fn.reset = function () {
+        for (var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++) {
+            tabItems = groups['tab'][groupIndex].children;
+            paneItems = groups['pane'][groupIndex].children;
+
+            for (var itemIndex = 0; itemIndex < tabItems.length; itemIndex++) {
+                tabItems[itemIndex].classList.remove(data['tabActive']);
+                paneItems[itemIndex].classList.remove(data['paneActive']);
+            }
+        }
+        localStorage.removeItem('tabbis');
+    };
+
+    return fn;
+})();
+</script><script type="text/javascript">var tabs = tabbis.init({
+    tabGroup: "[data-tabs]",
+    paneGroup: "[data-panes]",
+    tabActive: "active",
+    paneActive: "active",
+    callback: function (tab, pane) {
+        // console.log(tab);
+        // console.log(pane.id);
+
+        // this makes sure to refresh tables on tab change to make sure they have buttons and everything
+        // it's a bit heavy as it touches all tables, may require some improvements in future to consider
+        // which tab has which table
+        try {
+            $('.dataTable').DataTable().columns.adjust().responsive.recalc();
+        } catch {
+            console.log('No datatables available.')
+        }
+    }
+});
+
+// in theory should take care of removing local storage for tabbis
+// some errors occurs if the local storage is not cleaned after a while
+window.addEventListener("unload", tabbis.remove, false);
+</script><!-- JS Elastic Tabbis END --><!-- CSS Elastic Tabs Transition START --><style type="text/css">[data-tabs] .active {
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+</style><!-- CSS Elastic Tabs Transition END --><!-- CSS Elastic Tabs Gradient START --><style type="text/css">[data-tabs] .active {
+    background: -moz-linear-gradient(45deg, #ffd700 0%, #f0f8ff 100%);
+    background: -webkit-linear-gradient(45deg, #ffd700 0%, #f0f8ff 100%);
+    background: linear-gradient(45deg, #ffd700 0%, #f0f8ff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd700', endColorstr='#f0f8ff', GradientType=1);
+}
+</style><!-- CSS Elastic Tabs Gradient END --></footer><!-- END FOOTER --></html>

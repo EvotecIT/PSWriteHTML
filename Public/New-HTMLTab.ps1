@@ -74,9 +74,6 @@ function New-HTMLTab {
         Write-Warning 'New-HTMLTab - Creation of HTML aborted. Most likely New-HTML is missing.'
         Exit
     }
-    #if (-not $IconBrands -and -not $IconRegular -and -not $IconSolid) {
-    #    $IconSolid = 'x-ray'
-    #}
     [string] $Icon = ''
     if ($IconBrands) {
         $Icon = "fab fa-$IconBrands" # fa-$($FontSize)x"
@@ -101,9 +98,7 @@ function New-HTMLTab {
     if ($IconColor -ne [RGBColors]::None) {
         $StyleIcon.'color' = ConvertFrom-Color -Color $IconColor
     }
-
-    $Script:HTMLSchema.Features.Tabs = $true
-    $Script:HTMLSchema.Features.JQuery = $true
+    $Script:HTMLSchema.Features.Tabbis = $true
 
     # Reset all Tabs Headers to make sure there are no Current Tab Set
     # This is required for New-HTMLTable
@@ -113,37 +108,63 @@ function New-HTMLTab {
     }
 
     # Start Tab Tracking
-    $Tab = @{ }
+    $Tab = [ordered] @{ }
     $Tab.ID = "Tab-$(Get-RandomStringName -Size 8)"
     $Tab.Name = " $Name"
     $Tab.StyleIcon = $StyleIcon
     $Tab.StyleText = $StyleText
     #$Tab.Used = $true
     $Tab.Current = $true
-    if ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
-        $Tab.Active = $false
-    } else {
-        $Tab.Active = $true
-    }
+
+
+    # if ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
+    #      $Tab.Active = $false
+    # } else {
+    #    $Tab.Active = $true
+    #}
+
+    # $Tab.Active = $true
+    # $Tab.Active = $true
     $Tab.Icon = $Icon
-    $Script:HTMLSchema.TabsHeaders.Add($Tab)
     # End Tab Tracking
 
-
     # This is building HTML
-    if ($Tab.Active) {
-        $Class = 'tabs-content active'
-    } else {
-        $Class = 'tabs-content'
-    }
 
-    New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $Class } {
+    #if ($Tab.Active) {
+    #    $Class = 'active'
+    #} else {
+    #    $Class = ''
+    #}
+    #New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $Class } {
+    New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID } { # class = $Class } {
         if (-not [string]::IsNullOrWhiteSpace($Heading)) {
             New-HTMLTag -Tag 'h7' {
                 $Heading
             }
         }
-        Invoke-Command -ScriptBlock $HtmlData
-    }
+        $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
+        [Array] $TabsCollection = foreach ($_ in $OutputHTML) {
+            if ($_ -is [System.Collections.IDictionary]) {
+                $_
+                $Script:HTMLSchema.TabsHeadersNested.Add($_)
+            }
+        }
+        [Array] $HTML = foreach ($_ in $OutputHTML) {
+            if ($_ -isnot [System.Collections.IDictionary]) {
+                $_
+            }
+        }
+        if ($TabsCollection.Count -gt 0) {
+            New-HTMLTabHead -TabsCollection $TabsCollection
+            New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
+                # Add remaining data
+                $HTML
+            }
 
+        } else {
+            $HTML
+        }
+    }
+    $Script:HTMLSchema.TabsHeaders.Add($Tab)
+    $Tab
 }

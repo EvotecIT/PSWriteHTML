@@ -438,7 +438,7 @@ function New-HTMLTable {
         if ($ScrollX) {
             $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = '100%' }
         } else {
-            $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')" }
+            $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = '100%' }
         }
 
         # Enable Custom Date fromat sorting
@@ -463,6 +463,7 @@ function New-HTMLTable {
                 });
 "@
             }
+
         } else {
             [string] $TabName = $Tab.Id
             New-HTMLTag -Tag 'script' {

@@ -1,0 +1,33 @@
+﻿.tabsWrapper {
+    text-align: center;
+    margin: 10px auto;
+    font-family: 'Roboto', sans-serif !important;
+    text-transform: uppercase;
+}
+[data-tabs] {
+    display: flex;
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 0px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+[data-tabs]>* {
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+[data-tabs] .active {
+    background: #31a3e8;
+    color: #fff;
+    border-radius: 4px;
+}
+
+[data-panes]>* {
+    display: none;
+}
+
+[data-panes]>.active {
+    display: block;
+}
