@@ -49,6 +49,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 - 0.0.56 - Unreleased
   - Updated Visjs to 6.1.1 (local version), linked version is always newest
+  - Fix for missing comma in Tabs
 
 - 0.0.55 - 2019.09.29
   - Fix for Underlined space when using -Collapsable [#51](https://github.com/EvotecIT/PSWriteHTML/issues/51) - Thanks Tuxhedoh
