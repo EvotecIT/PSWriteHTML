@@ -196,13 +196,19 @@ $Script:Configuration = [ordered] @{
             }
 
         }
+        FullCalendarRRule       = @{
+            Comment = 'FullCalendar RRule'
+            Header  = @{
+                JSLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/rrule'
+                #https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@4.3.0/main.min.js
+            }
+        }
         FullCalendarTimeGrid    = @{
             Comment = 'FullCalendar TimeGrid'
             Header  = @{
                 CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.3.0/main.min.css'
                 JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.3.0/main.min.js'
             }
-
         }
         FullCalendarTimeLine    = @{
             Comment = 'FullCalendar TimeLine'
