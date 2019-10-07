@@ -3,6 +3,7 @@
     [CmdletBinding()]
     param(
         [string] $Title,
+        [string] $Description,
         [DateTime] $StartDate,
         [nullable[DateTime]] $EndDate,
         [string] $Constraint,
@@ -12,10 +13,11 @@
     $Object = [PSCustomObject] @{
         Type     = 'CalendarEvent'
         Settings = [ordered] @{
-            title      = $Title
-            constraint = $Constraint
+            title       = $Title
+            description = $Description
+            constraint  = $Constraint
             #      url: 'http://google.com/',
-            color      = ConvertFrom-Color -Color $Color
+            color       = ConvertFrom-Color -Color $Color
         }
     }
     if ($StartDate) {

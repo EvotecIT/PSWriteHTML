@@ -4,9 +4,26 @@
     param(
         [ScriptBlock] $CalendarSettings,
         [ValidateSet('interaction', 'dayGrid', 'timeGrid', 'list', 'rrule')][string[]] $Plugins = @('interaction', 'dayGrid', 'timeGrid', 'list', 'rrule'),
-        [ValidateSet('prev', 'next', 'today')][string[]] $ButtonsLeft = @('prev', 'next', 'today'),
+        [ValidateSet(
+            'prev', 'next', 'today', 'prevYear', 'nextYear', 'dayGridDay', 'dayGridWeek', 'dayGridMonth',
+            'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title'
+        )][string[]] $HeaderLeft = @('prev', 'next', 'today'),
+        [ValidateSet(
+            'prev', 'next', 'today', 'prevYear', 'nextYear', 'dayGridDay', 'dayGridWeek', 'dayGridMonth',
+            'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title'
+        )][string[]]$HeaderCenter = 'title',
+        [ValidateSet(
+            'prev', 'next', 'today', 'prevYear', 'nextYear', 'dayGridDay', 'dayGridWeek', 'dayGridMonth',
+            'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title'
+        )][string[]] $HeaderRight = @('dayGridMonth', 'timeGridWeek', 'timeGridDay', 'listMonth'),
         [DateTime] $DefaultDate = (Get-Date),
         [bool] $NavigationLinks = $true,
+        [bool] $NowIndicator = $true,
+        [bool] $EventLimit = $true,
+        [bool] $WeekNumbers = $true,
+        [bool] $WeekNumbersWithinDays = $true,
+        [bool] $Selectable = $true,
+        [bool] $SelectMirror = $true,
         [switch] $BusinessHours,
         [switch] $Editable
     )
@@ -22,6 +39,7 @@
     $Script:HTMLSchema.Features.FullCalendarRRule = $true
     $Script:HTMLSchema.Features.FullCalendarTimeGrid = $true
     $Script:HTMLSchema.Features.FullCalendarTimeLine = $true
+    $Script:HTMLSchema.Features.Popper = $true
 
     $CalendarEvents = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
 
@@ -38,42 +56,60 @@
     $Calendar = [ordered] @{
         plugins               = $Plugins
         header                = @{
-            left   = $ButtonsLeft -join ','
-            #left: 'prev,next today',
-            center = 'title'
-            right  = 'dayGridMonth,timeGridWeek,timeGridDay,listDay,listWeek,listMonth'
-            #    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-            #left: 'prevYear,prev,next,nextYear today',
-            #center: 'title',
-            #right: 'dayGridMonth,dayGridWeek,dayGridDay'
+            left   = $HeaderLeft -join ','
+            center = $HeaderCenter -join ','
+            right  = $HeaderRight -join ','
         }
-        defaultDate           = '{0:yyyy-MM-dd}' -f ($DefaultDate) #($DefaultDate.Year, '-', $DefaultDate.Month, '-', $DefaultDate.Day)
+        defaultDate           = '{0:yyyy-MM-dd}' -f ($DefaultDate)
+        nowIndicator          = $NowIndicator
+        #now: '2018-02-13T09:25:00' // just for demo
         navLinks              = $NavigationLinks #// can click day/week names to navigate views
         businessHours         = $BusinessHours.IsPresent #// display business hours
         editable              = $Editable.IsPresent
         events                = $CalendarEvents
-        eventLimit            = $true
-        weekNumbers           = $true
-        weekNumbersWithinDays = $true
+        eventLimit            = $EventLimit
+        weekNumbers           = $WeekNumbers
+        weekNumbersWithinDays = $WeekNumbersWithinDays
         weekNumberCalculation = 'ISO'
-        selectable            = $true
-        selectMirror          = $true
+        selectable            = $Selectable
+        selectMirror          = $SelectMirror
         buttonIcons           = $false # // show the prev/next text
         #// customize the button names,
         #// otherwise they'd all just say "list"
         views                 = @{
-            listDay  = @{ buttonText = 'list day' }
-            listWeek = @{ buttonText = 'list week' }
+            listDay   = @{ buttonText = 'list day' }
+            listWeek  = @{ buttonText = 'list week' }
             listMonth = @{ buttonText = 'list month' }
         }
-    } | ConvertTo-Json -Depth 7
+        eventRender           = 'ReplaceMe'
+    }
+    Remove-EmptyValues -Hashtable $Calendar -Recursive
+    $CalendarJSON = $Calendar | ConvertTo-Json -Depth 7
+
+    # Adding function for ToolTips / need cleaner way
+    $EventRender = @"
+    eventRender: function (info) {
+        var tooltip = new Tooltip(info.el, {
+            title: info.event.extendedProps.description,
+            placement: 'top',
+            trigger: 'hover',
+            container: 'body'
+        });
+    }
+"@
+    if ($PSEdition -eq 'Desktop') {
+        $TextToFind = '"eventRender":  "ReplaceMe"'
+    } else {
+        $TextToFind = '"eventRender": "ReplaceMe"'
+    }
+    $CalendarJSON = $CalendarJSON.Replace($TextToFind, $EventRender)
 
     $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = 'calendarFullCalendar'; style = $Style }
     $Script = New-HTMLTag -Tag 'script' -Value {
         "document.addEventListener('DOMContentLoaded', function () {"
         "var calendarEl = document.getElementById('$ID');"
         'var calendar = new FullCalendar.Calendar(calendarEl,'
-        $Calendar
+        $CalendarJSON
         ');'
         'calendar.render();'
         '}); '

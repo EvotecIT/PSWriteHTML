@@ -10,8 +10,8 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example28-Calendar01.html" -Show 
         }
         New-HTMLSection -HeaderText 'Test 2' {
             New-HTMLCalendar {
-                New-CalendarEvent -Title 'Active Directory Meeting' -StartDate (Get-Date)
-                New-CalendarEvent -Title 'Lunch' -StartDate (Get-Date).AddDays(2).AddHours(-3)
+                New-CalendarEvent -Title 'Active Directory Meeting' -Description 'We will talk about stuff' -StartDate (Get-Date)
+                New-CalendarEvent -Title 'Lunch' -StartDate (Get-Date).AddDays(2).AddHours(-3) -EndDate  (Get-Date).AddDays(3) -Description 'Very long lunch'
             }
         }
     }

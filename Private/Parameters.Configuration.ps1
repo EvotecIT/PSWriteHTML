@@ -224,6 +224,19 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
             }
         }
+
+        Popper                  = @{
+            Comment      = 'Popper and Tooltip for FullCalendar'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\popper.css"
+            }
+            Header       = @{
+                JSLink = @(
+                    'https://unpkg.com/popper.js/dist/umd/popper.min.js'
+                    'https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js'
+                )
+            }
+        }
         Tabs                    = @{
             Comment              = 'Elastic Tabs'
             HeaderAlways         = @{
