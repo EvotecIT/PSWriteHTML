@@ -15,8 +15,7 @@ function New-HTMLLogo {
         -LeftLogoString $LeftLogoString `
         -RightLogoString $RightLogoString
 
-    Convert-StyleContent1 -Options $Options
-
+    #Convert-StyleContent1 -Options $Options
 
     $Options = [PSCustomObject] @{
         Logos        = $LogoSources
@@ -26,18 +25,18 @@ function New-HTMLLogo {
     if ($HideLogos -eq $false) {
         $Leftlogo = $Options.Logos[$LeftLogoName]
         $Rightlogo = $Options.Logos[$RightLogoName]
-        '<!-- START LOGO -->'
-        $LogoContent = @"
-        <table><tbody>
-        <tr>
-            <td class="clientlogo"><img src="$Leftlogo" /></td>
-            <td class="MainLogo"><img src="$Rightlogo" /></td>
-        </tr>
-        </tbody></table>
-"@
-        $LogoContent
-        '<!-- END LOGO -->'
-
+        $Script:HTMLSchema.Logos = @(
+            '<!-- START LOGO -->'
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'logos' } {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'leftLogo' } {
+                    New-HTMLTag -Tag 'img' -Attributes @{ src = "$LeftLogo" }
+                }
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'rightLogo' } {
+                    New-HTMLTag -Tag 'img' -Attributes @{ src = "$RightLogo" }
+                }
+            }
+            '<!-- END LOGO -->'
+        ) -join ''
     }
 }
 
