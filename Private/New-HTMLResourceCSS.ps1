@@ -3,7 +3,7 @@ function New-HTMLResourceCSS {
     [CmdletBinding()]
     param(
         [alias('ScriptContent')][Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content,
-        [string] $Link,
+        [string[]] $Link,
         [string] $ResourceComment,
         [string[]] $FilePath,
         [System.Collections.IDictionary] $ReplaceData

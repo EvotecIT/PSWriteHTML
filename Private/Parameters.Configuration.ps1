@@ -1,24 +1,24 @@
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
-        Default                = @{
+        Default                 = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\default.css"
             }
         }
-        DefaultHeadings        = @{
+        DefaultHeadings         = @{
             Comment      = 'Always Required Default Headings'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\headings.css"
             }
         }
-        Accordion              = @{
+        Accordion               = @{
             Comment      = 'Accordion'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
             }
         }
-        CodeBlocks             = @{
+        CodeBlocks              = @{
             Comment      = 'EnlighterJS CodeBlocks'
             Header       = @{
                 CssLink = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.css'
@@ -30,13 +30,13 @@ $Script:Configuration = [ordered] @{
 
             }
             HeaderAlways = @{
-                Css     = "$PSScriptRoot\..\Resources\CSS\enlighterjs.css"
+                Css = "$PSScriptRoot\..\Resources\CSS\enlighterjs.css"
             }
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
             }
         }
-        ChartsApex             = @{
+        ChartsApex              = @{
             Comment      = 'Apex Charts'
             Header       = @{
                 JsLink = 'https://cdn.jsdelivr.net/npm/apexcharts@latest'
@@ -46,14 +46,14 @@ $Script:Configuration = [ordered] @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
-        Jquery                 = @{
+        Jquery                  = @{
             Comment = 'Jquery'
             Header  = @{
                 JsLink = 'https://code.jquery.com/jquery-3.3.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.3.1.min.js"
             }
         }
-        DataTables             = @{
+        DataTables              = @{
             Comment      = 'DataTables'
             HeaderAlways = @{
                 Css         = "$PSScriptRoot\..\Resources\CSS\datatables.css"
@@ -102,7 +102,7 @@ $Script:Configuration = [ordered] @{
         #>
 
         ## Not used yet - START
-        DataTablesExperimental = @{
+        DataTablesExperimental  = @{
             Comment = 'DataTables 1.10.19'
             Header  = @{
                 JsLink  = 'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'
@@ -111,7 +111,7 @@ $Script:Configuration = [ordered] @{
                 CssLink = 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css'
             }
         }
-        DataTablesColReorder   = @{
+        DataTablesColReorder    = @{
             Comment = 'DataTables ColReorder'
             Header  = @{
                 JsLink  = 'https://cdn.datatables.net/colreorder/1.5.0/js/dataTables.colReorder.min.js'
@@ -123,49 +123,135 @@ $Script:Configuration = [ordered] @{
         ## Not used yet - END
 
 
-        DataTablesPDF          = @{
+        DataTablesPDF           = @{
             Comment = 'DataTables PDF Features'
             Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\pdfmake.min.js", "$PSScriptRoot\..\Resources\JS\vfs_fonts.min.js"
             }
         }
-        DataTablesExcel        = @{
+        DataTablesExcel         = @{
             Comment = 'DataTables Excel Features'
             Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\jszip.min.js"
             }
         }
-        DataTablesSimplify                  = @{
+        DataTablesSimplify      = @{
             Comment      = 'DataTables (not really) - Simplified'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\datatables.simplify.css"
             }
         }
-
-        Fonts                  = @{
+        D3Mitch                 = @{
+            Comment      = 'D3Mitch Feature'
+            Header       = @{
+                JsLink  = @(
+                    #'https://cdn.jsdelivr.net/npm/d3-mitch-tree@1.0.5/lib/d3-mitch-tree.min.js'
+                    'https://cdn.jsdelivr.net/gh/deltoss/d3-mitch-tree@1.0.2/dist/js/d3-mitch-tree.min.js'
+                )
+                CssLink = @(
+                    'https://cdn.jsdelivr.net/gh/deltoss/d3-mitch-tree@1.0.2/dist/css/d3-mitch-tree.min.css'
+                    'https://cdn.jsdelivr.net/gh/deltoss/d3-mitch-tree@1.0.2/dist/css/d3-mitch-tree-theme-default.min.css'
+                )
+            }
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\hierarchicalTree.css"
+            }
+        }
+        Fonts                   = @{
             Comment      = 'Default fonts'
             HeaderAlways = @{
                 CssLink = 'https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald'
             }
         }
-        FontsAwesome           = @{
+        FontsAwesome            = @{
             Comment      = 'Default fonts icons'
             HeaderAlways = @{
                 CssLink = 'https://use.fontawesome.com/releases/v5.11.2/css/all.css'
             }
-            Other = @{
+            Other        = @{
                 Link = 'https://use.fontawesome.com/releases/v5.11.2/svgs/'
             }
         }
-        HideSection            = @{
+        FullCalendar            = @{
+            Comment      = 'FullCalendar Basic'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\calendar.css"
+            }
+        }
+        FullCalendarCore        = @{
+            Comment = 'FullCalendar Core'
+            Header  = @{
+                CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.min.css'
+                JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.min.js'
+            }
+
+        }
+        FullCalendarDayGrid     = @{
+            Comment = 'FullCalendar DayGrid'
+            Header  = @{
+                CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.3.0/main.min.css'
+                JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.3.0/main.min.js'
+            }
+
+        }
+        FullCalendarInteraction = @{
+            Comment = 'FullCalendar List'
+            Header  = @{
+                JSLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.3.0/main.min.js'
+            }
+
+        }
+        FullCalendarList        = @{
+            Comment = 'FullCalendar List'
+            Header  = @{
+                CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.3.0/main.min.css'
+                JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.3.0/main.min.js'
+            }
+
+        }
+        FullCalendarRRule       = @{
+            Comment = 'FullCalendar RRule'
+            Header  = @{
+                JSLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/rrule'
+                #https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@4.3.0/main.min.js
+            }
+        }
+        FullCalendarTimeGrid    = @{
+            Comment = 'FullCalendar TimeGrid'
+            Header  = @{
+                CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.3.0/main.min.css'
+                JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.3.0/main.min.js'
+            }
+        }
+        FullCalendarTimeLine    = @{
+            Comment = 'FullCalendar TimeLine'
+            Header  = @{
+                CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/timeline@4.3.0/main.min.css'
+                JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/timeline@4.3.0/main.min.js'
+            }
+
+        }
+        HideSection             = @{
             Comment      = 'Hide Section Code'
             HeaderAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
             }
         }
-        Tabs                   = @{
+        Popper                  = @{
+            Comment      = 'Popper and Tooltip for FullCalendar'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\popper.css"
+            }
+            Header       = @{
+                JSLink = @(
+                    'https://unpkg.com/popper.js/dist/umd/popper.min.js'
+                    'https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js'
+                )
+            }
+        }
+        Tabs                    = @{
             Comment              = 'Elastic Tabs'
             HeaderAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.css"
@@ -178,8 +264,8 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color ([RGBColors]::MediumSlateBlue)
             }
         }
-        Tabbis = @{
-            Comment = 'Elastic Tabbis'
+        Tabbis                  = @{
+            Comment      = 'Elastic Tabbis'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabbis.css"
             }
@@ -190,7 +276,7 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        TabsGradient           = @{
+        TabsGradient            = @{
             Comment              = 'Elastic Tabs Gradient'
             FooterAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.gradient.css"
@@ -200,13 +286,13 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color ([RGBColors]::MediumSlateBlue)
             }
         }
-        TabsTransition         = @{
+        TabsTransition          = @{
             Comment      = 'Elastic Tabs Transition'
             FooterAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.transition.css"
             }
         }
-        TimeLine               = @{
+        TimeLine                = @{
             Comment      = 'Timeline Simple'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\timeline-simple.css"
@@ -218,31 +304,31 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\Toasts.css"
             }
         }
-        StatusButtonical       = @{
+        StatusButtonical        = @{
             Comment      = 'Status Buttonical'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\status.css"
             }
         }
-        TuiGrid                = @{
+        TuiGrid                 = @{
             Comment = 'Tui Grid'
             Header  = @{
                 Css     = "$PSScriptRoot\..\Resources\CSS\tuigrid.css"
                 CssLink = 'https://cdn.jsdelivr.net/npm/tui-grid@3.5.0/dist/tui-grid.css'
             }
         }
-        VisNetwork   = @{
-            Comment = 'VIS Network Dynamic, browser based visualization libraries'
-            HeaderAlways         = @{
+        VisNetwork              = @{
+            Comment      = 'VIS Network Dynamic, browser based visualization libraries'
+            HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\vis-network.diagram.css"
             }
-            Header  = @{
+            Header       = @{
                 JsLink  = 'https://unpkg.com/vis-network@latest/dist/vis-network.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min"
                 CssLink = 'https://unpkg.com/vis-network@latest/dist/vis-network.min.css'
             }
-            FooterAlways         = @{
+            FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
             }
         }
