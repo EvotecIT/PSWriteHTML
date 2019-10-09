@@ -4,9 +4,9 @@ New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks
     New-HTMLPanel {
         New-HTMLDiagram -Height '1024px' {
             New-DiagramOptionsInteraction -Hover $true
-            New-DiagramOptionsPhysics -Enabled $false
-            New-DiagramOptionsLayout -RandomSeed 0
-            New-DiagramOptionsLinks -ArrowsToEnabled $true -Color BlueViolet -ArrowsToType arrow -ArrowsFromEnabled $false
+            New-DiagramOptionsPhysics -Enabled $true
+            #New-DiagramOptionsLayout -RandomSeed 0
+            New-DiagramOptionsLinks -ArrowsToEnabled $true -Color BlueViolet -ArrowsToType arrow -ArrowsFromEnabled $false -Length 400
             New-DiagramOptionsNodes -BorderWidth 1 -FontColor Brown -Size 20 -FontMulti true
             New-DiagramNode -Label 'Test' -IconBrands apple
             New-DiagramNode -Label 'USG Pro' -To 'Unifi Switch' -IconSolid cloud -IconAsImage
@@ -23,8 +23,8 @@ New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks
             New-DiagramNode -Label 'AD3' -IconSolid ad -IconAsImage #-X 500 -Y -1000
             New-DiagramNode -Label 'DC1' -IconSolid ad -IconAsImage #-X -500 -Y -500 #-FixedX $true -FixedY $false
             New-DiagramNode -Label 'DC2' -IconSolid ad -IconAsImage #-X 500 -Y 500
-            New-DiagramLink -From 'USG Pro', 'AD3' -To 'DC1', 'AD3' -ArrowsToEnabled $false -ArrowsMiddleEnabled $true -ArrowsFromEnabled $false -Color Green -Dashes $true -Label 'Test'
-            New-DiagramLink -From 'DC1' -To 'DC2' -Label 'This is my label' -FontColor HotPink -ArrowsToEnabled $true
+            #New-DiagramLink -From 'USG Pro', 'AD3' -To 'DC1', 'AD3' -ArrowsToEnabled $false -ArrowsMiddleEnabled $true -ArrowsFromEnabled $false -Color Green -Dashes $true -Label 'Test'
+            #New-DiagramLink -From 'DC1' -To 'DC2' -Label 'This is my label' -FontColor HotPink -ArrowsToEnabled $true
         }
     }
 } -ShowHTML
