@@ -48,10 +48,12 @@ Function New-HTML {
 
     $HTML = @(
         '<!DOCTYPE html>'
+        #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
         New-HTMLTag -Tag 'html' {
             '<!-- HEADER -->'
             New-HTMLTag -Tag 'head' {
                 New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -SelfClosing
+                #New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'X-UA-Compatible'; content = 'IE=8' } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -SelfClosing
