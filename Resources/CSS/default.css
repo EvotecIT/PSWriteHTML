@@ -94,13 +94,19 @@ hr {
     text-align: right;
 }
 
-.clientlogo {
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-.MainLogo {
+.rightLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-right: 5em;
     text-align: right;

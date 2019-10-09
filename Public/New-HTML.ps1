@@ -22,6 +22,7 @@ Function New-HTML {
         Charts            = [System.Collections.Generic.List[string]]::new()
         Diagrams          = [System.Collections.Generic.List[string]]::new()
 
+        Logos             = ""
         # Tab settings
         TabOptions        = @{
             SlimTabs = $false
@@ -31,10 +32,6 @@ Function New-HTML {
     }
 
     [Array] $TempOutputHTML = Invoke-Command -ScriptBlock $HtmlData
-    if ($null -ne $TempOutputHTML -and $TempOutputHTML.Count -gt 0) {
-        $Logo = Get-HTMLPartContent -Content $TempOutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type Between
-        $TempOutputHTML = Get-HTMLPartContent -Content $TempOutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type After
-    }
     $Features = Get-FeaturesInUse -PriorityFeatures 'JQuery', 'DataTables', 'Tabs'
     # this gets rid of any non-strings
     # it's added here to track nested tabs
@@ -77,7 +74,7 @@ Function New-HTML {
             '<!-- BODY -->'
             New-HTMLTag -Tag 'body' {
                 # Add logo if there is one
-                $Logo
+                $Script:HTMLSchema.Logos
                 # Add tabs header if there is one
                 if ($Script:HTMLSchema.TabsHeaders) {
                     New-HTMLTabHead
