@@ -1,5 +1,4 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
-Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML -TitleText 'My diagram' -FilePath $PSScriptRoot\Example-Easy3.html {
     New-HTMLDiagram -Height '1000px' {

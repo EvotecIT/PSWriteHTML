@@ -16,7 +16,7 @@ schema: 2.0.0
 New-DiagramOptionsPhysics [[-Enabled] <Boolean>] [[-StabilizationEnabled] <Boolean>]
  [[-Stabilizationiterations] <Int32>] [[-StabilizationupdateInterval] <Int32>]
  [[-StabilizationonlyDynamicEdges] <Boolean>] [[-Stabilizationfit] <Boolean>] [[-MaxVelocity] <Int32>]
- [[-MinVelocity] <Int32>] [[-Timestep] <Int32>] [[-AdaptiveTimestep] <Boolean>]
+ [[-MinVelocity] <Int32>] [[-Timestep] <Int32>] [[-AdaptiveTimestep] <Boolean>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -182,6 +182,9 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

@@ -1,7 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-#$Process = Get-Process | Select-Object -First 30
-#$ProcessSmaller = Get-Process | Select-Object -First 1
+$ProcessSmaller = Get-Process | Select-Object -First 1
 
 New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example29-HierarchicalTree01.html" -Show {
     New-HTMLSection {

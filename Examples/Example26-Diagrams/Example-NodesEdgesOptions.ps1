@@ -23,8 +23,8 @@ New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks
             New-DiagramNode -Label 'AD3' -IconSolid ad -IconAsImage #-X 500 -Y -1000
             New-DiagramNode -Label 'DC1' -IconSolid ad -IconAsImage #-X -500 -Y -500 #-FixedX $true -FixedY $false
             New-DiagramNode -Label 'DC2' -IconSolid ad -IconAsImage #-X 500 -Y 500
-            #New-DiagramLink -From 'USG Pro', 'AD3' -To 'DC1', 'AD3' -ArrowsToEnabled $false -ArrowsMiddleEnabled $true -ArrowsFromEnabled $false -Color Green -Dashes $true -Label 'Test'
-            #New-DiagramLink -From 'DC1' -To 'DC2' -Label 'This is my label' -FontColor HotPink -ArrowsToEnabled $true
+            New-DiagramLink -From 'USG Pro', 'AD3' -To 'DC1', 'AD3' -ArrowsToEnabled $false -ArrowsMiddleEnabled $true -ArrowsFromEnabled $false -Color Green -Dashes $true -Label 'Test'
+            New-DiagramLink -From 'DC1' -To 'DC2' -Label 'This is my label' -FontColor HotPink -ArrowsToEnabled $true
         }
     }
 } -ShowHTML

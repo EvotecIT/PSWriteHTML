@@ -18,7 +18,7 @@ New-DiagramOptionsLinks [[-ArrowsToEnabled] <Boolean>] [[-ArrowsToScaleFactor] <
  [[-ArrowsMiddleType] <String>] [[-ArrowsFromEnabled] <Boolean>] [[-ArrowsFromScaleFactor] <Int32>]
  [[-ArrowsFromType] <String>] [[-ArrowStrikethrough] <Boolean>] [[-Chosen] <Boolean>] [[-Color] <RGBColors>]
  [[-ColorHighlight] <RGBColors>] [[-ColorHover] <RGBColors>] [[-ColorInherit] <String>]
- [[-ColorOpacity] <Double>] [[-Dashes] <Boolean>]
+ [[-ColorOpacity] <Double>] [[-Dashes] <Boolean>] [[-Length] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -296,6 +296,24 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### -Length
+{{ Fill Length Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 17
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

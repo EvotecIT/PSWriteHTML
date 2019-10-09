@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-05 19:29:25" name="revised"/><title>My charts</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-09 23:35:44" name="revised"/><title>My charts</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -95,13 +95,19 @@ hr {
     text-align: right;
 }
 
-.clientlogo {
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-.MainLogo {
+.rightLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-right: 5em;
     text-align: right;
@@ -160,7 +166,8 @@ img {
     margin: 1%;
     flex: 1;
 }
-</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">/*
+h2:after,
 h3:after,
 h4:after,
 h5:after,
@@ -175,6 +182,7 @@ h6:after {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
+
 h2:after {
     background: #0AF;
 }
@@ -182,6 +190,7 @@ h2:after {
 h3:after {
     background: #3BF;
 }
+
 
 h4:after,
 h5:after,
@@ -197,6 +206,7 @@ h5.white,
 h6.white {
     color: white;
 }
+*/
 
 h1,
 h2,
@@ -275,76 +285,41 @@ h6 {
     line-height: 12px;
     margin: 10px 10px 10px 10px;
 }
-</style><!-- CSS Always Required Default Headings END --><!-- CSS Elastic Tabs START --><style type="text/css">.tabsWrapper {
+</style><!-- CSS Always Required Default Headings END --><!-- CSS Elastic Tabbis START --><style type="text/css">.tabsWrapper {
     text-align: center;
     margin: 10px auto;
     font-family: 'Roboto', sans-serif !important;
+    text-transform: uppercase;
 }
-
-.tabs {
+[data-tabs] {
+    display: flex;
     margin-top: 10px;
     font-size: 15px;
     padding: 0px;
-    list-style: none;
-    background: #fff;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    position: relative;
+    justify-content: center;
 }
 
-.tabs .round {
-    border-radius: 4px;
-}
-
-.tabs a {
-    text-decoration: none;
-    color: #777;
-    text-transform: uppercase;
+[data-tabs]>* {
+    cursor: pointer;
     padding: 10px 20px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    transition-duration: 0.6s;
 }
 
-.tabs a.active {
+[data-tabs] .active {
+    background: #31a3e8;
     color: #fff;
-}
-
-.tabs a i {
-    margin-right: 5px;
-}
-
-.tabs .selector {
-    display: none;
-    height: 100%;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1;
     border-radius: 4px;
-    background: #1e90ff;
 }
 
-.tabs-content {
+[data-panes]>* {
     display: none;
 }
 
-.tabs-content.active {
+[data-panes]>.active {
     display: block;
 }
-</style><!-- CSS Elastic Tabs END --><!-- CSS VIS Network Dynamic, browser based visualization libraries START --><style type="text/css">.diagram {
-    width: 100%;
-    height: 100%;
-    border: 0px solid unset;
-}
-
-.vis-network:focus {
-    outline: none;
-}
-</style><!-- CSS VIS Network Dynamic, browser based visualization libraries END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
+</style><!-- CSS Elastic Tabbis END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
   document.getElementById(obj).style.display = 'block';
   document.getElementById("hide_" + obj).style.display = '';
   document.getElementById("show_" + obj).style.display = 'none';
@@ -354,7 +329,16 @@ function hide(obj) {
   document.getElementById("hide_" + obj).style.display = 'none';
   document.getElementById("show_" + obj).style.display = '';
 }
-</script><!-- JS Hide Section Code END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- CSS VIS Network Dynamic, browser based visualization libraries START --><link href="https://unpkg.com/vis-network@latest/dist/vis-network.min.css" type="text/css" rel="stylesheet"/><!-- CSS VIS Network Dynamic, browser based visualization libraries END --><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script src="https://unpkg.com/vis-network@latest/dist/vis-network.min.js" type="text/javascript"></script><!-- JS VIS Network Dynamic, browser based visualization libraries END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-7ro6y41w"><div class="far fa-arrow-alt-circle-left"></div><span> Diagrams</span></a></div></div><div id="Tab-7ro6y41w" class="tabs-content active"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Diagram - Defaults" style="color: #ffffff;">Diagram - Defaults </a><a id="show_10250911" href="javascript:void(0)" onclick="show('10250911');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_10250911" href="javascript:void(0)" onclick="hide('10250911');" style="color: #ffffff;">(Hide)</a></div><div id="10250911" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="10250911"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div style="background:url('https://cdn.imgbin.com/5/2/1/imgbin-bart-simpson-homer-simpson-supreme-drawing-bart-simpson-bard-simpsons-jAfrtPtYNPTK5rQrcKULn5XBn.jpg');background-size:100% 100%" id="Diagram-8xg04imo" class="diagram"></div></div></div></div></div></div><script>// create an array with nodes
+</script><!-- JS Hide Section Code END --><!-- CSS VIS Network Dynamic, browser based visualization libraries START --><style type="text/css">.diagram {
+    width: 100%;
+    height: 100%;
+    border: 0px solid unset;
+}
+
+.vis-network:focus {
+    outline: none;
+}
+</style><!-- CSS VIS Network Dynamic, browser based visualization libraries END --><!-- CSS VIS Network Dynamic, browser based visualization libraries START --><link href="https://unpkg.com/vis-network@latest/dist/vis-network.min.css" type="text/css" rel="stylesheet"/><!-- CSS VIS Network Dynamic, browser based visualization libraries END --><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script src="https://unpkg.com/vis-network@latest/dist/vis-network.min.js" type="text/javascript"></script><!-- JS VIS Network Dynamic, browser based visualization libraries END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div data-tabs="true"><div id="Tab-oy4e1kmd" class="active"><div class="far fa-arrow-alt-circle-left"></div><span> Diagrams</span></div></div></div></div><div data-panes="true"><div id="Tab-oy4e1kmd"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Diagram - Defaults" style="color: #ffffff;">Diagram - Defaults </a><a id="show_1051123032" href="javascript:void(0)" onclick="show('1051123032');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1051123032" href="javascript:void(0)" onclick="hide('1051123032');" style="color: #ffffff;">(Hide)</a></div><div id="1051123032" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1051123032"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div style="height:500px" id="Diagram-8mdnivs4" class="diagram"></div></div></div></div></div></div></div><script>// create an array with nodes
 var nodes = new vis.DataSet([{
     "id":  "1 test",
     "label":  "1 test",
@@ -552,7 +536,7 @@ var edges = new vis.DataSet([{
     "to":  "Przemyslaw Klys"
 }]); 
 // create a network
-var Container = document.getElementById('Diagram-8xg04imo'); 
+var Container = document.getElementById('Diagram-8mdnivs4'); 
 var data = { 
    nodes: nodes, 
    edges: edges
@@ -584,52 +568,161 @@ var options = {
                     }
 }; 
 var network = new vis.Network(Container, data, options); 
-</script></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS Elastic Tabs START --><script type="text/javascript">var maxWidth = 0;
-var $element;
+</script></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS Elastic Tabbis START --><script type="text/javascript">var tabbis = (function () {
+    var fn = {};
 
-$(window).on("resize", function() {
-    $(".selector").hide();
-    var activeItem = $(".tabs a[class*='active']");
-    var id = activeItem.data("id");
-    setSelectorPosition(id);
+    var data;
+    var types = ['tab', 'pane'];
+    var type;
+    var groups = [];
+    var activeGroups = [];
+    var activeChildren = [];
+    var activeItems = [];
+    var indexGroup;
+    var indexItem;
+    var memory = [];
+
+    fn.init = function (options) {
+        data = options;
+        fn.setDefaults();
+        fn.setMemory();
+
+        groups['tab'] = document.querySelectorAll(data.tabGroup);
+        groups['pane'] = document.querySelectorAll(data.paneGroup);
+
+        for (var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++) {
+            var tabItems = groups['tab'][groupIndex].children;
+
+            for (var itemIndex = 0; itemIndex < tabItems.length; itemIndex++) {
+                tabItems[itemIndex].addEventListener('click', fn.onClick.bind(this, groupIndex, itemIndex), false);
+
+                indexGroup = groupIndex;
+                indexItem = itemIndex;
+
+                if (!fn.hasMemory()) continue;
+                fn.setNodes(groupIndex, itemIndex);
+            }
+        }
+    };
+
+    fn.onClick = function (groupIndex, itemIndex) {
+        fn.setNodes(groupIndex, itemIndex);
+        fn.setCallback(indexGroup, indexItem);
+    };
+
+    fn.setNodes = function (groupIndex, itemIndex) {
+        indexGroup = groupIndex;
+        indexItem = itemIndex;
+
+        for (var i = 0; i < types.length; i++) {
+            type = types[i];
+
+            fn.setActiveGroup();
+            fn.setActiveChildren();
+            fn.setActiveItems();
+            fn.putActiveClass();
+        }
+
+        memory[groupIndex] = [];
+        memory[groupIndex][itemIndex] = true;
+
+        localStorage.setItem('tabbis', JSON.stringify(memory));
+    };
+
+    fn.hasMemory = function () {
+        if (typeof memory === 'undefined') return;
+        if (typeof memory[indexGroup] === 'undefined') return;
+        if (typeof memory[indexGroup][indexItem] === 'undefined') return;
+        if (memory[indexGroup][indexItem] !== true) return;
+        return true;
+    };
+
+    fn.setMemory = function () {
+        if (localStorage.getItem('tabbis') === null) return;
+        if (localStorage.getItem('tabbis').length == 0) return;
+
+        memory = Object.values(JSON.parse(localStorage.getItem('tabbis')));
+    };
+
+    fn.putActiveClass = function () {
+        for (var i = 0; i < activeChildren[type].length; i++) {
+            activeChildren[type][i].classList.remove(data[type + 'Active']);
+        }
+
+        activeItems[type].classList.add(data[type + 'Active']);
+    };
+
+    fn.setDefaults = function () {
+        for (var i = 0; i < types.length; i++) {
+            type = types[i];
+
+            fn.setOption(type + 'Group', '[data-' + type + 's]');
+            fn.setOption(type + 'Active', 'active');
+        }
+    };
+
+    fn.setOption = function (key, value) {
+        data = data || [];
+        data[key] = data[key] || value;
+    };
+
+    fn.setActiveGroup = function () {
+        activeGroups[type] = groups[type][indexGroup];
+    };
+
+    fn.setActiveChildren = function () {
+        activeChildren[type] = activeGroups[type].children;
+    };
+
+    fn.setActiveItems = function () {
+        activeItems[type] = activeChildren[type][indexItem];
+    };
+
+    fn.setCallback = function () {
+        if (typeof data.callback === "function") {
+            data.callback(activeItems.tab, activeItems.pane);
+        }
+    };
+
+    fn.reset = function () {
+        for (var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++) {
+            tabItems = groups['tab'][groupIndex].children;
+            paneItems = groups['pane'][groupIndex].children;
+
+            for (var itemIndex = 0; itemIndex < tabItems.length; itemIndex++) {
+                tabItems[itemIndex].classList.remove(data['tabActive']);
+                paneItems[itemIndex].classList.remove(data['paneActive']);
+            }
+        }
+        localStorage.removeItem('tabbis');
+    };
+
+    return fn;
+})();
+</script><script type="text/javascript">var tabs = tabbis.init({
+    tabGroup: "[data-tabs]",
+    paneGroup: "[data-panes]",
+    tabActive: "active",
+    paneActive: "active",
+    callback: function (tab, pane) {
+        // console.log(tab);
+        // console.log(pane.id);
+
+        // this makes sure to refresh tables on tab change to make sure they have buttons and everything
+        // it's a bit heavy as it touches all tables, may require some improvements in future to consider
+        // which tab has which table
+        try {
+            $('.dataTable').DataTable().columns.adjust().responsive.recalc();
+        } catch {
+            console.log('No datatables available.');
+        }
+    }
 });
 
-// Set first active link
-var activeItem = $(".tabs a[class*='active']");
-var id = activeItem.data("id");
-setSelectorPosition(id);
-
-$(".tabs").on("click", "a", function(e) {
-    e.preventDefault();
-    $(".tabs a").removeClass("active");
-    $(this).addClass("active");
-
-    // Get id of link clicked
-    var id = $(this).data("id");
-
-    // Set selector position
-    setSelectorPosition(id);
-
-    // Hide all tabs
-    $(".tabs-content").hide();
-
-    // Show current tab
-    $("#" + id).show();
-});
-
-function setSelectorPosition(id) {
-    var activeItem = $(".tabs").find("[data-id='" + id + "']");
-    var activeWidth = activeItem.innerWidth();
-    var itemPos = activeItem.position();
-    $(".selector").css({
-        left: itemPos.left + "px",
-        top: itemPos.top + "px",
-        width: activeItem.innerWidth() + "px",
-        height: activeItem.innerHeight() + "px"
-    });
-    $(".selector").show();
-}
-</script><!-- JS Elastic Tabs END --><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script type="text/javascript">function clusterByCid() {
+// in theory should take care of removing local storage for tabbis
+// some errors occurs if the local storage is not cleaned after a while
+window.addEventListener("unload", tabbis.remove, false);
+</script><!-- JS Elastic Tabbis END --><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script type="text/javascript">function clusterByCid() {
     network.setData(data);
     var clusterOptionsByData = {
         joinCondition: function (childOptions) {

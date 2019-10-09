@@ -50,6 +50,30 @@ Locale: {{ Update Locale }}
 ### [New-ChartToolbar](New-ChartToolbar.md)
 {{ Fill in the Synopsis }}
 
+### [New-DiagramLink](New-DiagramLink.md)
+{{ Fill in the Synopsis }}
+
+### [New-DiagramNode](New-DiagramNode.md)
+{{ Fill in the Synopsis }}
+
+### [New-DiagramOptionsInteraction](New-DiagramOptionsInteraction.md)
+Short description
+
+### [New-DiagramOptionsLayout](New-DiagramOptionsLayout.md)
+{{ Fill in the Synopsis }}
+
+### [New-DiagramOptionsLinks](New-DiagramOptionsLinks.md)
+{{ Fill in the Synopsis }}
+
+### [New-DiagramOptionsManipulation](New-DiagramOptionsManipulation.md)
+Short description
+
+### [New-DiagramOptionsNodes](New-DiagramOptionsNodes.md)
+{{ Fill in the Synopsis }}
+
+### [New-DiagramOptionsPhysics](New-DiagramOptionsPhysics.md)
+{{ Fill in the Synopsis }}
+
 ### [New-HTML](New-HTML.md)
 {{Fill in the Synopsis}}
 
@@ -76,6 +100,9 @@ Creates an anchor
 
 ### [New-HTMLContent](New-HTMLContent.md)
 Creates a section in HTML
+
+### [New-HTMLDiagram](New-HTMLDiagram.md)
+{{ Fill in the Synopsis }}
 
 ### [New-HTMLHeading](New-HTMLHeading.md)
 {{Fill in the Synopsis}}

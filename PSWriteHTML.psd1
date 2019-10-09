@@ -69,7 +69,7 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = 'New-ChartAxisX', 'New-ChartAxisY', 'New-ChartBar', 
+    FunctionsToExport = 'New-CalendarEvent', 'New-ChartAxisX', 'New-ChartAxisY', 'New-ChartBar', 
     'New-ChartBarOptions', 'New-ChartDonut', 'New-ChartGrid', 
     'New-ChartLegend', 'New-ChartLine', 'New-ChartPie', 'New-ChartRadial', 
     'New-ChartTheme', 'New-ChartToolbar', 'New-DiagramLink', 
@@ -77,19 +77,20 @@
     'New-DiagramOptionsLayout', 'New-DiagramOptionsLinks', 
     'New-DiagramOptionsManipulation', 'New-DiagramOptionsNodes', 
     'New-DiagramOptionsPhysics', 'New-HTML', 'New-HTMLAnchor', 
-    'New-HTMLAnchorLink', 'New-HTMLAnchorName', 'New-HTMLChart', 
-    'New-HTMLCodeBlock', 'New-HTMLContainer', 'New-HTMLDiagram', 
-    'New-HTMLHeading', 'New-HTMLHorizontalLine', 'New-HTMLImage', 
-    'New-HTMLList', 'New-HTMLListItem', 'New-HTMLLogo', 'New-HTMLPanel', 
-    'New-HTMLSection', 'New-HTMLSpanStyle', 'New-HTMLStatus', 
-    'New-HTMLStatusItem', 'New-HTMLTab', 'New-HTMLTable', 
-    'New-HTMLTableButtonCopy', 'New-HTMLTableButtonCSV', 
-    'New-HTMLTableButtonExcel', 'New-HTMLTableButtonPageLength', 
-    'New-HTMLTableButtonPDF', 'New-HTMLTableButtonPrint', 
-    'New-HTMLTableCondition', 'New-HTMLTableContent', 
-    'New-HTMLTableHeader', 'New-HTMLTableReplace', 'New-HTMLTabOptions', 
-    'New-HTMLTag', 'New-HTMLText', 'New-HTMLTimeline', 
-    'New-HTMLTimelineItem', 'New-HTMLToast', 'Out-HtmlView', 'Save-HTML'
+    'New-HTMLAnchorLink', 'New-HTMLAnchorName', 'New-HTMLCalendar', 
+    'New-HTMLChart', 'New-HTMLCodeBlock', 'New-HTMLContainer', 
+    'New-HTMLDiagram', 'New-HTMLHeading', 'New-HTMLHierarchicalTree', 
+    'New-HTMLHorizontalLine', 'New-HTMLImage', 'New-HTMLList', 
+    'New-HTMLListItem', 'New-HTMLLogo', 'New-HTMLPanel', 'New-HTMLSection', 
+    'New-HTMLSpanStyle', 'New-HTMLStatus', 'New-HTMLStatusItem', 
+    'New-HTMLTab', 'New-HTMLTable', 'New-HTMLTableButtonCopy', 
+    'New-HTMLTableButtonCSV', 'New-HTMLTableButtonExcel', 
+    'New-HTMLTableButtonPageLength', 'New-HTMLTableButtonPDF', 
+    'New-HTMLTableButtonPrint', 'New-HTMLTableCondition', 
+    'New-HTMLTableContent', 'New-HTMLTableHeader', 'New-HTMLTableReplace', 
+    'New-HTMLTabOptions', 'New-HTMLTag', 'New-HTMLText', 'New-HTMLTimeline', 
+    'New-HTMLTimelineItem', 'New-HTMLToast', 'New-TreeNode', 'Out-HtmlView', 
+    'Save-HTML'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()
@@ -98,24 +99,25 @@
     # VariablesToExport = @()
 
     # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-    AliasesToExport = 'ChartCategory', 'ChartAxisX', 'New-ChartCategory', 'ChartAxisY', 
-    'ChartBar', 'ChartBarOptions', 'ChartDonut', 'ChartGrid', 'ChartLegend', 
-    'ChartLine', 'ChartPie', 'ChartRadial', 'ChartTheme', 'ChartToolbar', 
-    'DiagramEdge', 'DiagramEdges', 'New-DiagramEdge', 'DiagramLink', 
-    'DiagramNode', 'DiagramOptionsInteraction', 'DiagramOptionsLayout', 
-    'DiagramOptionsEdges', 'New-DiagramOptionsEdges', 
-    'DiagramOptionsLinks', 'DiagramOptionsManipulation', 
-    'DiagramOptionsNodes', 'DiagramOptionsPhysics', 'Dashboard', 'Chart', 
-    'Container', 'Diagram', 'Image', 'New-HTMLColumn', 'Panel', 
-    'New-HTMLContent', 'Section', 'Tab', 'Table', 'EmailTable', 
-    'TableButtonCopy', 'EmailTableButtonCopy', 'TableButtonCSV', 
-    'EmailTableButtonCSV', 'TableButtonExcel', 'EmailTableButtonExcel', 
-    'TableButtonPageLength', 'EmailTableButtonPageLength', 
-    'TableButtonPDF', 'EmailTableButtonPDF', 'TableButtonPrint', 
-    'EmailTableButtonPrint', 'EmailTableCondition', 
+    AliasesToExport = 'CalendarEvent', 'ChartCategory', 'ChartAxisX', 'New-ChartCategory', 
+    'ChartAxisY', 'ChartBar', 'ChartBarOptions', 'ChartDonut', 'ChartGrid', 
+    'ChartLegend', 'ChartLine', 'ChartPie', 'ChartRadial', 'ChartTheme', 
+    'ChartToolbar', 'DiagramEdge', 'DiagramEdges', 'New-DiagramEdge', 
+    'DiagramLink', 'DiagramNode', 'DiagramOptionsInteraction', 
+    'DiagramOptionsLayout', 'DiagramOptionsEdges', 
+    'New-DiagramOptionsEdges', 'DiagramOptionsLinks', 
+    'DiagramOptionsManipulation', 'DiagramOptionsNodes', 
+    'DiagramOptionsPhysics', 'Dashboard', 'Calendar', 'Chart', 'Container', 
+    'Diagram', 'Image', 'New-HTMLColumn', 'Panel', 'New-HTMLContent', 'Section', 
+    'Tab', 'Table', 'EmailTable', 'TableButtonCopy', 'EmailTableButtonCopy', 
+    'TableButtonCSV', 'EmailTableButtonCSV', 'TableButtonExcel', 
+    'EmailTableButtonExcel', 'TableButtonPageLength', 
+    'EmailTableButtonPageLength', 'TableButtonPDF', 'EmailTableButtonPDF', 
+    'TableButtonPrint', 'EmailTableButtonPrint', 'EmailTableCondition', 
     'TableConditionalFormatting', 'TableContent', 'EmailTableContent', 
     'TableHeader', 'EmailTableHeader', 'TableReplace', 'EmailTableReplace', 
-    'TabOptions', 'HTMLText', 'Text', 'Out-GridHtml', 'ohv'
+    'TabOptions', 'HTMLText', 'Text', 'New-HierarchicalTreeNode', 'TreeNode', 
+    'Out-GridHtml', 'ohv'
 
     # DSC resources to export from this module
     # DscResourcesToExport = @()
