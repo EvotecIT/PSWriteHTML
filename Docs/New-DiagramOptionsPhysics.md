@@ -5,21 +5,22 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTML
+# New-DiagramOptionsPhysics
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-New-HTML [[-HtmlData] <ScriptBlock>] [-UseCssLinks] [-UseJavaScriptLinks] [-TitleText <String>]
- [-Author <String>] [-DateFormat <String>] [-AutoRefresh <Int32>] [-FilePath <String>] [-ShowHTML]
- [-Encoding <Object>] [<CommonParameters>]
+New-DiagramOptionsPhysics [[-Enabled] <Boolean>] [[-StabilizationEnabled] <Boolean>]
+ [[-Stabilizationiterations] <Int32>] [[-StabilizationupdateInterval] <Int32>]
+ [[-StabilizationonlyDynamicEdges] <Boolean>] [[-Stabilizationfit] <Boolean>] [[-MaxVelocity] <Int32>]
+ [[-MinVelocity] <Int32>] [[-Timestep] <Int32>] [[-AdaptiveTimestep] <Boolean>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
@@ -32,89 +33,28 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -Author
-{{Fill Author Description}}
+### -AdaptiveTimestep
+{{ Fill AdaptiveTimestep Description }}
 
 ```yaml
-Type: String
+Type: Boolean
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 9
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -AutoRefresh
-{{ Fill AutoRefresh Description }}
+### -Enabled
+{{ Fill Enabled Description }}
 
 ```yaml
-Type: Int32
+Type: Boolean
 Parameter Sets: (All)
 Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DateFormat
-{{Fill DateFormat Description}}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Encoding
-{{ Fill Encoding Description }}
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-Accepted values: Unknown, String, Unicode, Byte, BigEndianUnicode, UTF8, UTF7, UTF32, Ascii, Default, Oem, BigEndianUTF32
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -FilePath
-{{ Fill FilePath Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -HtmlData
-{{Fill HtmlData Description}}
-
-```yaml
-Type: ScriptBlock
-Parameter Sets: (All)
-Aliases: Content
 
 Required: False
 Position: 0
@@ -123,68 +63,125 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ShowHTML
-{{ Fill ShowHTML Description }}
+### -MaxVelocity
+{{ Fill MaxVelocity Description }}
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: Show, Open
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -TitleText
-{{Fill TitleText Description}}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: Name, Title
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -UseCssLinks
-{{Fill UseCssLinks Description}}
-
-```yaml
-Type: SwitchParameter
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -UseJavaScriptLinks
-{{ Fill UseJavaScriptLinks Description }}
+### -MinVelocity
+{{ Fill MinVelocity Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+### -StabilizationEnabled
+{{ Fill StabilizationEnabled Description }}
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Stabilizationfit
+{{ Fill Stabilizationfit Description }}
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Stabilizationiterations
+{{ Fill Stabilizationiterations Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -StabilizationonlyDynamicEdges
+{{ Fill StabilizationonlyDynamicEdges Description }}
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -StabilizationupdateInterval
+{{ Fill StabilizationupdateInterval Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Timestep
+{{ Fill Timestep Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 8
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ## INPUTS
 
