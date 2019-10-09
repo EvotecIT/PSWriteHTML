@@ -25,7 +25,7 @@ New-HTML -TitleText 'Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePa
 
                 New-HTMLTableContent -ColumnIndex 7 -RowIndex 4 -BackGroundColor Gold -Color Blue -FontStyle italic -Text "I HAVE REPLACED THIS" -FontSize 15 -Alignment center
                 New-HTMLTableContent -ColumnName 'Name' -RowIndex 4 -BackGroundColor Gold -Color Blue -FontStyle italic -Text "I HAVE REPLACED THIS" -FontSize 15 -Alignment center
-            } -Simplify
+            } #-Simplify
         }
     }
 }
