@@ -22,6 +22,7 @@ Function New-HTML {
         Charts            = [System.Collections.Generic.List[string]]::new()
         Diagrams          = [System.Collections.Generic.List[string]]::new()
 
+        Logos             = ""
         # Tab settings
         TabOptions        = @{
             SlimTabs = $false
@@ -31,10 +32,6 @@ Function New-HTML {
     }
 
     [Array] $TempOutputHTML = Invoke-Command -ScriptBlock $HtmlData
-    if ($null -ne $TempOutputHTML -and $TempOutputHTML.Count -gt 0) {
-        $Logo = Get-HTMLPartContent -Content $TempOutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type Between
-        $TempOutputHTML = Get-HTMLPartContent -Content $TempOutputHTML -Start '<!-- START LOGO -->' -End '<!-- END LOGO -->' -Type After
-    }
     $Features = Get-FeaturesInUse -PriorityFeatures 'JQuery', 'DataTables', 'Tabs'
     # this gets rid of any non-strings
     # it's added here to track nested tabs
@@ -51,10 +48,12 @@ Function New-HTML {
 
     $HTML = @(
         '<!DOCTYPE html>'
+        #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
         New-HTMLTag -Tag 'html' {
             '<!-- HEADER -->'
             New-HTMLTag -Tag 'head' {
                 New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -SelfClosing
+                #New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'X-UA-Compatible'; content = 'IE=8' } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -SelfClosing
@@ -77,7 +76,7 @@ Function New-HTML {
             '<!-- BODY -->'
             New-HTMLTag -Tag 'body' {
                 # Add logo if there is one
-                $Logo
+                $Script:HTMLSchema.Logos
                 # Add tabs header if there is one
                 if ($Script:HTMLSchema.TabsHeaders) {
                     New-HTMLTabHead

@@ -13,7 +13,7 @@
         try {
             $('.dataTable').DataTable().columns.adjust().responsive.recalc();
         } catch {
-            console.log('No datatables available.')
+            console.log('No datatables available.');
         }
     }
 });

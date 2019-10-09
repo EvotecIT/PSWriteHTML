@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 New-HTMLCodeBlock [-Code] <String> [[-Style] <String>] [[-Theme] <String>] [[-Group] <String>]
- [[-Title] <String>] [[-Highlight] <String>] [[-ShowLineNumbers] <Boolean>] [[-LineOffset] <String>]
+ [[-Title] <String>] [[-Highlight] <String[]>] [[-ShowLineNumbers] <Boolean>] [[-LineOffset] <String>]
  [<CommonParameters>]
 ```
 
@@ -66,7 +66,7 @@ Accept wildcard characters: False
 {{Fill Highlight Description}}
 
 ```yaml
-Type: String
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
@@ -130,7 +130,7 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: enlighter, standard, classic, bootstrap4, beyond, godzilla, eclipse, mootwo, droide, minimal, atomic, dracula, rowhammer
+Accepted values: enlighter, beyond, classic, godzilla, atomic, droide, minimal, eclipse, mowtwo, rowhammer, bootstrap4, dracula, monokai
 
 Required: False
 Position: 2

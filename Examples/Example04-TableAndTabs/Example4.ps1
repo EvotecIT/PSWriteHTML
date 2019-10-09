@@ -1,7 +1,8 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
 $ReportTitle = 'Test'
-$EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
+#$EnterpriseAdminTable = Get-ADuser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
+$EnterpriseAdminTable = Get-Process | Select-Object -First 5
 
 New-HTML -TitleText $ReportTitle -UseCssLinks -UseJavaScriptLinks -FilePath "$PSScriptRoot\Example4.html" {
     New-HTMLTab -TabName 'Dashboard' {

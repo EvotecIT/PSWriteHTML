@@ -117,11 +117,11 @@ function New-HTMLTab {
     $Tab.Current = $true
 
 
-    # if ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
-    #      $Tab.Active = $false
-    # } else {
-    #    $Tab.Active = $true
-    #}
+    if ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
+        $Tab.Active = $false
+    } else {
+        $Tab.Active = $true
+    }
 
     # $Tab.Active = $true
     # $Tab.Active = $true

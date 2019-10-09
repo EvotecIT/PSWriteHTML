@@ -1,12 +1,6 @@
 Function Get-HTMLLogos {
-    <#
-	 	.SYNOPSIS
-		    Get Base64 HTML
-
-	#>
     [CmdletBinding()]
-    param
-    (
+    param (
         [Parameter(Mandatory = $false)]
         [string]$LeftLogoName = "Sample",
         [string]$RightLogoName = "Alternate",
@@ -14,7 +8,7 @@ Function Get-HTMLLogos {
         [string]$RightLogoString
 
     )
-    $LogoSources = @{ }
+    $LogoSources = [ordered] @{ }
     $LogoPath = @(
         if ([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
             if ([String]::IsNullOrEmpty($RightLogoString) -eq $false) {
@@ -30,6 +24,7 @@ Function Get-HTMLLogos {
     )
     $ImageFiles = Get-ChildItem -Path (Join-Path $LogoPath '\*') -Include *.jpg, *.png, *.bmp -Recurse
     foreach ($ImageFile in $ImageFiles) {
+        <#
         if ($ImageFile.Extension -eq '.jpg') {
             $FileType = 'jpeg'
         } else {
@@ -42,9 +37,12 @@ Function Get-HTMLLogos {
         } else {
             $ImageContent = Get-Content -LiteralPath $ImageFile.FullName -Encoding Byte
         }
-        $LogoSources.Add($ImageFile.BaseName, "data:image/$FileType;base64," + [Convert]::ToBase64String(($ImageContent)))
+        #>
+        $ImageBinary = Convert-ImageToBinary -ImageFile $ImageFile
+        #$LogoSources.Add($ImageFile.BaseName, "data:image/$FileType;base64," + [Convert]::ToBase64String(($ImageContent)))
+        $LogoSources.Add($ImageFile.BaseName, $ImageBinary)
     }
-    Write-Output $LogoSources
+    $LogoSources
 }
 
 

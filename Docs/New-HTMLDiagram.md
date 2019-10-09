@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLContainer
+# New-HTMLDiagram
 
 ## SYNOPSIS
 {{ Fill in the Synopsis }}
@@ -13,7 +13,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLContainer [[-HTML] <ScriptBlock>] [-Width <String>] [-Margin <String>] [<CommonParameters>]
+New-HTMLDiagram [[-Diagram] <ScriptBlock>] [[-Height] <String>] [[-Width] <String>] [-BundleImages]
+ [[-BackGroundImage] <Uri>] [[-BackgroundSize] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,13 +31,58 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -HTML
-{{ Fill HTML Description }}
+### -BackGroundImage
+{{ Fill BackGroundImage Description }}
+
+```yaml
+Type: Uri
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BackgroundSize
+{{ Fill BackgroundSize Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BundleImages
+{{ Fill BundleImages Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Diagram
+{{ Fill Diagram Description }}
 
 ```yaml
 Type: ScriptBlock
 Parameter Sets: (All)
-Aliases: Content
+Aliases:
 
 Required: False
 Position: 0
@@ -45,8 +91,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Margin
-{{ Fill Margin Description }}
+### -Height
+{{ Fill Height Description }}
 
 ```yaml
 Type: String
@@ -54,7 +100,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -69,7 +115,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
