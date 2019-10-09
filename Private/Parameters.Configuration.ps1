@@ -144,8 +144,8 @@ $Script:Configuration = [ordered] @{
             }
         }
         D3Mitch                 = @{
-            Comment = 'D3Mitch Feature'
-            Header  = @{
+            Comment      = 'D3Mitch Feature'
+            Header       = @{
                 JsLink  = @(
                     #'https://cdn.jsdelivr.net/npm/d3-mitch-tree@1.0.5/lib/d3-mitch-tree.min.js'
                     'https://cdn.jsdelivr.net/gh/deltoss/d3-mitch-tree@1.0.2/dist/js/d3-mitch-tree.min.js'
@@ -154,6 +154,9 @@ $Script:Configuration = [ordered] @{
                     'https://cdn.jsdelivr.net/gh/deltoss/d3-mitch-tree@1.0.2/dist/css/d3-mitch-tree.min.css'
                     'https://cdn.jsdelivr.net/gh/deltoss/d3-mitch-tree@1.0.2/dist/css/d3-mitch-tree-theme-default.min.css'
                 )
+            }
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\hierarchicalTree.css"
             }
         }
         Fonts                   = @{
@@ -236,7 +239,6 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
             }
         }
-
         Popper                  = @{
             Comment      = 'Popper and Tooltip for FullCalendar'
             HeaderAlways = @{
