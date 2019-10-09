@@ -21,7 +21,7 @@
     [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit = 'from',
     [double] $ColorOpacity = 1.0, # range between 0 and 1
     [bool] $Dashes = $false,
-
+    [string] $Length,
     [RGBColors] $FontColor = [RGBColors]::None,
     [int] $FontSize = 14, #// px
     [string] $FontName = 'arial',
@@ -40,6 +40,7 @@
     }
     Edges    = @{
       label              = $Label
+      length             = $Length
       arrows             = [ordered]@{
         to     = [ordered]@{
           enabled     = $ArrowsToEnabled

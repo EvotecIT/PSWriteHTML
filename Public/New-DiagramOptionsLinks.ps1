@@ -17,12 +17,14 @@ function New-DiagramOptionsLinks {
     [RGBColors] $ColorHover = [RGBColors]::None,
     [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit = 'from',
     [double] $ColorOpacity = 1.0, # range between 0 and 1
-    [bool] $Dashes = $false
+    [bool] $Dashes = $false,
+    [string] $Length
   )
   $Object = [PSCustomObject] @{
     Type     = 'DiagramOptionsEdges'
     Settings = @{
       edges = [ordered] @{
+        length             = $Length
         arrows             = [ordered]@{
           to     = [ordered]@{
             enabled     = $ArrowsToEnabled
