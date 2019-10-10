@@ -1,5 +1,5 @@
-﻿function New-HTMLTableButtonExcel {
-    [alias('TableButtonExcel','EmailTableButtonExcel')]
+﻿function New-TableButtonExcel {
+    [alias('TableButtonExcel','EmailTableButtonExcel','New-HTMLTableButtonExcel')]
     [CmdletBinding()]
     param()
     [PSCustomObject] @{

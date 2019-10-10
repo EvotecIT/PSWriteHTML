@@ -1,5 +1,5 @@
-﻿function New-HTMLTableButtonCopy {
-    [alias('TableButtonCopy', 'EmailTableButtonCopy')]
+﻿function New-TableButtonCopy {
+    [alias('TableButtonCopy', 'EmailTableButtonCopy','New-HTMLTableButtonCopy')]
     [CmdletBinding()]
     param()
 

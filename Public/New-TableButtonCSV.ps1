@@ -1,5 +1,5 @@
-﻿function New-HTMLTableButtonCSV {
-    [alias('TableButtonCSV','EmailTableButtonCSV')]
+﻿function New-TableButtonCSV {
+    [alias('TableButtonCSV','EmailTableButtonCSV','New-HTMLTableButtonCSV')]
     [CmdletBinding()]
     param()
     [PSCustomObject] @{

@@ -1,5 +1,5 @@
-﻿function New-HTMLTableHeader {
-    [alias('TableHeader', 'EmailTableHeader')]
+﻿function New-TableHeader {
+    [alias('TableHeader', 'EmailTableHeader','New-HTMLTableHeader')]
     [CmdletBinding()]
     param(
         [string[]] $Names,

@@ -1,5 +1,5 @@
-﻿function New-HTMLTableContent {
-    [alias('TableContent', 'EmailTableContent')]
+﻿function New-TableContent {
+    [alias('TableContent', 'EmailTableContent','New-HTMLTableContent')]
     [CmdletBinding()]
     param(
         [alias('ColumnNames', 'Names', 'Name')][string[]] $ColumnName,

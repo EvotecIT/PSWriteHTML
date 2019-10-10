@@ -1,5 +1,5 @@
-﻿function New-HTMLTableButtonPageLength {
-    [alias('TableButtonPageLength', 'EmailTableButtonPageLength')]
+﻿function New-TableButtonPageLength {
+    [alias('TableButtonPageLength', 'EmailTableButtonPageLength','New-HTMLTableButtonPageLength')]
     [CmdletBinding()]
     param()
     [PSCustomObject] @{

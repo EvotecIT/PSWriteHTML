@@ -1,4 +1,4 @@
-﻿function New-HTMLTableButtonPDF {
+﻿function New-TableButtonPDF {
     <#
     .SYNOPSIS
     Allows more control when adding buttons to Table
@@ -66,7 +66,7 @@
 
     #>
 
-    [alias('TableButtonPDF', 'EmailTableButtonPDF')]
+    [alias('TableButtonPDF', 'EmailTableButtonPDF','New-HTMLTableButtonPDF')]
     [CmdletBinding()]
     param(
         [string] $Title,

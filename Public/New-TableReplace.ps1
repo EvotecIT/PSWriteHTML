@@ -1,5 +1,5 @@
-﻿function New-HTMLTableReplace {
-    [alias('TableReplace', 'EmailTableReplace')]
+﻿function New-TableReplace {
+    [alias('TableReplace', 'EmailTableReplace','New-HTMLTableReplace')]
     [CmdletBinding()]
     param(
         [string] $FieldName,

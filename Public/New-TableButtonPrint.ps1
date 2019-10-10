@@ -1,5 +1,5 @@
-﻿function New-HTMLTableButtonPrint {
-    [alias('TableButtonPrint', 'EmailTableButtonPrint')]
+﻿function New-TableButtonPrint {
+    [alias('TableButtonPrint', 'EmailTableButtonPrint','New-HTMLTableButtonPrint')]
     [CmdletBinding()]
     param()
     $Button = @{
