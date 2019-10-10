@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <table id="tbl" border="1">
+      <tr>
+        <td>ONE</td>
+        <td>TWO</td>
+        <td>THREE</td>
+      </tr>
+      <tr>
+        <td>FOUR</td>
+        <td>FIVE</td>
+        <td>SIX</td>
+      </tr>
+      <tr>
+        <td>SEVEN</td>
+        <td>EIGHT</td>
+        <td>NINE</td>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
+      var table = document.getElementById("tbl");
+
+      for (var i = 0; i < table.rows.length; i++) {
+        var row = "";
+
+        for (var j = 0; j < table.rows[i].cells.length; j++) {
+          row += table.rows[i].cells[j].innerHTML;
+          row += " | ";
+        }
+
+        alert(row);
+      }
+    </script>
+  </body>
+</html>
