@@ -285,8 +285,12 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\tabbisAdditional.js"
                 )
             }
+            CustomActionsReplace = @{
+                'ColorSelector' = ConvertFrom-Color -Color ([RGBColors]::DodgerBlue)
+                'ColorTarget'   = ConvertFrom-Color -Color ([RGBColors]::MediumSlateBlue)
+            }
         }
-        TabsGradient            = @{
+        TabbisGradient            = @{
             Comment              = 'Elastic Tabs Gradient'
             FooterAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.gradient.css"
@@ -296,7 +300,7 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color ([RGBColors]::MediumSlateBlue)
             }
         }
-        TabsTransition          = @{
+        TabbisTransition          = @{
             Comment      = 'Elastic Tabs Transition'
             FooterAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.transition.css"

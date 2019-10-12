@@ -5,13 +5,14 @@ $Users = Get-ADUser -Filter * -Properties SamAccountName, Name, Title, Surname, 
 
 New-HTML -TitleText 'My Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example30-LinkedTable.html -ShowHTML {
     #New-HTMLLogo
-    New-HTMLTab -TabName 'Test' {
-        New-HTMLContent -HeaderText '0 section' {
+    New-HTMLTabOptions -SelectorColor Grey
+    New-HTMLTab -TabName 'Test' -IconSolid dice {
+        New-HTMLContent -HeaderText 'Active Directory Computers & Diagram' -HeaderBackGroundColor Grey {
             New-HTMLPanel {
                 New-HTMLTable -DataTable $Computers -DataTableID 'OtherTable'
             }
             New-HTMLPanel {
-                New-HTMLDiagram -Height '500px' {
+                New-HTMLDiagram {
                     New-DiagramNode -Label 'Domain' -To 'AD Computers', 'AD Users' -IconBrands delicious
                     New-DiagramNode -Label 'AD Computers' -IconBrands apple
                     New-DiagramNode -Label 'AD Users' -IconBrands instagram
@@ -30,7 +31,7 @@ New-HTML -TitleText 'My Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
                 }
             }
         }
-        New-HTMLSection {
+        New-HTMLSection -HeaderText 'Active Directory Users' -HeaderBackGroundColor Grey  {
             New-HTMLTable -DataTable $Users -DataTableID 'SpecialID123' #-DisablePaging
         }
     }

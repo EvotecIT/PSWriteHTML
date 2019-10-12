@@ -50,6 +50,10 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 - 0.0.56 - Unreleased
   - Updated Visjs to 6.1.1 (local version), linked version is always newest
   - Fix for missing comma in Tabs
+  - Updated Table Row size to 20px from 27px
+  - Fix for Tab Selector Color not being applied after changing to Nested Tabs
+  - Fix for Tab Selector not being Active by default
+  - Fix for Diagram Size
   - Renamed New-HTMLTable* commands to New-Table* to better reflect what they deliver (and those don't deliver HTML)
     - Old commands still available as aliases
   - Added **Calendar**

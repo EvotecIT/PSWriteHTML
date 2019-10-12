@@ -3,7 +3,7 @@ function New-HTMLDiagram {
     [CmdletBinding()]
     param(
         [ScriptBlock] $Diagram,
-        [string] $Height = '500px',
+        [string] $Height,
         [string] $Width,
         [switch] $BundleImages,
         [uri] $BackGroundImage,

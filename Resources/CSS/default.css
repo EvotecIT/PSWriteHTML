@@ -15,13 +15,6 @@ hr {
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .overflowHidden {
@@ -34,46 +27,19 @@ hr {
     display: flex;
     justify-content: space-between;
     padding: 2px;
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .flexParentInvisible {
     display: flex;
     justify-content: space-between;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexElement {
     flex-basis: 100%;
-
-
-    /*
-    flex: 1 auto;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexPanel {
     flex-basis: 100%;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .roundedCorners {
