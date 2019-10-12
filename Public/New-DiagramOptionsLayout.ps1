@@ -1,42 +1,51 @@
 function New-DiagramOptionsLayout {
-    [alias('DiagramOptionsLayout')]
-    param(
-        [nullable[int]] $RandomSeed,
-        [bool] $ImprovedLayout = $true,
-        [int] $ClusterThreshold = 150,
-        [bool] $HierarchicalEnabled = $false,
-        [int] $HierarchicalLevelSeparation = 150,
-        [int] $HierarchicalNodeSpacing = 100,
-        [int] $HierarchicalTreeSpacing = 200,
-        [bool] $HierarchicalBlockShifting = $true,
-        [bool] $HierarchicalEdgeMinimization = $true,
-        [bool] $HierarchicalParentCentralization = $true,
-        [ValidateSet('UD', 'DU', 'LR', 'RL')] $HierarchicalDirection = 'UD',
-        [ValidateSet('hubsize', 'directed')] $HierarchicalSortMethod = 'hubsize'
-    )
-    $Object = [PSCustomObject] @{
-        Type     = 'DiagramOptionsLayout'
-        Settings = @{
-            layout = [ordered] @{
-                randomSeed = $RandomSeed
-                improvedLayout = $ImprovedLayout
-                clusterThreshold =  $ClusterThreshold
-                hierarchical    = @{
-                    enabled    = $HierarchicalEnabled
-                    levelSeparation =  $HierarchicalLevelSeparation
-                    nodeSpacing =  $HierarchicalNodeSpacing
-                    treeSpacing =  $HierarchicalTreeSpacing
-                    blockShifting =  $HierarchicalBlockShifting
-                    edgeMinimization =  $HierarchicalEdgeMinimization
-                    parentCentralization =  $HierarchicalParentCentralization
-                    direction =  $HierarchicalDirection # // UD, DU, LR, RL
-                    sortMethod = $HierarchicalSortMethod #// hubsize, directed
-                }
-            }
+  [alias('DiagramOptionsLayout')]
+  param(
+    [nullable[int]] $RandomSeed,
+    [bool] $ImprovedLayout = $true,
+    [int] $ClusterThreshold = 150,
+    [bool] $HierarchicalEnabled = $false,
+    [int] $HierarchicalLevelSeparation = 150,
+    [int] $HierarchicalNodeSpacing = 100,
+    [int] $HierarchicalTreeSpacing = 200,
+    [bool] $HierarchicalBlockShifting = $true,
+    [bool] $HierarchicalEdgeMinimization = $true,
+    [bool] $HierarchicalParentCentralization = $true,
+    [ValidateSet('FromUpToDown', 'FromDownToUp', 'FromLeftToRight', 'FromRigthToLeft')] $HierarchicalDirection = 'FromUpToDown',
+    [ValidateSet('hubsize', 'directed')] $HierarchicalSortMethod = 'hubsize'
+  )
+
+
+  $Direction = @{
+    FromUpToDown    = 'UD'
+    FromDownToUp    = 'DU'
+    FromLeftToRight = 'LR'
+    FromRigthToLeft = 'RL'
+  }
+
+  $Object = [PSCustomObject] @{
+    Type     = 'DiagramOptionsLayout'
+    Settings = @{
+      layout = [ordered] @{
+        randomSeed       = $RandomSeed
+        improvedLayout   = $ImprovedLayout
+        clusterThreshold = $ClusterThreshold
+        hierarchical     = @{
+          enabled              = $HierarchicalEnabled
+          levelSeparation      = $HierarchicalLevelSeparation
+          nodeSpacing          = $HierarchicalNodeSpacing
+          treeSpacing          = $HierarchicalTreeSpacing
+          blockShifting        = $HierarchicalBlockShifting
+          edgeMinimization     = $HierarchicalEdgeMinimization
+          parentCentralization = $HierarchicalParentCentralization
+          direction            = $Direction[$HierarchicalDirection] # // UD, DU, LR, RL
+          sortMethod           = $HierarchicalSortMethod #// hubsize, directed
         }
+      }
     }
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive 
-    $Object
+  }
+  Remove-EmptyValues -Hashtable $Object.Settings -Recursive
+  $Object
 }
 
 <#
