@@ -16,7 +16,7 @@ function New-HTMLDiagram {
 
     $DataEdges = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
     $DataNodes = [ordered] @{ }
-
+    $DataEvents = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
 
     [Array] $Settings = & $Diagram
     foreach ($Node in $Settings) {
@@ -56,6 +56,8 @@ function New-HTMLDiagram {
                 }
             }
             $DataEdges.Add($Node.Edges)
+        } elseif ($Node.Type -eq 'DiagramEvent') {
+            $DataEvents.Add($Node.Settings)
         }
     }
     <#
@@ -89,14 +91,14 @@ function New-HTMLDiagram {
 
         # We need to fix wrong escaped chars, Unescape breaks other parts
         $Replace = @{
-            '"\"Font Awesome 5 Solid\""'   = "'`"Font Awesome 5 Solid`"'"
-            '"\"Font Awesome 5 Brands\""'  = "'`"Font Awesome 5 Brands`"'"
-            '"\"Font Awesome 5 Regular\""' = "'`"Font Awesome 5 Regular`"'"
-            '"\"Font Awesome 5 Free\""'    = "'`"Font Awesome 5 Free`"'"
-            '"\"Font Awesome 5 Free Regular\""'    = "'`"Font Awesome 5 Free Regular`"'"
-            '"\"Font Awesome 5 Free Solid\""'    = "'`"Font Awesome 5 Free Solid`"'"
-            '"\"Font Awesome 5 Free Brands\""'    = "'`"Font Awesome 5 Free Brands`"'"
-            '"\\u'                         = '"\u'
+            '"\"Font Awesome 5 Solid\""'        = "'`"Font Awesome 5 Solid`"'"
+            '"\"Font Awesome 5 Brands\""'       = "'`"Font Awesome 5 Brands`"'"
+            '"\"Font Awesome 5 Regular\""'      = "'`"Font Awesome 5 Regular`"'"
+            '"\"Font Awesome 5 Free\""'         = "'`"Font Awesome 5 Free`"'"
+            '"\"Font Awesome 5 Free Regular\""' = "'`"Font Awesome 5 Free Regular`"'"
+            '"\"Font Awesome 5 Free Solid\""'   = "'`"Font Awesome 5 Free Solid`"'"
+            '"\"Font Awesome 5 Free Brands\""'  = "'`"Font Awesome 5 Free Brands`"'"
+            '"\\u'                              = '"\u'
         }
         foreach ($R in $Replace.Keys) {
             $NodeJson = $NodeJson.Replace($R, $Replace[$R])
@@ -153,5 +155,5 @@ function New-HTMLDiagram {
         $Image = $BackGroundImage
     }
 
-    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height -BackgroundImage $Image
+    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height -BackgroundImage $Image -Events $DataEvents
 }

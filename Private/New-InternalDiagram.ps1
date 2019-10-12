@@ -3,6 +3,7 @@ function New-InternalDiagram {
     param(
         [System.Collections.IList] $Nodes,
         [System.Collections.IList] $Edges,
+        [System.Collections.IList] $Events,
         [System.Collections.IDictionary] $Options,
         [string] $Height,
         [string] $Width,
@@ -26,6 +27,25 @@ function New-InternalDiagram {
 
     $ConvertedNodes = $Nodes -join ', '
     $ConvertedEdges = $Edges -join ', '
+
+    if ($Events.Count -gt 0) {
+        [Array] $PreparedEvents = @(
+            # https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex'
+            @'
+            function escapeRegExp(string) {
+                return string.toString().replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+            };
+'@
+            'network.on("click", function (params) {'
+            'params.event = "[original event]";'
+            'var findValue = escapeRegExp(params.nodes);'
+            foreach ($_ in $Events) {
+                New-DiagramInternalEvent -ID $_.ID -FadeSearch:$_.FadeSearch -ColumnID $_.ColumnID
+            }
+            '});'
+        )
+    }
+
 
     $Script = New-HTMLTag -Tag 'script' -Value {
         # Convert Dictionary to JSON and return chart within SCRIPT tag
@@ -51,6 +71,8 @@ function New-InternalDiagram {
             "var options = { }; "
         }
         'var network = new vis.Network(Container, data, options); '
+
+        $PreparedEvents
     } -NewLine
 
     $Div

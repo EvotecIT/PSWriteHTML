@@ -238,6 +238,7 @@ function New-HTMLTable {
             r - processing display element
             B - Buttons
             S - Select
+            F - FadeSeaerch
         #>
         dom              = 'Bfrtip'
         #buttons          = @($Buttons)
@@ -260,6 +261,7 @@ function New-HTMLTable {
                 }
             }
         )
+        "searchFade"     = $false
         "colReorder"     = -not $DisableColumnReorder.IsPresent
 
 
@@ -434,6 +436,7 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTables = $true
         $Script:HTMLSchema.Features.DataTablesPDF = $true
         $Script:HTMLSchema.Features.DataTablesExcel = $true
+        #$Script:HTMLSchema.Features.DataTablesSearchFade = $true
 
         if ($ScrollX) {
             $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = '100%' }
