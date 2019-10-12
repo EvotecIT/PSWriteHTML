@@ -58,6 +58,8 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
   - Added **HierarchicalTreeView** - very basic implementation. Not sure it will stick. **Requires feedback**
     - Added New-HTMLHierarchicalTreeView
     - Added New-HierarchicalTreeNode
+  - Added **Diagrams**
+    - Added New-DiagramEvent for linking Tables with Diagrams
 
 - 0.0.55 - 2019.09.29
   - Fix for Underlined space when using -Collapsable [#51](https://github.com/EvotecIT/PSWriteHTML/issues/51) - Thanks Tuxhedoh
