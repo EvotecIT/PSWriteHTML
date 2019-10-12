@@ -31,7 +31,7 @@ New-HTML -TitleText 'My Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             }
         }
         New-HTMLSection {
-            New-HTMLTable -DataTable $Users -DataTableID 'SpecialID123'  #-DisablePaging
+            New-HTMLTable -DataTable $Users -DataTableID 'SpecialID123' -DisablePaging
         }
     }
 }
