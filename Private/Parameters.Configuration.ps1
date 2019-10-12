@@ -66,6 +66,16 @@ $Script:Configuration = [ordered] @{
                 JS      = "$PSScriptRoot\..\Resources\JS\datatables.min.js", "$PSScriptRoot\..\Resources\JS\moment.min.js", "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
             }
         }
+        DataTablesSearchFade             = @{
+            Comment      = 'DataTables SearchFade'
+            Header       = @{
+                CssLink = 'https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\datatablesSearchFade.css"
+                JsLink  = "https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.js"
+                JS      = "$PSScriptRoot\..\Resources\JS\datatables.SearchFade.min"
+            }
+        }
+
         <# Those links need to be added instead of Datatables as above
             <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"/>
             <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/autofill/2.3.3/css/autoFill.dataTables.css"/>
