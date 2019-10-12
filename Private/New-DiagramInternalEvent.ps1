@@ -3,7 +3,7 @@
         #[switch] $OnClick,
         [string] $ID,
         #[switch] $FadeSearch,
-        [int] $ColumnID = -1
+        [nullable[int]] $ColumnID
     )
 
 
@@ -24,16 +24,16 @@
 "@
 
     } else {
-        if ($ColumnID -ne -1) {
+        if ($null -ne $ColumnID) {
             $Event = @"
         var table = `$('#$ID').DataTable();
         if (findValue != '') {
-            table.columns(1).search("^" + findValue + "$", true, false, true).draw();
+            table.columns($ColumnID).search("^" + findValue + "$", true, false, true).draw();
         } else {
-            table.columns(1).search('').draw();
+            table.columns($ColumnID).search('').draw();
         }
         if (table.page.info().recordsDisplay == 0) {
-            table.columns(1).search('').draw();
+            table.columns($ColumnID).search('').draw();
         }
 "@
         } else {
@@ -51,5 +51,4 @@
         }
     }
     $Event
-
 }

@@ -31,8 +31,22 @@ New-HTML -TitleText 'My Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
                 }
             }
         }
-        New-HTMLSection -HeaderText 'Active Directory Users' -HeaderBackGroundColor Grey  {
-            New-HTMLTable -DataTable $Users -DataTableID 'SpecialID123' #-DisablePaging
+        New-HTMLSection -HeaderText 'Active Directory Users' -HeaderBackGroundColor Grey {
+            New-HTMLPanel {
+                New-HTMLTable -DataTable $Users -DataTableID 'SpecialID123' #-DisablePaging
+            }
+            New-HTMLPanel {
+                New-HTMLCalendar {
+                    foreach ($_ in $Users) {
+                        New-CalendarEvent -StartDate $_.WhenCreated -Title "User: $($_.SamAccountName)" -Description "User $($_.Name) created on $($_.WhenCreated)"
+                        New-CalendarEvent -StartDate $_.WhenChanged -Title "User: $($_.SamAccountName)" -Description "User $($_.Name) modified on $($_.WhenChanged)"
+                    }
+                    foreach ($_ in $Computers) {
+                        New-CalendarEvent -StartDate $_.PasswordLastSet -Title "Computer $($_.SamAccountName)" -Description "Computer $($_.DNSHostName) password last set $($_.PasswordLastSet)"
+                    }
+                }
+            }
         }
+
     }
 }

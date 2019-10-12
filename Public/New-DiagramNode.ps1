@@ -18,8 +18,8 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "Image")]
         [parameter(ParameterSetName = "Shape")][string[]] $To,
         [parameter(ParameterSetName = "Shape")][string][ValidateSet(
-            'circle', 'dot', 'diamond', 'ellipse', 'database', 'box', 'square', 'triangle', 'triangleDown', 'text', 'star', 'hexagon')] $Shape = 'ellipse',
-        [parameter(ParameterSetName = "Image")][ValidateSet('squareImage', 'circularImage')][string] $ImageType = 'circularImage',
+            'circle', 'dot', 'diamond', 'ellipse', 'database', 'box', 'square', 'triangle', 'triangleDown', 'text', 'star', 'hexagon')] $Shape,
+        [parameter(ParameterSetName = "Image")][ValidateSet('squareImage', 'circularImage')][string] $ImageType,
         [parameter(ParameterSetName = "Image")][uri] $Image,
         #[string] $BrokenImage,
         #[string] $ImagePadding,
@@ -38,18 +38,18 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][int] $BorderWidth = 1,
+        [parameter(ParameterSetName = "Shape")][nullable[int]] $BorderWidth,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][int] $BorderWidthSelected = 2,
+        [parameter(ParameterSetName = "Shape")][nullable[int]] $BorderWidthSelected,
         [parameter(ParameterSetName = "Image")][string] $BrokenImages,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][bool] $Chosen = $true,
+        [parameter(ParameterSetName = "Shape")][nullable[bool]] $Chosen,
         [parameter(ParameterSetName = "Image")]
         [parameter(ParameterSetName = "Shape")][RGBColors] $ColorBorder = [RGBColors]::None,
         [parameter(ParameterSetName = "Image")]
@@ -66,12 +66,12 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][bool]$FixedX = $false,
+        [parameter(ParameterSetName = "Shape")][nullable[bool]]$FixedX,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][bool]$FixedY = $false,
+        [parameter(ParameterSetName = "Shape")][nullable[bool]]$FixedY,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -81,12 +81,12 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][int] $FontSize = 14, #// px
+        [parameter(ParameterSetName = "Shape")][nullable[int]] $FontSize, #// px
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][string] $FontName = 'arial',
+        [parameter(ParameterSetName = "Shape")][string] $FontName,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -96,7 +96,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][int] $FontStrokeWidth = 0, #// px
+        [parameter(ParameterSetName = "Shape")][nullable[int]] $FontStrokeWidth, #// px
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -106,7 +106,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][ValidateSet('center', 'left')][string] $FontAlign = 'center',
+        [parameter(ParameterSetName = "Shape")][ValidateSet('center', 'left')][string] $FontAlign,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -116,17 +116,17 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][int] $FontVAdjust = 0,
+        [parameter(ParameterSetName = "Shape")][nullable[int]] $FontVAdjust,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][int] $Size = 25,
+        [parameter(ParameterSetName = "Shape")][nullable[int]] $Size,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][bool]$WidthConstraint = $false,
+        [parameter(ParameterSetName = "Shape")][nullable[bool]] $WidthConstraint,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -187,7 +187,7 @@ function New-DiagramNode {
         )]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [string] $IconSolid,
-        [int] $Level = -1
+        [nullable[int]] $Level
     )
 
     if (-not $Label) {
@@ -277,7 +277,7 @@ function New-DiagramNode {
         image               = $Image
         icon                = $icon
 
-        level               = if ($Level -eq -1) { $null } else { $Level }
+        level               = $Level
 
 
         borderWidth         = $BorderWidth
@@ -303,10 +303,10 @@ function New-DiagramNode {
         }
         font                = [ordered]@{
             color       = ConvertFrom-Color -Color $FontColor
-            size        = $FontSize #// px
+            size        = $FontSize
             face        = $FontName
             background  = ConvertFrom-Color -Color $FontBackground
-            strokeWidth = $FontStrokeWidth #// px
+            strokeWidth = $FontStrokeWidth
             strokeColor = ConvertFrom-Color -Color $FontStrokeColor
             align       = $FontAlign
             multi       = $FontMulti

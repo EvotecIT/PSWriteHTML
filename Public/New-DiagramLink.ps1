@@ -1,89 +1,89 @@
 ﻿function New-DiagramLink {
-  [alias('DiagramEdge', 'DiagramEdges', 'New-DiagramEdge', 'DiagramLink')]
-  param(
-    [string[]] $From,
-    [string[]] $To,
-    [string] $Label,
-    [bool]$ArrowsToEnabled = $false,
-    [int] $ArrowsToScaleFactor = 1,
-    [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsToType = 'arrow',
-    [bool]$ArrowsMiddleEnabled = $false,
-    [int]$ArrowsMiddleScaleFactor = 1,
-    [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsMiddleType = 'arrow',
-    [bool]$ArrowsFromEnabled = $false,
-    [int] $ArrowsFromScaleFactor = 1,
-    [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsFromType = 'arrow',
-    [bool]$ArrowStrikethrough = $true,
-    [bool] $Chosen = $true,
-    [RGBColors] $Color = [RGBColors]::None,
-    [RGBColors] $ColorHighlight = [RGBColors]::None,
-    [RGBColors] $ColorHover = [RGBColors]::None,
-    [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit = 'from',
-    [double] $ColorOpacity = 1.0, # range between 0 and 1
-    [bool] $Dashes = $false,
-    [string] $Length,
-    [RGBColors] $FontColor = [RGBColors]::None,
-    [int] $FontSize = 14, #// px
-    [string] $FontName = 'arial',
-    [RGBColors] $FontBackground = [RGBColors]::None,
-    [int] $FontStrokeWidth = 0, #// px
-    [RGBColors] $FontStrokeColor = [RGBColors]::None,
-    [ValidateSet('center', 'left')][string] $FontAlign = 'center',
-    [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
-    [int] $FontVAdjust = 0
-  )
-  $Object = [PSCustomObject] @{
-    Type     = 'DiagramLink'
-    Settings = @{
-      from = $From
-      to   = $To
+    [alias('DiagramEdge', 'DiagramEdges', 'New-DiagramEdge', 'DiagramLink')]
+    param(
+        [string[]] $From,
+        [string[]] $To,
+        [string] $Label,
+        [nullable[bool]] $ArrowsToEnabled,
+        [nullable[int]] $ArrowsToScaleFacto,
+        [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsToType,
+        [nullable[bool]] $ArrowsMiddleEnabled,
+        [nullable[int]]$ArrowsMiddleScaleFactor,
+        [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsMiddleType,
+        [nullable[bool]] $ArrowsFromEnabled,
+        [nullable[int]] $ArrowsFromScaleFactor,
+        [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsFromType,
+        [nullable[bool]]$ArrowStrikethrough,
+        [nullable[bool]] $Chosen,
+        [RGBColors] $Color = [RGBColors]::None,
+        [RGBColors] $ColorHighlight = [RGBColors]::None,
+        [RGBColors] $ColorHover = [RGBColors]::None,
+        [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit,
+        [nullable[double]] $ColorOpacity, # range between 0 and 1
+        [nullable[bool]] $Dashes,
+        [string] $Length,
+        [RGBColors] $FontColor = [RGBColors]::None,
+        [nullable[int]] $FontSize, #// px
+        [string] $FontName,
+        [RGBColors] $FontBackground = [RGBColors]::None,
+        [nullable[int]] $FontStrokeWidth, #// px
+        [RGBColors] $FontStrokeColor = [RGBColors]::None,
+        [ValidateSet('center', 'left')][string] $FontAlign,
+        [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
+        [nullable[int]] $FontVAdjust
+    )
+    $Object = [PSCustomObject] @{
+        Type     = 'DiagramLink'
+        Settings = @{
+            from = $From
+            to   = $To
+        }
+        Edges    = @{
+            label              = $Label
+            length             = $Length
+            arrows             = [ordered]@{
+                to     = [ordered]@{
+                    enabled     = $ArrowsToEnabled
+                    scaleFactor = $ArrowsToScaleFactor
+                    type        = $ArrowsToType
+                }
+                middle = [ordered]@{
+                    enabled     = $ArrowsMiddleEnabled
+                    scaleFactor = $ArrowsMiddleScaleFactor
+                    type        = $ArrowsMiddleType
+                }
+                from   = [ordered]@{
+                    enabled     = $ArrowsFromEnabled
+                    scaleFactor = $ArrowsFromScaleFactor
+                    type        = $ArrowsFromType
+                }
+            }
+            arrowStrikethrough = $ArrowStrikethrough
+            chosen             = $Chosen
+            color              = [ordered]@{
+                color     = ConvertFrom-Color -Color $Color
+                highlight = ConvertFrom-Color -Color $ColorHighlight
+                hover     = ConvertFrom-Color -Color $ColorHover
+                inherit   = $ColorInherit
+                opacity   = $ColorOpacity
+            }
+            font               = [ordered]@{
+                color       = ConvertFrom-Color -Color $FontColor
+                size        = $FontSize
+                face        = $FontName
+                background  = ConvertFrom-Color -Color $FontBackground
+                strokeWidth = $FontStrokeWidth
+                strokeColor = ConvertFrom-Color -Color $FontStrokeColor
+                align       = $FontAlign
+                multi       = $FontMulti
+                vadjust     = $FontVAdjust
+            }
+            dashes             = $Dashes
+        }
     }
-    Edges    = @{
-      label              = $Label
-      length             = $Length
-      arrows             = [ordered]@{
-        to     = [ordered]@{
-          enabled     = $ArrowsToEnabled
-          scaleFactor = $ArrowsToScaleFactor
-          type        = $ArrowsToType
-        }
-        middle = [ordered]@{
-          enabled     = $ArrowsMiddleEnabled
-          scaleFactor = $ArrowsMiddleScaleFactor
-          type        = $ArrowsMiddleType
-        }
-        from   = [ordered]@{
-          enabled     = $ArrowsFromEnabled
-          scaleFactor = $ArrowsFromScaleFactor
-          type        = $ArrowsFromType
-        }
-      }
-      arrowStrikethrough = $ArrowStrikethrough
-      chosen             = $Chosen
-      color              = [ordered]@{
-        color     = ConvertFrom-Color -Color $Color
-        highlight = ConvertFrom-Color -Color $ColorHighlight
-        hover     = ConvertFrom-Color -Color $ColorHover
-        inherit   = $ColorInherit
-        opacity   = $ColorOpacity
-      }
-      font               = [ordered]@{
-        color       = ConvertFrom-Color -Color $FontColor
-        size        = $FontSize #// px
-        face        = $FontName
-        background  = ConvertFrom-Color -Color $FontBackground
-        strokeWidth = $FontStrokeWidth #// px
-        strokeColor = ConvertFrom-Color -Color $FontStrokeColor
-        align       = $FontAlign
-        multi       = $FontMulti
-        vadjust     = $FontVAdjust
-      }
-      dashes             = $Dashes
-    }
-  }
-  Remove-EmptyValues -Hashtable $Object.Settings -Recursive
-  Remove-EmptyValues -Hashtable $Object.Edges -Recursive -Rerun 2
-  $Object
+    Remove-EmptyValues -Hashtable $Object.Settings -Recursive
+    Remove-EmptyValues -Hashtable $Object.Edges -Recursive -Rerun 2
+    $Object
 }
 
 
