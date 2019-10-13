@@ -40,7 +40,7 @@ function New-InternalDiagram {
             'params.event = "[original event]";'
             'var findValue = escapeRegExp(params.nodes);'
             foreach ($_ in $Events) {
-                New-DiagramInternalEvent -ID $_.ID -FadeSearch:$_.FadeSearch -ColumnID $_.ColumnID
+                New-DiagramInternalEvent -ID $_.ID -ColumnID $_.ColumnID
             }
             '});'
         )

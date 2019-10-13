@@ -6,7 +6,7 @@ New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks
             New-HTMLDiagram -Height '1000px' {
                 New-DiagramOptionsInteraction -Hover $true
                 New-DiagramOptionsPhysics -Enabled $true
-                New-DiagramOptionsLayout -RandomSeed 500 -HierarchicalEnabled $true
+                New-DiagramOptionsLayout -RandomSeed 500 -HierarchicalEnabled $true -HierarchicalDirection FromLeftToRight
                 New-DiagramNode -Label 'USG Pro' -To 'Unifi Switch'
                 New-DiagramNode -Label 'Unifi Switch' -To 'Unifi AP', 'EvoWin'
                 New-DiagramNode -Label 'Unifi AP' -To 'EvoMac', 'EvoWin' -Shape hexagon

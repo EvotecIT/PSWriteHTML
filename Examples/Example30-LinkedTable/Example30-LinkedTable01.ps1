@@ -16,8 +16,8 @@ New-HTML -TitleText 'My Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
                     New-DiagramNode -Label 'Domain' -To 'AD Computers', 'AD Users' -IconBrands delicious
                     New-DiagramNode -Label 'AD Computers' -IconBrands apple
                     New-DiagramNode -Label 'AD Users' -IconBrands instagram
-                    New-DiagramEvent -ID 'SpecialID123' #5-FadeSearch
-                    New-DiagramEvent -ID 'OtherTable'
+                    New-DiagramEvent -ID 'SpecialID123' -ColumnID 1
+                    New-DiagramEvent -ID 'OtherTable' -ColumnID 1
                     foreach ($_ in $Computers) {
                         if ($_.OperatingSystem -like '*Server*') {
                             New-DiagramNode -Label $_.Name -IconSolid server -To 'AD Computers'

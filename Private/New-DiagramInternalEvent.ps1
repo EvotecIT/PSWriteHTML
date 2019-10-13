@@ -1,12 +1,13 @@
 ﻿function New-DiagramInternalEvent {
+    [CmdletBinding()]
     param(
         #[switch] $OnClick,
         [string] $ID,
         #[switch] $FadeSearch,
         [nullable[int]] $ColumnID
     )
-
-
+    # not ready
+    $FadeSearch = $false
     if ($FadeSearch) {
         $Event = @"
         var table = `$('#$ID').DataTable();

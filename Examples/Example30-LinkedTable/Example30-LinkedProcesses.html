@@ -1,0 +1,584 @@
+﻿<!DOCTYPE html>
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-13 15:37:11" name="revised"/><title>My Title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+}
+
+.overflowHidden {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.flexParent {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+}
+
+.flexParentInvisible {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexElement {
+    flex-basis: 100%;
+}
+
+.flexPanel {
+    flex-basis: 100%;
+}
+
+.roundedCorners {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+.rightLogo {
+    flex-basis: 100%;
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">/*
+h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+    margin: 10px 10px 10px 10px;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+    margin: 10px 10px 10px 10px;
+}
+</style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 20px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+</style><!-- CSS DataTables END --><noscript><!-- CSS DataTables START --><style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt;
+      width: 99%;
+    */
+
+    box-sizing: border-box;
+    width: calc(100% - 16px);
+    margin: 8px;
+}
+
+table th {
+    border-width: 1px;
+    padding: 4px;
+    border-style: solid;
+    border-color: black;
+    background-color: #616a6b;
+    color: white;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    font-weight: bold;
+    padding: 10px;
+}
+
+table td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    /* background-color: white; */
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    border-top: 1px solid #ddd;
+}
+
+/* Zebra striping */
+table tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+table th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+table td,
+table th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+</style><!-- CSS DataTables END --></noscript><!-- CSS VIS Network Dynamic, browser based visualization libraries START --><style type="text/css">.diagram {
+    min-height: 400px;
+    width: 100%;
+    height: 100%;
+    border: 0px solid unset;
+}
+
+.vis-network:focus {
+    outline: none;
+}
+</style><!-- CSS VIS Network Dynamic, browser based visualization libraries END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --><!-- CSS VIS Network Dynamic, browser based visualization libraries START --><link href="https://unpkg.com/vis-network@latest/dist/vis-network.min.css" type="text/css" rel="stylesheet"/><!-- CSS VIS Network Dynamic, browser based visualization libraries END --><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script src="https://unpkg.com/vis-network@latest/dist/vis-network.min.js" type="text/javascript"></script><!-- JS VIS Network Dynamic, browser based visualization libraries END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="flexParent"><div class="flexParent flexElement overflowHidden"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    //  Table code
+                    var table = $('#RandomID').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "searchFade":  false,
+    "colReorder":  true,
+    "paging":  false,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   },
+    "createdRow":  ""
+}
+                    );
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="RandomID" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>14668</td><td>Normal</td><td>7.3.712</td><td>810</td><td>42328064</td><td>39038976</td><td>39038976</td><td>297185280</td><td>00:00:01.1093750</td><td>1</td><td>810</td><td>297185280</td><td>42328064</td><td>39038976</td><td>40848</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>1,109375</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>2148</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>40848</td><td>40848</td><td>39038976</td><td>465776</td><td>465776</td><td>42061824</td><td>42061824</td><td>62976000</td><td>62976000</td><td>310571008</td><td>310571008</td><td>True</td><td>39038976</td><td>00:00:00.2500000</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>13.10.2019 12:48:57</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.8593750</td><td>297185280</td><td>False</td><td></td><td></td><td></td><td>42328064</td><td></td><td></td></tr><tr><td>aesm_service</td><td>21284</td><td></td><td></td><td>193</td><td>12095488</td><td>3059712</td><td>3059712</td><td>117387264</td><td></td><td>0</td><td>193</td><td>4412354560</td><td>12095488</td><td>3059712</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3059712</td><td>159360</td><td>159360</td><td>5173248</td><td>5173248</td><td>17383424</td><td>17383424</td><td>134447104</td><td>4429414400</td><td></td><td>3059712</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412354560</td><td>False</td><td></td><td></td><td></td><td>12095488</td><td></td><td></td></tr><tr><td>ApplicationFrameHost</td><td>3520</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>564</td><td>31444992</td><td>29409280</td><td>29409280</td><td>276439040</td><td>00:00:01.2031250</td><td>1</td><td>564</td><td>2203594661888</td><td>31444992</td><td>29409280</td><td>32496</td><td>C:\WINDOWS\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>1,203125</td><td>10.0.18362.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>2904</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>3606566</td><td>Settings</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>32496</td><td>32496</td><td>29409280</td><td>435504</td><td>435504</td><td>34738176</td><td>34738176</td><td>52154368</td><td>52154368</td><td>294162432</td><td>2203612385280</td><td>True</td><td>29409280</td><td>00:00:00.8593750</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>13.10.2019 12:50:33</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.3437500</td><td>2203594661888</td><td>False</td><td></td><td></td><td></td><td>31444992</td><td></td><td></td></tr><tr><td>browser_broker</td><td>12368</td><td>Normal</td><td>11.00.18362.267 (WinBuild.160101.0800)</td><td>135</td><td>8003584</td><td>1703936</td><td>1703936</td><td>97890304</td><td>00:00:00.0156250</td><td>1</td><td>135</td><td>2203416113152</td><td>8003584</td><td>1703936</td><td>8832</td><td>C:\WINDOWS\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>11.00.18362.267</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>884</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1703936</td><td>124816</td><td>124816</td><td>1929216</td><td>1929216</td><td>9170944</td><td>9170944</td><td>101560320</td><td>2203419783168</td><td>True</td><td>1703936</td><td>00:00:00.0156250</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>13.10.2019 12:57:45</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416113152</td><td>False</td><td></td><td></td><td></td><td>8003584</td><td></td><td></td></tr><tr><td>Calculator</td><td>12460</td><td>Normal</td><td>10.1908.0.0</td><td>580</td><td>397312</td><td>37752832</td><td>37752832</td><td>449921024</td><td>00:00:00.3281250</td><td>1</td><td>580</td><td>4744888320</td><td>397312</td><td>37752832</td><td>29256</td><td>C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.1908.0.0_x64__8wekyb3d8bbwe\Calculator.exe</td><td>Microsoft Corporation</td><td>0,328125</td><td>10.1908.0.0</td><td>Calculator.exe</td><td>Microsoft Calculator</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6628</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>133464</td><td>Calculator</td><td>System.Diagnostics.ProcessModule (Calculator.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>29256</td><td>29256</td><td>37752832</td><td>722552</td><td>722552</td><td>49758208</td><td>49758208</td><td>75321344</td><td>75321344</td><td>453066752</td><td>4748034048</td><td>True</td><td>37752832</td><td>00:00:00.1250000</td><td>Calculator</td><td>65535</td><td>False</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>13.10.2019 12:54:13</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2031250</td><td>4744888320</td><td>False</td><td></td><td></td><td></td><td>397312</td><td></td><td></td></tr><tr><td>Code</td><td>3464</td><td>Normal</td><td>1.39.1</td><td>401</td><td>76333056</td><td>63270912</td><td>63270912</td><td>551919616</td><td>00:00:03.9687500</td><td>1</td><td>401</td><td>2203870142464</td><td>76333056</td><td>63270912</td><td>42656</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>3,96875</td><td>1.39.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6564</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>42656</td><td>42656</td><td>63270912</td><td>461416</td><td>461416</td><td>92680192</td><td>92680192</td><td>116850688</td><td>116850688</td><td>561881088</td><td>2203880103936</td><td>True</td><td>63270912</td><td>00:00:01.0937500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>13.10.2019 12:56:43</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:02.8750000</td><td>2203870142464</td><td>False</td><td></td><td></td><td></td><td>76333056</td><td></td><td></td></tr><tr><td>Code</td><td>3588</td><td>Normal</td><td>1.39.1</td><td>541</td><td>344154112</td><td>383602688</td><td>383602688</td><td>1218703360</td><td>00:04:20.8437500</td><td>1</td><td>541</td><td>2204536926208</td><td>344154112</td><td>383602688</td><td>99232</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>260,84375</td><td>1.39.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6452</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>99232</td><td>99232</td><td>383602688</td><td>672896</td><td>672896</td><td>630370304</td><td>630370304</td><td>587780096</td><td>587780096</td><td>1432350720</td><td>2204750573568</td><td>True</td><td>383602688</td><td>00:00:13.3437500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>13.10.2019 12:56:40</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:04:07.5000000</td><td>2204536926208</td><td>False</td><td></td><td></td><td></td><td>344154112</td><td></td><td></td></tr><tr><td>Code</td><td>4052</td><td>Normal</td><td>1.39.1</td><td>365</td><td>233881600</td><td>262897664</td><td>262897664</td><td>717434880</td><td>00:00:47.3281250</td><td>1</td><td>365</td><td>2204035657728</td><td>233881600</td><td>262897664</td><td>82712</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>47,328125</td><td>1.39.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6300</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>82712</td><td>82712</td><td>262897664</td><td>449936</td><td>449936</td><td>458280960</td><td>458280960</td><td>434835456</td><td>434835456</td><td>873259008</td><td>2204191481856</td><td>True</td><td>262897664</td><td>00:00:03.9218750</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>13.10.2019 12:56:41</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:43.4062500</td><td>2204035657728</td><td>False</td><td></td><td></td><td></td><td>233881600</td><td></td><td></td></tr><tr><td>Code</td><td>13852</td><td>Normal</td><td>1.39.1</td><td>236</td><td>98885632</td><td>106090496</td><td>106090496</td><td>525742080</td><td>00:00:12.7500000</td><td>1</td><td>236</td><td>2203843964928</td><td>98885632</td><td>106090496</td><td>42336</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>12,75</td><td>1.39.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6620</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>42336</td><td>42336</td><td>106090496</td><td>428976</td><td>428976</td><td>574181376</td><td>574181376</td><td>563847168</td><td>563847168</td><td>1006481408</td><td>2204324704256</td><td>True</td><td>106090496</td><td>00:00:01</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>13.10.2019 14:16:33</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:11.7500000</td><td>2203843964928</td><td>False</td><td></td><td></td><td></td><td>98885632</td><td></td><td></td></tr><tr><td>Code</td><td>14756</td><td>Normal</td><td>1.39.1</td><td>239</td><td>11337728</td><td>6545408</td><td>6545408</td><td>242130944</td><td>00:00:00.0937500</td><td>1</td><td>239</td><td>2203560353792</td><td>11337728</td><td>6545408</td><td>16024</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,09375</td><td>1.39.1</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>6440</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>16024</td><td>16024</td><td>6545408</td><td>412304</td><td>412304</td><td>6672384</td><td>6672384</td><td>14757888</td><td>14757888</td><td>246845440</td><td>2203565068288</td><td>True</td><td>6545408</td><td>00:00:00.0937500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>13.10.2019 12:56:41</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203560353792</td><td>False</td><td></td><td></td><td></td><td>11337728</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Diagram-gihljk6d" class="diagram"></div></div></div></div><script>// create an array with nodes
+var nodes = new vis.DataSet([{
+    "id":  "Processes",
+    "label":  "Processes",
+    "shape":  "icon",
+    "icon":  {
+                 "face":  '"Font Awesome 5 Brands"',
+                 "code":  "\uf1a5",
+                 "weight":  "bold"
+             }
+}, {
+    "id":  "14668",
+    "label":  "1Password"
+}, {
+    "id":  "21284",
+    "label":  "aesm_service"
+}, {
+    "id":  "3520",
+    "label":  "ApplicationFrameHost"
+}, {
+    "id":  "12368",
+    "label":  "browser_broker"
+}, {
+    "id":  "12460",
+    "label":  "Calculator"
+}, {
+    "id":  "3464",
+    "label":  "Code"
+}, {
+    "id":  "3588",
+    "label":  "Code"
+}, {
+    "id":  "4052",
+    "label":  "Code"
+}, {
+    "id":  "13852",
+    "label":  "Code"
+}, {
+    "id":  "14756",
+    "label":  "Code"
+}]); 
+// create an array with edges
+var edges = new vis.DataSet([{
+    "from":  "14668",
+    "to":  "Processes"
+}, {
+    "from":  "21284",
+    "to":  "Processes"
+}, {
+    "from":  "3520",
+    "to":  "Processes"
+}, {
+    "from":  "12368",
+    "to":  "Processes"
+}, {
+    "from":  "12460",
+    "to":  "Processes"
+}, {
+    "from":  "3464",
+    "to":  "Processes"
+}, {
+    "from":  "3588",
+    "to":  "Processes"
+}, {
+    "from":  "4052",
+    "to":  "Processes"
+}, {
+    "from":  "13852",
+    "to":  "Processes"
+}, {
+    "from":  "14756",
+    "to":  "Processes"
+}]); 
+// create a network
+var Container = document.getElementById('Diagram-gihljk6d'); 
+var data = { 
+   nodes: nodes, 
+   edges: edges
+ }; 
+var options = {
+
+}; 
+var network = new vis.Network(Container, data, options); 
+            function escapeRegExp(string) {
+                return string.toString().replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+            };
+network.on("click", function (params) {
+params.event = "[original event]";
+var findValue = escapeRegExp(params.nodes);
+        var table = $('#RandomID').DataTable();
+        if (findValue != '') {
+            table.columns(1).search("^" + findValue + "$", true, false, true).draw();
+        } else {
+            table.columns(1).search('').draw();
+        }
+        if (table.page.info().recordsDisplay == 0) {
+            table.columns(1).search('').draw();
+        }
+});
+</script></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script type="text/javascript">function clusterByCid() {
+    network.setData(data);
+    var clusterOptionsByData = {
+        joinCondition: function (childOptions) {
+            return childOptions.cid == 1;
+        },
+        clusterNodeProperties: { id: 'cidCluster', borderWidth: 3, shape: 'database' }
+    };
+    network.cluster(clusterOptionsByData);
+}
+function clusterByColor() {
+    network.setData(data);
+    var colors = ['orange', 'lime', 'DarkViolet'];
+    var clusterOptionsByData;
+    for (var i = 0; i < colors.length; i++) {
+        var color = colors[i];
+        clusterOptionsByData = {
+            joinCondition: function (childOptions) {
+                return childOptions.color.background == color; // the color is fully defined in the node.
+            },
+            processProperties: function (clusterOptions, childNodes, childEdges) {
+                var totalMass = 0;
+                for (var i = 0; i < childNodes.length; i++) {
+                    totalMass += childNodes[i].mass;
+                }
+                clusterOptions.mass = totalMass;
+                return clusterOptions;
+            },
+            clusterNodeProperties: { id: 'cluster:' + color, borderWidth: 3, shape: 'database', color: color, label: 'color:' + color }
+        };
+        network.cluster(clusterOptionsByData);
+    }
+}
+function clusterByConnection() {
+    network.setData(data);
+    network.clusterByConnection(1)
+}
+function clusterOutliers() {
+    network.setData(data);
+    network.clusterOutliers();
+}
+function clusterByHubsize() {
+    network.setData(data);
+    var clusterOptionsByData = {
+        processProperties: function (clusterOptions, childNodes) {
+            clusterOptions.label = "[" + childNodes.length + "]";
+            return clusterOptions;
+        },
+        clusterNodeProperties: { borderWidth: 3, shape: 'box', font: { size: 30 } }
+    };
+    network.clusterByHubsize(undefined, clusterOptionsByData);
+}
+</script><!-- JS VIS Network Dynamic, browser based visualization libraries END --></footer><!-- END FOOTER --></html>

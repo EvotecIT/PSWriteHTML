@@ -4,6 +4,7 @@
     font-family: 'Roboto', sans-serif !important;
     text-transform: uppercase;
 }
+
 [data-tabs] {
     display: flex;
     margin-top: 10px;
