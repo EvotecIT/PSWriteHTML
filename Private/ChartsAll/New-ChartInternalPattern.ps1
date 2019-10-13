@@ -1,4 +1,5 @@
 ﻿function New-ChartInternalPattern {
+    [CmdletBinding()]
     param(
 
     )

@@ -1,4 +1,5 @@
 ﻿function New-ChartInternalGradient {
+    [CmdletBinding()]
     param(
 
     )

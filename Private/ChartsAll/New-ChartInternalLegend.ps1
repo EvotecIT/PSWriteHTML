@@ -1,4 +1,5 @@
 function New-ChartInternalLegend {
+    [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default'

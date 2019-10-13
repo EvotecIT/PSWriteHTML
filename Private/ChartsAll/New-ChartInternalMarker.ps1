@@ -1,4 +1,5 @@
 function New-ChartInternalMarker {
+    [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
         [int] $MarkerSize

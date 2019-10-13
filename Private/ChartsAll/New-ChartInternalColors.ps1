@@ -1,4 +1,5 @@
 ﻿function New-ChartInternalColors {
+    [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
         [RGBColors[]]$Colors

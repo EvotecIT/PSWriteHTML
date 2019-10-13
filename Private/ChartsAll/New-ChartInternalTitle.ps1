@@ -1,11 +1,12 @@
 function New-ChartInternalTitle {
+    [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default'
     )
     # title
-    $Options.title = [ordered] @{}
+    $Options.title = [ordered] @{ }
     if ($TitleText -ne '') {
         $Options.title.text = $Title
     }
