@@ -1,4 +1,5 @@
 ﻿function New-DiagramEvent {
+    [CmdletBinding()]
     param(
         #[switch] $FadeSearch,
         [string] $ID,

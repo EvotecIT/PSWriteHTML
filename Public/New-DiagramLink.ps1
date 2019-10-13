@@ -1,5 +1,6 @@
 ﻿function New-DiagramLink {
     [alias('DiagramEdge', 'DiagramEdges', 'New-DiagramEdge', 'DiagramLink')]
+    [CmdletBinding()]
     param(
         [string[]] $From,
         [string[]] $To,

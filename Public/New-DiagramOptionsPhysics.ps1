@@ -1,5 +1,6 @@
 function New-DiagramOptionsPhysics {
     [alias('DiagramOptionsPhysics')]
+    [CmdletBinding()]
     param(
         [nullable[bool]] $Enabled,
         [nullable[bool]] $StabilizationEnabled,

@@ -1,5 +1,6 @@
 function New-DiagramOptionsNodes {
     [alias('DiagramOptionsNodes')]
+    [CmdletBinding()]
     param(
         [nullable[int]] $BorderWidth,
         [nullable[int]] $BorderWidthSelected,

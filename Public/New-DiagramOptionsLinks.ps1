@@ -1,5 +1,6 @@
 function New-DiagramOptionsLinks {
     [alias('DiagramOptionsEdges', 'New-DiagramOptionsEdges', 'DiagramOptionsLinks')]
+    [CmdletBinding()]
     param(
         [nullable[bool]] $ArrowsToEnabled,
         [nullable[int]] $ArrowsToScaleFactor,
@@ -19,6 +20,15 @@ function New-DiagramOptionsLinks {
         [nullable[double]] $ColorOpacity, # range between 0 and 1
         [nullable[bool]]  $Dashes,
         [string] $Length,
+        [RGBColors] $FontColor = [RGBColors]::None,
+        [nullable[int]] $FontSize, #// px
+        [string] $FontName,
+        [RGBColors] $FontBackground = [RGBColors]::None,
+        [nullable[int]] $FontStrokeWidth, #// px
+        [RGBColors] $FontStrokeColor = [RGBColors]::None,
+        [ValidateSet('center', 'left')][string] $FontAlign,
+        [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
+        [nullable[int]] $FontVAdjust,
         [nullable[int]] $WidthConstraint
     )
     $Object = [PSCustomObject] @{
@@ -51,6 +61,17 @@ function New-DiagramOptionsLinks {
                     hover     = ConvertFrom-Color -Color $ColorHover
                     inherit   = $ColorInherit
                     opacity   = $ColorOpacity
+                }
+                font               = [ordered]@{
+                    color       = ConvertFrom-Color -Color $FontColor
+                    size        = $FontSize
+                    face        = $FontName
+                    background  = ConvertFrom-Color -Color $FontBackground
+                    strokeWidth = $FontStrokeWidth
+                    strokeColor = ConvertFrom-Color -Color $FontStrokeColor
+                    align       = $FontAlign
+                    multi       = $FontMulti
+                    vadjust     = $FontVAdjust
                 }
                 dashes             = $Dashes
                 widthConstraint    = $WidthConstraint

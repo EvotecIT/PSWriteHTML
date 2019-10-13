@@ -1,5 +1,6 @@
 function New-DiagramOptionsLayout {
     [alias('DiagramOptionsLayout')]
+    [CmdletBinding()]
     param(
         [nullable[int]] $RandomSeed,
         [nullable[bool]] $ImprovedLayout,
