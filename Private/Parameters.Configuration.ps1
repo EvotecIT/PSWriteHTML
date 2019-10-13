@@ -66,9 +66,9 @@ $Script:Configuration = [ordered] @{
                 JS      = "$PSScriptRoot\..\Resources\JS\datatables.min.js", "$PSScriptRoot\..\Resources\JS\moment.min.js", "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
             }
         }
-        DataTablesSearchFade             = @{
-            Comment      = 'DataTables SearchFade'
-            Header       = @{
+        DataTablesSearchFade    = @{
+            Comment = 'DataTables SearchFade'
+            Header  = @{
                 CssLink = 'https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\datatablesSearchFade.css"
                 JsLink  = "https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.js"
@@ -194,7 +194,9 @@ $Script:Configuration = [ordered] @{
             Comment = 'FullCalendar Core'
             Header  = @{
                 CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendarCore.css"
                 JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\fullCalendarCore.js"
             }
 
         }
@@ -202,14 +204,17 @@ $Script:Configuration = [ordered] @{
             Comment = 'FullCalendar DayGrid'
             Header  = @{
                 CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.3.0/main.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendarDayGrid.css"
                 JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.3.0/main.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\fullCalendarDayGrid.js"
             }
 
         }
         FullCalendarInteraction = @{
-            Comment = 'FullCalendar List'
+            Comment = 'FullCalendar Interaction'
             Header  = @{
                 JSLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.3.0/main.min.js'
+                JS     = "$PSScriptRoot\..\Resources\JS\FullCalendarInteraction.js"
             }
 
         }
@@ -217,7 +222,9 @@ $Script:Configuration = [ordered] @{
             Comment = 'FullCalendar List'
             Header  = @{
                 CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.3.0/main.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendarList.css"
                 JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.3.0/main.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\fullCalendarList.js"
             }
 
         }
@@ -225,6 +232,7 @@ $Script:Configuration = [ordered] @{
             Comment = 'FullCalendar RRule'
             Header  = @{
                 JSLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/rrule'
+                JS     = "$PSScriptRoot\..\Resources\JS\fullCalendarRRule.js"
                 #https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@4.3.0/main.min.js
             }
         }
@@ -232,14 +240,18 @@ $Script:Configuration = [ordered] @{
             Comment = 'FullCalendar TimeGrid'
             Header  = @{
                 CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.3.0/main.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendarTimeGrid.css"
                 JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.3.0/main.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\fullCalendarTimeGrid.js"
             }
         }
         FullCalendarTimeLine    = @{
             Comment = 'FullCalendar TimeLine'
             Header  = @{
                 CssLink = 'https://cdn.jsdelivr.net/npm/@fullcalendar/timeline@4.3.0/main.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendarTimeLine.css"
                 JSLink  = 'https://cdn.jsdelivr.net/npm/@fullcalendar/timeline@4.3.0/main.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\fullCalendarTimeLine.js"
             }
 
         }
@@ -259,6 +271,10 @@ $Script:Configuration = [ordered] @{
                     'https://unpkg.com/popper.js/dist/umd/popper.min.js'
                     'https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js'
                 )
+                JS = @(
+                    "$PSScriptRoot\..\Resources\JS\popper.js"
+                    "$PSScriptRoot\..\Resources\JS\tooltip.js"
+                )
             }
         }
         Tabs                    = @{
@@ -275,11 +291,11 @@ $Script:Configuration = [ordered] @{
             }
         }
         Tabbis                  = @{
-            Comment      = 'Elastic Tabbis'
-            HeaderAlways = @{
+            Comment              = 'Elastic Tabbis'
+            HeaderAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabbis.css"
             }
-            FooterAlways = @{
+            FooterAlways         = @{
                 JS = @(
                     "$PSScriptRoot\..\Resources\JS\tabbis.js"
                     "$PSScriptRoot\..\Resources\JS\tabbisAdditional.js"
@@ -290,7 +306,7 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color ([RGBColors]::MediumSlateBlue)
             }
         }
-        TabbisGradient            = @{
+        TabbisGradient          = @{
             Comment              = 'Elastic Tabs Gradient'
             FooterAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.gradient.css"
@@ -300,7 +316,7 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color ([RGBColors]::MediumSlateBlue)
             }
         }
-        TabbisTransition          = @{
+        TabbisTransition        = @{
             Comment      = 'Elastic Tabs Transition'
             FooterAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.transition.css"
