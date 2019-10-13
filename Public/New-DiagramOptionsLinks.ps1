@@ -1,62 +1,62 @@
 function New-DiagramOptionsLinks {
-  [alias('DiagramOptionsEdges', 'New-DiagramOptionsEdges', 'DiagramOptionsLinks')]
-  param(
-    [bool]$ArrowsToEnabled = $false,
-    [int] $ArrowsToScaleFactor = 1,
-    [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsToType = 'arrow',
-    [bool]$ArrowsMiddleEnabled = $false,
-    [int]$ArrowsMiddleScaleFactor = 1,
-    [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsMiddleType = 'arrow',
-    [bool]$ArrowsFromEnabled = $false,
-    [int] $ArrowsFromScaleFactor = 1,
-    [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsFromType = 'arrow',
-    [bool]$ArrowStrikethrough = $true,
-    [bool] $Chosen = $true,
-    [RGBColors] $Color = [RGBColors]::None,
-    [RGBColors] $ColorHighlight = [RGBColors]::None,
-    [RGBColors] $ColorHover = [RGBColors]::None,
-    [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit = 'from',
-    [double] $ColorOpacity = 1.0, # range between 0 and 1
-    [bool] $Dashes = $false,
-    [string] $Length
-  )
-  $Object = [PSCustomObject] @{
-    Type     = 'DiagramOptionsEdges'
-    Settings = @{
-      edges = [ordered] @{
-        length             = $Length
-        arrows             = [ordered]@{
-          to     = [ordered]@{
-            enabled     = $ArrowsToEnabled
-            scaleFactor = $ArrowsToScaleFactor
-            type        = $ArrowsToType
-          }
-          middle = [ordered]@{
-            enabled     = $ArrowsMiddleEnabled
-            scaleFactor = $ArrowsMiddleScaleFactor
-            type        = $ArrowsMiddleType
-          }
-          from   = [ordered]@{
-            enabled     = $ArrowsFromEnabled
-            scaleFactor = $ArrowsFromScaleFactor
-            type        = $ArrowsFromType
-          }
+    [alias('DiagramOptionsEdges', 'New-DiagramOptionsEdges', 'DiagramOptionsLinks')]
+    param(
+        [nullable[bool]] $ArrowsToEnabled,
+        [nullable[int]] $ArrowsToScaleFactor,
+        [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsToType,
+        [nullable[bool]] $ArrowsMiddleEnabled,
+        [nullable[int]] $ArrowsMiddleScaleFactor,
+        [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsMiddleType,
+        [nullable[bool]] $ArrowsFromEnabled,
+        [nullable[int]] $ArrowsFromScaleFactor,
+        [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsFromType,
+        [nullable[bool]] $ArrowStrikethrough,
+        [nullable[bool]] $Chosen,
+        [RGBColors] $Color = [RGBColors]::None,
+        [RGBColors] $ColorHighlight = [RGBColors]::None,
+        [RGBColors] $ColorHover = [RGBColors]::None,
+        [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit,
+        [nullable[double]] $ColorOpacity, # range between 0 and 1
+        [nullable[bool]]  $Dashes,
+        [string] $Length
+    )
+    $Object = [PSCustomObject] @{
+        Type     = 'DiagramOptionsEdges'
+        Settings = @{
+            edges = [ordered] @{
+                length             = $Length
+                arrows             = [ordered]@{
+                    to     = [ordered]@{
+                        enabled     = $ArrowsToEnabled
+                        scaleFactor = $ArrowsToScaleFactor
+                        type        = $ArrowsToType
+                    }
+                    middle = [ordered]@{
+                        enabled     = $ArrowsMiddleEnabled
+                        scaleFactor = $ArrowsMiddleScaleFactor
+                        type        = $ArrowsMiddleType
+                    }
+                    from   = [ordered]@{
+                        enabled     = $ArrowsFromEnabled
+                        scaleFactor = $ArrowsFromScaleFactor
+                        type        = $ArrowsFromType
+                    }
+                }
+                arrowStrikethrough = $ArrowStrikethrough
+                chosen             = $Chosen
+                color              = [ordered]@{
+                    color     = ConvertFrom-Color -Color $Color
+                    highlight = ConvertFrom-Color -Color $ColorHighlight
+                    hover     = ConvertFrom-Color -Color $ColorHover
+                    inherit   = $ColorInherit
+                    opacity   = $ColorOpacity
+                }
+                dashes             = $Dashes
+            }
         }
-        arrowStrikethrough = $ArrowStrikethrough
-        chosen             = $Chosen
-        color              = [ordered]@{
-          color     = ConvertFrom-Color -Color $Color
-          highlight = ConvertFrom-Color -Color $ColorHighlight
-          hover     = ConvertFrom-Color -Color $ColorHover
-          inherit   = $ColorInherit
-          opacity   = $ColorOpacity
-        }
-        dashes             = $Dashes
-      }
     }
-  }
-  Remove-EmptyValues -Hashtable $Object.Settings -Recursive
-  $Object
+    Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
+    $Object
 }
 <#
 // these are all options in full.

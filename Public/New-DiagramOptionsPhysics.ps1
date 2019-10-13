@@ -1,16 +1,16 @@
 function New-DiagramOptionsPhysics {
     [alias('DiagramOptionsPhysics')]
     param(
-        [bool] $Enabled = $true,
-        [bool] $StabilizationEnabled = $true,
-        [int] $Stabilizationiterations = 1000,
-        [int] $StabilizationupdateInterval = 100,
-        [bool] $StabilizationonlyDynamicEdges = $false,
-        [bool] $Stabilizationfit = $true,
-        [int] $MaxVelocity = 50,
-        [int] $MinVelocity = 0.1,
-        [int] $Timestep = 0.5,
-        [bool] $AdaptiveTimestep = $true  
+        [nullable[bool]] $Enabled,
+        [nullable[bool]] $StabilizationEnabled,
+        [nullable[int]] $Stabilizationiterations,
+        [nullable[int]] $StabilizationupdateInterval,
+        [nullable[bool]] $StabilizationonlyDynamicEdges,
+        [nullable[bool]] $Stabilizationfit,
+        [nullable[int]] $MaxVelocity,
+        [nullable[int]] $MinVelocity,
+        [nullable[int]] $Timestep,
+        [nullable[bool]] $AdaptiveTimestep
     )
     $Object = [PSCustomObject] @{
         Type     = 'DiagramOptionsPhysics'
@@ -31,7 +31,7 @@ function New-DiagramOptionsPhysics {
             }
         }
     }
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive 
+    Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
     $Object
 }
 

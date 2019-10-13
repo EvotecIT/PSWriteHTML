@@ -1,72 +1,72 @@
 function New-DiagramOptionsNodes {
-  [alias('DiagramOptionsNodes')]
-  param(            
-    [int] $BorderWidth = 1,
-    [int] $BorderWidthSelected = 2,
-    [string] $BrokenImage,
-    [bool] $Chosen = $true,                     
-    [RGBColors] $ColorBorder = [RGBColors]::None,
-    [RGBColors] $ColorBackground = [RGBColors]::None,     
-    [RGBColors] $ColorHighlightBorder = [RGBColors]::None,
-    [RGBColors] $ColorHighlightBackground = [RGBColors]::None,
-    [RGBColors] $ColorHoverBorder = [RGBColors]::None,
-    [RGBColors] $ColorHoverBackground = [RGBColors]::None,
-    [bool]$FixedX = $false,
-    [bool]$FixedY = $false,
-    [RGBColors] $FontColor = [RGBColors]::None,
-    [int] $FontSize = 14, #// px
-    [string] $FontName = 'arial',
-    [RGBColors] $FontBackground = [RGBColors]::None,
-    [int] $FontStrokeWidth = 0, #// px
-    [RGBColors] $FontStrokeColor = [RGBColors]::None,
-    [ValidateSet('center', 'left')][string] $FontAlign = 'center',
-    [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
-    [int] $FontVAdjust = 0,    
-    [int] $Size = 25,
-    [bool]$WidthConstraint = $false
-  )
-  $Object = [PSCustomObject] @{
-    Type     = 'DiagramOptionsNodes'
-    Settings = @{
-      nodes = [ordered] @{
-        borderWidth         = $BorderWidth
-        borderWidthSelected = $BorderWidthSelected
-        brokenImage         = $BrokenImage
-        chosen              = $Chosen
-        color               = [ordered]@{
-          border     = ConvertFrom-Color -Color $ColorBorder
-          background = ConvertFrom-Color -Color $ColorBackground
-          highlight  = [ordered]@{
-            border     = ConvertFrom-Color -Color $ColorHighlightBorder
-            background = ConvertFrom-Color -Color $ColorHighlightBackground
-          }
-          hover      = [ordered]@{
-            border     = ConvertFrom-Color -Color $ColorHoverBorder
-            background = ConvertFrom-Color -Color $ColorHoverBackground
-          }
+    [alias('DiagramOptionsNodes')]
+    param(
+        [nullable[int]] $BorderWidth,
+        [nullable[int]] $BorderWidthSelected,
+        [string] $BrokenImage,
+        [nullable[bool]] $Chosen,
+        [RGBColors] $ColorBorder = [RGBColors]::None,
+        [RGBColors] $ColorBackground = [RGBColors]::None,
+        [RGBColors] $ColorHighlightBorder = [RGBColors]::None,
+        [RGBColors] $ColorHighlightBackground = [RGBColors]::None,
+        [RGBColors] $ColorHoverBorder = [RGBColors]::None,
+        [RGBColors] $ColorHoverBackground = [RGBColors]::None,
+        [nullable[bool]] $FixedX,
+        [nullable[bool]] $FixedY,
+        [RGBColors] $FontColor = [RGBColors]::None,
+        [nullable[int]] $FontSize, #// px
+        [string] $FontName,
+        [RGBColors] $FontBackground = [RGBColors]::None,
+        [nullable[int]] $FontStrokeWidth, #// px
+        [RGBColors] $FontStrokeColor = [RGBColors]::None,
+        [ValidateSet('center', 'left')][string] $FontAlign,
+        [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
+        [nullable[int]] $FontVAdjust,
+        [nullable[int]] $Size,
+        [nullable[bool]] $WidthConstraint
+    )
+    $Object = [PSCustomObject] @{
+        Type     = 'DiagramOptionsNodes'
+        Settings = @{
+            nodes = [ordered] @{
+                borderWidth         = $BorderWidth
+                borderWidthSelected = $BorderWidthSelected
+                brokenImage         = $BrokenImage
+                chosen              = $Chosen
+                color               = [ordered]@{
+                    border     = ConvertFrom-Color -Color $ColorBorder
+                    background = ConvertFrom-Color -Color $ColorBackground
+                    highlight  = [ordered]@{
+                        border     = ConvertFrom-Color -Color $ColorHighlightBorder
+                        background = ConvertFrom-Color -Color $ColorHighlightBackground
+                    }
+                    hover      = [ordered]@{
+                        border     = ConvertFrom-Color -Color $ColorHoverBorder
+                        background = ConvertFrom-Color -Color $ColorHoverBackground
+                    }
+                }
+                fixed               = [ordered]@{
+                    x = $FixedX
+                    y = $FixedY
+                }
+                font                = [ordered]@{
+                    color       = ConvertFrom-Color -Color $FontColor
+                    size        = $FontSize #// px
+                    face        = $FontName
+                    background  = ConvertFrom-Color -Color $FontBackground
+                    strokeWidth = $FontStrokeWidth #// px
+                    strokeColor = ConvertFrom-Color -Color $FontStrokeColor
+                    align       = $FontAlign
+                    multi       = $FontMulti
+                    vadjust     = $FontVAdjust
+                }
+                size                = $Size
+                widthConstraint     = $WidthConstraint
+            }
         }
-        fixed               = [ordered]@{
-          x = $FixedX
-          y = $FixedY
-        }
-        font                = [ordered]@{
-          color       = ConvertFrom-Color -Color $FontColor
-          size        = $FontSize #// px
-          face        = $FontName
-          background  = ConvertFrom-Color -Color $FontBackground
-          strokeWidth = $FontStrokeWidth #// px
-          strokeColor = ConvertFrom-Color -Color $FontStrokeColor
-          align       = $FontAlign
-          multi       = $FontMulti
-          vadjust     = $FontVAdjust
-        }
-        size                = $Size
-        widthConstraint     = $WidthConstraint
-      }
     }
-  }
-  Remove-EmptyValues -Hashtable $Object.Settings -Recursive 
-  $Object
+    Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
+    $Object
 }
 
 <#

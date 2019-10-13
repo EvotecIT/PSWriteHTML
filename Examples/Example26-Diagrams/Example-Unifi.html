@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-09 23:38:01" name="revised"/><title>My Ubiquiti Network</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-13 09:36:14" name="revised"/><title>My Ubiquiti Network</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -16,13 +16,6 @@ hr {
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .overflowHidden {
@@ -35,46 +28,19 @@ hr {
     display: flex;
     justify-content: space-between;
     padding: 2px;
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .flexParentInvisible {
     display: flex;
     justify-content: space-between;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexElement {
     flex-basis: 100%;
-
-
-    /*
-    flex: 1 auto;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexPanel {
     flex-basis: 100%;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .roundedCorners {
@@ -287,7 +253,7 @@ h6 {
 }
 </style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
 td {
-    height: 27px;
+    height: 20px;
 }
 
 /* Button in Table - giving it some colors */
@@ -400,6 +366,7 @@ function hide(obj) {
     width: 100%;
     height: 100%;
     border: 0px solid unset;
+    min-height: 300px;
 }
 
 .vis-network:focus {
@@ -409,12 +376,12 @@ function hide(obj) {
     flex-basis: 100%;
     margin: 0 !important;
 }
-</style><!-- CSS EnlighterJS CodeBlocks END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- CSS VIS Network Dynamic, browser based visualization libraries START --><link href="https://unpkg.com/vis-network@latest/dist/vis-network.min.css" type="text/css" rel="stylesheet"/><!-- CSS VIS Network Dynamic, browser based visualization libraries END --><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script src="https://unpkg.com/vis-network@latest/dist/vis-network.min.js" type="text/javascript"></script><!-- JS VIS Network Dynamic, browser based visualization libraries END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --><!-- CSS EnlighterJS CodeBlocks START --><link href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.css" type="text/css" rel="stylesheet"/><!-- CSS EnlighterJS CodeBlocks END --><!-- JS EnlighterJS CodeBlocks START --><script src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.js" type="text/javascript"></script><!-- JS EnlighterJS CodeBlocks END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Diagram - My Network" style="color: #ffffff;">Diagram - My Network </a><a id="show_594223659" href="javascript:void(0)" onclick="show('594223659');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_594223659" href="javascript:void(0)" onclick="hide('594223659');" style="color: #ffffff;">(Hide)</a></div><div id="594223659" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="594223659"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div style="height:500px" id="Diagram-0mas92he" class="diagram"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><script>                $(document).ready(function() {
+</style><!-- CSS EnlighterJS CodeBlocks END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- CSS VIS Network Dynamic, browser based visualization libraries START --><link href="https://unpkg.com/vis-network@latest/dist/vis-network.min.css" type="text/css" rel="stylesheet"/><!-- CSS VIS Network Dynamic, browser based visualization libraries END --><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script src="https://unpkg.com/vis-network@latest/dist/vis-network.min.js" type="text/javascript"></script><!-- JS VIS Network Dynamic, browser based visualization libraries END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --><!-- CSS EnlighterJS CodeBlocks START --><link href="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.css" type="text/css" rel="stylesheet"/><!-- CSS EnlighterJS CodeBlocks END --><!-- JS EnlighterJS CodeBlocks START --><script src="https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.js" type="text/javascript"></script><!-- JS EnlighterJS CodeBlocks END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Diagram - My Network" style="color: #ffffff;">Diagram - My Network </a><a id="show_876632680" href="javascript:void(0)" onclick="show('876632680');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_876632680" href="javascript:void(0)" onclick="hide('876632680');" style="color: #ffffff;">(Hide)</a></div><div id="876632680" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="876632680"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Diagram-4xzdhp9l" class="diagram"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
                     //  Table code
-                    var table = $('#DT-siIleThG').DataTable(
+                    var table = $('#DT-iXGogXif').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -436,6 +403,7 @@ function hide(obj) {
                         "extend":  "pageLength"
                     }
                 ],
+    "searchFade":  false,
     "colReorder":  true,
     "paging":  false,
     "scrollCollapse":  false,
@@ -476,7 +444,7 @@ function hide(obj) {
 }
                     );
                     
-                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-siIleThG" class="display compact"><thead><tr><th>Domain</th><th>HostName</th><th>Name</th><th>Forest</th><th>IPV4Address</th><th>IPV6Address</th><th>IsGlobalCatalog</th><th>IsReadOnly</th><th>Site</th><th>SchemaMaster</th><th>DomainNamingMaster</th><th>PDCEmulator</th><th>RIDMaster</th><th>InfrastructureMaster</th><th>LdapPort</th><th>SslPort</th><th>Pingable</th><th>Comment</th></tr></thead><tbody><tr><td>ad.evotec.xyz</td><td>AD2.ad.evotec.xyz</td><td>AD2</td><td>ad.evotec.xyz</td><td>192.168.240.192</td><td></td><td>True</td><td>False</td><td>KATOWICE-1</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td><td></td></tr><tr><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1</td><td>ad.evotec.xyz</td><td>192.168.240.189</td><td></td><td>True</td><td>False</td><td>KATOWICE-1</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td><td>389</td><td>636</td><td></td><td></td></tr><tr><td>ad.evotec.xyz</td><td>AD3.ad.evotec.xyz</td><td>AD3</td><td>ad.evotec.xyz</td><td>192.168.240.236</td><td></td><td>True</td><td>False</td><td>KATOWICE-2</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td><td></td></tr><tr><td>ad.evotec.pl</td><td>ADPreview2019.ad.evotec.pl</td><td>ADPREVIEW2019</td><td>ad.evotec.xyz</td><td>192.168.240.201</td><td></td><td>True</td><td>False</td><td>KATOWICE-2</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td><td></td></tr><tr><td>ad.evotec.pl</td><td>DC1.ad.evotec.pl</td><td>DC1</td><td>ad.evotec.xyz</td><td>192.168.240.238</td><td></td><td>True</td><td>False</td><td>KATOWICE-1</td><td>False</td><td>False</td><td>True</td><td>True</td><td>True</td><td>389</td><td>636</td><td></td><td></td></tr><tr><td>ad.evotec.pl</td><td>ADRODC.ad.evotec.pl</td><td>ADRODC</td><td>ad.evotec.xyz</td><td>192.168.240.207</td><td></td><td>True</td><td>True</td><td>GLIWICE</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td><td></td></tr></tbody><tfoot><tr><th>Domain</th><th>HostName</th><th>Name</th><th>Forest</th><th>IPV4Address</th><th>IPV6Address</th><th>IsGlobalCatalog</th><th>IsReadOnly</th><th>Site</th><th>SchemaMaster</th><th>DomainNamingMaster</th><th>PDCEmulator</th><th>RIDMaster</th><th>InfrastructureMaster</th><th>LdapPort</th><th>SslPort</th><th>Pingable</th><th>Comment</th></tr></tfoot></table></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Code used to generate Diagram" style="color: #ffffff;">Code used to generate Diagram </a><a id="show_2132719255" href="javascript:void(0)" onclick="show('2132719255');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_2132719255" href="javascript:void(0)" onclick="hide('2132719255');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="2132719255" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="2132719255"><pre data-enlighter-language="powershell" data-enlighter-theme="enlighter" data-enlighter-title="Diagram Example" data-enlighter-linenumbers="True" data-enlighter-highlight="2 5">New-HTMLDiagram {
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-iXGogXif" class="display compact"><thead><tr><th>Domain</th><th>HostName</th><th>Name</th><th>Forest</th><th>IPV4Address</th><th>IPV6Address</th><th>IsGlobalCatalog</th><th>IsReadOnly</th><th>Site</th><th>SchemaMaster</th><th>DomainNamingMaster</th><th>PDCEmulator</th><th>RIDMaster</th><th>InfrastructureMaster</th><th>LdapPort</th><th>SslPort</th><th>Pingable</th><th>Comment</th></tr></thead><tbody><tr><td>ad.evotec.xyz</td><td>AD1.ad.evotec.xyz</td><td>AD1</td><td>ad.evotec.xyz</td><td>192.168.240.189</td><td></td><td>True</td><td>False</td><td>KATOWICE-1</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td><td>389</td><td>636</td><td></td><td></td></tr><tr><td>ad.evotec.xyz</td><td>AD2.ad.evotec.xyz</td><td>AD2</td><td>ad.evotec.xyz</td><td>192.168.240.192</td><td></td><td>True</td><td>False</td><td>KATOWICE-1</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td><td></td></tr><tr><td>ad.evotec.xyz</td><td>AD3.ad.evotec.xyz</td><td>AD3</td><td>ad.evotec.xyz</td><td>192.168.240.236</td><td></td><td>True</td><td>False</td><td>KATOWICE-2</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td><td></td></tr><tr><td>ad.evotec.pl</td><td>ADPreview2019.ad.evotec.pl</td><td>ADPREVIEW2019</td><td>ad.evotec.xyz</td><td>192.168.240.201</td><td></td><td>True</td><td>False</td><td>KATOWICE-2</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td><td></td></tr><tr><td>ad.evotec.pl</td><td>DC1.ad.evotec.pl</td><td>DC1</td><td>ad.evotec.xyz</td><td>192.168.240.238</td><td></td><td>True</td><td>False</td><td>KATOWICE-1</td><td>False</td><td>False</td><td>True</td><td>True</td><td>True</td><td>389</td><td>636</td><td></td><td></td></tr><tr><td>ad.evotec.pl</td><td>ADRODC.ad.evotec.pl</td><td>ADRODC</td><td>ad.evotec.xyz</td><td>192.168.240.207</td><td></td><td>True</td><td>True</td><td>GLIWICE</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>389</td><td>636</td><td></td><td></td></tr></tbody><tfoot><tr><th>Domain</th><th>HostName</th><th>Name</th><th>Forest</th><th>IPV4Address</th><th>IPV6Address</th><th>IsGlobalCatalog</th><th>IsReadOnly</th><th>Site</th><th>SchemaMaster</th><th>DomainNamingMaster</th><th>PDCEmulator</th><th>RIDMaster</th><th>InfrastructureMaster</th><th>LdapPort</th><th>SslPort</th><th>Pingable</th><th>Comment</th></tr></tfoot></table></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Code used to generate Diagram" style="color: #ffffff;">Code used to generate Diagram </a><a id="show_709510115" href="javascript:void(0)" onclick="show('709510115');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_709510115" href="javascript:void(0)" onclick="hide('709510115');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="709510115" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="709510115"><pre data-enlighter-language="powershell" data-enlighter-theme="enlighter" data-enlighter-title="Diagram Example" data-enlighter-linenumbers="True" data-enlighter-highlight="2 5">New-HTMLDiagram {
     New-DiagramOptionsInteraction -Hover $true
     #New-DiagramOptionsManipulation
     New-DiagramNode -Label 'USG Pro' -To 'Unifi Switch' -ImageType circularImage -Image 'https://cdn.imgbin.com/11/23/12/imgbin-ubiquiti-unifi-usg-ubiquiti-networks-router-ubiquiti-unifi-security-gateway-usg-pro-4-network-switch-wan-network-diagram-e1TN4dWJfRB7QnQNiZTDn1aLN.jpg'
@@ -496,242 +464,62 @@ var nodes = new vis.DataSet([{
     "id":  "USG Pro",
     "label":  "USG Pro",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/11/23/12/imgbin-ubiquiti-unifi-usg-ubiquiti-networks-router-ubiquiti-unifi-security-gateway-usg-pro-4-network-switch-wan-network-diagram-e1TN4dWJfRB7QnQNiZTDn1aLN.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/11/23/12/imgbin-ubiquiti-unifi-usg-ubiquiti-networks-router-ubiquiti-unifi-security-gateway-usg-pro-4-network-switch-wan-network-diagram-e1TN4dWJfRB7QnQNiZTDn1aLN.jpg"
 }, {
     "id":  "Unifi Switch",
     "label":  "Unifi Switch",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/17/21/14/imgbin-network-switch-power-over-ethernet-gigabit-ethernet-ubiquiti-unifi-switch-ubiquiti-networks-mimosa-network-uQpudFJ4K1UnMMZgzBsniKzyC.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/17/21/14/imgbin-network-switch-power-over-ethernet-gigabit-ethernet-ubiquiti-unifi-switch-ubiquiti-networks-mimosa-network-uQpudFJ4K1UnMMZgzBsniKzyC.jpg"
 }, {
     "id":  "Unifi AP",
     "label":  "Unifi AP",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/4/14/3/imgbin-ubiquiti-networks-unifi-ap-ac-lr-wireless-access-points-ubiquiti-unifi-uap-ac-lr-ieee-802-11ac-ac-21pZgwQAbDF4bvA48D5cQgH5h.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/4/14/3/imgbin-ubiquiti-networks-unifi-ap-ac-lr-wireless-access-points-ubiquiti-unifi-uap-ac-lr-ieee-802-11ac-ac-21pZgwQAbDF4bvA48D5cQgH5h.jpg"
 }, {
     "id":  "EvoMac",
     "label":  "EvoMac",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/1/9/8/imgbin-macbook-ZAe8Jcn7qxxmEgMcSJcV9aWn6.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/1/9/8/imgbin-macbook-ZAe8Jcn7qxxmEgMcSJcV9aWn6.jpg"
 }, {
     "id":  "EvoWin",
     "label":  "EvoWin",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/20/9/1/imgbin-hyper-v-virtual-security-switch-virtual-machine-network-switch-hypervisor-imran-cpLbwB53FHwHHeQ5h9g081hc4.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/20/9/1/imgbin-hyper-v-virtual-security-switch-virtual-machine-network-switch-hypervisor-imran-cpLbwB53FHwHHeQ5h9g081hc4.jpg"
 }, {
     "id":  "Exch1",
     "label":  "Exch1",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/7/21/22/imgbin-microsoft-exchange-server-exchange-online-microsoft-outlook-office-365-email-email-1k5ceWxjFxVisLpLpxgJLF0Y0.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/7/21/22/imgbin-microsoft-exchange-server-exchange-online-microsoft-outlook-office-365-email-email-1k5ceWxjFxVisLpLpxgJLF0Y0.jpg"
 }, {
     "id":  "Exch2",
     "label":  "Exch2",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/7/21/22/imgbin-microsoft-exchange-server-exchange-online-microsoft-outlook-office-365-email-email-1k5ceWxjFxVisLpLpxgJLF0Y0.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/7/21/22/imgbin-microsoft-exchange-server-exchange-online-microsoft-outlook-office-365-email-email-1k5ceWxjFxVisLpLpxgJLF0Y0.jpg"
 }, {
     "id":  "AD1",
     "label":  "AD1",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/16/0/25/imgbin-active-directory-directory-service-computer-servers-windows-domain-computer-0MVUs58h9tPqF8nVb8RNxEi5w.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/16/0/25/imgbin-active-directory-directory-service-computer-servers-windows-domain-computer-0MVUs58h9tPqF8nVb8RNxEi5w.jpg"
 }, {
     "id":  "AD2",
     "label":  "AD2",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/16/0/25/imgbin-active-directory-directory-service-computer-servers-windows-domain-computer-0MVUs58h9tPqF8nVb8RNxEi5w.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/16/0/25/imgbin-active-directory-directory-service-computer-servers-windows-domain-computer-0MVUs58h9tPqF8nVb8RNxEi5w.jpg"
 }, {
     "id":  "AD3",
     "label":  "AD3",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/6/11/3/imgbin-computer-icons-router-cisco-systems-computer-network-network-switch-network-S4pvESiV3pT4EzEjP4sZyc8Rf.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/6/11/3/imgbin-computer-icons-router-cisco-systems-computer-network-network-switch-network-S4pvESiV3pT4EzEjP4sZyc8Rf.jpg"
 }, {
     "id":  "DC1",
     "label":  "DC1",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/6/23/7/imgbin-computer-icons-electronics-active-directory-directory-service-others-A8ikiBt9nN77x6EbsXCWTc7M2.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/6/23/7/imgbin-computer-icons-electronics-active-directory-directory-service-others-A8ikiBt9nN77x6EbsXCWTc7M2.jpg"
 }, {
     "id":  "DC2",
     "label":  "DC2",
     "shape":  "circularImage",
-    "image":  "https://cdn.imgbin.com/6/23/7/imgbin-computer-icons-electronics-active-directory-directory-service-others-A8ikiBt9nN77x6EbsXCWTc7M2.jpg",
-    "borderWidth":  1,
-    "borderWidthSelected":  2,
-    "chosen":  true,
-    "fixed":  {
-                  "x":  false,
-                  "y":  false
-              },
-    "font":  {
-                 "size":  14,
-                 "face":  "arial",
-                 "strokeWidth":  0,
-                 "align":  "center",
-                 "vadjust":  0
-             },
-    "size":  25
+    "image":  "https://cdn.imgbin.com/6/23/7/imgbin-computer-icons-electronics-active-directory-directory-service-others-A8ikiBt9nN77x6EbsXCWTc7M2.jpg"
 }]); 
 // create an array with edges
 var edges = new vis.DataSet([{
@@ -772,38 +560,18 @@ var edges = new vis.DataSet([{
     "to":  "DC2"
 }]); 
 // create a network
-var Container = document.getElementById('Diagram-0mas92he'); 
+var Container = document.getElementById('Diagram-4xzdhp9l'); 
 var data = { 
    nodes: nodes, 
    edges: edges
  }; 
 var options = {
     "interaction":  {
-                        "dragNodes":  true,
-                        "dragView":  true,
-                        "hideEdgesOnDrag":  false,
-                        "hideEdgesOnZoom":  false,
-                        "hideNodesOnDrag":  false,
-                        "hover":  true,
-                        "hoverConnectedEdges":  true,
-                        "keyboard":  {
-                                         "bindToWindow":  true,
-                                         "speed":  {
-                                                       "y":  10,
-                                                       "zoom":  0.02,
-                                                       "x":  10
-                                                   },
-                                         "enabled":  false
-                                     },
-                        "multiselect":  false,
-                        "navigationButtons":  false,
-                        "selectable":  true,
-                        "selectConnectedEdges":  true,
-                        "tooltipDelay":  300,
-                        "zoomView":  true
+                        "hover":  true
                     }
 }; 
 var network = new vis.Network(Container, data, options); 
+
 </script></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS VIS Network Dynamic, browser based visualization libraries START --><script type="text/javascript">function clusterByCid() {
     network.setData(data);
     var clusterOptionsByData = {

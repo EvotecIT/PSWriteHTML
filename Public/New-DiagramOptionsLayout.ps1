@@ -42,7 +42,7 @@ function New-DiagramOptionsLayout {
             }
         }
     }
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive
+    Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
     $Object
 }
 

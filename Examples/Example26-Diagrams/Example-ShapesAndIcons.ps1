@@ -2,7 +2,7 @@ Import-Module .\PSWriteHTML.psd1 -Force
 
 $ShapeTypes = @('circle', 'dot', 'diamond', 'ellipse', 'database', 'box', 'square', 'triangle', 'triangleDown', 'text', 'star', 'hexagon')
 
-New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$false -UseJavaScriptLinks:$false -FilePath $PSScriptRoot\Example-ShapesAndIcons.html {
+New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-ShapesAndIcons.html {
     New-HTMLSection -HeaderText 'Diagram - My Network' -CanCollapse {
         New-HTMLPanel {
             New-HTMLDiagram -Height '1000px' {

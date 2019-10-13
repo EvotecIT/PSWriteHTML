@@ -70,24 +70,24 @@
     [alias('DiagramOptionsInteraction')]
     [CmdletBinding()]
     param(
-        [bool] $DragNodes = $true,
-        [bool] $DragView = $true,
-        [bool] $HideEdgesOnDrag = $false,
-        [bool] $HideEdgesOnZoom = $false,
-        [bool] $HideNodesOnDrag = $false,
-        [bool] $Hover = $false,
-        [bool] $HoverConnectedEdges = $true,
-        [bool] $KeyboardEnabled = $false,
-        [int] $KeyboardSpeedX = 10,
-        [int] $KeyboardSpeedY = 10,
-        [decimal] $KeyboardSpeedZoom = 0.02,
-        [bool] $KeyboardBindToWindow = $true,
-        [bool] $Multiselect = $false,
-        [bool] $NavigationButtons = $false,
-        [bool] $Selectable = $true,
-        [bool] $SelectConnectedEdges = $true,
-        [int] $TooltipDelay = 300,
-        [bool] $ZoomView = $true
+        [nullable[bool]] $DragNodes,
+        [nullable[bool]] $DragView,
+        [nullable[bool]] $HideEdgesOnDrag,
+        [nullable[bool]] $HideEdgesOnZoom,
+        [nullable[bool]] $HideNodesOnDrag,
+        [nullable[bool]] $Hover,
+        [nullable[bool]] $HoverConnectedEdges,
+        [nullable[bool]] $KeyboardEnabled,
+        [nullable[int]] $KeyboardSpeedX,
+        [nullable[int]] $KeyboardSpeedY,
+        [nullable[decimal]] $KeyboardSpeedZoom,
+        [nullable[bool]] $KeyboardBindToWindow,
+        [nullable[bool]] $Multiselect,
+        [nullable[bool]] $NavigationButtons,
+        [nullable[bool]] $Selectable,
+        [nullable[bool]] $SelectConnectedEdges,
+        [nullable[int]] $TooltipDelay,
+        [nullable[bool]] $ZoomView
     )
 
     $Object = [PSCustomObject] @{
@@ -119,7 +119,7 @@
             }
         }
     }
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive 
+    Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
     $Object
 }
 <#

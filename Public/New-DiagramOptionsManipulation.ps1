@@ -39,13 +39,13 @@
     [alias('DiagramOptionsManipulation')]
     [CmdletBinding()]
     param(
-        [bool] $InitiallyActive = $false,
-        [bool] $AddNode = $true,
-        [bool] $AddEdge = $true,
-        [bool] $EditNode = $true,
-        [bool] $EditEdge = $true,
-        [bool] $DeleteNode = $true,
-        [bool] $DeleteEdge = $true
+        [nullable[bool]] $InitiallyActive,
+        [nullable[bool]] $AddNode,
+        [nullable[bool]] $AddEdge,
+        [nullable[bool]] $EditNode,
+        [nullable[bool]] $EditEdge,
+        [nullable[bool]] $DeleteNode,
+        [nullable[bool]] $DeleteEdge
     )
 
     $Object = [PSCustomObject] @{
@@ -63,6 +63,6 @@
             }
         }
     }
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive 
+    Remove-EmptyValues -Hashtable $Object.Settings -Recursive
     $Object
 }
