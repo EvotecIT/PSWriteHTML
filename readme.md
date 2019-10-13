@@ -47,7 +47,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.57 - 2019.10.13
+- 0.0.57 - 2019.10.13 - [Blog post about release](https://evotec.xyz/nested-tabs-diagram-updates-diagram-events-calendar-object-and-more-in-pswritehtml/)
   - Changes to Tabs
     - Fix for missing comma in Tabs
     - Fix for Tab Selector Color not being applied after changing to Nested Tabs
