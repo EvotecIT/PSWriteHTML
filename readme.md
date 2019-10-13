@@ -48,22 +48,25 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 ## Changelog
 
 - 0.0.56 - Unreleased
-  - Updated Visjs to 6.1.1 (local version), linked version is always newest
-  - Fix for missing comma in Tabs
-  - Updated Table Row size to 20px from 27px
-  - Fix for Tab Selector Color not being applied after changing to Nested Tabs
-  - Fix for Tab Selector not being Active by default
-  - Fix for Diagram Size
+  - Changes to Tabs
+    - Fix for missing comma in Tabs
+  - Changes to Tables
+    - Fix for Tab Selector Color not being applied after changing to Nested Tabs
+    - Fix for Tab Selector not being Active by default
+    - Updated Table Row size to 20px from 27px
   - Renamed New-HTMLTable* commands to New-Table* to better reflect what they deliver (and those don't deliver HTML)
     - Old commands still available as aliases
   - Added **Calendar**
     - Added New-HTMLCalendar
     - Added New-CalendarEvent
-  - Added **HierarchicalTreeView** - very basic implementation. Not sure it will stick. **Requires feedback**
+  - Added **HierarchicalTreeView** - very basic implementation. Not sure it will stick as Diagrams have that option as well **Requires feedback**
     - Added New-HTMLHierarchicalTreeView
     - Added New-HierarchicalTreeNode
-  - Added **Diagrams**
+  - Changes to **Diagrams**
+    - Updated Visjs to 6.1.1 (local version), linked version is always newest
     - Added New-DiagramEvent for linking Tables with Diagrams
+    - Fix for Diagram Size
+    - Fix for usign diagram defaults (smaller size), should work better now
 
 - 0.0.55 - 2019.09.29
   - Fix for Underlined space when using -Collapsable [#51](https://github.com/EvotecIT/PSWriteHTML/issues/51) - Thanks Tuxhedoh
