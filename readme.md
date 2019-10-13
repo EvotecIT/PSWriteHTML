@@ -47,7 +47,7 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.56 - Unreleased
+- 0.0.56 - 2019.10.13
   - Changes to Tabs
     - Fix for missing comma in Tabs
   - Changes to Tables
