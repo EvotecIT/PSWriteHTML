@@ -18,7 +18,8 @@ function New-DiagramOptionsLinks {
         [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit,
         [nullable[double]] $ColorOpacity, # range between 0 and 1
         [nullable[bool]]  $Dashes,
-        [string] $Length
+        [string] $Length,
+        [nullable[int]] $WidthConstraint
     )
     $Object = [PSCustomObject] @{
         Type     = 'DiagramOptionsEdges'
@@ -52,6 +53,7 @@ function New-DiagramOptionsLinks {
                     opacity   = $ColorOpacity
                 }
                 dashes             = $Dashes
+                widthConstraint    = $WidthConstraint
             }
         }
     }

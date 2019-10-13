@@ -126,11 +126,6 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][nullable[bool]] $WidthConstraint,
-        [parameter(ParameterSetName = "FontAwesomeBrands")]
-        [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")]
-        [parameter(ParameterSetName = "Image")]
         [parameter(ParameterSetName = "Shape")][nullable[int]] $X,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
@@ -187,7 +182,31 @@ function New-DiagramNode {
         )]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [string] $IconSolid,
-        [nullable[int]] $Level
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "Image")]
+        [parameter(ParameterSetName = "Shape")][nullable[int]] $Level,
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "Image")]
+        [parameter(ParameterSetName = "Shape")][nullable[int]] $HeightConstraintMinimum,
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "Image")]
+        [parameter(ParameterSetName = "Shape")][ValidateSet('top', 'middle', 'bottom')][string] $HeightConstraintVAlign,
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "Image")]
+        [parameter(ParameterSetName = "Shape")][nullable[int]] $WidthConstraintMinimum,
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "Image")]
+        [parameter(ParameterSetName = "Shape")][nullable[int]] $WidthConstraintMaximum
     )
 
     if (-not $Label) {
@@ -313,7 +332,14 @@ function New-DiagramNode {
             vadjust     = $FontVAdjust
         }
         size                = $Size
-        widthConstraint     = $WidthConstrain
+        heightConstraint    = @{
+            minimum = $HeightConstraintMinimum
+            valign  = $HeightConstraintVAlign
+        }
+        widthConstraint     = @{
+            minimum = $WidthConstraintMinimum
+            maximum = $WidthConstraintMaximum
+        }
         x                   = $X
         y                   = $Y
     }

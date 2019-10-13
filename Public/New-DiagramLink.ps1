@@ -30,7 +30,8 @@
         [RGBColors] $FontStrokeColor = [RGBColors]::None,
         [ValidateSet('center', 'left')][string] $FontAlign,
         [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
-        [nullable[int]] $FontVAdjust
+        [nullable[int]] $FontVAdjust,
+        [nullable[int]] $WidthConstraint
     )
     $Object = [PSCustomObject] @{
         Type     = 'DiagramLink'
@@ -79,6 +80,7 @@
                 vadjust     = $FontVAdjust
             }
             dashes             = $Dashes
+            widthConstraint    = $WidthConstraint
         }
     }
     Remove-EmptyValues -Hashtable $Object.Settings -Recursive

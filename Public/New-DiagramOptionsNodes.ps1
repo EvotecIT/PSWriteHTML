@@ -23,7 +23,17 @@ function New-DiagramOptionsNodes {
         [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
         [nullable[int]] $FontVAdjust,
         [nullable[int]] $Size,
-        [nullable[bool]] $WidthConstraint
+        [parameter(ParameterSetName = "Shape")][string][ValidateSet(
+            'circle', 'dot', 'diamond', 'ellipse', 'database', 'box', 'square', 'triangle', 'triangleDown', 'text', 'star', 'hexagon')] $Shape,
+        [nullable[int]] $HeightConstraintMinimum,
+        [ValidateSet('top', 'middle', 'bottom')][string] $HeightConstraintVAlign,
+        [nullable[int]] $WidthConstraintMinimum,
+        [nullable[int]] $WidthConstraintMaximum,
+        [nullable[int]] $Margin,
+        [nullable[int]] $MarginTop,
+        [nullable[int]] $MarginRight,
+        [nullable[int]] $MarginBottom,
+        [nullable[int]] $MarginLeft
     )
     $Object = [PSCustomObject] @{
         Type     = 'DiagramOptionsNodes'
@@ -60,11 +70,32 @@ function New-DiagramOptionsNodes {
                     multi       = $FontMulti
                     vadjust     = $FontVAdjust
                 }
+                heightConstraint    = @{
+                    minimum = $HeightConstraintMinimum
+                    valign  = $HeightConstraintVAlign
+                }
                 size                = $Size
-                widthConstraint     = $WidthConstraint
+                shape               = $Shape
+                widthConstraint     = @{
+                    minimum = $WidthConstraintMinimum
+                    maximum = $WidthConstraintMaximum
+                }
             }
         }
     }
+
+    if ($Margin) {
+        $Object.Settings.nodes.margin = $Margin
+    } else {
+        $Object.Settings.nodes.margin = @{
+            top    = $MarginTop
+            right  = $MarginRight
+            bottom = $MarginBottom
+            left   = $MarginLeft
+        }
+    }
+
+
     Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
     $Object
 }
