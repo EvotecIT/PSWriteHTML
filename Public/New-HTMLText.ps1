@@ -3,8 +3,10 @@ function New-HTMLText {
     [CmdletBinding()]
     param(
         [string[]] $Text,
-        [RGBColors[]] $Color = @(),
-        [RGBColors[]] $BackGroundColor = @(),
+        [ValidateScript({$_ -in $Script:RGBColors.Keys -or $_ -match "^#([A-Fa-f0-9]{6})$" -or $_ -eq ""})]
+        [string[]] $Color = @(),
+        [ValidateScript({$_ -in $Script:RGBColors.Keys -or $_ -match "^#([A-Fa-f0-9]{6})$" -or $_ -eq ""})]
+        [string[]] $BackGroundColor = @(),
         [int[]] $FontSize = @(),
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string[]] $FontWeight = @(),
         [ValidateSet('normal', 'italic', 'oblique')][string[]] $FontStyle = @(),

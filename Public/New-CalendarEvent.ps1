@@ -7,7 +7,7 @@
         [DateTime] $StartDate,
         [nullable[DateTime]] $EndDate,
         [string] $Constraint,
-        [RGBColors] $Color
+        [string] $Color
     )
 
     $Object = [PSCustomObject] @{

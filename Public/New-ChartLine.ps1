@@ -4,7 +4,7 @@
     param(
         [string] $Name,
         [object] $Value,
-        [RGBColors] $Color,
+        [string] $Color,
         [ValidateSet('straight', 'smooth', 'stepline')] $Curve = 'straight',
         [int] $Width = 6,
         [ValidateSet('butt', 'square', 'round')][string] $Cap = 'butt',

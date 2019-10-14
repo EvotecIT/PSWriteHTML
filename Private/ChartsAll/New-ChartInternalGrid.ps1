@@ -3,7 +3,7 @@
     param(
         [System.Collections.IDictionary] $Options,
         [bool] $Show,
-        [RGBColors] $BorderColor = [RGBColors]::None,
+        [string] $BorderColor = "Black",
         [int] $StrokeDash, #: 0,
         [ValidateSet('front', 'back', 'default')][string] $Position = 'default',
         [nullable[bool]] $xAxisLinesShow = $null,
@@ -53,7 +53,7 @@
 
     $Options.grid = [ordered] @{ }
     $Options.grid.Show = $Show
-    if ($BorderColor -ne [RGBColors]::None) {
+    if ($BorderColor -ne "") {
         $options.grid.borderColor = @(ConvertFrom-Color -Color $BorderColor)
     }
     if ($StrokeDash -gt 0) {

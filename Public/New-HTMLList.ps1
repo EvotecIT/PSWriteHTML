@@ -3,8 +3,8 @@ function New-HTMLList {
     param(
         [ScriptBlock]$ListItems,
         [ValidateSet('Unordered', 'Ordered')] [string] $Type = 'Unordered',
-        [RGBColors] $Color,
-        [RGBColors] $BackGroundColor,
+        [string] $Color,
+        [string] $BackGroundColor,
         [int] $FontSize,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,

@@ -4,7 +4,7 @@
     param(
         [string] $Name,
         [object] $Value,
-        [RGBColors] $Color
+        [string] $Color
     )
 
     [PSCustomObject] @{

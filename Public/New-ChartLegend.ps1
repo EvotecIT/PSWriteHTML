@@ -7,7 +7,7 @@
         [RGBColors[]] $Color
     )
 
-    #$Colors = [System.Collections.Generic.List[RGBColors]]::new()
+    #$Colors = "Red","Blue","orange"
     #foreach ($_ in $Color) {
     #    $Colors.Add($Color)
     #}

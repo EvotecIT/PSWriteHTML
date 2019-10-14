@@ -10,7 +10,7 @@ function New-ChartInternalLine {
         # [bool] $DataLabelsEnabled = $true,
         #[int] $DataLabelsOffsetX = -6,
         #[string] $DataLabelsFontSize = '12px',
-        # [nullable[RGBColors]] $DataLabelsColor,
+        # [string] $DataLabelsColor,
         [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category'
 
         # $Type

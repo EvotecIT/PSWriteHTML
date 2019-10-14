@@ -3,10 +3,10 @@ function Get-VisualIndicator {
     param(
         [string] $TextHeading,
         [string] $Text,
-        [RGBColors] $Color = [RGBColors]::Black,
-        [RGBColors] $ColorBackground = [RGBColors]::DarkOrange,
-        [RGBColors] $ColorBorder = [RGBColors]::White,
-        [RGBColors] $ColorHeading = [RGBColors]::Black,
+        [string] $Color = "Black",
+        [string] $ColorBackground = "DarkOrange",
+        [string] $ColorBorder = "White",
+        [string] $ColorHeading = "Black",
         [switch] $TextHeadingBold,
         [switch] $TextBold,
         [switch] $SkipNewLine,
@@ -111,8 +111,8 @@ $Output = @(
 )
 Save-HTML -FilePath $PSScriptRoot\TestColors.html -HTML $Output -ShowHTML
 
-$Output = foreach ($Color1 in [RGBColors].GetEnumNames()) {
-    foreach ($Color2 in [RGBColors].GetEnumNames()) {
+$Output = foreach ($Color1 in $Script:RGBColors.keys) {
+    foreach ($Color2 in $Script:RGBColors.keys) {
         $RGB1 = ConvertFrom-Color -Color $Color1
         $RGB2 = ConvertFrom-Color -Color $Color2
         Get-VisualIndicator -SkipNewLine -TextHeading "WARNING: (Color Heading: $RGB1 ($Color1)" -Text "The sender of this message could not be fully validated. The message may not be from the sender/domain displayed. (ColorBackground $RGB2 ($Color2))" -ColorHeading $Color1 -ColorBackground $Color2
@@ -122,9 +122,9 @@ Save-HTML -FilePath $PSScriptRoot\TestColors147x2.html -HTML $Output -ShowHTML
 
 <# Uncomment below if you dare - 147 x 147 x 147 colors.
 $Time = Start-TimeLog
-$Output = foreach ($Color1 in [RGBColors].GetEnumNames()) {
-    foreach ($Color2 in [RGBColors].GetEnumNames()) {
-        foreach ($Color3 in [RGBColors].GetEnumNames()) {
+$Output = foreach ($Color1 in $Script:RGBColors.keys) {
+    foreach ($Color2 in $Script:RGBColors.keys) {
+        foreach ($Color3 in $Script:RGBColors.keys) {
             $RGB1 = ConvertFrom-Color -Color $Color1
             $RGB2 = ConvertFrom-Color -Color $Color2
             $RGB3 = ConvertFrom-Color -Color $Color3

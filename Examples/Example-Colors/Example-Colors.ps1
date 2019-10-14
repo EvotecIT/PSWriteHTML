@@ -3,10 +3,10 @@
     param(
         [string] $TextHeading,
         [string] $Text,
-        [RGBColors] $Color = [RGBColors]::Black,
-        [RGBColors] $ColorBackground = [RGBColors]::DarkOrange,
-        [RGBColors] $ColorBorder = [RGBColors]::White,
-        [RGBColors] $ColorHeading = [RGBColors]::Black,
+        [string] $Color = "Black",
+        [string] $ColorBackground = "DarkOrange",
+        [string] $ColorBorder = "White",
+        [string] $ColorHeading = "Black",
         [switch] $TextHeadingBold,
         [switch] $TextBold,
         [switch] $SkipNewLine,
@@ -91,8 +91,8 @@
     return $HTMLOutput
 }
 
-$Output = foreach ($Color1 in [RGBColors].GetEnumNames()) {
-    foreach ($Color2 in [RGBColors].GetEnumNames()) {
+$Output = foreach ($Color1 in $Script:RGBColors.keys) {
+    foreach ($Color2 in $Script:RGBColors.keys) {
         $RGB1 = ConvertFrom-Color -Color $Color1
         $RGB2 = ConvertFrom-Color -Color $Color2
         Get-VisualIndicator -SkipNewLine -TextHeading "Color Text: $RGB1 ($Color1)" -Text "(ColorBackground $RGB2 ($Color2))" -ColorHeading $Color1 -ColorBackground $Color2

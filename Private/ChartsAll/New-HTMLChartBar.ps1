@@ -10,7 +10,7 @@ function New-HTMLChartBar {
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [nullable[RGBColors]] $DataLabelsColor,
+        [string] $DataLabelsColor,
 
         [switch] $Distributed,
 

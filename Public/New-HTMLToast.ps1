@@ -7,7 +7,7 @@
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][RGBColors] $TextHeaderColor = [RGBColors]::None,
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $TextHeaderColor = "",
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
@@ -15,7 +15,7 @@
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][RGBColors] $TextColor = [RGBColors]::None,
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $TextColor = "",
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
@@ -23,15 +23,15 @@
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][RGBColors] $IconColor = [RGBColors]::Blue,
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor = "Blue",
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][RGBColors] $BarColorLeft = [RGBColors]::Blue,
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $BarColorLeft = "Blue",
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][RGBColors] $BarColorRight = [RGBColors]::None,
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $BarColorRight = "",
 
         # ICON BRANDS
         [ArgumentCompleter(
@@ -90,12 +90,12 @@
     [string] $DivClass = "toast"
 
     $StyleText = @{ }
-    if ($TextColor -ne [RGBColors]::None) {
+    if ($TextColor -ne "") {
         $StyleText.'color' = ConvertFrom-Color -Color $TextColor
     }
 
     $StyleTextHeader = @{ }
-    if ($TextHeaderColor -ne [RGBColors]::None) {
+    if ($TextHeaderColor -ne "") {
         $StyleTextHeader.'color' = ConvertFrom-Color -Color $TextHeaderColor
     }
 
@@ -104,17 +104,17 @@
         $StyleIcon.'font-size' = "$($IconSize)px"
     }
 
-    if ($IconColor -ne [RGBColors]::None) {
+    if ($IconColor -ne "") {
         $StyleIcon.'color' = ConvertFrom-Color -Color $IconColor
     }
 
     $StyleBarLeft = @{ }
-    if ($BarColorLeft -ne [RGBColors]::None) {
+    if ($BarColorLeft -ne "") {
         $StyleBarLeft.'background-color' = ConvertFrom-Color -Color $BarColorLeft
     }
 
     $StyleBarRight = @{ }
-    if ($BarColorRight -ne [RGBColors]::None) {
+    if ($BarColorRight -ne "") {
         $StyleBarRight.'background-color' = ConvertFrom-Color -Color $BarColorRight
     }
 

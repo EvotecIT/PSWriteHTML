@@ -3,7 +3,7 @@
     [CmdletBinding()]
     param(
         [switch] $Show,
-        [RGBColors] $BorderColor = [RGBColors]::None,
+        [string] $BorderColor = "",
         [int] $StrokeDash, #: 0,
         [ValidateSet('front', 'back', 'default')][string] $Position = 'default',
         [switch] $xAxisLinesShow,
