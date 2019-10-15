@@ -8,7 +8,7 @@
         [int] $MinValue,
         [int] $MaxValue
         #[ValidateSet('top', 'topRight', 'left', 'right', 'bottom', '')][string] $LegendPosition = '',
-        # [RGBColors[]] $Color
+        # [string[]] $Color
     )
     [PSCustomObject] @{
         ObjectType = 'ChartAxisX'

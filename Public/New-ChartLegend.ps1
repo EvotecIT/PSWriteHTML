@@ -4,7 +4,7 @@
     param(
         [Array] $Names,
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
-        [RGBColors[]] $Color
+        [string[]] $Color
     )
 
     #$Colors = "Red","Blue","orange"

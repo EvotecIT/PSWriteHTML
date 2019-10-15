@@ -8,9 +8,9 @@
         [ValidateSet('front', 'back', 'default')][string] $Position = 'default',
         [switch] $xAxisLinesShow,
         [switch] $yAxisLinesShow,
-        [RGBColors[]] $RowColors,
+        [string[]] $RowColors,
         [double] $RowOpacity = 0.5, # valid range 0 - 1
-        [RGBColors[]] $ColumnColors,
+        [string[]] $ColumnColors,
         [double] $ColumnOpacity = 0.5, # valid range 0 - 1
         [int] $PaddingTop,
         [int] $PaddingRight,

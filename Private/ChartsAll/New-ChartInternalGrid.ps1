@@ -8,9 +8,9 @@
         [ValidateSet('front', 'back', 'default')][string] $Position = 'default',
         [nullable[bool]] $xAxisLinesShow = $null,
         [nullable[bool]] $yAxisLinesShow = $null,
-        [alias('GridColors')][RGBColors[]] $RowColors,
+        [alias('GridColors')][string[]] $RowColors,
         [alias('GridOpacity')][double] $RowOpacity = 0.5, # valid range 0 - 1
-        [RGBColors[]] $ColumnColors ,
+        [string[]] $ColumnColors ,
         [double] $ColumnOpacity = 0.5, # valid range 0 - 1
         [int] $PaddingTop,
         [int] $PaddingRight,
