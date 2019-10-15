@@ -751,5 +751,3 @@ $Script:RGBColors=@{
     YourPink                       =  244, 194, 194
 
 }
-
-New-HTMLText  -Text "Hello" -color WildSand

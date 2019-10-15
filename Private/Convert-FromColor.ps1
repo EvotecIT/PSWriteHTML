@@ -2,7 +2,11 @@ function ConvertFrom-Color {
     [alias('Convert-FromColor')]
     [CmdletBinding()]
     param (
-        [ValidateScript({$_ -in $Script:RGBColors.Keys -or $_ -match "^#([A-Fa-f0-9]{6})$" -or $_ -eq ""})]
+        [ValidateScript({
+            if($($_ -in $Script:RGBColors.Keys -or $_ -match "^#([A-Fa-f0-9]{6})$" -or $_ -eq "") -eq $false){
+                throw "The Input value is not a valid colorname nor an valid color hex code."
+            }else{$true}
+        })]
         [alias('Colors')][string[]] $Color,
         [switch] $AsDecimal
     )
