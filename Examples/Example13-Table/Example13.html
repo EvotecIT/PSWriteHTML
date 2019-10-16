@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-24 18:02:55" name="revised"/><title>My title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-16 14:16:43" name="revised"/><title>My title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -16,13 +16,6 @@ hr {
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .overflowHidden {
@@ -35,46 +28,19 @@ hr {
     display: flex;
     justify-content: space-between;
     padding: 2px;
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .flexParentInvisible {
     display: flex;
     justify-content: space-between;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexElement {
     flex-basis: 100%;
-
-
-    /*
-    flex: 1 auto;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexPanel {
     flex-basis: 100%;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .roundedCorners {
@@ -95,13 +61,19 @@ hr {
     text-align: right;
 }
 
-.clientlogo {
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-.MainLogo {
+.rightLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-right: 5em;
     text-align: right;
@@ -160,7 +132,8 @@ img {
     margin: 1%;
     flex: 1;
 }
-</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">/*
+h2:after,
 h3:after,
 h4:after,
 h5:after,
@@ -175,6 +148,7 @@ h6:after {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
+
 h2:after {
     background: #0AF;
 }
@@ -182,6 +156,7 @@ h2:after {
 h3:after {
     background: #3BF;
 }
+
 
 h4:after,
 h5:after,
@@ -197,6 +172,7 @@ h5.white,
 h6.white {
     color: white;
 }
+*/
 
 h1,
 h2,
@@ -277,7 +253,7 @@ h6 {
 }
 </style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
 td {
-    height: 27px;
+    height: 20px;
 }
 
 /* Button in Table - giving it some colors */
@@ -376,12 +352,12 @@ table th {
     border: 1px solid #ccc;
     text-align: left;
 }
-</style><!-- CSS DataTables END --></noscript><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="1 section" style="color: #ffffff;">1 section</a><a id="show_232013362" href="javascript:void(0)" onclick="show('232013362');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_232013362" href="javascript:void(0)" onclick="hide('232013362');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="232013362" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="232013362"><script>                $(document).ready(function() {
+</style><!-- CSS DataTables END --></noscript><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
                     //  Table code
-                    var table = $('#DT-ZmdsmBuy').DataTable(
+                    var table = $('#DT-VovyYPNh').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -403,6 +379,7 @@ table th {
                         "extend":  "pageLength"
                     }
                 ],
+    "searchFade":  false,
     "colReorder":  true,
     "paging":  false,
     "scrollCollapse":  false,
@@ -436,80 +413,11 @@ table th {
     "stateSave":  true,
     "responsive":  {
                        "details":  {
-                                       "type":  "inline",
-                                       "display":  $.fn.dataTable.Responsive.display.childRowImmediate
+                                       "type":  "inline"
                                    }
                    },
     "createdRow":  ""
 }
                     );
                     
-                });</script><div class="flexElement overflowHidden"><table id="DT-ZmdsmBuy" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>HandleCount</th><th>WorkingSet</th></tr></thead><tbody><tr><td>1Password</td><td>14736</td><td>1071</td><td>78520320</td></tr><tr><td>aesm_service</td><td>15024</td><td>189</td><td>9162752</td></tr><tr><td>ApplicationFrameHost</td><td>10376</td><td>465</td><td>33902592</td></tr><tr><td>Calculator</td><td>11256</td><td>585</td><td>1974272</td></tr><tr><td>Code</td><td>2580</td><td>394</td><td>78127104</td></tr></tbody></table></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="2 section" style="color: #ffffff;">2 section</a><a id="show_849988681" href="javascript:void(0)" onclick="show('849988681');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_849988681" href="javascript:void(0)" onclick="hide('849988681');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="849988681" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="849988681"><script>                $(document).ready(function() {
-                    $.fn.dataTable.moment( 'L' );
-                    
-                    
-                    //  Table code
-                    var table = $('#DT-DhILVVuU').DataTable(
-                        {
-    "dom":  "Bfrtip",
-    "buttons":  [
-                    {
-                        "extend":  "copyHtml5"
-                    },
-                    {
-                        "extend":  "excelHtml5"
-                    },
-                    {
-                        "extend":  "csvHtml5"
-                    },
-                    {
-                        "orientation":  "landscape",
-                        "extend":  "pdfHtml5",
-                        "pageSize":  "A3"
-                    },
-                    {
-                        "extend":  "pageLength"
-                    }
-                ],
-    "colReorder":  true,
-    "paging":  false,
-    "scrollCollapse":  false,
-    "pagingType":  [
-                       "full_numbers"
-                   ],
-    "lengthMenu":  [
-                       [
-                           15,
-                           25,
-                           50,
-                           100,
-                           -1
-                       ],
-                       [
-                           15,
-                           25,
-                           50,
-                           100,
-                           "All"
-                       ]
-                   ],
-    "ordering":  true,
-    "order":  [
-
-              ],
-    "info":  true,
-    "procesing":  true,
-    "select":  true,
-    "searching":  true,
-    "stateSave":  true,
-    "responsive":  {
-                       "details":  {
-                                       "type":  "none",
-                                       "display":  $.fn.dataTable.Responsive.display.childRowImmediate
-                                   }
-                   },
-    "createdRow":  ""
-}
-                    );
-                    
-                });</script><div class="flexElement overflowHidden"><table id="DT-DhILVVuU" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>HandleCount</th><th>WorkingSet</th></tr></thead><tbody><tr><td>1Password</td><td>14736</td><td>1071</td><td>78520320</td></tr><tr><td>aesm_service</td><td>15024</td><td>189</td><td>9162752</td></tr><tr><td>ApplicationFrameHost</td><td>10376</td><td>465</td><td>33902592</td></tr><tr><td>Calculator</td><td>11256</td><td>585</td><td>1974272</td></tr><tr><td>Code</td><td>2580</td><td>394</td><td>78127104</td></tr></tbody></table></div></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-VovyYPNh" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>HandleCount</th><th>WorkingSet</th></tr></thead><tbody><tr><td>agent</td><td>5292</td><td>347</td><td>9981952</td></tr><tr><td>ApplicationFrameHost</td><td>11508</td><td>389</td><td>25567232</td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>HandleCount</th><th>WorkingSet</th></tr></tfoot></table></div></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>
