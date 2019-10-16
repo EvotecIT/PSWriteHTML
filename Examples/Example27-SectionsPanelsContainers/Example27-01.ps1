@@ -5,14 +5,14 @@ $ProcessSmaller = Get-Process | Select-Object -First 1
 
 New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example27-01.html" -Show {
     New-HTMLSection {
-        New-HTMLSection -HeaderText 'Test 1' {
+        New-HTMLSection -HeaderText 'Test 1' -CanCollapse -Collapsed {
             New-HTMLTable -DataTable $ProcessSmaller
         }
-        New-HTMLSection -HeaderText 'Test 2' {
+        New-HTMLSection -HeaderText 'Test 2' -CanCollapse -Collapsed {
             New-HTMLTable -DataTable $ProcessSmaller
         }
     }
-    New-HTMLSection -Invisible {
+    New-HTMLSection -Collapsed -CanCollapse {
         New-HTMLPanel {
             New-HTMLChart -Gradient {
                 New-ChartPie -Name 'Test' -Value 20
@@ -40,4 +40,4 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example27-01.html" -Show {
             New-HTMLTable -DataTable $ProcessSmaller
         }
     }
-}
+} -UseCssLinks -UseJavaScriptLinks
