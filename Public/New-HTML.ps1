@@ -95,10 +95,10 @@ Function New-HTML {
                 foreach ($Diagram in $Script:HTMLSchema.Diagrams) {
                     $Diagram
                 }
-            }
-            '<!-- END BODY -->'
-            '<!-- FOOTER -->'
-            New-HTMLTag -Tag 'footer' {
+
+                '<!-- END BODY -->'
+                '<!-- FOOTER -->'
+                #New-HTMLTag -Tag 'footer' {
                 if ($null -ne $Features) {
                     # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included
                     # either as links or from file per required features

@@ -59,10 +59,20 @@
         localStorage.setItem('tabbis', JSON.stringify(memory));
     };
 
+    //fn.hasMemory = function () {
+    //    if (typeof memory === 'undefined') return;
+    //    if (typeof memory[indexGroup] === 'undefined') return;
+    //    if (typeof memory[indexGroup][indexItem] === 'undefined') return;
+    //    if (memory[indexGroup][indexItem] !== true) return;
+    //    return true;
+    //};
+
     fn.hasMemory = function () {
         if (typeof memory === 'undefined') return;
         if (typeof memory[indexGroup] === 'undefined') return;
+        if (memory[indexGroup] === null) return;
         if (typeof memory[indexGroup][indexItem] === 'undefined') return;
+        if (memory[indexGroup][indexItem] === null) return;
         if (memory[indexGroup][indexItem] !== true) return;
         return true;
     };
