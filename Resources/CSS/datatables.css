@@ -1,6 +1,6 @@
 /* Added to make sure plus logo fits in */
 td {
-    height: 20px;
+    height: 27px;
 }
 
 /* Button in Table - giving it some colors */
@@ -38,5 +38,9 @@ thead input {
     width: 100%;
     padding: -3px;
     box-sizing: border-box;
+    font-size: 8pt;
+}
+
+table {
     font-size: 8pt;
 }
