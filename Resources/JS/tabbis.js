@@ -56,7 +56,11 @@
         memory[groupIndex] = [];
         memory[groupIndex][itemIndex] = true;
 
-        localStorage.setItem('tabbis', JSON.stringify(memory));
+        try {
+            localStorage.setItem('tabbis', JSON.stringify(memory));
+        } catch (e) {
+            console.log('Tabs local storage failed. Most likely IE in use.')
+        }
     };
 
     //fn.hasMemory = function () {
@@ -68,6 +72,8 @@
     //};
 
     fn.hasMemory = function () {
+        // https://stackoverflow.com/questions/41902495/javascript-multidimensional-array-is-valid
+
         if (typeof memory === 'undefined') return;
         if (typeof memory[indexGroup] === 'undefined') return;
         if (memory[indexGroup] === null) return;
@@ -78,10 +84,14 @@
     };
 
     fn.setMemory = function () {
-        if (localStorage.getItem('tabbis') === null) return;
-        if (localStorage.getItem('tabbis').length == 0) return;
+        try {
+            if (localStorage.getItem('tabbis') === null) return;
+            if (localStorage.getItem('tabbis').length == 0) return;
 
-        memory = Object.values(JSON.parse(localStorage.getItem('tabbis')));
+            memory = Object.values(JSON.parse(localStorage.getItem('tabbis')));
+        } catch (e) {
+            console.log('Tabs local storage failed. Most likely IE in use.')
+        }
     };
 
     fn.putActiveClass = function () {
