@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 $Forest = Get-ADForest
-New-HTML -TitleText 'My Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example30-NestedTabs.html -ShowHTML {
+New-HTML -TitleText 'My Title' -FilePath $PSScriptRoot\Example30-NestedTabs.html -ShowHTML {
     New-HTMLTabOptions -SelectorColor Grey
     foreach ($Domain in $Forest.Domains) {
         $Computers = Get-ADComputer -Server $Domain -Filter * -Properties OperatingSystem, OperatingSystemVersion, PasswordLastSet | Select-Object -Property DNSHostName, Name, Enabled, OperatingSystem, OperatingSystemVersion, PasswordLastSet
@@ -56,4 +56,4 @@ New-HTML -TitleText 'My Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             }
         }
     }
-}
+} -UseCssLinks:$true -UseJavaScriptLinks:$true
