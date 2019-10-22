@@ -37,7 +37,7 @@ $Object = @(
 )
 
 New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example13.html {
-    New-HTMLTable -ArrayOfObjects $Processes
+    New-HTMLTable -ArrayOfObjects $Object
     <#
     New-HTMLContent -HeaderText '1 section' {
         New-HTMLTable -ArrayOfObjects $Processes -HideFooter {
