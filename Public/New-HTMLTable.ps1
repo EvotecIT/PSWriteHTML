@@ -433,6 +433,7 @@ function New-HTMLTable {
 
     # return data
     if (-not $Simplify) {
+        $Script:HTMLSchema.Features.Jquery = $true
         $Script:HTMLSchema.Features.DataTables = $true
         $Script:HTMLSchema.Features.DataTablesPDF = $true
         $Script:HTMLSchema.Features.DataTablesExcel = $true

@@ -23,7 +23,7 @@ function New-HTMLResourceCSS {
                                 $FileContent = $FileContent -replace $_, $ReplaceData[$_]
                             }
                         }
-                        $FileContent
+                        $FileContent -replace '@charset "UTF-8";'
                     } -NewLine
                 }
             }

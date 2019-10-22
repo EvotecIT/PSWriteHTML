@@ -34,7 +34,7 @@ function Get-Resources {
                     -FilePath $Script:Configuration.Features.$Feature.$Location.'Css' `
                     -ResourceComment $Script:Configuration.Features.$Feature.Comment `
                     -Replace $Script:Configuration.Features.$Feature.CustomActionsReplace
-                Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "DataTables-1.10.18/images/"
+                Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "../images/"
             }
             if ($UseJavaScriptLinks) {
                 New-HTMLResourceJS -Link $Script:Configuration.Features.$Feature.$Location.'JsLink' -ResourceComment $Script:Configuration.Features.$Feature.Comment
@@ -48,7 +48,7 @@ function Get-Resources {
                         New-HTMLResourceCSS -Link $Script:Configuration.Features.$Feature.$Location.'CssLinkNoScript' -ResourceComment $Script:Configuration.Features.$Feature.Comment
                     } else {
                         $CSSOutput = New-HTMLResourceCSS -FilePath $Script:Configuration.Features.$Feature.$Location.'CssNoScript' -ResourceComment $Script:Configuration.Features.$Feature.Comment -ReplaceData $Script:Configuration.Features.$Feature.CustomActionsReplace
-                        Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "DataTables-1.10.18/images/"
+                        Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "../images/"
                     }
                 )
                 if (($Output.Count -gt 0) -and ($null -ne $Output[0])) {

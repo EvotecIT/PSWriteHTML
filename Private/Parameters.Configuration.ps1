@@ -53,7 +53,7 @@ $Script:Configuration = [ordered] @{
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.3.1.min.js"
             }
         }
-        DataTables              = @{
+        DataTablesOld           = @{
             Comment      = 'DataTables'
             HeaderAlways = @{
                 Css         = "$PSScriptRoot\..\Resources\CSS\datatables.css"
@@ -62,8 +62,16 @@ $Script:Configuration = [ordered] @{
             Header       = @{
                 CssLink = 'https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\datatables.min.css"
-                JsLink  = "https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js", "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js", "https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"
-                JS      = "$PSScriptRoot\..\Resources\JS\datatables.min.js", "$PSScriptRoot\..\Resources\JS\moment.min.js", "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
+                JsLink  = @(
+                    "https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"
+                    "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"
+                    "https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"
+                )
+                JS      = @(
+                    "$PSScriptRoot\..\Resources\JS\datatables.min.js"
+                    "$PSScriptRoot\..\Resources\JS\moment.min.js"
+                    "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
+                )
             }
         }
         DataTablesSearchFade    = @{
@@ -76,75 +84,107 @@ $Script:Configuration = [ordered] @{
             }
         }
 
-        <# Those links need to be added instead of Datatables as above
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/autofill/2.3.3/css/autoFill.dataTables.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/1.5.0/css/colReorder.dataTables.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.2.5/css/fixedColumns.dataTables.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.4/css/fixedHeader.dataTables.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/keytable/2.5.0/css/keyTable.dataTables.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.dataTables.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowgroup/1.1.0/css/rowGroup.dataTables.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.4/css/rowReorder.dataTables.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css"/>
-
-            <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/autofill/2.3.3/js/dataTables.autoFill.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/colreorder/1.5.0/js/dataTables.colReorder.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.5/js/dataTables.fixedColumns.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.4/js/dataTables.fixedHeader.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/keytable/2.5.0/js/dataTables.keyTable.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/rowgroup/1.1.0/js/dataTables.rowGroup.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/rowreorder/1.2.4/js/dataTables.rowReorder.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
-        #>
-
-        ## Not used yet - START
-        DataTablesExperimental  = @{
-            Comment = 'DataTables 1.10.19'
-            Header  = @{
-                JsLink  = 'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'
-                Js      = ""
-                Css     = ""
-                CssLink = 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css'
+        DataTables              = @{
+            Comment      = 'DataTables'
+            HeaderAlways = @{
+                Css         = "$PSScriptRoot\..\Resources\CSS\datatables.css"
+                CssNoscript = "$PSScriptRoot\..\Resources\CSS\datatables.noscript.css"
+            }
+            Header       = @{
+                CssLink = @(
+                    "https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+                    "https://cdn.datatables.net/autofill/2.3.4/css/autoFill.dataTables.css"
+                    "https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css"
+                    "https://cdn.datatables.net/colreorder/1.5.2/css/colReorder.dataTables.min.css"
+                    "https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.min.css"
+                    "https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css"
+                    "https://cdn.datatables.net/keytable/2.5.1/css/keyTable.dataTables.min.css"
+                    "https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"
+                    "https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.min.css"
+                    "https://cdn.datatables.net/rowreorder/1.2.6/css/rowReorder.dataTables.min.css"
+                    "https://cdn.datatables.net/scroller/2.0.1/css/scroller.dataTables.min.css"
+                    "https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css"
+                )
+                Css     = @(
+                    "$PSScriptRoot\..\Resources\CSS\jquery.dataTables.min.css"
+                    "$PSScriptRoot\..\Resources\CSS\autoFill.dataTables.css"
+                    "$PSScriptRoot\..\Resources\CSS\buttons.dataTables.min.css"
+                    "$PSScriptRoot\..\Resources\CSS\colReorder.dataTables.min.css"
+                    "$PSScriptRoot\..\Resources\CSS\fixedColumns.dataTables.min.css"
+                    "$PSScriptRoot\..\Resources\CSS\fixedHeader.dataTables.min.css"
+                    "$PSScriptRoot\..\Resources\CSS\keyTable.dataTables.min.css"
+                    "$PSScriptRoot\..\Resources\CSS\responsive.dataTables.min.css"
+                    "$PSScriptRoot\..\Resources\CSS\rowGroup.dataTables.min.css"
+                    "$PSScriptRoot\..\Resources\CSS\rowReorder.dataTables.min.css"
+                    "$PSScriptRoot\..\Resources\CSS\scroller.dataTables.min.css"
+                    "$PSScriptRoot\..\Resources\CSS\select.dataTables.min.css"
+                )
+                JsLink  = @(
+                    #"https://code.jquery.com/jquery-3.3.1.min.js"
+                    #"https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"
+                    #"https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"
+                    #"https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"
+                    "https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"
+                    "https://cdn.datatables.net/autofill/2.3.4/js/dataTables.autoFill.min.js"
+                    "https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"
+                    "https://cdn.datatables.net/buttons/1.6.1/js/buttons.colVis.min.js"
+                    "https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"
+                    "https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"
+                    "https://cdn.datatables.net/colreorder/1.5.2/js/dataTables.colReorder.min.js"
+                    "https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"
+                    "https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"
+                    "https://cdn.datatables.net/keytable/2.5.1/js/dataTables.keyTable.min.js"
+                    "https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"
+                    "https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.min.js"
+                    "https://cdn.datatables.net/rowreorder/1.2.6/js/dataTables.rowReorder.min.js"
+                    "https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.min.js"
+                    "https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"
+                    "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+                    "https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js"
+                )
+                JS      = @(
+                    "$PSScriptRoot\..\Resources\JS\jquery.dataTables.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.autoFill.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.buttons.min.js"
+                    "$PSScriptRoot\..\Resources\JS\buttons.colVis.min.js"
+                    "$PSScriptRoot\..\Resources\JS\buttons.html5.min.js"
+                    "$PSScriptRoot\..\Resources\JS\buttons.print.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.colReorder.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.fixedColumns.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.fixedHeader.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.keyTable.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.responsive.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.rowGroup.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.rowReorder.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.scroller.min.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
+                    "$PSScriptRoot\..\Resources\JS\moment.min.js"
+                    "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
+                )
             }
         }
-        DataTablesColReorder    = @{
-            Comment = 'DataTables ColReorder'
-            Header  = @{
-                JsLink  = 'https://cdn.datatables.net/colreorder/1.5.0/js/dataTables.colReorder.min.js'
-                Js      = "$PSScriptRoot\..\Resources\JS\dataTables.colReorder.min.js"
-                Css     = "$PSScriptRoot\..\Resources\CSS\colReorder.dataTables.min.css"
-                CssLink = 'https://cdn.datatables.net/colreorder/1.5.0/css/colReorder.dataTables.min.css'
-            }
-        }
-        ## Not used yet - END
-
-
         DataTablesPDF           = @{
             Comment = 'DataTables PDF Features'
             Header  = @{
-                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js'
-                Js     = "$PSScriptRoot\..\Resources\JS\pdfmake.min.js", "$PSScriptRoot\..\Resources\JS\vfs_fonts.min.js"
+                JsLink = @(
+                    'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js'
+                )
+                Js     = @(
+                    "$PSScriptRoot\..\Resources\JS\pdfmake.min.js"
+                    "$PSScriptRoot\..\Resources\JS\vfs_fonts.js"
+                )
             }
         }
         DataTablesExcel         = @{
             Comment = 'DataTables Excel Features'
             Header  = @{
-                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'
-                JS     = "$PSScriptRoot\..\Resources\JS\jszip.min.js"
+                JsLink = @(
+                    'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'
+                )
+                JS     = @(
+                    "$PSScriptRoot\..\Resources\JS\jszip.min.js"
+                )
             }
         }
         DataTablesSimplify      = @{
@@ -271,7 +311,7 @@ $Script:Configuration = [ordered] @{
                     'https://unpkg.com/popper.js/dist/umd/popper.min.js'
                     'https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js'
                 )
-                JS = @(
+                JS     = @(
                     "$PSScriptRoot\..\Resources\JS\popper.js"
                     "$PSScriptRoot\..\Resources\JS\tooltip.js"
                 )
@@ -364,3 +404,25 @@ $Script:Configuration = [ordered] @{
         }
     }
 }
+
+function Get-ResourcesContentFromWeb {
+    param(
+        [uri[]] $ResourceLinks,
+        [ValidateSet('CSS', 'JS')][string] $Type
+    )
+
+    $Output = foreach ($Link in $ResourceLinks) {
+        # [uri] $Link = $File
+        $Splitted = $Link.OriginalString -split '/'
+        $FileName = $Splitted[-1]
+        $FilePath = [IO.Path]::Combine('C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources', $Type, $FileName)
+        $FilePathScriptRoot = -Join ('"', '$PSScriptRoot\..\Resources\', "$Type", '\', $FileName, '"')
+        $FilePathScriptRoot
+        #[IO.Path]::Combine('C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources\CSS', $FileName)
+        Invoke-WebRequest -Uri $Link -OutFile $FilePath
+    }
+    $Output
+}
+
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS'
+Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.DataTables.Header.CssLink -Type 'CSS'
