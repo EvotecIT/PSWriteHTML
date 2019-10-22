@@ -6,7 +6,7 @@
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="author" />
-        <meta content="2019-10-17 09:31:09" name="revised" />
+        <meta content="2019-10-22 16:48:52" name="revised" />
         <title>My title</title><!-- CSS Default fonts START -->
         <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet" /><!-- CSS Default fonts END -->
         <!-- CSS Default fonts icons START -->
@@ -399,7 +399,7 @@ h6.white {
                 var collapsedGroups = {};
 
                 //  Table code
-                var table = $('#DT-kaFKvtmG').DataTable({
+                var table = $('#example').DataTable({
                     "dom": "Bfrtip",
                     "buttons": [{
                             "extend": "copyHtml5"
@@ -443,23 +443,12 @@ h6.white {
                         ]
                     ],
                     "ordering": true,
-                    "order": [
-
+                    order: [
+                        [2, 'asc']
                     ],
-                    "info": true,
-                    "procesing": true,
-                    "select": true,
-                    "searching": true,
-                    "stateSave": true,
-                    "responsive": {
-                        "details": {
-                            "type": "inline"
-                        }
-                    },
-                    "createdRow": "",
                     rowGroup: {
                         // Uses the 'row group' plugin
-                        dataSrc: 0,
+                        dataSrc: 2,
                         startRender: function (rows, group) {
                             var collapsed = !!collapsedGroups[group];
 
@@ -475,11 +464,21 @@ h6.white {
                                 .attr('data-name', group)
                                 .toggleClass('collapsed', collapsed);
                         },
-                    }
+                    },
+                    "info": true,
+                    "procesing": true,
+                    "select": true,
+                    "searching": true,
+                    "stateSave": true,
+                    "responsive": {
+                        "details": {
+                            "type": "inline"
+                        }
+                    },
+                    "createdRow": ""
                 });
-
-                $('#DT-kaFKvtmG tbody').on('click', 'tr.group-start', function () {
-                    var name = $(this).data('Test');
+                $('#example tbody').on('click', 'tr.group-start', function () {
+                    var name = $(this).data('name');
                     collapsedGroups[name] = !collapsedGroups[name];
                     table.draw(false);
                 });
@@ -487,7 +486,7 @@ h6.white {
             });
         </script>
         <div class="flexElement overflowHidden">
-            <table width="100%" id="DT-kaFKvtmG" class="display compact">
+            <table width="100%" id="example" class="display compact">
                 <thead>
                     <tr>
                         <th>Test</th>

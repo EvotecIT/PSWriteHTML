@@ -1,6 +1,6 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
-$Processes = Get-Process | Select-Object -First 2 -Property Name, ID, HandleCount, WorkingSet
+#$Processes = Get-Process | Select-Object -First 2 -Property Name, ID, HandleCount, WorkingSet
 $Title = 'My title'
 
 $Object = @(
@@ -37,7 +37,7 @@ $Object = @(
 )
 
 New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example13.html {
-    New-HTMLTable -ArrayOfObjects $Object
+    New-HTMLTable -ArrayOfObjects $Object -DataTableID 'example'
     <#
     New-HTMLContent -HeaderText '1 section' {
         New-HTMLTable -ArrayOfObjects $Processes -HideFooter {
