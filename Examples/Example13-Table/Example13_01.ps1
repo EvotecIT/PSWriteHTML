@@ -6,7 +6,7 @@ $Title = 'My title'
 New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example13_01.html {
     New-HTMLContent -HeaderText '1 section' {
         New-HTMLTable -ArrayOfObjects $Processes -HideFooter { #-ImmediatelyShowHiddenDetails
-            New-TableRowGrouping -Name 'PriorityClass'
+            New-TableRowGrouping -Name 'PriorityClass' -Color Red -BackgroundColor GreenYellow
         }
     }
     New-HTMLContent -HeaderText '2 section' {

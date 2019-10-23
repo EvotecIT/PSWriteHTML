@@ -2,20 +2,14 @@
     [CmdletBinding()]
     param(
         [string] $Options,
-        [System.Collections.IDictionary] $Settings,
-        [string[]] $HeaderNames
+        [int] $RowGroupingColumnID
     )
-    if ($Settings.Count -gt 0) {
-        if ($Settings.Name) {
-            $ColumnID = ($HeaderNames).ToLower().IndexOf($Settings.Name.ToLower())
-        } else {
-            $ColumnID = $Settings.ColumnID
-        }
+    if ($RowGroupingColumnID -gt -1) {
 
         $TextToReplace = @"
         rowGroup: {
             // Uses the 'row group' plugin
-            dataSrc: $ColumnID,
+            dataSrc: $RowGroupingColumnID,
             startRender: function (rows, group) {
                 var collapsed = !!collapsedGroups[group];
 

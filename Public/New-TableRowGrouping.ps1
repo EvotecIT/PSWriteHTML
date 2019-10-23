@@ -3,13 +3,24 @@
     [CmdletBinding()]
     param(
         [alias('ColumnName')][string] $Name,
-        [int] $ColumnID = -1
+        [int] $ColumnID = -1,
+        [ValidateSet('Ascending', 'Descending')][string] $SortOrder = 'Ascending',
+        [RGBColors] $Color,
+        [RGBColors] $BackgroundColor
     )
-    [PSCustomObject] @{
+
+    $Object = [PSCustomObject] @{
         Type   = 'TableRowGrouping'
-        Output = @{
-            Name     = $Name
-            ColumnID = $ColumnID
+        Output = [ordered] @{
+            Name       = $Name
+            ColumnID   = $ColumnID
+            Sorting    = if ('Ascending') { 'asc' } else { 'desc' }
+            Attributes = @{
+                'color'            = ConvertFrom-Color -Color $Color
+                'background-color' = ConvertFrom-Color -Color $BackgroundColor
+            }
         }
     }
+    Remove-EmptyValues -Hashtable $Object.Output
+    $Object
 }

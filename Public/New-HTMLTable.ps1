@@ -353,25 +353,42 @@ function New-HTMLTable {
         }
     }
 
-    # Sorting
-    if ($DefaultSortOrder -eq 'Ascending') {
-        $Sort = 'asc'
-    } else {
-        $Sort = 'desc'
-    }
-    if ($DefaultSortColumn.Count -gt 0) {
-        $ColumnsOrder = foreach ($Column in $DefaultSortColumn) {
-            $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($Column.ToLower())
-            if ($DefaultSortingNumber -ne - 1) {
-                , @($DefaultSortingNumber, $Sort)
-            }
+    [int] $RowGroupingColumnID = -1
+    if ($RowGrouping.Count -gt 0) {
+        if ($RowGrouping.Name) {
+            $RowGroupingColumnID = ($HeaderNames).ToLower().IndexOf($RowGrouping.Name.ToLower())
+        } else {
+            $RowGroupingColumnID = $RowGrouping.ColumnID
         }
+        if ($RowGroupingColumnID -ne -1) {
+            $ColumnsOrder = , @($RowGroupingColumnID, $RowGrouping.Sorting)
+            if ($DefaultSortColumn.Count -gt 0 -or $DefaultSortIndex.Count -gt 0) {
+                Write-Warning 'New-HTMLTable - Row grouping sorting overwrites default sorting.'
+            }
+        } else {
+            Write-Warning 'New-HTMLTable - Row grouping disabled. Column name/id not found.'
+        }
+    } else {
+        # Sorting
+        if ($DefaultSortOrder -eq 'Ascending') {
+            $Sort = 'asc'
+        } else {
+            $Sort = 'desc'
+        }
+        if ($DefaultSortColumn.Count -gt 0) {
+            $ColumnsOrder = foreach ($Column in $DefaultSortColumn) {
+                $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($Column.ToLower())
+                if ($DefaultSortingNumber -ne - 1) {
+                    , @($DefaultSortingNumber, $Sort)
+                }
+            }
 
-    }
-    if ($DefaultSortIndex.Count -gt 0 -and $DefaultSortColumn.Count -eq 0) {
-        $ColumnsOrder = foreach ($Column in $DefaultSortIndex) {
-            if ($Column -ne - 1) {
-                , @($Column, $Sort)
+        }
+        if ($DefaultSortIndex.Count -gt 0 -and $DefaultSortColumn.Count -eq 0) {
+            $ColumnsOrder = foreach ($Column in $DefaultSortIndex) {
+                if ($Column -ne - 1) {
+                    , @($Column, $Sort)
+                }
             }
         }
     }
@@ -425,10 +442,11 @@ function New-HTMLTable {
     # Process Conditional Formatting. Ugly JS building
     $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames
     # Process Row Grouping. Ugly JS building
-    $Options = Convert-TableRowGrouping -Options $Options -Settings $RowGrouping -HeaderNames $HeaderNames
-    $RowGroupingTop = Add-TableRowGrouping -DataTableName $DataTableID -Top -Settings $RowGrouping
-    $RowGroupingBottom = Add-TableRowGrouping -DataTableName $DataTableID -Bottom -Settings $RowGrouping
-
+    if ($RowGroupingColumnID -ne -1) {
+        $Options = Convert-TableRowGrouping -Options $Options -RowGroupingColumnID $RowGroupingColumnID
+        $RowGroupingTop = Add-TableRowGrouping -DataTableName $DataTableID -Top -Settings $RowGrouping
+        $RowGroupingBottom = Add-TableRowGrouping -DataTableName $DataTableID -Bottom -Settings $RowGrouping
+    }
 
     [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })
     if ($Tabs.Count -eq 0) {
@@ -533,8 +551,14 @@ function New-HTMLTable {
         $AfterTable = ''
     }
 
+    if ($RowGrouping.Attributes.Count -gt 0) {
+        $RowGroupingCSS = ConvertTo-CSS -ID $DataTableID -ClassName 'tr.dtrg-group td' -Attributes $RowGrouping.Attributes -Group
+    } else {
+        $RowGroupingCSS = ''
+    }
 
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexElement overflowHidden' } -Value {
+        $RowGroupingCSS
         $BeforeTableCode
         $BeforeTable
         # Build HTML TABLE
