@@ -36,8 +36,10 @@ $Object = @(
     }
 )
 
-New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example13.html {
-    New-HTMLTable -ArrayOfObjects $Object -DataTableID 'example'
+New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example13_02.html {
+    New-HTMLTable -ArrayOfObjects $Object -DataTableID 'example' {
+        New-TableRowGrouping -Name 'Hello'
+    }
     <#
     New-HTMLContent -HeaderText '1 section' {
         New-HTMLTable -ArrayOfObjects $Processes -HideFooter {

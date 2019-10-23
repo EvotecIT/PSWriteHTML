@@ -70,6 +70,7 @@ function New-HTMLTable {
     $ContentTop = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ContentFormattingInline = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ReplaceCompare = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
+    $RowGrouping = @{ }
 
     if ($HTML) {
         [Array] $Output = & $HTML
@@ -110,6 +111,8 @@ function New-HTMLTable {
                     $HeaderResponsiveOperations.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableReplaceCompare') {
                     $ReplaceCompare.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableRowGrouping') {
+                    $RowGrouping = $Parameters.Output
                 }
             }
         }
@@ -284,6 +287,7 @@ function New-HTMLTable {
         )
         "ordering"       = -not $DisableOrdering.IsPresent
         "order"          = @() # this makes sure there's no default ordering upon start (usually it would be 1st column)
+        "rowGroup"       = ''
         "info"           = -not $DisableInfo.IsPresent
         "procesing"      = -not $DisableProcessing.IsPresent
         "select"         = -not $DisableSelect.IsPresent
@@ -382,7 +386,7 @@ function New-HTMLTable {
     if ($ScreenSizePercent -gt 0) {
         $Options."scrollY" = "$($ScreenSizePercent)vh"
     }
-    if ($null -ne $ConditionalFormatting) {
+    if ($null -ne $ConditionalFormatting -and $ConditionalFormatting.Count -gt 0) {
         $Options.createdRow = ''
     }
 
@@ -420,6 +424,10 @@ function New-HTMLTable {
 
     # Process Conditional Formatting. Ugly JS building
     $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames
+    # Process Row Grouping. Ugly JS building
+    $Options = Convert-TableRowGrouping -Options $Options -Settings $RowGrouping -HeaderNames $HeaderNames
+    $RowGroupingTop = Add-TableRowGrouping -DataTableName $DataTableID -Top -Settings $RowGrouping
+    $RowGroupingBottom = Add-TableRowGrouping -DataTableName $DataTableID -Bottom -Settings $RowGrouping
 
 
     [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })
@@ -457,6 +465,7 @@ function New-HTMLTable {
                 @"
                 `$(document).ready(function() {
                     $SortingFormatDateTime
+                    $RowGroupingTop
                     $LoadSavedState
                     $FilteringTopCode
                     //  Table code
@@ -464,6 +473,7 @@ function New-HTMLTable {
                         $($Options)
                     );
                     $FilteringBottomCode
+                    $RowGroupingBottom
                 });
 "@
             }
@@ -474,6 +484,7 @@ function New-HTMLTable {
                 @"
                     `$(document).ready(function() {
                         $SortingFormatDateTime
+                        $RowGroupingTop
                         `$('.tabs').on('click', 'a', function (event) {
                             if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableID")) {
                                 $LoadSavedState
@@ -485,6 +496,7 @@ function New-HTMLTable {
                                 $FilteringBottomCode
                             };
                         });
+                        $RowGroupingBottom
                     });
 "@
             }
