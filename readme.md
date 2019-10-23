@@ -51,6 +51,8 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
   - Fix for IE 11 support of Tabs (only hosted/not local)
   - Fix for Section that starts as Collapsed [#47](https://github.com/EvotecIT/PSWriteHTML/issues/47)
     - It's a heavy fix, meaning it can have perf impact on display - may need changes
+  - Added New-TableRowGrouping
+    - Allows grouping within New-HTMLTable
 - 0.0.57 - 2019.10.13 - [Blog post about release](https://evotec.xyz/nested-tabs-diagram-updates-diagram-events-calendar-object-and-more-in-pswritehtml/)
   - Changes to Tabs
     - Fix for missing comma in Tabs
