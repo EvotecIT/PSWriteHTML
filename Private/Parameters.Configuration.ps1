@@ -393,10 +393,10 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\vis-network.diagram.css"
             }
             Header       = @{
-                JsLink  = 'https://unpkg.com/vis-network@latest/dist/vis-network.min.js'
-                Js      = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
-                Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min"
-                CssLink = 'https://unpkg.com/vis-network@latest/dist/vis-network.min.css'
+                JsLink = 'https://unpkg.com/vis-network/standalone/umd/vis-network.min.js'
+                Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
+                #  Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min"
+                # CssLink = 'https://unpkg.com/vis-network@latest/dist/vis-network.min.css'
             }
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
@@ -425,4 +425,7 @@ function Get-ResourcesContentFromWeb {
 }
 
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS'
-Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.DataTables.Header.CssLink -Type 'CSS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.DataTables.Header.CssLink -Type 'CSS'
+
+Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.JsLink -Type 'JS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.CssLink -Type 'CSS'
