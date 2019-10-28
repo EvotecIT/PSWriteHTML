@@ -47,8 +47,9 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.58 - Unrelased
-  - Fix for IE 11 support of Tabs (only hosted/not local)
+- 0.0.58 - 2019.10.28
+  - Fix for IE 11 support of Tabs
+  - Fix for IE 11 support of Tables (Out-HTMLView/New-HTMLTable)
   - Fix for Section that starts as Collapsed [#47](https://github.com/EvotecIT/PSWriteHTML/issues/47)
     - It's a heavy fix, meaning it can have perf impact on display - may need changes
   - Added New-TableRowGrouping
