@@ -124,7 +124,7 @@ $Script:Configuration = [ordered] @{
                     #"https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"
                     #"https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"
                     #"https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"
-                    "https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"
+                    "https://nightly.datatables.net/js/jquery.dataTables.min.js"
                     "https://cdn.datatables.net/autofill/2.3.4/js/dataTables.autoFill.min.js"
                     "https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"
                     "https://cdn.datatables.net/buttons/1.6.1/js/buttons.colVis.min.js"

@@ -47,9 +47,13 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.59 - 2019.10.29
+  - Library update
+    - DataTables upgrade to Nightly (1.10.21-dev) due to broken Table Conditioning. Works with IE as well.
 - 0.0.58 - 2019.10.28
   - Library update
     - Vis-Network to 6.3.0 (known issue - IE not working)
+    - DataTables downgrade to 1.10.12 for IE to work
   - Fix for IE 11 support of Tabs
   - Fix for IE 11 support of Tables (Out-HTMLView/New-HTMLTable)
   - Fix for Section that starts as Collapsed [#47](https://github.com/EvotecIT/PSWriteHTML/issues/47)
