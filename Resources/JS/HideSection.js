@@ -4,7 +4,7 @@ function show(obj) {
     document.getElementById("show_" + obj).style.display = 'none';
     try {
         $('.dataTable').DataTable().columns.adjust().responsive.recalc();
-    } catch {
+    } catch (e) {
         console.log('No datatables available.');
     }
 }
