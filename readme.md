@@ -47,6 +47,9 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
+- 0.0.60 - 2019.11.05
+  - Fix for IE 11 support of collapsable sections
+  - Fix for nested, invisible sections not working properly
 - 0.0.59 - 2019.10.29
   - Library update
     - DataTables upgrade to Nightly (1.10.21-dev) due to broken Table Conditioning. Works with IE as well.
