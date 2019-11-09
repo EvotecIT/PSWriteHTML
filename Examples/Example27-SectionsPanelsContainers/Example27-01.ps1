@@ -39,5 +39,21 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example27-01.html" -Show {
         New-HTMLSection -HeaderText 'Test 2' {
             New-HTMLTable -DataTable $ProcessSmaller
         }
+        New-HTMLSection -HeaderText 'Test 3' {
+
+        }
+    }
+    New-HTMLSection -HeaderText 'Test Invisibility' {
+        New-HTMLSection -Invisible {
+            New-HTMLSection -HeaderText 'Test 1' {
+                New-HTMLTable -DataTable $ProcessSmaller
+            }
+            New-HTMLSection -HeaderText 'Test 2' {
+                New-HTMLTable -DataTable $ProcessSmaller
+            }
+            New-HTMLSection -HeaderText 'Test 3' {
+
+            }
+        }
     }
 } -UseCssLinks -UseJavaScriptLinks
