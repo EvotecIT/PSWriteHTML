@@ -23,7 +23,7 @@ function New-ChartInternalLegend {
         $Options.legend = [ordered]@{
             position        = 'top'
             horizontalAlign = 'right'
-            floating        = true
+            floating        = $true
             offsetY         = -25
             offsetX         = -5
         }
