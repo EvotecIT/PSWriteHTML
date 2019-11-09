@@ -154,11 +154,11 @@ function New-HTMLTable {
                             $DataRemove = "$DataRemove$Splitter"
                         }
                         $Text = New-HTMLText -Text $DataSame, $DataRemove, $DataAdd -Color Black, Red, Blue -TextDecoration none, line-through, none -FontWeight normal, bold, bold
-                        New-HTMLTableContent -ColumnName "$DifferenceColumn" -RowIndex ($i + 1) -Text "$Text"
+                        New-TableContent -ColumnName "$DifferenceColumn" -RowIndex ($i + 1) -Text "$Text"
                     }
                 } else {
                     # Same row
-                    # New-HTMLTableContent -RowIndex ($i + 1) -BackGroundColor Green -Color White
+                    # New-TableContent -RowIndex ($i + 1) -BackGroundColor Green -Color White
                 }
             }
         }
