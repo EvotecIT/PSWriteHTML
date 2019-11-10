@@ -9,7 +9,7 @@
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [RGBColors[]] $DataLabelsColor,
+        [string[]] $DataLabelsColor,
         [Array] $Data,
         [Array] $DataNames,
 
@@ -17,7 +17,7 @@
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
 
 
-        [RGBColors[]] $Colors,
+        [string[]] $Colors,
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
         [switch] $PatternedColors,

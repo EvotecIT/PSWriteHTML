@@ -4,7 +4,7 @@ function New-HTMLTimelineItem {
         [DateTime] $Date = (Get-Date),
         [string] $HeadingText,
         [string] $Text,
-        [nullable[RGBColors]] $Color
+        [string]$Color
     )
     $Attributes = @{
         class     = 'timelineSimple-item'

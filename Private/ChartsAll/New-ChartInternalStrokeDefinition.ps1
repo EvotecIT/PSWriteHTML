@@ -5,7 +5,7 @@ function New-ChartInternalStrokeDefinition {
         [ValidateSet('straight', 'smooth', 'stepline')][string[]] $LineCurve,
         [int[]] $LineWidth,
         [ValidateSet('butt', 'square', 'round')][string[]] $LineCap,
-        [RGBColors[]] $LineColor,
+        [string[]] $LineColor,
         [int[]] $LineDash
     )
     # LINE Definition

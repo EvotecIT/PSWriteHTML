@@ -3,14 +3,14 @@
     param(
         [System.Collections.IDictionary] $Options,
         [bool] $Show,
-        [RGBColors] $BorderColor = [RGBColors]::None,
+        [string] $BorderColor = "Black",
         [int] $StrokeDash, #: 0,
         [ValidateSet('front', 'back', 'default')][string] $Position = 'default',
         [nullable[bool]] $xAxisLinesShow = $null,
         [nullable[bool]] $yAxisLinesShow = $null,
-        [alias('GridColors')][RGBColors[]] $RowColors,
+        [alias('GridColors')][string[]] $RowColors,
         [alias('GridOpacity')][double] $RowOpacity = 0.5, # valid range 0 - 1
-        [RGBColors[]] $ColumnColors ,
+        [string[]] $ColumnColors ,
         [double] $ColumnOpacity = 0.5, # valid range 0 - 1
         [int] $PaddingTop,
         [int] $PaddingRight,
@@ -53,7 +53,7 @@
 
     $Options.grid = [ordered] @{ }
     $Options.grid.Show = $Show
-    if ($BorderColor -ne [RGBColors]::None) {
+    if ($BorderColor -ne "") {
         $options.grid.borderColor = @(ConvertFrom-Color -Color $BorderColor)
     }
     if ($StrokeDash -gt 0) {

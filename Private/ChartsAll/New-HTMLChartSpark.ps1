@@ -14,7 +14,7 @@ function New-HTMLChartSpark {
         [string] $SubTitleText,
         [int] $FontSizeTitle = 24,
         [int] $FontSizeSubtitle = 14,
-        [nullable[RGBColors]] $Color,
+        [string]$Color,
 
         [switch] $PatternedColors,
         [switch] $GradientColors,

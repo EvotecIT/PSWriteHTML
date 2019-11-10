@@ -3,8 +3,8 @@
     [CmdletBinding()]
     param(
         [switch] $SlimTabs,
-        [RGBColors] $SelectorColor = [RGBColors]::None,
-        [RGBColors] $SelectorColorTarget = [RGBColors]::None,
+        [string] $SelectorColor = "",
+        [string] $SelectorColorTarget = "",
         [switch] $Transition,
         [switch] $LinearGradient
 
@@ -15,13 +15,13 @@
     }
     #$Script:HTMLSchema.TabOptions = @{ }
     $Script:HTMLSchema.TabOptions.SlimTabs = $SlimTabs.IsPresent
-    if ($SelectorColor -ne [RGBColors]::None) {
+    if ($SelectorColor -ne "") {
        # $Script:HTMLSchema.TabOptions.SelectorColor = ConvertFrom-Color -Color $SelectorColor
         $Script:Configuration.Features.Tabbis.CustomActionsReplace.ColorSelector = ConvertFrom-Color -Color $SelectorColor
         $Script:Configuration.Features.TabbisGradient.CustomActionsReplace.ColorSelector = ConvertFrom-Color -Color $SelectorColor
        # $Script:Configuration.Features.TabsTransition.CustomActionsReplace.ColorSelector = ConvertFrom-Color -Color $SelectorColor
     }
-    if ($SelectorColorTarget -ne [RGBColors]::None) {
+    if ($SelectorColorTarget -ne "") {
         $Script:Configuration.Features.Tabbis.CustomActionsReplace.ColorTarget = ConvertFrom-Color -Color $SelectorColorTarget
         $Script:Configuration.Features.TabbisGradient.CustomActionsReplace.ColorTarget = ConvertFrom-Color -Color $SelectorColorTarget
     }

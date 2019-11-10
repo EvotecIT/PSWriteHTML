@@ -4,7 +4,7 @@ function New-ChartInternalDataLabels {
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [RGBColors[]] $DataLabelsColor
+        [string[]] $DataLabelsColor
     )
 
     $Options.dataLabels = [ordered] @{

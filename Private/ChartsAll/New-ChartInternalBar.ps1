@@ -6,12 +6,12 @@ Function New-ChartInternalBar {
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [RGBColors[]] $DataLabelsColor,
+        [string[]] $DataLabelsColor,
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
         [string] $Formatter,
         [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',
-        #[RGBColors[]] $Colors,
+        #[string[]] $Colors,
 
         [switch] $Distributed,
 

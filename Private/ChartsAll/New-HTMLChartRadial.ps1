@@ -12,7 +12,7 @@ function New-HTMLChartRadial {
 
 
 
-        [RGBColors[]] $Colors,
+        [string[]] $Colors,
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
         [switch] $PatternedColors,

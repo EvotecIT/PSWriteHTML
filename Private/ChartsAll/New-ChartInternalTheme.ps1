@@ -30,7 +30,7 @@ function New-ChartInternalTheme {
         )
         ][string] $Palette = 'palette1',
         [switch] $Monochrome,
-        [RGBColors] $Color = [RGBColors]::DodgerBlue,
+        [string] $Color = "DodgerBlue",
         [ValidateSet('light', 'dark')][string] $ShadeTo = 'light',
         [double] $ShadeIntensity = 0.65
     )

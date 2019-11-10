@@ -6,7 +6,7 @@
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [nullable[RGBColors]] $DataLabelsColor,
+        [string]$DataLabelsColor,
         [alias('PatternedColors')][switch] $Patterned,
         [alias('GradientColors')][switch] $Gradient,
         [switch] $Distributed,

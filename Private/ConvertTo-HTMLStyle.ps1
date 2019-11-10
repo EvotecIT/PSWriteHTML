@@ -1,8 +1,8 @@
 ﻿function ConvertTo-HTMLStyle {
     [CmdletBinding()]
     param(
-        [nullable[RGBColors]] $Color,
-        [nullable[RGBColors]] $BackGroundColor,
+        [string]$Color,
+        [string]$BackGroundColor,
         [int] $FontSize,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,

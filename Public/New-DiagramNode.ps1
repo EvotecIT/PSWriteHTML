@@ -33,12 +33,12 @@ function New-DiagramNode {
         #[string] $ImagePaddingTop,
         #[string] $ImagePaddingBottom,
         #[string] $UseImageSize,
-        #[alias('BackgroundColor')][RGBColors] $Color,
-        #[RGBColors] $Border,
-        #[RGBColors] $HighlightBackground,
-        #[RGBColors] $HighlightBorder,
-        #[RGBColors] $HoverBackground,
-        #[RGBColors] $HoverBorder,
+        #[alias('BackgroundColor')][string] $Color,
+        #[string] $Border,
+        #[string] $HighlightBackground,
+        #[string] $HighlightBorder,
+        #[string] $HoverBackground,
+        #[string] $HoverBorder,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -56,17 +56,17 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "Image")]
         [parameter(ParameterSetName = "Shape")][nullable[bool]] $Chosen,
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][RGBColors] $ColorBorder = [RGBColors]::None,
+        [parameter(ParameterSetName = "Shape")][string] $ColorBorder = "",
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][RGBColors] $ColorBackground = [RGBColors]::None,
+        [parameter(ParameterSetName = "Shape")][string] $ColorBackground = "",
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][RGBColors] $ColorHighlightBorder = [RGBColors]::None,
+        [parameter(ParameterSetName = "Shape")][string] $ColorHighlightBorder = "",
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][RGBColors] $ColorHighlightBackground = [RGBColors]::None,
+        [parameter(ParameterSetName = "Shape")][string] $ColorHighlightBackground = "",
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][RGBColors] $ColorHoverBorder = [RGBColors]::None,
+        [parameter(ParameterSetName = "Shape")][string] $ColorHoverBorder = "",
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][RGBColors] $ColorHoverBackground = [RGBColors]::None,
+        [parameter(ParameterSetName = "Shape")][string] $ColorHoverBackground = "",
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -81,7 +81,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][RGBColors] $FontColor = [RGBColors]::None,
+        [parameter(ParameterSetName = "Shape")][string] $FontColor = "",
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -96,7 +96,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][RGBColors] $FontBackground = [RGBColors]::None,
+        [parameter(ParameterSetName = "Shape")][string] $FontBackground = "",
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -106,7 +106,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][RGBColors] $FontStrokeColor = [RGBColors]::None,
+        [parameter(ParameterSetName = "Shape")][string] $FontStrokeColor = "",
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -142,7 +142,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeSolid")][switch] $IconAsImage,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][RGBColors] $IconColor = [RGBColors]::None,
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor = "",
         # ICON BRANDS
         [ArgumentCompleter(
             {

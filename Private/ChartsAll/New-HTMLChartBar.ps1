@@ -4,13 +4,13 @@ function New-HTMLChartBar {
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
         [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',
-        [RGBColors[]] $Colors,
+        [string[]] $Colors,
 
         [bool] $Horizontal = $true,
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [nullable[RGBColors]] $DataLabelsColor,
+        [string] $DataLabelsColor,
 
         [switch] $Distributed,
 

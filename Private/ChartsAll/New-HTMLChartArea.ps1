@@ -6,14 +6,14 @@ function New-HTMLChartArea {
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [RGBColors[]] $DataLabelsColor,
+        [string[]] $DataLabelsColor,
         [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category',
 
         [ValidateSet('straight', 'smooth', 'stepline')] $LineCurve = 'straight',
         [int] $LineWidth,
-        [RGBColors[]] $LineColor,
+        [string[]] $LineColor,
 
-        [RGBColors[]] $GridColors,
+        [string[]] $GridColors,
         [double] $GridOpacity,
 
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',

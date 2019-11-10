@@ -8,13 +8,13 @@
         [ValidateSet('90', '270')][string] $TitleRotate = '90',
         [int] $TitleOffsetX = 0,
         [int] $TitleOffsetY = 0,
-        [RGBColors] $TitleStyleColor = [RGBColors]::None,
+        [string] $TitleStyleColor = "",
         [int] $TitleStyleFontSize = 12,
         [string] $TitleStylefontFamily = 'Helvetica, Arial, sans-serif',
         [int] $MinValue,
         [int] $MaxValue
         #[ValidateSet('top', 'topRight', 'left', 'right', 'bottom', '')][string] $LegendPosition = '',
-        # [RGBColors[]] $Color
+        # [string[]] $Color
     )
     [PSCustomObject] @{
         ObjectType = 'ChartAxisY'

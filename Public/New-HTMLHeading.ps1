@@ -5,7 +5,7 @@ Function New-HTMLHeading {
         [string]$HeadingText,
         # [validateset('default', 'central')][string] $Type = 'default',
         [switch] $Underline,
-        [nullable[RGBColors]] $Color
+        [string]$Color
     )
     if ($null -ne $Color) {
         $RGBcolor = ConvertFrom-Color -Color $Color

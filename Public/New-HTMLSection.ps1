@@ -4,10 +4,10 @@ Function New-HTMLSection {
     Param (
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace"),
         [alias('Name')][Parameter(Mandatory = $false)][string]$HeaderText,
-        [alias('TextColor')][RGBColors]$HeaderTextColor = [RGBColors]::White,
+        [alias('TextColor')][string]$HeaderTextColor = "White",
         [alias('TextAlignment')][string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment = 'center',
-        [alias('TextBackGroundColor')][RGBColors]$HeaderBackGroundColor = [RGBColors]::DeepSkyBlue,
-        [alias('BackgroundShade')][RGBColors]$BackgroundColor = [RGBColors]::None,
+        [alias('TextBackGroundColor')][string]$HeaderBackGroundColor = "DeepSkyBlue",
+        [alias('BackgroundShade')][string]$BackgroundColor = "",
         [alias('Collapsable')][Parameter(Mandatory = $false)][switch] $CanCollapse,
         [Parameter(Mandatory = $false)][switch] $IsHidden,
         [switch] $Collapsed,

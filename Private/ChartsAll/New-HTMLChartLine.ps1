@@ -7,16 +7,16 @@ function New-HTMLChartLine {
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [RGBColors[]] $DataLabelsColor,
+        [string[]] $DataLabelsColor,
         # [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category',
 
         [ValidateSet('straight', 'smooth', 'stepline')][string[]] $LineCurve,
         [int[]] $LineWidth,
-        [RGBColors[]] $LineColor,
+        [string[]] $LineColor,
         [int[]] $LineDash,
         [ValidateSet('butt', 'square', 'round')][string[]] $LineCap,
 
-        #[RGBColors[]] $GridColors,
+        #[string[]] $GridColors,
         #[double] $GridOpacity,
 
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',

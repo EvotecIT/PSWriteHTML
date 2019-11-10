@@ -17,17 +17,17 @@
 
 
     # Legend Variables
-    $Colors = [System.Collections.Generic.List[RGBColors]]::new()
+    $Colors = [System.Collections.Generic.List[string]]::new()
 
     # Line Variables
-    # $LineColors = [System.Collections.Generic.List[RGBColors]]::new()
+    # $LineColors = [System.Collections.Generic.List[string]]::new()
     $LineCurves = [System.Collections.Generic.List[string]]::new()
     $LineWidths = [System.Collections.Generic.List[int]]::new()
     $LineDashes = [System.Collections.Generic.List[int]]::new()
     $LineCaps = [System.Collections.Generic.List[string]]::new()
 
-    #$RadialColors = [System.Collections.Generic.List[RGBColors]]::new()
-    #$SparkColors = [System.Collections.Generic.List[RGBColors]]::new()
+    #$RadialColors = [System.Collections.Generic.List[string]]::new()
+    #$SparkColors = [System.Collections.Generic.List[string]]::new()
 
     # Bar default definitions
     [bool] $BarHorizontal = $true

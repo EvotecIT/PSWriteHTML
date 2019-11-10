@@ -2,7 +2,7 @@ function New-ChartInternalSpark {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
-        [nullable[RGBColors]] $Color,
+        [string] $Color,
         [string] $Title,
         [string] $SubTitle,
         [int] $FontSizeTitle = 24,

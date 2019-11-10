@@ -2,7 +2,7 @@
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
-        [RGBColors[]]$Colors
+        [string[]]$Colors
     )
 
     if ($Colors.Count -gt 0) {
