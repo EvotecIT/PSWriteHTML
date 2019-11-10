@@ -6,7 +6,7 @@
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
-        [string]$DataLabelsColor,
+        [string] $DataLabelsColor,
         [alias('PatternedColors')][switch] $Patterned,
         [alias('GradientColors')][switch] $Gradient,
         [switch] $Distributed,
@@ -40,3 +40,5 @@
         Distributed        = $Distributed.IsPresent
     }
 }
+
+Register-ArgumentCompleter -CommandName New-ChartBarOptions -ParameterName LineColor -ScriptBlock { $Script:RGBColors.Keys }

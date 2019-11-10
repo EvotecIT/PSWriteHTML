@@ -4,7 +4,7 @@ function New-HTMLTimelineItem {
         [DateTime] $Date = (Get-Date),
         [string] $HeadingText,
         [string] $Text,
-        [string]$Color
+        [string] $Color
     )
     $Attributes = @{
         class     = 'timelineSimple-item'
@@ -27,3 +27,5 @@ function New-HTMLTimelineItem {
         }
     }
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLTimelineItem -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }

@@ -6,20 +6,20 @@ function New-DiagramOptionsNodes {
         [nullable[int]] $BorderWidthSelected,
         [string] $BrokenImage,
         [nullable[bool]] $Chosen,
-        [string] $ColorBorder = "",
-        [string] $ColorBackground = "",
-        [string] $ColorHighlightBorder = "",
-        [string] $ColorHighlightBackground = "",
-        [string] $ColorHoverBorder = "",
-        [string] $ColorHoverBackground = "",
+        [string] $ColorBorder,
+        [string] $ColorBackground,
+        [string] $ColorHighlightBorder,
+        [string] $ColorHighlightBackground,
+        [string] $ColorHoverBorder,
+        [string] $ColorHoverBackground,
         [nullable[bool]] $FixedX,
         [nullable[bool]] $FixedY,
-        [string] $FontColor = "",
+        [string] $FontColor,
         [nullable[int]] $FontSize, #// px
         [string] $FontName,
-        [string] $FontBackground = "",
+        [string] $FontBackground,
         [nullable[int]] $FontStrokeWidth, #// px
-        [string] $FontStrokeColor = "",
+        [string] $FontStrokeColor,
         [ValidateSet('center', 'left')][string] $FontAlign,
         [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
         [nullable[int]] $FontVAdjust,
@@ -100,6 +100,16 @@ function New-DiagramOptionsNodes {
     Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
     $Object
 }
+
+Register-ArgumentCompleter -CommandName New-DiagramOptionsNodes -ParameterName ColorBorder -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsNodes -ParameterName ColorBackground -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsNodes -ParameterName ColorHighlightBorder -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsNodes -ParameterName ColorHighlightBackground -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsNodes -ParameterName ColorHoverBorder -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsNodes -ParameterName ColorHoverBackground -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsNodes -ParameterName FontColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsNodes -ParameterName FontBackground -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsNodes -ParameterName FontStrokeColor -ScriptBlock { $Script:RGBColors.Keys }
 
 <#
 // these are all options in full.

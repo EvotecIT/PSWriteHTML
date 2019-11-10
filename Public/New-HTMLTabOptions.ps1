@@ -3,8 +3,8 @@
     [CmdletBinding()]
     param(
         [switch] $SlimTabs,
-        [string] $SelectorColor = "",
-        [string] $SelectorColorTarget = "",
+        [string] $SelectorColor,
+        [string] $SelectorColorTarget,
         [switch] $Transition,
         [switch] $LinearGradient
 
@@ -15,17 +15,19 @@
     }
     #$Script:HTMLSchema.TabOptions = @{ }
     $Script:HTMLSchema.TabOptions.SlimTabs = $SlimTabs.IsPresent
-    if ($SelectorColor -ne "") {
-       # $Script:HTMLSchema.TabOptions.SelectorColor = ConvertFrom-Color -Color $SelectorColor
+    if ($SelectorColor) {
+        # $Script:HTMLSchema.TabOptions.SelectorColor = ConvertFrom-Color -Color $SelectorColor
         $Script:Configuration.Features.Tabbis.CustomActionsReplace.ColorSelector = ConvertFrom-Color -Color $SelectorColor
         $Script:Configuration.Features.TabbisGradient.CustomActionsReplace.ColorSelector = ConvertFrom-Color -Color $SelectorColor
-       # $Script:Configuration.Features.TabsTransition.CustomActionsReplace.ColorSelector = ConvertFrom-Color -Color $SelectorColor
+        # $Script:Configuration.Features.TabsTransition.CustomActionsReplace.ColorSelector = ConvertFrom-Color -Color $SelectorColor
     }
-    if ($SelectorColorTarget -ne "") {
+    if ($SelectorColorTarget) {
         $Script:Configuration.Features.Tabbis.CustomActionsReplace.ColorTarget = ConvertFrom-Color -Color $SelectorColorTarget
         $Script:Configuration.Features.TabbisGradient.CustomActionsReplace.ColorTarget = ConvertFrom-Color -Color $SelectorColorTarget
     }
     $Script:HTMLSchema.Features.TabbisGradient = $LinearGradient.IsPresent
     $Script:HTMLSchema.Features.TabbisTransition = $Transition.IsPresent
-
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLTabOptions -ParameterName SelectorColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLTabOptions -ParameterName SelectorColorTarget -ScriptBlock { $Script:RGBColors.Keys }

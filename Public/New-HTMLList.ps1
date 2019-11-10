@@ -17,7 +17,7 @@ function New-HTMLList {
         [switch] $LineBreak
     )
 
-    $newHTMLSplat = @{}
+    $newHTMLSplat = @{ }
     if ($Alignment) {
         $newHTMLSplat.Alignment = $Alignment
     }
@@ -57,7 +57,7 @@ function New-HTMLList {
 
     [bool] $SpanRequired = $false
     foreach ($Entry in $newHTMLSplat.GetEnumerator()) {
-        if ((Get-ObjectCount -Object $Entry.Value) -gt 0) {
+        if (($Entry.Value | Measure-Object).Count -gt 0) {
             $SpanRequired = $true
             break
         }
@@ -87,3 +87,6 @@ function New-HTMLList {
         }
     }
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLList -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLList -ParameterName BackGroundColor -ScriptBlock { $Script:RGBColors.Keys }

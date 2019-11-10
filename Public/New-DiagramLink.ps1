@@ -16,19 +16,19 @@
         [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsFromType,
         [nullable[bool]]$ArrowStrikethrough,
         [nullable[bool]] $Chosen,
-        [string] $Color = "",
-        [string] $ColorHighlight = "",
-        [string] $ColorHover = "",
+        [string] $Color,
+        [string] $ColorHighlight,
+        [string] $ColorHover,
         [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit,
         [nullable[double]] $ColorOpacity, # range between 0 and 1
         [nullable[bool]] $Dashes,
         [string] $Length,
-        [string] $FontColor = "",
+        [string] $FontColor,
         [nullable[int]] $FontSize, #// px
         [string] $FontName,
-        [string] $FontBackground = "",
+        [string] $FontBackground,
         [nullable[int]] $FontStrokeWidth, #// px
-        [string] $FontStrokeColor = "",
+        [string] $FontStrokeColor,
         [ValidateSet('center', 'left')][string] $FontAlign,
         [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
         [nullable[int]] $FontVAdjust,
@@ -88,7 +88,12 @@
     Remove-EmptyValues -Hashtable $Object.Edges -Recursive -Rerun 2
     $Object
 }
-
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName ColorHighlight -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName ColorHover -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName FontColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName FontBackground -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName FontStrokeColor -ScriptBlock { $Script:RGBColors.Keys }
 
 <#
   // these are all options in full.

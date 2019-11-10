@@ -52,10 +52,7 @@ function New-HTMLSpanStyle {
             Invoke-Command -ScriptBlock $Content
         }
     }
-    # if ($LineBreak) {
-    #    Write-Verbose 'New-SpanStyle - BR'
-    #     New-HTMLTag -Tag 'br' -SelfClosing
-    # }
-
-
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLSpanStyle -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLSpanStyle -ParameterName BackGroundColor -ScriptBlock { $Script:RGBColors.Keys }

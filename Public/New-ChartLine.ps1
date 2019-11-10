@@ -21,3 +21,5 @@
         LineDash   = $Dash
     }
 }
+
+Register-ArgumentCompleter -CommandName New-ChartLine -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }

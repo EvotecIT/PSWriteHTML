@@ -13,19 +13,19 @@ function New-DiagramOptionsLinks {
         [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsFromType,
         [nullable[bool]] $ArrowStrikethrough,
         [nullable[bool]] $Chosen,
-        [string] $Color = "",
-        [string] $ColorHighlight = "",
-        [string] $ColorHover = "",
+        [string] $Color,
+        [string] $ColorHighlight,
+        [string] $ColorHover,
         [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit,
         [nullable[double]] $ColorOpacity, # range between 0 and 1
         [nullable[bool]]  $Dashes,
         [string] $Length,
-        [string] $FontColor = "",
+        [string] $FontColor,
         [nullable[int]] $FontSize, #// px
         [string] $FontName,
-        [string] $FontBackground = "",
+        [string] $FontBackground,
         [nullable[int]] $FontStrokeWidth, #// px
-        [string] $FontStrokeColor = "",
+        [string] $FontStrokeColor,
         [ValidateSet('center', 'left')][string] $FontAlign,
         [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
         [nullable[int]] $FontVAdjust,
@@ -81,6 +81,12 @@ function New-DiagramOptionsLinks {
     Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
     $Object
 }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsLinks -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsLinks -ParameterName ColorHighlight -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsLinks -ParameterName ColorHover -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsLinks -ParameterName FontColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsLinks -ParameterName FontBackground -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramOptionsLinks -ParameterName FontStrokeColor -ScriptBlock { $Script:RGBColors.Keys }
 <#
 // these are all options in full.
 var options = {

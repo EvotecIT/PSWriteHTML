@@ -5,8 +5,8 @@
         [alias('ColumnName')][string] $Name,
         [int] $ColumnID = -1,
         [ValidateSet('Ascending', 'Descending')][string] $SortOrder = 'Ascending',
-        [RGBColors] $Color,
-        [RGBColors] $BackgroundColor
+        [string] $Color,
+        [string] $BackgroundColor
     )
 
     $Object = [PSCustomObject] @{
@@ -24,3 +24,6 @@
     Remove-EmptyValues -Hashtable $Object.Output
     $Object
 }
+
+Register-ArgumentCompleter -CommandName New-TableRowGrouping -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-TableRowGrouping -ParameterName BackgroundColor -ScriptBlock { $Script:RGBColors.Keys }

@@ -3,7 +3,7 @@
     [CmdletBinding()]
     param(
         [switch] $Show,
-        [string] $BorderColor = "",
+        [string] $BorderColor,
         [int] $StrokeDash, #: 0,
         [ValidateSet('front', 'back', 'default')][string] $Position = 'default',
         [switch] $xAxisLinesShow,
@@ -38,3 +38,6 @@
     }
     # https://apexcharts.com/docs/options/xaxis/
 }
+Register-ArgumentCompleter -CommandName New-ChartGrid -ParameterName BorderColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartGrid -ParameterName RowColors -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartGrid -ParameterName ColumnColors -ScriptBlock { $Script:RGBColors.Keys }

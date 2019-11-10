@@ -62,13 +62,13 @@ function New-HTMLTab {
         [parameter(ParameterSetName = "FontAwesomeSolid")][int] $TextSize,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $TextColor = "",
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $TextColor,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")][int] $IconSize,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor = ""
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTab - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -87,7 +87,7 @@ function New-HTMLTab {
     if ($TextSize -ne 0) {
         $StyleText.'font-size' = "$($TextSize)px"
     }
-    if ($TextColor -ne "") {
+    if ($TextColor) {
         $StyleText.'color' = ConvertFrom-Color -Color $TextColor
     }
 
@@ -95,7 +95,7 @@ function New-HTMLTab {
     if ($IconSize -ne 0) {
         $StyleIcon.'font-size' = "$($IconSize)px"
     }
-    if ($IconColor -ne "") {
+    if ($IconColor) {
         $StyleIcon.'color' = ConvertFrom-Color -Color $IconColor
     }
     $Script:HTMLSchema.Features.Tabbis = $true
@@ -168,3 +168,6 @@ function New-HTMLTab {
     $Script:HTMLSchema.TabsHeaders.Add($Tab)
     $Tab
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLTab -ParameterName IconColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLTab -ParameterName TextColor -ScriptBlock { $Script:RGBColors.Keys }

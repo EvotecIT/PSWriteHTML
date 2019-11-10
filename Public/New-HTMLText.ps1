@@ -155,3 +155,6 @@ function New-HTMLText {
         New-HTMLTag -Tag 'br' -SelfClosing
     }
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLText -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLText -ParameterName BackgroundColor -ScriptBlock { $Script:RGBColors.Keys }

@@ -8,7 +8,7 @@
         [ValidateSet('90', '270')][string] $TitleRotate = '90',
         [int] $TitleOffsetX = 0,
         [int] $TitleOffsetY = 0,
-        [string] $TitleStyleColor = "",
+        [string] $TitleStyleColor,
         [int] $TitleStyleFontSize = 12,
         [string] $TitleStylefontFamily = 'Helvetica, Arial, sans-serif',
         [int] $MinValue,
@@ -35,6 +35,7 @@
 
     # https://apexcharts.com/docs/options/yaxis/
 }
+Register-ArgumentCompleter -CommandName New-ChartAxisY -ParameterName TitleStyleColor -ScriptBlock { $Script:RGBColors.Keys }
 
 <# We can build this
     yaxis: {

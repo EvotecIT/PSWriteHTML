@@ -56,17 +56,17 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "Image")]
         [parameter(ParameterSetName = "Shape")][nullable[bool]] $Chosen,
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][string] $ColorBorder = "",
+        [parameter(ParameterSetName = "Shape")][string] $ColorBorder,
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][string] $ColorBackground = "",
+        [parameter(ParameterSetName = "Shape")][string] $ColorBackground,
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][string] $ColorHighlightBorder = "",
+        [parameter(ParameterSetName = "Shape")][string] $ColorHighlightBorder,
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][string] $ColorHighlightBackground = "",
+        [parameter(ParameterSetName = "Shape")][string] $ColorHighlightBackground,
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][string] $ColorHoverBorder = "",
+        [parameter(ParameterSetName = "Shape")][string] $ColorHoverBorder,
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][string] $ColorHoverBackground = "",
+        [parameter(ParameterSetName = "Shape")][string] $ColorHoverBackground,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -81,7 +81,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][string] $FontColor = "",
+        [parameter(ParameterSetName = "Shape")][string] $FontColor,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -96,7 +96,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][string] $FontBackground = "",
+        [parameter(ParameterSetName = "Shape")][string] $FontBackground,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -106,7 +106,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][string] $FontStrokeColor = "",
+        [parameter(ParameterSetName = "Shape")][string] $FontStrokeColor,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -142,7 +142,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeSolid")][switch] $IconAsImage,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor = "",
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor,
         # ICON BRANDS
         [ArgumentCompleter(
             {
@@ -353,7 +353,16 @@ function New-DiagramNode {
     Remove-EmptyValues -Hashtable $Object.Edges -Recursive
     $Object
 }
-
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorBorder -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorBackground -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHighlightBorder -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHighlightBackground -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHoverBorder -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHoverBackground -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontBackground -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontStrokeColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName IconColor -ScriptBlock { $Script:RGBColors.Keys }
 <#
 // these are all options in full.
 var options = {

@@ -59,3 +59,6 @@ function New-HTMLListItem {
         New-HTMLText @newHTMLTextSplat -SkipParagraph
     }
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLListItem -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLListItem -ParameterName BackgroundColor -ScriptBlock { $Script:RGBColors.Keys }

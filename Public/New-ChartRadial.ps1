@@ -14,3 +14,5 @@
         Color      = $Color
     }
 }
+
+Register-ArgumentCompleter -CommandName New-ChartRadial -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }

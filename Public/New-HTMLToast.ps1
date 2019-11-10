@@ -7,7 +7,7 @@
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $TextHeaderColor = "",
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $TextHeaderColor,
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
@@ -15,7 +15,7 @@
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $TextColor = "",
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $TextColor,
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
@@ -31,7 +31,7 @@
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $BarColorRight = "",
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $BarColorRight,
 
         # ICON BRANDS
         [ArgumentCompleter(
@@ -90,12 +90,12 @@
     [string] $DivClass = "toast"
 
     $StyleText = @{ }
-    if ($TextColor -ne "") {
+    if ($TextColor) {
         $StyleText.'color' = ConvertFrom-Color -Color $TextColor
     }
 
     $StyleTextHeader = @{ }
-    if ($TextHeaderColor -ne "") {
+    if ($TextHeaderColor) {
         $StyleTextHeader.'color' = ConvertFrom-Color -Color $TextHeaderColor
     }
 
@@ -104,17 +104,17 @@
         $StyleIcon.'font-size' = "$($IconSize)px"
     }
 
-    if ($IconColor -ne "") {
+    if ($IconColor) {
         $StyleIcon.'color' = ConvertFrom-Color -Color $IconColor
     }
 
     $StyleBarLeft = @{ }
-    if ($BarColorLeft -ne "") {
+    if ($BarColorLeft) {
         $StyleBarLeft.'background-color' = ConvertFrom-Color -Color $BarColorLeft
     }
 
     $StyleBarRight = @{ }
-    if ($BarColorRight -ne "") {
+    if ($BarColorRight) {
         $StyleBarRight.'background-color' = ConvertFrom-Color -Color $BarColorRight
     }
 
@@ -132,3 +132,9 @@
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'toastBorderRight'; style = $StyleBarRight }
     }
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName TextHeaderColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName TextColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName IconColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName BarColorLeft -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName BarColorRight -ScriptBlock { $Script:RGBColors.Keys }
