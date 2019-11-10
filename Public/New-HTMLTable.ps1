@@ -70,6 +70,7 @@ function New-HTMLTable {
     $ContentTop = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ContentFormattingInline = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ReplaceCompare = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
+    $RowGrouping = @{ }
 
     if ($HTML) {
         [Array] $Output = & $HTML
@@ -110,6 +111,8 @@ function New-HTMLTable {
                     $HeaderResponsiveOperations.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableReplaceCompare') {
                     $ReplaceCompare.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableRowGrouping') {
+                    $RowGrouping = $Parameters.Output
                 }
             }
         }
@@ -151,11 +154,11 @@ function New-HTMLTable {
                             $DataRemove = "$DataRemove$Splitter"
                         }
                         $Text = New-HTMLText -Text $DataSame, $DataRemove, $DataAdd -Color Black, Red, Blue -TextDecoration none, line-through, none -FontWeight normal, bold, bold
-                        New-HTMLTableContent -ColumnName "$DifferenceColumn" -RowIndex ($i + 1) -Text "$Text"
+                        New-TableContent -ColumnName "$DifferenceColumn" -RowIndex ($i + 1) -Text "$Text"
                     }
                 } else {
                     # Same row
-                    # New-HTMLTableContent -RowIndex ($i + 1) -BackGroundColor Green -Color White
+                    # New-TableContent -RowIndex ($i + 1) -BackGroundColor Green -Color White
                 }
             }
         }
@@ -284,6 +287,7 @@ function New-HTMLTable {
         )
         "ordering"       = -not $DisableOrdering.IsPresent
         "order"          = @() # this makes sure there's no default ordering upon start (usually it would be 1st column)
+        "rowGroup"       = ''
         "info"           = -not $DisableInfo.IsPresent
         "procesing"      = -not $DisableProcessing.IsPresent
         "select"         = -not $DisableSelect.IsPresent
@@ -349,25 +353,42 @@ function New-HTMLTable {
         }
     }
 
-    # Sorting
-    if ($DefaultSortOrder -eq 'Ascending') {
-        $Sort = 'asc'
-    } else {
-        $Sort = 'desc'
-    }
-    if ($DefaultSortColumn.Count -gt 0) {
-        $ColumnsOrder = foreach ($Column in $DefaultSortColumn) {
-            $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($Column.ToLower())
-            if ($DefaultSortingNumber -ne - 1) {
-                , @($DefaultSortingNumber, $Sort)
-            }
+    [int] $RowGroupingColumnID = -1
+    if ($RowGrouping.Count -gt 0) {
+        if ($RowGrouping.Name) {
+            $RowGroupingColumnID = ($HeaderNames).ToLower().IndexOf($RowGrouping.Name.ToLower())
+        } else {
+            $RowGroupingColumnID = $RowGrouping.ColumnID
         }
+        if ($RowGroupingColumnID -ne -1) {
+            $ColumnsOrder = , @($RowGroupingColumnID, $RowGrouping.Sorting)
+            if ($DefaultSortColumn.Count -gt 0 -or $DefaultSortIndex.Count -gt 0) {
+                Write-Warning 'New-HTMLTable - Row grouping sorting overwrites default sorting.'
+            }
+        } else {
+            Write-Warning 'New-HTMLTable - Row grouping disabled. Column name/id not found.'
+        }
+    } else {
+        # Sorting
+        if ($DefaultSortOrder -eq 'Ascending') {
+            $Sort = 'asc'
+        } else {
+            $Sort = 'desc'
+        }
+        if ($DefaultSortColumn.Count -gt 0) {
+            $ColumnsOrder = foreach ($Column in $DefaultSortColumn) {
+                $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($Column.ToLower())
+                if ($DefaultSortingNumber -ne - 1) {
+                    , @($DefaultSortingNumber, $Sort)
+                }
+            }
 
-    }
-    if ($DefaultSortIndex.Count -gt 0 -and $DefaultSortColumn.Count -eq 0) {
-        $ColumnsOrder = foreach ($Column in $DefaultSortIndex) {
-            if ($Column -ne - 1) {
-                , @($Column, $Sort)
+        }
+        if ($DefaultSortIndex.Count -gt 0 -and $DefaultSortColumn.Count -eq 0) {
+            $ColumnsOrder = foreach ($Column in $DefaultSortIndex) {
+                if ($Column -ne - 1) {
+                    , @($Column, $Sort)
+                }
             }
         }
     }
@@ -382,7 +403,7 @@ function New-HTMLTable {
     if ($ScreenSizePercent -gt 0) {
         $Options."scrollY" = "$($ScreenSizePercent)vh"
     }
-    if ($null -ne $ConditionalFormatting) {
+    if ($null -ne $ConditionalFormatting -and $ConditionalFormatting.Count -gt 0) {
         $Options.createdRow = ''
     }
 
@@ -420,7 +441,12 @@ function New-HTMLTable {
 
     # Process Conditional Formatting. Ugly JS building
     $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames
-
+    # Process Row Grouping. Ugly JS building
+    if ($RowGroupingColumnID -ne -1) {
+        $Options = Convert-TableRowGrouping -Options $Options -RowGroupingColumnID $RowGroupingColumnID
+        $RowGroupingTop = Add-TableRowGrouping -DataTableName $DataTableID -Top -Settings $RowGrouping
+        $RowGroupingBottom = Add-TableRowGrouping -DataTableName $DataTableID -Bottom -Settings $RowGrouping
+    }
 
     [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })
     if ($Tabs.Count -eq 0) {
@@ -433,6 +459,7 @@ function New-HTMLTable {
 
     # return data
     if (-not $Simplify) {
+        $Script:HTMLSchema.Features.Jquery = $true
         $Script:HTMLSchema.Features.DataTables = $true
         $Script:HTMLSchema.Features.DataTablesPDF = $true
         $Script:HTMLSchema.Features.DataTablesExcel = $true
@@ -456,6 +483,7 @@ function New-HTMLTable {
                 @"
                 `$(document).ready(function() {
                     $SortingFormatDateTime
+                    $RowGroupingTop
                     $LoadSavedState
                     $FilteringTopCode
                     //  Table code
@@ -463,6 +491,7 @@ function New-HTMLTable {
                         $($Options)
                     );
                     $FilteringBottomCode
+                    $RowGroupingBottom
                 });
 "@
             }
@@ -473,6 +502,7 @@ function New-HTMLTable {
                 @"
                     `$(document).ready(function() {
                         $SortingFormatDateTime
+                        $RowGroupingTop
                         `$('.tabs').on('click', 'a', function (event) {
                             if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableID")) {
                                 $LoadSavedState
@@ -484,6 +514,7 @@ function New-HTMLTable {
                                 $FilteringBottomCode
                             };
                         });
+                        $RowGroupingBottom
                     });
 "@
             }
@@ -520,8 +551,14 @@ function New-HTMLTable {
         $AfterTable = ''
     }
 
+    if ($RowGrouping.Attributes.Count -gt 0) {
+        $RowGroupingCSS = ConvertTo-CSS -ID $DataTableID -ClassName 'tr.dtrg-group td' -Attributes $RowGrouping.Attributes -Group
+    } else {
+        $RowGroupingCSS = ''
+    }
 
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexElement overflowHidden' } -Value {
+        $RowGroupingCSS
         $BeforeTableCode
         $BeforeTable
         # Build HTML TABLE

@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html>
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-28 23:38:13" name="revised"/><title>My title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+}
+
+.overflowHidden {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.flexParent {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+}
+
+.flexParentInvisible {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexElement {
+    flex-basis: 100%;
+}
+
+.flexPanel {
+    flex-basis: 100%;
+}
+
+.roundedCorners {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+.rightLogo {
+    flex-basis: 100%;
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">/*
+h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+    margin: 10px 10px 10px 10px;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+    margin: 10px 10px 10px 10px;
+}
+</style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+table {
+    font-size: 8pt;
+}
+</style><!-- CSS DataTables END --><noscript><!-- CSS DataTables START --><style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt;
+      width: 99%;
+    */
+
+    box-sizing: border-box;
+    width: calc(100% - 16px);
+    margin: 8px;
+}
+
+table th {
+    border-width: 1px;
+    padding: 4px;
+    border-style: solid;
+    border-color: black;
+    background-color: #616a6b;
+    color: white;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    font-weight: bold;
+    padding: 10px;
+}
+
+table td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    /* background-color: white; */
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    border-top: 1px solid #ddd;
+}
+
+/* Zebra striping */
+table tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+table th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+table td,
+table th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+</style><!-- CSS DataTables END --></noscript><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/autofill/2.3.4/css/autoFill.dataTables.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/colreorder/1.5.2/css/colReorder.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/keytable/2.5.1/css/keyTable.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/rowreorder/1.2.6/css/rowReorder.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/scroller/2.0.1/css/scroller.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/autofill/2.3.4/js/dataTables.autoFill.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.colVis.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/colreorder/1.5.2/js/dataTables.colReorder.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/keytable/2.5.1/js/dataTables.keyTable.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/rowreorder/1.2.6/js/dataTables.rowReorder.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="1 section" style="color: #ffffff;">1 section </a><a id="show_905984013" href="javascript:void(0)" onclick="show('905984013');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_905984013" href="javascript:void(0)" onclick="hide('905984013');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="905984013" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="905984013"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    var collapsedGroups = {};
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-fRSzOfqa').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "searchFade":  false,
+    "colReorder":  false,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+                  [
+                      2,
+                      "asc"
+                  ]
+              ],
+            rowGroup: {
+            // Uses the 'row group' plugin
+            dataSrc: 2,
+            startRender: function (rows, group) {
+                var collapsed = !!collapsedGroups[group];
+
+                rows.nodes().each(function (r) {
+                    r.style.display = collapsed ? 'none' : '';
+                });
+
+                var toggleClass = collapsed ? 'fa-plus-square' : 'fa-minus-square';
+
+                // Add group name to <tr>
+                return $('<tr/>')
+                    .append('<td colspan="' + rows.columns()[0].length + '">' + '<span class="fa fa-fw ' + toggleClass + ' toggler"/> ' + group + ' (' + rows.count() + ')</td>')
+                    .attr('data-name', group)
+                    .toggleClass('collapsed', collapsed);
+            },
+        },
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   }
+}
+                    );
+                    
+                            $('#DT-fRSzOfqa tbody').on('click', 'tr.dtrg-start', function () {
+            var name = $(this).data('name');
+            collapsedGroups[name] = !collapsedGroups[name];
+            table.draw(false);
+        });
+                });</script><div class="flexElement overflowHidden"><style>
+#DT-fRSzOfqa tr.dtrg-group td {
+background-color: #adff2f;
+color: #ff0000;
+}
+</style><table width="100%" id="DT-fRSzOfqa" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>19440</td><td>Normal</td><td>7.3.712</td><td>937</td><td>64827392</td><td>177229824</td><td>177229824</td><td>745971712</td><td>00:01:40.0781250</td><td>1</td><td>937</td><td>745971712</td><td>64827392</td><td>177229824</td><td>65032</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>100,078125</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3796</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>65032</td><td>65032</td><td>177229824</td><td>715544</td><td>715544</td><td>217604096</td><td>217604096</td><td>222683136</td><td>222683136</td><td>796303360</td><td>796303360</td><td>True</td><td>177229824</td><td>00:00:07.7187500</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:08:20</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:01:32.3593750</td><td>745971712</td><td>False</td><td></td><td></td><td></td><td>64827392</td><td></td><td></td></tr><tr><td>aesm_service</td><td>22608</td><td></td><td></td><td>193</td><td>5677056</td><td>3092480</td><td>3092480</td><td>117387264</td><td></td><td>0</td><td>193</td><td>4412354560</td><td>5677056</td><td>3092480</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3092480</td><td>159360</td><td>159360</td><td>5099520</td><td>5099520</td><td>17580032</td><td>17580032</td><td>133398528</td><td>4428365824</td><td></td><td>3092480</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412354560</td><td>False</td><td></td><td></td><td></td><td>5677056</td><td></td><td></td></tr><tr><td>ApplicationFrameHost</td><td>12352</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>572</td><td>11931648</td><td>46288896</td><td>46288896</td><td>293949440</td><td>00:00:00.8750000</td><td>1</td><td>572</td><td>2203612172288</td><td>11931648</td><td>46288896</td><td>33584</td><td>C:\WINDOWS\system32\ApplicationFrameHost.exe</td><td>Microsoft Corporation</td><td>0,875</td><td>10.0.18362.1</td><td>Application Frame Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3880</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>329570</td><td>Microsoft Store</td><td>System.Diagnostics.ProcessModule (ApplicationFrameHost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>33584</td><td>33584</td><td>46288896</td><td>436472</td><td>436472</td><td>55627776</td><td>55627776</td><td>68239360</td><td>68239360</td><td>314204160</td><td>2203632427008</td><td>True</td><td>46288896</td><td>00:00:00.5625000</td><td>ApplicationFrameHost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:09:11</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.3125000</td><td>2203612172288</td><td>False</td><td></td><td></td><td></td><td>11931648</td><td></td><td></td></tr><tr><td>audiodg</td><td>4952</td><td></td><td></td><td>177</td><td>12087296</td><td>6672384</td><td>6672384</td><td>87048192</td><td>00:00:00.1562500</td><td>0</td><td>177</td><td>2203405271040</td><td>12087296</td><td>6672384</td><td>10872</td><td></td><td></td><td>0,15625</td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>10872</td><td>10872</td><td>6672384</td><td>96120</td><td>96120</td><td>7573504</td><td>7573504</td><td>12939264</td><td>12939264</td><td>88436736</td><td>2203406659584</td><td></td><td>6672384</td><td>00:00:00.1093750</td><td>audiodg</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:37:31</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203405271040</td><td>False</td><td></td><td></td><td></td><td>12087296</td><td></td><td></td></tr><tr><td>browser_broker</td><td>10724</td><td>Normal</td><td>11.00.18362.267 (WinBuild.160101.0800)</td><td>135</td><td>3805184</td><td>1671168</td><td>1671168</td><td>97890304</td><td>00:00:00</td><td>1</td><td>135</td><td>2203416113152</td><td>3805184</td><td>1671168</td><td>8832</td><td>C:\WINDOWS\system32\browser_broker.exe</td><td>Microsoft Corporation</td><td>0</td><td>11.00.18362.267</td><td>Browser_Broker</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5956</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (browser_broker.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8832</td><td>8832</td><td>1671168</td><td>124784</td><td>124784</td><td>1896448</td><td>1896448</td><td>8548352</td><td>8548352</td><td>101560320</td><td>2203419783168</td><td>True</td><td>1671168</td><td>00:00:00</td><td>browser_broker</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:09:31</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203416113152</td><td>False</td><td></td><td></td><td></td><td>3805184</td><td></td><td></td></tr><tr><td>Calculator</td><td>11848</td><td>Normal</td><td>10.1908.0.0</td><td>598</td><td>638976</td><td>38068224</td><td>38068224</td><td>450682880</td><td>00:00:00.4531250</td><td>1</td><td>598</td><td>4745650176</td><td>638976</td><td>38068224</td><td>30208</td><td>C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.1908.0.0_x64__8wekyb3d8bbwe\Calculator.exe</td><td>Microsoft Corporation</td><td>0,453125</td><td>10.1908.0.0</td><td>Calculator.exe</td><td>Microsoft Calculator</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3368</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>328574</td><td>Calculator</td><td>System.Diagnostics.ProcessModule (Calculator.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>30208</td><td>30208</td><td>38068224</td><td>726200</td><td>726200</td><td>49893376</td><td>49893376</td><td>77352960</td><td>77352960</td><td>453828608</td><td>4748795904</td><td>True</td><td>38068224</td><td>00:00:00.1875000</td><td>Calculator</td><td>65535</td><td>False</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:09:21</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2656250</td><td>4745650176</td><td>False</td><td></td><td></td><td></td><td>638976</td><td></td><td></td></tr><tr><td>Code</td><td>2548</td><td>Normal</td><td>1.39.2</td><td>236</td><td>96579584</td><td>83169280</td><td>83169280</td><td>511193088</td><td>00:00:01.9531250</td><td>1</td><td>236</td><td>2203829415936</td><td>96579584</td><td>83169280</td><td>39480</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>1,953125</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4828</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>39480</td><td>39480</td><td>83169280</td><td>433072</td><td>433072</td><td>122150912</td><td>122150912</td><td>135372800</td><td>135372800</td><td>518533120</td><td>2203836755968</td><td>True</td><td>83169280</td><td>00:00:00.2187500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:36:41</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.7343750</td><td>2203829415936</td><td>False</td><td></td><td></td><td></td><td>96579584</td><td></td><td></td></tr><tr><td>Code</td><td>3724</td><td>Normal</td><td>1.39.2</td><td>252</td><td>62730240</td><td>48484352</td><td>48484352</td><td>451686400</td><td>00:00:00.2812500</td><td>1</td><td>252</td><td>2203769909248</td><td>62730240</td><td>48484352</td><td>22272</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,28125</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3840</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>22272</td><td>22272</td><td>48484352</td><td>433168</td><td>433168</td><td>74051584</td><td>74051584</td><td>86687744</td><td>86687744</td><td>468316160</td><td>2203786539008</td><td>True</td><td>48484352</td><td>00:00:00.0312500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:36:02</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2500000</td><td>2203769909248</td><td>False</td><td></td><td></td><td></td><td>62730240</td><td></td><td></td></tr><tr><td>Code</td><td>5208</td><td>Normal</td><td>1.39.2</td><td>238</td><td>87576576</td><td>75603968</td><td>75603968</td><td>503787520</td><td>00:00:01.5781250</td><td>1</td><td>238</td><td>2203822010368</td><td>87576576</td><td>75603968</td><td>37576</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>1,578125</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3328</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>37576</td><td>37576</td><td>75603968</td><td>433072</td><td>433072</td><td>124719104</td><td>124719104</td><td>138301440</td><td>138301440</td><td>520650752</td><td>2203838873600</td><td>True</td><td>75603968</td><td>00:00:00.2031250</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:36:02</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.3750000</td><td>2203822010368</td><td>False</td><td></td><td></td><td></td><td>87576576</td><td></td><td></td></tr><tr><td>Code</td><td>5436</td><td>Normal</td><td>1.39.2</td><td>236</td><td>41897984</td><td>28696576</td><td>28696576</td><td>437661696</td><td>00:00:00.4843750</td><td>1</td><td>236</td><td>2203755884544</td><td>41897984</td><td>28696576</td><td>26968</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,484375</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3320</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>26968</td><td>26968</td><td>28696576</td><td>433072</td><td>433072</td><td>51404800</td><td>51404800</td><td>55586816</td><td>55586816</td><td>444477440</td><td>2203762700288</td><td>True</td><td>28696576</td><td>00:00:00.0468750</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:31:17</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.4375000</td><td>2203755884544</td><td>False</td><td></td><td></td><td></td><td>41897984</td><td></td><td></td></tr><tr><td>Code</td><td>13800</td><td>Normal</td><td>1.39.2</td><td>394</td><td>75460608</td><td>58982400</td><td>58982400</td><td>549363712</td><td>00:00:04.4062500</td><td>1</td><td>394</td><td>2203867586560</td><td>75460608</td><td>58982400</td><td>42520</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>4,40625</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5208</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>42520</td><td>42520</td><td>58982400</td><td>462376</td><td>462376</td><td>103731200</td><td>103731200</td><td>122339328</td><td>122339328</td><td>573743104</td><td>2203891965952</td><td>True</td><td>58982400</td><td>00:00:02.0156250</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:48:11</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:02.3906250</td><td>2203867586560</td><td>False</td><td></td><td></td><td></td><td>75460608</td><td></td><td></td></tr><tr><td>Code</td><td>16228</td><td>Normal</td><td>1.39.2</td><td>244</td><td>30298112</td><td>19779584</td><td>19779584</td><td>415444992</td><td>00:00:00.0781250</td><td>1</td><td>244</td><td>2203733667840</td><td>30298112</td><td>19779584</td><td>20984</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,078125</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3676</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>20984</td><td>20984</td><td>19779584</td><td>433392</td><td>433392</td><td>20283392</td><td>20283392</td><td>30302208</td><td>30302208</td><td>415444992</td><td>2203733667840</td><td>True</td><td>19779584</td><td>00:00:00.0156250</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:38:05</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0625000</td><td>2203733667840</td><td>False</td><td></td><td></td><td></td><td>30298112</td><td></td><td></td></tr><tr><td>Code</td><td>16440</td><td>Normal</td><td>1.39.2</td><td>357</td><td>155541504</td><td>168660992</td><td>168660992</td><td>617435136</td><td>00:00:16.6875000</td><td>1</td><td>357</td><td>2203935657984</td><td>155541504</td><td>168660992</td><td>62080</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>16,6875</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3928</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>62080</td><td>62080</td><td>168660992</td><td>447504</td><td>447504</td><td>210944000</td><td>210944000</td><td>226959360</td><td>226959360</td><td>625299456</td><td>2203943522304</td><td>True</td><td>168660992</td><td>00:00:02.0781250</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:51:39</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:14.6093750</td><td>2203935657984</td><td>False</td><td></td><td></td><td></td><td>155541504</td><td></td><td></td></tr><tr><td>Code</td><td>23672</td><td>Normal</td><td>1.39.2</td><td>346</td><td>48836608</td><td>95518720</td><td>95518720</td><td>532041728</td><td>00:00:02.0781250</td><td>1</td><td>346</td><td>2203850264576</td><td>48836608</td><td>95518720</td><td>45800</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>2,078125</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3940</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>45800</td><td>45800</td><td>95518720</td><td>439184</td><td>439184</td><td>148942848</td><td>148942848</td><td>166273024</td><td>166273024</td><td>555069440</td><td>2203873292288</td><td>True</td><td>95518720</td><td>00:00:00.6250000</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:48:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.4531250</td><td>2203850264576</td><td>False</td><td></td><td></td><td></td><td>48836608</td><td></td><td></td></tr><tr><td>Code</td><td>27008</td><td>Normal</td><td>1.39.2</td><td>512</td><td>280866816</td><td>315752448</td><td>315752448</td><td>954327040</td><td>00:04:59.1093750</td><td>1</td><td>512</td><td>2204272549888</td><td>280866816</td><td>315752448</td><td>82256</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>299,109375</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3176</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>82256</td><td>82256</td><td>315752448</td><td>669752</td><td>669752</td><td>339374080</td><td>339374080</td><td>356569088</td><td>356569088</td><td>1260908544</td><td>2204579131392</td><td>True</td><td>315752448</td><td>00:00:10.0937500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:51:38</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:04:49.0156250</td><td>2204272549888</td><td>False</td><td></td><td></td><td></td><td>280866816</td><td></td><td></td></tr><tr><td>Code</td><td>27416</td><td>Normal</td><td>1.39.2</td><td>496</td><td>161415168</td><td>151420928</td><td>151420928</td><td>752754688</td><td>00:00:09.0781250</td><td>1</td><td>496</td><td>2204070977536</td><td>161415168</td><td>151420928</td><td>66816</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>9,078125</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>2456</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>66816</td><td>66816</td><td>151420928</td><td>670872</td><td>670872</td><td>219467776</td><td>219467776</td><td>242819072</td><td>242819072</td><td>914239488</td><td>2204232462336</td><td>True</td><td>151420928</td><td>00:00:01</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:48:08</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:08.0781250</td><td>2204070977536</td><td>False</td><td></td><td></td><td></td><td>161415168</td><td></td><td></td></tr><tr><td>Code</td><td>27704</td><td>Normal</td><td>1.39.2</td><td>257</td><td>157999104</td><td>146575360</td><td>146575360</td><td>575877120</td><td>00:00:10.5156250</td><td>1</td><td>257</td><td>2203894099968</td><td>157999104</td><td>146575360</td><td>55344</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>10,515625</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>2256</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>55344</td><td>55344</td><td>146575360</td><td>433968</td><td>433968</td><td>209420288</td><td>209420288</td><td>220958720</td><td>220958720</td><td>601325568</td><td>2203919548416</td><td>True</td><td>146575360</td><td>00:00:00.5312500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:36:02</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:09.9843750</td><td>2203894099968</td><td>False</td><td></td><td></td><td></td><td>157999104</td><td></td><td></td></tr><tr><td>Code</td><td>29224</td><td>Normal</td><td>1.39.2</td><td>672</td><td>137830400</td><td>617508864</td><td>617508864</td><td>1433911296</td><td>00:02:24.1562500</td><td>1</td><td>672</td><td>2204752134144</td><td>137830400</td><td>617508864</td><td>73056</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>144,15625</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>2212</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>73056</td><td>73056</td><td>617508864</td><td>708440</td><td>708440</td><td>831127552</td><td>831127552</td><td>187744256</td><td>187744256</td><td>1573662720</td><td>2204891885568</td><td>True</td><td>617508864</td><td>00:00:31.3125000</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:48:08</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:01:52.8437500</td><td>2204752134144</td><td>False</td><td></td><td></td><td></td><td>137830400</td><td></td><td></td></tr><tr><td>Code</td><td>31640</td><td>Normal</td><td>1.39.2</td><td>236</td><td>49307648</td><td>45023232</td><td>45023232</td><td>433926144</td><td>00:00:00.4218750</td><td>1</td><td>236</td><td>2203752148992</td><td>49307648</td><td>45023232</td><td>25472</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,421875</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1936</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>25472</td><td>25472</td><td>45023232</td><td>433072</td><td>433072</td><td>46182400</td><td>46182400</td><td>50839552</td><td>50839552</td><td>439169024</td><td>2203757391872</td><td>True</td><td>45023232</td><td>00:00:00.0937500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:35:56</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.3281250</td><td>2203752148992</td><td>False</td><td></td><td></td><td></td><td>49307648</td><td></td><td></td></tr><tr><td>Code</td><td>31980</td><td>Normal</td><td>1.39.2</td><td>571</td><td>274317312</td><td>250408960</td><td>250408960</td><td>1051553792</td><td>00:00:45.7968750</td><td>1</td><td>571</td><td>2204369776640</td><td>274317312</td><td>250408960</td><td>80752</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>45,796875</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1924</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>80752</td><td>80752</td><td>250408960</td><td>689104</td><td>689104</td><td>289828864</td><td>289828864</td><td>304840704</td><td>304840704</td><td>1066758144</td><td>2204384980992</td><td>True</td><td>250408960</td><td>00:00:02.4687500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:31:15</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:43.3281250</td><td>2204369776640</td><td>False</td><td></td><td></td><td></td><td>274317312</td><td></td><td></td></tr><tr><td>Code</td><td>35024</td><td>Normal</td><td>1.39.2</td><td>259</td><td>11096064</td><td>6496256</td><td>6496256</td><td>241602560</td><td>00:00:00.0781250</td><td>1</td><td>259</td><td>2203559825408</td><td>11096064</td><td>6496256</td><td>15888</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,078125</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1876</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>15888</td><td>15888</td><td>6496256</td><td>411992</td><td>411992</td><td>6651904</td><td>6651904</td><td>13959168</td><td>13959168</td><td>246845440</td><td>2203565068288</td><td>True</td><td>6496256</td><td>00:00:00.0625000</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:48:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203559825408</td><td>False</td><td></td><td></td><td></td><td>11096064</td><td></td><td></td></tr><tr><td>Code</td><td>35448</td><td>Normal</td><td>1.39.2</td><td>384</td><td>272408576</td><td>263888896</td><td>263888896</td><td>726327296</td><td>00:00:53.9531250</td><td>1</td><td>384</td><td>2204044550144</td><td>272408576</td><td>263888896</td><td>74936</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>53,953125</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1868</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>74936</td><td>74936</td><td>263888896</td><td>465424</td><td>465424</td><td>509317120</td><td>509317120</td><td>514330624</td><td>514330624</td><td>924827648</td><td>2204243050496</td><td>True</td><td>263888896</td><td>00:00:01.7031250</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:31:16</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:52.2500000</td><td>2204044550144</td><td>False</td><td></td><td></td><td></td><td>272408576</td><td></td><td></td></tr><tr><td>Code</td><td>35796</td><td>Normal</td><td>1.39.2</td><td>244</td><td>29745152</td><td>19222528</td><td>19222528</td><td>411250688</td><td>00:00:00.0937500</td><td>1</td><td>244</td><td>2203729473536</td><td>29745152</td><td>19222528</td><td>20440</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>0,09375</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1744</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>20440</td><td>20440</td><td>19222528</td><td>433168</td><td>433168</td><td>20353024</td><td>20353024</td><td>30289920</td><td>30289920</td><td>415444992</td><td>2203733667840</td><td>True</td><td>19222528</td><td>00:00:00.0312500</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:23:18</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0625000</td><td>2203729473536</td><td>False</td><td></td><td></td><td></td><td>29745152</td><td></td><td></td></tr><tr><td>Code</td><td>35848</td><td>Normal</td><td>1.39.2</td><td>1192</td><td>105496576</td><td>54386688</td><td>54386688</td><td>673873920</td><td>00:01:42.9375000</td><td>1</td><td>1192</td><td>2203992096768</td><td>105496576</td><td>54386688</td><td>61264</td><td>C:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td>Microsoft Corporation</td><td>102,9375</td><td>1.39.2</td><td>Visual Studio Code</td><td>Visual Studio Code</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>860</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>9767628</td><td>PSWriteHTML - Example13_01.ps1</td><td>System.Diagnostics.ProcessModule (Code.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>61264</td><td>61264</td><td>54386688</td><td>832048</td><td>832048</td><td>57827328</td><td>57827328</td><td>108191744</td><td>108191744</td><td>778690560</td><td>2204096913408</td><td>True</td><td>54386688</td><td>00:00:52.3750000</td><td>Code</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:48:08</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:50.5625000</td><td>2203992096768</td><td>False</td><td></td><td></td><td></td><td>105496576</td><td></td><td></td></tr><tr><td>CodeHelper</td><td>28924</td><td>Normal</td><td>1.0.0.0</td><td>285</td><td>12095488</td><td>10989568</td><td>10989568</td><td>159408128</td><td>00:00:00.0312500</td><td>1</td><td>285</td><td>159408128</td><td>12095488</td><td>10989568</td><td>16680</td><td>c:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\platform\files\node\watcher\win32\CodeHelper.exe</td><td>Microsoft Corporation</td><td>0,03125</td><td>1.0.0.0</td><td>CodeHelper</td><td>CodeHelper</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4780</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (CodeHelper.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>16680</td><td>16680</td><td>10989568</td><td>247688</td><td>247688</td><td>11800576</td><td>11800576</td><td>15114240</td><td>15114240</td><td>172605440</td><td>172605440</td><td>True</td><td>10989568</td><td>00:00:00.0156250</td><td>CodeHelper</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:48:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>159408128</td><td>False</td><td></td><td></td><td></td><td>12095488</td><td></td><td></td></tr><tr><td>CodeHelper</td><td>31480</td><td>Normal</td><td>1.0.0.0</td><td>372</td><td>14761984</td><td>11612160</td><td>11612160</td><td>168083456</td><td>00:00:00.0156250</td><td>1</td><td>372</td><td>168083456</td><td>14761984</td><td>11612160</td><td>18176</td><td>c:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\platform\files\node\watcher\win32\CodeHelper.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>1.0.0.0</td><td>CodeHelper</td><td>CodeHelper</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5784</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (CodeHelper.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>18176</td><td>18176</td><td>11612160</td><td>252008</td><td>252008</td><td>11694080</td><td>11694080</td><td>14905344</td><td>14905344</td><td>171294720</td><td>171294720</td><td>True</td><td>11612160</td><td>00:00:00</td><td>CodeHelper</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:31:16</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>168083456</td><td>False</td><td></td><td></td><td></td><td>14761984</td><td></td><td></td></tr><tr><td>CodeHelper</td><td>34408</td><td>Normal</td><td>1.0.0.0</td><td>485</td><td>14102528</td><td>11984896</td><td>11984896</td><td>158973952</td><td>00:00:00.1250000</td><td>1</td><td>485</td><td>158973952</td><td>14102528</td><td>11984896</td><td>16408</td><td>c:\Users\przemyslaw.klys\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\platform\files\node\watcher\win32\CodeHelper.exe</td><td>Microsoft Corporation</td><td>0,125</td><td>1.0.0.0</td><td>CodeHelper</td><td>CodeHelper</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5148</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (CodeHelper.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>16408</td><td>16408</td><td>11984896</td><td>251784</td><td>251784</td><td>12357632</td><td>12357632</td><td>15986688</td><td>15986688</td><td>172605440</td><td>172605440</td><td>True</td><td>11984896</td><td>00:00:00.0156250</td><td>CodeHelper</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:51:39</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.1093750</td><td>158973952</td><td>False</td><td></td><td></td><td></td><td>14102528</td><td></td><td></td></tr><tr><td>com.barraider.shadowplay</td><td>17896</td><td>Normal</td><td>1.0.0.0</td><td>1131</td><td>7106560</td><td>26804224</td><td>26804224</td><td>219439104</td><td>00:00:00.4531250</td><td>1</td><td>1131</td><td>219439104</td><td>7106560</td><td>26804224</td><td>28424</td><td>C:\Users\przemyslaw.klys\AppData\Roaming\Elgato\StreamDeck\Plugins\com.barraider.shadowplay.sdPlugin\com.barraider.shadowplay.exe</td><td></td><td>0,453125</td><td>1.0.0.0</td><td>streamdeck-shadowplay</td><td>streamdeck-shadowplay</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5496</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (com.barraider.shadowplay.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>28424</td><td>28424</td><td>26804224</td><td>369432</td><td>369432</td><td>27037696</td><td>27037696</td><td>31842304</td><td>31842304</td><td>234209280</td><td>234209280</td><td>True</td><td>26804224</td><td>00:00:00.1250000</td><td>com.barraider.shadowplay</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:08:15</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.3281250</td><td>219439104</td><td>False</td><td></td><td></td><td></td><td>7106560</td><td></td><td></td></tr><tr><td>com.barraider.spotify</td><td>17956</td><td>Normal</td><td>1.0.0.0</td><td>511</td><td>7880704</td><td>26918912</td><td>26918912</td><td>219652096</td><td>00:00:00.3750000</td><td>1</td><td>511</td><td>219652096</td><td>7880704</td><td>26918912</td><td>28424</td><td>C:\Users\przemyslaw.klys\AppData\Roaming\Elgato\StreamDeck\Plugins\com.barraider.spotify.sdPlugin\com.barraider.spotify.exe</td><td></td><td>0,375</td><td>1.0.0.0</td><td>streamdeck-spotify</td><td>streamdeck-spotify</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5468</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (com.barraider.spotify.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>28424</td><td>28424</td><td>26918912</td><td>369848</td><td>369848</td><td>27164672</td><td>27164672</td><td>31936512</td><td>31936512</td><td>234422272</td><td>234422272</td><td>True</td><td>26918912</td><td>00:00:00.0937500</td><td>com.barraider.spotify</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:08:15</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.2812500</td><td>219652096</td><td>False</td><td></td><td></td><td></td><td>7880704</td><td></td><td></td></tr><tr><td>CompPkgSrv</td><td>23360</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>159</td><td>3620864</td><td>1687552</td><td>1687552</td><td>95813632</td><td>00:00:00.0156250</td><td>1</td><td>159</td><td>2203414036480</td><td>3620864</td><td>1687552</td><td>7608</td><td>C:\Windows\System32\CompPkgSrv.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>10.0.18362.1</td><td>Component Package Support Server</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3460</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (CompPkgSrv.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>7608</td><td>7608</td><td>1687552</td><td>120744</td><td>120744</td><td>1937408</td><td>1937408</td><td>8822784</td><td>8822784</td><td>99508224</td><td>2203417731072</td><td>True</td><td>1687552</td><td>00:00:00</td><td>CompPkgSrv</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 22:32:29</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203414036480</td><td>False</td><td></td><td></td><td></td><td>3620864</td><td></td><td></td></tr><tr><td>conhost</td><td>4648</td><td>BelowNormal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>1077248</td><td>6701056</td><td>6701056</td><td>113033216</td><td>00:00:00.0156250</td><td>1</td><td>121</td><td>2203431256064</td><td>1077248</td><td>6701056</td><td>8280</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>6</td><td></td><td>False</td><td></td><td>5180</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8280</td><td>8280</td><td>6701056</td><td>139144</td><td>139144</td><td>6791168</td><td>6791168</td><td>11309056</td><td>11309056</td><td>136626176</td><td>2203454849024</td><td>True</td><td>6701056</td><td>00:00:00.0156250</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:08:05</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203431256064</td><td>False</td><td></td><td></td><td></td><td>1077248</td><td></td><td></td></tr><tr><td>conhost</td><td>4652</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>102</td><td>5705728</td><td>1384448</td><td>1384448</td><td>91070464</td><td>00:00:00.0312500</td><td>1</td><td>102</td><td>2203409293312</td><td>5705728</td><td>1384448</td><td>7872</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,03125</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3756</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>7872</td><td>7872</td><td>1384448</td><td>120480</td><td>120480</td><td>1392640</td><td>1392640</td><td>5804032</td><td>5804032</td><td>91594752</td><td>2203409817600</td><td>True</td><td>1384448</td><td>00:00:00.0156250</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:31:33</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203409293312</td><td>False</td><td></td><td></td><td></td><td>5705728</td><td></td><td></td></tr><tr><td>conhost</td><td>5256</td><td></td><td></td><td>118</td><td>3002368</td><td>6594560</td><td>6594560</td><td>91959296</td><td></td><td>0</td><td>118</td><td>2203410182144</td><td>3002368</td><td>6594560</td><td>7600</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>7600</td><td>7600</td><td>6594560</td><td>98352</td><td>98352</td><td>6713344</td><td>6713344</td><td>10985472</td><td>10985472</td><td>94056448</td><td>2203412279296</td><td></td><td>6594560</td><td></td><td>conhost</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203410182144</td><td>False</td><td></td><td></td><td></td><td>3002368</td><td></td><td></td></tr><tr><td>conhost</td><td>17448</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>3321856</td><td>6692864</td><td>6692864</td><td>113025024</td><td>00:00:00.0156250</td><td>1</td><td>121</td><td>2203431247872</td><td>3321856</td><td>6692864</td><td>8008</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3292</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8008</td><td>8008</td><td>6692864</td><td>139144</td><td>139144</td><td>6782976</td><td>6782976</td><td>11235328</td><td>11235328</td><td>114597888</td><td>2203432820736</td><td>True</td><td>6692864</td><td>00:00:00.0156250</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:08:16</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203431247872</td><td>False</td><td></td><td></td><td></td><td>3321856</td><td></td><td></td></tr><tr><td>conhost</td><td>17628</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>3325952</td><td>6688768</td><td>6688768</td><td>113025024</td><td>00:00:00.0156250</td><td>1</td><td>121</td><td>2203431247872</td><td>3325952</td><td>6688768</td><td>8008</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>2872</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8008</td><td>8008</td><td>6688768</td><td>139144</td><td>139144</td><td>6774784</td><td>6774784</td><td>11214848</td><td>11214848</td><td>114597888</td><td>2203432820736</td><td>True</td><td>6688768</td><td>00:00:00</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:08:16</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203431247872</td><td>False</td><td></td><td></td><td></td><td>3325952</td><td></td><td></td></tr><tr><td>conhost</td><td>17904</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>3321856</td><td>6680576</td><td>6680576</td><td>113025024</td><td>00:00:00</td><td>1</td><td>121</td><td>2203431247872</td><td>3321856</td><td>6680576</td><td>8008</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>2908</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8008</td><td>8008</td><td>6680576</td><td>139144</td><td>139144</td><td>6770688</td><td>6770688</td><td>11210752</td><td>11210752</td><td>114597888</td><td>2203432820736</td><td>True</td><td>6680576</td><td>00:00:00</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:08:15</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203431247872</td><td>False</td><td></td><td></td><td></td><td>3321856</td><td></td><td></td></tr><tr><td>conhost</td><td>17972</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>3321856</td><td>6684672</td><td>6684672</td><td>113025024</td><td>00:00:00.0156250</td><td>1</td><td>121</td><td>2203431247872</td><td>3321856</td><td>6684672</td><td>8008</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5308</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8008</td><td>8008</td><td>6684672</td><td>139144</td><td>139144</td><td>6746112</td><td>6746112</td><td>11202560</td><td>11202560</td><td>114073600</td><td>2203432296448</td><td>True</td><td>6684672</td><td>00:00:00</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:08:15</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203431247872</td><td>False</td><td></td><td></td><td></td><td>3321856</td><td></td><td></td></tr><tr><td>conhost</td><td>18292</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>3334144</td><td>6696960</td><td>6696960</td><td>113025024</td><td>00:00:00.0156250</td><td>1</td><td>121</td><td>2203431247872</td><td>3334144</td><td>6696960</td><td>8008</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4440</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8008</td><td>8008</td><td>6696960</td><td>139144</td><td>139144</td><td>6782976</td><td>6782976</td><td>11235328</td><td>11235328</td><td>118972416</td><td>2203437195264</td><td>True</td><td>6696960</td><td>00:00:00</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:08:16</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203431247872</td><td>False</td><td></td><td></td><td></td><td>3334144</td><td></td><td></td></tr><tr><td>conhost</td><td>18376</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>121</td><td>3321856</td><td>6680576</td><td>6680576</td><td>113025024</td><td>00:00:00</td><td>1</td><td>121</td><td>2203431247872</td><td>3321856</td><td>6680576</td><td>8008</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4092</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8008</td><td>8008</td><td>6680576</td><td>139144</td><td>139144</td><td>6770688</td><td>6770688</td><td>11202560</td><td>11202560</td><td>114597888</td><td>2203432820736</td><td>True</td><td>6680576</td><td>00:00:00</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>27.10.2019 15:08:16</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203431247872</td><td>False</td><td></td><td></td><td></td><td>3321856</td><td></td><td></td></tr><tr><td>conhost</td><td>25388</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>104</td><td>5832704</td><td>1441792</td><td>1441792</td><td>90546176</td><td>00:00:03.2968750</td><td>1</td><td>104</td><td>2203408769024</td><td>5832704</td><td>1441792</td><td>7736</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>3,296875</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5940</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>7736</td><td>7736</td><td>1441792</td><td>122192</td><td>122192</td><td>1462272</td><td>1462272</td><td>5959680</td><td>5959680</td><td>91594752</td><td>2203409817600</td><td>True</td><td>1441792</td><td>00:00:01.6562500</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:15:45</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.6406250</td><td>2203408769024</td><td>False</td><td></td><td></td><td></td><td>5832704</td><td></td><td></td></tr><tr><td>conhost</td><td>26676</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>102</td><td>5640192</td><td>1323008</td><td>1323008</td><td>90546176</td><td>00:00:00</td><td>1</td><td>102</td><td>2203408769024</td><td>5640192</td><td>1323008</td><td>7736</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4444</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>7736</td><td>7736</td><td>1323008</td><td>116384</td><td>116384</td><td>1384448</td><td>1384448</td><td>5775360</td><td>5775360</td><td>91594752</td><td>2203409817600</td><td>True</td><td>1323008</td><td>00:00:00</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:31:16</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203408769024</td><td>False</td><td></td><td></td><td></td><td>5640192</td><td></td><td></td></tr><tr><td>conhost</td><td>27352</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>118</td><td>5423104</td><td>6688768</td><td>6688768</td><td>113033216</td><td>00:00:00.0468750</td><td>1</td><td>118</td><td>2203431256064</td><td>5423104</td><td>6688768</td><td>8280</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,046875</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>2500</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8280</td><td>8280</td><td>6688768</td><td>139144</td><td>139144</td><td>6778880</td><td>6778880</td><td>11370496</td><td>11370496</td><td>114606080</td><td>2203432828928</td><td>True</td><td>6688768</td><td>00:00:00.0312500</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:48:09</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203431256064</td><td>False</td><td></td><td></td><td></td><td>5423104</td><td></td><td></td></tr><tr><td>conhost</td><td>28020</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>118</td><td>11177984</td><td>6692864</td><td>6692864</td><td>113033216</td><td>00:00:00.0156250</td><td>1</td><td>118</td><td>2203431256064</td><td>11177984</td><td>6692864</td><td>8280</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>4312</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8280</td><td>8280</td><td>6692864</td><td>139144</td><td>139144</td><td>6782976</td><td>6782976</td><td>11354112</td><td>11354112</td><td>114606080</td><td>2203432828928</td><td>True</td><td>6692864</td><td>00:00:00.0156250</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 23:31:16</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203431256064</td><td>False</td><td></td><td></td><td></td><td>11177984</td><td></td><td></td></tr><tr><td>conhost</td><td>28340</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>102</td><td>5214208</td><td>1343488</td><td>1343488</td><td>90546176</td><td>00:00:00.0312500</td><td>1</td><td>102</td><td>2203408769024</td><td>5214208</td><td>1343488</td><td>7736</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,03125</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>1856</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>7736</td><td>7736</td><td>1343488</td><td>120480</td><td>120480</td><td>1404928</td><td>1404928</td><td>5836800</td><td>5836800</td><td>91594752</td><td>2203409817600</td><td>True</td><td>1343488</td><td>00:00:00.0156250</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:51:31</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0156250</td><td>2203408769024</td><td>False</td><td></td><td></td><td></td><td>5214208</td><td></td><td></td></tr><tr><td>conhost</td><td>29480</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>118</td><td>5484544</td><td>6692864</td><td>6692864</td><td>113033216</td><td>00:00:00.0156250</td><td>1</td><td>118</td><td>2203431256064</td><td>5484544</td><td>6692864</td><td>8280</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,015625</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>5464</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8280</td><td>8280</td><td>6692864</td><td>139144</td><td>139144</td><td>6782976</td><td>6782976</td><td>11362304</td><td>11362304</td><td>114606080</td><td>2203432828928</td><td>True</td><td>6692864</td><td>00:00:00.0156250</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:51:39</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203431256064</td><td>False</td><td></td><td></td><td></td><td>5484544</td><td></td><td></td></tr><tr><td>conhost</td><td>31024</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>104</td><td>5402624</td><td>1413120</td><td>1413120</td><td>90546176</td><td>00:00:00</td><td>1</td><td>104</td><td>2203408769024</td><td>5402624</td><td>1413120</td><td>7736</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3052</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>7736</td><td>7736</td><td>1413120</td><td>118096</td><td>118096</td><td>1458176</td><td>1458176</td><td>5877760</td><td>5877760</td><td>91594752</td><td>2203409817600</td><td>True</td><td>1413120</td><td>00:00:00</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:51:39</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00</td><td>2203408769024</td><td>False</td><td></td><td></td><td></td><td>5402624</td><td></td><td></td></tr><tr><td>conhost</td><td>35376</td><td>Normal</td><td>10.0.18362.1 (WinBuild.160101.0800)</td><td>123</td><td>5398528</td><td>6598656</td><td>6598656</td><td>113025024</td><td>00:00:00.0625000</td><td>1</td><td>123</td><td>2203431247872</td><td>5398528</td><td>6598656</td><td>8008</td><td>C:\WINDOWS\system32\conhost.exe</td><td>Microsoft Corporation</td><td>0,0625</td><td>10.0.18362.1</td><td>Console Window Host</td><td>Microsoft&#174; Windows&#174; Operating System</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3792</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (conhost.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>8008</td><td>8008</td><td>6598656</td><td>141448</td><td>141448</td><td>6688768</td><td>6688768</td><td>11190272</td><td>11190272</td><td>114597888</td><td>2203432820736</td><td>True</td><td>6598656</td><td>00:00:00.0156250</td><td>conhost</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>28.10.2019 22:46:40</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:00.0468750</td><td>2203431247872</td><td>False</td><td></td><td></td><td></td><td>5398528</td><td></td><td></td></tr><tr><td>Creative.UWPRPCService</td><td>5312</td><td></td><td></td><td>128</td><td>1818624</td><td>1142784</td><td>1142784</td><td>30932992</td><td></td><td>0</td><td>128</td><td>30932992</td><td>1818624</td><td>1142784</td><td>7872</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>7872</td><td>7872</td><td>1142784</td><td>64120</td><td>64120</td><td>1429504</td><td>1429504</td><td>5742592</td><td>5742592</td><td>36175872</td><td>36175872</td><td></td><td>1142784</td><td></td><td>Creative.UWPRPCService</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>30932992</td><td>False</td><td></td><td></td><td></td><td>1818624</td><td></td><td></td></tr><tr><td>csrss</td><td>1028</td><td></td><td></td><td>956</td><td>2605056</td><td>2199552</td><td>2199552</td><td>101863424</td><td></td><td>0</td><td>956</td><td>2203420086272</td><td>2605056</td><td>2199552</td><td>31744</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>13</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>31744</td><td>31744</td><td>2199552</td><td>312600</td><td>312600</td><td>2465792</td><td>2465792</td><td>5267456</td><td>5267456</td><td>102981632</td><td>2203421204480</td><td></td><td>2199552</td><td></td><td>csrss</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203420086272</td><td>False</td><td></td><td></td><td></td><td>2605056</td><td></td><td></td></tr><tr><td>csrss</td><td>1148</td><td></td><td></td><td>1138</td><td>3518464</td><td>3141632</td><td>3141632</td><td>134549504</td><td></td><td>1</td><td>1138</td><td>2203452772352</td><td>3518464</td><td>3141632</td><td>49584</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>13</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>49584</td><td>49584</td><td>3141632</td><td>369632</td><td>369632</td><td>35991552</td><td>35991552</td><td>37687296</td><td>37687296</td><td>159068160</td><td>2203477291008</td><td></td><td>3141632</td><td></td><td>csrss</td><td></td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>2203452772352</td><td>False</td><td></td><td></td><td></td><td>3518464</td><td></td><td></td></tr></tbody></table></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="2 section" style="color: #ffffff;">2 section </a><a id="show_1693070699" href="javascript:void(0)" onclick="show('1693070699');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1693070699" href="javascript:void(0)" onclick="hide('1693070699');" style="color: #ffffff; display:none;">(Hide)</a></div><div id="1693070699" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1693070699"></div></div></div><!-- END BODY --><!-- FOOTER --></body><!-- END FOOTER --></html>

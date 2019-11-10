@@ -12,7 +12,7 @@
         // which tab has which table
         try {
             $('.dataTable').DataTable().columns.adjust().responsive.recalc();
-        } catch {
+        } catch (e) {
             console.log('No datatables available.');
         }
     }

@@ -47,7 +47,23 @@ I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Co
 
 ## Changelog
 
-- 0.0.57 - 2019.10.13
+- 0.0.60 - 2019.11.05
+  - Fix for IE 11 support of collapsable sections
+  - Fix for nested, invisible sections not working properly
+- 0.0.59 - 2019.10.29
+  - Library update
+    - DataTables upgrade to Nightly (1.10.21-dev) due to broken Table Conditioning. Works with IE as well.
+- 0.0.58 - 2019.10.28
+  - Library update
+    - Vis-Network to 6.3.0 (known issue - IE not working)
+    - DataTables downgrade to 1.10.12 for IE to work
+  - Fix for IE 11 support of Tabs
+  - Fix for IE 11 support of Tables (Out-HTMLView/New-HTMLTable)
+  - Fix for Section that starts as Collapsed [#47](https://github.com/EvotecIT/PSWriteHTML/issues/47)
+    - It's a heavy fix, meaning it can have perf impact on display - may need changes
+  - Added New-TableRowGrouping
+    - Allows grouping within New-HTMLTable
+- 0.0.57 - 2019.10.13 - [Blog post about release](https://evotec.xyz/nested-tabs-diagram-updates-diagram-events-calendar-object-and-more-in-pswritehtml/)
   - Changes to Tabs
     - Fix for missing comma in Tabs
     - Fix for Tab Selector Color not being applied after changing to Nested Tabs

@@ -94,7 +94,7 @@ Function New-HTMLSection {
 
         $Script:HTMLSchema.CustomCSS.Add($Css)
     } else {
-        [string] $ClassName = 'flexParent'
+        [string] $ClassName = 'flexParent flexElement overflowHidden'
     }
 
     $DivHeaderStyle = @{
@@ -105,7 +105,7 @@ Function New-HTMLSection {
     if ($Invisible) {
         #New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParentInvisible' } -Value {
         New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName } -Value {
-            New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName flexElement overflowHidden" } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName } -Value {
                 # New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParentInvisible flexElement' } -Value {
                 $Object = Invoke-Command -ScriptBlock $Content
                 if ($null -ne $Object) {
@@ -121,8 +121,8 @@ Function New-HTMLSection {
                 New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)'
                 New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)'
             }
-            New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName overflowHidden"; id = $RandomNumber; Style = $HiddenDivStyle } -Value {
-                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName flexElement collapsable overflowHidden"; id = $RandomNumber; } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; id = $RandomNumber; Style = $HiddenDivStyle } -Value {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName collapsable"; id = $RandomNumber; } -Value {
                     $Object = Invoke-Command -ScriptBlock $Content
                     if ($null -ne $Object) {
                         $Object
