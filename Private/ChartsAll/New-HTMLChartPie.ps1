@@ -43,3 +43,6 @@
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }
     New-ApexChart -Options $Options
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLChartPie -ParameterName DataLabelsColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLChartPie -ParameterName Colors -ScriptBlock { $Script:RGBColors.Keys }

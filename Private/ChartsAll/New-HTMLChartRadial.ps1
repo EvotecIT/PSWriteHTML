@@ -42,3 +42,5 @@ function New-HTMLChartRadial {
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }
     New-ApexChart -Options $Options
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLChartRadial -ParameterName Colors -ScriptBlock { $Script:RGBColors.Keys }

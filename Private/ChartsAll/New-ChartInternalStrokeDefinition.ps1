@@ -1,4 +1,5 @@
 function New-ChartInternalStrokeDefinition {
+    [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
         [bool] $LineShow = $true,
@@ -28,3 +29,4 @@ function New-ChartInternalStrokeDefinition {
         $Options.stroke.dashArray = $LineDash
     }
 }
+Register-ArgumentCompleter -CommandName New-ChartInternalStrokeDefinition -ParameterName LineColor -ScriptBlock { $Script:RGBColors.Keys }

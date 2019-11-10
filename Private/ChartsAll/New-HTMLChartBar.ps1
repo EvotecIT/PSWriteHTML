@@ -51,3 +51,6 @@ function New-HTMLChartBar {
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }
     New-ApexChart -Options $Options
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLChartBar -ParameterName Colors -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLChartBar -ParameterName DataLabelsColor -ScriptBlock { $Script:RGBColors.Keys }

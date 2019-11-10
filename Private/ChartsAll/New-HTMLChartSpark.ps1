@@ -14,7 +14,7 @@ function New-HTMLChartSpark {
         [string] $SubTitleText,
         [int] $FontSizeTitle = 24,
         [int] $FontSizeSubtitle = 14,
-        [string]$Color,
+        [string] $Color,
 
         [switch] $PatternedColors,
         [switch] $GradientColors,
@@ -39,4 +39,4 @@ function New-HTMLChartSpark {
     New-ApexChart -Options $Options
 }
 
-
+Register-ArgumentCompleter -CommandName New-HTMLChartSpark -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }

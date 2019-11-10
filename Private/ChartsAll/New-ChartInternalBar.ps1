@@ -72,6 +72,5 @@ Function New-ChartInternalBar {
         #}
         #}
     }
-
-
 }
+Register-ArgumentCompleter -CommandName New-ChartInternalBar -ParameterName DataLabelsColor -ScriptBlock { $Script:RGBColors.Keys }

@@ -18,3 +18,4 @@ function New-ChartInternalDataLabels {
         $Options.dataLabels.style.colors = @(ConvertFrom-Color -Color $DataLabelsColor)
     }
 }
+Register-ArgumentCompleter -CommandName New-ChartInternalDataLabels -ParameterName DataLabelsColors -ScriptBlock { $Script:RGBColors.Keys }

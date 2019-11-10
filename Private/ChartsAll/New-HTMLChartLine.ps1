@@ -97,3 +97,7 @@ function New-HTMLChartLine {
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }
     New-ApexChart -Options $Options
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLChartLine -ParameterName DataLabelsColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLChartLine -ParameterName LineColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLChartLine -ParameterName GridColors -ScriptBlock { $Script:RGBColors.Keys }

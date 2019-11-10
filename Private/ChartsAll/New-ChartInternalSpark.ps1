@@ -63,3 +63,5 @@ function New-ChartInternalSpark {
         }
     )
 }
+
+Register-ArgumentCompleter -CommandName New-ChartInternalSpark -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }

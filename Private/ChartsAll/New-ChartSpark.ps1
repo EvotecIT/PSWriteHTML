@@ -14,3 +14,5 @@
         Color      = $Color
     }
 }
+
+Register-ArgumentCompleter -CommandName New-ChartSpark -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }

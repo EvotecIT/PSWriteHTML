@@ -3,7 +3,7 @@
     param(
         [System.Collections.IDictionary] $Options,
         [bool] $Show,
-        [string] $BorderColor = "Black",
+        [string] $BorderColor,
         [int] $StrokeDash, #: 0,
         [ValidateSet('front', 'back', 'default')][string] $Position = 'default',
         [nullable[bool]] $xAxisLinesShow = $null,
@@ -53,7 +53,7 @@
 
     $Options.grid = [ordered] @{ }
     $Options.grid.Show = $Show
-    if ($BorderColor -ne "") {
+    if ($BorderColor) {
         $options.grid.borderColor = @(ConvertFrom-Color -Color $BorderColor)
     }
     if ($StrokeDash -gt 0) {
@@ -110,4 +110,6 @@
         }
     }
 }
-
+Register-ArgumentCompleter -CommandName New-ChartInternalGrid -ParameterName BorderColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartInternalGrid -ParameterName RowColors -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartInternalGrid -ParameterName ColumnColors -ScriptBlock { $Script:RGBColors.Keys }
