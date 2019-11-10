@@ -1,4 +1,7 @@
-﻿function Get-VisualIndicator {
+﻿Import-Module PSSharedGoods -Force
+Import-Module PSWriteHTML -Force
+
+function Get-VisualIndicator {
     [CmdLetBinding()]
     param(
         [string] $TextHeading,
@@ -91,11 +94,13 @@
     return $HTMLOutput
 }
 
-$Output = foreach ($Color1 in $Script:RGBColors.keys) {
+
+$RGBColors = Get-Colors
+$Output = foreach ($Color1 in $RGBColors.Keys) {
     foreach ($Color2 in $Script:RGBColors.keys) {
         $RGB1 = ConvertFrom-Color -Color $Color1
         $RGB2 = ConvertFrom-Color -Color $Color2
         Get-VisualIndicator -SkipNewLine -TextHeading "Color Text: $RGB1 ($Color1)" -Text "(ColorBackground $RGB2 ($Color2))" -ColorHeading $Color1 -ColorBackground $Color2
     }
 }
-Save-HTML -FilePath $PSScriptRoot\"Example-Colors".html -HTML $Output -ShowHTML
+Save-HTML -FilePath "$PSScriptRoot\Example-Colors.html" -HTML $Output -ShowHTML
