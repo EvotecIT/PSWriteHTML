@@ -2,17 +2,17 @@ function ConvertFrom-Color {
     [alias('Convert-FromColor')]
     [CmdletBinding()]
     param (
-        [ValidateScript({
-            if($($_ -in $Script:RGBColors.Keys -or $_ -match "^#([A-Fa-f0-9]{6})$" -or $_ -eq "") -eq $false){
-                throw "The Input value is not a valid colorname nor an valid color hex code."
-            }else{$true}
-        })]
+        [ValidateScript( {
+                if ($($_ -in $Script:RGBColors.Keys -or $_ -match "^#([A-Fa-f0-9]{6})$" -or $_ -eq "") -eq $false) {
+                    throw "The Input value is not a valid colorname nor an valid color hex code."
+                } else { $true }
+            })]
         [alias('Colors')][string[]] $Color,
         [switch] $AsDecimal
     )
     $Colors = foreach ($C in $Color) {
         $Value = $Script:RGBColors."$C"
-        if($C -match "^#([A-Fa-f0-9]{6})$"){
+        if ($C -match "^#([A-Fa-f0-9]{6})$") {
             return $C
         }
         if ($null -eq $Value) {
@@ -28,3 +28,4 @@ function ConvertFrom-Color {
     }
     $Colors
 }
+Register-ArgumentCompleter -CommandName ConvertFrom-Color -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }

@@ -326,8 +326,8 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\tabs-elastic.js"
             }
             CustomActionsReplace = @{
-                'ColorSelector' = ConvertFrom-Color -Color ("DodgerBlue")
-                'ColorTarget'   = ConvertFrom-Color -Color ("MediumSlateBlue")
+                'ColorSelector' = ConvertFrom-Color -Color "DodgerBlue"
+                'ColorTarget'   = ConvertFrom-Color -Color "MediumSlateBlue"
             }
         }
         Tabbis                  = @{
@@ -342,8 +342,8 @@ $Script:Configuration = [ordered] @{
                 )
             }
             CustomActionsReplace = @{
-                'ColorSelector' = ConvertFrom-Color -Color ("DodgerBlue")
-                'ColorTarget'   = ConvertFrom-Color -Color ("MediumSlateBlue")
+                'ColorSelector' = ConvertFrom-Color -Color "DodgerBlue"
+                'ColorTarget'   = ConvertFrom-Color -Color "MediumSlateBlue"
             }
         }
         TabbisGradient          = @{
@@ -352,8 +352,8 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.gradient.css"
             }
             CustomActionsReplace = @{
-                'ColorSelector' = ConvertFrom-Color -Color ("DodgerBlue")
-                'ColorTarget'   = ConvertFrom-Color -Color ("MediumSlateBlue")
+                'ColorSelector' = ConvertFrom-Color -Color "DodgerBlue"
+                'ColorTarget'   = ConvertFrom-Color -Color "MediumSlateBlue"
             }
         }
         TabbisTransition        = @{
