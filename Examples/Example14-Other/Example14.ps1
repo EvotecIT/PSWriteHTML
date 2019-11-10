@@ -25,5 +25,4 @@ New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePat
     New-HTMLContent -HeaderText '1 section' {
         New-HTMLTable -ArrayOfObjects $Processes -HideFooter
     }
-
-}
+} -ShowHTML
