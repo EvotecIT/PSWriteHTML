@@ -23,7 +23,7 @@
 
 ## How to install
 
-While you can take sources and use it from here, **PSWriteHTML** actually is composed of multiple other of my modules. To get it up and running you will need ***PSSharedGoods**, and **PSSharedGoods** will need **Connectimo** and **PSWriteColor**. While **Connectimo** or **PSWriteColor** aren't needed for **PSWriteHTML**, **PSSharedGoods** uses them for some of the commands and it will fail without them. You can get all that from sources but if you **just want** to use my modules you should use `Install-Module` command. It's available in PowerShell 5.1. As an added bonus when I publish modules to **PowerShellGallery** I remove any junk, minimize modules to a single file which makes them faster to load and use. I really encourage you to use module from PowerShellGallery and treat **GitHub** as highely development version.
+While you can take sources and use it from here, **PSWriteHTML** actually is composed of multiple other of my modules. To get it up and running you will need ***PSSharedGoods**, and **PSSharedGoods** will need **Connectimo** and **PSWriteColor**. While **Connectimo** or **PSWriteColor** aren't needed for **PSWriteHTML**, **PSSharedGoods** uses them for some of the commands and it will fail without them. You can get all that from sources but if you **just want** to use my modules you should use `Install-Module` command. It's available in PowerShell 5.1. As an added bonus when I publish modules to **PowerShellGallery** I remove any junk, minimize modules to a single file which makes them faster to load and use. I really encourage you to use module from PowerShellGallery and treat **GitHub** as highely development version. Since version 0.0.61 when **PSWriteHTML** is published every dependency is baked into **PSWriteHTML**. That means you don't need to download any other modules unless you want to contribute to this project.
 
 ### To install
 
@@ -43,9 +43,15 @@ That's it. Whenever there's new version you simply run the command and you can e
 
 **The important thing** is if something works for you on production, keep using it till you test the new version on a test computer. I do changes that may not be big, but big enough that auto-update will break your code. For example, small rename to a parameter and your code stops working! Be responsible!
 
-I do plan on removing dependency on **PSSharedGoods**, **PSWriteColor** and **Connectimo** in the future (as I only use **Colors**) from PSSharedGoods but for now it is what it is.
+Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only used during development. When published to PSGallery / Releases it's merged release without any dependencies.
 
 ## Changelog
+
+- 0.0.61 - 2019.11.11
+  - New colors (tnx Ferdi), along with ability to use #HEX as color codes
+  - Emailimo integrated into PSWriteHTML
+  - PSSharedGoods is no longer dependency
+    - The way it works is that during development it still is dependency, but during publish it gets merged into one package using PSPublishModule
 
 - 0.0.60 - 2019.11.05
   - Fix for IE 11 support of collapsable sections
