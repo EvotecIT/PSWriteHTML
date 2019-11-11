@@ -1,5 +1,5 @@
 Ignore/*
 Publish/*
-.gitignore
 .vs/*
 .vscode/*
+Releases/*

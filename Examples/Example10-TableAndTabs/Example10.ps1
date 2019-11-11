@@ -1,4 +1,4 @@
-Import-Module .\PSWriteHTML.psd1 -Force
+Import-Module PSWriteHTML -Force
 $Processes = Get-Process | Select-Object -First 5
 
 New-HTML -TitleText 'My Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example10.html -ShowHTML {

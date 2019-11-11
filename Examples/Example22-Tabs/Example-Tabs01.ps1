@@ -1,10 +1,10 @@
-﻿Import-Module .\PSWriteHTML.psd1 -Force
+﻿Import-Module PSWriteHTML -Force
 
 $Test = Get-Process | Select-Object -First 2 #-Property Name, Id,PriorityClass, HandleCount, WorkingSet
 
 New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-Tabs01.html -Show {
     New-HTMLTabOptions -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue
-    New-HTMLTab -Name 'Test 1' -IconBrands acquisitions-incorporated {
+    New-HTMLTab -Name 'Test 1' -IconBrands acquisitions-incorporated -IconColor Coriander {
         New-HTMLTab -Name 'Nested Tab 1' {
             New-HTMLSection -Invisible {
                 New-HTMLPanel {
@@ -22,7 +22,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             }
         }
         New-HTMLTab -Name 'Nested Tab 2' {
-            New-HTMLSection -HeaderText 'Test' {
+            New-HTMLSection -HeaderText 'Test' -HeaderBackGroundColor BrightRed {
                 New-HTMLTable -DataTable $Test
             }
         }
@@ -33,20 +33,20 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
 
     New-HTMLTab -Name 'Test 3' -IconSolid code-branch -IconColor LimeGreen {
         New-HTMLTable -DataTable $Test
-        New-HTMLSection -HeaderText 'Test' {
+        New-HTMLSection -HeaderText 'Test' -HeaderBackGroundColor CottonCandy {
 
         }
     }
     New-HTMLTab -Name 'Test 4' -IconSolid bezier-curve {
         New-HTMLTable -DataTable $Test -DisablePaging
     }
-    New-HTMLTab -Name 'Test 5' -IconSolid copy {
+    New-HTMLTab -Name 'Test 5' -IconSolid copy -IconColor BrinkPink {
         New-HTMLTable -DataTable $Test
     }
     New-HTMLTab -Name 'Test' -IconBrands asymmetrik {
         New-HTMLTable -DataTable $Test
     }
-    New-HTMLTab -Name 'Test' -IconRegular kiss-beam {
+    New-HTMLTab -Name 'Test' -IconRegular kiss-beam -TextColor BritishRacingGreen {
         New-HTMLTable -DataTable $Test -DisablePaging
     }
 }
