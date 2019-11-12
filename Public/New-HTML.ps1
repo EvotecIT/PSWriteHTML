@@ -49,6 +49,7 @@ Function New-HTML {
     $HTML = @(
         '<!DOCTYPE html>'
         #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
+        '<!-- saved from url=(0014)about:internet -->'
         New-HTMLTag -Tag 'html' {
             '<!-- HEADER -->'
             New-HTMLTag -Tag 'head' {

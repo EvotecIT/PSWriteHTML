@@ -47,6 +47,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.62 - 2019.11.12
+  - IE doesn't require approving running scripts anymore! (tnx orzfly)
+
 - 0.0.61 - 2019.11.11
   - New colors (tnx Ferdi), along with ability to use #HEX as color codes
   - Emailimo integrated into PSWriteHTML
