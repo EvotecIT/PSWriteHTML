@@ -49,12 +49,19 @@ function EmailBody {
     if ($FontWeight) {
         $newHTMLSplat.FontWeight = $FontWeight
     }
+    <#
     [bool] $SpanRequired = $false
     foreach ($Entry in $newHTMLSplat.GetEnumerator()) {
         if (($Entry.Value | Measure-Object).Count -gt 0) {
             $SpanRequired = $true
             break
         }
+    }
+    #>
+    if ($newHTMLSplat.Count -gt 0) {
+        $SpanRequired = $true
+    } else {
+        $SpanRequired = $false
     }
     if ($SpanRequired) {
         New-HTMLSpanStyle @newHTMLSplat {

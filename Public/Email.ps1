@@ -1,5 +1,5 @@
 function Email {
-    [CmdLetBinding(SupportsShouldProcess = $True)]
+    [CmdLetBinding()]
     param(
         [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $Email,
         [string[]] $To,
@@ -21,9 +21,10 @@ function Email {
         [ValidateSet('None', 'OnSuccess', 'OnFailure', 'Delay', 'Never')] $DeliveryNotifications = 'None',
         [string] $Encoding = 'Unicode',
         [string] $FilePath,
-        [bool] $Supress = $true
+        [bool] $Supress = $true,
+        [switch] $WhatIf
     )
-    $StartTime = Start-TimeLog
+    $StartTime = [System.Diagnostics.Stopwatch]::StartNew()
     $ServerParameters = [ordered] @{
         From                  = $From
         To                    = $To
@@ -107,13 +108,12 @@ function Email {
         }
     }
 
-    $MailSentTo = "To: $($ServerParameters.To -join ', '); CC: $($ServerParameters.CC -join ', '); BCC: $($ServerParameters.BCC -join ', ')".Trim()
-    if ($pscmdlet.ShouldProcess("$MailSentTo", "Email")) {
-        $EmailOutput = Send-Email -EmailParameters $ServerParameters -Body ($Body -join '') -Attachment $Attachments
-        if (-not $Supress) {
-            $EmailOutput
-        }
+    #$MailSentTo = "To: $($ServerParameters.To -join ', '); CC: $($ServerParameters.CC -join ', '); BCC: $($ServerParameters.BCC -join ', ')".Trim()
+    $EmailOutput = Send-Email -EmailParameters $ServerParameters -Body ($Body -join '') -Attachment $Attachments -WhatIf:$WhatIf
+    if (-not $Supress) {
+        $EmailOutput
     }
+
     $EndTime = Stop-TimeLog -Time $StartTime -Option OneLiner
     Write-Verbose "Email - Time to send: $EndTime"
 }
