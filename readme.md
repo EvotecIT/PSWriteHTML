@@ -47,6 +47,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.63 - 2019.11.17
+  - Fix for WhatIf in Email affecting other places. It should only affect sending emails.
+
 - 0.0.62 - 2019.11.12
   - IE doesn't require approving running scripts anymore! (tnx orzfly)
 
