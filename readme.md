@@ -47,6 +47,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.64 - 2019.11.21
+  - Added TextTransform for New-HTMLTab (thx xlrod!)
+
 - 0.0.63 - 2019.11.17
   - Fix for WhatIf in Email affecting other places. It should only affect sending emails.
 
