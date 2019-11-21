@@ -68,7 +68,8 @@ function New-HTMLTab {
         [parameter(ParameterSetName = "FontAwesomeSolid")][int] $IconSize,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor
+        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor,
+        [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform = 'uppercase'  # New-HTMLTab - Add text-transform
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTab - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -90,6 +91,9 @@ function New-HTMLTab {
     if ($TextColor) {
         $StyleText.'color' = ConvertFrom-Color -Color $TextColor
     }
+    # New-HTMLTab - Add text-transform
+    $StyleText.'text-transform' = "$TextTransform"
+    # end
 
     $StyleIcon = @{ }
     if ($IconSize -ne 0) {
