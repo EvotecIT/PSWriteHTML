@@ -1,5 +1,4 @@
 ﻿Import-Module PSWriteHTML -Force
-Import-Module .\Emailimo.psd1 -Force
 
 ### Prepare your data:
 

@@ -1,5 +1,4 @@
 ﻿Import-Module PSWriteHTML -Force
-Import-Module Emailimo -Force
 
 if ($null -eq $Table) {
     $Table = (Get-Process | Select-Object -First 5 -Property Name, BasePriority, Company, CompanyName)

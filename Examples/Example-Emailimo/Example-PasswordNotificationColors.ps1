@@ -1,7 +1,4 @@
 ﻿Import-Module PSWriteHTML -Force
-Import-Module Emailimo -Force
-
-### Prepare your data:
 
 $UserNotify = 'Przemysław Kłys'
 $PasswordExpiryDays = 5
