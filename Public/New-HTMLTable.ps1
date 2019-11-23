@@ -211,7 +211,11 @@ function New-HTMLTable {
     }
     if ($DataTable[0] -is [System.Collections.IDictionary]) {
         Write-Verbose 'New-HTMLTable - Working with IDictionary'
-        [Array ] $Table = $($DataTable).GetEnumerator() | Select-Object Name, Value | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
+        [Array] $TemporaryTable = foreach ($_ in $DataTable) {
+            $_.GetEnumerator() | Select-Object Name, Value
+        }
+        [Array] $Table = $TemporaryTable | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
+        #[Array] $Table = $($DataTable).GetEnumerator() | Select-Object Name, Value | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
     } elseif ($DataTable[0] -is [string]) {
         [Array] $Table = $DataTable | ForEach-Object { [PSCustomObject]@{ 'Name' = $_ } } | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2
     } else {
