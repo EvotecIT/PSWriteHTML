@@ -48,7 +48,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.66 - 2019.11.25
-  - Added JustifyContent to New-HTMLSection (thx xlrod!) (Issue: https://github.com/EvotecIT/PSWriteHTML/issues/79) (Pull: https://github.com/EvotecIT/PSWriteHTML/pull/85)
+  - Added JustifyContent to New-HTMLSection (thx xlrod!) (#79 / #85)
 
 - 0.0.65 - 2019.11.23
   - Fix for Hashtable/OrderedDictionary display in New-HTMLTable/Out-HTMLView
