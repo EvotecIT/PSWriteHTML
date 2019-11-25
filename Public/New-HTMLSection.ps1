@@ -18,6 +18,7 @@ Function New-HTMLSection {
         [string][ValidateSet('row', 'row-reverse', 'column', 'column-reverse')] $Direction,
         [string][ValidateSet('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch')] $AlignContent,
         [string][ValidateSet('stretch', 'flex-start', 'flex-end', 'center', 'baseline')] $AlignItems
+        [string][ValidateSet('flex-start', 'flex-end', 'center')] $JustifyContent = 'flex-start' # Add $JustifyContent parameter and set default to flex-start
 
     )
     $RandomNumber = Get-Random
@@ -122,7 +123,7 @@ Function New-HTMLSection {
                 New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)'
             }
             New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; id = $RandomNumber; Style = $HiddenDivStyle } -Value {
-                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName collapsable"; id = $RandomNumber; } -Value {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName collapsable"; id = $RandomNumber; Style = "justify-content: $JustifyContent";  } -Value {
                     $Object = Invoke-Command -ScriptBlock $Content
                     if ($null -ne $Object) {
                         $Object
