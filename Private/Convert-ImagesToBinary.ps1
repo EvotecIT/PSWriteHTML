@@ -6,7 +6,12 @@ function Convert-ImagesToBinary {
         [string] $ReplacePath
     )
     if ($Content -like "*$Search*") {
-        $Replace = "data:image/$FileType;base64," + [Convert]::ToBase64String((Get-Content -LiteralPath $ReplacePath -Encoding Byte))
+        if ($PSEdition -eq 'Core') {
+            $ImageContent = Get-Content -AsByteStream -LiteralPath $ReplacePath
+        } else {
+            $ImageContent = Get-Content -LiteralPath $ReplacePath -Encoding Byte
+        }
+        $Replace = "data:image/$FileType;base64," + [Convert]::ToBase64String($ImageContent)
         $Content = $Content.Replace($Search, $Replace)
     }
     $Content
