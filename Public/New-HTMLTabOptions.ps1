@@ -6,7 +6,9 @@
         [string] $SelectorColor,
         [string] $SelectorColorTarget,
         [switch] $Transition,
-        [switch] $LinearGradient
+        [switch] $LinearGradient,
+        [ValidateSet('0px','10px','15px','25px')][string] $BorderRadius = '0px',
+        [string] $BorderBackgroundColor
 
     )
     if (-not $Script:HTMLSchema) {
@@ -27,7 +29,17 @@
     }
     $Script:HTMLSchema.Features.TabbisGradient = $LinearGradient.IsPresent
     $Script:HTMLSchema.Features.TabbisTransition = $Transition.IsPresent
+    
+    $Script:BorderStyle = @{
+        'border-radius' = "$BorderRadius";
+        'background-color' = ""
+    }
+
+    if($BorderBackgroundColor){
+        $Script:BorderStyle.'background-color' = ConvertFrom-Color -Color $BorderBackgroundColor
+    }
 }
 
 Register-ArgumentCompleter -CommandName New-HTMLTabOptions -ParameterName SelectorColor -ScriptBlock { $Script:RGBColors.Keys }
 Register-ArgumentCompleter -CommandName New-HTMLTabOptions -ParameterName SelectorColorTarget -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLTabOptions -ParameterName BorderBackgroundColor -ScriptBlock { $Script:RGBColors.Keys }
