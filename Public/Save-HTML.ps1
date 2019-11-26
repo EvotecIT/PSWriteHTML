@@ -1,7 +1,7 @@
 Function Save-HTML {
     <#
     .SYNOPSIS
-    Short description
+    #
 
     .DESCRIPTION
     Long description
@@ -12,7 +12,13 @@ Function Save-HTML {
     .PARAMETER HTML
     Parameter description
 
-    .PARAMETER ShowReport
+    .PARAMETER ShowHTML
+    Parameter description
+
+    .PARAMETER Encoding
+    Parameter description
+
+    .PARAMETER Supress
     Parameter description
 
     .EXAMPLE
@@ -21,7 +27,6 @@ Function Save-HTML {
     .NOTES
     General notes
     #>
-
     [CmdletBinding()]
     Param
     (
@@ -41,19 +46,18 @@ Function Save-HTML {
     }
     Write-Verbose "Save-HTML - Saving HTML to file $FilePath"
     try {
-        $HTML | Set-Content -LiteralPath $FilePath -Force -Encoding $Encoding
+        $HTML | Set-Content -LiteralPath $FilePath -Force -Encoding $Encoding -ErrorAction Stop
         if (-not $Supress) {
             $FilePath
         }
     } catch {
         $ErrorMessage = $_.Exception.Message -replace "`n", " " -replace "`r", " "
         $FilePath = Get-FileName -Temporary -Extension 'html'
-        Write-Warning "Save-HTML - Failed with error: $ErrorMessage`nSave-HTML - Saving HTML to file $FilePath"
-
-        Write-Verbose "Save-HTML - Saving HTML to file $FilePath"
+        Write-Warning "Save-HTML - Failed with error: $ErrorMessage"
+        Write-Warning "Save-HTML - Saving HTML to file $FilePath"
         try {
-            $HTML | Set-Content -LiteralPath $FilePath -Force -Encoding $Encoding
-        } catch{
+            $HTML | Set-Content -LiteralPath $FilePath -Force -Encoding $Encoding -ErrorAction Stop
+        } catch {
             $ErrorMessage = $_.Exception.Message -replace "`n", " " -replace "`r", " "
             Write-Warning "Save-HTML - Failed with error: $ErrorMessage`nPlease define a different path for the `'-FilePath`' parameter."
         }
@@ -66,5 +70,4 @@ Function Save-HTML {
             Write-Verbose "Save-HTML - couldn't open file $FilePath in a browser. Error: $ErrorMessage"
         }
     }
-
 }
