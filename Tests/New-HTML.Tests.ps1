@@ -11,6 +11,7 @@
         }
     }
     It 'Given New-HTML with wrong path it should create HTML file in temporary location' {
+        # This path is by default wrong. We want it to fail.
         $FilePath = "Z:\Windows"
         New-HTML {
 
