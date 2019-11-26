@@ -11,7 +11,7 @@
         }
     }
     It 'Given New-HTML with wrong path it should create HTML file in temporary location' {
-        $FilePath = "C:\TemporaryTest.html"
+        $FilePath = "Z:\Windows"
         New-HTML {
 
         } -FilePath $FilePath -WarningVariable Warnings -WarningAction SilentlyContinue
@@ -25,7 +25,7 @@
         $secondString = "$"
         $pattern = "$firstString(.*?)$secondString"
         $result = [regex]::Match($Warnings[1], $pattern).Groups[1].Value
-        Write-host $result
+        #Write-host $result
         $PathExists = ($result -and (Test-Path -LiteralPath $result))
         $PathExists | Should -Be $True
         if ($PathExists) {

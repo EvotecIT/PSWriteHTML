@@ -8,7 +8,7 @@
                 .\PSWriteHTML.Tests.ps1
             displayName: "Run Pester Tests - PowerShell 5"
           #  - script: |
-          #        pwsh -c '.\PSBlackListChecker.Tests.ps1' $(TEAMSPESTERID) $(SLACKPESTERID) $(DISCORDURL)
+          #        pwsh -c '.\PSWriteHTML.Tests.ps1'
           #    displayName: "Run Pester Tests - PowerShell 6+"
 
     - job: Build_PSCore_Ubuntu1604
