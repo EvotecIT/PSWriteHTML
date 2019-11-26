@@ -50,6 +50,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.67
   - Save-HTML improvment to save to temp file if saving fails (tnx xlrod!) ([#81](https://github.com/EvotecIT/PSWriteHTML/issues/81) / [#86](https://github.com/EvotecIT/PSWriteHTML/pull/86))
+  - Fix for New-HTMLTable (Convert-ImagesToBinary) on PS 6/7
 
 - 0.0.66 - 2019.11.25
   - Added JustifyContent to New-HTMLSection (thx xlrod!) ([#79](https://github.com/EvotecIT/PSWriteHTML/issues/79) / [#85](https://github.com/EvotecIT/PSWriteHTML/pull/85))
