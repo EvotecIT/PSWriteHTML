@@ -47,7 +47,16 @@ Function Save-HTML {
         }
     } catch {
         $ErrorMessage = $_.Exception.Message -replace "`n", " " -replace "`r", " "
-        Write-Warning "Save-HTML - Failed with error: $ErrorMessage"
+        $FilePath = Get-FileName -Temporary -Extension 'html'
+        Write-Warning "Save-HTML - Failed with error: $ErrorMessage`nSave-HTML - Saving HTML to file $FilePath"
+
+        Write-Verbose "Save-HTML - Saving HTML to file $FilePath"
+        try {
+            $HTML | Set-Content -LiteralPath $FilePath -Force -Encoding $Encoding
+        } catch{
+            $ErrorMessage = $_.Exception.Message -replace "`n", " " -replace "`r", " "
+            Write-Warning "Save-HTML - Failed with error: $ErrorMessage`nPlease define a different path for the `'-FilePath`' parameter."
+        }
     }
     if ($ShowHTML) {
         try {
