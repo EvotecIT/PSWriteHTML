@@ -39,14 +39,14 @@ function New-HTMLTabHead {
     }
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsWrapper' } {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabs' ; style = $Style } {
-            New-HTMLTag -Tag 'div' -Attributes @{ 'data-tabs' = 'true' } {
+            New-HTMLTag -Tag 'div' -Attributes @{ 'data-tabs' = 'true'; Style = $Script:BorderStyle } {
                 foreach ($Tab in $Tabs) {
                     if ($Tab.Active) {
                         $TabActive = 'active'
                     } else {
                         $TabActive = ''
                     }
-                    New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $TabActive } {
+                    New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $TabActive; Style = @{'border-radius' = $Script:BorderStyle.'border-radius'}  } {
                         New-HTMLTag -Tag 'div' -Attributes @{ class = $($Tab.Icon); style = $($Tab.StyleIcon) }
                         New-HTMLTag -Tag 'span' -Attributes @{ style = $($Tab.StyleText ) } -Value { $Tab.Name }
                     }
