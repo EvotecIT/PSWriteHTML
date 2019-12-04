@@ -46,7 +46,16 @@ function New-TableConditionalFormatting {
                         }
                     }
                 } elseif ($Condition.Type -eq 'date') {
-                    "if (new Date(data[$ConditionHeaderNr]) $($Condition.Operator) new Date('$($Condition.Value)')) {"
+                    switch($Condition.Operator){
+                        {$_ -eq "==" -or $_ -eq "!="} {
+                            $Condition.Type = 'string'
+                            "if ((data[$ConditionHeaderNr]) $($Condition.Operator) ('$($Condition.Value)')) {"
+                        }
+                        default {
+                            $Condition.Type = 'date'
+                            "if (new Date(data[$ConditionHeaderNr]) $($Condition.Operator) new Date('$($Condition.Value)')) {"
+                        }
+                    }   
                 }
                 if ($null -ne $Condition.Row -and $Condition.Row -eq $true) {
                     "`$(column)$($StyleDefinition);"
