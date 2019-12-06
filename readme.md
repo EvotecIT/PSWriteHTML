@@ -46,9 +46,33 @@ That's it. Whenever there's new version you simply run the command and you can e
 
 Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only used during development. When published to PSGallery / Releases it's merged release without any dependencies.
 
+## Articles worth reading to understand use cases
+
+- [x] [Meet Statusimo – PowerShell generated Status Page](https://evotec.xyz/meet-statusimo-powershell-generated-status-page/)
+- [x] [Meet Dashimo – PowerShell Generated Dashboard](https://evotec.xyz/meet-dashimo-powershell-generated-dashboard/)
+- [x] [Dashimo – Easy Table Conditional Formatting and more](https://evotec.xyz/dashimo-easy-table-conditional-formatting-and-more/)
+- [x] [Out-HtmlView – HTML alternative to Out-GridView](https://evotec.xyz/out-htmlview-html-alternative-to-out-gridview/)
+- [x] [Meet Emailimo – New way to send pretty emails with PowerShell](https://evotec.xyz/meet-emailimo-new-way-to-send-pretty-emails-with-powershell/)
+- [x] [All your HTML Tables are belong to us](https://evotec.xyz/all-your-html-tables-are-belong-to-us/)
+- [x] [Sending HTML emails with PowerShell and zero HTML knowledge required](https://evotec.xyz/sending-html-emails-with-powershell-and-zero-html-knowledge-required/)
+- [x] [Dashimo (PSWriteHTML) – Charting, Icons and few other changes](https://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes/)
+- [x] [Working with HTML in PowerShell just got better](https://evotec.xyz/working-with-html-in-powershell-just-got-better/)
+- [x] [Comparing two or more objects visually in PowerShell (cross-platform)](https://evotec.xyz/comparing-two-or-more-objects-visually-in-powershell-cross-platform/)
+- [x] [Easy way to create diagrams using PowerShell and PSWriteHTML](https://evotec.xyz/easy-way-to-create-diagrams-using-powershell-and-pswritehtml/)
+- [x] [Nested Tabs, Diagram Updates, Diagram Events, Calendar Object and more in PSWriteHTML](https://evotec.xyz/nested-tabs-diagram-updates-diagram-events-calendar-object-and-more-in-pswritehtml/)
+
+
 ## Changelog
 
-- 0.0.67
+- 0.0.68 - Unreleased
+  - Library update
+    - Vis-Network to 6.4.6
+  - Diagrams now work in Internet Explorer (yay!)
+  - Add Tab border customization and Tab header background color (tnx xlrod!) [#87](https://github.com/EvotecIT/PSWriteHTML/pull/87)
+    - [x] New-HTMLTabOptions -SlimTabs -SelectorColor Blue **-BorderRadius 25px** **-BorderBackgroundColor LightBlue**
+  - Added Tests so basic stuff is tested for regression (it's very basic)
+
+- 0.0.67 - 2019.11.26
   - Save-HTML improvment to save to temp file if saving fails (tnx xlrod!) ([#81](https://github.com/EvotecIT/PSWriteHTML/issues/81) / [#86](https://github.com/EvotecIT/PSWriteHTML/pull/86))
   - Fix for New-HTMLTable (Convert-ImagesToBinary) on PS 6/7
 
