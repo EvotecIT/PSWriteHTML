@@ -61,7 +61,6 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - [x] [Easy way to create diagrams using PowerShell and PSWriteHTML](https://evotec.xyz/easy-way-to-create-diagrams-using-powershell-and-pswritehtml/)
 - [x] [Nested Tabs, Diagram Updates, Diagram Events, Calendar Object and more in PSWriteHTML](https://evotec.xyz/nested-tabs-diagram-updates-diagram-events-calendar-object-and-more-in-pswritehtml/)
 
-
 ## Changelog
 
 - 0.0.68 - Unreleased
@@ -71,6 +70,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - Add Tab border customization and Tab header background color (tnx xlrod!) [#87](https://github.com/EvotecIT/PSWriteHTML/pull/87)
     - [x] New-HTMLTabOptions -SlimTabs -SelectorColor Blue **-BorderRadius 25px** **-BorderBackgroundColor LightBlue**
   - Added Tests so basic stuff is tested for regression (it's very basic)
+  - Added alias for New-TableConditon (TableCondition)
 
 - 0.0.67 - 2019.11.26
   - Save-HTML improvment to save to temp file if saving fails (tnx xlrod!) ([#81](https://github.com/EvotecIT/PSWriteHTML/issues/81) / [#86](https://github.com/EvotecIT/PSWriteHTML/pull/86))

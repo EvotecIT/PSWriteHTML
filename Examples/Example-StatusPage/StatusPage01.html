@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-08-02 14:45:24" name="revised"/><title>Services Status</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-11-26 20:01:18" name="revised"/><title>Services Status</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" rel="stylesheet" type="text/css"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" rel="stylesheet" type="text/css"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -11,92 +12,36 @@ hr {
     width: 100%;
 }
 
-/*
-div.clientlogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: left;
-    display: inline-block;
-    width: 50%;
-}
-
-div.MainLogo {
-    border: 0px;
-    vertical-align: middle;
-    text-align: right;
-    display: inline-block;
-    width: 50%;
-}
-*/
-
-/*
-.central {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 900px;
-}
-*/
-
 .defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
+}
 
+.overflowHidden {
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-
 }
-
-/* Not used anywhere - I think
-div.defaultColumn {
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding: 2px;
-}
-*/
 
 .flexParent {
     display: flex;
-    flex-wrap: nowrap;
     justify-content: space-between;
     padding: 2px;
-
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-
-
 }
 
 .flexParentInvisible {
     display: flex;
     justify-content: space-between;
-
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-
 }
 
 .flexElement {
     flex-basis: 100%;
-    flex: 1 auto;
-
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-
 }
 
 .flexPanel {
     flex-basis: 100%;
-
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 .roundedCorners {
@@ -110,9 +55,6 @@ div.defaultColumn {
     padding: 5px;
     margin: 0px 0px 0px 0px;
     font-weight: bold;
-    /* color: #ffffff;
-    background-color: #6Cf;
-    */
 }
 
 .defaultFooter {
@@ -120,13 +62,19 @@ div.defaultColumn {
     text-align: right;
 }
 
-.clientlogo {
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-.MainLogo {
+.rightLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-right: 5em;
     text-align: right;
@@ -185,21 +133,8 @@ img {
     margin: 1%;
     flex: 1;
 }
-
-/*
-.orange {
-    background-color: #f39c12;
-}
-
-.red {
-    background-color: #ff4136;
-}
-
-.green {
-    background-color: #2ecc40;
-}
-*/
-</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">/*
+h2:after,
 h3:after,
 h4:after,
 h5:after,
@@ -214,6 +149,7 @@ h6:after {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
+
 h2:after {
     background: #0AF;
 }
@@ -221,6 +157,7 @@ h2:after {
 h3:after {
     background: #3BF;
 }
+
 
 h4:after,
 h5:after,
@@ -236,6 +173,7 @@ h5.white,
 h6.white {
     color: white;
 }
+*/
 
 h1,
 h2,
@@ -257,6 +195,7 @@ h1 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     position: relative;
     color: #6Cf;
+    margin: 10px 10px 10px 10px;
 }
 
 h2 {
@@ -267,6 +206,7 @@ h2 {
     position: relative;
     font-size: 25px;
     line-height: 20px;
+    margin: 10px 10px 10px 10px;
 }
 
 h3 {
@@ -277,6 +217,7 @@ h3 {
     position: relative;
     font-size: 24px;
     line-height: 20px;
+    margin: 10px 10px 10px 10px;
 }
 
 h4 {
@@ -287,6 +228,7 @@ h4 {
     position: relative;
     font-size: 18px;
     line-height: 16px;
+    margin: 10px 10px 10px 10px;
 }
 
 h5 {
@@ -297,6 +239,7 @@ h5 {
     position: relative;
     font-size: 14px;
     line-height: 16px;
+    margin: 10px 10px 10px 10px;
 }
 
 h6 {
@@ -307,10 +250,76 @@ h6 {
     position: relative;
     font-size: 10px;
     line-height: 12px;
+    margin: 10px 10px 10px 10px;
 }
-</style><!-- CSS Always Required Default Headings END --><!-- CSS Timeline Simple START --><style type="text/css">/* @import url("https://fonts.googleapis.com/css?family=Oswald|Roboto:400,700"); */
+</style><!-- CSS Always Required Default Headings END --><!-- CSS Toasts Looking Messages START --><style type="text/css">.toast {
+    text-align: left;
+    padding: 10px 5px 10px 5px;
+    background-color: #fff;
+    border-radius: 4px;
+    top: 0px;
+    position: relative;
+    box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
+    margin: 10px 10px 10px 10px;
+}
 
-h1.timelineSimple,
+.toastBorderLeft {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.toastBorderRight {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.toastIcon {
+    position: absolute;
+    top: 35%;
+    left: 12px;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    padding: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.toastContent {
+    padding-left: 70px;
+    padding-right: 60px;
+}
+
+.toastTextHeader {
+    color: #3e3e3e;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px !important;
+}
+
+.toastText {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #878787;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px !important;
+}
+</style><!-- CSS Toasts Looking Messages END --><!-- CSS Timeline Simple START --><style type="text/css">h1.timelineSimple,
 h2.timelineSimple,
 h3.timelineSimple,
 h4.timelineSimple,
@@ -392,71 +401,4 @@ p.timelineSimple {
     border-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
     border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, transparent) 1 100%;
 }
-</style><!-- CSS Timeline Simple END --><!-- CSS Toasts Looking Messages START --><style type="text/css">.toast {
-    text-align: left;
-    padding: 10px 5px 10px 5px;
-    background-color: #fff;
-    border-radius: 4px;
-    top: 0px;
-    position: relative;
-    box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
-    margin: 10px 10px 10px 10px;
-}
-
-.toastBorderLeft {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-
-.toastBorderRight {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 4px;
-    height: 100%;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-
-.toastIcon {
-    position: absolute;
-    top: 35%;
-    left: 12px;
-    transform: translateY(-50%);
-    width: 14px;
-    height: 14px;
-    padding: 7px;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.toastContent {
-    padding-left: 70px;
-    padding-right: 60px;
-}
-
-.toastTextHeader {
-    color: #3e3e3e;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-family: "Raleway", sans-serif;
-    font-size: 16px !important;
-}
-
-.toastText {
-    font-size: 14px;
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #878787;
-    font-family: "Raleway", sans-serif;
-    font-size: 14px !important;
-}
-</style><!-- CSS Toasts Looking Messages END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="flexParentInvisible"><div class="flexParentInvisible flexElement"><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div><div class="toast"><div class="toastBorderLeft" style="background-color:#ffa500"></div><div class="toastIcon fas fa-tablet" style="font-size:30px;color:#ffa500"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div><div class="toast"><div class="toastBorderLeft" style="background-color:#0000ff"></div><div class="toastIcon fas fa-info-circle" style="font-size:30px;color:#0000ff"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><div class="flexPanel roundedCorners" style=" box-shadow: unset !important;"><div class="timelineSimpleContainer"><div class="timelineSimple-item" date-is="08/01/2019 14:45:24"><h1 class="timelineSimple">Azure AD is down</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/31/2019 14:45:24"><h1 class="timelineSimple">Azure AD ...</h1><p class="timelineSimple">We have huge problems</p></div><div class="timelineSimple-item" date-is="07/30/2019 14:45:24"><h1 class="timelineSimple">AD just died</h1><p class="timelineSimple">We have huge problems</p></div></div></div></div></div></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>
+</style><!-- CSS Timeline Simple END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="flexParent flexElement overflowHidden"><div class="flexParent flexElement overflowHidden"><div style=" box-shadow: unset !important;" class="flexPanel overflowHidden roundedCorners overflowHidden"><div class="toast"><div style="background-color:#0000ff" class="toastBorderLeft"></div><div style="color:#0000ff;font-size:30px" class="toastIcon fas fa-info-circle"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div><div class="toast"><div style="background-color:#ffa500" class="toastBorderLeft"></div><div style="color:#ffa500;font-size:30px" class="toastIcon fas fa-tablet"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div><div class="toast"><div style="background-color:#0000ff" class="toastBorderLeft"></div><div style="color:#0000ff;font-size:30px" class="toastIcon fas fa-info-circle"></div><div class="toastContent"><p class="toastTextHeader">Information</p><p class="toastText">Everything is running smoothly!</p></div><div class="toastBorderRight"></div></div></div><div style=" box-shadow: unset !important;" class="flexPanel overflowHidden roundedCorners overflowHidden"><div class="timelineSimpleContainer"><div date-is="11/25/2019 20:01:18" class="timelineSimple-item"><h1 style="color: ;" class="timelineSimple">Azure AD is down</h1><p class="timelineSimple">We have huge problems</p></div><div date-is="11/24/2019 20:01:18" class="timelineSimple-item"><h1 style="color: ;" class="timelineSimple">Azure AD ...</h1><p class="timelineSimple">We have huge problems</p></div><div date-is="11/23/2019 20:01:18" class="timelineSimple-item"><h1 style="color: ;" class="timelineSimple">AD just died</h1><p class="timelineSimple">We have huge problems</p></div></div></div></div></div><!-- END BODY --><!-- FOOTER --></body><!-- END FOOTER --></html>
