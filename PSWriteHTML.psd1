@@ -122,10 +122,10 @@
     'TableButtonPrint', 'EmailTableButtonPrint', 
     'New-HTMLTableButtonPrint', 'EmailTableCondition', 
     'TableConditionalFormatting', 'New-HTMLTableCondition', 
-    'TableContent', 'EmailTableContent', 'New-HTMLTableContent', 
-    'TableHeader', 'EmailTableHeader', 'New-HTMLTableHeader', 
-    'TableReplace', 'EmailTableReplace', 'New-HTMLTableReplace', 
-    'TableRowGrouping', 'EmailTableRowGrouping', 
+    'TableCondition', 'TableContent', 'EmailTableContent', 
+    'New-HTMLTableContent', 'TableHeader', 'EmailTableHeader', 
+    'New-HTMLTableHeader', 'TableReplace', 'EmailTableReplace', 
+    'New-HTMLTableReplace', 'TableRowGrouping', 'EmailTableRowGrouping', 
     'New-HTMLTableRowGrouping', 'Out-GridHtml', 'ohv'
 
     # DSC resources to export from this module
