@@ -63,7 +63,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.68 - Unreleased
+- 0.0.68 - 2019.12.07
   - Library update
     - Vis-Network to 6.4.6
   - Diagrams now work in Internet Explorer (yay!)
