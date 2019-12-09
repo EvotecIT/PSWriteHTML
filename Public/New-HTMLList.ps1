@@ -67,22 +67,22 @@ function New-HTMLList {
         New-HTMLSpanStyle @newHTMLSplat {
             if ($Type -eq 'Unordered') {
                 New-HTMLTag -Tag 'ul' {
-                    Invoke-Command -ScriptBlock $ListItems
+                    Invoke-Command -ScriptBlock $HTMLListItems
                 }
             } else {
                 New-HTMLTag -Tag 'ol' {
-                    Invoke-Command -ScriptBlock $ListItems
+                    Invoke-Command -ScriptBlock $HTMLListItems
                 }
             }
         }
     } else {
         if ($Type -eq 'Unordered') {
             New-HTMLTag -Tag 'ul' {
-                Invoke-Command -ScriptBlock $ListItems
+                Invoke-Command -ScriptBlock $HTMLListItems
             }
         } else {
             New-HTMLTag -Tag 'ol' {
-                Invoke-Command -ScriptBlock $ListItems
+                Invoke-Command -ScriptBlock $HTMLListItems
             }
         }
     }
