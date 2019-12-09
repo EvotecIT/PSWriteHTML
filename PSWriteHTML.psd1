@@ -126,7 +126,7 @@
     'New-HTMLTableContent', 'TableHeader', 'EmailTableHeader', 
     'New-HTMLTableHeader', 'TableReplace', 'EmailTableReplace', 
     'New-HTMLTableReplace', 'TableRowGrouping', 'EmailTableRowGrouping', 
-    'New-HTMLTableRowGrouping', 'Out-GridHtml', 'ohv'
+    'New-HTMLTableRowGrouping', 'Out-GridHtml', 'ohv', 'EmailList'
 
     # DSC resources to export from this module
     # DscResourcesToExport = @()

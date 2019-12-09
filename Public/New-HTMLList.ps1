@@ -1,4 +1,5 @@
 function New-HTMLList {
+    [alias('EmailList')]
     [CmdletBinding()]
     param(
         [ScriptBlock]$ListItems,
