@@ -1,4 +1,5 @@
 function New-HTMLList {
+    [alias('EmailList')]
     [CmdletBinding()]
     param(
         [ScriptBlock]$ListItems,
@@ -67,22 +68,22 @@ function New-HTMLList {
         New-HTMLSpanStyle @newHTMLSplat {
             if ($Type -eq 'Unordered') {
                 New-HTMLTag -Tag 'ul' {
-                    Invoke-Command -ScriptBlock $HTMLListItems
+                    Invoke-Command -ScriptBlock $ListItems
                 }
             } else {
                 New-HTMLTag -Tag 'ol' {
-                    Invoke-Command -ScriptBlock $HTMLListItems
+                    Invoke-Command -ScriptBlock $ListItems
                 }
             }
         }
     } else {
         if ($Type -eq 'Unordered') {
             New-HTMLTag -Tag 'ul' {
-                Invoke-Command -ScriptBlock $HTMLListItems
+                Invoke-Command -ScriptBlock $ListItems
             }
         } else {
             New-HTMLTag -Tag 'ol' {
-                Invoke-Command -ScriptBlock $HTMLListItems
+                Invoke-Command -ScriptBlock $ListItems
             }
         }
     }
