@@ -63,6 +63,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.69 - Unreleased
+  - Fix for EmailList [#90](https://github.com/EvotecIT/PSWriteHTML/pull/90) - tnx natosullivan
+
 - 0.0.68 - 2019.12.07
   - Library update
     - Vis-Network to 6.4.6
