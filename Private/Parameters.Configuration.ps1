@@ -301,6 +301,19 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
             }
         }
+        JustGage = @{
+            Comment = 'Just Gage Library'
+            Header       = @{
+                JSLink = @(
+                    'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js'
+                )
+                JS     = @(
+                    "$PSScriptRoot\..\Resources\JS\raphael-min.js"
+                    "$PSScriptRoot\..\Resources\JS\justgage.min.js"
+                )
+            }
+        }
         Popper                  = @{
             Comment      = 'Popper and Tooltip for FullCalendar'
             HeaderAlways = @{
@@ -429,3 +442,7 @@ function Get-ResourcesContentFromWeb {
 
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.JsLink -Type 'JS'
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.CssLink -Type 'CSS'
+
+
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.JustGage.Header.JsLink -Type 'JS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.JustGage.Header.CssLink -Type 'CSS'
