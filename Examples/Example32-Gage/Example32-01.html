@@ -1,0 +1,710 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-12-10 14:09:40" name="revised"/><title>This is a test</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+}
+
+.overflowHidden {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.flexParent {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+}
+
+.flexParentInvisible {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexElement {
+    flex-basis: 100%;
+}
+
+.flexPanel {
+    flex-basis: 100%;
+}
+
+.roundedCorners {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+.rightLogo {
+    flex-basis: 100%;
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">/*
+h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+    margin: 10px 10px 10px 10px;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+    margin: 10px 10px 10px 10px;
+}
+</style><!-- CSS Always Required Default Headings END --><!-- JS Just Gage Library START --><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.3.3/justgage.min.js" type="text/javascript"></script><!-- JS Just Gage Library END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="flexParent flexElement overflowHidden"><div class="flexParent flexElement overflowHidden"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagezilg2nsb"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagezilg2nsb",
+    "value":  50,
+    "min":  0,
+    "max":  100,
+    "label":  "Fixes",
+    "counter":  true,
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gageidm7xzp0"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gageidm7xzp0",
+    "value":  5000,
+    "min":  0,
+    "max":  50000,
+    "label":  "Open Tickets",
+    "counter":  true,
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gageok8wm9jf"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gageok8wm9jf",
+    "value":  3000,
+    "min":  0,
+    "max":  50000,
+    "label":  "Closed Tickets",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage8rnqol29"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage8rnqol29",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Gaugage Width Scale",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gager5vj2cge"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gager5vj2cge",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Tickets",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagex3v8nfou"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagex3v8nfou",
+    "value":  70,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Tickets",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage61l8ad7q"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage61l8ad7q",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Tickets",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div></div></div><div class="flexParent flexElement overflowHidden"><div class="flexParent flexElement overflowHidden"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage4c250tbj"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage4c250tbj",
+    "value":  30,
+    "label":  "Fixes",
+    "counter":  true,
+    "customSectors":  {
+                          "ranges":  [
+                                         {
+                                             "color":  "#0000ff",
+                                             "lo":  0,
+                                             "hi":  50
+                                         },
+                                         {
+                                             "color":  "#ff0000",
+                                             "lo":  51,
+                                             "hi":  100
+                                         }
+                                     ],
+                          "percents":  true
+                      },
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage15udyh9t"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage15udyh9t",
+    "value":  40,
+    "max":  1000,
+    "label":  "Fixes",
+    "counter":  true,
+    "symbol":  "$",
+    "customSectors":  {
+                          "ranges":  [
+                                         {
+                                             "color":  "#0000ff",
+                                             "lo":  0,
+                                             "hi":  50
+                                         },
+                                         {
+                                             "color":  "#ff0000",
+                                             "lo":  51,
+                                             "hi":  100
+                                         },
+                                         {
+                                             "color":  "#ffff00",
+                                             "lo":  101,
+                                             "hi":  1000
+                                         }
+                                     ],
+                          "percents":  true
+                      },
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage6x3mjf7l"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage6x3mjf7l",
+    "value":  3000,
+    "min":  0,
+    "max":  50000,
+    "label":  "Closed Tickets",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage28cgf1w0"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage28cgf1w0",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Gaugage Width Scale",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagesmv1fhcw"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagesmv1fhcw",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Tickets",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gageqnvh8yzs"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gageqnvh8yzs",
+    "value":  70,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Tickets",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gageow47nu6y"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gageow47nu6y",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Tickets",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div></div></div><div class="flexParent flexElement overflowHidden"><div class="flexParent flexElement overflowHidden"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagerfxgv36s"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagerfxgv36s",
+    "value":  50,
+    "valueFontColor":  "GordonsGreen",
+    "minText":  "Minimal",
+    "min":  0,
+    "max":  100,
+    "label":  "Fixes",
+    "labelFontColor":  "#000000",
+    "counter":  true,
+    "pointer":  true,
+    "pointerOptions":  {
+                           "color":  "#808080"
+                       },
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagea09ufl78"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagea09ufl78",
+    "value":  5000,
+    "min":  0,
+    "max":  50000,
+    "label":  "Open Tickets",
+    "counter":  true,
+    "pointer":  true,
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagedxaftkib"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagedxaftkib",
+    "value":  3000,
+    "min":  0,
+    "max":  50000,
+    "label":  "Closed Tickets",
+    "pointer":  true,
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gageyoh7s5x6"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gageyoh7s5x6",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Tickets",
+    "pointer":  true,
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagepeoultyd"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagepeoultyd",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Tickets",
+    "pointer":  true,
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagersdvxbh0"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagersdvxbh0",
+    "value":  70,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Tickets",
+    "pointer":  true,
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage4b2rdvle"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage4b2rdvle",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Tickets",
+    "pointer":  true,
+    "relativeGaugeSize":  true
+} );
+});
+</script></div></div></div><div class="flexParent flexElement overflowHidden"><div class="flexParent flexElement overflowHidden"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagejw6i5kqm"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagejw6i5kqm",
+    "value":  50,
+    "title":  "This is my title",
+    "min":  0,
+    "max":  100,
+    "label":  "Fixes",
+    "labelFontColor":  "#0000ff",
+    "counter":  true,
+    "gaugeColor":  "#efdecd",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage6evauwko"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage6evauwko",
+    "value":  5000,
+    "min":  0,
+    "max":  50000,
+    "label":  "Open Tickets",
+    "counter":  true,
+    "showInnerShadow":  true,
+    "gaugeColor":  "#4d1a7f",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagexh8ynj7z"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagexh8ynj7z",
+    "value":  3000,
+    "min":  0,
+    "max":  50000,
+    "label":  "Closed Tickets",
+    "pointer":  true,
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage973ynjme"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage973ynjme",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Gage",
+    "pointer":  true,
+    "pointerOptions":  {
+                           "toplength":  10
+                       },
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagemek48n97"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagemek48n97",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Gage",
+    "pointer":  true,
+    "pointerOptions":  {
+                           "color":  "#adff2f",
+                           "toplength":  -15,
+                           "bottomlength":  10,
+                           "bottomwidth":  12
+                       },
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage4dg8bcum"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage4dg8bcum",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Gage",
+    "pointer":  true,
+    "pointerOptions":  {
+                           "color":  "#adff2f",
+                           "toplength":  15,
+                           "bottomlength":  10,
+                           "bottomwidth":  12
+                       },
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagedj7e1gs2"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagedj7e1gs2",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Gage",
+    "pointer":  true,
+    "pointerOptions":  {
+                           "color":  "#adff2f",
+                           "toplength":  1,
+                           "bottomlength":  0,
+                           "bottomwidth":  3
+                       },
+    "relativeGaugeSize":  true
+} );
+});
+</script></div></div></div><div class="flexParent flexElement overflowHidden"><div class="flexParent flexElement overflowHidden"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagep1z8xstb"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagep1z8xstb",
+    "value":  65,
+    "min":  0,
+    "max":  100,
+    "label":  "Fixes",
+    "pointer":  true,
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagekjpqsbh1"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagekjpqsbh1",
+    "value":  45,
+    "min":  0,
+    "max":  100,
+    "label":  "Open Tickets",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagein0fb1ca"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagein0fb1ca",
+    "value":  40,
+    "min":  0,
+    "max":  100,
+    "label":  "Closed Tickets",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagescdt1hov"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagescdt1hov",
+    "value":  70,
+    "valueFontColor":  "Red",
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Gage",
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagerh59n420"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagerh59n420",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Gage",
+    "pointer":  true,
+    "pointerOptions":  {
+                           "toplength":  -15,
+                           "bottomlength":  10,
+                           "bottomwidth":  12
+                       },
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gage0lgvo671"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gage0lgvo671",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Gage",
+    "pointer":  true,
+    "pointerOptions":  {
+                           "toplength":  15,
+                           "bottomlength":  10,
+                           "bottomwidth":  12
+                       },
+    "relativeGaugeSize":  true
+} );
+});
+</script></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="Gagemw954ilo"></div><script>document.addEventListener("DOMContentLoaded", function (event) {
+var g1 = new JustGage( {
+    "id":  "Gagemw954ilo",
+    "value":  30,
+    "min":  0,
+    "max":  100,
+    "label":  "Testing Gage",
+    "pointer":  true,
+    "pointerOptions":  {
+                           "toplength":  1,
+                           "bottomlength":  0,
+                           "bottomwidth":  3
+                       },
+    "relativeGaugeSize":  true
+} );
+});
+</script></div></div></div><!-- END BODY --><!-- FOOTER --></body><!-- END FOOTER --></html>
