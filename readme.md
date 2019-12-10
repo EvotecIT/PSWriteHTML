@@ -63,8 +63,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.69 - Unreleased
+- 0.0.69 - 2019.12.10
   - Fix for EmailList [#90](https://github.com/EvotecIT/PSWriteHTML/pull/90) - tnx natosullivan
+  - Added New-HTMLGage, New-GageSector
 
 - 0.0.68 - 2019.12.07
   - Library update
