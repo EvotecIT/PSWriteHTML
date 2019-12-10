@@ -305,8 +305,8 @@ $Script:Configuration = [ordered] @{
             Comment = 'Just Gage Library'
             Header       = @{
                 JSLink = @(
-                    'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js'
-                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.3.3/justgage.min.js'
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\raphael-min.js"
