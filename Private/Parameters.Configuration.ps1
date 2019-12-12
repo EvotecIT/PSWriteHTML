@@ -46,11 +46,21 @@ $Script:Configuration = [ordered] @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
+        ChartsXkcd = @{
+            Header = @{
+                JsLink = @(
+                    'https://cdn.jsdelivr.net/npm/chart.xkcd@1.1.12/dist/chart.xkcd.min.js'
+                )
+                Js = @(
+                    "$PSScriptRoot\..\Resources\JS\chart.xkcd.min.js"
+                )
+            }
+        }
         Jquery                  = @{
             Comment = 'Jquery'
             Header  = @{
-                JsLink = 'https://code.jquery.com/jquery-3.3.1.min.js'
-                Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.3.1.min.js"
+                JsLink = 'https://code.jquery.com/jquery-3.4.1.min.js'
+                Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.4.1.min.js"
             }
         }
         DataTablesOld           = @{
@@ -301,9 +311,19 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
             }
         }
-        JustGage = @{
+        FancyTree               = @{
+            Header = @{
+                JSLink = @(
+                    'https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.33.0/jquery.fancytree-all-deps.min.js'
+                )
+                CSSLink = @(
+                    'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.33/dist/skin-win8/ui.fancytree.min.css'
+                )
+            }
+        }
+        JustGage                = @{
             Comment = 'Just Gage Library'
-            Header       = @{
+            Header  = @{
                 JSLink = @(
                     'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js'
                     'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.3.3/justgage.min.js'
@@ -314,6 +334,24 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
+        <#
+        JsTree                  = @{
+            Header = @{
+                JSLink = @(
+                    'https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js'
+                )
+                CSSLink = @(
+                    'https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css'
+                )
+                JS = @(
+                    "$PSScriptRoot\..\Resources\JS\stree.min.js"
+                )
+                CSS = @(
+                    "$PSScriptRoot\..\Resources\CSS\style.min.css"
+                )
+            }
+        }
+        #>
         Popper                  = @{
             Comment      = 'Popper and Tooltip for FullCalendar'
             HeaderAlways = @{
@@ -444,5 +482,7 @@ function Get-ResourcesContentFromWeb {
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.CssLink -Type 'CSS'
 
 
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.JustGage.Header.JsLink -Type 'JS'
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.JustGage.Header.CssLink -Type 'CSS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Jquery.Header.JsLink -Type 'JS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Jquery.Header.CssLink -Type 'CSS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.FancyTree.Header.JsLink -Type 'JS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.FancyTree.Header.CssLink -Type 'CSS'
