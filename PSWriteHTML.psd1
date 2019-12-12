@@ -12,7 +12,7 @@
     RootModule           = 'PSWriteHTML.psm1'
 
     # Version number of this module.
-    ModuleVersion        = '0.0.69'
+    ModuleVersion        = '0.0.70'
 
     # Supported PSEditions
     CompatiblePSEditions = 'Desktop', 'Core'
@@ -69,31 +69,7 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport    = 'Email', 'EmailAttachment', 'EmailBCC', 'EmailBody', 'EmailCC', 'EmailFrom', 
-    'EmailHeader', 'EmailHTML', 'EmailListItem', 'EmailOptions', 
-    'EmailReplyTo', 'EmailServer', 'EmailSubject', 'EmailText', 
-    'EmailTextBox', 'EmailTo', 'New-CalendarEvent', 'New-ChartAxisX', 
-    'New-ChartAxisY', 'New-ChartBar', 'New-ChartBarOptions', 
-    'New-ChartDonut', 'New-ChartGrid', 'New-ChartLegend', 'New-ChartLine', 
-    'New-ChartPie', 'New-ChartRadial', 'New-ChartTheme', 'New-ChartToolbar', 
-    'New-DiagramEvent', 'New-DiagramLink', 'New-DiagramNode', 
-    'New-DiagramOptionsInteraction', 'New-DiagramOptionsLayout', 
-    'New-DiagramOptionsLinks', 'New-DiagramOptionsManipulation', 
-    'New-DiagramOptionsNodes', 'New-DiagramOptionsPhysics', 
-    'New-GageSector', 'New-HierarchicalTreeNode', 'New-HTML', 
-    'New-HTMLCalendar', 'New-HTMLChart', 'New-HTMLCodeBlock', 
-    'New-HTMLContainer', 'New-HTMLDiagram', 'New-HTMLGage', 
-    'New-HTMLHeading', 'New-HTMLHierarchicalTree', 
-    'New-HTMLHorizontalLine', 'New-HTMLImage', 'New-HTMLList', 
-    'New-HTMLListItem', 'New-HTMLLogo', 'New-HTMLPanel', 'New-HTMLSection', 
-    'New-HTMLSpanStyle', 'New-HTMLStatus', 'New-HTMLStatusItem', 
-    'New-HTMLTab', 'New-HTMLTable', 'New-HTMLTabOptions', 'New-HTMLTag', 
-    'New-HTMLText', 'New-HTMLTimeline', 'New-HTMLTimelineItem', 
-    'New-HTMLToast', 'New-TableButtonCopy', 'New-TableButtonCSV', 
-    'New-TableButtonExcel', 'New-TableButtonPageLength', 
-    'New-TableButtonPDF', 'New-TableButtonPrint', 'New-TableCondition', 
-    'New-TableContent', 'New-TableHeader', 'New-TableReplace', 
-    'New-TableRowGrouping', 'Out-HtmlView', 'Save-HTML'
+    FunctionsToExport    = '*'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport      = @()
@@ -102,33 +78,7 @@
     # VariablesToExport = @()
 
     # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-    AliasesToExport      = 'CalendarEvent', 'ChartCategory', 'ChartAxisX', 'New-ChartCategory', 
-    'ChartAxisY', 'ChartBar', 'ChartBarOptions', 'ChartDonut', 'ChartGrid', 
-    'ChartLegend', 'ChartLine', 'ChartPie', 'ChartRadial', 'ChartTheme', 
-    'ChartToolbar', 'DiagramEdge', 'DiagramEdges', 'New-DiagramEdge', 
-    'DiagramLink', 'DiagramNode', 'DiagramOptionsInteraction', 
-    'DiagramOptionsLayout', 'DiagramOptionsEdges', 
-    'New-DiagramOptionsEdges', 'DiagramOptionsLinks', 
-    'DiagramOptionsManipulation', 'DiagramOptionsNodes', 
-    'DiagramOptionsPhysics', 'New-HierarchicalTreeNode', 
-    'HierarchicalTreeNode', 'Dashboard', 'Calendar', 'Chart', 'Container', 
-    'Diagram', 'Image', 'EmailList', 'New-HTMLColumn', 'Panel', 
-    'New-HTMLContent', 'Section', 'Tab', 'Table', 'EmailTable', 'TabOptions', 
-    'HTMLText', 'Text', 'TableButtonCopy', 'EmailTableButtonCopy', 
-    'New-HTMLTableButtonCopy', 'TableButtonCSV', 'EmailTableButtonCSV', 
-    'New-HTMLTableButtonCSV', 'TableButtonExcel', 'EmailTableButtonExcel', 
-    'New-HTMLTableButtonExcel', 'TableButtonPageLength', 
-    'EmailTableButtonPageLength', 'New-HTMLTableButtonPageLength', 
-    'TableButtonPDF', 'EmailTableButtonPDF', 'New-HTMLTableButtonPDF', 
-    'TableButtonPrint', 'EmailTableButtonPrint', 
-    'New-HTMLTableButtonPrint', 'EmailTableCondition', 
-    'TableConditionalFormatting', 'New-HTMLTableCondition', 
-    'TableCondition', 'TableContent', 'EmailTableContent', 
-    'New-HTMLTableContent', 'TableHeader', 'EmailTableHeader', 
-    'New-HTMLTableHeader', 'TableReplace', 'EmailTableReplace', 
-    'New-HTMLTableReplace', 'TableRowGrouping', 'EmailTableRowGrouping', 
-    'New-HTMLTableRowGrouping', 'Out-GridHtml', 'ohv'
-
+    AliasesToExport      = '*'
     # DSC resources to export from this module
     # DscResourcesToExport = @()
 
@@ -144,7 +94,7 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = 'HTML', 'WWW', 'JavaScript', 'CSS', 'Reports', 'Reporting', 'Windows', 'MacOS', 
+            Tags       = 'HTML', 'WWW', 'JavaScript', 'CSS', 'Reports', 'Reporting', 'Windows', 'MacOS',
             'Linux'
 
             # A URL to the license for this module.
