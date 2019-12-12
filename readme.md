@@ -63,6 +63,11 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.70 - Unreleased
+  - Library update
+    - JQuery to 3.4.1
+    - Addeed New-HTMLTree, New-TreeNode (basic preview)
+
 - 0.0.69 - 2019.12.10
   - Fix for EmailList [#90](https://github.com/EvotecIT/PSWriteHTML/pull/90) - tnx natosullivan
   - Added New-HTMLGage, New-GageSector
