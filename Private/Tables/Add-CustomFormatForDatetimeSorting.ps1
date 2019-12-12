@@ -1,8 +1,7 @@
 function Add-CustomFormatForDatetimeSorting {
-    
     <#
     .SYNOPSIS
-    
+
     .DESCRIPTION
         This function adds code to make the datatable columns sortable with different datetime formats.
         Formatting:
@@ -10,7 +9,7 @@ function Add-CustomFormatForDatetimeSorting {
         D       -   1 2 ... 30 31
         Do      -   1st 2nd ... 30th 31st
         DD      -   01 02 ... 30 31
-        
+
         Month
         M       -   1 2 ... 11 12
         Mo      -   1st 2nd ... 11th 12th
@@ -49,26 +48,22 @@ function Add-CustomFormatForDatetimeSorting {
     .LINK
         format explanation: http://momentjs.com/docs/#/displaying/
         locale explanation: http://momentjs.com/docs/#/i18n/
-    .Example   
+    .Example
         Add-CustomFormatForDatetimeSorting -CustomDateFormat 'dddd, MMMM Do, YYYY','HH:mm MMM D, YY'
-    .Example   
+    .Example
         Add-CustomFormatForDatetimeSorting -CustomDateFormat 'DD.MM.YYYY HH:mm:ss'
     #>
-    
     [CmdletBinding()]
     param(
         [array]$DateTimeSortingFormat
     )
-    if($Script:Output){Remove-Variable Output -Scope Script}
-
-    if($DateTimeSortingFormat){
-        [array]$Script:Output = foreach($format in $DateTimeSortingFormat){
+    if ($DateTimeSortingFormat) {
+        [array]$OutputDateTimeSortingFormat = foreach ($format in $DateTimeSortingFormat) {
             "$.fn.dataTable.moment( '$format' );"
         }
-    }
-    else{
+    } else {
         # Default localized format
-        $Script:Output = "$.fn.dataTable.moment( 'L' );"
+        $OutputDateTimeSortingFormat = "$.fn.dataTable.moment( 'L' );"
     }
-    return $Script:Output
+    return $OutputDateTimeSortingFormat
 }
