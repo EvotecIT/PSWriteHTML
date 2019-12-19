@@ -39,19 +39,19 @@ $Script:Configuration = [ordered] @{
         ChartsApex              = @{
             Comment      = 'Apex Charts'
             Header       = @{
-                JsLink = 'https://cdn.jsdelivr.net/npm/apexcharts@latest'
+                JsLink = 'https://cdn.jsdelivr.net/npm/apexcharts@3.11.1/dist/apexcharts.min.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\apexcharts.min.js"
             }
             HeaderAlways = @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
-        ChartsXkcd = @{
+        ChartsXkcd              = @{
             Header = @{
                 JsLink = @(
                     'https://cdn.jsdelivr.net/npm/chart.xkcd@1.1.12/dist/chart.xkcd.min.js'
                 )
-                Js = @(
+                Js     = @(
                     "$PSScriptRoot\..\Resources\JS\chart.xkcd.min.js"
                 )
             }
@@ -313,7 +313,7 @@ $Script:Configuration = [ordered] @{
         }
         FancyTree               = @{
             Header = @{
-                JSLink = @(
+                JSLink  = @(
                     'https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.33.0/jquery.fancytree-all-deps.min.js'
                 )
                 CSSLink = @(
@@ -484,5 +484,5 @@ function Get-ResourcesContentFromWeb {
 
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Jquery.Header.JsLink -Type 'JS'
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Jquery.Header.CssLink -Type 'CSS'
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.FancyTree.Header.JsLink -Type 'JS'
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.FancyTree.Header.CssLink -Type 'CSS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.JsLink -Type 'JS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.CssLink -Type 'CSS'
