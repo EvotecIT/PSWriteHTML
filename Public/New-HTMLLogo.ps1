@@ -29,10 +29,10 @@ function New-HTMLLogo {
             '<!-- START LOGO -->'
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'logos' } {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'leftLogo' } {
-                    New-HTMLTag -Tag 'img' -Attributes @{ src = "$LeftLogo" }
+                    New-HTMLTag -Tag 'img' -Attributes @{ src = "$LeftLogo" } -SelfClosing
                 }
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'rightLogo' } {
-                    New-HTMLTag -Tag 'img' -Attributes @{ src = "$RightLogo" }
+                    New-HTMLTag -Tag 'img' -Attributes @{ src = "$RightLogo" } -SelfClosing
                 }
             }
             '<!-- END LOGO -->'
