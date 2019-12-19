@@ -32,14 +32,56 @@ Function New-HTML {
     }
 
     [Array] $TempOutputHTML = Invoke-Command -ScriptBlock $HtmlData
-    $Features = Get-FeaturesInUse -PriorityFeatures 'JQuery', 'DataTables', 'Tabs'
-    # this gets rid of any non-strings
-    # it's added here to track nested tabs
-    $OutputHTML = foreach ($_ in $TempOutputHTML) {
-        if ($_ -isnot [System.Collections.IDictionary]) {
-            $_
+
+    $HeaderHTML = @()
+    #$MainHTML = @()
+    $FooterHTML = @()
+
+
+    $MainHTML = foreach ($_ in $TempOutputHTML) {
+        if ($_ -is [PSCustomObject]) {
+            if ($_.Type -eq 'Footer') {
+                $FooterHTML = $_.Output
+            } elseif ($_.Type -eq 'Header') {
+                $HeaderHTML = $_.Output
+            } else {
+                if ($_.Output) {
+                            # this gets rid of any non-strings
+        # it's added here to track nested tabs
+                    if ($_.Output -isnot [System.Collections.IDictionary]) {
+                        $_.Output
+                    }
+                }
+            }
+        } else {
+                    # this gets rid of any non-strings
+        # it's added here to track nested tabs
+            if ($_ -isnot [System.Collections.IDictionary]) {
+                $_
+            }
         }
     }
+    <#
+    if ($MainHTML.Count -eq 0) {
+        # this gets rid of any non-strings
+        # it's added here to track nested tabs
+        $MainHTML = foreach ($_ in $MainHTML) {
+            if ($_ -isnot [System.Collections.IDictionary]) {
+                $_
+            }
+        }
+    } else {
+        $MainHTML = foreach ($_ in $MainHTML) {
+            if ($_ -isnot [System.Collections.IDictionary]) {
+                $_
+            }
+        }
+    }
+    #>
+
+    $Features = Get-FeaturesInUse -PriorityFeatures 'JQuery', 'DataTables', 'Tabs'
+
+
     # This removes Nested Tabs from primary Tabs
     foreach ($_ in $Script:HTMLSchema.TabsHeadersNested) {
         $null = $Script:HTMLSchema.TabsHeaders.Remove($_)
@@ -51,7 +93,7 @@ Function New-HTML {
         #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
         '<!-- saved from url=(0014)about:internet -->'
         New-HTMLTag -Tag 'html' {
-            '<!-- HEADER -->'
+            '<!-- HEAD -->'
             New-HTMLTag -Tag 'head' {
                 New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -SelfClosing
                 #New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'X-UA-Compatible'; content = 'IE=8' } -SelfClosing
@@ -72,10 +114,16 @@ Function New-HTML {
             }
 
             New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomCSS
-
-            '<!-- END HEADER -->'
+            '<!-- END HEAD -->'
             '<!-- BODY -->'
             New-HTMLTag -Tag 'body' {
+                '<!-- HEADER -->'
+                New-HTMLTag -Tag 'header' {
+                    if ($HeaderHTML) {
+                        $HeaderHTML
+                    }
+                }
+                '<!-- END HEADER -->'
                 # Add logo if there is one
                 $Script:HTMLSchema.Logos
                 # Add tabs header if there is one
@@ -83,11 +131,13 @@ Function New-HTML {
                     New-HTMLTabHead
                     New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
                         # Add remaining data
-                        $OutputHTML
+                        #$OutputHTML
+                        $MainHTML
                     }
                 } else {
                     # Add remaining data
-                    $OutputHTML
+                    $MainHTML
+                    #$OutputHTML
                 }
                 # Add charts scripts if those are there
                 foreach ($Chart in $Script:HTMLSchema.Charts) {
@@ -97,19 +147,25 @@ Function New-HTML {
                     $Diagram
                 }
 
-                '<!-- END BODY -->'
-                '<!-- FOOTER -->'
-                #New-HTMLTag -Tag 'footer' {
-                if ($null -ne $Features) {
-                    # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included
-                    # either as links or from file per required features
-                    Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'FooterAlways' -Features $Features
-                    Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'FooterAlways' -Features $Features
-                    # standard footer features
-                    Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Footer' -Features $Features
+                New-HTMLTag -Tag 'footer' {
+                    '<!-- FOOTER -->'
+                    if ($FooterHTML) {
+                        $FooterHTML
+                    }
+                    #New-HTMLTag -Tag 'footer' {
+                    if ($null -ne $Features) {
+                        # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included
+                        # either as links or from file per required features
+                        Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'FooterAlways' -Features $Features
+                        Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'FooterAlways' -Features $Features
+                        # standard footer features
+                        Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Footer' -Features $Features
+                    }
+                    '<!-- END FOOTER -->'
                 }
+                '<!-- END BODY -->'
             }
-            '<!-- END FOOTER -->'
+
         }
     )
     if ($FilePath -ne '') {
