@@ -63,7 +63,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.70 - Unreleased
+- 0.0.70 - 2019.12.19
   - Library update
     - JQuery to 3.4.1
     - ApexCharts to 3.11.1, and set a static version (instead of latest)
