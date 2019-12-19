@@ -22,7 +22,7 @@ New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePat
     New-HTMLSection -HeaderText 'Comparing Object with Highlighting Differences (PSCustomObject)' {
         New-HTMLTable -DataTable $Objects1
         New-HTMLTable -DataTable $Objects1 -Compare -AllProperties -HighlightDifferences
-        New-HTMLPanel  {a
+        New-HTMLPanel  {
             New-HTMLChart {
                 New-ChartBar -Name 'Test' -Value 1
                 New-ChartBar -Name 'Test1' -Value 2
