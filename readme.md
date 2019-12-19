@@ -67,6 +67,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - Library update
     - JQuery to 3.4.1
     - Addeed New-HTMLTree, New-TreeNode (basic preview)
+  - Added New-HTMLHeader, New-HTMLFooter, New-HTMLMain allowing adding content before Tabs or after all content. ([#74](https://github.com/EvotecIT/PSWriteHTML/issues/74))
 
 - 0.0.69 - 2019.12.10
   - Fix for EmailList [#90](https://github.com/EvotecIT/PSWriteHTML/pull/90) - tnx natosullivan
