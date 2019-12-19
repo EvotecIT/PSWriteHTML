@@ -20,7 +20,7 @@
 
 # PSWriteHTML - PowerShell Module
 
-`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is complete rewrite and  doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features.
+`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is complete rewrite and  doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) or even same code, therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features.
 
 ## How to install
 
