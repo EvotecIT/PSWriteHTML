@@ -134,7 +134,7 @@ function New-HTMLTable {
             }
         }
 
-        $DataTable = Compare-MultipleObjects -Objects $DataTable -Summary -Splitter $Splitter -FormatOutput -AllProperties:$AllProperties -Replace $ReplaceCompare
+        $DataTable = Compare-MultipleObjects -Objects $DataTable -Summary -Splitter $Splitter -FormatOutput -AllProperties:$AllProperties -SkipProperties:$SkipProperties -Replace $ReplaceCompare
 
         if ($HighlightDifferences) {
             $Highlight = for ($i = 0; $i -lt $DataTable.Count; $i++) {
