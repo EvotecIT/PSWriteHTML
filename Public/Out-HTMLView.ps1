@@ -75,6 +75,7 @@ function Out-HtmlView {
         [switch] $ImmediatelyShowHiddenDetails,
         [alias('RemoveShowButton')][switch] $HideShowButton,
         [switch] $AllProperties,
+        [switch] $SkipProperties,
         [switch] $Compare,
         [alias('CompareWithColors')][switch] $HighlightDifferences,
         [int] $First,
