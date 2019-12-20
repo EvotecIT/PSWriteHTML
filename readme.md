@@ -63,6 +63,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.71 - Unrelased
+  - Fix for New-HTMLSection -JustifyContent missing in Invisible
+
 - 0.0.70 - 2019.12.19
   - Library update
     - JQuery to 3.4.1
