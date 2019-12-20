@@ -106,7 +106,7 @@ Function New-HTMLSection {
     if ($Invisible) {
         #New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParentInvisible' } -Value {
         New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName } -Value {
-            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; Style = @{'justify-content' = $JustifyContent } } -Value {
                 # New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParentInvisible flexElement' } -Value {
                 $Object = Invoke-Command -ScriptBlock $Content
                 if ($null -ne $Object) {
