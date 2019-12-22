@@ -75,6 +75,7 @@ function Out-HtmlView {
         [switch] $ImmediatelyShowHiddenDetails,
         [alias('RemoveShowButton')][switch] $HideShowButton,
         [switch] $AllProperties,
+        [switch] $SkipProperties,
         [switch] $Compare,
         [alias('CompareWithColors')][switch] $HighlightDifferences,
         [int] $First,
@@ -112,7 +113,7 @@ function Out-HtmlView {
                     -FreezeColumnsLeft $FreezeColumnsLeft -FreezeColumnsRight $FreezeColumnsRight `
                     -FixedHeader:$FixedHeader -FixedFooter:$FixedFooter -ResponsivePriorityOrder $ResponsivePriorityOrder `
                     -ResponsivePriorityOrderIndex $ResponsivePriorityOrderIndex -PriorityProperties $PriorityProperties -AllProperties:$AllProperties `
-                    -Compare:$Compare -HighlightDifferences:$HighlightDifferences -First $First -Last $Last `
+                    -SkipProperties:$SkipProperties -Compare:$Compare -HighlightDifferences:$HighlightDifferences -First $First -Last $Last `
                     -ImmediatelyShowHiddenDetails:$ImmediatelyShowHiddenDetails -Simplify:$Simplify -HideShowButton:$HideShowButton -CompareReplace $CompareReplace
             }
             if ($PassThru) {
