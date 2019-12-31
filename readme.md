@@ -60,12 +60,14 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - [x] [Comparing two or more objects visually in PowerShell (cross-platform)](https://evotec.xyz/comparing-two-or-more-objects-visually-in-powershell-cross-platform/)
 - [x] [Easy way to create diagrams using PowerShell and PSWriteHTML](https://evotec.xyz/easy-way-to-create-diagrams-using-powershell-and-pswritehtml/)
 - [x] [Nested Tabs, Diagram Updates, Diagram Events, Calendar Object and more in PSWriteHTML](https://evotec.xyz/nested-tabs-diagram-updates-diagram-events-calendar-object-and-more-in-pswritehtml/)
+- [x] [Emailimo merged into PSWriteHTML, IE support and no dependencies](https://evotec.xyz/emailimo-merged-into-pswritehtml-ie-support-and-no-dependencies/)
 
 ## Changelog
 
-- 0.0.71 - Unrelased
+- 0.0.71 - 2019.12.26
   - Fix for New-HTMLSection -JustifyContent missing in Invisible
   - Added option to disable the "Properties" row in `Out-HTMLView -SkipProperties` for **Compare** feature (tnx **AdrianDeller**) ([#91](https://github.com/EvotecIT/PSWriteHTML/issues/91) / [#96](https://github.com/EvotecIT/PSWriteHTML/pull/96))
+  - Added New-HTMLHeader, New-HTMLMain, New-HTMLFooter
 
 - 0.0.70 - 2019.12.19
   - Library update
