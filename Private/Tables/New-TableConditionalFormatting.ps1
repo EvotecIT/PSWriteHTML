@@ -34,6 +34,7 @@ function New-TableConditionalFormatting {
                 if ($null -eq $Condition.Type -or $Condition.Type -eq 'number' -or $Condition.Type -eq 'int' -or $Condition.Type -eq 'decimal') {
                     "if (data[$ConditionHeaderNr] $($Condition.Operator) $($Condition.Value)) {"
                 } elseif ($Condition.Type -eq 'string') {
+                    <# 
                     switch ($Condition.Operator) {
                         "contains" {
                             "if (data[$($ConditionHeaderNr)].includes('$($Condition.Value)')) {"
@@ -45,6 +46,17 @@ function New-TableConditionalFormatting {
                             "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
                         }
                     }
+                    #>
+                    # [BEGIN] Proposed change to handle IE11 JS shortcomings
+                    switch -Regex ($Condition.Operator) {
+                        "contains|like" {
+                            "if (data[$($ConditionHeaderNr)].indexOf('$($Condition.Value)') >= 0 ) {"
+                         }
+                         default {
+                             "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
+                         }
+                    }
+                    # [END] Proposed change to handle IE11 JS shortcomings
                 } elseif ($Condition.Type -eq 'date') {
                     "if (new Date(data[$ConditionHeaderNr]) $($Condition.Operator) new Date('$($Condition.Value)')) {"
                 }
