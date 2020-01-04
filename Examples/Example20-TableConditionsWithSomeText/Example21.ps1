@@ -8,7 +8,7 @@ New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -Fil
             New-HTMLTableButtonPDF
             New-HTMLTableCondition -Name 'HandleCount' -Type number -Operator gt -Value 300 -BackgroundColor Yellow
             New-HTMLTableCondition -Name 'ID' -Type number -Operator gt -Value 16000 -BackgroundColor Green
-            New-HTMLTableCondition -Name 'Name' -Type string -Operator like -Value 'Cod' -BackgroundColor Red -Row
+            New-HTMLTableCondition -Name 'Name' -Type string -Operator like -Value 'Cod' -BackgroundColor Red -Row -Inline
         } -PreContent {
             New-HTMLText -Text 'This will be before. You can put other html here.' -Alignment center -Color Red -FontSize 20
         } -PostContent {
