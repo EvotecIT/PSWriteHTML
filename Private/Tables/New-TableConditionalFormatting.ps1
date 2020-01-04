@@ -50,7 +50,9 @@ function New-TableConditionalFormatting {
                     # [BEGIN] Proposed change to handle IE11 JS shortcomings
                     switch -Regex ($Condition.Operator) {
                         "contains|like" {
-                            "if (data[$($ConditionHeaderNr)].indexOf('$($Condition.Value)') >= 0 ) {"
+                            # "if (data[$($ConditionHeaderNr)].indexOf('$($Condition.Value)') >= 0 ) {"
+                            # [Case Insensitive] Allow for case insensitive lookups when using "contains|like"
+                            "if (/$($Condition.Value)/i.test(data[$($ConditionHeaderNr)])) {"
                          }
                          default {
                              "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
