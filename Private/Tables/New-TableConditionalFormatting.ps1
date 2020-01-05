@@ -36,7 +36,7 @@ function New-TableConditionalFormatting {
                 } elseif ($Condition.Type -eq 'string') {
                     switch -Regex ($Condition.Operator) {
                         "contains|like" {
-                            "if (/$($Condition.Value.Replace('*',''))/i.test(data[$($ConditionHeaderNr)])) {"
+                            "if (/$($Condition.Value.Replace('*','.*'))/i.test(data[$($ConditionHeaderNr)])) {"
                          }
                          default {
                              "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
