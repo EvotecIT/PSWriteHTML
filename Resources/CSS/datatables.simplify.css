@@ -3,11 +3,6 @@
     border-style: solid;
     border-color: black;
     border-collapse: collapse;
-    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
-    /* font-size: 8pt;
-     width: 100%;
-    */
-
     box-sizing: border-box;
     width: calc(100% - 16px);
     margin: 8px;
@@ -20,8 +15,6 @@ table.simplify th {
     border-color: black;
     background-color: #616a6b;
     color: white;
-    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
-    /* font-size: 8pt; */
     font-weight: bold;
     padding: 10px;
 }
@@ -34,9 +27,6 @@ table.simplify td {
     padding-bottom: 0px;
     border-style: solid;
     border-color: black;
-    /* background-color: white; */
-    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
-    /* font-size: 8pt; */
     border-top: 1px solid #ddd;
 }
 
