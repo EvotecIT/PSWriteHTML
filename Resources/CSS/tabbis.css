@@ -22,7 +22,6 @@
 
 [data-tabs] .active {
     background: ColorSelector;
-    /* background: #31a3e8; */
     color: #fff;
     border-radius: 4px;
 }

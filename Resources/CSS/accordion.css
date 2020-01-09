@@ -1,31 +1,4 @@
-﻿/*
-#aspect-content {
-    margin: 50px 0 0;
-    font-family: "Poppins", sans-serif;
-}
-*/
-
-/*
-#aspect-content * {
-    box-sizing: border-box;
-}
-*/
-
-/*
-.aspect-tab {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto 10px;
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0 0 0 1px #ececec;
-    opacity: 1;
-    transition: box-shadow .2s, opacity .4s;
-}
-*/
-
-.aspect-tab:hover {
+﻿.aspect-tab:hover {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.11);
 }
 
@@ -46,9 +19,6 @@
     top: 0;
     left: 0;
     height: 100%;
-    /*
-    max-height: 80px;
-      */
     width: 100%;
     margin: 0;
     padding: 0;
@@ -64,9 +34,6 @@
 .aspect-content {
     position: relative;
     display: block;
-    /*
-    height: 80px;
-    */
     margin: 0;
     padding: 0 87px 0 30px;
     font-size: 0;
@@ -268,36 +235,13 @@
 }
 
 .aspect-tab-content {
-
     background-color: #f9f9f9;
-    /* font-size: 0;
-    text-align: justify;
-    */
-
 }
 
 .sentiment-wrapper {
     display: flex;
-    /* padding: 24px 30px 30px; */
 }
 
-/*
-.sentiment-wrapper>div {
-
-    display: inline-block;
-    width: 33.3%;
-
-
-    box-sizing: border-box;
-    vertical-align: top;
-    cursor: default;
-
-    max-width: 390px;
-    padding: 0 5px;
-
-
-}
-*/
 .sentiment-wrapper>div>div {
 
     width: 100%;
