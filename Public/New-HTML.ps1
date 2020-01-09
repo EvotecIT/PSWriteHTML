@@ -103,30 +103,32 @@ Function New-HTML {
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -SelfClosing
                 New-HTMLTag -Tag 'title' { $TitleText }
                 
-                $Extension = [System.IO.Path]::GetExtension($FavIcon)
-                if ($Extension -in @('.png', '.jpg', 'jpeg', '.svg', '.ico')) {
-                    switch($FavIcon.Scheme){
-                        "file" {
-                            if(Test-Path -Path $FavIcon.OriginalString){
-                                $FavIcon = Get-Item -Path $FavIcon.OriginalString
-                                $FavIconImageBinary = Convert-ImageToBinary -ImageFile $FavIcon
-                                New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIconImageBinary"; type = 'image/x-icon'}
+                if($null -ne $FavIcon){
+                    $Extension = [System.IO.Path]::GetExtension($FavIcon)
+                    if ($Extension -in @('.png', '.jpg', 'jpeg', '.svg', '.ico')) {
+                        switch($FavIcon.Scheme){
+                            "file" {
+                                if(Test-Path -Path $FavIcon.OriginalString){
+                                    $FavIcon = Get-Item -Path $FavIcon.OriginalString
+                                    $FavIconImageBinary = Convert-ImageToBinary -ImageFile $FavIcon
+                                    New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIconImageBinary"; type = 'image/x-icon'}
+                                }
+                                else{
+                                    Write-Warning -Message "The path to the FavIcon image could not be resolved."
+                                }
                             }
-                            else{
+                            "https" {
+                                $FavIcon = $FavIcon.OriginalString
+                                New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIcon"; type = 'image/x-icon'}
+                            }
+                            default {
                                 Write-Warning -Message "The path to the FavIcon image could not be resolved."
                             }
-                        }
-                        "https" {
-                            $FavIcon = $FavIcon.OriginalString
-                            New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIcon"; type = 'image/x-icon'}
-                        }
-                        default {
-                            Write-Warning -Message "The path to the FavIcon image could not be resolved."
-                        }
-                    }   
-                }
-                else{
-                    Write-Warning -Message "File extension `'$Extension`' is not supported as a FavIcon image.`nPlease use images with these extensions: '.png', '.jpg', 'jpeg', '.svg', '.ico'"
+                        }   
+                    }
+                    else{
+                        Write-Warning -Message "File extension `'$Extension`' is not supported as a FavIcon image.`nPlease use images with these extensions: '.png', '.jpg', 'jpeg', '.svg', '.ico'"
+                    }
                 }
                 
                 if ($Autorefresh -gt 0) {
