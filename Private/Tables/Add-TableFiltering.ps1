@@ -4,10 +4,10 @@ function Add-TableFiltering {
         [bool] $Filtering,
         [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom',
         [string] $DataTableName,
-        [switch]$RegularExpression
+        [alias('RegularExpression')][switch]$SearchRegularExpression
     )
 
-    if ($RegularExpression.IsPresent) {
+    if ($SearchRegularExpression.IsPresent) {
         [string]$JSDataTableRegEx = 'true'
         [string]$JSDataTableSmart = 'false'
     } else {
