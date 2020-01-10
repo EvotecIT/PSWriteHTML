@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-06 14:45:27" name="revised"/><title></title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<!-- saved from url=(0014)about:internet -->
+<html><!-- HEAD --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2020-01-10 16:08:45" name="revised"/><title></title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -16,13 +17,6 @@ hr {
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .overflowHidden {
@@ -35,46 +29,19 @@ hr {
     display: flex;
     justify-content: space-between;
     padding: 2px;
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .flexParentInvisible {
     display: flex;
     justify-content: space-between;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexElement {
     flex-basis: 100%;
-
-
-    /*
-    flex: 1 auto;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexPanel {
     flex-basis: 100%;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .roundedCorners {
@@ -95,13 +62,19 @@ hr {
     text-align: right;
 }
 
-.clientlogo {
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-.MainLogo {
+.rightLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-right: 5em;
     text-align: right;
@@ -160,54 +133,13 @@ img {
     margin: 1%;
     flex: 1;
 }
-</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
-h3:after,
-h4:after,
-h5:after,
-h6:after {
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    border-radius: 2px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
-}
-
-h2:after {
-    background: #0AF;
-}
-
-h3:after {
-    background: #3BF;
-}
-
-h4:after,
-h5:after,
-h6:after {
-    background: #6Cf;
-}
-
-h1.white,
-h2.white,
-h3.white,
-h4.white,
-h5.white,
-h6.white {
-    color: white;
-}
-
-h1,
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
     font-family: 'Hammersmith One', sans-serif;
-    /*
-    font-family: 'Questrial', sans-serif;
-    */
 }
 
 h1 {
@@ -276,16 +208,21 @@ h6 {
     margin: 10px 10px 10px 10px;
 }
 </style><!-- CSS Always Required Default Headings END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
-  document.getElementById(obj).style.display = 'block';
-  document.getElementById("hide_" + obj).style.display = '';
-  document.getElementById("show_" + obj).style.display = 'none';
+    document.getElementById(obj).style.display = 'block';
+    document.getElementById("hide_" + obj).style.display = '';
+    document.getElementById("show_" + obj).style.display = 'none';
+    try {
+        $('.dataTable').DataTable().columns.adjust().responsive.recalc();
+    } catch (e) {
+        console.log('No datatables available.');
+    }
 }
 function hide(obj) {
-  document.getElementById(obj).style.display = 'none';
-  document.getElementById("hide_" + obj).style.display = 'none';
-  document.getElementById("show_" + obj).style.display = '';
+    document.getElementById(obj).style.display = 'none';
+    document.getElementById("hide_" + obj).style.display = 'none';
+    document.getElementById("show_" + obj).style.display = '';
 }
-</script><!-- JS Hide Section Code END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Donut Charts - Defaults" style="color: #ffffff;">Donut Charts - Defaults </a><a id="show_1211229609" href="javascript:void(0)" onclick="show('1211229609');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1211229609" href="javascript:void(0)" onclick="hide('1211229609');" style="color: #ffffff;">(Hide)</a></div><div id="1211229609" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1211229609"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-w76bl9th"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-jc80uor1"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-ascir4o2"></div></div></div></div></div><script>var options = {
+</script><!-- JS Hide Section Code END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@3.11.1/dist/apexcharts.min.js" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEAD --><!-- BODY --><body><!-- HEADER --><header></header><!-- END HEADER --><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Donut Charts - Defaults" style="color: #ffffff;">Donut Charts - Defaults </a><a id="show_547674152" href="javascript:void(0)" onclick="show('547674152');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_547674152" href="javascript:void(0)" onclick="hide('547674152');" style="color: #ffffff;">(Hide)</a></div><div id="547674152" class="flexParent flexElement overflowHidden"><div id="547674152" class="flexParent flexElement overflowHidden collapsable"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-g689qdnb"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-fcm34lia"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-gxw6mfno"></div></div></div></div></div><script>var options = {
     "chart":  {
                   "type":  "bar",
                   "height":  350,
@@ -312,7 +249,10 @@ function hide(obj) {
                        "enabled":  true,
                        "offsetX":  -6,
                        "style":  {
-                                     "fontSize":  "12px"
+                                     "fontSize":  "12px",
+                                     "colors":  [
+
+                                                ]
                                  }
                    },
     "series":  [
@@ -370,7 +310,7 @@ function hide(obj) {
 
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-w76bl9th'),
+var chart = new ApexCharts(document.querySelector('#ChartID-g689qdnb'),
             options
         );
 chart.render();
@@ -401,7 +341,10 @@ chart.render();
                        "enabled":  true,
                        "offsetX":  -6,
                        "style":  {
-                                     "fontSize":  "12px"
+                                     "fontSize":  "12px",
+                                     "colors":  [
+
+                                                ]
                                  }
                    },
     "series":  [
@@ -459,7 +402,7 @@ chart.render();
 
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-jc80uor1'),
+var chart = new ApexCharts(document.querySelector('#ChartID-fcm34lia'),
             options
         );
 chart.render();
@@ -490,7 +433,10 @@ chart.render();
                        "enabled":  true,
                        "offsetX":  -6,
                        "style":  {
-                                     "fontSize":  "12px"
+                                     "fontSize":  "12px",
+                                     "colors":  [
+
+                                                ]
                                  }
                    },
     "series":  [
@@ -548,8 +494,8 @@ chart.render();
 
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-ascir4o2'),
+var chart = new ApexCharts(document.querySelector('#ChartID-gxw6mfno'),
             options
         );
 chart.render();
-</script></body><!-- END BODY --><!-- FOOTER --><footer></footer><!-- END FOOTER --></html>
+</script><footer><!-- FOOTER --><!-- END FOOTER --></footer><!-- END BODY --></body></html>
