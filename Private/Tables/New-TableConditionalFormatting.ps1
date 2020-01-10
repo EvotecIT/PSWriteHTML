@@ -34,16 +34,13 @@ function New-TableConditionalFormatting {
                 if ($null -eq $Condition.Type -or $Condition.Type -eq 'number' -or $Condition.Type -eq 'int' -or $Condition.Type -eq 'decimal') {
                     "if (data[$ConditionHeaderNr] $($Condition.Operator) $($Condition.Value)) {"
                 } elseif ($Condition.Type -eq 'string') {
-                    switch ($Condition.Operator) {
-                        "contains" {
-                            "if (data[$($ConditionHeaderNr)].includes('$($Condition.Value)')) {"
-                        }
-                        "like" {
-                            "if (data[$($ConditionHeaderNr)].includes('$($Condition.Value)')) {"
-                        }
-                        default {
-                            "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
-                        }
+                    switch -Regex ($Condition.Operator) {
+                        "contains|like" {
+                            "if (/$($Condition.Value.Replace('*','.*'))/i.test(data[$($ConditionHeaderNr)])) {"
+                         }
+                         default {
+                             "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
+                         }
                     }
                 } elseif ($Condition.Type -eq 'date') {
                     "if (new Date(data[$ConditionHeaderNr]) $($Condition.Operator) new Date('$($Condition.Value)')) {"

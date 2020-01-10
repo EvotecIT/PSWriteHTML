@@ -3,8 +3,18 @@ function Add-TableFiltering {
     param(
         [bool] $Filtering,
         [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom',
-        [string] $DataTableName
+        [string] $DataTableName,
+        [alias('RegularExpression')][switch]$SearchRegularExpression
     )
+
+    if ($SearchRegularExpression.IsPresent) {
+        [string]$JSDataTableRegEx = 'true'
+        [string]$JSDataTableSmart = 'false'
+    } else {
+        [string]$JSDataTableRegEx = 'false'
+        [string]$JSDataTableSmart = 'true'
+    }
+    
     $Output = @{}
     if ($Filtering) {
         # https://datatables.net/examples/api/multi_filter.html
@@ -25,7 +35,7 @@ function Add-TableFiltering {
 
                     `$('input', this.footer()).on('keyup change', function () {
                         if (that.search() !== this.value) {
-                            that.search(this.value).draw();
+                            that.search(this.value, $JSDataTableRegEx, $JSDataTableSmart).draw();
                         }
                     });
                 });
@@ -65,7 +75,7 @@ function Add-TableFiltering {
 
                     `$('input', this.footer()).on('keyup change', function () {
                         if (that.search() !== this.value) {
-                            that.search(this.value).draw();
+                            that.search(this.value, $JSDataTableRegEx, $JSDataTableSmart).draw();
                         }
                     });
                 });
