@@ -53,7 +53,8 @@ function New-HTMLTable {
         [alias('CompareWithColors')][switch] $HighlightDifferences,
         [int] $First,
         [int] $Last,
-        [alias('Replace')][Array] $CompareReplace
+        [alias('Replace')][Array] $CompareReplace,
+        [alias('RegularExpression')][switch]$SearchRegularExpression
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -478,7 +479,7 @@ function New-HTMLTable {
 
         # Enable Custom Date fromat sorting
         $SortingFormatDateTime = Add-CustomFormatForDatetimeSorting -DateTimeSortingFormat $DateTimeSortingFormat
-        $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation -DataTableName $DataTableID
+        $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation -DataTableName $DataTableID -SearchRegularExpression:$SearchRegularExpression
         $FilteringTopCode = $FilteringOutput.FilteringTopCode
         $FilteringBottomCode = $FilteringOutput.FilteringBottomCode
         $LoadSavedState = Add-TableState -DataTableName $DataTableID -Filtering $Filtering -FilteringLocation $FilteringLocation -SavedState (-not $DisableStateSave)
