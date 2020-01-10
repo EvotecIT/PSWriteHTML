@@ -68,6 +68,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - Removed unused CSS
   - Fix for Out-HtmlView buttons missing PageLength
   - Added FavIcon to New-HTML [#99](https://github.com/EvotecIT/PSWriteHTML/issues/99) / [#102](https://github.com/EvotecIT/PSWriteHTML/pull/102) - tnx xlrod
+  - Updates to New-TableConditionalFormatting for IE 11 support [#100](https://github.com/EvotecIT/PSWriteHTML/pull/100) - tnx opustecnica
+  - Updates to Search via RegularExpressions [#100](https://github.com/EvotecIT/PSWriteHTML/pull/100) - tnx opustecnica
 
 - 0.0.71 - 2019.12.26
   - Fix for New-HTMLSection -JustifyContent missing in Invisible
