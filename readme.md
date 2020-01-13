@@ -64,7 +64,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.72 - Unreleased
+- 0.0.72 - 2020.01.13
   - Removed unused CSS
   - Fix for Out-HtmlView buttons missing PageLength
   - Added FavIcon to New-HTML [#99](https://github.com/EvotecIT/PSWriteHTML/issues/99) / [#102](https://github.com/EvotecIT/PSWriteHTML/pull/102) - tnx xlrod
