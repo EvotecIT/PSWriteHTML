@@ -30,7 +30,7 @@ function Out-HtmlView {
         [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $HTML,
         [Parameter(Mandatory = $false, Position = 1)][ScriptBlock] $PreContent,
         [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
-        [alias('ArrayOfObjects', 'Object', 'DataTable')][Parameter(ValueFromPipeline = $true, Mandatory = $true)] $Table,
+        [alias('ArrayOfObjects', 'Object', 'DataTable')][Parameter(ValueFromPipeline = $true, Mandatory = $false)] $Table,
         [string] $FilePath,
         [string] $Title = 'Out-HTMLView',
         [switch] $PassThru,
