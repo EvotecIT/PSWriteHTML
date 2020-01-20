@@ -64,6 +64,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.73 - 2020.01.20
+  - Fix for Out-HtmlView erroring out if Table was not given (or null)
+
 - 0.0.72 - 2020.01.13
   - Removed unused CSS
   - Fix for Out-HtmlView buttons missing PageLength
