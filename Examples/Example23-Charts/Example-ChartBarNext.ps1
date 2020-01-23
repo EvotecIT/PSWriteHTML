@@ -35,5 +35,3 @@ New-HTML {
         }
     }
 } -ShowHTML -FilePath $PSScriptRoot\Example-ChartBarNext.html -UseCssLinks -UseJavaScriptLinks
-
-

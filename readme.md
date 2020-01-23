@@ -9,7 +9,7 @@
   <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/p/PSWriteHTML.svg"></a>
   <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/languages/top/evotecit/PSWriteHTML.svg"></a>
   <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/languages/code-size/evotecit/PSWriteHTML.svg"></a>
-  <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/dt/PSWriteHTML.svg"></a>
+  <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/dt/PSWriteHTML.svg"></a>
 </p>
 
 <p align="center">
@@ -63,6 +63,16 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - [x] [Emailimo merged into PSWriteHTML, IE support and no dependencies](https://evotec.xyz/emailimo-merged-into-pswritehtml-ie-support-and-no-dependencies/)
 
 ## Changelog
+
+- 0.0.73 - 2020.01.20
+  - Fix for Out-HtmlView erroring out if Table was not given (or null)
+
+- 0.0.72 - 2020.01.13
+  - Removed unused CSS
+  - Fix for Out-HtmlView buttons missing PageLength
+  - Added FavIcon to New-HTML [#99](https://github.com/EvotecIT/PSWriteHTML/issues/99) / [#102](https://github.com/EvotecIT/PSWriteHTML/pull/102) - tnx xlrod
+  - Updates to New-TableConditionalFormatting for IE 11 support [#100](https://github.com/EvotecIT/PSWriteHTML/pull/100) - tnx opustecnica
+  - Updates to Search via RegularExpressions [#100](https://github.com/EvotecIT/PSWriteHTML/pull/100) - tnx opustecnica
 
 - 0.0.71 - 2019.12.26
   - Fix for New-HTMLSection -JustifyContent missing in Invisible

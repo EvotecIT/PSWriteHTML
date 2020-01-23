@@ -4,7 +4,6 @@ td {
 }
 
 /* Button in Table - giving it some colors */
-
 td.sorting_1::before {
     background: #007bff !important;
 }
@@ -14,7 +13,6 @@ td::before {
 }
 
 /* giving some spaces between tables being to close */
-
 div.dataTables_wrapper {
     padding: 10px 10px 10px 10px;
 }
