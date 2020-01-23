@@ -3,7 +3,7 @@ function show(obj) {
     document.getElementById("hide_" + obj).style.display = '';
     document.getElementById("show_" + obj).style.display = 'none';
     // console.log("show_" + obj);
-    tableid = document.getElementById(obj).querySelector('table[id^="DT-"]').id;
+    var tableid = document.getElementById(obj).querySelector('table[id^="DT-"]').id;
     // console.log("#" + tableid);
     try {
         $("#" + tableid).DataTable().columns.adjust().responsive.recalc();
