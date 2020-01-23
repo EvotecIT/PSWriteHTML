@@ -2,9 +2,9 @@ function show(obj) {
     document.getElementById(obj).style.display = 'block';
     document.getElementById("hide_" + obj).style.display = '';
     document.getElementById("show_" + obj).style.display = 'none';
-    console.log("show_" + obj);
+    // console.log("show_" + obj);
     tableid = document.getElementById(obj).querySelector('table[id^="DT-"]').id;
-    console.log("#" + tableid);
+    // console.log("#" + tableid);
     try {
         $("#" + tableid).DataTable().columns.adjust().responsive.recalc();
     } catch (e) {
