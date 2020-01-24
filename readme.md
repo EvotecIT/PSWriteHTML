@@ -64,6 +64,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.74 - Unreleased
+  - Improvements to speed Targetted DataTable recalc for tabs and sections - pull [#105](https://github.com/EvotecIT/PSWriteHTML/pull/105) / issue [#101](https://github.com/EvotecIT/PSWriteHTML/issues/101) - tnx opustecnica
+
 - 0.0.73 - 2020.01.20
   - Fix for Out-HtmlView erroring out if Table was not given (or null)
 
