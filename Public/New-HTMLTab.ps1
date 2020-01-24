@@ -140,7 +140,7 @@ function New-HTMLTab {
         $Class = ''
     }
     #New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $Class } {
-    New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $Class } {
+    New-HTMLTag -Tag 'div' -Attributes @{ id = "$($Tab.ID)-Content"; class = $Class } {
         if (-not [string]::IsNullOrWhiteSpace($Heading)) {
             New-HTMLTag -Tag 'h7' {
                 $Heading
