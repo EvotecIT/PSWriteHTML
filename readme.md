@@ -20,7 +20,7 @@
 
 # PSWriteHTML - PowerShell Module
 
-`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is complete rewrite and  doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) or even same code, therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features.
+`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is complete rewrite and  doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) or even same code, therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features.
 
 ## How to install
 
@@ -64,7 +64,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.75 - Unreleased
+- 0.0.75 - 2020.02.07
   - Improvment for very long words in New-HTMLTable and New-TableContent using WordBreak parameter - issue [#107](https://github.com/EvotecIT/PSWriteHTML/issues/107)
 
 - 0.0.74 - 2020.01.26
