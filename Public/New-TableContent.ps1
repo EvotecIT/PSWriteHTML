@@ -1,5 +1,5 @@
 ﻿function New-TableContent {
-    [alias('TableContent', 'EmailTableContent','New-HTMLTableContent')]
+    [alias('TableContent', 'EmailTableContent', 'New-HTMLTableContent')]
     [CmdletBinding()]
     param(
         [alias('ColumnNames', 'Names', 'Name')][string[]] $ColumnName,
@@ -16,8 +16,14 @@
         [ValidateSet('left', 'center', 'right', 'justify')][string] $Alignment,
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
-        [ValidateSet('rtl')][string] $Direction
+        [ValidateSet('rtl')][string] $Direction,
+        [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak
     )
+    if ($WordBreak -eq '' -or $WordBreak -eq 'normal') {
+        $WordBreakStyle = ''
+    } else {
+        $WordBreakStyle = $WordBreak
+    }
 
     $Style = @{
         Color           = $Color
@@ -31,6 +37,7 @@
         TextDecoration  = $TextDecoration
         TextTransform   = $TextTransform
         Direction       = $Direction
+        WordBreak       = $WordBreakStyle
     }
     Remove-EmptyValues -Hashtable $Style
 

@@ -12,7 +12,8 @@
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string]  $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string]  $TextTransform,
         [ValidateSet('rtl')][string] $Direction,
-        [switch] $LineBreak
+        [switch] $LineBreak,
+        [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak
     )
     if ($FontSize -eq 0) {
         $Size = ''
@@ -32,6 +33,7 @@
 
         'text-decoration'  = $TextDecoration
         'text-transform'   = $TextTransform
+        'word-break'       = $WordBreak
     }
     # Removes empty, not needed values from hashtable. It's much easier then using if/else to verify for null/empty string
     Remove-EmptyValues -Hashtable $Style

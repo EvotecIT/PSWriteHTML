@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.75 - Unreleased
-  - Basic support for very long words in New-HTMLTable
+  - Improvment for very long words in New-HTMLTable and New-TableContent using WordBreak parameter - issue [#107](https://github.com/EvotecIT/PSWriteHTML/issues/107)
 
 - 0.0.74 - 2020.01.26
   - Improvements to speed Targetted DataTable recalc for tabs and sections - pull [#105](https://github.com/EvotecIT/PSWriteHTML/pull/105) / issue [#101](https://github.com/EvotecIT/PSWriteHTML/issues/101) - tnx opustecnica
@@ -433,4 +433,4 @@ This allows for **code blocks** support. Currently it uses Release Candidate ver
 
 ### External JS Framework - VIS Network (MIT LICENSE)
 
-- [x] Downloaded from https://github.com/visjs/vis-network
+- [x] Downloaded from <https://github.com/visjs/vis-network>
