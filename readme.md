@@ -64,6 +64,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.76 - 2020.02.07
+  - Added -PreventShowHTML to Out-HtmlView for quick use with Path.
+
 - 0.0.75 - 2020.02.07
   - Improvment for very long words in New-HTMLTable and New-TableContent using WordBreak parameter - issue [#107](https://github.com/EvotecIT/PSWriteHTML/issues/107)
 
