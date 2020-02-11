@@ -50,7 +50,7 @@ function New-HTMLStatusItem {
         }
     }
     elseif ($PSCmdlet.ParameterSetName -eq 'Hex') {
-        $Colors = "background-color: $BackgroundColor"
+        $Colors = "background-color: $BackgroundColor;"
     }
 
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'buttonical'; style = $Colors } -Value {
