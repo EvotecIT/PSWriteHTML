@@ -17,12 +17,9 @@
     box-shadow: 0 2px 4px -1px rgba(25, 25, 25, 0.2);
 }
 
-
 .buttonical input {
     display: none;
 }
-
-
 
 .buttonical .label {
     display: table;
@@ -61,31 +58,6 @@
     display: table-cell;
     vertical-align: middle;
     font-weight: 300;
-    color: #fff;
-}
-
-.buttonical .performance:after {
-    content: "\2714";
-    margin-left: -10px;
-    display: inline-block;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-}
-
-.buttonical .performanceProblem:after {
-    content: "\2639";
-    margin-left: -10px;
-    display: inline-block;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-}
-
-.buttonical .performanceDead:after {
-    content: "\2620";
-    margin-left: -10px;
-    display: inline-block;
-    -webkit-transform: scale(0);
-    transform: scale(0);
 }
 
 .buttonical .first {
@@ -96,12 +68,9 @@
     border-radius: 0 40px 40px 0;
 }
 
-.buttonical input:checked+.performance {
-    color: #5f6982;
-}
-
-.buttonical input:checked+.performance:after {
-    margin-left: 12px;
-    -webkit-transform: scale(1.25);
-    transform: scale(1.25);
+.buttonical .icon {
+	margin-left: 12px;
+	display: inline-block;
+	-webkit-transform: scale(1.35);
+	transform: scale(1.35);
 }
