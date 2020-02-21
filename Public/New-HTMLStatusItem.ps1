@@ -1,8 +1,8 @@
 function New-HTMLStatusItem {
     [CmdletBinding(DefaultParameterSetName = 'Statusimo')]
     param(
-        [string] $ServiceName,
-        [string] $ServiceStatus,
+        [alias('ServiceName')][string] $Name,
+        [alias('ServiceStatus')][string] $Status,
 
         [ValidateSet('Dead', 'Bad', 'Good')]
         [Parameter(ParameterSetName = 'Statusimo')]
@@ -87,44 +87,38 @@ function New-HTMLStatusItem {
 
         if ($Icon -eq 'Dead') {
             $IconType = '&#x2620'
-        }
-        elseif ($Icon -eq 'Bad') {
+        } elseif ($Icon -eq 'Bad') {
             $IconType = '&#x2639'
-        }
-        elseif ($Icon -eq 'Good') {
+        } elseif ($Icon -eq 'Good') {
             $IconType = '&#x2714'
         }
-    }
-    elseif ($PSCmdlet.ParameterSetName -like 'FontAwesome*') {
+    } elseif ($PSCmdlet.ParameterSetName -like 'FontAwesome*') {
         $BackgroundColor = Convert-FromColor -Color $BackgroundColor
 
         if ($IconBrands) {
             $IconClass = "fab fa-$IconBrands"
-        }
-        elseif ($IconRegular) {
+        } elseif ($IconRegular) {
             $IconClass = "far fa-$IconRegular"
-        }
-        elseif ($IconSolid) {
+        } elseif ($IconSolid) {
             $IconClass = "fas fa-$IconSolid"
         }
-    }
-    elseif ($PSCmdlet.ParameterSetName -eq 'Hex') {
+    } elseif ($PSCmdlet.ParameterSetName -eq 'Hex') {
         $IconType = $IconHex
     }
     $FontColor = Convert-FromColor -Color $FontColor
 
-    New-HTMLTag -Tag 'div' -Attributes @{ class = 'buttonical'; style = "background-color: $BackgroundColor" } -Value {
+    New-HTMLTag -Tag 'div' -Attributes @{ class = 'buttonical'; style = @{ "background-color" = $BackgroundColor } } -Value {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'label' } {
-            New-HTMLTag -Tag 'span' -Attributes @{ class = 'performance'; style = "color: $FontColor"} {
-                $ServiceName
+            New-HTMLTag -Tag 'span' -Attributes @{ class = 'performance'; style = @{ color = $FontColor } } {
+                $Name
             }
         }
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'middle' }
-        New-HTMLTag -Tag 'div' -Attributes @{ class = 'status'} {
+        New-HTMLTag -Tag 'div' -Attributes @{ class = 'status' } {
             New-HTMLTag -Tag 'input' -Attributes @{ name = Get-Random; type = 'radio'; value = 'other-item'; checked = 'true' } -SelfClosing
-            New-HTMLTag -Tag 'span' -Attributes @{ class = "performance"; style = "color: $FontColor" } {
-                $ServiceStatus
-                New-HtmlTag -Tag 'span' -Attributes @{ class = "icon $IconClass" } {
+            New-HTMLTag -Tag 'span' -Attributes @{ class = "performance"; style = @{ color = $FontColor } } {
+                $Status
+                New-HTMLTag -Tag 'span' -Attributes @{ class = "icon $IconClass" } {
                     $IconType
                 }
             }
