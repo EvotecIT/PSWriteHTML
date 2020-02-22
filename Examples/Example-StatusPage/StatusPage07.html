@@ -1,0 +1,488 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+    <!-- HEAD -->
+
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="author" />
+        <meta content="2020-02-22 09:46:59" name="revised" />
+        <title>Services Status</title><!-- CSS Default fonts START -->
+        <link type="text/css" href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" rel="stylesheet" /><!-- CSS Default fonts END -->
+        <!-- CSS Default fonts icons START -->
+        <link type="text/css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" rel="stylesheet" /><!-- CSS Default fonts icons END -->
+        <!-- CSS Always Required Default Visual Settings START -->
+        <style type="text/css">
+            body {
+                font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+                font-size: 8pt;
+            }
+
+            hr {
+                height: 4px;
+                background-color: #6Cf;
+                border: 0px;
+                width: 100%;
+            }
+
+            .defaultSection {
+                border: 1px solid #bbbbbb;
+                padding-bottom: 0px;
+                margin: 5px;
+                width: calc(100% - 10px);
+            }
+
+            .overflowHidden {
+                overflow: hidden;
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
+
+            .flexParent {
+                display: flex;
+                justify-content: space-between;
+                padding: 2px;
+            }
+
+            .flexParentInvisible {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .flexElement {
+                flex-basis: 100%;
+            }
+
+            .flexPanel {
+                flex-basis: 100%;
+            }
+
+            .roundedCorners {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+                border-radius: 5px;
+                margin: 5px;
+            }
+
+            .defaultHeader {
+                padding: 5px;
+                margin: 0px 0px 0px 0px;
+                font-weight: bold;
+            }
+
+            .defaultFooter {
+                padding-right: 5em;
+                text-align: right;
+            }
+
+            .logos {
+                display: flex;
+            }
+
+            .leftLogo {
+                flex-basis: 100%;
+                border: 0px;
+                padding-left: 0px;
+                vertical-align: middle;
+            }
+
+            .rightLogo {
+                flex-basis: 100%;
+                border: 0px;
+                padding-right: 5em;
+                text-align: right;
+                vertical-align: middle;
+            }
+
+            .header {
+                background-color: #616a6b;
+                color: #f7f9f9;
+            }
+
+            a.alink:link {
+                color: #007bff;
+                text-decoration: none;
+                font-size: 120%;
+            }
+
+            a.alink:visited {
+                color: #ff8400;
+                text-decoration: none;
+                font-size: 120%;
+            }
+
+            a.alink:hover {
+                text-decoration: underline;
+                font-size: 130%;
+            }
+
+            a.paginate_button {
+                color: #000000 !important;
+                font-size: 10px;
+            }
+
+            a.current {
+                color: #000000 !important;
+            }
+
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            img {
+                border-radius: 5px 5px 0 0;
+            }
+
+            .container {
+                padding: 2px 16px;
+            }
+
+            .flex-grid {
+                display: flex;
+            }
+
+            .col {
+                padding: 20px;
+                margin: 1%;
+                flex: 1;
+            }
+        </style><!-- CSS Always Required Default Visual Settings END -->
+        <!-- CSS Always Required Default Headings START -->
+        <style type="text/css">
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: 'Hammersmith One', sans-serif;
+            }
+
+            h1 {
+                font-size: 30px;
+                line-height: 20px;
+                margin: 1em 0 .6em 0;
+                font-weight: normal;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+                position: relative;
+                color: #6Cf;
+                margin: 10px 10px 10px 10px;
+            }
+
+            h2 {
+                margin: 1em 0 .6em 0;
+                padding: 0 0 0 20px;
+                font-weight: normal;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+                position: relative;
+                font-size: 25px;
+                line-height: 20px;
+                margin: 10px 10px 10px 10px;
+            }
+
+            h3 {
+                margin: 1em 0 .6em 0;
+                padding: 0 0 0 20px;
+                font-weight: normal;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+                position: relative;
+                font-size: 24px;
+                line-height: 20px;
+                margin: 10px 10px 10px 10px;
+            }
+
+            h4 {
+                margin: 1em 0 .6em 0;
+                padding: 0 0 0 20px;
+                font-weight: normal;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+                position: relative;
+                font-size: 18px;
+                line-height: 16px;
+                margin: 10px 10px 10px 10px;
+            }
+
+            h5 {
+                margin: 1em 0 .6em 0;
+                padding: 0 0 0 20px;
+                font-weight: normal;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+                position: relative;
+                font-size: 14px;
+                line-height: 16px;
+                margin: 10px 10px 10px 10px;
+            }
+
+            h6 {
+                margin: 1em 0 .6em 0;
+                padding: 0 0 0 20px;
+                font-weight: normal;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+                position: relative;
+                font-size: 10px;
+                line-height: 12px;
+                margin: 10px 10px 10px 10px;
+            }
+        </style><!-- CSS Always Required Default Headings END -->
+        <!-- CSS Toasts Looking Messages START -->
+        <style type="text/css">
+            .toast {
+                text-align: left;
+                padding: 10px 5px 10px 5px;
+                background-color: #fff;
+                border-radius: 4px;
+                top: 0px;
+                position: relative;
+                box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
+                margin: 10px 10px 10px 10px;
+            }
+
+            .toastBorderLeft {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 100%;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+
+            .toastBorderRight {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 4px;
+                height: 100%;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+
+            .toastIcon {
+                position: absolute;
+                top: 35%;
+                left: 12px;
+                transform: translateY(-50%);
+                width: 14px;
+                height: 14px;
+                padding: 7px;
+                border-radius: 50%;
+                display: inline-block;
+            }
+
+            .toastContent {
+                padding-left: 70px;
+                padding-right: 60px;
+            }
+
+            .toastTextHeader {
+                color: #3e3e3e;
+                font-weight: 700;
+                margin-top: 0;
+                margin-bottom: 8px;
+                font-family: "Raleway", sans-serif;
+                font-size: 16px !important;
+            }
+
+            .toastText {
+                font-size: 14px;
+                margin-top: 0;
+                margin-bottom: 0;
+                color: #878787;
+                font-family: "Raleway", sans-serif;
+                font-size: 14px !important;
+            }
+        </style><!-- CSS Toasts Looking Messages END -->
+        <!-- CSS Status Buttonical START -->
+        <style type="text/css">
+            .buttonicalService {
+                font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+                display: table;
+                height: 100%;
+                width: 100%;
+            }
+
+            .buttonical {
+                z-index: 0;
+                height: 60px;
+                float: none;
+                margin-top: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+                border-radius: 5px;
+                display: block;
+                box-shadow: 0 2px 4px -1px rgba(25, 25, 25, 0.2);
+            }
+
+            .buttonical input {
+                display: none;
+            }
+
+            .buttonical .label {
+                display: table;
+                float: left;
+                padding: 0;
+                width: calc(100% / 3);
+                height: 100%;
+                margin: 0;
+                text-align: center;
+            }
+
+            .buttonical .middle {
+                display: table;
+                float: left;
+                padding: 0;
+                width: calc(100% / 3);
+                height: 100%;
+                margin: 0;
+                text-align: center;
+            }
+
+            .buttonical .status {
+                display: table;
+                float: left;
+                padding: 0;
+                width: calc(100% / 3);
+                height: 100%;
+                margin: 0;
+                text-align: center;
+            }
+
+            .buttonical .performance {
+                font-size: 19px;
+                cursor: pointer;
+                width: 100%;
+                display: table-cell;
+                vertical-align: middle;
+                font-weight: 300;
+            }
+
+            .buttonical .first {
+                border-radius: 40px 0 0 40px;
+            }
+
+            .buttonical .last {
+                border-radius: 0 40px 40px 0;
+            }
+
+            .buttonical .icon {
+                margin-left: 12px;
+                display: inline-block;
+                -webkit-transform: scale(1.35);
+                transform: scale(1.35);
+            }
+        </style><!-- CSS Status Buttonical END -->
+    </head><!-- CSS AUTOGENERATED on DEMAND START -->
+    <style type="text/css">
+        .flexElementIGtwGSsS {
+            flex-basis: 900px;
+            margin: auto;
+        }
+    </style><!-- CSS AUTOGENERATED on DEMAND END -->
+    <!-- END HEAD -->
+    <!-- BODY -->
+
+    <body>
+        <!-- HEADER -->
+        <header></header><!-- END HEADER -->
+        <div class="flexParent flexElement overflowHidden">
+            <div class="flexParent flexElement overflowHidden">
+                <div class="flexElementIGtwGSsS overflowHidden">
+                    <div class="flexPanel overflowHidden roundedCorners overflowHidden" style=" box-shadow: unset !important;">
+                        <div class="toast">
+                            <div class="toastBorderLeft" style="background-color:#0000ff"></div>
+                            <div class="toastIcon fas fa-info-circle" style="color:#0000ff;font-size:30px"></div>
+                            <div class="toastContent">
+                                <p class="toastTextHeader">Information</p>
+                                <p class="toastText">Everything is running smoothly!</p>
+                            </div>
+                            <div class="toastBorderRight"></div>
+                        </div>
+                    </div>
+                    <h1>Current Status Systems</h1>
+                    <div class="flexPanel overflowHidden roundedCorners overflowHidden" style=" box-shadow: unset !important;">
+                        <div class="buttonicalService">
+                            <div class="buttonical" style="background-color:#0ef49b">
+                                <div class="label"><span class="performance" style="color:#5f6982">Active Directory</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="423084026" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Operational<span class="icon ">&#x2714</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#0ef49b">
+                                <div class="label"><span class="performance" style="color:#5f6982">Github</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="729601852" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Operational<span class="icon ">&#x2714</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#ff5a64">
+                                <div class="label"><span class="performance" style="color:#5f6982">Hyper-V</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="190491554" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Non-functional<span class="icon ">&#x2620</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#0ef49b">
+                                <div class="label"><span class="performance" style="color:#5f6982">Active Directory</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="1826633277" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Operational<span class="icon ">&#x2714</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#d2dc69">
+                                <div class="label"><span class="performance" style="color:#5f6982">Azure</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="280509167" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Working on it<span class="icon ">&#x2639</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#faa04b">
+                                <div class="label"><span class="performance" style="color:#5f6982">Twitter</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="605861294" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Who knows?!<span class="icon ">&#x2639</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#0ef49b">
+                                <div class="label"><span class="performance" style="color:#5f6982">Active Directory</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="742724473" checked="true" type="radio" /><span class="performance" style="color:#5f6982">operational<span class="icon far fa-address-book"></span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1>Current Status Providers</h1>
+                    <div class="flexPanel overflowHidden roundedCorners overflowHidden" style=" box-shadow: unset !important;">
+                        <div class="buttonicalService">
+                            <div class="buttonical" style="background-color:#0ef49b">
+                                <div class="label"><span class="performance" style="color:#5f6982">Active Directory</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="499257522" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Operational<span class="icon ">&#x2714</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#0ef49b">
+                                <div class="label"><span class="performance" style="color:#5f6982">Github</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="1658737795" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Operational<span class="icon ">&#x2714</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#ff5a64">
+                                <div class="label"><span class="performance" style="color:#5f6982">Hyper-V</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="992678359" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Non-functional<span class="icon ">&#x2620</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#0ef49b">
+                                <div class="label"><span class="performance" style="color:#5f6982">Active Directory</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="1849831571" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Operational<span class="icon ">&#x2714</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#d2dc69">
+                                <div class="label"><span class="performance" style="color:#5f6982">Azure</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="2008716200" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Working on it<span class="icon ">&#x2639</span></span></div>
+                            </div>
+                            <div class="buttonical" style="background-color:#faa04b">
+                                <div class="label"><span class="performance" style="color:#5f6982">Twitter</span></div>
+                                <div class="middle"></div>
+                                <div class="status"><input value="other-item" name="1043437743" checked="true" type="radio" /><span class="performance" style="color:#5f6982">Who knows?!<span class="icon ">&#x2639</span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <!-- FOOTER -->
+            <!-- END FOOTER -->
+        </footer><!-- END BODY -->
+    </body>
+
+</html>

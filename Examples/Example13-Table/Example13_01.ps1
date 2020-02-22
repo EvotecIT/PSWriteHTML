@@ -7,7 +7,7 @@ New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePat
     New-HTMLContent -HeaderText '1 section' {
         New-HTMLTable -ArrayOfObjects $Processes -HideFooter { #-ImmediatelyShowHiddenDetails
             New-TableRowGrouping -Name 'PriorityClass' -Color Red -BackgroundColor GreenYellow
-        }
+        } -DisableSearch
     }
     New-HTMLContent -HeaderText '2 section' {
         #New-HTMLTable -ArrayOfObjects $Processes -HideFooter -ImmediatelyShowHiddenDetails -HideShowButton
