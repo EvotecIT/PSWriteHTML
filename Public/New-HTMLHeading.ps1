@@ -1,28 +1,24 @@
 Function New-HTMLHeading {
     [CmdletBinding()]
     Param (
-        [validateset('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7')][string]$Heading,
-        [string]$HeadingText,
-        # [validateset('default', 'central')][string] $Type = 'default',
+        [validateset('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7')][string] $Heading,
+        [string] $HeadingText,
         [switch] $Underline,
-        [string]$Color
+        [string] $Color
     )
     if ($null -ne $Color) {
         $RGBcolor = ConvertFrom-Color -Color $Color
         $Attributes = @{
-            style = "color: $RGBcolor;"
+            style = @{ color = $RGBcolor }
         }
     } else {
         $Attributes = @{ }
     }
-    # if ($Type -eq 'central') {
-    #        $Attributes.Class = 'central'
-    #   }
     if ($Underline) {
         $Attributes.Class = "$($Attributes.Class) underline"
     }
-
     New-HTMLTag -Tag $Heading -Attributes $Attributes {
         $HeadingText
     }
 }
+Register-ArgumentCompleter -CommandName New-HTMLHeading -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }

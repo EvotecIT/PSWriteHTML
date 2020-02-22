@@ -69,8 +69,8 @@
 }
 
 .buttonical .icon {
-	margin-left: 12px;
-	display: inline-block;
-	-webkit-transform: scale(1.35);
-	transform: scale(1.35);
+    margin-left: 12px;
+    display: inline-block;
+    -webkit-transform: scale(1.35);
+    transform: scale(1.35);
 }
