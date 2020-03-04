@@ -64,7 +64,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.77 - Unreleased
+- 0.0.77 - 2020.03.04
   - Updates to New-HTMLStatusItem [#111](https://github.com/EvotecIT/PSWriteHTML/pull/111) - tnx jimmy58663
     - Support for FontAwesome, More colors and Hex.
   - Fixes to New-HTMLHeading color property being empty
