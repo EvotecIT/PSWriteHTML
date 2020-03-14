@@ -21,7 +21,7 @@ function Email {
         [ValidateSet('None', 'OnSuccess', 'OnFailure', 'Delay', 'Never')] $DeliveryNotifications = 'None',
         [string] $Encoding = 'Unicode',
         [string] $FilePath,
-        [bool] $Supress = $true,
+        [alias('Supress')][bool] $Suppress = $true,
         [switch] $WhatIf
     )
     $StartTime = [System.Diagnostics.Stopwatch]::StartNew()
@@ -102,7 +102,7 @@ function Email {
         } else {
             $TempFilePath = ''
         }
-        $Saved = Save-HTML -FilePath $TempFilePath -HTML $Body -Supress $false
+        $Saved = Save-HTML -FilePath $TempFilePath -HTML $Body -Suppress $false
         if ($Saved) {
             $Attachments.Add($Saved)
         }
@@ -110,7 +110,7 @@ function Email {
 
     #$MailSentTo = "To: $($ServerParameters.To -join ', '); CC: $($ServerParameters.CC -join ', '); BCC: $($ServerParameters.BCC -join ', ')".Trim()
     $EmailOutput = Send-Email -EmailParameters $ServerParameters -Body ($Body -join '') -Attachment $Attachments -WhatIf:$WhatIf
-    if (-not $Supress) {
+    if (-not $Suppress) {
         $EmailOutput
     }
 
