@@ -81,7 +81,8 @@ function Out-HtmlView {
         [int] $First,
         [int] $Last,
         [alias('Replace')][Array] $CompareReplace,
-        [switch] $PreventShowHTML
+        [switch] $PreventShowHTML,
+        [switch] $Online
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -99,7 +100,7 @@ function Out-HtmlView {
     End {
         if ($null -ne $Table) {
             # HTML generation part
-            New-HTML -FilePath $FilePath -UseCssLinks -UseJavaScriptLinks -TitleText $Title -ShowHTML:(-not $PreventShowHTML) {
+            New-HTML -FilePath $FilePath -UseCssLinks:($Online.IsPresent) -UseJavaScriptLinks:($Online.IsPresent) -TitleText $Title -ShowHTML:(-not $PreventShowHTML) {
                 New-HTMLTable -DataTable $DataTable `
                     -HideFooter:$HideFooter `
                     -Buttons $Buttons -PagingStyle $PagingStyle -PagingOptions $PagingOptions `
