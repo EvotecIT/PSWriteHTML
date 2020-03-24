@@ -14,55 +14,62 @@ schema: 2.0.0
 
 ### Shape (Default)
 ```
-New-DiagramNode [-Id <String>] [-Label <String>] [-To <String[]>] [-Shape <String>] [-BorderWidth <Int32>]
- [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-ColorBorder <RGBColors>] [-ColorBackground <RGBColors>]
- [-ColorHighlightBorder <RGBColors>] [-ColorHighlightBackground <RGBColors>] [-ColorHoverBorder <RGBColors>]
- [-ColorHoverBackground <RGBColors>] [-FixedX <Boolean>] [-FixedY <Boolean>] [-FontColor <RGBColors>]
- [-FontSize <Int32>] [-FontName <String>] [-FontBackground <RGBColors>] [-FontStrokeWidth <Int32>]
- [-FontStrokeColor <RGBColors>] [-FontAlign <String>] [-FontMulti <String>] [-FontVAdjust <Int32>]
- [-Size <Int32>] [-WidthConstraint <Boolean>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-Shape <String>]
+ [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-ColorBorder <String>]
+ [-ColorBackground <String>] [-ColorHighlightBorder <String>] [-ColorHighlightBackground <String>]
+ [-ColorHoverBorder <String>] [-ColorHoverBackground <String>] [-FixedX <Boolean>] [-FixedY <Boolean>]
+ [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
+ [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
+ [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-Level <Int32>]
+ [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>] [-WidthConstraintMinimum <Int32>]
+ [-WidthConstraintMaximum <Int32>] [<CommonParameters>]
 ```
 
 ### Image
 ```
-New-DiagramNode [-Id <String>] [-Label <String>] [-To <String[]>] [-ImageType <String>] [-Image <Uri>]
- [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-BrokenImages <String>] [-Chosen <Boolean>]
- [-ColorBorder <RGBColors>] [-ColorBackground <RGBColors>] [-ColorHighlightBorder <RGBColors>]
- [-ColorHighlightBackground <RGBColors>] [-ColorHoverBorder <RGBColors>] [-ColorHoverBackground <RGBColors>]
- [-FixedX <Boolean>] [-FixedY <Boolean>] [-FontColor <RGBColors>] [-FontSize <Int32>] [-FontName <String>]
- [-FontBackground <RGBColors>] [-FontStrokeWidth <Int32>] [-FontStrokeColor <RGBColors>] [-FontAlign <String>]
- [-FontMulti <String>] [-FontVAdjust <Int32>] [-Size <Int32>] [-WidthConstraint <Boolean>] [-X <Int32>]
- [-Y <Int32>] [<CommonParameters>]
+New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>]
+ [-ImageType <String>] [-Image <Uri>] [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>]
+ [-BrokenImages <String>] [-Chosen <Boolean>] [-ColorBorder <String>] [-ColorBackground <String>]
+ [-ColorHighlightBorder <String>] [-ColorHighlightBackground <String>] [-ColorHoverBorder <String>]
+ [-ColorHoverBackground <String>] [-FixedX <Boolean>] [-FixedY <Boolean>] [-FontColor <String>]
+ [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>] [-FontStrokeWidth <Int32>]
+ [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>] [-FontVAdjust <Int32>] [-Size <Int32>]
+ [-X <Int32>] [-Y <Int32>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>]
+ [-HeightConstraintVAlign <String>] [-WidthConstraintMinimum <Int32>] [-WidthConstraintMaximum <Int32>]
+ [<CommonParameters>]
 ```
 
 ### FontAwesomeSolid
 ```
-New-DiagramNode [-Id <String>] [-Label <String>] [-To <String[]>] [-BorderWidth <Int32>]
- [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>] [-FixedY <Boolean>]
- [-FontColor <RGBColors>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <RGBColors>]
- [-FontStrokeWidth <Int32>] [-FontStrokeColor <RGBColors>] [-FontAlign <String>] [-FontMulti <String>]
- [-FontVAdjust <Int32>] [-Size <Int32>] [-WidthConstraint <Boolean>] [-X <Int32>] [-Y <Int32>] [-IconAsImage]
- [-IconColor <RGBColors>] [-IconSolid <String>] [<CommonParameters>]
+New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>]
+ [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>]
+ [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
+ [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
+ [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-IconAsImage] [-IconColor <String>]
+ [-IconSolid <String>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>]
+ [-WidthConstraintMinimum <Int32>] [-WidthConstraintMaximum <Int32>] [<CommonParameters>]
 ```
 
 ### FontAwesomeRegular
 ```
-New-DiagramNode [-Id <String>] [-Label <String>] [-To <String[]>] [-BorderWidth <Int32>]
- [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>] [-FixedY <Boolean>]
- [-FontColor <RGBColors>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <RGBColors>]
- [-FontStrokeWidth <Int32>] [-FontStrokeColor <RGBColors>] [-FontAlign <String>] [-FontMulti <String>]
- [-FontVAdjust <Int32>] [-Size <Int32>] [-WidthConstraint <Boolean>] [-X <Int32>] [-Y <Int32>] [-IconAsImage]
- [-IconColor <RGBColors>] [-IconRegular <String>] [<CommonParameters>]
+New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>]
+ [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>]
+ [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
+ [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
+ [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-IconAsImage] [-IconColor <String>]
+ [-IconRegular <String>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>]
+ [-WidthConstraintMinimum <Int32>] [-WidthConstraintMaximum <Int32>] [<CommonParameters>]
 ```
 
 ### FontAwesomeBrands
 ```
-New-DiagramNode [-Id <String>] [-Label <String>] [-To <String[]>] [-BorderWidth <Int32>]
- [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>] [-FixedY <Boolean>]
- [-FontColor <RGBColors>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <RGBColors>]
- [-FontStrokeWidth <Int32>] [-FontStrokeColor <RGBColors>] [-FontAlign <String>] [-FontMulti <String>]
- [-FontVAdjust <Int32>] [-Size <Int32>] [-WidthConstraint <Boolean>] [-X <Int32>] [-Y <Int32>] [-IconAsImage]
- [-IconColor <RGBColors>] [-IconBrands <String>] [<CommonParameters>]
+New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>]
+ [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>]
+ [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
+ [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
+ [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-IconAsImage] [-IconColor <String>]
+ [-IconBrands <String>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>]
+ [-WidthConstraintMinimum <Int32>] [-WidthConstraintMaximum <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -143,10 +150,9 @@ Accept wildcard characters: False
 {{ Fill ColorBackground Description }}
 
 ```yaml
-Type: RGBColors
+Type: String
 Parameter Sets: Shape, Image
 Aliases:
-Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
 Position: Named
@@ -159,10 +165,9 @@ Accept wildcard characters: False
 {{ Fill ColorBorder Description }}
 
 ```yaml
-Type: RGBColors
+Type: String
 Parameter Sets: Shape, Image
 Aliases:
-Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
 Position: Named
@@ -175,10 +180,9 @@ Accept wildcard characters: False
 {{ Fill ColorHighlightBackground Description }}
 
 ```yaml
-Type: RGBColors
+Type: String
 Parameter Sets: Shape, Image
 Aliases:
-Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
 Position: Named
@@ -191,10 +195,9 @@ Accept wildcard characters: False
 {{ Fill ColorHighlightBorder Description }}
 
 ```yaml
-Type: RGBColors
+Type: String
 Parameter Sets: Shape, Image
 Aliases:
-Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
 Position: Named
@@ -207,10 +210,9 @@ Accept wildcard characters: False
 {{ Fill ColorHoverBackground Description }}
 
 ```yaml
-Type: RGBColors
+Type: String
 Parameter Sets: Shape, Image
 Aliases:
-Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
 Position: Named
@@ -223,10 +225,9 @@ Accept wildcard characters: False
 {{ Fill ColorHoverBorder Description }}
 
 ```yaml
-Type: RGBColors
+Type: String
 Parameter Sets: Shape, Image
 Aliases:
-Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
 Position: Named
@@ -285,10 +286,9 @@ Accept wildcard characters: False
 {{ Fill FontBackground Description }}
 
 ```yaml
-Type: RGBColors
+Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
 Position: Named
@@ -301,10 +301,9 @@ Accept wildcard characters: False
 {{ Fill FontColor Description }}
 
 ```yaml
-Type: RGBColors
+Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
 Position: Named
@@ -363,10 +362,9 @@ Accept wildcard characters: False
 {{ Fill FontStrokeColor Description }}
 
 ```yaml
-Type: RGBColors
+Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
 Position: Named
@@ -397,6 +395,37 @@ Accept wildcard characters: False
 Type: Int32
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HeightConstraintMinimum
+{{ Fill HeightConstraintMinimum Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HeightConstraintVAlign
+{{ Fill HeightConstraintVAlign Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: top, middle, bottom
 
 Required: False
 Position: Named
@@ -439,10 +468,9 @@ Accept wildcard characters: False
 {{ Fill IconColor Description }}
 
 ```yaml
-Type: RGBColors
+Type: String
 Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
 Aliases:
-Accepted values: None, Black, Navy, DarkBlue, MediumBlue, Blue, DarkGreen, Green, Teal, DarkCyan, DeepSkyBlue, DarkTurquoise, MediumSpringGreen, Lime, SpringGreen, Aqua, Cyan, MidnightBlue, DodgerBlue, LightSeaGreen, ForestGreen, SeaGreen, DarkSlateGray, DarkSlateGrey, LimeGreen, MediumSeaGreen, Turquoise, RoyalBlue, SteelBlue, DarkSlateBlue, MediumTurquoise, Indigo, DarkOliveGreen, CadetBlue, CornflowerBlue, MediumAquamarine, DimGray, DimGrey, SlateBlue, OliveDrab, SlateGray, SlateGrey, LightSlateGray, LightSlateGrey, MediumSlateBlue, LawnGreen, Chartreuse, Aquamarine, Maroon, Purple, Olive, Grey, Gray, SkyBlue, LightSkyBlue, BlueViolet, DarkRed, DarkMagenta, SaddleBrown, DarkSeaGreen, LightGreen, MediumPurple, DarkViolet, PaleGreen, DarkOrchid, YellowGreen, Sienna, Brown, DarkGray, DarkGrey, LightBlue, GreenYellow, PaleTurquoise, LightSteelBlue, PowderBlue, FireBrick, DarkGoldenrod, MediumOrchid, RosyBrown, DarkKhaki, Silver, MediumVioletRed, IndianRed, Peru, Chocolate, Tan, LightGray, LightGrey, Thistle, Orchid, Goldenrod, PaleVioletRed, Crimson, Gainsboro, Plum, BurlyWood, LightCyan, Lavender, DarkSalmon, Violet, PaleGoldenrod, LightCoral, Khaki, AliceBlue, Honeydew, Azure, SandyBrown, Wheat, Beige, WhiteSmoke, MintCream, GhostWhite, Salmon, AntiqueWhite, Linen, LightGoldenrodYellow, OldLace, Red, Fuchsia, Magenta, DeepPink, OrangeRed, Tomato, HotPink, Coral, DarkOrange, LightSalmon, Orange, LightPink, Pink, Gold, PeachPuff, NavajoWhite, Moccasin, Bisque, MistyRose, BlanchedAlmond, PapayaWhip, LavenderBlush, Seashell, Cornsilk, LemonChiffon, FloralWhite, Snow, Yellow, LightYellow, Ivory, White
 
 Required: False
 Position: Named
@@ -542,6 +570,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Level
+{{ Fill Level Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Shape
 {{ Fill Shape Description }}
 
@@ -573,6 +616,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -TextBox
+{{ Fill TextBox Description }}
+
+```yaml
+Type: ScriptBlock
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -To
 {{ Fill To Description }}
 
@@ -588,11 +646,26 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WidthConstraint
-{{ Fill WidthConstraint Description }}
+### -WidthConstraintMaximum
+{{ Fill WidthConstraintMaximum Description }}
 
 ```yaml
-Type: Boolean
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WidthConstraintMinimum
+{{ Fill WidthConstraintMinimum Description }}
+
+```yaml
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 

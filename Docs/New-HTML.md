@@ -15,7 +15,7 @@ schema: 2.0.0
 ```
 New-HTML [[-HtmlData] <ScriptBlock>] [-UseCssLinks] [-UseJavaScriptLinks] [-TitleText <String>]
  [-Author <String>] [-DateFormat <String>] [-AutoRefresh <Int32>] [-FilePath <String>] [-ShowHTML]
- [-Encoding <Object>] [<CommonParameters>]
+ [-Encoding <Object>] [-FavIcon <Uri>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -85,6 +85,21 @@ Type: Object
 Parameter Sets: (All)
 Aliases:
 Accepted values: Unknown, String, Unicode, Byte, BigEndianUnicode, UTF8, UTF7, UTF32, Ascii, Default, Oem, BigEndianUTF32
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FavIcon
+{{ Fill FavIcon Description }}
+
+```yaml
+Type: Uri
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named

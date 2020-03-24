@@ -17,8 +17,8 @@ New-DiagramOptionsLayout [[-RandomSeed] <Int32>] [[-ImprovedLayout] <Boolean>] [
  [[-HierarchicalEnabled] <Boolean>] [[-HierarchicalLevelSeparation] <Int32>]
  [[-HierarchicalNodeSpacing] <Int32>] [[-HierarchicalTreeSpacing] <Int32>]
  [[-HierarchicalBlockShifting] <Boolean>] [[-HierarchicalEdgeMinimization] <Boolean>]
- [[-HierarchicalParentCentralization] <Boolean>] [[-HierarchicalDirection] <Object>]
- [[-HierarchicalSortMethod] <Object>] [<CommonParameters>]
+ [[-HierarchicalParentCentralization] <Boolean>] [[-HierarchicalDirection] <String>]
+ [[-HierarchicalSortMethod] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -69,10 +69,10 @@ Accept wildcard characters: False
 {{ Fill HierarchicalDirection Description }}
 
 ```yaml
-Type: Object
+Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: UD, DU, LR, RL
+Accepted values: FromUpToDown, FromDownToUp, FromLeftToRight, FromRigthToLeft
 
 Required: False
 Position: 10
@@ -160,7 +160,7 @@ Accept wildcard characters: False
 {{ Fill HierarchicalSortMethod Description }}
 
 ```yaml
-Type: Object
+Type: String
 Parameter Sets: (All)
 Aliases:
 Accepted values: hubsize, directed

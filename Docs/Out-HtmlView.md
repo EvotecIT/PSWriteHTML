@@ -1,6 +1,6 @@
 ---
-external help file: PSWriteHTML-help.xml
-Module Name: PSWriteHTML
+external help file:
+Module Name:
 online version:
 schema: 2.0.0
 ---
@@ -14,7 +14,7 @@ Small function that allows to send output to HTML
 
 ```
 Out-HtmlView [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostContent] <ScriptBlock>]
- -Table <Object> [-FilePath <String>] [-Title <String>] [-PassThru] [-Buttons <String[]>]
+ [-Table <Object>] [-FilePath <String>] [-Title <String>] [-PassThru] [-Buttons <String[]>]
  [-PagingStyle <String[]>] [-PagingOptions <Int32[]>] [-DisablePaging] [-DisableOrdering] [-DisableInfo]
  [-HideFooter] [-DisableColumnReorder] [-DisableProcessing] [-DisableResponsiveTable] [-DisableSelect]
  [-DisableStateSave] [-DisableSearch] [-ScrollCollapse] [-OrderMulti] [-Filtering]
@@ -24,8 +24,8 @@ Out-HtmlView [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostConten
  [-DisableNewLine] [-ScrollX] [-ScrollY] [-ScrollSizeY <Int32>] [-FreezeColumnsLeft <Int32>]
  [-FreezeColumnsRight <Int32>] [-FixedHeader] [-FixedFooter] [-ResponsivePriorityOrder <String[]>]
  [-ResponsivePriorityOrderIndex <Int32[]>] [-PriorityProperties <String[]>] [-ImmediatelyShowHiddenDetails]
- [-HideShowButton] [-AllProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>]
- [-CompareReplace <Array>] [<CommonParameters>]
+ [-HideShowButton] [-AllProperties] [-SkipProperties] [-Compare] [-HighlightDifferences] [-First <Int32>]
+ [-Last <Int32>] [-CompareReplace <Array>] [-PreventShowHTML] [-Online] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -95,7 +95,7 @@ Type: Object
 Parameter Sets: (All)
 Aliases: ArrayOfObjects, Object, DataTable
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: True (ByValue)
@@ -762,6 +762,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -SkipProperties
+{{ Fill SkipProperties Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Compare
 {{ Fill Compare Description }}
 
@@ -833,6 +848,36 @@ Aliases: Replace
 Required: False
 Position: Named
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PreventShowHTML
+{{ Fill PreventShowHTML Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Online
+{{ Fill Online Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

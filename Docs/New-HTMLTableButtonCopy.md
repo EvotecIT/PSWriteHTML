@@ -12,10 +12,6 @@ schema: 2.0.0
 
 ## SYNTAX
 
-```
-New-HTMLTableButtonCopy [<CommonParameters>]
-```
-
 ## DESCRIPTION
 {{ Fill in the Description }}
 

@@ -13,7 +13,7 @@ Short description
 ## SYNTAX
 
 ```
-Save-HTML [[-FilePath] <String>] [-HTML] <Array> [-ShowHTML] [[-Encoding] <Object>] [[-Supress] <Boolean>]
+Save-HTML [[-FilePath] <String>] [-HTML] <Array> [-ShowHTML] [[-Encoding] <Object>] [[-Suppress] <Boolean>]
  [<CommonParameters>]
 ```
 
@@ -89,17 +89,17 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Supress
-{{Fill Supress Description}}
+### -Suppress
+{{ Fill Suppress Description }}
 
 ```yaml
 Type: Boolean
 Parameter Sets: (All)
-Aliases:
+Aliases: Supress
 
 Required: False
 Position: 4
-Default value: False
+Default value: True
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

@@ -12,10 +12,6 @@ schema: 2.0.0
 
 ## SYNTAX
 
-```
-New-HTMLTableButtonExcel [<CommonParameters>]
-```
-
 ## DESCRIPTION
 {{ Fill in the Description }}
 

@@ -24,8 +24,8 @@ New-HTMLTable [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostConte
  [-FreezeColumnsLeft <Int32>] [-FreezeColumnsRight <Int32>] [-FixedHeader] [-FixedFooter]
  [-ResponsivePriorityOrder <String[]>] [-ResponsivePriorityOrderIndex <Int32[]>]
  [-PriorityProperties <String[]>] [-DataTableID <String>] [-ImmediatelyShowHiddenDetails] [-HideShowButton]
- [-AllProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>] [-CompareReplace <Array>]
- [<CommonParameters>]
+ [-AllProperties] [-SkipProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>]
+ [-CompareReplace <Array>] [-SearchRegularExpression] [-WordBreak <String>] [-AutoSize] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -44,6 +44,21 @@ PS C:\> {{ Add example code here }}
 
 ### -AllProperties
 {{ Fill AllProperties Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AutoSize
+{{ Fill AutoSize Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -766,8 +781,38 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -SearchRegularExpression
+{{ Fill SearchRegularExpression Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: RegularExpression
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Simplify
 {{Fill Simplify Description}}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SkipProperties
+{{ Fill SkipProperties Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -804,6 +849,22 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WordBreak
+{{ Fill WordBreak Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: normal, break-all, keep-all, break-word
 
 Required: False
 Position: Named
