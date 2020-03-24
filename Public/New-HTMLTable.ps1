@@ -55,7 +55,8 @@ function New-HTMLTable {
         [int] $Last,
         [alias('Replace')][Array] $CompareReplace,
         [alias('RegularExpression')][switch]$SearchRegularExpression,
-        [ValidateSet('normal', 'break-all', 'keep-all','break-word')][string] $WordBreak = 'normal'
+        [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak = 'normal',
+        [switch] $AutoSize
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -120,7 +121,10 @@ function New-HTMLTable {
             }
         }
     }
-
+    # Autosize removes $Width of 100%, which means it will fit the content rather then trying to fill the screen
+    if (-not $AutoSize) {
+        [string] $Width = '100%'
+    }
 
     # Limit objects count First or Last
     if ($First -or $Last) {
@@ -473,9 +477,9 @@ function New-HTMLTable {
         #$Script:HTMLSchema.Features.DataTablesSearchFade = $true
 
         if ($ScrollX) {
-            $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = '100%' }
+            $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = $Width }
         } else {
-            $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = '100%' }
+            $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = $Width }
         }
 
         # Enable Custom Date fromat sorting
