@@ -13,6 +13,7 @@ function New-HTMLTable {
         [switch]$DisableOrdering,
         [switch]$DisableInfo,
         [switch]$HideFooter,
+        [alias('DisableButtons')][switch]$HideButtons,
         [switch]$DisableColumnReorder,
         [switch]$DisableProcessing,
         [switch]$DisableResponsiveTable,
@@ -256,25 +257,6 @@ function New-HTMLTable {
         #>
         dom              = 'Bfrtip'
         #buttons          = @($Buttons)
-        buttons          = @(
-            if ($CustomButtons) {
-                $CustomButtons
-            } else {
-                foreach ($button in $Buttons) {
-                    if ($button -ne 'pdfHtml5') {
-                        @{
-                            extend = $button
-                        }
-                    } else {
-                        @{
-                            extend      = 'pdfHtml5'
-                            pageSize    = 'A3'
-                            orientation = 'landscape'
-                        }
-                    }
-                }
-            }
-        )
         "searchFade"     = $false
         "colReorder"     = -not $DisableColumnReorder.IsPresent
 
@@ -304,6 +286,29 @@ function New-HTMLTable {
         "select"         = -not $DisableSelect.IsPresent
         "searching"      = -not $DisableSearch.IsPresent
         "stateSave"      = -not $DisableStateSave.IsPresent
+    }
+    if (-not $HideButtons) {
+        $Options['buttons'] = @(
+            if ($CustomButtons) {
+                $CustomButtons
+            } else {
+                foreach ($button in $Buttons) {
+                    if ($button -ne 'pdfHtml5') {
+                        @{
+                            extend = $button
+                        }
+                    } else {
+                        @{
+                            extend      = 'pdfHtml5'
+                            pageSize    = 'A3'
+                            orientation = 'landscape'
+                        }
+                    }
+                }
+            }
+        )
+    } else {
+        $Options['buttons'] = @()
     }
     if ($ScrollX) {
         $Options.'scrollX' = $true
@@ -472,8 +477,10 @@ function New-HTMLTable {
     if (-not $Simplify) {
         $Script:HTMLSchema.Features.Jquery = $true
         $Script:HTMLSchema.Features.DataTables = $true
-        $Script:HTMLSchema.Features.DataTablesPDF = $true
-        $Script:HTMLSchema.Features.DataTablesExcel = $true
+        if (-not $HideButtons) {
+            $Script:HTMLSchema.Features.DataTablesPDF = $true
+            $Script:HTMLSchema.Features.DataTablesExcel = $true
+        }
         #$Script:HTMLSchema.Features.DataTablesSearchFade = $true
 
         if ($ScrollX) {
