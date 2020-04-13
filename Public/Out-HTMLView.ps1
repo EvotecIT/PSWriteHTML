@@ -100,7 +100,7 @@ function Out-HtmlView {
     End {
         if ($null -ne $Table) {
             # HTML generation part
-            New-HTML -FilePath $FilePath -UseCssLinks:($Online.IsPresent) -UseJavaScriptLinks:($Online.IsPresent) -TitleText $Title -ShowHTML:(-not $PreventShowHTML) {
+            New-HTML -FilePath $FilePath -Online:($Online.IsPresent) -TitleText $Title -ShowHTML:(-not $PreventShowHTML) {
                 New-HTMLTable -DataTable $DataTable `
                     -HideFooter:$HideFooter `
                     -Buttons $Buttons -PagingStyle $PagingStyle -PagingOptions $PagingOptions `

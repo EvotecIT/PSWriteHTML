@@ -22,6 +22,7 @@ function Email {
         [string] $Encoding = 'Unicode',
         [string] $FilePath,
         [alias('Supress')][bool] $Suppress = $true,
+        [switch] $Online,
         [switch] $WhatIf
     )
     $StartTime = [System.Diagnostics.Stopwatch]::StartNew()
@@ -45,7 +46,7 @@ function Email {
         DeliveryNotifications = $DeliveryNotifications
     }
     $Attachments = [System.Collections.Generic.List[string]]::new()
-    $Body = New-HTML -UseCssLinks -UseJavaScriptLinks {
+    $Body = New-HTML -Online:$Online.IsPresent {
         [Array] $EmailParameters = Invoke-Command -ScriptBlock $Email
 
         foreach ($Parameter in $EmailParameters) {

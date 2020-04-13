@@ -1,8 +1,7 @@
 function Get-Resources {
     [CmdLetBinding()]
     param(
-        [switch] $UseCssLinks,
-        [switch] $UseJavaScriptLinks,
+        [switch] $Online,
         [switch] $NoScript,
         [ValidateSet('Header', 'Footer', 'HeaderAlways', 'FooterAlways')][string] $Location
     )
@@ -26,8 +25,8 @@ function Get-Resources {
 
         foreach ($Feature in $Features) {
 
-            Write-Verbose "Get-Resources - Location: $Location - Feature: $Feature UseCssLinks: $UseCssLinks UseJavaScriptLinks: $UseJavaScriptLinks"
-            if ($UseCssLinks) {
+            Write-Verbose "Get-Resources - Location: $Location - Feature: $Feature Online: $Online"
+            if ($Online) {
                 New-HTMLResourceCSS -Link $Script:Configuration.Features.$Feature.$Location.'CssLink' -ResourceComment $Script:Configuration.Features.$Feature.Comment
             } else {
                 $CSSOutput = New-HTMLResourceCSS `
@@ -36,7 +35,7 @@ function Get-Resources {
                     -Replace $Script:Configuration.Features.$Feature.CustomActionsReplace
                 Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "../images/"
             }
-            if ($UseJavaScriptLinks) {
+            if ($Online) {
                 New-HTMLResourceJS -Link $Script:Configuration.Features.$Feature.$Location.'JsLink' -ResourceComment $Script:Configuration.Features.$Feature.Comment
             } else {
                 New-HTMLResourceJS -FilePath $Script:Configuration.Features.$Feature.$Location.'Js' -ResourceComment $Script:Configuration.Features.$Feature.Comment -ReplaceData $Script:Configuration.Features.$Feature.CustomActionsReplace
@@ -44,7 +43,7 @@ function Get-Resources {
 
             if ($NoScript) {
                 [Array] $Output = @(
-                    if ($UseCssLinks) {
+                    if ($Online) {
                         New-HTMLResourceCSS -Link $Script:Configuration.Features.$Feature.$Location.'CssLinkNoScript' -ResourceComment $Script:Configuration.Features.$Feature.Comment
                     } else {
                         $CSSOutput = New-HTMLResourceCSS -FilePath $Script:Configuration.Features.$Feature.$Location.'CssNoScript' -ResourceComment $Script:Configuration.Features.$Feature.Comment -ReplaceData $Script:Configuration.Features.$Feature.CustomActionsReplace

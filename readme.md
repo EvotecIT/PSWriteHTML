@@ -65,8 +65,11 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.80 - Unreleased
+  - **DEPRECATED**: `UseJavaScriptLinks` and `UseCssLinks` for `New-HTML`. Use `Online` switch instead.
   - Updated Vis.JS to 7.5.2
   - Updated FontAwesome to 5.13 and hopefully made it available offline
+  - Updated ApexCharts to 3.18.1
+  - Changed default for Email to Offline. Use `Online` switch to minimize content.
 
 - 0.0.79 - 2020.03.24
   - Typo fixes for Suppress

@@ -3,6 +3,7 @@ Function New-HTML {
     [CmdletBinding()]
     param(
         [alias('Content')][Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $HtmlData = $(Throw "Have you put the open curly brace on the next line?"),
+        [switch] $Online,
         [switch] $UseCssLinks,
         [switch] $UseJavaScriptLinks,
         [alias('Name', 'Title')][String] $TitleText,
@@ -15,6 +16,11 @@ Function New-HTML {
         [ValidateSet('Unknown', 'String', 'Unicode', 'Byte', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'Ascii', 'Default', 'Oem', 'BigEndianUTF32')] $Encoding = 'UTF8',
         [Uri] $FavIcon
     )
+    if ($UseCssLinks -or $UseJavaScriptLinks) {
+        Write-Warning "New-HTML - UseCssLinks and UseJavaScriptLinks is depreciated. Use Online switch instead. Those switches will be removed in near future."
+        $Online = $true
+    }
+
     [string] $CurrentDate = (Get-Date).ToString($DateFormat)
     $Script:HTMLSchema = @{
         TabsHeaders       = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
@@ -102,7 +108,7 @@ Function New-HTML {
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -SelfClosing
                 New-HTMLTag -Tag 'title' { $TitleText }
-                
+
                 if($null -ne $FavIcon){
                     $Extension = [System.IO.Path]::GetExtension($FavIcon)
                     if ($Extension -in @('.png', '.jpg', 'jpeg', '.svg', '.ico')) {
@@ -124,22 +130,22 @@ Function New-HTML {
                             default {
                                 Write-Warning -Message "The path to the FavIcon image could not be resolved."
                             }
-                        }   
+                        }
                     }
                     else{
                         Write-Warning -Message "File extension `'$Extension`' is not supported as a FavIcon image.`nPlease use images with these extensions: '.png', '.jpg', 'jpeg', '.svg', '.ico'"
                     }
                 }
-                
+
                 if ($Autorefresh -gt 0) {
                     New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = $Autorefresh } -SelfClosing
                 }
-                Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome
-                Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings
+                Get-Resources -Online:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome
+                Get-Resources -Online:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings
                 if ($null -ne $Features) {
-                    Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'HeaderAlways' -Features $Features -NoScript
-                    Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'HeaderAlways' -Features $Features -NoScript
-                    Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Header' -Features $Features
+                    Get-Resources -Online:$true -Location 'HeaderAlways' -Features $Features -NoScript
+                    Get-Resources -Online:$false -Location 'HeaderAlways' -Features $Features -NoScript
+                    Get-Resources -Online:$Online.IsPresent -Location 'Header' -Features $Features
                 }
             }
 
@@ -186,10 +192,10 @@ Function New-HTML {
                     if ($null -ne $Features) {
                         # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included
                         # either as links or from file per required features
-                        Get-Resources -UseCssLinks:$true -UseJavaScriptLinks:$true -Location 'FooterAlways' -Features $Features
-                        Get-Resources -UseCssLinks:$false -UseJavaScriptLinks:$false -Location 'FooterAlways' -Features $Features
+                        Get-Resources -Online -Location 'FooterAlways' -Features $Features
+                        Get-Resources -Online:$false -Location 'FooterAlways' -Features $Features
                         # standard footer features
-                        Get-Resources -UseCssLinks:$UseCssLinks -UseJavaScriptLinks:$UseJavaScriptLinks -Location 'Footer' -Features $Features
+                        Get-Resources -Online:$Online.IsPresent -Location 'Footer' -Features $Features
                     }
                     '<!-- END FOOTER -->'
                 }
