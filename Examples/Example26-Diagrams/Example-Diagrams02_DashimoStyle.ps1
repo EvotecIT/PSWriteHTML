@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-Dashboard -TitleText 'My charts' -UseCssLinks -UseJavaScriptLinks -FilePath $PSScriptRoot\Example-Diagrams02_DashimoStyle.html {
+Dashboard -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-Diagrams02_DashimoStyle.html {
     Diagram -Height '540px' {
         DiagramOptionsInteraction -Hover $true
         DiagramOptionsPhysics -Enabled $false

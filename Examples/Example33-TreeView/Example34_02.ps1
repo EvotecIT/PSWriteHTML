@@ -33,4 +33,4 @@ New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example33_02.html"
         }
         #>
     }
-} -UseCssLinks -UseJavaScriptLinks #-ShowHTML
+} -Online #-ShowHTML

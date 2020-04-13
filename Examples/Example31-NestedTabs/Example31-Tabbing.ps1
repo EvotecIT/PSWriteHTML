@@ -32,4 +32,4 @@ New-HTML -TitleText 'My Title' -FilePath $PSScriptRoot\Example31-Tabbing.html -S
             }
         }
     }
-} -UseCssLinks:$true -UseJavaScriptLinks:$true
+} -Online

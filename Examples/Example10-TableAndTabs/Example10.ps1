@@ -2,7 +2,7 @@ Import-Module .\PSWriteHTML.psd1 -Force
 
 $Processes = Get-Process | Select-Object -First 5
 
-New-HTML -TitleText 'My Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example10.html -ShowHTML {
+New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example10.html -ShowHTML {
     New-HTMLLogo
     New-HtmlTab -TabName 'Test' {
         New-HTMLContent -HeaderText '0 section' {

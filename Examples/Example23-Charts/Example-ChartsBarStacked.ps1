@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-ChartsBarStacked.html {
+New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsBarStacked.html {
     New-HTMLTabOptions -SlimTabs
     New-HTMLTab -Name 'Bar Charts - Bar Stacked' -IconRegular chart-bar {
 

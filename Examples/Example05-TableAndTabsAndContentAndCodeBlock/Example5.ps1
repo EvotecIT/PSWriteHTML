@@ -6,7 +6,7 @@ $EnterpriseAdminTable = Get-ADUser -Filter * | Select-Object Name, Surname, Enab
 # Code Block for PowerShell Code (Showing how <pre> tags work)
 $CodeBlock = @'
 
-$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
+$HTML = New-HtmlPage -Name 'Test' -Online {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
@@ -111,7 +111,7 @@ $CodeBlocksXML1 = @'
             </building>
 '@
 
-New-HTML -UseCssLinks -UseJavaScriptLinks -FilePath "$PSScriptRoot\Example5.html" -ShowHTML {
+New-HTML -Online -FilePath "$PSScriptRoot\Example5.html" -ShowHTML {
     New-HTMLTab -TabName 'Dashboard' {
 
         New-HTMLContent -HeaderText 'Content' {

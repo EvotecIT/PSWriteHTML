@@ -36,7 +36,7 @@ $Object = @(
     }
 )
 
-New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example13_02.html {
+New-HTML -TitleText $Title -Online -FilePath $PSScriptRoot\Example13_02.html {
     New-HTMLTable -ArrayOfObjects $Object {
         New-TableRowGrouping -Name 'Ello' -Color Red -BackgroundColor GreenYellow
     }

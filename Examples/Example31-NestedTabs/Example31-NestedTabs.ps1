@@ -56,4 +56,4 @@ New-HTML -TitleText 'My Title' -FilePath $PSScriptRoot\Example30-NestedTabs.html
             }
         }
     }
-} -UseCssLinks:$true -UseJavaScriptLinks:$true
+} -Online

@@ -1,7 +1,7 @@
 ﻿$Processes = Get-Process | Select-Object -First 2 -Property Name, ID, HandleCount, WorkingSet
 $Title = 'My title'
 
-New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example13.html {
+New-HTML -TitleText $Title -Online -FilePath $PSScriptRoot\Example13.html {
 
     <#
     New-HTMLContent -HeaderText '0 section' {

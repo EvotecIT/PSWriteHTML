@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-09-07 09:30:37" name="revised"/><title>Charts - Line</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<!-- saved from url=(0014)about:internet -->
+<html><!-- HEAD --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2020-04-13 11:57:41" name="revised"/><title>Charts - Line</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -16,13 +17,6 @@ hr {
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .overflowHidden {
@@ -35,46 +29,19 @@ hr {
     display: flex;
     justify-content: space-between;
     padding: 2px;
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .flexParentInvisible {
     display: flex;
     justify-content: space-between;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexElement {
     flex-basis: 100%;
-
-
-    /*
-    flex: 1 auto;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexPanel {
     flex-basis: 100%;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .roundedCorners {
@@ -95,13 +62,19 @@ hr {
     text-align: right;
 }
 
-.clientlogo {
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-.MainLogo {
+.rightLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-right: 5em;
     text-align: right;
@@ -160,54 +133,13 @@ img {
     margin: 1%;
     flex: 1;
 }
-</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
-h3:after,
-h4:after,
-h5:after,
-h6:after {
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    border-radius: 2px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
-}
-
-h2:after {
-    background: #0AF;
-}
-
-h3:after {
-    background: #3BF;
-}
-
-h4:after,
-h5:after,
-h6:after {
-    background: #6Cf;
-}
-
-h1.white,
-h2.white,
-h3.white,
-h4.white,
-h5.white,
-h6.white {
-    color: white;
-}
-
-h1,
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
     font-family: 'Hammersmith One', sans-serif;
-    /*
-    font-family: 'Questrial', sans-serif;
-    */
 }
 
 h1 {
@@ -275,77 +207,60 @@ h6 {
     line-height: 12px;
     margin: 10px 10px 10px 10px;
 }
-</style><!-- CSS Always Required Default Headings END --><!-- CSS Elastic Tabs START --><style type="text/css">.tabsWrapper {
+</style><!-- CSS Always Required Default Headings END --><!-- CSS Elastic Tabbis START --><style type="text/css">.tabsWrapper {
     text-align: center;
     margin: 10px auto;
     font-family: 'Roboto', sans-serif !important;
+    text-transform: uppercase;
 }
 
-.tabs {
+[data-tabs] {
+    display: flex;
     margin-top: 10px;
     font-size: 15px;
     padding: 0px;
-    list-style: none;
-    background: #fff;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    position: relative;
+    justify-content: center;
 }
 
-.tabs .round {
-    border-radius: 4px;
-}
-
-.tabs a {
-    text-decoration: none;
-    color: #777;
-    text-transform: uppercase;
+[data-tabs]>* {
+    cursor: pointer;
     padding: 10px 20px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    transition-duration: 0.6s;
 }
 
-.tabs a.active {
-    color: #fff;
-}
-
-.tabs a i {
-    margin-right: 5px;
-}
-
-.tabs .selector {
-    display: none;
-    height: 100%;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1;
-    border-radius: 4px;
+[data-tabs] .active {
     background: #1e90ff;
+    color: #fff;
+    border-radius: 4px;
 }
 
-.tabs-content {
+[data-panes]>* {
     display: none;
 }
 
-.tabs-content.active {
+[data-panes]>.active {
     display: block;
 }
-</style><!-- CSS Elastic Tabs END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
-  document.getElementById(obj).style.display = 'block';
-  document.getElementById("hide_" + obj).style.display = '';
-  document.getElementById("show_" + obj).style.display = 'none';
+</style><!-- CSS Elastic Tabbis END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
+    document.getElementById(obj).style.display = 'block';
+    document.getElementById("hide_" + obj).style.display = '';
+    document.getElementById("show_" + obj).style.display = 'none';
+    // console.log("show_" + obj);
+    var tableid = document.getElementById(obj).querySelector('table[id^="DT-"]').id;
+    // console.log("#" + tableid);
+    try {
+        $("#" + tableid).DataTable().columns.adjust().responsive.recalc();
+    } catch (e) {
+        console.log('No datatables available.');
+    }
 }
 function hide(obj) {
-  document.getElementById(obj).style.display = 'none';
-  document.getElementById("hide_" + obj).style.display = 'none';
-  document.getElementById("show_" + obj).style.display = '';
+    document.getElementById(obj).style.display = 'none';
+    document.getElementById("hide_" + obj).style.display = 'none';
+    document.getElementById("show_" + obj).style.display = '';
 }
-</script><!-- JS Hide Section Code END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div class="selector"></div><a href="javascript:void(0)" class="active" data-id="Tab-7iy653rq"><div class="far fa-hourglass"></div><span> Line Charts</span></a></div></div><div id="Tab-7iy653rq" class="tabs-content active"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_1723664667" href="javascript:void(0)" onclick="show('1723664667');" style="color: #ffffff; display:none;"> (Show)</a><a id="hide_1723664667" href="javascript:void(0)" onclick="hide('1723664667');" style="color: #ffffff;"> (Hide)</a></div><div id="1723664667" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1723664667"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-k65nh2b0"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-xis5rekw"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_216992084" href="javascript:void(0)" onclick="show('216992084');" style="color: #ffffff; display:none;"> (Show)</a><a id="hide_216992084" href="javascript:void(0)" onclick="hide('216992084');" style="color: #ffffff;"> (Hide)</a></div><div id="216992084" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="216992084"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-53jqlbeu"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-oxmdjkzu"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_223144341" href="javascript:void(0)" onclick="show('223144341');" style="color: #ffffff; display:none;"> (Show)</a><a id="hide_223144341" href="javascript:void(0)" onclick="hide('223144341');" style="color: #ffffff;"> (Hide)</a></div><div id="223144341" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="223144341"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-7g1onwjr"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-w1avl7yu"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test</a><a id="show_664283076" href="javascript:void(0)" onclick="show('664283076');" style="color: #ffffff; display:none;"> (Show)</a><a id="hide_664283076" href="javascript:void(0)" onclick="hide('664283076');" style="color: #ffffff;"> (Hide)</a></div><div id="664283076" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="664283076"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-0wpth3dx"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-jtop9fck"></div></div></div></div></div></div><script>var options = {
+</script><!-- JS Hide Section Code END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn@1.0.0/findIndex.min.js" type="text/javascript"></script><script src="https://unpkg.com/canvg@3.0.4/lib/umd.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/apexcharts@3.18.1/dist/apexcharts.min.js" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEAD --><!-- BODY --><body><!-- HEADER --><header></header><!-- END HEADER --><div class="tabsWrapper"><div class="tabs" style="display: inline-block;"><div data-tabs="true" Style="border-radius:0px"><div Style="border-radius:0px" id="Tab-xu59kp83" class="active"><div class="far fa-hourglass"></div><span style="text-transform:uppercase"> Line Charts</span></div></div></div></div><div data-panes="true"><div id="Tab-xu59kp83-Content" class="active"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test </a><a id="show_738666449" href="javascript:void(0)" onclick="show('738666449');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_738666449" href="javascript:void(0)" onclick="hide('738666449');" style="color: #ffffff;">(Hide)</a></div><div id="738666449" class="flexParent flexElement overflowHidden"><div id="738666449" class="flexParent flexElement overflowHidden collapsable"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-dnqxm6hz"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-4nj1gs7d"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test </a><a id="show_1077100635" href="javascript:void(0)" onclick="show('1077100635');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1077100635" href="javascript:void(0)" onclick="hide('1077100635');" style="color: #ffffff;">(Hide)</a></div><div id="1077100635" class="flexParent flexElement overflowHidden"><div id="1077100635" class="flexParent flexElement overflowHidden collapsable"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-hfnqerlp"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-hjxyflda"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test </a><a id="show_533297128" href="javascript:void(0)" onclick="show('533297128');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_533297128" href="javascript:void(0)" onclick="hide('533297128');" style="color: #ffffff;">(Hide)</a></div><div id="533297128" class="flexParent flexElement overflowHidden"><div id="533297128" class="flexParent flexElement overflowHidden collapsable"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-pg43w26m"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-4g085by9"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Line Charts - Test" style="color: #ffffff;">Line Charts - Test </a><a id="show_1039623066" href="javascript:void(0)" onclick="show('1039623066');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1039623066" href="javascript:void(0)" onclick="hide('1039623066');" style="color: #ffffff;">(Hide)</a></div><div id="1039623066" class="flexParent flexElement overflowHidden"><div id="1039623066" class="flexParent flexElement overflowHidden collapsable"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-g72eukfj"></div></div><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-8p6ls3jt"></div></div></div></div></div></div></div><script>var options = {
     "chart":  {
                   "height":  350,
                   "type":  "line"
@@ -421,7 +336,7 @@ function hide(obj) {
                   "align":  "center"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-k65nh2b0'),
+var chart = new ApexCharts(document.querySelector('#ChartID-dnqxm6hz'),
             options
         );
 chart.render();
@@ -512,7 +427,7 @@ chart.render();
                   "align":  "center"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-xis5rekw'),
+var chart = new ApexCharts(document.querySelector('#ChartID-4nj1gs7d'),
             options
         );
 chart.render();
@@ -575,7 +490,7 @@ chart.render();
                   "align":  "center"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-53jqlbeu'),
+var chart = new ApexCharts(document.querySelector('#ChartID-hfnqerlp'),
             options
         );
 chart.render();
@@ -649,7 +564,7 @@ chart.render();
                   "align":  "left"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-oxmdjkzu'),
+var chart = new ApexCharts(document.querySelector('#ChartID-hjxyflda'),
             options
         );
 chart.render();
@@ -712,7 +627,7 @@ chart.render();
                   "align":  "center"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-7g1onwjr'),
+var chart = new ApexCharts(document.querySelector('#ChartID-pg43w26m'),
             options
         );
 chart.render();
@@ -797,7 +712,7 @@ chart.render();
                   "align":  "left"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-w1avl7yu'),
+var chart = new ApexCharts(document.querySelector('#ChartID-4g085by9'),
             options
         );
 chart.render();
@@ -860,7 +775,7 @@ chart.render();
                   "align":  "center"
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-0wpth3dx'),
+var chart = new ApexCharts(document.querySelector('#ChartID-g72eukfj'),
             options
         );
 chart.render();
@@ -976,53 +891,183 @@ chart.render();
                             }
              }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-jtop9fck'),
+var chart = new ApexCharts(document.querySelector('#ChartID-8p6ls3jt'),
             options
         );
 chart.render();
-</script></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS Elastic Tabs START --><script type="text/javascript">var maxWidth = 0;
-var $element;
+</script><footer><!-- FOOTER --><!-- JS Elastic Tabbis START --><script type="text/javascript">var tabbis = (function () {
+    var fn = {};
 
-$(window).on("resize", function() {
-    $(".selector").hide();
-    var activeItem = $(".tabs a[class*='active']");
-    var id = activeItem.data("id");
-    setSelectorPosition(id);
+    var data;
+    var types = ['tab', 'pane'];
+    var type;
+    var groups = [];
+    var activeGroups = [];
+    var activeChildren = [];
+    var activeItems = [];
+    var indexGroup;
+    var indexItem;
+    var memory = [];
+
+    fn.init = function (options) {
+        data = options;
+        fn.setDefaults();
+        fn.setMemory();
+
+        groups['tab'] = document.querySelectorAll(data.tabGroup);
+        groups['pane'] = document.querySelectorAll(data.paneGroup);
+
+        for (var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++) {
+            var tabItems = groups['tab'][groupIndex].children;
+
+            for (var itemIndex = 0; itemIndex < tabItems.length; itemIndex++) {
+                tabItems[itemIndex].addEventListener('click', fn.onClick.bind(this, groupIndex, itemIndex), false);
+
+                indexGroup = groupIndex;
+                indexItem = itemIndex;
+
+                if (!fn.hasMemory()) continue;
+                fn.setNodes(groupIndex, itemIndex);
+            }
+        }
+    };
+
+    fn.onClick = function (groupIndex, itemIndex) {
+        fn.setNodes(groupIndex, itemIndex);
+        fn.setCallback(indexGroup, indexItem);
+    };
+
+    fn.setNodes = function (groupIndex, itemIndex) {
+        indexGroup = groupIndex;
+        indexItem = itemIndex;
+
+        for (var i = 0; i < types.length; i++) {
+            type = types[i];
+
+            fn.setActiveGroup();
+            fn.setActiveChildren();
+            fn.setActiveItems();
+            fn.putActiveClass();
+        }
+
+        memory[groupIndex] = [];
+        memory[groupIndex][itemIndex] = true;
+
+        try {
+            localStorage.setItem('tabbis', JSON.stringify(memory));
+        } catch (e) {
+            console.log('Tabs local storage failed. Most likely IE in use.')
+        }
+    };
+
+    //fn.hasMemory = function () {
+    //    if (typeof memory === 'undefined') return;
+    //    if (typeof memory[indexGroup] === 'undefined') return;
+    //    if (typeof memory[indexGroup][indexItem] === 'undefined') return;
+    //    if (memory[indexGroup][indexItem] !== true) return;
+    //    return true;
+    //};
+
+    fn.hasMemory = function () {
+        // https://stackoverflow.com/questions/41902495/javascript-multidimensional-array-is-valid
+
+        if (typeof memory === 'undefined') return;
+        if (typeof memory[indexGroup] === 'undefined') return;
+        if (memory[indexGroup] === null) return;
+        if (typeof memory[indexGroup][indexItem] === 'undefined') return;
+        if (memory[indexGroup][indexItem] === null) return;
+        if (memory[indexGroup][indexItem] !== true) return;
+        return true;
+    };
+
+    fn.setMemory = function () {
+        try {
+            if (localStorage.getItem('tabbis') === null) return;
+            if (localStorage.getItem('tabbis').length == 0) return;
+
+            memory = Object.values(JSON.parse(localStorage.getItem('tabbis')));
+        } catch (e) {
+            console.log('Tabs local storage failed. Most likely IE in use.')
+        }
+    };
+
+    fn.putActiveClass = function () {
+        for (var i = 0; i < activeChildren[type].length; i++) {
+            activeChildren[type][i].classList.remove(data[type + 'Active']);
+        }
+
+        activeItems[type].classList.add(data[type + 'Active']);
+    };
+
+    fn.setDefaults = function () {
+        for (var i = 0; i < types.length; i++) {
+            type = types[i];
+
+            fn.setOption(type + 'Group', '[data-' + type + 's]');
+            fn.setOption(type + 'Active', 'active');
+        }
+    };
+
+    fn.setOption = function (key, value) {
+        data = data || [];
+        data[key] = data[key] || value;
+    };
+
+    fn.setActiveGroup = function () {
+        activeGroups[type] = groups[type][indexGroup];
+    };
+
+    fn.setActiveChildren = function () {
+        activeChildren[type] = activeGroups[type].children;
+    };
+
+    fn.setActiveItems = function () {
+        activeItems[type] = activeChildren[type][indexItem];
+    };
+
+    fn.setCallback = function () {
+        if (typeof data.callback === "function") {
+            data.callback(activeItems.tab, activeItems.pane);
+        }
+    };
+
+    fn.reset = function () {
+        for (var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++) {
+            tabItems = groups['tab'][groupIndex].children;
+            paneItems = groups['pane'][groupIndex].children;
+
+            for (var itemIndex = 0; itemIndex < tabItems.length; itemIndex++) {
+                tabItems[itemIndex].classList.remove(data['tabActive']);
+                paneItems[itemIndex].classList.remove(data['paneActive']);
+            }
+        }
+        localStorage.removeItem('tabbis');
+    };
+
+    return fn;
+})();
+</script><script type="text/javascript">var tabs = tabbis.init({
+    tabGroup: "[data-tabs]",
+    paneGroup: "[data-panes]",
+    tabActive: "active",
+    paneActive: "active",
+    callback: function (tab, pane) {
+        // console.log("TAB id:" + tab.id);
+        // console.log(pane.id);
+        var tableid = document.getElementById(tab.id + "-Content").querySelector('table[id^="DT-"]').id;
+        // console.log(tableid);
+        // this makes sure to refresh tables on tab change to make sure they have buttons and everything
+        // it's a bit heavy as it touches all tables, may require some improvements in future to consider
+        // which tab has which table
+        try {
+            $("#" + tableid).DataTable().columns.adjust().responsive.recalc();
+        } catch (e) {
+            console.log('No datatables available.');
+        }
+    }
 });
 
-// Set first active link
-var activeItem = $(".tabs a[class*='active']");
-var id = activeItem.data("id");
-setSelectorPosition(id);
-
-$(".tabs").on("click", "a", function(e) {
-    e.preventDefault();
-    $(".tabs a").removeClass("active");
-    $(this).addClass("active");
-
-    // Get id of link clicked
-    var id = $(this).data("id");
-
-    // Set selector position
-    setSelectorPosition(id);
-
-    // Hide all tabs
-    $(".tabs-content").hide();
-
-    // Show current tab
-    $("#" + id).show();
-});
-
-function setSelectorPosition(id) {
-    var activeItem = $(".tabs").find("[data-id='" + id + "']");
-    var activeWidth = activeItem.innerWidth();
-    var itemPos = activeItem.position();
-    $(".selector").css({
-        left: itemPos.left + "px",
-        top: itemPos.top + "px",
-        width: activeItem.innerWidth() + "px",
-        height: activeItem.innerHeight() + "px"
-    });
-    $(".selector").show();
-}
-</script><!-- JS Elastic Tabs END --></footer><!-- END FOOTER --></html>
+// in theory should take care of removing local storage for tabbis
+// some errors occurs if the local storage is not cleaned after a while
+window.addEventListener("unload", tabbis.remove, false);
+</script><!-- JS Elastic Tabbis END --><!-- END FOOTER --></footer><!-- END BODY --></body></html>

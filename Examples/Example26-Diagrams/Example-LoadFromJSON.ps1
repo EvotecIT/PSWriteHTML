@@ -12,4 +12,4 @@ New-HTML -TitleText 'My diagram' -FilePath $PSScriptRoot\Example-LoadFromJSON.ht
         }
 
     }
-} -ShowHTML -UseCssLinks -UseJavaScriptLinks
+} -ShowHTML -Online

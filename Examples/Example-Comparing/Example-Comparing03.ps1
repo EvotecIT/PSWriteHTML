@@ -37,7 +37,7 @@ $Replace = @(
 #Compare-MultipleObjects -Objects $Objects2 -FormatOutput -Summary -Replace $Replace -ExcludeProperty SID | ft -AutoSize
 
 
-New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-Comparing03.html {
+New-HTML -TitleText $Title -Online -FilePath $PSScriptRoot\Example-Comparing03.html {
     New-HTMLSection -HeaderText 'Comparing Object with Highlighting Differences (Domain Controllers)' {
         New-HTMLTable -DataTable $Objects2 -Compare -AllProperties -HighlightDifferences {
             New-HTMLTableReplace -Replacements 'AD2', 'AD1'

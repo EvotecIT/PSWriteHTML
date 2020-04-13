@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -UseCssLinks -UseJavaScriptLinks -FilePath $PSScriptRoot\Example-LotsOfTexts.html {
+New-HTML -Online -FilePath $PSScriptRoot\Example-LotsOfTexts.html {
     New-HTMLDiagram -Height "1500px" {
         New-DiagramOptionsLinks -FontSize 12 -WidthConstraint 90
         New-DiagramOptionsNodes -WidthConstraintMaximum 200 -Margin 10 -Shape box

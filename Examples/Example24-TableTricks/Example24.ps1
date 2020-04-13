@@ -16,7 +16,7 @@ $Properties = @(
 $ProcessesAll = Get-Process | Select-Object -First 10
 $Processes = $ProcessesAll | Select-Object -First 10 -Property $Properties
 
-New-HTML -TitleText 'Title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example24.html -ShowHTML {
+New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example24.html -ShowHTML {
     New-HTMLContent -HeaderText 'Section 1' {
         New-HTMLContainer {
             New-HTMLPanel {

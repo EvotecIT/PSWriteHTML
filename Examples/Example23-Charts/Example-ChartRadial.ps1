@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My charts' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-ChartRadial.html {
+New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-ChartRadial.html {
     New-HTMLTabOptions -SlimTabs
     New-HTMLTab -Name 'Radial Charts' -IconRegular chart-bar {
         New-HTMLSection -HeaderText 'Radial Charts - Different features' -CanCollapse {

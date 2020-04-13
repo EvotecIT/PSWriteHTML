@@ -16,4 +16,4 @@ New-HTML -TitleText 'My diagram' -FilePath $PSScriptRoot\Example-HierarchicalLay
         New-DiagramLink -From 'Third node' -To 'Fourth node'
         New-DiagramLink -From 'Fifth node' -To 'Bart Simson'
     }
-} -ShowHTML -UseCssLinks -UseJavaScriptLinks
+} -ShowHTML -Online

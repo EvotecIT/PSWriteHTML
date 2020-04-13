@@ -21,9 +21,9 @@ foreach ($Key in $RootDSE.PSObject.Properties.Name) {
 }
 
 New-HTML {
-    New-HTMLTable -DataTable $DataTable2
+    New-HTMLTable -DataTable $DataTable2 -HideButtons
 
-    New-HTMLTable -DataTable $DataTable1
+    #New-HTMLTable -DataTable $DataTable1
 
-    New-HTMLTable -DataTable $TranslatedRootDSE
-} -ShowHTML -FilePath $PSScriptRoot\Example7_01.html
+    #New-HTMLTable -DataTable $TranslatedRootDSE
+} -ShowHTML -FilePath $PSScriptRoot\Example7_01.html -Online

@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My Ubiquiti Network' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-ID.html {
+New-HTML -TitleText 'My Ubiquiti Network' -Online -FilePath $PSScriptRoot\Example-ID.html {
     New-HTMLSection -HeaderText 'Diagram - My Network' -CanCollapse {
         New-HTMLDiagram -Height '1000px' {
             New-DiagramOptionsInteraction -Hover $true

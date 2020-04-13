@@ -3,7 +3,7 @@ $Processes = Get-Process | Select-Object -First 2
 $Processes1 = Get-Process | Select-Object -First 10
 $Title = 'My title'
 
-New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example14.html -AutoRefresh 30 {
+New-HTML -TitleText $Title -Online -FilePath $PSScriptRoot\Example14.html -AutoRefresh 30 {
 
     New-HTMLContent -HeaderText '0 section' -CanCollapse {
         New-HTMLPanel {

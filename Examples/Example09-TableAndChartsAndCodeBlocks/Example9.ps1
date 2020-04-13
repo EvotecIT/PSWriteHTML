@@ -3,7 +3,7 @@ $Processes = Get-Process | Select-Object -First 5
 
 $CodeBlock = @'
 
-$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
+$HTML = New-HtmlPage -Name 'Test' -Online {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
@@ -47,7 +47,7 @@ $(window).bind("resize", function(e) {
 '@
 
 
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example9.html -ShowHTML {
+New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example9.html -ShowHTML {
     New-HTMLLogo
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {

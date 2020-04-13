@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-ChartsBar.html {
+New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsBar.html {
     New-HTMLTabOptions -SlimTabs
     New-HTMLTab -Name 'Bar Charts - Bar' -IconRegular chart-bar {
         New-HTMLSection -HeaderText 'Bar Charts - Test' -CanCollapse {

@@ -2,7 +2,7 @@ Import-Module .\PSWriteHTML.psd1 -Force
 
 $Process = Get-Process | Select-Object -First 70
 
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example16.html {
+New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example16.html {
     New-HTMLContent -HeaderText 'Test' {
         New-HTMLTable -DataTable $Process -PagingOptions @(50, 100, 150, 200) -Find 'chrome' {
             New-HTMLTableCondition -Name 'HandleCount' -Type number -Operator gt -Value 300 -BackgroundColor Yellow

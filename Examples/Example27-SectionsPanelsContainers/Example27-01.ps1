@@ -56,4 +56,4 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example27-01.html" -Show {
             }
         }
     }
-} -UseCssLinks -UseJavaScriptLinks
+} -Online

@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My charts' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-ChartPieNext.html {
+New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-ChartPieNext.html {
     New-HTMLSection -Invisible {
         New-HTMLSection -HeaderText 'Pie Charts - Defaults' -CanCollapse {
             New-HTMLPanel {

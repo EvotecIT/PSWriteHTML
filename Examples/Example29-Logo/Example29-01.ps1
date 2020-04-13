@@ -5,4 +5,4 @@ New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example29-01.html"
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLTable -DataTable (Get-Process | Select-Object -First 2)
     }
-} -ShowHTML #-UseCssLinks -UseJavaScriptLinks
+} -ShowHTML #-Online

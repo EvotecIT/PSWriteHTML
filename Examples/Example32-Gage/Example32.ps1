@@ -134,4 +134,4 @@ New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example32-01.html"
         }
     }
 
-} -ShowHTML -UseCssLinks -UseJavaScriptLinks
+} -ShowHTML -Online

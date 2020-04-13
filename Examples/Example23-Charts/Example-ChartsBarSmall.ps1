@@ -13,7 +13,7 @@ New-HTML {
             }
         }
         New-HTMLPanel{
-            New-HTMLChart -Width 300 {
+            New-HTMLChart {
                 New-ChartToolbar -Download
                 New-ChartBarOptions -Gradient
                 New-ChartLegend -Name 'Time', 'Money', 'Taxes'
@@ -33,4 +33,4 @@ New-HTML {
             }
         }
     }
-} -ShowHTML -FilePath $PSScriptRoot\Example-ChartsBarSmall.html -UseCssLinks -UseJavaScriptLinks
+} -ShowHTML -FilePath $PSScriptRoot\Example-ChartsBarSmall.html -Online

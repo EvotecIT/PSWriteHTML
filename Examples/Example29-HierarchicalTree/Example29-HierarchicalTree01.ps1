@@ -16,4 +16,4 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example29-HierarchicalTree01.html
             }
         }
     }
-} -UseCssLinks -UseJavaScriptLinks
+} -Online

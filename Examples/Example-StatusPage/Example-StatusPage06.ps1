@@ -28,7 +28,7 @@ $Services = @{
 }
 
 
-New-HTML -TitleText 'Services Status' -UseCssLinks -UseJavaScriptLinks {
+New-HTML -TitleText 'Services Status' -Online {
     New-HTMLSection -Invisible {
         New-HTMLContainer -Width '900px' -Margin 'auto' {
 

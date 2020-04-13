@@ -47,4 +47,4 @@ New-HTML -TitleText 'My diagram' -FilePath $PSScriptRoot\Example-RandomDiagram.h
         }
 
     }
-} -ShowHTML -UseCssLinks -UseJavaScriptLinks
+} -ShowHTML -Online

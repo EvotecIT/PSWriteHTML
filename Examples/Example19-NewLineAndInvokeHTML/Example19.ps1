@@ -10,7 +10,7 @@ $Test1 = [PSCustomobject] @{
     'Example' = "`r`nTesting how PowerShell NewLines are treated $([Environment]::NewLine) Or how HTML tags are treated<br> Get it?"
 }
 
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example19.html -Verbose {
+New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example19.html -Verbose {
     New-HTMLContent -HeaderText 'Showing how tags are invoked. So BR and other tags like A HREF should be converted' {
         New-HTMLTable -DataTable $Test1 -PagingOptions @(50, 100, 150, 200) -Filtering -FilteringLocation Bottom -InvokeHTMLTags
     }

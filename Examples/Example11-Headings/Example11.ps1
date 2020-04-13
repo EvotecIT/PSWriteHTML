@@ -1,9 +1,7 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 $Processes = Get-Process | Select-Object -First 5
 
-New-HTML -TitleText "Title" `
-    -UseCssLinks:$true `
-    -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example11.html -ShowHTML {
+New-HTML -TitleText "Title" -Online -FilePath $PSScriptRoot\Example11.html -ShowHTML {
 
     New-HTMLLogo
 

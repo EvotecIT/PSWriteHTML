@@ -4,4 +4,4 @@ New-HTML -TitleText "Example35-FavIcon-FromFile" -FavIcon "$PSScriptRoot\favicon
     New-HTMLSection -HeaderText "Testing favicon" -HeaderTextAlignment center -Content {
         New-HTMLTable -DataTable $(Get-Process | Select-Object -First 5)
     }
-} -UseCssLinks -UseJavaScriptLinks
+} -Online

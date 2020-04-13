@@ -48,4 +48,4 @@ New-HTML {
             }
         }
     }
-} -ShowHTML -FilePath $PSScriptRoot\Example-ChartDonutNext.html -UseCssLinks -UseJavaScriptLinks
+} -ShowHTML -FilePath $PSScriptRoot\Example-ChartDonutNext.html #-Online

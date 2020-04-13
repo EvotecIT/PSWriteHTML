@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 
-New-HTML -TitleText 'Services Status' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\StatusPage01.html {
+New-HTML -TitleText 'Services Status' -Online -FilePath $PSScriptRoot\StatusPage01.html {
     New-HTMLSection -Invisible {
         New-HTMLPanel -Invisible {
             New-HTMLToast -TextHeader 'Information' -Text 'Everything is running smoothly!' -BarColorLeft Blue -IconSolid info-circle -IconColor Blue

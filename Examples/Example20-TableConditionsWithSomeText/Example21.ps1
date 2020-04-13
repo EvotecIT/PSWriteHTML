@@ -2,7 +2,7 @@
 
 $Process = Get-Process | Select-Object -First 10
 
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example21.html -Show {
+New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example21.html -Show {
     New-HTMLContent -HeaderText 'Test' -BackgroundColor Azure {
         New-HTMLTable -DataTable $Process -PagingOptions @(50, 100, 150, 200) -Find '' {
             New-HTMLTableButtonPDF

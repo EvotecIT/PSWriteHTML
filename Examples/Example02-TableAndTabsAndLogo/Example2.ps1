@@ -6,7 +6,7 @@ $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, S
 $EnterpriseAdminTable = Get-ADUser -Filter * | Select-Object Name, Surname, Enabled, DisplayName
 $Allusers = Get-ADUser -Filter *
 
-New-HTML -TitleText $ReportTitle -UseCssLinks -UseJavaScriptLinks -FilePath "$PSScriptRoot\Example2.html" {
+New-HTML -TitleText $ReportTitle -Online -FilePath "$PSScriptRoot\Example2.html" {
     New-HTMLLogo
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText "Groups" {

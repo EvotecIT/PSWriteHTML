@@ -4,7 +4,7 @@ $Test = Get-Process | Select-Object -First 5
 
 #$Test | Out-HtmlView
 
-New-HTML -TitleText 'My title' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example21-01.html -Show {
+New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example21-01.html -Show {
     #New-HTMLTabOptions -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue
     New-HTMLTab -IconBrands aws -Name 'Test 1' -IconColor DarkGoldenrod {
         New-HTMLTable -DataTable $Test -PagingOptions @(50, 100, 150, 200) {

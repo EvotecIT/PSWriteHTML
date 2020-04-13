@@ -3,7 +3,7 @@
 # Code Block for PowerShell Code (Showing how <pre> tags work)
 $CodeBlock = @'
 
-$HTML = New-HtmlPage -Name 'Test' -UseCssLinks -UseJavaScriptLinks {
+$HTML = New-HtmlPage -Name 'Test' -Online {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent -HeaderText 'Content' {
@@ -77,7 +77,7 @@ $CodeBlocksXML = @'
 </building>
 '@
 
-$HTML = New-Html -UseCssLinks -UseJavaScriptLinks -FilePath "$PSScriptRoot\Example6.html" -ShowHTML {
+$HTML = New-Html -Online -FilePath "$PSScriptRoot\Example6.html" -ShowHTML {
     New-HTMLTab -TabName 'Coding' {
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Group 'Test123' -Title 'PowerShell Code 1' -Theme godzilla -Highlight '2-5, 13'

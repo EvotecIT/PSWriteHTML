@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My diagram' -UseCssLinks -UseJavaScriptLinks -FilePath $PSScriptRoot\Example-Easy2.html {
+New-HTML -TitleText 'My diagram' -Online -FilePath $PSScriptRoot\Example-Easy2.html {
     New-HTMLDiagram -Height '1000px' {
         New-DiagramNode -Label 'One node' -To 'Second node', 'Third node' -ColorBackground Bisque
         New-DiagramNode -Label 'Second node'

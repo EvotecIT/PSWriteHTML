@@ -8,7 +8,7 @@ $DomainAdminTable = Get-ADForest | Select-Object ForestMode, Name, RootDomain, S
 
 $ImageLink = 'https://evotec.xyz/wp-content/uploads/2015/05/Logo-evotec-012.png'
 
-New-HTML -TitleText $ReportTitle -UseJavaScriptLinks -UseCssLinks -FilePath "$PSScriptRoot\Example3.html" {
+New-HTML -TitleText $ReportTitle -Online -FilePath "$PSScriptRoot\Example3.html" {
     New-HTMLLogo -RightLogoString $ImageLink
     New-HTMLTab -TabName 'Dashboard' {
         New-HTMLContent  -HeaderText "Groups" {

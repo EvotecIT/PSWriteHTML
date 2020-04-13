@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My charts' -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-DiagramWIthBackground.html {
+New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-DiagramWIthBackground.html {
     New-HTMLTabOptions -SlimTabs
     New-HTMLTab -Name 'Diagrams' -IconRegular arrow-alt-circle-left {
         New-HTMLSection -HeaderText 'Diagram - Defaults' -CanCollapse {

@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'Services Status' -UseCssLinks -UseJavaScriptLinks {
+New-HTML -TitleText 'Services Status' -Online {
 
     New-HTMLContent -Invisible {
         New-HTMLContainer {

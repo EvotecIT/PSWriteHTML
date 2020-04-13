@@ -18,7 +18,7 @@ $Objects3 = @(
     @{ Test = 'My value 3'; Test2 = 'My value1', 'my value 3' }
 )
 
-New-HTML -TitleText $Title -UseCssLinks:$true -UseJavaScriptLinks:$true -FilePath $PSScriptRoot\Example-Comparing02.html {
+New-HTML -TitleText $Title -Online -FilePath $PSScriptRoot\Example-Comparing02.html {
     New-HTMLSection -HeaderText 'Comparing Object with Highlighting Differences (PSCustomObject)' {
         New-HTMLTable -DataTable $Objects1
         New-HTMLTable -DataTable $Objects1 -Compare -AllProperties -HighlightDifferences

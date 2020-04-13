@@ -39,4 +39,4 @@ New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example34_01.html"
     New-HTMLFooter {
         New-HTMLText -Text "Date of this report $(Get-Date)" -Color Blue -Alignment right
     }
-} -UseCssLinks -UseJavaScriptLinks -ShowHTML
+} -Online -ShowHTML
