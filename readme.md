@@ -64,6 +64,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.80 - Unreleased
+  - Updated Vis.JS to 7.5.2
+
 - 0.0.79 - 2020.03.24
   - Typo fixes for Suppress
   - Added `AutoSize` parameter for `New-HTMLTable`/`EmailTable`

@@ -444,10 +444,10 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\vis-network.diagram.css"
             }
             Header       = @{
-                JsLink  = 'https://unpkg.com/vis-network@6.4.6/dist/vis-network.min.js'
+                JsLink  = 'https://unpkg.com/vis-network@7.5.2/dist/vis-network.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
-                CssLink = 'https://unpkg.com/vis-network@6.4.6/dist/vis-network.min.css'
+                CssLink = 'https://unpkg.com/vis-network@7.5.2/dist/vis-network.min.css'
             }
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
@@ -457,6 +457,7 @@ $Script:Configuration = [ordered] @{
 }
 
 function Get-ResourcesContentFromWeb {
+    [cmdletBinding()]
     param(
         [uri[]] $ResourceLinks,
         [ValidateSet('CSS', 'JS')][string] $Type
