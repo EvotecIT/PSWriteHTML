@@ -228,10 +228,11 @@ $Script:Configuration = [ordered] @{
         FontsAwesome            = @{
             Comment      = 'Default fonts icons'
             HeaderAlways = @{
-                CssLink = 'https://use.fontawesome.com/releases/v5.11.2/css/all.css'
+                CssLink = 'https://use.fontawesome.com/releases/v5.13.0/css/all.css'
+                Css = "$PSScriptRoot\..\Resources\CSS\all.css"
             }
             Other        = @{
-                Link = 'https://use.fontawesome.com/releases/v5.11.2/svgs/'
+                Link = 'https://use.fontawesome.com/releases/v5.13.0/svgs/'
             }
         }
         FullCalendar            = @{
@@ -482,6 +483,8 @@ function Get-ResourcesContentFromWeb {
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.JsLink -Type 'JS'
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.CssLink -Type 'CSS'
 
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.JsLink -Type 'JS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.CssLink -Type 'CSS'
 
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Jquery.Header.JsLink -Type 'JS'
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Jquery.Header.CssLink -Type 'CSS'

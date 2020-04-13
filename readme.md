@@ -66,6 +66,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.80 - Unreleased
   - Updated Vis.JS to 7.5.2
+  - Updated FontAwesome to 5.13 and hopefully made it available offline
 
 - 0.0.79 - 2020.03.24
   - Typo fixes for Suppress
