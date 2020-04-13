@@ -39,8 +39,20 @@ $Script:Configuration = [ordered] @{
         ChartsApex              = @{
             Comment      = 'Apex Charts'
             Header       = @{
-                JsLink = 'https://cdn.jsdelivr.net/npm/apexcharts@3.11.1/dist/apexcharts.min.js'
-                JS     = "$PSScriptRoot\..\Resources\JS\apexcharts.min.js"
+                JsLink = @(
+                    'https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
+                    'https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
+                    'https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn@1.0.0/findIndex.min.js' # You will need this only if you require timeline/rangebar charts
+                    'https://unpkg.com/canvg@3.0.4/lib/umd.js' # You will need this only if you require PNG download of your charts
+                    'https://cdn.jsdelivr.net/npm/apexcharts@3.18.1/dist/apexcharts.min.js'
+                )
+                JS     = @(
+                    "$PSScriptRoot\..\Resources\JS\polyfill.min.js"
+                    "$PSScriptRoot\..\Resources\JS\classList.min.js"
+                    "$PSScriptRoot\..\Resources\JS\findIndex.min.js"
+                    "$PSScriptRoot\..\Resources\JS\umd.js"
+                    "$PSScriptRoot\..\Resources\JS\apexcharts.min.js"
+                )
             }
             HeaderAlways = @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
@@ -229,7 +241,7 @@ $Script:Configuration = [ordered] @{
             Comment      = 'Default fonts icons'
             HeaderAlways = @{
                 CssLink = 'https://use.fontawesome.com/releases/v5.13.0/css/all.css'
-                Css = "$PSScriptRoot\..\Resources\CSS\all.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\all.css"
             }
             Other        = @{
                 Link = 'https://use.fontawesome.com/releases/v5.13.0/svgs/'
@@ -476,6 +488,9 @@ function Get-ResourcesContentFromWeb {
     }
     $Output
 }
+
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Fonts.HeaderAlways.JsLink -Type 'JS'
+#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Fonts.HeaderAlways.CssLink -Type 'CSS'
 
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS'
 #Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.DataTables.Header.CssLink -Type 'CSS'
