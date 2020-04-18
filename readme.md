@@ -73,6 +73,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - Updated FontAwesome to 5.13 and hopefully made it available offline
   - Updated ApexCharts to 3.18.1
   - Changed default for Email to Offline. Use `Online` switch to minimize content.
+  - `New-HTMLTable` -HideButtons added [#114](https://github.com/EvotecIT/PSWriteHTML/issues/114)
 
 - 0.0.79 - 2020.03.24
   - Typo fixes for Suppress
