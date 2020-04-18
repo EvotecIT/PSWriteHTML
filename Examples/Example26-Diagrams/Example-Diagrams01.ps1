@@ -5,7 +5,7 @@ New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-Diagrams
     New-HTMLTab -Name 'Diagrams' -IconRegular arrow-alt-circle-left {
         New-HTMLSection -HeaderText 'Diagram - Defaults' -CanCollapse {
             New-HTMLPanel {
-                New-HTMLDiagram {
+                New-HTMLDiagram -Width '1000px' -Height '1000px' {
                     New-DiagramOptionsInteraction -Hover $true
                     #New-DiagramOptionsManipulation
                     New-DiagramNode -Label '1 test' -To '3','6','7' -ColorBackground Bisque
