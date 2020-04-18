@@ -64,6 +64,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.81 - Unreleased
+  - `New-HTMLDiagram` keeps expanding without height bug fixed ([#113](https://github.com/EvotecIT/PSWriteHTML/issues/113)) with huge help from Thomaash
+
 - 0.0.80 - 2020.04.13
   - **DEPRECATED**: `UseJavaScriptLinks` and `UseCssLinks` for `New-HTML`. Use `Online` switch instead.
   - Updated Vis.JS to 7.5.2
