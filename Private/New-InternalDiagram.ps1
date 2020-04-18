@@ -12,7 +12,10 @@ function New-InternalDiagram {
     )
     $Script:HTMLSchema.Features.VisNetwork = $true
 
+    [string] $ID = "Diagram-" + (Get-RandomStringName -Size 8)
+
     $Style = @{ }
+    $Style['position'] = 'absolute'
     if ($Width -or $Height) {
         $Style['width'] = $Width
         $Style['height'] = $Height
@@ -21,10 +24,26 @@ function New-InternalDiagram {
         $Style['background'] = "url('$BackgroundImage')"
         $Style['background-size'] = $BackgroundSize
     }
+    $AttributesInside = @{
+        id    = $ID
+        class = 'diagram'
+        style = $Style
+    }
 
-    [string] $ID = "Diagram-" + (Get-RandomStringName -Size 8)
-    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = 'diagram'; style = $Style }
 
+    $Attributes = @{
+        Style = @{
+            position = 'relative'
+            width    = $Width
+            height   = $Height
+            #'min-height' = '300px'
+        }
+        Class = 'diagram'
+    }
+
+    $Div = New-HTMLTag -Tag 'div' -Attributes $Attributes {
+        New-HTMLTag -Tag 'div' -Attributes $AttributesInside
+    }
     $ConvertedNodes = $Nodes -join ', '
     $ConvertedEdges = $Edges -join ', '
 
