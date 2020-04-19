@@ -15,9 +15,9 @@ schema: 2.0.0
 ```
 New-HTMLTable [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostContent] <ScriptBlock>]
  [-DataTable <Array>] [-Buttons <String[]>] [-PagingStyle <String[]>] [-PagingOptions <Int32[]>]
- [-DisablePaging] [-DisableOrdering] [-DisableInfo] [-HideFooter] [-DisableColumnReorder] [-DisableProcessing]
- [-DisableResponsiveTable] [-DisableSelect] [-DisableStateSave] [-DisableSearch] [-ScrollCollapse]
- [-OrderMulti] [-Filtering] [-FilteringLocation <String>] [-Style <String[]>] [-Simplify]
+ [-DisablePaging] [-DisableOrdering] [-DisableInfo] [-HideFooter] [-HideButtons] [-DisableColumnReorder]
+ [-DisableProcessing] [-DisableResponsiveTable] [-DisableSelect] [-DisableStateSave] [-DisableSearch]
+ [-ScrollCollapse] [-OrderMulti] [-Filtering] [-FilteringLocation <String>] [-Style <String[]>] [-Simplify]
  [-TextWhenNoData <String>] [-ScreenSizePercent <Int32>] [-DefaultSortColumn <String[]>]
  [-DefaultSortIndex <Int32[]>] [-DefaultSortOrder <String>] [-DateTimeSortingFormat <String[]>]
  [-Find <String>] [-InvokeHTMLTags] [-DisableNewLine] [-ScrollX] [-ScrollY] [-ScrollSizeY <Int32>]
@@ -490,6 +490,21 @@ Aliases:
 
 Required: False
 Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HideButtons
+{{ Fill HideButtons Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: DisableButtons
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

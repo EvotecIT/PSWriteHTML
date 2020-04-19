@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTML [[-HtmlData] <ScriptBlock>] [-UseCssLinks] [-UseJavaScriptLinks] [-TitleText <String>]
+New-HTML [[-HtmlData] <ScriptBlock>] [-Online] [-UseCssLinks] [-UseJavaScriptLinks] [-TitleText <String>]
  [-Author <String>] [-DateFormat <String>] [-AutoRefresh <Int32>] [-FilePath <String>] [-ShowHTML]
  [-Encoding <Object>] [-FavIcon <Uri>] [<CommonParameters>]
 ```
@@ -133,6 +133,21 @@ Aliases: Content
 
 Required: False
 Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Online
+{{ Fill Online Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

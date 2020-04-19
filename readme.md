@@ -64,7 +64,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.81 - Unreleased
+- 0.0.81 - 2020.04.18
   - `New-HTMLDiagram` keeps expanding without height bug fixed ([#113](https://github.com/EvotecIT/PSWriteHTML/issues/113)) with huge help from Thomaash
 
 - 0.0.80 - 2020.04.13

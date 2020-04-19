@@ -1,6 +1,6 @@
 ---
-external help file:
-Module Name:
+external help file: PSWriteHTML-help.xml
+Module Name: PSWriteHTML
 online version:
 schema: 2.0.0
 ---
