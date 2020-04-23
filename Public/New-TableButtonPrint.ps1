@@ -1,9 +1,14 @@
 ﻿function New-TableButtonPrint {
     [alias('TableButtonPrint', 'EmailTableButtonPrint','New-HTMLTableButtonPrint')]
     [CmdletBinding()]
-    param()
-    $Button = @{
-        extend = 'print'
+    param(
+        [string] $Title
+    )
+
+    $Output = @{}
+    $Output['extend'] = 'print'
+    if ($Title) {
+        $Output['title'] = $title
     }
     [PSCustomObject] @{
         Type   = 'TableButtonPrint'

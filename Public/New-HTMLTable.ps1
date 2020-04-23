@@ -57,7 +57,8 @@ function New-HTMLTable {
         [alias('Replace')][Array] $CompareReplace,
         [alias('RegularExpression')][switch]$SearchRegularExpression,
         [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak = 'normal',
-        [switch] $AutoSize
+        [switch] $AutoSize,
+        [string] $Title
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -293,17 +294,25 @@ function New-HTMLTable {
                 $CustomButtons
             } else {
                 foreach ($button in $Buttons) {
-                    if ($button -ne 'pdfHtml5') {
-                        @{
-                            extend = $button
-                        }
-                    } else {
-                        @{
+                    if ($button -eq 'pdfHtml5') {
+                        $ButtonOutput = [ordered] @{
                             extend      = 'pdfHtml5'
                             pageSize    = 'A3'
                             orientation = 'landscape'
+                            title       = $Title
+                        }
+                    } elseif ($button -eq 'pageLength') {
+                        $ButtonOutput = @{
+                            extend = $button
+                        }
+                    } else {
+                        $ButtonOutput = [ordered] @{
+                            extend = $button
+                            title  = $Title
                         }
                     }
+                    Remove-EmptyValues -Hashtable $ButtonOutput
+                    $ButtonOutput
                 }
             }
         )

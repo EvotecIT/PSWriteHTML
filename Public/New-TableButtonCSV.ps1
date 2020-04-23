@@ -1,11 +1,17 @@
 ﻿function New-TableButtonCSV {
     [alias('TableButtonCSV','EmailTableButtonCSV','New-HTMLTableButtonCSV')]
     [CmdletBinding()]
-    param()
+    param(
+        [string] $Title
+    )
+
+    $Output = [ordered]@{}
+    $Output['extend'] = 'csvHtml5'
+    if ($Title) {
+        $Output['title'] = $title
+    }
     [PSCustomObject] @{
         Type   = 'TableButtonCSV'
-        Output = @{
-            extend = 'csvHtml5'
-        }
+        Output = $Output
     }
 }
