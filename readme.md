@@ -64,6 +64,12 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.82 - 2020.04.23
+  - `New-HTMLTable` added ability to define Title which will be used as filename when exporting
+    - If no Title is defined title is used from `New-HTML`
+    - If no Title is provided name of button will be used (default)
+  - `New-TableButtonXXX` also have `Title` field which allows different naming for buttons
+
 - 0.0.81 - 2020.04.18
   - `New-HTMLDiagram` keeps expanding without height bug fixed ([#113](https://github.com/EvotecIT/PSWriteHTML/issues/113)) with huge help from Thomaash
 
@@ -178,7 +184,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - Fix for Tab Selector not being Active by default
   - Changes to Tables
     - Updated Table Row size to 20px from 27px
-  - Renamed New-HTMLTable* commands to New-Table* to better reflect what they deliver (and those don't deliver HTML)
+  - Renamed New-HTMLTable*commands to New-Table* to better reflect what they deliver (and those don't deliver HTML)
     - Old commands still available as aliases
   - Added **Calendar**
     - Added New-HTMLCalendar
