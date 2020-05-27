@@ -64,6 +64,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.83 - 2020.05.27
+  - Fix for `New-HTMLMain` and junk code showing up in HTML
+
 - 0.0.82 - 2020.04.23
   - `New-HTMLTable` added ability to define Title which will be used as filename when exporting
     - If no Title is defined title is used from `New-HTML`
