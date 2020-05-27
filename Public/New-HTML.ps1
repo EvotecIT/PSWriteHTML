@@ -45,46 +45,39 @@ Function New-HTML {
     $FooterHTML = @()
 
 
-    $MainHTML = foreach ($_ in $TempOutputHTML) {
-        if ($_ -is [PSCustomObject]) {
-            if ($_.Type -eq 'Footer') {
-                $FooterHTML = $_.Output
-            } elseif ($_.Type -eq 'Header') {
-                $HeaderHTML = $_.Output
+    $MainHTML = foreach ($ObjectTemp in $TempOutputHTML) {
+        if ($ObjectTemp -is [PSCustomObject]) {
+            if ($ObjectTemp.Type -eq 'Footer') {
+                $FooterHTML = foreach ($_ in $ObjectTemp.Output) {
+                    # this gets rid of any non-strings
+                    # it's added here to track nested tabs
+                    if ($_ -isnot [System.Collections.IDictionary]) { $_ }
+                }
+            } elseif ($ObjectTemp.Type -eq 'Header') {
+                $HeaderHTML = foreach ($_ in $ObjectTemp.Output) {
+                    # this gets rid of any non-strings
+                    # it's added here to track nested tabs
+                    if ($_ -isnot [System.Collections.IDictionary]) { $_ }
+                }
             } else {
-                if ($_.Output) {
-                            # this gets rid of any non-strings
-        # it's added here to track nested tabs
-                    if ($_.Output -isnot [System.Collections.IDictionary]) {
-                        $_.Output
+                if ($ObjectTemp.Output) {
+                    # this gets rid of any non-strings
+                    # it's added here to track nested tabs
+                    foreach ($SubObject in $ObjectTemp.Output) {
+                        if ($SubObject -isnot [System.Collections.IDictionary]) {
+                            $SubObject
+                        }
                     }
                 }
             }
         } else {
-                    # this gets rid of any non-strings
-        # it's added here to track nested tabs
-            if ($_ -isnot [System.Collections.IDictionary]) {
-                $_
+            # this gets rid of any non-strings
+            # it's added here to track nested tabs
+            if ($ObjectTemp -isnot [System.Collections.IDictionary]) {
+                $ObjectTemp
             }
         }
     }
-    <#
-    if ($MainHTML.Count -eq 0) {
-        # this gets rid of any non-strings
-        # it's added here to track nested tabs
-        $MainHTML = foreach ($_ in $MainHTML) {
-            if ($_ -isnot [System.Collections.IDictionary]) {
-                $_
-            }
-        }
-    } else {
-        $MainHTML = foreach ($_ in $MainHTML) {
-            if ($_ -isnot [System.Collections.IDictionary]) {
-                $_
-            }
-        }
-    }
-    #>
 
     $Features = Get-FeaturesInUse -PriorityFeatures 'JQuery', 'DataTables', 'Tabs'
 
@@ -109,30 +102,28 @@ Function New-HTML {
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -SelfClosing
                 New-HTMLTag -Tag 'title' { $TitleText }
 
-                if($null -ne $FavIcon){
+                if ($null -ne $FavIcon) {
                     $Extension = [System.IO.Path]::GetExtension($FavIcon)
                     if ($Extension -in @('.png', '.jpg', 'jpeg', '.svg', '.ico')) {
-                        switch($FavIcon.Scheme){
+                        switch ($FavIcon.Scheme) {
                             "file" {
-                                if(Test-Path -Path $FavIcon.OriginalString){
+                                if (Test-Path -Path $FavIcon.OriginalString) {
                                     $FavIcon = Get-Item -Path $FavIcon.OriginalString
                                     $FavIconImageBinary = Convert-ImageToBinary -ImageFile $FavIcon
-                                    New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIconImageBinary"; type = 'image/x-icon'}
-                                }
-                                else{
+                                    New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIconImageBinary"; type = 'image/x-icon' }
+                                } else {
                                     Write-Warning -Message "The path to the FavIcon image could not be resolved."
                                 }
                             }
                             "https" {
                                 $FavIcon = $FavIcon.OriginalString
-                                New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIcon"; type = 'image/x-icon'}
+                                New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIcon"; type = 'image/x-icon' }
                             }
                             default {
                                 Write-Warning -Message "The path to the FavIcon image could not be resolved."
                             }
                         }
-                    }
-                    else{
+                    } else {
                         Write-Warning -Message "File extension `'$Extension`' is not supported as a FavIcon image.`nPlease use images with these extensions: '.png', '.jpg', 'jpeg', '.svg', '.ico'"
                     }
                 }
