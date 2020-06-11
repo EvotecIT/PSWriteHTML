@@ -64,6 +64,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.84 - Unreleased
+  - `Colors` autocompleter should be now a bit smarter
+
 - 0.0.83 - 2020.05.27
   - Fix for `New-HTMLMain` and junk code showing up in HTML
 
