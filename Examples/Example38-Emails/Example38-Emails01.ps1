@@ -1,11 +1,6 @@
-﻿Import-Module .\PSWriteHTML.psd1 -Force
+﻿Import-Module $PSScriptRoot\..\..\PSWriteHTML.psd1 -Force
 
-### Prepare your data:
-
-$UserNotify = 'Przemysław Kłys'
-$PasswordExpiryDays = 5
-
-Email -WhatIf -To 'przemyslaw.klys@domain.pl' -Server 'mail.domain.com' -From 'reminder@domain.pl' -Subject 'Tis is a test email' -Username 'UserName' -Password 'C:\Support\Important\Password-Evotec-Reminder.txt' -PasswordAsSecure -PasswordFromFile -Priority High -DeliveryNotifications Never {
+$OutputHTML = Email {
     EmailBody -FontFamily 'Calibri' -Size 15 {
         EmailTextBox {
             "Hello $UserNotify,"
@@ -25,4 +20,7 @@ Email -WhatIf -To 'przemyslaw.klys@domain.pl' -Server 'mail.domain.com' -From 'r
         }
         EmailText -LineBreak
     }
-} -AttachSelf -Verbose
+} -OutputHTML
+
+# this allows us to see the content of HTML and use it for other purposes instead of sending emails
+$OutputHTML

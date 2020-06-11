@@ -32,7 +32,7 @@ While you can take sources and use it from here, **PSWriteHTML** actually is com
 Install-Module -Name PSWriteHTML -AllowClobber -Force
 ```
 
-Force and AllowClobber aren't really nessecary but they do skip errors in case some appear.
+Force and AllowClobber aren't necessary but they do skip errors in case some appear.
 
 ### And to update
 

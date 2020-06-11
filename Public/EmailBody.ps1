@@ -63,13 +63,16 @@ function EmailBody {
     } else {
         $SpanRequired = $false
     }
-    if ($SpanRequired) {
-        New-HTMLSpanStyle @newHTMLSplat {
+    $Body = New-HTML -Online:$Online.IsPresent {
+        if ($SpanRequired) {
+            New-HTMLSpanStyle @newHTMLSplat {
+                Invoke-Command -ScriptBlock $EmailBody
+            }
+        } else {
             Invoke-Command -ScriptBlock $EmailBody
         }
-    } else {
-        Invoke-Command -ScriptBlock $EmailBody
     }
+    $Body
 }
 
 Register-ArgumentCompleter -CommandName EmailBody -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

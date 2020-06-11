@@ -23,6 +23,7 @@ function Email {
         [string] $FilePath,
         [alias('Supress')][bool] $Suppress = $true,
         [switch] $Online,
+        [switch] $OutputHTML,
         [switch] $WhatIf
     )
     $StartTime = [System.Diagnostics.Stopwatch]::StartNew()
@@ -46,56 +47,60 @@ function Email {
         DeliveryNotifications = $DeliveryNotifications
     }
     $Attachments = [System.Collections.Generic.List[string]]::new()
-    $Body = New-HTML -Online:$Online.IsPresent {
-        [Array] $EmailParameters = Invoke-Command -ScriptBlock $Email
 
-        foreach ($Parameter in $EmailParameters) {
-            switch ( $Parameter.Type ) {
-                HeaderTo {
-                    $ServerParameters.To = $Parameter.Addresses
+    [Array] $EmailParameters = Invoke-Command -ScriptBlock $Email
+
+    foreach ($Parameter in $EmailParameters) {
+        switch ( $Parameter.Type ) {
+            HeaderTo {
+                $ServerParameters.To = $Parameter.Addresses
+            }
+            HeaderCC {
+                $ServerParameters.CC = $Parameter.Addresses
+            }
+            HeaderBCC {
+                $ServerParameters.BCC = $Parameter.Addresses
+            }
+            HeaderFrom {
+                $ServerParameters.From = $Parameter.Address
+            }
+            HeaderReplyTo {
+                $ServerParameters.ReplyTo = $Parameter.Address
+            }
+            HeaderSubject {
+                $ServerParameters.Subject = $Parameter.Subject
+            }
+            HeaderServer {
+                $ServerParameters.Server = $Parameter.Server
+                $ServerParameters.Port = $Parameter.Port
+                $ServerParameters.Login = $Parameter.UserName
+                $ServerParameters.Password = $Parameter.Password
+                $ServerParameters.PasswordFromFile = $Parameter.PasswordFromFile
+                $ServerParameters.PasswordAsSecure = $Parameter.PasswordAsSecure
+                $ServerParameters.EnableSSL = $Parameter.SSL
+            }
+            HeaderAttachment {
+                foreach ($Attachment in  $Parameter.FilePath) {
+                    $Attachments.Add($Attachment)
                 }
-                HeaderCC {
-                    $ServerParameters.CC = $Parameter.Addresses
-                }
-                HeaderBCC {
-                    $ServerParameters.BCC = $Parameter.Addresses
-                }
-                HeaderFrom {
-                    $ServerParameters.From = $Parameter.Address
-                }
-                HeaderReplyTo {
-                    $ServerParameters.ReplyTo = $Parameter.Address
-                }
-                HeaderSubject {
-                    $ServerParameters.Subject = $Parameter.Subject
-                }
-                HeaderServer {
-                    $ServerParameters.Server = $Parameter.Server
-                    $ServerParameters.Port = $Parameter.Port
-                    $ServerParameters.Login = $Parameter.UserName
-                    $ServerParameters.Password = $Parameter.Password
-                    $ServerParameters.PasswordFromFile = $Parameter.PasswordFromFile
-                    $ServerParameters.PasswordAsSecure = $Parameter.PasswordAsSecure
-                    $ServerParameters.EnableSSL = $Parameter.SSL
-                }
-                HeaderAttachment {
-                    foreach ($Attachment in  $Parameter.FilePath) {
-                        $Attachments.Add($Attachment)
-                    }
-                }
-                HeaderOptions {
-                    $ServerParameters.DeliveryNotifications = $Parameter.DeliveryNotifications
-                    $ServerParameters.Encoding = $Parameter.Encoding
-                    $ServerParameters.Priority = $Parameter.Priority
-                }
-                Default {
-                    $Parameter
-                }
+            }
+            HeaderOptions {
+                $ServerParameters.DeliveryNotifications = $Parameter.DeliveryNotifications
+                $ServerParameters.Encoding = $Parameter.Encoding
+                $ServerParameters.Priority = $Parameter.Priority
+            }
+            Default {
+                $Body = $Parameter
             }
         }
     }
     if ($FilePath) {
-        Save-HTML -FilePath $FilePath -HTML $Body
+        # Saving HTML to file
+        $SavedPath = Save-HTML -FilePath $FilePath -HTML $Body -Suppress $false
+    }
+    if ($OutputHTML) {
+        # If outputhtml is set it allows to return Body of HTML for using it in different scenarios
+        $Body
     }
     if ($AttachSelf) {
         if ($AttachSelfName) {
@@ -103,7 +108,13 @@ function Email {
         } else {
             $TempFilePath = ''
         }
-        $Saved = Save-HTML -FilePath $TempFilePath -HTML $Body -Suppress $false
+        if ($FilePath -and -not $AttachSelfName) {
+            # we don't want to save body again if we already saved it above
+            $Saved = $SavedPath
+        } else {
+            # we save it to temp file or attachselfname
+            $Saved = Save-HTML -FilePath $TempFilePath -HTML $Body -Suppress $false
+        }
         if ($Saved) {
             $Attachments.Add($Saved)
         }

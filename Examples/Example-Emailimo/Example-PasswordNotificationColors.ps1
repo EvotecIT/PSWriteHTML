@@ -7,7 +7,7 @@ Email -WhatIf {
     EmailHeader {
         EmailFrom -Address 'reminder@domain.pl'
         EmailTo -Addresses "przemyslaw.klys@domain.pl"
-        EmailServer -Server 'mail.evotec.com' -UserName 'UserName' -Password 'C:\Support\Important\Password-Evotec-Reminder.txt' -PasswordAsSecure -PasswordFromFile
+        EmailServer -Server 'mail.evotec.com' -Username 'UserName' -Password 'C:\Support\Important\Password-Evotec-Reminder.txt' -PasswordAsSecure -PasswordFromFile
         EmailOptions -Priority High -DeliveryNotifications Never
         EmailSubject -Subject 'This is a test email'
     }
