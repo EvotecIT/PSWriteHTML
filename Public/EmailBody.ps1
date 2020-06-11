@@ -12,7 +12,8 @@ function EmailBody {
         [ValidateSet('left', 'center', 'right', 'justify')][string] $Alignment,
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
-        [ValidateSet('rtl')][string] $Direction
+        [ValidateSet('rtl')][string] $Direction,
+        [switch] $Online
     )
 
     $newHTMLSplat = @{}
@@ -63,7 +64,19 @@ function EmailBody {
     } else {
         $SpanRequired = $false
     }
-    $Body = New-HTML -Online:$Online.IsPresent {
+    # This is used if Email is used and someone would set Online switch there.
+    # Since we moved New-HTML here - we need to do some workaround
+    if (-not $Online) {
+        if ($Script:EmailOnline) {
+            $HTMLOnline = $true
+        } else {
+            $HTMLOnline = $false
+        }
+    } else {
+        $HTMLOnline = $true
+    }
+
+    $Body = New-HTML -Online:$HTMLOnline {
         if ($SpanRequired) {
             New-HTMLSpanStyle @newHTMLSplat {
                 Invoke-Command -ScriptBlock $EmailBody

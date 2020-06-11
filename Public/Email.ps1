@@ -26,6 +26,11 @@ function Email {
         [switch] $OutputHTML,
         [switch] $WhatIf
     )
+    if ($Online) {
+        $Script:EmailOnline = $true
+    } else {
+        $Script:EmailOnline = $false
+    }
     $StartTime = [System.Diagnostics.Stopwatch]::StartNew()
     $ServerParameters = [ordered] @{
         From                  = $From
@@ -128,4 +133,5 @@ function Email {
 
     $EndTime = Stop-TimeLog -Time $StartTime -Option OneLiner
     Write-Verbose "Email - Time to send: $EndTime"
+    $Script:EmailOnline = $false
 }
