@@ -28,7 +28,6 @@ tfoot input {
     width: 100%;
     padding: -3px;
     box-sizing: border-box;
-    font-size: 8pt;
 }
 
 /* Filtering at the top */
@@ -36,9 +35,4 @@ thead input {
     width: 100%;
     padding: -3px;
     box-sizing: border-box;
-    font-size: 8pt;
-}
-
-table {
-    font-size: 8pt;
 }
