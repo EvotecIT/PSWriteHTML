@@ -66,6 +66,10 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.84 - Unreleased
   - `Colors` autocompleter should be now a bit smarter
+  - Added `Online` to `EmailBody`
+  - `EmailBody` can be used separatly now to generate HTML in case someone would like to use it with their own Send Email
+    - Say .. using `Mailozaurr` (new PowerShell module)
+  - `Email` has `OutputHTML` parameter which can send email but also output HTML for whatever reason
 
 - 0.0.83 - 2020.05.27
   - Fix for `New-HTMLMain` and junk code showing up in HTML
