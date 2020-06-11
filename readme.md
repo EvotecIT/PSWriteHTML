@@ -64,7 +64,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.84 - Unreleased
+- 0.0.84 - 2020.06.11
   - `Colors` autocompleter should be now a bit smarter
   - Added `Online` to `EmailBody`
   - `EmailBody` can be used separatly now to generate HTML in case someone would like to use it with their own Send Email
