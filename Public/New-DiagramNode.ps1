@@ -353,16 +353,16 @@ function New-DiagramNode {
     Remove-EmptyValues -Hashtable $Object.Edges -Recursive
     $Object
 }
-Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorBorder -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorBackground -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHighlightBorder -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHighlightBackground -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHoverBorder -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHoverBackground -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontColor -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontBackground -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontStrokeColor -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName IconColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorBorder -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorBackground -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHighlightBorder -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHighlightBackground -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHoverBorder -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorHoverBackground -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontBackground -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontStrokeColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName IconColor -ScriptBlock $Script:ScriptBlockColors
 <#
 // these are all options in full.
 var options = {

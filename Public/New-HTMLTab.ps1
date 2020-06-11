@@ -173,5 +173,5 @@ function New-HTMLTab {
     $Tab
 }
 
-Register-ArgumentCompleter -CommandName New-HTMLTab -ParameterName IconColor -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-HTMLTab -ParameterName TextColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLTab -ParameterName IconColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTab -ParameterName TextColor -ScriptBlock $Script:ScriptBlockColors

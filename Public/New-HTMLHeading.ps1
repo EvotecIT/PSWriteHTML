@@ -21,4 +21,4 @@ Function New-HTMLHeading {
         $HeadingText
     }
 }
-Register-ArgumentCompleter -CommandName New-HTMLHeading -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLHeading -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

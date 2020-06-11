@@ -22,4 +22,4 @@
     }
 }
 
-Register-ArgumentCompleter -CommandName New-ChartLine -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartLine -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

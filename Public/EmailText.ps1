@@ -43,5 +43,5 @@ function EmailText {
 
     New-HTMLText @newHTMLTextSplat
 }
-Register-ArgumentCompleter -CommandName EmailText -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName EmailText -ParameterName BackgroundColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName EmailText -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName EmailText -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors

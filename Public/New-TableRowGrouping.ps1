@@ -25,5 +25,5 @@
     $Object
 }
 
-Register-ArgumentCompleter -CommandName New-TableRowGrouping -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-TableRowGrouping -ParameterName BackgroundColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-TableRowGrouping -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-TableRowGrouping -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors

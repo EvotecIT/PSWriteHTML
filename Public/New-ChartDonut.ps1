@@ -14,4 +14,4 @@
         Color      = $Color
     }
 }
-Register-ArgumentCompleter -CommandName New-ChartDonut -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartDonut -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

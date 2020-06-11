@@ -29,4 +29,4 @@ function New-ChartInternalStrokeDefinition {
         $Options.stroke.dashArray = $LineDash
     }
 }
-Register-ArgumentCompleter -CommandName New-ChartInternalStrokeDefinition -ParameterName LineColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartInternalStrokeDefinition -ParameterName LineColor -ScriptBlock $Script:ScriptBlockColors

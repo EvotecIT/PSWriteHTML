@@ -44,5 +44,5 @@
     New-ApexChart -Options $Options
 }
 
-Register-ArgumentCompleter -CommandName New-HTMLChartPie -ParameterName DataLabelsColor -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-HTMLChartPie -ParameterName Colors -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLChartPie -ParameterName DataLabelsColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLChartPie -ParameterName Colors -ScriptBlock $Script:ScriptBlockColors

@@ -60,5 +60,5 @@ function New-HTMLListItem {
     }
 }
 
-Register-ArgumentCompleter -CommandName New-HTMLListItem -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-HTMLListItem -ParameterName BackgroundColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLListItem -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLListItem -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors

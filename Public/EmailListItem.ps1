@@ -34,5 +34,5 @@ function EmailListItem {
 
     New-HTMLListItem @newHTMLTextSplat
 }
-Register-ArgumentCompleter -CommandName EmailListItem -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName EmailListItem -ParameterName BackgroundColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName EmailListItem -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName EmailListItem -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors

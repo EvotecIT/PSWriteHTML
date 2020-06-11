@@ -54,5 +54,5 @@
     }
 }
 
-Register-ArgumentCompleter -CommandName New-TableContent -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-TableContent -ParameterName BackgroundColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-TableContent -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-TableContent -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors

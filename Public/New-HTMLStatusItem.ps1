@@ -125,5 +125,5 @@ function New-HTMLStatusItem {
         }
     }
 }
-Register-ArgumentCompleter -CommandName New-HTMLStatusItem -ParameterName FontColor -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-HTMLStatusItem -ParameterName BackgroundColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLStatusItem -ParameterName FontColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLStatusItem -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors

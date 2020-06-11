@@ -30,7 +30,7 @@
     Remove-EmptyValues -Hashtable $Object.Settings -Recursive #-Rerun 2
     $Object
 }
-Register-ArgumentCompleter -CommandName New-CalendarEvent -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-CalendarEvent -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
 <#
     events: [
     {

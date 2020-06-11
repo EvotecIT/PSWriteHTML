@@ -88,12 +88,12 @@
     Remove-EmptyValues -Hashtable $Object.Edges -Recursive -Rerun 2
     $Object
 }
-Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName ColorHighlight -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName ColorHover -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName FontColor -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName FontBackground -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName FontStrokeColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName ColorHighlight -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName ColorHover -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName FontColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName FontBackground -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName FontStrokeColor -ScriptBlock $Script:ScriptBlockColors
 
 <#
   // these are all options in full.

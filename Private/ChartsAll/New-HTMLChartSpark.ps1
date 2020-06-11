@@ -39,4 +39,4 @@ function New-HTMLChartSpark {
     New-ApexChart -Options $Options
 }
 
-Register-ArgumentCompleter -CommandName New-HTMLChartSpark -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLChartSpark -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

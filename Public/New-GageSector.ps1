@@ -12,4 +12,4 @@
         hi   = $Max
     }
 }
-Register-ArgumentCompleter -CommandName New-GageSection -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-GageSection -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

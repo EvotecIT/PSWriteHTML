@@ -35,7 +35,7 @@
 
     # https://apexcharts.com/docs/options/yaxis/
 }
-Register-ArgumentCompleter -CommandName New-ChartAxisY -ParameterName TitleStyleColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartAxisY -ParameterName TitleStyleColor -ScriptBlock $Script:ScriptBlockColors
 
 <# We can build this
     yaxis: {

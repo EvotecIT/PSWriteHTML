@@ -38,6 +38,6 @@
     }
     # https://apexcharts.com/docs/options/xaxis/
 }
-Register-ArgumentCompleter -CommandName New-ChartGrid -ParameterName BorderColor -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-ChartGrid -ParameterName RowColors -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-ChartGrid -ParameterName ColumnColors -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartGrid -ParameterName BorderColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-ChartGrid -ParameterName RowColors -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-ChartGrid -ParameterName ColumnColors -ScriptBlock $Script:ScriptBlockColors

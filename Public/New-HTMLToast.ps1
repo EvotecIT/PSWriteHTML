@@ -133,8 +133,8 @@
     }
 }
 
-Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName TextHeaderColor -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName TextColor -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName IconColor -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName BarColorLeft -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName BarColorRight -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName TextHeaderColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName TextColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName IconColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName BarColorLeft -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLToast -ParameterName BarColorRight -ScriptBlock $Script:ScriptBlockColors

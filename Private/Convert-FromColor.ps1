@@ -8,7 +8,8 @@ function ConvertFrom-Color {
                 } else { $true }
             })]
         [alias('Colors')][string[]] $Color,
-        [switch] $AsDecimal
+        [switch] $AsDecimal,
+        [switch] $AsDrawingColor
     )
     $Colors = foreach ($C in $Color) {
         $Value = $Script:RGBColors."$C"
@@ -22,10 +23,12 @@ function ConvertFrom-Color {
         Write-Verbose "Convert-FromColor - Color Name: $C Value: $Value HexValue: $HexValue"
         if ($AsDecimal) {
             [Convert]::ToInt64($HexValue, 16)
+        } elseif ($AsDrawingColor) {
+            [System.Drawing.Color]::FromArgb("#$($HexValue)")
         } else {
             "#$($HexValue)"
         }
     }
     $Colors
 }
-Register-ArgumentCompleter -CommandName ConvertFrom-Color -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName ConvertFrom-Color -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

@@ -15,4 +15,4 @@
     }
 }
 
-Register-ArgumentCompleter -CommandName New-ChartPie -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartPie -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

@@ -10,4 +10,4 @@
         $Options.colors = @($RGBColor)
     }
 }
-Register-ArgumentCompleter -CommandName New-ChartInternalColors -ParameterName Colors -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartInternalColors -ParameterName Colors -ScriptBlock $Script:ScriptBlockColors

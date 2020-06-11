@@ -18,4 +18,4 @@
         Color          = $Color
     }
 }
-Register-ArgumentCompleter -CommandName New-ChartLegend -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-ChartLegend -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

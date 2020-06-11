@@ -43,4 +43,4 @@ function New-HTMLChartRadial {
     New-ApexChart -Options $Options
 }
 
-Register-ArgumentCompleter -CommandName New-HTMLChartRadial -ParameterName Colors -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName New-HTMLChartRadial -ParameterName Colors -ScriptBlock $Script:ScriptBlockColors

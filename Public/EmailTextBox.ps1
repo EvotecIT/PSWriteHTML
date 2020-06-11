@@ -40,5 +40,5 @@ function EmailTextBox {
         New-HTMLText @newHTMLTextSplat -SkipParagraph
     }
 }
-Register-ArgumentCompleter -CommandName EmailTextBox -ParameterName Color -ScriptBlock { $Script:RGBColors.Keys }
-Register-ArgumentCompleter -CommandName EmailTextBox -ParameterName BackgroundColor -ScriptBlock { $Script:RGBColors.Keys }
+Register-ArgumentCompleter -CommandName EmailTextBox -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName EmailTextBox -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
