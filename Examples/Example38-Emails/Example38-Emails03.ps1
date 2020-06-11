@@ -18,7 +18,7 @@ $OutputHTML = EmailBody -FontFamily 'Calibri' -Size 15 {
         'Evotec IT'
     }
     EmailText -LineBreak
-}
+} -Online
 
 # this allows us to see the content of HTML and use it for other purposes instead of sending emails
 # We skip using Email and use use EmailBody instead which should be a bit faster if that's all we care about

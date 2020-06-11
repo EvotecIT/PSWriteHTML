@@ -20,7 +20,7 @@ $OutputHTML = Email {
         }
         EmailText -LineBreak
     }
-} -OutputHTML
+} -OutputHTML -Online
 
 # this allows us to see the content of HTML and use it for other purposes instead of sending emails
 $OutputHTML

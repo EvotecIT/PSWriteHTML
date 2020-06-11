@@ -46,6 +46,6 @@ Email {
 
         EmailText -LineBreak
     }
-} -FilePath $PSScriptRoot\Output\Output.html
+} -FilePath $PSScriptRoot\Output\Output.html -Online
 
 # this means the HTML will be saved to file for our usage. It won't be sent anywhere
