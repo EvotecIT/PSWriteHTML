@@ -44,12 +44,16 @@ function New-HTMLSpanStyle {
 
         New-HTMLTag -Tag 'div' -Attributes $StyleDiv {
             New-HTMLTag -Tag 'span' -Attributes $Style {
-                Invoke-Command -ScriptBlock $Content
+                if ($Content) {
+                    Invoke-Command -ScriptBlock $Content
+                }
             }
         }
     } else {
         New-HTMLTag -Tag 'span' -Attributes $Style {
-            Invoke-Command -ScriptBlock $Content
+            if ($Content) {
+                Invoke-Command -ScriptBlock $Content
+            }
         }
     }
 }

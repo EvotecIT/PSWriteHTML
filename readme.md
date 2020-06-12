@@ -64,6 +64,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.85 - Unreleased
+  - Update `New-HTMLSpanStyle` with some protection for errors
+
 - 0.0.84 - 2020.06.11
   - `Colors` autocompleter should be now a bit smarter
   - Added `Online` to `EmailBody`
