@@ -9,7 +9,7 @@
     # not ready
     $FadeSearch = $false
     if ($FadeSearch) {
-        $Event = @"
+        $EventVar = @"
         var table = `$('#$ID').DataTable();
         //table.search(params.nodes).draw();
         table.rows(':visible').every(function (rowIdx, tableLoop, rowLoop) {
@@ -26,7 +26,7 @@
 
     } else {
         if ($null -ne $ColumnID) {
-            $Event = @"
+            $EventVar = @"
         var table = `$('#$ID').DataTable();
         if (findValue != '') {
             table.columns($ColumnID).search("^" + findValue + "$", true, false, true).draw();
@@ -38,7 +38,7 @@
         }
 "@
         } else {
-            $Event = @"
+            $EventVar = @"
         var table = `$('#$ID').DataTable();
         if (findValue != '') {
             table.search("^" + findValue + "$", true, false, true).draw();
@@ -51,5 +51,5 @@
 "@
         }
     }
-    $Event
+    $EventVar
 }
