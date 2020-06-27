@@ -64,9 +64,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.85 - Unreleased
+- 0.0.85 - 2020.06.27
   - Update `New-HTMLSpanStyle` with some protection for errors
-
+  - Fix from PSSCriptAnalyzer - The Variable 'Event' is an automatic variable that is built into PowerShell, assigning to it might have undesired side effects. If assignment is not by design, please use a different name.
 - 0.0.84 - 2020.06.11
   - `Colors` autocompleter should be now a bit smarter
   - Added `Online` to `EmailBody`
