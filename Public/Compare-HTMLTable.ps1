@@ -5,7 +5,7 @@
         [Parameter(Mandatory)][string[]] $MatchingProperty
     )
     $OutputHash = [ordered] @{}
-    $Highlight = [System.Collections.Generic.List[object]]::new()
+    $OutputHighlights = [ordered] @{}
     if ($Objects.Count -gt 1) {
         [Array] $PrimaryObjects = $Objects[0]
         $OutputHash['0'] = [System.Collections.Generic.List[object]]::new()
@@ -19,6 +19,7 @@
                 $Found = $false
                 if (-not $OutputHash["$Count"]) {
                     $OutputHash["$Count"] = [System.Collections.Generic.List[object]]::new()
+                    $OutputHighlights["$Count"] = [System.Collections.Generic.List[object]]::new()
                 }
                 foreach ($O in $Object) {
                     if ($O.$MatchingProperty -eq $Primary.$MatchingProperty) {
@@ -49,7 +50,7 @@
                                     $Text = New-HTMLText -Text $DataAdd -Color Blue -TextDecoration none -FontWeight bold
                                 }
                                 $Out = New-TableContent -ColumnName $DataTable[$i].Name -RowIndex $Line -Text "$Text"
-                                $Highlight.Add($Out)
+                                $OutputHighlights["$Count"].Add($Out)
                             }
                         }
                         $OutputHash["$Count"].Add($O)
@@ -60,25 +61,28 @@
                 if (-not $Found) {
                     $OutputHash["$Count"].Add('')
                 }
-
             }
         }
-        New-HTML {
-            New-HTMLSection -Invisible {
-                foreach ($Key in $OutputHash.Keys | Select-Object -First 1) {
-                    New-HTMLSection -HeaderText $Key {
-                        New-HTMLTable -DataTable $OutputHash["$Key"]
+        if ($Standard) {
+            New-HTML {
+                New-HTMLSection -Invisible {
+                    foreach ($Key in $OutputHash.Keys | Select-Object -First 1) {
+                        New-HTMLSection -HeaderText $Key {
+                            New-HTMLTable -DataTable $OutputHash["$Key"]
+                        }
                     }
-                }
-                foreach ($Key in $OutputHash.Keys | Select-Object -Skip 1) {
-                    New-HTMLSection -HeaderText $Key {
-                        New-HTMLTable -DataTable $OutputHash["$Key"] {
-                            $Highlight
-                        } -HideFooter
+                    foreach ($Key in $OutputHash.Keys | Select-Object -Skip 1) {
+                        New-HTMLSection -HeaderText $Key {
+                            New-HTMLTable -DataTable $OutputHash["$Key"] {
+                                $OutputHighlights["$Key"]
+                            } -HideFooter
+                        }
                     }
-                }
 
-            }
-        } -Online -ShowHTML -FilePath $Env:USERPROFILE\Desktop\Test.html
+                }
+            } -Online -ShowHTML -FilePath $Env:USERPROFILE\Desktop\Test.html
+        } else {
+            $OutputHighlights
+        }
     }
 }
