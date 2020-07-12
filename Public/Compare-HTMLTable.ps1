@@ -7,8 +7,8 @@
     )
     $OutputHash = [ordered] @{}
     $OutputHighlights = [ordered] @{}
-    $UsedObjects = [ordered] @{}
-    $UsedObjectsNew = [ordered] @{}
+    #$UsedObjects = [ordered] @{}
+    $TemporaryData = [ordered] @{}
     if ($Objects.Count -gt 1) {
         [Array] $PrimaryObjects = $Objects[0]
         $OutputHash['0'] = [System.Collections.Generic.List[object]]::new()
@@ -24,13 +24,13 @@
                 if (-not $OutputHash["$Count"]) {
                     $OutputHash["$Count"] = [System.Collections.Generic.List[object]]::new()
                     $OutputHighlights["$Count"] = [System.Collections.Generic.List[object]]::new()
-                    $UsedObjectsNew["$Count"] = [ordered] @{}
+                    $TemporaryData["$Count"] = [ordered] @{}
                 }
 
                 foreach ($O in $Object) {
                     if ($O.$MatchingProperty -eq $Primary.$MatchingProperty) {
-                        $UsedObjectsNew["$Count"]["$($O.$MatchingProperty)"] = $O
-                        $UsedObjects["$($O.$MatchingProperty)"] = $O
+                        $TemporaryData["$Count"]["$($O.$MatchingProperty)"] = $O
+                        #$UsedObjects["$($O.$MatchingProperty)"] = $O
                         $DataTable = Compare-MultipleObjects -Objects $Primary, $O -Summary
                         for ($i = 1; $i -lt $DataTable.Count; $i++) {
                             if ($DataTable[$i].Status -eq $false) {
@@ -94,7 +94,7 @@
             $Count++
             foreach ($O in $Object) {
                 $StartCount = $OutputHash["$Count"].Count
-                if (-not $UsedObjectsNew["$Count"]["$($O.$MatchingProperty)"] ) {
+                if (-not $TemporaryData["$Count"]["$($O.$MatchingProperty)"] ) {
                     $StartCount++
                     $Properties = Select-Properties -Objects $O
                     $ColumnIndex = 0..$($Properties.Count)
