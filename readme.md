@@ -64,6 +64,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.86 - 2020.07.14
+  - Fix for missing `Get-TemporaryDirectory` during merge - damn nested ASTTokens
+  - Module is now signed (hopefully that doesn't break anything)
 - 0.0.85 - 2020.06.27
   - Update `New-HTMLSpanStyle` with some protection for errors
   - Fix from PSSCriptAnalyzer - The Variable 'Event' is an automatic variable that is built into PowerShell, assigning to it might have undesired side effects. If assignment is not by design, please use a different name.
