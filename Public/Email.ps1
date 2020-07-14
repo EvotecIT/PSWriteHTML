@@ -19,7 +19,7 @@ function Email {
         [switch] $SSL,
         [ValidateSet('Low', 'Normal', 'High')] [string] $Priority = 'Normal',
         [ValidateSet('None', 'OnSuccess', 'OnFailure', 'Delay', 'Never')] $DeliveryNotifications = 'None',
-        [string] $Encoding = 'Unicode',
+        [ValidateSet('ASCII', 'BigEndianUnicode', 'Default', 'Unicode', 'UTF32', 'UTF7', 'UTF8')][string] $Encoding = 'Default',
         [string] $FilePath,
         [alias('Supress')][bool] $Suppress = $true,
         [switch] $Online,
