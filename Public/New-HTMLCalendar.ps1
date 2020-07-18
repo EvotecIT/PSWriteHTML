@@ -32,6 +32,7 @@
         Exit
     }
     $Script:HTMLSchema.Features.FullCalendar = $true
+    <#
     $Script:HTMLSchema.Features.FullCalendarCore = $true
     $Script:HTMLSchema.Features.FullCalendarDayGrid = $true
     $Script:HTMLSchema.Features.FullCalendarInteraction = $true
@@ -39,6 +40,8 @@
     $Script:HTMLSchema.Features.FullCalendarRRule = $true
     $Script:HTMLSchema.Features.FullCalendarTimeGrid = $true
     $Script:HTMLSchema.Features.FullCalendarTimeLine = $true
+
+    #>
     $Script:HTMLSchema.Features.Popper = $true
 
     $CalendarEvents = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
@@ -54,22 +57,22 @@
     [string] $ID = "Calendar-" + (Get-RandomStringName -Size 8)
 
     $Calendar = [ordered] @{
-        plugins               = $Plugins
-        header                = @{
+        #plugins               = $Plugins
+        headerToolbar         = @{
             left   = $HeaderLeft -join ','
             center = $HeaderCenter -join ','
             right  = $HeaderRight -join ','
         }
-        defaultDate           = '{0:yyyy-MM-dd}' -f ($DefaultDate)
+        initialDate           = '{0:yyyy-MM-dd}' -f ($DefaultDate)
         nowIndicator          = $NowIndicator
         #now: '2018-02-13T09:25:00' // just for demo
         navLinks              = $NavigationLinks #// can click day/week names to navigate views
         businessHours         = $BusinessHours.IsPresent #// display business hours
         editable              = $Editable.IsPresent
         events                = $CalendarEvents
-        eventLimit            = $EventLimit
+        dayMaxEventRows       = $EventLimit
         weekNumbers           = $WeekNumbers
-        weekNumbersWithinDays = $WeekNumbersWithinDays
+        #weekNumbersWithinDays = $WeekNumbersWithinDays
         weekNumberCalculation = 'ISO'
         selectable            = $Selectable
         selectMirror          = $SelectMirror

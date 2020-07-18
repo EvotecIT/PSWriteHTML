@@ -1,24 +1,24 @@
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
-        Default                 = @{
+        Default              = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\default.css"
             }
         }
-        DefaultHeadings         = @{
+        DefaultHeadings      = @{
             Comment      = 'Always Required Default Headings'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\headings.css"
             }
         }
-        Accordion               = @{
+        Accordion            = @{
             Comment      = 'Accordion'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
             }
         }
-        CodeBlocks              = @{
+        CodeBlocks           = @{
             Comment      = 'EnlighterJS CodeBlocks'
             Header       = @{
                 CssLink = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.css'
@@ -36,7 +36,7 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
             }
         }
-        ChartsApex              = @{
+        ChartsApex           = @{
             Comment      = 'Apex Charts'
             Header       = @{
                 JsLink = @(
@@ -58,7 +58,7 @@ $Script:Configuration = [ordered] @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
-        ChartsXkcd              = @{
+        ChartsXkcd           = @{
             Header = @{
                 JsLink = @(
                     'https://cdn.jsdelivr.net/npm/chart.xkcd@1.1.12/dist/chart.xkcd.min.js'
@@ -68,14 +68,14 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        Jquery                  = @{
+        Jquery               = @{
             Comment = 'Jquery'
             Header  = @{
                 JsLink = 'https://code.jquery.com/jquery-3.4.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.4.1.min.js"
             }
         }
-        DataTablesOld           = @{
+        DataTablesOld        = @{
             Comment      = 'DataTables'
             HeaderAlways = @{
                 Css         = "$PSScriptRoot\..\Resources\CSS\datatables.css"
@@ -96,7 +96,7 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        DataTablesSearchFade    = @{
+        DataTablesSearchFade = @{
             Comment = 'DataTables SearchFade'
             Header  = @{
                 CssLink = 'https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.css'
@@ -106,7 +106,7 @@ $Script:Configuration = [ordered] @{
             }
         }
 
-        DataTables              = @{
+        DataTables           = @{
             Comment      = 'DataTables'
             HeaderAlways = @{
                 Css         = "$PSScriptRoot\..\Resources\CSS\datatables.css"
@@ -185,7 +185,7 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        DataTablesPDF           = @{
+        DataTablesPDF        = @{
             Comment = 'DataTables PDF Features'
             Header  = @{
                 JsLink = @(
@@ -198,7 +198,7 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        DataTablesExcel         = @{
+        DataTablesExcel      = @{
             Comment = 'DataTables Excel Features'
             Header  = @{
                 JsLink = @(
@@ -209,13 +209,13 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        DataTablesSimplify      = @{
+        DataTablesSimplify   = @{
             Comment      = 'DataTables (not really) - Simplified'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\datatables.simplify.css"
             }
         }
-        D3Mitch                 = @{
+        D3Mitch              = @{
             Comment      = 'D3Mitch Feature'
             Header       = @{
                 JsLink  = @(
@@ -231,13 +231,13 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\hierarchicalTree.css"
             }
         }
-        Fonts                   = @{
+        Fonts                = @{
             Comment      = 'Default fonts'
             HeaderAlways = @{
                 CssLink = 'https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald'
             }
         }
-        FontsAwesome            = @{
+        FontsAwesome         = @{
             Comment      = 'Default fonts icons'
             HeaderAlways = @{
                 CssLink = 'https://use.fontawesome.com/releases/v5.13.0/css/all.css'
@@ -247,12 +247,19 @@ $Script:Configuration = [ordered] @{
                 Link = 'https://use.fontawesome.com/releases/v5.13.0/svgs/'
             }
         }
-        FullCalendar            = @{
+        FullCalendar         = @{
             Comment      = 'FullCalendar Basic'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\calendar.css"
             }
+            Header       = @{
+                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js'
+                CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendar.css"
+                JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
+            }
         }
+        <#
         FullCalendarCore        = @{
             Comment = 'FullCalendar Core'
             Header  = @{
@@ -318,13 +325,14 @@ $Script:Configuration = [ordered] @{
             }
 
         }
-        HideSection             = @{
+        #>
+        HideSection          = @{
             Comment      = 'Hide Section Code'
             HeaderAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
             }
         }
-        FancyTree               = @{
+        FancyTree            = @{
             Header = @{
                 JSLink  = @(
                     'https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.33.0/jquery.fancytree-all-deps.min.js'
@@ -334,7 +342,7 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        JustGage                = @{
+        JustGage             = @{
             Comment = 'Just Gage Library'
             Header  = @{
                 JSLink = @(
@@ -365,7 +373,7 @@ $Script:Configuration = [ordered] @{
             }
         }
         #>
-        Popper                  = @{
+        Popper               = @{
             Comment      = 'Popper and Tooltip for FullCalendar'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\popper.css"
@@ -381,7 +389,7 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        Tabs                    = @{
+        Tabs                 = @{
             Comment              = 'Elastic Tabs'
             HeaderAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.css"
@@ -394,7 +402,7 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color "MediumSlateBlue"
             }
         }
-        Tabbis                  = @{
+        Tabbis               = @{
             Comment              = 'Elastic Tabbis'
             HeaderAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabbis.css"
@@ -410,7 +418,7 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color "MediumSlateBlue"
             }
         }
-        TabbisGradient          = @{
+        TabbisGradient       = @{
             Comment              = 'Elastic Tabs Gradient'
             FooterAlways         = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.gradient.css"
@@ -420,38 +428,38 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color "MediumSlateBlue"
             }
         }
-        TabbisTransition        = @{
+        TabbisTransition     = @{
             Comment      = 'Elastic Tabs Transition'
             FooterAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.transition.css"
             }
         }
-        TimeLine                = @{
+        TimeLine             = @{
             Comment      = 'Timeline Simple'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\timeline-simple.css"
             }
         }
-        Toasts                  = @{
+        Toasts               = @{
             Comment      = 'Toasts Looking Messages'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\Toasts.css"
             }
         }
-        StatusButtonical        = @{
+        StatusButtonical     = @{
             Comment      = 'Status Buttonical'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\status.css"
             }
         }
-        TuiGrid                 = @{
+        TuiGrid              = @{
             Comment = 'Tui Grid'
             Header  = @{
                 Css     = "$PSScriptRoot\..\Resources\CSS\tuigrid.css"
                 CssLink = 'https://cdn.jsdelivr.net/npm/tui-grid@3.5.0/dist/tui-grid.css'
             }
         }
-        VisNetwork              = @{
+        VisNetwork           = @{
             Comment      = 'VIS Network Dynamic, browser based visualization libraries'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\vis-network.diagram.css"
@@ -469,39 +477,49 @@ $Script:Configuration = [ordered] @{
     }
 }
 
-function Get-ResourcesContentFromWeb {
+function Save-Resource {
     [cmdletBinding()]
     param(
         [uri[]] $ResourceLinks,
+        [string[]] $Target,
         [ValidateSet('CSS', 'JS')][string] $Type
     )
 
-    $Output = foreach ($Link in $ResourceLinks) {
-        # [uri] $Link = $File
-        $Splitted = $Link.OriginalString -split '/'
-        $FileName = $Splitted[-1]
-        $FilePath = [IO.Path]::Combine('C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources', $Type, $FileName)
-        $FilePathScriptRoot = -Join ('"', '$PSScriptRoot\..\Resources\', "$Type", '\', $FileName, '"')
-        $FilePathScriptRoot
-        #[IO.Path]::Combine('C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources\CSS', $FileName)
-        Invoke-WebRequest -Uri $Link -OutFile $FilePath
+    $Output = for ($i = 0; $i -lt $ResourceLinks.Count; $i++) {
+        if ($Target) {
+            # If target given means we replace something
+            Write-Verbose "Downloading $($ResourceLinks[$i].OriginalString) to $($Target[$i])"
+            Invoke-WebRequest -Uri $ResourceLinks[$i] -OutFile $Target[$i]
+            #$Target[$i]
+        } else {
+            $Splitted = $ResourceLinks[$i].OriginalString -split '/'
+            $FileName = $Splitted[-1]
+            $FilePath = [IO.Path]::Combine('C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources', $Type, $FileName)
+            $FilePathScriptRoot = -Join ('"', '$PSScriptRoot\..\Resources\', "$Type", '\', $FileName, '"')
+            $FilePathScriptRoot
+            Invoke-WebRequest -Uri $ResourceLinks[$i] -OutFile $FilePath
+        }
     }
     $Output
 }
 
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Fonts.HeaderAlways.JsLink -Type 'JS'
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Fonts.HeaderAlways.CssLink -Type 'CSS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.Fonts.HeaderAlways.JsLink -Type 'JS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.Fonts.HeaderAlways.CssLink -Type 'CSS'
 
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS'
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.DataTables.Header.CssLink -Type 'CSS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.CssLink -Type 'CSS'
 
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.JsLink -Type 'JS'
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.CssLink -Type 'CSS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.JsLink -Type 'JS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.CssLink -Type 'CSS'
 
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.JsLink -Type 'JS'
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.CssLink -Type 'CSS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.JsLink -Type 'JS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.CssLink -Type 'CSS'
 
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Jquery.Header.JsLink -Type 'JS'
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.Jquery.Header.CssLink -Type 'CSS'
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.JsLink -Type 'JS'
-#Get-ResourcesContentFromWeb -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.CssLink -Type 'CSS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.Jquery.Header.JsLink -Type 'JS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.Jquery.Header.CssLink -Type 'CSS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.JsLink -Type 'JS'
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.CssLink -Type 'CSS'
+
+
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.FullCalendar.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.FullCalendar.Header.Js -Verbose
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.FullCalendar.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.FullCalendar.Header.Css -Verbose
