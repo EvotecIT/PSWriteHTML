@@ -64,6 +64,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.87 - Unreleased
+  - Updated FullCalendar library to 5.1
 - 0.0.86 - 2020.07.14
   - Fix for missing `Get-TemporaryDirectory` during merge - damn nested ASTTokens
   - Module is now signed (hopefully that doesn't break anything)
