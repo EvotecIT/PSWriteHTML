@@ -68,6 +68,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - Updated FullCalendar library to 5.1
   - `New-HTMLCalendar`- removed `plugins` parameter (no longer required)
   - `New-HTMLCalendar` - removed `WeekNumbersWithinDays` (no longer required)
+  - `New-HTMLCalendar` - added `InitialView` parameter
 - 0.0.86 - 2020.07.14
   - Fix for missing `Get-TemporaryDirectory` during merge - damn nested ASTTokens
   - Module is now signed (hopefully that doesn't break anything)
