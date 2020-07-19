@@ -11,8 +11,10 @@ var tabs = tabbis.init({
         // it's a bit heavy as it touches all tables, may require some improvements in future to consider
         // which tab has which table
         try {
-            var tableid = document.getElementById(tab.id + "-Content").querySelector('table[id^="DT-"]').id;
-            $("#" + tableid).DataTable().columns.adjust().responsive.recalc();
+            var table = document.getElementById(tab.id + "-Content").querySelector('table[id^="DT-"]');
+            if (table) {
+                $("#" + table.id).DataTable().columns.adjust().responsive.recalc();
+            }
         } catch (e) {
             console.log('No datatables available.');
         }
