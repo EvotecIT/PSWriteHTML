@@ -3,7 +3,7 @@
     [CmdletBinding()]
     param(
         [ScriptBlock] $CalendarSettings,
-        [ValidateSet('interaction', 'dayGrid', 'timeGrid', 'list', 'rrule')][string[]] $Plugins = @('interaction', 'dayGrid', 'timeGrid', 'list', 'rrule'),
+        #[ValidateSet('interaction', 'dayGrid', 'timeGrid', 'list', 'rrule')][string[]] $Plugins = @('interaction', 'dayGrid', 'timeGrid', 'list', 'rrule'),
         [ValidateSet(
             'prev', 'next', 'today', 'prevYear', 'nextYear', 'dayGridDay', 'dayGridWeek', 'dayGridMonth',
             'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title'
@@ -21,7 +21,7 @@
         [bool] $NowIndicator = $true,
         [bool] $EventLimit = $true,
         [bool] $WeekNumbers = $true,
-        [bool] $WeekNumbersWithinDays = $true,
+        #[bool] $WeekNumbersWithinDays = $true,
         [bool] $Selectable = $true,
         [bool] $SelectMirror = $true,
         [switch] $BusinessHours,
