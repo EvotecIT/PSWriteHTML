@@ -103,4 +103,4 @@ Dashboard -Name 'Dashimo Test' -FilePath $PSScriptRoot\Output\DashboardEasy10.ht
 
         }
     }
-}
+} -Online
