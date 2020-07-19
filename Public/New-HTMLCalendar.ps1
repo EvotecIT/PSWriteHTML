@@ -25,7 +25,10 @@
         [bool] $Selectable = $true,
         [bool] $SelectMirror = $true,
         [switch] $BusinessHours,
-        [switch] $Editable
+        [switch] $Editable,
+        [ValidateSet(
+            'dayGridWeek', 'timeGridDay', 'listWeek', 'dayGridMonth'
+        )][string] $InitialView
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLCalendar - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -42,7 +45,7 @@
     $Script:HTMLSchema.Features.FullCalendarTimeLine = $true
 
     #>
-    $Script:HTMLSchema.Features.Popper = $true
+    #$Script:HTMLSchema.Features.Popper = $true
 
     $CalendarEvents = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
 
@@ -63,6 +66,8 @@
             center = $HeaderCenter -join ','
             right  = $HeaderRight -join ','
         }
+
+        initialView           = $InitialView
         initialDate           = '{0:yyyy-MM-dd}' -f ($DefaultDate)
         nowIndicator          = $NowIndicator
         #now: '2018-02-13T09:25:00' // just for demo
