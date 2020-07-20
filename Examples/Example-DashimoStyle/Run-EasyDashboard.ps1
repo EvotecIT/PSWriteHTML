@@ -1,9 +1,9 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
-$Process = Get-Process | Select-Object -First 30
+$Process = Get-Process | Select-Object -First 5
 $Process1 = Get-Process | Select-Object -First 5
-$Process2 = Get-Process | Select-Object -First 10
-$Process3 = Get-Process | Select-Object -First 10
+$Process2 = Get-Process | Select-Object -First 5
+$Process3 = Get-Process | Select-Object -First 5
 
 Dashboard -Name 'Dashimo Test' -FilePath $PSScriptRoot\Output\DashboardEasy.html -Show {
     Tab -Name 'First tab' {

@@ -300,132 +300,14 @@
         </div>
         <div data-panes="true">
             <div id="Tab-bi2rqoks-Content" class="active">
-                <div id="Calendar-3fso0g65" class="calendarFullCalendar"></div>
+                <div id="Calendar-3fso0g65" class="calendarFullCalendar"
+                     data-events='[{"title":"Active Directory Meeting","description":"We will talk about stuff","start":"2020-07-19T10:07:02"},{"title":"Lunch","description":"Very long lunch","start":"2020-07-21T07:07:02","end":"2020-07-22T10:07:02"}]'></div>
             </div>
-            <div id="Tab-45s8pdhi-Content">
-                <div id="Calendar-on26xq0w" class="calendarFullCalendar"></div>
+            <div id="Tab-45s8pdhi-Content" >
+                <div id="Calendar-on26xq0w" class="calendarFullCalendar"
+                  data-events='[{"title":"Team Managment Meetup","description":"Need to organize staffs","start":"2020-07-22T10:07:02"},{"title":"Talk to Boss","description":"Deployment Issues","start":"2020-07-24T07:07:02","end":"2020-07-25T10:07:02"}]'></div>
             </div>
         </div>
-
-        <script>
-            function loadCalendarFirst(claendarID) {
-                var calendarEl = document.getElementById(claendarID);
-                var calendar = new FullCalendar.Calendar(calendarEl,
-                    {
-                        "headerToolbar": {
-                            "left": "prev,next,today",
-                            "right": "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
-                            "center": "title"
-                        },
-                        "initialView": "listWeek",
-                        "initialDate": "2020-07-19",
-                        "nowIndicator": true,
-                        "navLinks": true,
-                        "businessHours": false,
-                        "editable": false,
-                        "events": [
-                            {
-                                "title": "Active Directory Meeting",
-                                "description": "We will talk about stuff",
-                                "start": "2020-07-19T10:07:02"
-                            },
-                            {
-                                "title": "Lunch",
-                                "description": "Very long lunch",
-                                "start": "2020-07-21T07:07:02",
-                                "end": "2020-07-22T10:07:02"
-                            }
-                        ],
-                        "dayMaxEventRows": true,
-                        "weekNumbers": true,
-                        "weekNumberCalculation": "ISO",
-                        "selectable": true,
-                        "selectMirror": true,
-                        "buttonIcons": false,
-                        "views": {
-                            "listWeek": {
-                                "buttonText": "list week"
-                            },
-                            "listMonth": {
-                                "buttonText": "list month"
-                            },
-                            "listDay": {
-                                "buttonText": "list day"
-                            }
-                        },
-                        eventRender: function (info) {
-                            var tooltip = new Tooltip(info.el, {
-                                title: info.event.extendedProps.description,
-                                placement: 'top',
-                                trigger: 'hover',
-                                container: 'body'
-                            });
-                        }
-                    }
-                );
-                calendar.render();
-            }
-
-            function loadCalendarSecond(calendarID) {
-                var calendarEl = document.getElementById(calendarID);
-                var calendar = new FullCalendar.Calendar(calendarEl,
-                    {
-                        "headerToolbar": {
-                            "left": "prev,next,today",
-                            "right": "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
-                            "center": "title"
-                        },
-                        "initialDate": "2020-07-19",
-                        "nowIndicator": true,
-                        "navLinks": true,
-                        "businessHours": false,
-                        "editable": false,
-                        "events": [
-                            {
-                                "title": "Active Directory Meeting",
-                                "description": "We will talk about stuff",
-                                "start": "2020-07-19T10:07:02"
-                            },
-                            {
-                                "title": "Lunch",
-                                "description": "Very long lunch",
-                                "start": "2020-07-21T07:07:02",
-                                "end": "2020-07-22T10:07:02"
-                            }
-                        ],
-                        "dayMaxEventRows": true,
-                        "weekNumbers": true,
-                        "weekNumberCalculation": "ISO",
-                        "selectable": true,
-                        "selectMirror": true,
-                        "buttonIcons": false,
-                        "views": {
-                            "listWeek": {
-                                "buttonText": "list week"
-                            },
-                            "listMonth": {
-                                "buttonText": "list month"
-                            },
-                            "listDay": {
-                                "buttonText": "list day"
-                            }
-                        },
-                        eventRender: function (info) {
-                            var tooltip = new Tooltip(info.el, {
-                                title: info.event.extendedProps.description,
-                                placement: 'top',
-                                trigger: 'hover',
-                                container: 'body'
-                            });
-                        }
-                    }
-                );
-                calendar.render();
-            }
-
-            loadCalendarFirst('Calendar-3fso0g65');
-            loadCalendarFirst('Calendar-on26xq0w');
-        </script>
         <footer>
 
             <!-- FOOTER -->
@@ -575,7 +457,7 @@
                 })();
             </script>
             <script type="text/javascript">
-                var tabs = tabbis.init({
+              var tabs = tabbis.init({
                     tabGroup: "[data-tabs]",
                     paneGroup: "[data-panes]",
                     tabActive: "active",
@@ -597,14 +479,18 @@
                         // loadCalendar(calendarID);
                         // var view = $(`#${calendarID}`).fullCalendar('getView');
                         // alert("The view's title is asdf " + view.title);
+                      const element = $(`#${tab.id}-Content`).find('div.calendarFullCalendar').get(0);
+                      const events = JSON.parse(element.getAttribute('data-events'));
+                      loadCalendarFirst(element.id, events);
+                      // const element = document.getElementById(tab.id + "-Content").querySelector('div[id^="Calendar-"]');
+                      // const calendarid = element.id;
+                      // const orderID = element.dataset;
+                      //   // alert("The calendarid " + calendarid);
+                      // if(parseInt(element.dataset.orderId) % 2 === 1) {
 
-                        var calendarid = document.getElementById(tab.id + "-Content").querySelector('div[id^="Calendar-"]').id;
-                        // alert("The calendarid " + calendarid);
-                        if (calendarid == 'Calendar-3fso0g65') {
-                            loadCalendarFirst(calendarid);
-                        } else {
-                            loadCalendarSecond(calendarid);
-                        }
+                      // } else {
+                      //   loadCalendarSecond(calendarid);
+                      // }
 
                         // var view = $('#' + calendarid).fullCalendar('getView');
                         // alert("The view's title is " + view.title);
@@ -621,6 +507,117 @@
                 window.addEventListener("unload", tabbis.remove, false);
             </script><!-- JS Elastic Tabbis END -->
 
+          <script>
+            var calendars = {};
+            function loadCalendarFirst(claendarID, events) {
+              if(calendars[claendarID]) {
+                calendars[claendarID].render();
+                console.log('only rendered');
+                return;
+              }
+              var calendarEl = document.getElementById(claendarID);
+                        calendars[claendarID] = new FullCalendar.Calendar(calendarEl,
+                            {
+                                "headerToolbar": {
+                                    "left": "prev,next,today",
+                                    "right": "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
+                                    "center": "title"
+                                },
+                                "initialView": "listWeek",
+                                "initialDate": "2020-07-19",
+                                "nowIndicator": true,
+                                "navLinks": true,
+                                "businessHours": false,
+                                "editable": false,
+                                "events": events || [],
+                                "dayMaxEventRows": true,
+                                "weekNumbers": true,
+                                "weekNumberCalculation": "ISO",
+                                "selectable": true,
+                                "selectMirror": true,
+                                "buttonIcons": false,
+                                "views": {
+                                    "listWeek": {
+                                        "buttonText": "list week"
+                                    },
+                                    "listMonth": {
+                                        "buttonText": "list month"
+                                    },
+                                    "listDay": {
+                                        "buttonText": "list day"
+                                    }
+                                },
+                                eventRender: function (info) {
+                                    var tooltip = new Tooltip(info.el, {
+                                        title: info.event.extendedProps.description,
+                                        placement: 'top',
+                                        trigger: 'hover',
+                                        container: 'body'
+                                    });
+                                }
+                            }
+                        );
+                        calendars[claendarID].render();
+            }
+
+            function loadCalendarSecond(calendarID) {
+                        var calendarEl = document.getElementById(calendarID);
+                        var calendar = new FullCalendar.Calendar(calendarEl,
+                            {
+                                "headerToolbar": {
+                                    "left": "prev,next,today",
+                                    "right": "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
+                                    "center": "title"
+                                },
+                                "initialDate": "2020-07-19",
+                                "nowIndicator": true,
+                                "navLinks": true,
+                                "businessHours": false,
+                                "editable": false,
+                                "events": [
+                                    {
+                                        "title": "Active Directory Meeting",
+                                        "description": "We will talk about stuff",
+                                        "start": "2020-07-19T10:07:02"
+                                    },
+                                    {
+                                        "title": "Lunch",
+                                        "description": "Very long lunch",
+                                        "start": "2020-07-21T07:07:02",
+                                        "end": "2020-07-22T10:07:02"
+                                    }
+                                ],
+                                "dayMaxEventRows": true,
+                                "weekNumbers": true,
+                                "weekNumberCalculation": "ISO",
+                                "selectable": true,
+                                "selectMirror": true,
+                                "buttonIcons": false,
+                                "views": {
+                                    "listWeek": {
+                                        "buttonText": "list week"
+                                    },
+                                    "listMonth": {
+                                        "buttonText": "list month"
+                                    },
+                                    "listDay": {
+                                        "buttonText": "list day"
+                                    }
+                                },
+                                eventRender: function (info) {
+                                    var tooltip = new Tooltip(info.el, {
+                                        title: info.event.extendedProps.description,
+                                        placement: 'top',
+                                        trigger: 'hover',
+                                        container: 'body'
+                                    });
+                                }
+                            }
+                        );
+                        calendar.render();
+            }
+
+          </script>
             <!-- END FOOTER -->
         </footer><!-- END BODY -->
     </body>
