@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.87 - Unreleased
+- 0.0.87 - 2020.07.20
   - Updated FullCalendar library to 5.1 from 4.3
   - `New-HTMLCalendar`- removed `plugins` parameter (no longer required)
   - `New-HTMLCalendar` - removed `WeekNumbersWithinDays` (no longer required)
