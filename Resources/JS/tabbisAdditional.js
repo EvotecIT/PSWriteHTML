@@ -10,11 +10,18 @@ var tabs = tabbis.init({
         // this makes sure to refresh tables on tab change to make sure they have buttons and everything
         // it's a bit heavy as it touches all tables, may require some improvements in future to consider
         // which tab has which table
-        try {
-            var table = document.getElementById(tab.id + "-Content").querySelector('table[id^="DT-"]');
-            if (table) {
+
+        function resizeTable(table) {
+            try {
                 $("#" + table.id).DataTable().columns.adjust().responsive.recalc();
+                console.log('Resized table with id ' + table.id);
+            } catch{
+                console.log('Failed to resize table with ' + table.id);
             }
+        }
+        try {
+            var table = document.getElementById(tab.id + "-Content").querySelectorAll('table[id^="DT-"]');
+            table.forEach(resizeTable)
         } catch (e) {
             console.log('No datatables available.');
         }
