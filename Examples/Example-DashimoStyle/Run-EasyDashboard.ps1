@@ -1,3 +1,4 @@
+Import-Module .\PSWriteHTML.psd1 -Force
 
 $Process = Get-Process | Select-Object -First 30
 $Process1 = Get-Process | Select-Object -First 5
@@ -32,4 +33,4 @@ Dashboard -Name 'Dashimo Test' -FilePath $PSScriptRoot\Output\DashboardEasy.html
             Table -DataTable $Process3 -DefaultSortIndex 4 -ScrollCollapse
         }
     }
-}
+} -Online
