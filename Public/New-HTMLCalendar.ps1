@@ -120,10 +120,11 @@
         $CalendarJSON
         ');'
         'calendar.render();'
+        "calendarTracker['$ID'] = calendar;"
         '}); '
     } -NewLine
 
     # return HTML
-    $Script
     $Div
+    $Script
 }

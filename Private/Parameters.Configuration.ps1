@@ -251,6 +251,7 @@ $Script:Configuration = [ordered] @{
             Comment      = 'FullCalendar Basic'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\calendar.css"
+                Js  = "$PSScriptRoot\..\Resources\JS\fullCalendarTracker.js"
             }
             Header       = @{
                 JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js'
