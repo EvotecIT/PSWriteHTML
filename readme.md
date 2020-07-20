@@ -71,6 +71,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - `New-HTMLCalendar` - removed `WeekNumbersWithinDays` (no longer required)
   - `New-HTMLCalendar` - added `InitialView` parameter
   - Fixed Tabs switching with multiple tables on each tab fails [#134](https://github.com/EvotecIT/PSWriteHTML/issues/134)
+  - Fixed Tabs switching with calendars [#133](https://github.com/EvotecIT/PSWriteHTML/issues/133)
 - 0.0.86 - 2020.07.14
   - Fix for missing `Get-TemporaryDirectory` during merge - damn nested ASTTokens
   - Module is now signed (hopefully that doesn't break anything)

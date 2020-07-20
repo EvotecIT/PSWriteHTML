@@ -1,3 +1,1 @@
-var calendarTracker = {
-
-};
+var calendarTracker = {};
