@@ -27,7 +27,7 @@
         [switch] $BusinessHours,
         [switch] $Editable,
         [ValidateSet(
-            'dayGridWeek', 'timeGridDay', 'listWeek', 'dayGridMonth'
+            'dayGridDay', 'dayGridWeek', 'dayGridMonth', 'timeGridDay', 'timeGridWeek', 'listDay', 'listWeek', 'listMonth'
         )][string] $InitialView
     )
     if (-not $Script:HTMLSchema.Features) {
