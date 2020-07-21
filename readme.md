@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.88 - 2020.07.21
+  - Updated `New-HTMLCalendar` with more options for `InitialView` parameter - tnx smasterson [#135](https://github.com/EvotecIT/PSWriteHTML/pull/135)
 - 0.0.87 - 2020.07.20
   - Updated FullCalendar library to 5.1 from 4.3
   - `New-HTMLCalendar`- removed `plugins` parameter (no longer required)
