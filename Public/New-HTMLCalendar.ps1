@@ -45,7 +45,7 @@
     $Script:HTMLSchema.Features.FullCalendarTimeLine = $true
 
     #>
-    #$Script:HTMLSchema.Features.Popper = $true
+    $Script:HTMLSchema.Features.Popper = $true
 
     $CalendarEvents = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
 
@@ -69,6 +69,7 @@
 
         initialView           = $InitialView
         initialDate           = '{0:yyyy-MM-dd}' -f ($DefaultDate)
+        eventDidMount         = 'ReplaceMe'
         nowIndicator          = $NowIndicator
         #now: '2018-02-13T09:25:00' // just for demo
         navLinks              = $NavigationLinks #// can click day/week names to navigate views
@@ -89,14 +90,13 @@
             listWeek  = @{ buttonText = 'list week' }
             listMonth = @{ buttonText = 'list month' }
         }
-        eventRender           = 'ReplaceMe'
     }
     Remove-EmptyValues -Hashtable $Calendar -Recursive
     $CalendarJSON = $Calendar | ConvertTo-Json -Depth 7
 
     # Adding function for ToolTips / need cleaner way
-    $EventRender = @"
-    eventRender: function (info) {
+    $eventDidMount = @"
+    eventDidMount: function(info) {
         var tooltip = new Tooltip(info.el, {
             title: info.event.extendedProps.description,
             placement: 'top',
@@ -106,11 +106,11 @@
     }
 "@
     if ($PSEdition -eq 'Desktop') {
-        $TextToFind = '"eventRender":  "ReplaceMe"'
+        $TextToFind = '"eventDidMount":  "ReplaceMe"'
     } else {
-        $TextToFind = '"eventRender": "ReplaceMe"'
+        $TextToFind = '"eventDidMount": "ReplaceMe"'
     }
-    $CalendarJSON = $CalendarJSON.Replace($TextToFind, $EventRender)
+    $CalendarJSON = $CalendarJSON.Replace($TextToFind, $eventDidMount)
 
     $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = 'calendarFullCalendar'; style = $Style }
     $Script = New-HTMLTag -Tag 'script' -Value {
