@@ -4,10 +4,13 @@ function New-TableColumnOption {
     param(
         [alias('Targets')][int[]]$ColumnIndex,
         [alias('TargetAll')][switch]$AllColumns,
-        [switch]$Hidden,
         [string]$Width,
+        [switch]$Visible,
+        [switch]$Hidden,
+        [switch]$EnableOrdering,
         [switch]$DisableOrdering,
-        [switch]$DisableSearch
+        [switch]$DisableSearch,
+        [switch]$EnableSearch
     )
 
     If ($PSBoundParameters.ContainsKey('AllColumns') -and $PSBoundParameters.ContainsKey('ColumnIndex')) {
@@ -24,11 +27,29 @@ function New-TableColumnOption {
         targets         = if ($AllColumns) { "_all" } else { $ColumnIndex };
     }
 
-    If ($Width) { $TableColumnOptionProperty.Add('width', $Width) }
-    if ($Hidden) { $TableColumnOptionProperty.Add('visible', $false) }
-    if ($DisableOrdering) { $TableColumnOptionProperty.Add('orderable', $false) }
-    if ($DisableSearch) { $TableColumnOptionProperty.Add('searchable', $false)}
+    If ($Width) { $TableColumnOptionProperty['width'] = $Width }
 
+    If ($Visible) { $TableColumnOptionProperty['visible'] = $true }
+    if ($Hidden) { 
+        If ($Visible) { Write-Warning 'New-HTMLTableColumnOption - Hidden overrides Visible' }
+        $TableColumnOptionProperty['visible'] = $false
+    }
+
+    If ($EnableOrdering) { $TableColumnOptionProperty['orderable'] = $true }
+    if ($DisableOrdering) { 
+        If ($EnableOrdering) { 
+            Write-Warning 'New-HTMLTableColumnOption - Disabling ordering orverrides enabling ordering.'
+        }
+        $TableColumnOptionProperty['orderable'] = $false
+    }
+    if ($EnableSearch) { $TableColumnOptionProperty['searchable'] = $true }
+    if ($DisableSearch) { 
+        If ($EnableSearch) { 
+            Write-Warning 'New-HTMLTableColumnOption - Disabling search overrides enabling search'
+        }
+        $TableColumnOptionProperty['searchable'] = $false
+    }
+    
     # Check if we have properties set
     If ($TableColumnOptionProperty.Keys.Count -gt 1) { 
         $TableColumnOption = [PSCustomObject]$TableColumnOptionProperty
