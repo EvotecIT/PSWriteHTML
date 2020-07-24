@@ -121,7 +121,7 @@ function New-HTMLTable {
                 } elseif ($Parameters.Type -eq 'TableRowGrouping') {
                     $RowGrouping = $Parameters.Output
                 } elseif ($Parameters.Type -eq 'TableColumnOption') {
-                    $TableColumnOptions = $Parameters.Output
+                    $TableColumnOptions.Add($Parameters.Output)
                 }
             }
         }
@@ -469,7 +469,7 @@ function New-HTMLTable {
             $Options.columnDefs = @( foreach($_ in $TableColumnOptions) { $_ })
         }
     }
-    
+
     $Options = $Options | ConvertTo-Json -Depth 6
 
     # cleans up $Options for ImmediatelyShowHiddenDetails
