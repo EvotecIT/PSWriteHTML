@@ -76,6 +76,7 @@ function New-HTMLTable {
     $ContentTop = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ContentFormattingInline = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ReplaceCompare = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
+    $TableColumnOptions = [System.Collections.Generic.List[PSCustomObject]]::new()
     $RowGrouping = @{ }
 
     if ($HTML) {
@@ -119,6 +120,8 @@ function New-HTMLTable {
                     $ReplaceCompare.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableRowGrouping') {
                     $RowGrouping = $Parameters.Output
+                } elseif ($Parameters.Type -eq 'TableColumnOption') {
+                    $TableColumnOptions = $Parameters.Output
                 }
             }
         }
@@ -453,9 +456,20 @@ function New-HTMLTable {
                 $_.responsivePriority = $PriorityOrder
                 $_
             }
-        )
+       )
     }
 
+    If ($TableColumnOptions.Count -gt 0) { 
+        If ($Options.ContainsKey('columnDefs')) { 
+            foreach ($_ in $TableColumnOptions) { 
+                $Options.columnDefs += $_
+            }
+        }
+        else { 
+            $Options.columnDefs = @( foreach($_ in $TableColumnOptions) { $_ })
+        }
+    }
+    
     $Options = $Options | ConvertTo-Json -Depth 6
 
     # cleans up $Options for ImmediatelyShowHiddenDetails
