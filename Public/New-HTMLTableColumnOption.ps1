@@ -7,8 +7,8 @@ function New-TableColumnOption {
         [string]$Width,
         [switch]$Visible,
         [switch]$Hidden,
-        [switch]$EnableOrdering,
-        [switch]$DisableOrdering,
+        [alias('EnableSorting')][switch]$EnableOrdering,
+        [alias('DisableSorting')][switch]$DisableOrdering,
         [switch]$DisableSearch,
         [switch]$EnableSearch
     )
