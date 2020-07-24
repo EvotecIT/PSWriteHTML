@@ -13,7 +13,7 @@ function New-TableColumnOption {
     If ($PSBoundParameters.ContainsKey('AllColumns') -and $PSBoundParameters.ContainsKey('ColumnIndex')) {
         throw "You cannot specify -AllColumns and -ColumnIndex inside the same TableColumnOption"
     }
-    If (!$PSBoundParameters.ContainsKey('AllColumns') -or !$PSBoundParameters.ContainsKey('ColumnIndex')) { 
+    If (!$PSBoundParameters.ContainsKey('AllColumns') -and !$PSBoundParameters.ContainsKey('ColumnIndex')) { 
         throw "You must specify either -AllColumns or -ColumnIndex inside the TableColumnOption"
     }
 
