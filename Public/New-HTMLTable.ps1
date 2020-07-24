@@ -58,6 +58,7 @@ function New-HTMLTable {
         [alias('RegularExpression')][switch]$SearchRegularExpression,
         [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak = 'normal',
         [switch] $AutoSize,
+        [switch] $DisableAutoSizeOptimization,
         [string] $Title
     )
     if (-not $Script:HTMLSchema.Features) {
@@ -463,16 +464,15 @@ function New-HTMLTable {
         If ($Options.columnDefs) { 
             foreach ($_ in $TableColumnOptions) { 
                 $Options.columnDefs += $_
-
-                # If we have column width specified and the $Width parameter is set, then remove it
-                if ($_.width -and $Width) { 
-                    $Width = $null
-                }
             }
         }
         else { 
             $Options.columnDefs = @( foreach($_ in $TableColumnOptions) { $_ })
         }
+    }
+    
+    If ($DisableAutoSizeOptimization) { 
+        $Options.autowidth = $false
     }
 
     $Options = $Options | ConvertTo-Json -Depth 6
