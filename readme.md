@@ -67,6 +67,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.90 - 2020.07.27
   - Added `New-TableColumnOption` for `New-HTMLTable` - tnx zsoch [#138](https://github.com/EvotecIT/PSWriteHTML/pull/138)
+  - Removed dead/old `FullCalendar` js code
+  - Updated `JustGage` to 1.3.5
 - 0.0.89 - 2020.07.23
   - Fix for Tooltips in FullCalendar 5.1 - tnx smasterson [#137](https://github.com/EvotecIT/PSWriteHTML/pull/137)
 - 0.0.88 - 2020.07.21
