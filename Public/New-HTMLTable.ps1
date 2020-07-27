@@ -58,7 +58,7 @@ function New-HTMLTable {
         [alias('RegularExpression')][switch]$SearchRegularExpression,
         [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak = 'normal',
         [switch] $AutoSize,
-        [switch] $DisableAutoSizeOptimization,
+        [switch] $DisableAutoWidthOptimization,
         [string] $Title
     )
     if (-not $Script:HTMLSchema.Features) {
@@ -78,6 +78,9 @@ function New-HTMLTable {
     $ContentFormattingInline = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ReplaceCompare = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
     $TableColumnOptions = [System.Collections.Generic.List[PSCustomObject]]::new()
+
+    # This will be used to store the colulmnDef option for the datatable
+    $ColumnDefinitionList = [System.Collections.Generic.List[PSCustomObject]]::New()
     $RowGrouping = @{ }
 
     if ($HTML) {
@@ -444,34 +447,34 @@ function New-HTMLTable {
             foreach ($_ in $ResponsivePriorityOrder) {
                 $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
                 if ($Index -ne -1) {
-                    @{ responsivePriority = 0; targets = $Index }
+                    [pscustomobject]@{ responsivePriority = 0; targets = $Index }
                 }
             }
             foreach ($_ in $ResponsivePriorityOrderIndex) {
-                @{ responsivePriority = 0; targets = $_ }
+                [pscustomobject]@{ responsivePriority = 0; targets = $_ }
             }
         )
-        $Options.columnDefs = @(
-            foreach ($_ in $PriorityOrderBinding) {
-                $PriorityOrder++
-                $_.responsivePriority = $PriorityOrder
-                $_
-            }
-       )
+
+        foreach ($_ in $PriorityOrderBinding) {
+            $PriorityOrder++
+            $_.responsivePriority = $PriorityOrder
+            $ColumnDefinitionList.Add($_)
+        }
     }
 
+    # The table column options also adds to the columnDefs parameter
     If ($TableColumnOptions.Count -gt 0) { 
-        If ($Options.columnDefs) { 
-            foreach ($_ in $TableColumnOptions) { 
-                $Options.columnDefs += $_
-            }
-        }
-        else { 
-            $Options.columnDefs = @( foreach($_ in $TableColumnOptions) { $_ })
+        foreach ($_ in $TableColumnOptions) { 
+            $ColumnDefinitionList.Add($_)
         }
     }
-    
-    If ($DisableAutoSizeOptimization) { 
+
+    # If we have a column definition list defined, then set the columnDefs option
+    If ($ColumnDefinitionList.Count -gt 0) { 
+        $Options.columnDefs = $ColumnDefinitionList.ToArray()
+    }
+
+    If ($DisableAutoWidthOptimization) { 
         $Options.autoWidth = $false
     }
 

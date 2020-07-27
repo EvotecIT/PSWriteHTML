@@ -1,24 +1,26 @@
 Import-Module "$($PSSCriptRoot)\..\..\PSWriteHTML.psm1" -Force
 
 $Process = Get-Process | Select-Object -First 20
+$ProcessesLimited = $Process | Select-Object -Property Id, Name, PriorityClass, ProductVersion, Company, Path, Description
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example39_01.html {
     New-HTMLContent -HeaderText 'Test' {
-        New-HTMLTable -DataTable $Process -PagingOptions @(5, 10, 50, 100) {
-            New-HTMLTableColumnOption -ColumnIndex 0 -Visible
-            New-HTMLTableColumnOption -AllColumns -Hidden            
+        New-HTMLTable -DataTable $ProcessesLimited -PagingOptions @(5, 10, 50, 100) {
+            New-TableColumnOption -ColumnIndex 0,1 -Hidden $false 
+            New-TableColumnOption -AllColumns -Hidden $true      
         }
     }
     New-HTMLContent -HeaderText 'Test' {
-        New-HTMLTable -DataTable $Process -PagingOptions @(5, 10, 50, 100) -DefaultSortColumn 'PriorityClass' {
-            New-HTMLTableColumnOption -ColumnIndex (0..1) -Width 50 -Visible
-            New-HTMLTableColumnOption -ColumnIndex (2..3) -Width 300 -Visible -DisableSearch
-            New-HTMLTableColumnOption -AllColumns -Hidden
+        New-HTMLTable -DataTable $ProcessesLimited -PagingOptions @(5, 10, 50, 100) -DefaultSortColumn 'Id' {
+            New-TableColumnOption -ColumnIndex (0..5) -Width 50
+            New-TableColumnOption -ColumnIndex 1 -Sortable $true
+            New-TableColumnOption -ColumnIndex 1,3,4 -Searchable $true 
+            New-TableColumnOption -AllColumns -Sortable $false -Searchable $false
 
         }
     }
-    New-HTMLTable -DataTable $Process -DefaultSortIndex 0 -OrderMulti {
-        New-HTMLTableColumnOption -ColumnIndex 0 -EnableOrdering -DisableSearch
-        New-HTMLTableColumnOption -AllColumns -DisableOrdering
+    New-HTMLTable -DataTable $ProcessesLimited -DefaultSortIndex 0 -OrderMulti {
+        New-TableColumnOption -ColumnIndex 0 -Sortable $true 
+        New-TableColumnOption -AllColumns -Sortable $false
     }
 } -ShowHTML
