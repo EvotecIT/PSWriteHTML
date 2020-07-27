@@ -281,10 +281,10 @@ $Script:Configuration = [ordered] @{
             Header  = @{
                 JSLink = @(
                     'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js'
-                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.3.3/justgage.min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.3.5/justgage.min.js'
                 )
                 JS     = @(
-                    "$PSScriptRoot\..\Resources\JS\raphael-min.js"
+                    "$PSScriptRoot\..\Resources\JS\raphael.min.js"
                     "$PSScriptRoot\..\Resources\JS\justgage.min.js"
                 )
             }
@@ -454,6 +454,5 @@ function Save-Resource {
 #Save-Resource -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.JsLink -Type 'JS'
 #Save-Resource -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.CssLink -Type 'CSS'
 
-
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.FullCalendar.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.FullCalendar.Header.Js -Verbose
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.FullCalendar.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.FullCalendar.Header.Css -Verbose
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.JustGage.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.JustGage.Header.Js -Verbose
+#Save-Resource -ResourceLinks $($Script:Configuration).Features.JustGage.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.JustGage.Header.Css -Verbose
