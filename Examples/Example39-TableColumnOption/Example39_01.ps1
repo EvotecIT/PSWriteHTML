@@ -1,4 +1,4 @@
-Import-Module "$($PSSCriptRoot)\..\..\PSWriteHTML.psm1" -Force
+Import-Module "$($PSSCriptRoot)\..\..\PSWriteHTML.psd1" -Force
 
 $Process = Get-Process | Select-Object -First 20
 $ProcessesLimited = $Process | Select-Object -Property Id, Name, PriorityClass, ProductVersion, Company, Path, Description
