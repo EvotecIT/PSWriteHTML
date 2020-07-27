@@ -58,6 +58,7 @@ function New-HTMLTable {
         [alias('RegularExpression')][switch]$SearchRegularExpression,
         [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak = 'normal',
         [switch] $AutoSize,
+        [switch] $DisableAutoWidthOptimization,
         [string] $Title
     )
     if (-not $Script:HTMLSchema.Features) {
@@ -76,6 +77,10 @@ function New-HTMLTable {
     $ContentTop = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ContentFormattingInline = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ReplaceCompare = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
+    $TableColumnOptions = [System.Collections.Generic.List[PSCustomObject]]::new()
+
+    # This will be used to store the colulmnDef option for the datatable
+    $ColumnDefinitionList = [System.Collections.Generic.List[PSCustomObject]]::New()
     $RowGrouping = @{ }
 
     if ($HTML) {
@@ -119,6 +124,8 @@ function New-HTMLTable {
                     $ReplaceCompare.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableRowGrouping') {
                     $RowGrouping = $Parameters.Output
+                } elseif ($Parameters.Type -eq 'TableColumnOption') {
+                    $TableColumnOptions.Add($Parameters.Output)
                 }
             }
         }
@@ -440,20 +447,35 @@ function New-HTMLTable {
             foreach ($_ in $ResponsivePriorityOrder) {
                 $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
                 if ($Index -ne -1) {
-                    @{ responsivePriority = 0; targets = $Index }
+                    [pscustomobject]@{ responsivePriority = 0; targets = $Index }
                 }
             }
             foreach ($_ in $ResponsivePriorityOrderIndex) {
-                @{ responsivePriority = 0; targets = $_ }
+                [pscustomobject]@{ responsivePriority = 0; targets = $_ }
             }
         )
-        $Options.columnDefs = @(
-            foreach ($_ in $PriorityOrderBinding) {
-                $PriorityOrder++
-                $_.responsivePriority = $PriorityOrder
-                $_
-            }
-        )
+
+        foreach ($_ in $PriorityOrderBinding) {
+            $PriorityOrder++
+            $_.responsivePriority = $PriorityOrder
+            $ColumnDefinitionList.Add($_)
+        }
+    }
+
+    # The table column options also adds to the columnDefs parameter
+    If ($TableColumnOptions.Count -gt 0) { 
+        foreach ($_ in $TableColumnOptions) { 
+            $ColumnDefinitionList.Add($_)
+        }
+    }
+
+    # If we have a column definition list defined, then set the columnDefs option
+    If ($ColumnDefinitionList.Count -gt 0) { 
+        $Options.columnDefs = $ColumnDefinitionList.ToArray()
+    }
+
+    If ($DisableAutoWidthOptimization) { 
+        $Options.autoWidth = $false
     }
 
     $Options = $Options | ConvertTo-Json -Depth 6
