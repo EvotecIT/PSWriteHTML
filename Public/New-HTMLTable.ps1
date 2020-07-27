@@ -463,18 +463,18 @@ function New-HTMLTable {
     }
 
     # The table column options also adds to the columnDefs parameter
-    If ($TableColumnOptions.Count -gt 0) { 
-        foreach ($_ in $TableColumnOptions) { 
+    If ($TableColumnOptions.Count -gt 0) {
+        foreach ($_ in $TableColumnOptions) {
             $ColumnDefinitionList.Add($_)
         }
     }
 
     # If we have a column definition list defined, then set the columnDefs option
-    If ($ColumnDefinitionList.Count -gt 0) { 
+    If ($ColumnDefinitionList.Count -gt 0) {
         $Options.columnDefs = $ColumnDefinitionList.ToArray()
     }
 
-    If ($DisableAutoWidthOptimization) { 
+    If ($DisableAutoWidthOptimization) {
         $Options.autoWidth = $false
     }
 

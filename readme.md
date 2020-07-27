@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.90 - 2020.07.27
+  - Added `New-TableColumnOption` for `New-HTMLTable` - tnx zsoch [#138](https://github.com/EvotecIT/PSWriteHTML/pull/138)
 - 0.0.89 - 2020.07.23
   - Fix for Tooltips in FullCalendar 5.1 - tnx smasterson [#137](https://github.com/EvotecIT/PSWriteHTML/pull/137)
 - 0.0.88 - 2020.07.21
