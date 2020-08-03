@@ -318,7 +318,7 @@ function New-HTMLTable {
                             title  = $Title
                         }
                     }
-                    Remove-EmptyValues -Hashtable $ButtonOutput
+                    Remove-EmptyValue -Hashtable $ButtonOutput
                     $ButtonOutput
                 }
             }

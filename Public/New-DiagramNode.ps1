@@ -349,8 +349,8 @@ function New-DiagramNode {
         y                   = $Y
     }
 
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
-    Remove-EmptyValues -Hashtable $Object.Edges -Recursive
+    Remove-EmptyValue -Hashtable $Object.Settings -Recursive -Rerun 2
+    Remove-EmptyValue -Hashtable $Object.Edges -Recursive
     $Object
 }
 Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorBorder -ScriptBlock $Script:ScriptBlockColors

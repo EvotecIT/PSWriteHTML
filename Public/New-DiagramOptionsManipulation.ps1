@@ -63,6 +63,6 @@
             }
         }
     }
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive
+    Remove-EmptyValue -Hashtable $Object.Settings -Recursive
     $Object
 }

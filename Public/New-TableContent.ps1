@@ -39,7 +39,7 @@
         Direction       = $Direction
         WordBreak       = $WordBreakStyle
     }
-    Remove-EmptyValues -Hashtable $Style
+    Remove-EmptyValue -Hashtable $Style
 
     [PSCustomObject]@{
         Type   = 'TableContentStyle'

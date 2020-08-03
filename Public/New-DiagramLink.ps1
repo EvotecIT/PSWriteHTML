@@ -84,8 +84,8 @@
             widthConstraint    = $WidthConstraint
         }
     }
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive
-    Remove-EmptyValues -Hashtable $Object.Edges -Recursive -Rerun 2
+    Remove-EmptyValue -Hashtable $Object.Settings -Recursive
+    Remove-EmptyValue -Hashtable $Object.Edges -Recursive -Rerun 2
     $Object
 }
 Register-ArgumentCompleter -CommandName New-DiagramLink -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

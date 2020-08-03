@@ -51,7 +51,7 @@
         value = $Value
     }
 
-    # When null it will be removed as part of cleanup Remove-EmptyValues
+    # When null it will be removed as part of cleanup Remove-EmptyValue
     $Gage.shadowSize = $ShadowSize
     $Gage.shadowOpacity = $ShadowOpacity
     $Gage.shadowVerticalOffset = $ShadowVerticalOffset
@@ -170,7 +170,7 @@
         #}
     }
     $gage.relativeGaugeSize = $true
-    Remove-EmptyValues -Hashtable $Gage -Rerun 1 -Recursive
+    Remove-EmptyValue -Hashtable $Gage -Rerun 1 -Recursive
 
     # Build HTML
     $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $Gage.id; }

@@ -21,7 +21,7 @@
             }
         }
     }
-    Remove-EmptyValues -Hashtable $Object.Output
+    Remove-EmptyValue -Hashtable $Object.Output
     $Object
 }
 

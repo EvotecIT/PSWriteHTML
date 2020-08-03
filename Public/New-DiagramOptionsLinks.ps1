@@ -78,7 +78,7 @@ function New-DiagramOptionsLinks {
             }
         }
     }
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
+    Remove-EmptyValue -Hashtable $Object.Settings -Recursive -Rerun 2
     $Object
 }
 Register-ArgumentCompleter -CommandName New-DiagramOptionsLinks -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

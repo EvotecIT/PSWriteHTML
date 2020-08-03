@@ -36,6 +36,6 @@
         'word-break'       = $WordBreak
     }
     # Removes empty, not needed values from hashtable. It's much easier then using if/else to verify for null/empty string
-    Remove-EmptyValues -Hashtable $Style
+    Remove-EmptyValue -Hashtable $Style
     return $Style
 }

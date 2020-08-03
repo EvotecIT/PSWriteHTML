@@ -38,7 +38,7 @@
     if ($Source.Count -gt 0) {
         $FancyTree['source'] = $Source
     }
-    Remove-EmptyValues -Hashtable $FancyTree -Rerun 1 -Recursive
+    Remove-EmptyValue -Hashtable $FancyTree -Rerun 1 -Recursive
 
     # Build HTML
     $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; }

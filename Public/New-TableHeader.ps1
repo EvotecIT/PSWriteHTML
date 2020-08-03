@@ -69,7 +69,7 @@
         TextTransform   = $TextTransform
         Direction       = $Direction
     }
-    Remove-EmptyValues -Hashtable $Style
+    Remove-EmptyValue -Hashtable $Style
 
     if (($AddRow -and $Title) -or ($Title -and -not $Names)) {
         $Type = 'TableHeaderFullRow'

@@ -34,7 +34,7 @@ function New-TableCondition {
         TextTransform   = $TextTransform
         Direction       = $Direction
     }
-    Remove-EmptyValues -Hashtable $Style
+    Remove-EmptyValue -Hashtable $Style
 
     $TableCondition = [PSCustomObject] @{
         Row             = $Row

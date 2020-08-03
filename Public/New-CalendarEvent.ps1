@@ -27,7 +27,7 @@
         $Object.Settings.end = Get-Date -Date ($EndDate) -Format "yyyy-MM-ddTHH:mm:ss"
     }
 
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive #-Rerun 2
+    Remove-EmptyValue -Hashtable $Object.Settings -Recursive #-Rerun 2
     $Object
 }
 Register-ArgumentCompleter -CommandName New-CalendarEvent -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

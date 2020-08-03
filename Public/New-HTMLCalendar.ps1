@@ -91,7 +91,7 @@
             listMonth = @{ buttonText = 'list month' }
         }
     }
-    Remove-EmptyValues -Hashtable $Calendar -Recursive
+    Remove-EmptyValue -Hashtable $Calendar -Recursive
     $CalendarJSON = $Calendar | ConvertTo-Json -Depth 7
 
     # Adding function for ToolTips / need cleaner way

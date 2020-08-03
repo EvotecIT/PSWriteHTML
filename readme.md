@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.91 - 2020.08.03
+  - Refreshing release - fix for Remove-EmptyValue
 - 0.0.90 - 2020.07.27
   - Added `New-TableColumnOption` for `New-HTMLTable` - tnx zsoch [#138](https://github.com/EvotecIT/PSWriteHTML/pull/138)
   - Removed dead/old `FullCalendar` js code

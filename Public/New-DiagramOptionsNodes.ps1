@@ -97,7 +97,7 @@ function New-DiagramOptionsNodes {
     }
 
 
-    Remove-EmptyValues -Hashtable $Object.Settings -Recursive -Rerun 2
+    Remove-EmptyValue -Hashtable $Object.Settings -Recursive -Rerun 2
     $Object
 }
 
