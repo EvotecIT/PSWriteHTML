@@ -1,5 +1,5 @@
 ﻿function New-HierarchicalTreeNode {
-    [alias('New-HierarchicalTreeNode', 'HierarchicalTreeNode')]
+    [alias('HierarchicalTreeNode')]
     [CmdletBinding()]
     param(
         [string] $ID,
