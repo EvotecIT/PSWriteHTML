@@ -1,4 +1,4 @@
-﻿Import-Module .\PSWriteHTML.psd1 -Force
+﻿#Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example33_01.html" {
     New-HTMLTree -Checkbox none {
@@ -11,4 +11,4 @@ New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example33_01.html"
             }
         }
     }
-} -Online #-ShowHTML
+} -Online -ShowHTML

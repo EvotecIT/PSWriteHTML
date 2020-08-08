@@ -4,7 +4,7 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
 $Content = Get-ChildItem -LiteralPath 'C:\Support\Application-FFMPG' -Recurse
-$CurrentParent = $_.PSParentPath -replace 'Microsoft.PowerShell.Core\FileSystem::',''
+#$CurrentParent = $_.PSParentPath -replace 'Microsoft.PowerShell.Core\FileSystem::',''
 if ($CurrentParent) {
 
 
