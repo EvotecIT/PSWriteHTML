@@ -13,11 +13,10 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLCalendar [[-CalendarSettings] <ScriptBlock>] [[-Plugins] <String[]>] [[-HeaderLeft] <String[]>]
- [[-HeaderCenter] <String[]>] [[-HeaderRight] <String[]>] [[-DefaultDate] <DateTime>]
- [[-NavigationLinks] <Boolean>] [[-NowIndicator] <Boolean>] [[-EventLimit] <Boolean>]
- [[-WeekNumbers] <Boolean>] [[-WeekNumbersWithinDays] <Boolean>] [[-Selectable] <Boolean>]
- [[-SelectMirror] <Boolean>] [-BusinessHours] [-Editable] [<CommonParameters>]
+New-HTMLCalendar [[-CalendarSettings] <ScriptBlock>] [[-HeaderLeft] <String[]>] [[-HeaderCenter] <String[]>]
+ [[-HeaderRight] <String[]>] [[-DefaultDate] <DateTime>] [[-NavigationLinks] <Boolean>]
+ [[-NowIndicator] <Boolean>] [[-EventLimit] <Boolean>] [[-WeekNumbers] <Boolean>] [[-Selectable] <Boolean>]
+ [[-SelectMirror] <Boolean>] [-BusinessHours] [-Editable] [[-InitialView] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -73,7 +72,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 5
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -103,7 +102,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 8
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -119,7 +118,7 @@ Aliases:
 Accepted values: prev, next, today, prevYear, nextYear, dayGridDay, dayGridWeek, dayGridMonth, timeGridWeek, timeGridDay, listDay, listWeek, listMonth, title
 
 Required: False
-Position: 3
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -135,7 +134,7 @@ Aliases:
 Accepted values: prev, next, today, prevYear, nextYear, dayGridDay, dayGridWeek, dayGridMonth, timeGridWeek, timeGridDay, listDay, listWeek, listMonth, title
 
 Required: False
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -151,7 +150,23 @@ Aliases:
 Accepted values: prev, next, today, prevYear, nextYear, dayGridDay, dayGridWeek, dayGridMonth, timeGridWeek, timeGridDay, listDay, listWeek, listMonth, title
 
 Required: False
-Position: 4
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -InitialView
+{{ Fill InitialView Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: dayGridDay, dayGridWeek, dayGridMonth, timeGridDay, timeGridWeek, listDay, listWeek, listMonth
+
+Required: False
+Position: 11
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -166,7 +181,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 6
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -181,23 +196,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 7
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Plugins
-{{ Fill Plugins Description }}
-
-```yaml
-Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: interaction, dayGrid, timeGrid, list, rrule
-
-Required: False
-Position: 1
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -212,7 +211,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 12
+Position: 10
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -227,7 +226,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 11
+Position: 9
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -242,22 +241,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 9
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -WeekNumbersWithinDays
-{{ Fill WeekNumbersWithinDays Description }}
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 10
+Position: 8
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

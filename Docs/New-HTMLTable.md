@@ -25,7 +25,8 @@ New-HTMLTable [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostConte
  [-ResponsivePriorityOrder <String[]>] [-ResponsivePriorityOrderIndex <Int32[]>]
  [-PriorityProperties <String[]>] [-DataTableID <String>] [-ImmediatelyShowHiddenDetails] [-HideShowButton]
  [-AllProperties] [-SkipProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>]
- [-CompareReplace <Array>] [-SearchRegularExpression] [-WordBreak <String>] [-AutoSize] [<CommonParameters>]
+ [-CompareReplace <Array>] [-SearchRegularExpression] [-WordBreak <String>] [-AutoSize]
+ [-DisableAutoWidthOptimization] [-Title <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -201,6 +202,21 @@ Type: String
 Parameter Sets: (All)
 Aliases:
 Accepted values: Ascending, Descending
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DisableAutoWidthOptimization
+{{ Fill DisableAutoWidthOptimization Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named
@@ -859,6 +875,21 @@ Accept wildcard characters: False
 
 ### -TextWhenNoData
 {{ Fill TextWhenNoData Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Title
+{{ Fill Title Description }}
 
 ```yaml
 Type: String
