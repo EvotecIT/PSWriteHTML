@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.92 - 2020.08.08
+  - Fixes `New-HierarchicalTreeNode` not recognized in latest modules [#141](https://github.com/EvotecIT/PSWriteHTML/issues/141)
 - 0.0.91 - 2020.08.03
   - Refreshing release - fix for Remove-EmptyValue
 - 0.0.90 - 2020.07.27
