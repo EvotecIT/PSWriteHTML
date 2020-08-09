@@ -1,10 +1,8 @@
-﻿Describe 'New-HTMLTable' {
-    It 'Given New-HTMLTable we should get same nr of rows and properties per each row' {
+﻿Describe 'Out-HTMLView' {
+    It 'Given Out-HTMLView (Standard Object Array) we should get same nr of rows and properties per each row' {
         $FilePath = "$PSScriptRoot\TemporaryTest.html"
         $Process = Get-Process | Select-Object -First 5
-        New-HTML {
-            New-HTMLTable -DataTable $Process -HideFooter
-        } -FilePath $FilePath
+        Out-HtmlView -DataTable $Process -HideFooter -FilePath $FilePath -PreventShowHTML
         $Content = Get-Content -Path $FilePath -Raw
         $TableOutput = ConvertFrom-HtmlTable -Content $Content
         for ($i = 0; $i -lt $TableOutput.Count; $i++) {
@@ -28,9 +26,7 @@
                 TEst2 = 'TEst2'
             }
         )
-        New-HTML {
-            New-HTMLTable -DataTable $Process -HideFooter
-        } -FilePath $FilePath
+        Out-HtmlView -DataTable $Process -HideFooter -FilePath $FilePath -PreventShowHTML
         $Content = Get-Content -Path $FilePath -Raw
         $TableOutput = ConvertFrom-HtmlTable -Content $Content
         for ($i = 0; $i -lt $TableOutput.Count; $i++) {
@@ -62,9 +58,7 @@
                 TEst2 = 'TEst2'
             }
         )
-        New-HTML {
-            New-HTMLTable -DataTable $Process -HideFooter
-        } -FilePath $FilePath
+        Out-HtmlView -DataTable $Process -HideFooter -FilePath $FilePath -PreventShowHTML
         $Content = Get-Content -Path $FilePath -Raw
         $TableOutput = ConvertFrom-HtmlTable -Content $Content
         for ($i = 0; $i -lt $TableOutput.Count; $i++) {
