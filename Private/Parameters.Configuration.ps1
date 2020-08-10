@@ -359,22 +359,18 @@ $Script:Configuration = [ordered] @{
                         'border-radius'   = '4px'
                         'justify-content' = 'center'
                     }
-
                     '[data-tabs]>*'        = [ordered]@{
                         'cursor'  = 'pointer'
                         'padding' = '10px 20px'
                     }
-
                     '[data-tabs] .active'  = [ordered]@{
                         'background'    = '#1e90ff' # DodgerBlue
                         'color'         = '#fff'
                         'border-radius' = '4px'
                     }
-
                     '[data-panes]>*'       = [ordered]@{
                         'display' = 'none'
                     }
-
                     '[data-panes]>.active' = [ordered]@{
                         'display' = 'block'
                     }
@@ -455,6 +451,8 @@ function Save-Resource {
     }
     $Output
 }
+
+#$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
 
 #Save-Resource -ResourceLinks $($Script:Configuration).Features.Fonts.HeaderAlways.JsLink -Type 'JS'
 #Save-Resource -ResourceLinks $($Script:Configuration).Features.Fonts.HeaderAlways.CssLink -Type 'CSS'
