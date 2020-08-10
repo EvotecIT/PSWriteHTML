@@ -323,6 +323,7 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
+        <#
         Tabs                 = @{
             Comment              = 'Elastic Tabs'
             HeaderAlways         = @{
@@ -336,6 +337,7 @@ $Script:Configuration = [ordered] @{
                 'ColorTarget'   = ConvertFrom-Color -Color "MediumSlateBlue"
             }
         }
+        #>
         Tabbis               = @{
             Comment      = 'Elastic Tabbis'
             HeaderAlways = @{
