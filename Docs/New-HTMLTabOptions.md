@@ -13,8 +13,10 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLTabOptions [-SlimTabs] [[-SelectorColor] <String>] [[-SelectorColorTarget] <String>] [-Transition]
- [-LinearGradient] [[-BorderRadius] <String>] [[-BorderBackgroundColor] <String>] [<CommonParameters>]
+New-HTMLTabOptions [[-TextSize] <String>] [[-TextColor] <String>] [-SlimTabs] [[-BackgroundColor] <String>]
+ [[-BackgroundColorActive] <String>] [[-BackgroundColorActiveTarget] <String>] [-Transition] [-LinearGradient]
+ [[-BorderRadius] <String>] [[-BorderBackgroundColor] <String>] [[-Align] <String>]
+ [[-TextTransformAllTab] <String>] [[-TextTransformActiveTab] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,6 +33,67 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
+### -Align
+{{ Fill Align Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: left, right, center, justify
+
+Required: False
+Position: 7
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BackgroundColor
+{{ Fill BackgroundColor Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BackgroundColorActive
+{{ Fill BackgroundColorActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: SelectorColor
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BackgroundColorActiveTarget
+{{ Fill BackgroundColorActiveTarget Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: SelectorColorTarget
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -BorderBackgroundColor
 {{ Fill BorderBackgroundColor Description }}
 
@@ -40,7 +103,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -56,7 +119,7 @@ Aliases:
 Accepted values: 0px, 10px, 15px, 25px
 
 Required: False
-Position: 2
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -77,23 +140,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SelectorColor
-{{ Fill SelectorColor Description }}
+### -SlimTabs
+{{ Fill SlimTabs Description }}
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 0
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SelectorColorTarget
-{{ Fill SelectorColorTarget Description }}
+### -TextColor
+{{ Fill TextColor Description }}
 
 ```yaml
 Type: String
@@ -107,16 +170,48 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SlimTabs
-{{ Fill SlimTabs Description }}
+### -TextSize
+{{ Fill TextSize Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TextTransformActiveTab
+{{ Fill TextTransformActiveTab Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: uppercase, lowercase, capitalize
+
+Required: False
+Position: 9
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TextTransformAllTab
+{{ Fill TextTransformAllTab Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: uppercase, lowercase, capitalize
+
+Required: False
+Position: 8
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
