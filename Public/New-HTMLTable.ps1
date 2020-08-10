@@ -601,7 +601,7 @@ function New-HTMLTable {
     }
 
     if ($RowGrouping.Attributes.Count -gt 0) {
-        $RowGroupingCSS = ConvertTo-CSS -ID $DataTableID -ClassName 'tr.dtrg-group td' -Attributes $RowGrouping.Attributes -Group
+        $RowGroupingCSS = ConvertTo-LimitedCSS -ID $DataTableID -ClassName 'tr.dtrg-group td' -Attributes $RowGrouping.Attributes -Group
     } else {
         $RowGroupingCSS = ''
     }
@@ -613,7 +613,7 @@ function New-HTMLTable {
 
         if ($WordBreak -ne 'normal') {
             New-HTMLTag -Tag 'style' {
-                ConvertTo-CSS -ClassName 'td' -ID $TableAttributes.id -Attributes @{ 'word-break' = $WordBreak }
+                ConvertTo-LimitedCSS -ClassName 'td' -ID $TableAttributes.id -Attributes @{ 'word-break' = $WordBreak }
             }
         }
 

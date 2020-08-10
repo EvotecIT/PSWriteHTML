@@ -31,7 +31,7 @@ Function New-HTMLPanel {
             'flex-basis' = if ($Width) { $Width } else { '100%' }
             'margin'     = if ($Margin) { $Margin }
         }
-        $Css = ConvertTo-CSS -ClassName $ClassName -Attributes $Attributes
+        $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes
 
         $Script:HTMLSchema.CustomHeaderCSS.Add($Css)
         [string] $Class = "$ClassName overflowHidden"

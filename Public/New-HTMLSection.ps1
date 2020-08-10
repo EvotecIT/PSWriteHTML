@@ -91,7 +91,7 @@ Function New-HTMLSection {
             'align-content'  = if ($AlignContent) { $AlignContent } else { }
             'align-items'    = if ($AlignItems) { $AlignItems } else { }
         }
-        $Css = ConvertTo-CSS -ClassName $ClassName -Attributes $Attributes
+        $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes
 
         $Script:HTMLSchema.CustomHeaderCSS.Add($Css)
     } else {

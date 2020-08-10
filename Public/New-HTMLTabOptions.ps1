@@ -4,8 +4,8 @@
     param(
         [string] $TextSize,
         [string] $TextColor,
-        [string] $TextSizeActive,
-        [string] $TextColorActive,
+        #[string] $TextSizeActive,
+        #[string] $TextColorActive,
         [switch] $SlimTabs,
         [string] $BackgroundColor,
         [alias('SelectorColor')][string] $BackgroundColorActive,
@@ -47,7 +47,7 @@
         $AttributesSlimTabs = @{
             'display' = 'inline-block'
         }
-        $SlimTabsCss = ConvertTo-CSS -ClassName 'tabsSlimmer' -Attributes $AttributesSlimTabs
+        $SlimTabsCss = ConvertTo-LimitedCSS -ClassName 'tabsSlimmer' -Attributes $AttributesSlimTabs
         $Script:HTMLSchema.CustomHeaderCSS.Add($SlimTabsCss)
     }
 
@@ -58,7 +58,7 @@
         'font-size'      = ConvertFrom-FontSize -TextSize $TextSize
         'color'          = ConvertFrom-Color -Color $TextColor
     }
-    $Tabbis = ConvertTo-CSS -ClassName 'tabsWrapper' -Attributes $AttributesAll
+    $Tabbis = ConvertTo-LimitedCSS -ClassName 'tabsWrapper' -Attributes $AttributesAll
     $Script:HTMLSchema.CustomHeaderCSS.Add($Tabbis)
 
     # This controls Active tab
@@ -68,7 +68,7 @@
         'border-radius'  = $BorderRadius
         'text-transform' = $TextTransformActiveTab
     }
-    $Tabbis = ConvertTo-CSS -ClassName '[data-tabs] .active' -Attributes $AttributesDefault
+    $Tabbis = ConvertTo-LimitedCSS -ClassName '[data-tabs] .active' -Attributes $AttributesDefault
     $Script:HTMLSchema.CustomHeaderCSS.Add($Tabbis)
 
     # This adds styling in new New-HTMLTabHead for all tabs
@@ -87,14 +87,14 @@
         'border-radius'    = "$BorderRadius";
         'background-color' = ConvertFrom-Color -Color $BorderBackgroundColor
     }
-    $BorderStyleCss = ConvertTo-CSS -ClassName 'tabsBorderStyle' -Attributes $BorderStyle
+    $BorderStyleCss = ConvertTo-LimitedCSS -ClassName 'tabsBorderStyle' -Attributes $BorderStyle
     $Script:HTMLSchema.CustomHeaderCSS.Add($BorderStyleCss)
 
 
     $BorderStyleRadius = @{
-        'border-radius'    = "$BorderRadius";
+        'border-radius' = "$BorderRadius";
     }
-    $BorderStyleCss = ConvertTo-CSS -ClassName 'tabsBorderStyleRadius' -Attributes $BorderStyleRadius
+    $BorderStyleCss = ConvertTo-LimitedCSS -ClassName 'tabsBorderStyleRadius' -Attributes $BorderStyleRadius
     $Script:HTMLSchema.CustomHeaderCSS.Add($BorderStyleCss)
 
     # This adds Gradient
@@ -105,7 +105,7 @@
             'background  ' = "linear-gradient(45deg, $BackGroundColorActiveSelector 0%, $BackGroundColorActiveSelectorTarget 100%)"
             'filter'       = "progid:DXImageTransform.Microsoft.gradient(startColorstr='$BackGroundColorActiveSelector', endColorstr='$BackGroundColorActiveSelectorTarget', GradientType=1)"
         }
-        $TabbisGradient = ConvertTo-CSS -ClassName '[data-tabs] .active' -Attributes $AttributesGradient
+        $TabbisGradient = ConvertTo-LimitedCSS -ClassName '[data-tabs] .active' -Attributes $AttributesGradient
         $Script:HTMLSchema.CustomHeaderCSS.Add($TabbisGradient)
     }
 
@@ -115,7 +115,7 @@
             'transition-duration'        = '0.6s'
             'transition-timing-function' = 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
         }
-        $TabbisTransition = ConvertTo-CSS -ClassName '[data-tabs] .active' -Attributes $AttributesTransition
+        $TabbisTransition = ConvertTo-LimitedCSS -ClassName '[data-tabs] .active' -Attributes $AttributesTransition
         $Script:HTMLSchema.CustomHeaderCSS.Add($TabbisTransition)
     }
 }

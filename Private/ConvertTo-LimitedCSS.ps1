@@ -1,4 +1,4 @@
-﻿function ConvertTo-CSS {
+﻿function ConvertTo-LimitedCSS {
     [CmdletBinding()]
     param(
         [string] $ID,
