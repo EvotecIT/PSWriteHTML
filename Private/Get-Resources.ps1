@@ -7,12 +7,12 @@ function Get-Resources {
     )
     DynamicParam {
         # Defines Features Parameter Dynamically
-        $Names = $Script:Configuration.Features.Keys
+        $Names = $Script:CurrentConfiguration.Features.Keys
         $ParamAttrib = New-Object System.Management.Automation.ParameterAttribute
         $ParamAttrib.Mandatory = $true
         $ParamAttrib.ParameterSetName = '__AllParameterSets'
 
-        $ReportAttrib = New-Object  System.Collections.ObjectModel.Collection[System.Attribute]
+        $ReportAttrib = New-Object System.Collections.ObjectModel.Collection[System.Attribute]
         $ReportAttrib.Add($ParamAttrib)
         $ReportAttrib.Add((New-Object System.Management.Automation.ValidateSetAttribute($Names)))
         $ReportRuntimeParam = New-Object System.Management.Automation.RuntimeDefinedParameter('Features', [string[]], $ReportAttrib)
@@ -27,26 +27,32 @@ function Get-Resources {
 
             Write-Verbose "Get-Resources - Location: $Location - Feature: $Feature Online: $Online"
             if ($Online) {
-                New-HTMLResourceCSS -Link $Script:Configuration.Features.$Feature.$Location.'CssLink' -ResourceComment $Script:Configuration.Features.$Feature.Comment
+                New-HTMLResourceCSS -Link $Script:CurrentConfiguration.Features.$Feature.$Location.'CssLink' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment
             } else {
                 $CSSOutput = New-HTMLResourceCSS `
-                    -FilePath $Script:Configuration.Features.$Feature.$Location.'Css' `
-                    -ResourceComment $Script:Configuration.Features.$Feature.Comment `
-                    -Replace $Script:Configuration.Features.$Feature.CustomActionsReplace
+                    -FilePath $Script:CurrentConfiguration.Features.$Feature.$Location.'Css' `
+                    -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment `
+                    -Replace $Script:CurrentConfiguration.Features.$Feature.CustomActionsReplace
+                Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "../images/"
+
+                $CSSOutput = New-HTMLResourceCSS `
+                    -CssInline $Script:CurrentConfiguration.Features.$Feature.$Location.'CssInline' `
+                    -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment `
+                    -Replace $Script:CurrentConfiguration.Features.$Feature.CustomActionsReplace
                 Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "../images/"
             }
             if ($Online) {
-                New-HTMLResourceJS -Link $Script:Configuration.Features.$Feature.$Location.'JsLink' -ResourceComment $Script:Configuration.Features.$Feature.Comment
+                New-HTMLResourceJS -Link $Script:CurrentConfiguration.Features.$Feature.$Location.'JsLink' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment
             } else {
-                New-HTMLResourceJS -FilePath $Script:Configuration.Features.$Feature.$Location.'Js' -ResourceComment $Script:Configuration.Features.$Feature.Comment -ReplaceData $Script:Configuration.Features.$Feature.CustomActionsReplace
+                New-HTMLResourceJS -FilePath $Script:CurrentConfiguration.Features.$Feature.$Location.'Js' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -ReplaceData $Script:CurrentConfiguration.Features.$Feature.CustomActionsReplace
             }
 
             if ($NoScript) {
                 [Array] $Output = @(
                     if ($Online) {
-                        New-HTMLResourceCSS -Link $Script:Configuration.Features.$Feature.$Location.'CssLinkNoScript' -ResourceComment $Script:Configuration.Features.$Feature.Comment
+                        New-HTMLResourceCSS -Link $Script:CurrentConfiguration.Features.$Feature.$Location.'CssLinkNoScript' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment
                     } else {
-                        $CSSOutput = New-HTMLResourceCSS -FilePath $Script:Configuration.Features.$Feature.$Location.'CssNoScript' -ResourceComment $Script:Configuration.Features.$Feature.Comment -ReplaceData $Script:Configuration.Features.$Feature.CustomActionsReplace
+                        $CSSOutput = New-HTMLResourceCSS -FilePath $Script:CurrentConfiguration.Features.$Feature.$Location.'CssNoScript' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -ReplaceData $Script:CurrentConfiguration.Features.$Feature.CustomActionsReplace
                         Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "../images/"
                     }
                 )

@@ -14,7 +14,7 @@ function New-HTMLResourceJS {
             if ($File -ne '') {
                 if (Test-Path -LiteralPath $File) {
                     New-HTMLTag -Tag 'script' -Attributes @{ type = 'text/javascript' } {
-                        # Replaces stuff based on $Script:Configuration CustomActionReplace Entry
+                        # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
                         $FileContent = Get-Content -LiteralPath $File
                         if ($null -ne $ReplaceData) {
                             foreach ($_ in $ReplaceData.Keys) {

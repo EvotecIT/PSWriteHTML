@@ -22,6 +22,10 @@ Function New-HTML {
     }
 
     [string] $CurrentDate = (Get-Date).ToString($DateFormat)
+
+    # This makes sure we use always fresh copy
+    $Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
+
     $Script:HTMLSchema = @{
         TabsHeaders       = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
         TabsHeadersNested = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers

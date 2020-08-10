@@ -1,7 +1,8 @@
 ﻿function ConvertTo-CascadingStyleSheets {
     [cmdletBinding()]
     param(
-        [Parameter(ValueFromPipeline, ValueFromPipelineByPropertyName)][System.Collections.IDictionary] $Css
+        [Parameter(ValueFromPipeline, ValueFromPipelineByPropertyName)][System.Collections.IDictionary] $Css,
+        [switch] $WithTags
     )
     Process {
         if ($Css) {
@@ -11,7 +12,8 @@
             # Means empty value after we removed all empty values
             return
         }
-        foreach ($Key in $Css.Keys) {
+
+        $Output = foreach ($Key in $Css.Keys) {
             "$Key {"
             foreach ($_ in $Css[$Key].Keys) {
                 if ($null -ne $Css[$Key][$_]) {
@@ -22,6 +24,13 @@
             }
             "}"
             ''
+        }
+        if ($WithTags) {
+            New-HTMLTag -Tag 'style' {
+                $Output
+            }
+        } else {
+            $Output
         }
     }
 }

@@ -6,6 +6,7 @@ function New-HTMLResourceCSS {
         [string[]] $Link,
         [string] $ResourceComment,
         [string[]] $FilePath,
+        [System.Collections.IDictionary] $CssInline,
         [System.Collections.IDictionary] $ReplaceData
 
     )
@@ -16,7 +17,7 @@ function New-HTMLResourceCSS {
                 if (Test-Path -LiteralPath $File) {
                     New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
                         Write-Verbose "New-HTMLResourceCSS - Reading file from $File"
-                        # Replaces stuff based on $Script:Configuration CustomActionReplace Entry
+                        # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
                         $FileContent = Get-Content -LiteralPath $File
                         if ($null -ne $ReplaceData) {
                             foreach ($_ in $ReplaceData.Keys) {
@@ -33,6 +34,9 @@ function New-HTMLResourceCSS {
                 Write-Verbose "New-HTMLResourceCSS - Adding link $L"
                 New-HTMLTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $L } -SelfClosing -NewLine
             }
+        }
+        if ($CssInline) {
+            ConvertTo-CascadingStyleSheets -Css $CssInline -WithTags
         }
         "<!-- CSS $ResourceComment END -->"
     )

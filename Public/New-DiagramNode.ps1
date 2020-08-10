@@ -247,7 +247,7 @@ function New-DiagramNode {
 
             } else {
                 $NodeShape = 'image'
-                $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'brands/', $IconBrands, '.svg')
+                $Image = -join ($Script:CurrentConfiguration.Features.FontsAwesome.Other.Link, 'brands/', $IconBrands, '.svg')
             }
         } elseif ($IconRegular) {
             if (-not $IconAsImage) {
@@ -260,7 +260,7 @@ function New-DiagramNode {
                 }
             } else {
                 $NodeShape = 'image'
-                $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'regular/', $IconRegular, '.svg')
+                $Image = -join ($Script:CurrentConfiguration.Features.FontsAwesome.Other.Link, 'regular/', $IconRegular, '.svg')
             }
         } else {
             if (-not $IconAsImage) {
@@ -274,7 +274,7 @@ function New-DiagramNode {
 
             } else {
                 $NodeShape = 'image'
-                $Image = -join ($Script:Configuration.Features.FontsAwesome.Other.Link, 'solid/', $IconSolid, '.svg')
+                $Image = -join ($Script:CurrentConfiguration.Features.FontsAwesome.Other.Link, 'solid/', $IconSolid, '.svg')
             }
         }
     } elseif ($Image) {
