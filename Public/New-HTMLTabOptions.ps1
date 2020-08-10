@@ -2,9 +2,14 @@
     [alias('TabOptions')]
     [CmdletBinding()]
     param(
+        [string] $TextSize,
+        [string] $TextColor,
+        [string] $TextSizeActive,
+        [string] $TextColorActive,
         [switch] $SlimTabs,
-        [string] $SelectorColor,
-        [string] $SelectorColorTarget,
+        [string] $BackgroundColor,
+        [alias('SelectorColor')][string] $BackgroundColorActive,
+        [alias('SelectorColorTarget')][string] $BackgroundColorActiveTarget,
         [switch] $Transition,
         [switch] $LinearGradient,
         [ValidateSet('0px', '10px', '15px', '25px')][string] $BorderRadius = '0px',
@@ -19,16 +24,21 @@
         Write-Warning 'New-HTMLTabOptions - Creation of HTML aborted. Most likely New-HTML is missing.'
         Exit
     }
+    if ($BackgroundColorActive -and $BackgroundColorActiveTarget -and (-not $LinearGradient)) {
+        Write-Warning "New-HTMLTabOptions - Using BackgroundColorActiveTarget without LinearGradient switch doesn't apply any changes."
+    }
+
     # We need to set defaults if it's not set
-    if (-not $SelectorColor) {
-        $SelectorColor = "DodgerBlue"
+    if (-not $BackgroundColorActive) {
+        $BackgroundColorActive = "DodgerBlue"
     }
-    if (-not $SelectorColorTarget) {
-        $SelectorColorTarget = "MediumSlateBlue"
+    if (-not $BackgroundColorActiveTarget) {
+        $BackgroundColorActiveTarget = "MediumSlateBlue"
     }
+
     # Converting colors to their HEX equivalent
-    $ColorSelector = ConvertFrom-Color -Color $SelectorColor
-    $ColorTarget = ConvertFrom-Color -Color $SelectorColorTarget
+    $BackGroundColorActiveSelector = ConvertFrom-Color -Color $BackgroundColorActive
+    $BackGroundColorActiveSelectorTarget = ConvertFrom-Color -Color $BackgroundColorActiveTarget
 
     # This enables slimTabs
     #$Script:HTMLSchema.TabOptions.SlimTabs = $SlimTabs.IsPresent
@@ -45,13 +55,15 @@
     $AttributesAll = [ordered] @{
         'text-align'     = $Align
         'text-transform' = $TextTransformAllTab
+        'font-size'      = ConvertFrom-FontSize -TextSize $TextSize
+        'color'          = ConvertFrom-Color -Color $TextColor
     }
     $Tabbis = ConvertTo-CSS -ClassName 'tabsWrapper' -Attributes $AttributesAll
     $Script:HTMLSchema.CustomHeaderCSS.Add($Tabbis)
 
     # This controls Active tab
     $AttributesDefault = [ordered] @{
-        'background'     = $ColorSelector
+        'background'     = $BackGroundColorActiveSelector
         'color'          = '#fff'
         'border-radius'  = '4px'
         'text-transform' = $TextTransformActiveTab
@@ -87,10 +99,10 @@
     # This adds Gradient
     if ($LinearGradient.IsPresent) {
         $AttributesGradient = [ordered] @{
-            'background'   = "-moz-linear-gradient(45deg, $ColorSelector 0%, $ColorTarget 100%)"
-            'background '  = "-webkit-linear-gradient(45deg, $ColorSelector 0%, $ColorTarget 100%)"
-            'background  ' = "linear-gradient(45deg, $ColorSelector 0%, $ColorTarget 100%)"
-            'filter'       = "progid:DXImageTransform.Microsoft.gradient(startColorstr='$ColorSelector', endColorstr='$ColorTarget', GradientType=1)"
+            'background'   = "-moz-linear-gradient(45deg, $BackGroundColorActiveSelector 0%, $BackGroundColorActiveSelectorTarget 100%)"
+            'background '  = "-webkit-linear-gradient(45deg, $BackGroundColorActiveSelector 0%, $BackGroundColorActiveSelectorTarget 100%)"
+            'background  ' = "linear-gradient(45deg, $BackGroundColorActiveSelector 0%, $BackGroundColorActiveSelectorTarget 100%)"
+            'filter'       = "progid:DXImageTransform.Microsoft.gradient(startColorstr='$BackGroundColorActiveSelector', endColorstr='$BackGroundColorActiveSelectorTarget', GradientType=1)"
         }
         $TabbisGradient = ConvertTo-CSS -ClassName '[data-tabs] .active' -Attributes $AttributesGradient
         $Script:HTMLSchema.CustomHeaderCSS.Add($TabbisGradient)
