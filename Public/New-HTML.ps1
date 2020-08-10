@@ -35,7 +35,8 @@ Function New-HTML {
             SlimTabs = $false
         }
 
-        CustomCSS         = [System.Collections.Generic.List[Array]]::new()
+        CustomHeaderCSS   = [System.Collections.Generic.List[string]]::new()
+        CustomFooterCSS   = [System.Collections.Generic.List[string]]::new()
     }
 
     [Array] $TempOutputHTML = Invoke-Command -ScriptBlock $HtmlData
@@ -140,7 +141,7 @@ Function New-HTML {
                 }
             }
 
-            New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomCSS
+            New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS
             '<!-- END HEAD -->'
             '<!-- BODY -->'
             New-HTMLTag -Tag 'body' {
@@ -188,6 +189,7 @@ Function New-HTML {
                         # standard footer features
                         Get-Resources -Online:$Online.IsPresent -Location 'Footer' -Features $Features
                     }
+                    New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS
                     '<!-- END FOOTER -->'
                 }
                 '<!-- END BODY -->'
