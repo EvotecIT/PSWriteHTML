@@ -65,6 +65,13 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.93 - Unreleased
+  - Public
+    - [x] Fix for `New-HTMLTabOptions` switch "-SelectorColor" sets the colur permanently #128 [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
+    - [x] Choosing colors should be easier (wildcard added before and after)
+  - Internal
+    - [x] Support interally for `Custom Header CSS`, `Custom Footer CSS`
+
 - 0.0.92 - 2020.08.08
   - Fixes `New-HierarchicalTreeNode` not recognized in latest modules [#141](https://github.com/EvotecIT/PSWriteHTML/issues/141)
 - 0.0.91 - 2020.08.03
