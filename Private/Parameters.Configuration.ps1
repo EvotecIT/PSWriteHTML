@@ -337,35 +337,15 @@ $Script:Configuration = [ordered] @{
             }
         }
         Tabbis               = @{
-            Comment              = 'Elastic Tabbis'
-            HeaderAlways         = @{
+            Comment      = 'Elastic Tabbis'
+            HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\tabbis.css"
             }
-            FooterAlways         = @{
+            FooterAlways = @{
                 JS = @(
                     "$PSScriptRoot\..\Resources\JS\tabbis.js"
                     "$PSScriptRoot\..\Resources\JS\tabbisAdditional.js"
                 )
-            }
-            CustomActionsReplace = @{
-                'ColorSelector' = ConvertFrom-Color -Color "DodgerBlue"
-                'ColorTarget'   = ConvertFrom-Color -Color "MediumSlateBlue"
-            }
-        }
-        TabbisGradient       = @{
-            Comment              = 'Elastic Tabs Gradient'
-            FooterAlways         = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.gradient.css"
-            }
-            CustomActionsReplace = @{
-                'ColorSelector' = ConvertFrom-Color -Color "DodgerBlue"
-                'ColorTarget'   = ConvertFrom-Color -Color "MediumSlateBlue"
-            }
-        }
-        TabbisTransition     = @{
-            Comment      = 'Elastic Tabs Transition'
-            FooterAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.transition.css"
             }
         }
         TimeLine             = @{
