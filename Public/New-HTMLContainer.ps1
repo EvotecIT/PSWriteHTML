@@ -15,7 +15,7 @@
         }
         $Css = ConvertTo-CSS -ClassName $ClassName -Attributes $Attributes
 
-        $Script:HTMLSchema.CustomCSS.Add($Css)
+        $Script:HTMLSchema.CustomHeaderCSS.Add($Css)
         [string] $Class = "$ClassName overflowHidden"
     } else {
         [string] $Class = 'flexElement overflowHidden'
