@@ -6,7 +6,7 @@
         [System.Collections.IDictionary] $Attributes,
         [switch] $Group
     )
-    $Css = @(
+    [string] $Css = @(
         if ($Group) {
             '<style>'
         }
