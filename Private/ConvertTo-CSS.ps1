@@ -6,6 +6,13 @@
         [System.Collections.IDictionary] $Attributes,
         [switch] $Group
     )
+    if ($Attributes) {
+        Remove-EmptyValue -Hashtable $Attributes
+    }
+    if ($Attributes.Count -eq 0) {
+        # Means empty value after we removed all empty values
+        return
+    }
     [string] $Css = @(
         if ($Group) {
             '<style>'
