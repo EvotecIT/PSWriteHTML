@@ -72,6 +72,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [ ] Make it optional for `New-HTMLTab` to force TextTransform (uses global)
     - [ ] Fix for `InvokeHTMLTags` in `New-HTMLTable` - replacement of (`&amp;` to `&`) and (`&nbsp;` to `<space>`)
       - [ ] Before it would try to change from `'&amp;nbsp;` to `<space>` which is wrong. Hopefully nothing will broken after that
+    - [x] Added `ConvertTo-CascadingStyleSheets` - converts hashtable into CSS
   - Internal
     - [x] Support interally for `Custom Header CSS`, `Custom Footer CSS`
 
