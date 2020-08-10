@@ -93,7 +93,7 @@ Function New-HTMLSection {
         }
         $Css = ConvertTo-CSS -ClassName $ClassName -Attributes $Attributes
 
-        $Script:HTMLSchema.CustomCSS.Add($Css)
+        $Script:HTMLSchema.CustomHeaderCSS.Add($Css)
     } else {
         [string] $ClassName = 'flexParent flexElement overflowHidden'
     }
