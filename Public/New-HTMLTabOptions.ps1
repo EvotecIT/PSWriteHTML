@@ -10,7 +10,7 @@
         [ValidateSet('0px', '10px', '15px', '25px')][string] $BorderRadius = '0px',
         [string] $BorderBackgroundColor,
 
-        [ValidateSet('left', 'right', 'center', 'justify')][string] $TextAlign,
+        [ValidateSet('left', 'right', 'center', 'justify')][string] $Align,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransformAllTab,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransformActiveTab
 
@@ -31,8 +31,8 @@
     $ColorTarget = ConvertFrom-Color -Color $SelectorColorTarget
 
     # This enables slimTabs
-    $Script:HTMLSchema.TabOptions.SlimTabs = $SlimTabs.IsPresent
-    <#
+    #$Script:HTMLSchema.TabOptions.SlimTabs = $SlimTabs.IsPresent
+
     if ($SlimTabs.IsPresent) {
         $AttributesSlimTabs = @{
             'display' = 'inline-block'
@@ -40,14 +40,12 @@
         $SlimTabsCss = ConvertTo-CSS -ClassName 'tabsSlimmer' -Attributes $AttributesSlimTabs
         $Script:HTMLSchema.CustomHeaderCSS.Add($SlimTabsCss)
     }
-    #>
 
     # This controls All tabs
     $AttributesAll = [ordered] @{
-        'text-align'     = $TextAlign
+        'text-align'     = $Align
         'text-transform' = $TextTransformAllTab
     }
-    Remove-EmptyValue -Hashtable $AttributesAll
     $Tabbis = ConvertTo-CSS -ClassName 'tabsWrapper' -Attributes $AttributesAll
     $Script:HTMLSchema.CustomHeaderCSS.Add($Tabbis)
 
@@ -58,7 +56,6 @@
         'border-radius'  = '4px'
         'text-transform' = $TextTransformActiveTab
     }
-    Remove-EmptyValue -Hashtable $AttributesDefault
     $Tabbis = ConvertTo-CSS -ClassName '[data-tabs] .active' -Attributes $AttributesDefault
     $Script:HTMLSchema.CustomHeaderCSS.Add($Tabbis)
 
