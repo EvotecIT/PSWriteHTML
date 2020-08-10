@@ -21,7 +21,7 @@
 }
 
 [data-tabs] .active {
-    background: ColorSelector;
+    background: #1e90ff; /* DodgerBlue */
     color: #fff;
     border-radius: 4px;
 }
