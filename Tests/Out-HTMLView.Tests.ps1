@@ -34,14 +34,16 @@
             $Properties | Should -BeExactly Name, Value
             $Properties.Count | Should -Be 2
         }
-        $TableOutput[0].Name | Should -Be 'Test'
-        $TableOutput[1].Name | Should -Be 'Test2'
-        $TableOutput[2].Name | Should -Be 'Test'
-        $TableOutput[3].Name | Should -Be 'Test2'
-        $TableOutput[0].Value | Should -Be 'Test3'
-        $TableOutput[1].Value | Should -Be 'TEst4'
-        $TableOutput[2].Value | Should -Be 'Test1'
-        $TableOutput[3].Value | Should -Be 'TEst2'
+        # Since we can't guarantee hashtable order we need to ignore order
+        $GroupedNames = $TableOutput.Name | Group-Object
+        $GroupedValues = $TableOutput.Value | Group-Object
+
+        $GroupedNames.Count | Should -be 2
+        $GroupedValues.Count | Should -be 4
+
+        $TableOutput[3].Name | Should -BeIn 'Test','Test2'
+        $TableOutput[3].Value | Should -BeIn 'Test3','Test4','Test1','Test2'
+
         if (Test-Path $FilePath) {
             Remove-Item -LiteralPath $FilePath
         }
