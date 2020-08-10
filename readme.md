@@ -70,6 +70,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Fix for `New-HTMLTabOptions` switch "-SelectorColor" sets the colur permanently #128 [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
     - [x] Choosing colors should be easier (wildcard added before and after)
     - [ ] Make it optional for `New-HTMLTab` to force TextTransform (uses global)
+    - [ ] Fix for `InvokeHTMLTags` in `New-HTMLTable` - replacement of (`&amp;` to `&`) and (`&nbsp;` to `<space>`)
+      - [ ] Before it would try to change from `'&amp;nbsp;` to `<space>` which is wrong. Hopefully nothing will broken after that
   - Internal
     - [x] Support interally for `Custom Header CSS`, `Custom Footer CSS`
 
