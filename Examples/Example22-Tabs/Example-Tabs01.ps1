@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-$Test = Get-Process #| Select-Object -First 2 #-Property Name, Id,PriorityClass, HandleCount, WorkingSet
+$Test = Get-Process | Select-Object -First 2 #-Property Name, Id,PriorityClass, HandleCount, WorkingSet
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs01-Old.html -Show {
     New-HTMLTabOptions -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue

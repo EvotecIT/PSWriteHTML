@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html><!-- HEADER --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2019-10-06 15:45:05" name="revised"/><title>My title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+<!-- saved from url=(0014)about:internet -->
+<html><!-- HEAD --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2020-08-10 10:43:19" name="revised"/><title>My title</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
     font-family: Roboto Condensed, Helvetica Neue, sans-serif;
     font-size: 8pt;
 }
@@ -16,13 +17,6 @@ hr {
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .overflowHidden {
@@ -35,46 +29,19 @@ hr {
     display: flex;
     justify-content: space-between;
     padding: 2px;
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .flexParentInvisible {
     display: flex;
     justify-content: space-between;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexElement {
     flex-basis: 100%;
-
-
-    /*
-    flex: 1 auto;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
-
 }
 
 .flexPanel {
     flex-basis: 100%;
-
-    /*
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    */
 }
 
 .roundedCorners {
@@ -95,13 +62,19 @@ hr {
     text-align: right;
 }
 
-.clientlogo {
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-left: 0px;
     vertical-align: middle;
 }
 
-.MainLogo {
+.rightLogo {
+    flex-basis: 100%;
     border: 0px;
     padding-right: 5em;
     text-align: right;
@@ -160,54 +133,13 @@ img {
     margin: 1%;
     flex: 1;
 }
-</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h2:after,
-h3:after,
-h4:after,
-h5:after,
-h6:after {
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    border-radius: 2px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
-}
-
-h2:after {
-    background: #0AF;
-}
-
-h3:after {
-    background: #3BF;
-}
-
-h4:after,
-h5:after,
-h6:after {
-    background: #6Cf;
-}
-
-h1.white,
-h2.white,
-h3.white,
-h4.white,
-h5.white,
-h6.white {
-    color: white;
-}
-
-h1,
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
     font-family: 'Hammersmith One', sans-serif;
-    /*
-    font-family: 'Questrial', sans-serif;
-    */
 }
 
 h1 {
@@ -281,7 +213,6 @@ td {
 }
 
 /* Button in Table - giving it some colors */
-
 td.sorting_1::before {
     background: #007bff !important;
 }
@@ -291,7 +222,6 @@ td::before {
 }
 
 /* giving some spaces between tables being to close */
-
 div.dataTables_wrapper {
     padding: 10px 10px 10px 10px;
 }
@@ -317,16 +247,15 @@ thead input {
     box-sizing: border-box;
     font-size: 8pt;
 }
+
+table {
+    font-size: 8pt;
+}
 </style><!-- CSS DataTables END --><noscript><!-- CSS DataTables START --><style type="text/css">table {
     border-width: 1px;
     border-style: solid;
     border-color: black;
     border-collapse: collapse;
-    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
-    /* font-size: 8pt;
-      width: 99%;
-    */
-
     box-sizing: border-box;
     width: calc(100% - 16px);
     margin: 8px;
@@ -339,8 +268,6 @@ table th {
     border-color: black;
     background-color: #616a6b;
     color: white;
-    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
-    /* font-size: 8pt; */
     font-weight: bold;
     padding: 10px;
 }
@@ -353,9 +280,6 @@ table td {
     padding-bottom: 0px;
     border-style: solid;
     border-color: black;
-    /* background-color: white; */
-    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
-    /* font-size: 8pt; */
     border-top: 1px solid #ddd;
 }
 
@@ -382,6 +306,7 @@ table th {
     font-family: 'Roboto', sans-serif !important;
     text-transform: uppercase;
 }
+
 [data-tabs] {
     display: flex;
     margin-top: 10px;
@@ -398,7 +323,7 @@ table th {
 }
 
 [data-tabs] .active {
-    background: #31a3e8;
+    background: #1e90ff;
     color: #fff;
     border-radius: 4px;
 }
@@ -411,42 +336,33 @@ table th {
     display: block;
 }
 </style><!-- CSS Elastic Tabbis END --><!-- JS Hide Section Code START --><script type="text/javascript">function show(obj) {
-  document.getElementById(obj).style.display = 'block';
-  document.getElementById("hide_" + obj).style.display = '';
-  document.getElementById("show_" + obj).style.display = 'none';
+    document.getElementById(obj).style.display = 'block';
+    document.getElementById("hide_" + obj).style.display = '';
+    document.getElementById("show_" + obj).style.display = 'none';
+    // console.log("show_" + obj);
+    var tableid = document.getElementById(obj).querySelector('table[id^="DT-"]').id;
+    // console.log("#" + tableid);
+    try {
+        $("#" + tableid).DataTable().columns.adjust().responsive.recalc();
+    } catch (e) {
+        console.log('No datatables available.');
+    }
 }
 function hide(obj) {
-  document.getElementById(obj).style.display = 'none';
-  document.getElementById("hide_" + obj).style.display = 'none';
-  document.getElementById("show_" + obj).style.display = '';
+    document.getElementById(obj).style.display = 'none';
+    document.getElementById("hide_" + obj).style.display = 'none';
+    document.getElementById("show_" + obj).style.display = '';
 }
-</script><!-- JS Hide Section Code END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/apexcharts@latest" type="text/javascript"></script><!-- JS Apex Charts END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEADER --><!-- BODY --><body><div class="tabsWrapper"><div class="tabs"><div data-tabs="true"><div id="Tab-0fdi3jv5"><div class="fab fa-acquisitions-incorporated"></div><span> First Level Tab - Test 1</span></div><div id="Tab-bovmzawu"><div class="far fa-check-circle" style="color:#87cefa"></div><span> First Level Tab - Test 2</span></div><div id="Tab-cytkomh8"><div class="fas fa-code-branch" style="color:#32cd32"></div><span> First Level Tab - Test 3</span></div><div id="Tab-6eoph5bq"><div class="fas fa-bezier-curve"></div><span> First Level Tab - Test 4</span></div><div id="Tab-mqtsh4bc"><div class="fas fa-copy"></div><span> First Level Tab - Test 5</span></div><div id="Tab-nie2tqkm"><div class="fab fa-asymmetrik"></div><span> First Level Tab - Test 6</span></div><div id="Tab-gsiow7ak"><div class="far fa-kiss-beam"></div><span> First Level Tab - Test 7</span></div></div></div></div><div data-panes="true"><div id="Tab-0fdi3jv5"><div class="tabsWrapper"><div class="tabs"><div data-tabs="true"><div id="Tab-093zrg16"><div class="far fa-address-card"></div><span> 2nd Level Tab - Test 1</span></div><div id="Tab-jv34mhbu"><div class="far fa-address-card"></div><span> 2nd Level Tab - Test 2</span></div><div id="Tab-rxh4z1cd"><div class="fab fa-apple"></div><span> 2nd Level Tab - Test 3</span></div></div></div></div><div data-panes="true"><div id="Tab-093zrg16"><div class="tabsWrapper"><div class="tabs"><div data-tabs="true"><div id="Tab-owfmhp13"><div class="fab fa-old-republic"></div><span> Oops</span></div></div></div></div><div data-panes="true"><div id="Tab-owfmhp13"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Defaults" style="color: #ffffff;">Pie Charts - Defaults </a><a id="show_1838968179" href="javascript:void(0)" onclick="show('1838968179');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1838968179" href="javascript:void(0)" onclick="hide('1838968179');" style="color: #ffffff;">(Hide)</a></div><div id="1838968179" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1838968179"></div></div></div></div></div></div><div id="Tab-jv34mhbu"><div class="flexParent"><div class="flexParent flexElement overflowHidden"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Nope" style="color: #ffffff;">Pie Charts - Nope </a><a id="show_1689734539" href="javascript:void(0)" onclick="show('1689734539');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1689734539" href="javascript:void(0)" onclick="hide('1689734539');" style="color: #ffffff;">(Hide)</a></div><div id="1689734539" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1689734539"><script>                $(document).ready(function() {
+</script><!-- JS Hide Section Code END --><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/autofill/2.3.4/css/autoFill.dataTables.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/colreorder/1.5.2/css/colReorder.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/keytable/2.5.1/css/keyTable.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/rowreorder/1.2.6/css/rowReorder.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/scroller/2.0.1/css/scroller.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://nightly.datatables.net/js/jquery.dataTables.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/autofill/2.3.4/js/dataTables.autoFill.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.colVis.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/colreorder/1.5.2/js/dataTables.colReorder.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/keytable/2.5.1/js/dataTables.keyTable.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/rowreorder/1.2.6/js/dataTables.rowReorder.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --><!-- JS Apex Charts START --><script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn@1.0.0/findIndex.min.js" type="text/javascript"></script><script src="https://unpkg.com/canvg@3.0.4/lib/umd.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/apexcharts@3.18.1/dist/apexcharts.min.js" type="text/javascript"></script><!-- JS Apex Charts END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEAD --><!-- BODY --><body><!-- HEADER --><header></header><!-- END HEADER --><div class="tabsWrapper"><div class="tabs"><div data-tabs="true"><div id="Tab-ublijndp" class="active"><div class="fab fa-acquisitions-incorporated"></div><span style="text-transform:uppercase"> First Level Tab - Test 1</span></div><div id="Tab-8u9ldirc"><div class="far fa-check-circle" style="color:#87cefa"></div><span style="text-transform:uppercase"> First Level Tab - Test 2</span></div><div id="Tab-kx0qaj59"><div class="fas fa-code-branch" style="color:#32cd32"></div><span style="text-transform:uppercase"> First Level Tab - Test 3</span></div><div id="Tab-ey9wiukr"><div class="fas fa-bezier-curve"></div><span style="text-transform:uppercase"> First Level Tab - Test 4</span></div><div id="Tab-wur3qexj"><div class="fas fa-copy"></div><span style="text-transform:uppercase"> First Level Tab - Test 5</span></div><div id="Tab-ftue47o0"><div class="fab fa-asymmetrik"></div><span style="text-transform:uppercase"> First Level Tab - Test 6</span></div><div id="Tab-j76yo1h9"><div class="far fa-kiss-beam"></div><span style="text-transform:uppercase"> First Level Tab - Test 7</span></div></div></div></div><div data-panes="true"><div id="Tab-ublijndp-Content" class="active"><div class="tabsWrapper"><div class="tabs"><div data-tabs="true"><div id="Tab-uvq062l8" class="active"><div class="far fa-address-card"></div><span style="text-transform:uppercase"> 2nd Level Tab - Test 1</span></div><div id="Tab-63rb5nmz"><div class="far fa-address-card"></div><span style="text-transform:uppercase"> 2nd Level Tab - Test 2</span></div><div id="Tab-2c1xgayi"><div class="fab fa-apple"></div><span style="text-transform:uppercase"> 2nd Level Tab - Test 3</span></div></div></div></div><div data-panes="true"><div id="Tab-uvq062l8-Content" class="active"><div class="tabsWrapper"><div class="tabs"><div data-tabs="true"><div id="Tab-gz5kvouy" class="active"><div class="fab fa-old-republic"></div><span style="text-transform:uppercase"> Oops</span></div></div></div></div><div data-panes="true"><div id="Tab-gz5kvouy-Content" class="active"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Defaults" style="color: #ffffff;">Pie Charts - Defaults </a><a id="show_1339611474" href="javascript:void(0)" onclick="show('1339611474');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1339611474" href="javascript:void(0)" onclick="hide('1339611474');" style="color: #ffffff;">(Hide)</a></div><div id="1339611474" class="flexParent flexElement overflowHidden"><div id="1339611474" class="flexParent flexElement overflowHidden collapsable"></div></div></div></div></div></div><div id="Tab-63rb5nmz-Content"><div class="flexParent flexElement overflowHidden"><div class="flexParent flexElement overflowHidden"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Nope" style="color: #ffffff;">Pie Charts - Nope </a><a id="show_1229735813" href="javascript:void(0)" onclick="show('1229735813');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1229735813" href="javascript:void(0)" onclick="hide('1229735813');" style="color: #ffffff;">(Hide)</a></div><div id="1229735813" class="flexParent flexElement overflowHidden"><div id="1229735813" class="flexParent flexElement overflowHidden collapsable"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
+                    
                     //  Table code
-                    var table = $('#DT-Guxnumaz').DataTable(
+                    var table = $('#DT-kvPyAKck').DataTable(
                         {
     "dom":  "Bfrtip",
-    "buttons":  [
-                    {
-                        "extend":  "copyHtml5"
-                    },
-                    {
-                        "extend":  "excelHtml5"
-                    },
-                    {
-                        "extend":  "csvHtml5"
-                    },
-                    {
-                        "orientation":  "landscape",
-                        "extend":  "pdfHtml5",
-                        "pageSize":  "A3"
-                    },
-                    {
-                        "extend":  "pageLength"
-                    }
-                ],
+    "searchFade":  false,
     "colReorder":  true,
     "paging":  false,
     "scrollCollapse":  false,
@@ -473,47 +389,50 @@ function hide(obj) {
     "order":  [
 
               ],
+    "rowGroup":  "",
     "info":  true,
     "procesing":  true,
     "select":  true,
     "searching":  true,
     "stateSave":  true,
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3",
+                        "orientation":  "landscape"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
     "responsive":  {
                        "details":  {
                                        "type":  "inline"
                                    }
-                   },
-    "createdRow":  ""
+                   }
 }
                     );
                     
-                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-Guxnumaz" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>16996</td><td>Normal</td><td>7.3.712</td><td>768</td><td>45613056</td><td>41209856</td><td>41209856</td><td>251592704</td><td>00:00:02.3125000</td><td>1</td><td>768</td><td>251592704</td><td>45613056</td><td>41209856</td><td>50912</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>2,3125</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3360</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>50912</td><td>50912</td><td>41209856</td><td>369848</td><td>369848</td><td>41787392</td><td>41787392</td><td>69181440</td><td>69181440</td><td>270643200</td><td>270643200</td><td>True</td><td>41209856</td><td>00:00:00.3281250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>05.10.2019 09:24:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.9843750</td><td>251592704</td><td>False</td><td></td><td></td><td></td><td>45613056</td><td></td><td></td></tr><tr><td>aesm_service</td><td>7288</td><td></td><td></td><td>193</td><td>7462912</td><td>3084288</td><td>3084288</td><td>117383168</td><td></td><td>0</td><td>193</td><td>4412350464</td><td>7462912</td><td>3084288</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3084288</td><td>159352</td><td>159352</td><td>5201920</td><td>5201920</td><td>17629184</td><td>17629184</td><td>134443008</td><td>4429410304</td><td></td><td>3084288</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412350464</td><td>False</td><td></td><td></td><td></td><td>7462912</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Nope" style="color: #ffffff;">Pie Charts - Nope </a><a id="show_986961233" href="javascript:void(0)" onclick="show('986961233');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_986961233" href="javascript:void(0)" onclick="hide('986961233');" style="color: #ffffff;">(Hide)</a></div><div id="986961233" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="986961233"><script>                $(document).ready(function() {
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-kvPyAKck" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>1252</td><td>Normal</td><td>7.6.780</td><td>935</td><td>71372800</td><td>108605440</td><td>108605440</td><td>733724672</td><td>00:03:57.9687500</td><td>1</td><td>935</td><td>733724672</td><td>71372800</td><td>108605440</td><td>92656</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>237,96875</td><td>7.6.780</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>7264</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>92656</td><td>92656</td><td>108605440</td><td>635144</td><td>635144</td><td>120201216</td><td>120201216</td><td>144297984</td><td>144297984</td><td>776425472</td><td>776425472</td><td>True</td><td>108605440</td><td>00:00:47.8281250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>02.08.2020 21:27:19</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:03:10.1406250</td><td>733724672</td><td>False</td><td></td><td></td><td></td><td>71372800</td><td></td><td></td></tr><tr><td>aesm_service</td><td>16984</td><td></td><td></td><td>205</td><td>6578176</td><td>3219456</td><td>3219456</td><td>116539392</td><td></td><td>0</td><td>205</td><td>4411506688</td><td>6578176</td><td>3219456</td><td>15320</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>15320</td><td>15320</td><td>3219456</td><td>158504</td><td>158504</td><td>5218304</td><td>5218304</td><td>18558976</td><td>18558976</td><td>131846144</td><td>4426813440</td><td></td><td>3219456</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4411506688</td><td>False</td><td></td><td></td><td></td><td>6578176</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Nope" style="color: #ffffff;">Pie Charts - Nope </a><a id="show_160641837" href="javascript:void(0)" onclick="show('160641837');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_160641837" href="javascript:void(0)" onclick="hide('160641837');" style="color: #ffffff;">(Hide)</a></div><div id="160641837" class="flexParent flexElement overflowHidden"><div id="160641837" class="flexParent flexElement overflowHidden collapsable"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
+                    
                     //  Table code
-                    var table = $('#DT-EHyghFUQ').DataTable(
+                    var table = $('#DT-fVFfNVBu').DataTable(
                         {
     "dom":  "Bfrtip",
-    "buttons":  [
-                    {
-                        "extend":  "copyHtml5"
-                    },
-                    {
-                        "extend":  "excelHtml5"
-                    },
-                    {
-                        "extend":  "csvHtml5"
-                    },
-                    {
-                        "orientation":  "landscape",
-                        "extend":  "pdfHtml5",
-                        "pageSize":  "A3"
-                    },
-                    {
-                        "extend":  "pageLength"
-                    }
-                ],
+    "searchFade":  false,
     "colReorder":  true,
     "paging":  false,
     "scrollCollapse":  false,
@@ -540,47 +459,50 @@ function hide(obj) {
     "order":  [
 
               ],
+    "rowGroup":  "",
     "info":  true,
     "procesing":  true,
     "select":  true,
     "searching":  true,
     "stateSave":  true,
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3",
+                        "orientation":  "landscape"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
     "responsive":  {
                        "details":  {
                                        "type":  "inline"
                                    }
-                   },
-    "createdRow":  ""
+                   }
 }
                     );
                     
-                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-EHyghFUQ" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>16996</td><td>Normal</td><td>7.3.712</td><td>768</td><td>45613056</td><td>41209856</td><td>41209856</td><td>251592704</td><td>00:00:02.3125000</td><td>1</td><td>768</td><td>251592704</td><td>45613056</td><td>41209856</td><td>50912</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>2,3125</td><td>7.3.712</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>3360</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>50912</td><td>50912</td><td>41209856</td><td>369848</td><td>369848</td><td>41787392</td><td>41787392</td><td>69181440</td><td>69181440</td><td>270643200</td><td>270643200</td><td>True</td><td>41209856</td><td>00:00:00.3281250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>05.10.2019 09:24:06</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:00:01.9843750</td><td>251592704</td><td>False</td><td></td><td></td><td></td><td>45613056</td><td></td><td></td></tr><tr><td>aesm_service</td><td>7288</td><td></td><td></td><td>193</td><td>7462912</td><td>3084288</td><td>3084288</td><td>117383168</td><td></td><td>0</td><td>193</td><td>4412350464</td><td>7462912</td><td>3084288</td><td>14792</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>14792</td><td>14792</td><td>3084288</td><td>159352</td><td>159352</td><td>5201920</td><td>5201920</td><td>17629184</td><td>17629184</td><td>134443008</td><td>4429410304</td><td></td><td>3084288</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4412350464</td><td>False</td><td></td><td></td><td></td><td>7462912</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div></div></div></div></div></div><div id="Tab-rxh4z1cd"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Nope 1" style="color: #ffffff;">Pie Charts - Nope 1 </a><a id="show_1975221283" href="javascript:void(0)" onclick="show('1975221283');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1975221283" href="javascript:void(0)" onclick="hide('1975221283');" style="color: #ffffff;">(Hide)</a></div><div id="1975221283" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1975221283"></div></div></div></div></div></div><div id="Tab-bovmzawu"></div><div id="Tab-cytkomh8"></div><div id="Tab-6eoph5bq"><div class="tabsWrapper"><div class="tabs"><div data-tabs="true"><div id="Tab-oqt56ucm"><div class="fab fa-app-store"></div><span> 2nd Level Tab - Test 4/1</span></div><div id="Tab-0emd3q12"><div></div><span> 2nd Level Tab - Test 4/2</span></div></div></div></div><div data-panes="true"><div id="Tab-oqt56ucm"><div class="flexParent"><div class="flexParent flexElement overflowHidden"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Defaults" style="color: #ffffff;">Pie Charts - Defaults </a><a id="show_1388583137" href="javascript:void(0)" onclick="show('1388583137');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_1388583137" href="javascript:void(0)" onclick="hide('1388583137');" style="color: #ffffff;">(Hide)</a></div><div id="1388583137" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="1388583137"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-l709kf2y"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Defaults" style="color: #ffffff;">Pie Charts - Defaults </a><a id="show_220646991" href="javascript:void(0)" onclick="show('220646991');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_220646991" href="javascript:void(0)" onclick="hide('220646991');" style="color: #ffffff;">(Hide)</a></div><div id="220646991" class="flexParent overflowHidden"><div class="flexParent flexElement collapsable overflowHidden" id="220646991"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-cae4ibw5"></div></div></div></div></div><script>                $(document).ready(function() {
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-fVFfNVBu" class="display compact"><thead><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></thead><tbody><tr><td>1Password</td><td>1252</td><td>Normal</td><td>7.6.780</td><td>935</td><td>71372800</td><td>108605440</td><td>108605440</td><td>733724672</td><td>00:03:57.9687500</td><td>1</td><td>935</td><td>733724672</td><td>71372800</td><td>108605440</td><td>92656</td><td>C:\Users\przemyslaw.klys\AppData\Local\1password\app\7\1Password.exe</td><td>AgileBits Inc.</td><td>237,96875</td><td>7.6.780</td><td>1Password for Windows desktop</td><td>1Password</td><td>Process</td><td>8</td><td></td><td>False</td><td></td><td>7264</td><td>Microsoft.Win32.SafeHandles.SafeProcessHandle</td><td>.</td><td>0</td><td></td><td>System.Diagnostics.ProcessModule (1Password.exe)</td><td>1413120</td><td>204800</td><td>System.Diagnostics.ProcessModuleCollection</td><td>92656</td><td>92656</td><td>108605440</td><td>635144</td><td>635144</td><td>120201216</td><td>120201216</td><td>144297984</td><td>144297984</td><td>776425472</td><td>776425472</td><td>True</td><td>108605440</td><td>00:00:47.8281250</td><td>1Password</td><td>65535</td><td>True</td><td>1</td><td>System.Diagnostics.ProcessStartInfo</td><td>02.08.2020 21:27:19</td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td>00:03:10.1406250</td><td>733724672</td><td>False</td><td></td><td></td><td></td><td>71372800</td><td></td><td></td></tr><tr><td>aesm_service</td><td>16984</td><td></td><td></td><td>205</td><td>6578176</td><td>3219456</td><td>3219456</td><td>116539392</td><td></td><td>0</td><td>205</td><td>4411506688</td><td>6578176</td><td>3219456</td><td>15320</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Process</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td>.</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td>15320</td><td>15320</td><td>3219456</td><td>158504</td><td>158504</td><td>5218304</td><td>5218304</td><td>18558976</td><td>18558976</td><td>131846144</td><td>4426813440</td><td></td><td>3219456</td><td></td><td>aesm_service</td><td></td><td>True</td><td>0</td><td>System.Diagnostics.ProcessStartInfo</td><td></td><td></td><td>System.Diagnostics.ProcessThreadCollection</td><td></td><td>4411506688</td><td>False</td><td></td><td></td><td></td><td>6578176</td><td></td><td></td></tr></tbody><tfoot><tr><th>Name</th><th>Id</th><th>PriorityClass</th><th>FileVersion</th><th>HandleCount</th><th>WorkingSet</th><th>PagedMemorySize</th><th>PrivateMemorySize</th><th>VirtualMemorySize</th><th>TotalProcessorTime</th><th>SI</th><th>Handles</th><th>VM</th><th>WS</th><th>PM</th><th>NPM</th><th>Path</th><th>Company</th><th>CPU</th><th>ProductVersion</th><th>Description</th><th>Product</th><th>__NounName</th><th>BasePriority</th><th>ExitCode</th><th>HasExited</th><th>ExitTime</th><th>Handle</th><th>SafeHandle</th><th>MachineName</th><th>MainWindowHandle</th><th>MainWindowTitle</th><th>MainModule</th><th>MaxWorkingSet</th><th>MinWorkingSet</th><th>Modules</th><th>NonpagedSystemMemorySize</th><th>NonpagedSystemMemorySize64</th><th>PagedMemorySize64</th><th>PagedSystemMemorySize</th><th>PagedSystemMemorySize64</th><th>PeakPagedMemorySize</th><th>PeakPagedMemorySize64</th><th>PeakWorkingSet</th><th>PeakWorkingSet64</th><th>PeakVirtualMemorySize</th><th>PeakVirtualMemorySize64</th><th>PriorityBoostEnabled</th><th>PrivateMemorySize64</th><th>PrivilegedProcessorTime</th><th>ProcessName</th><th>ProcessorAffinity</th><th>Responding</th><th>SessionId</th><th>StartInfo</th><th>StartTime</th><th>SynchronizingObject</th><th>Threads</th><th>UserProcessorTime</th><th>VirtualMemorySize64</th><th>EnableRaisingEvents</th><th>StandardInput</th><th>StandardOutput</th><th>StandardError</th><th>WorkingSet64</th><th>Site</th><th>Container</th></tr></tfoot></table></div></div></div></div></div></div></div><div id="Tab-2c1xgayi-Content"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Nope 1" style="color: #ffffff;">Pie Charts - Nope 1 </a><a id="show_936704076" href="javascript:void(0)" onclick="show('936704076');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_936704076" href="javascript:void(0)" onclick="hide('936704076');" style="color: #ffffff;">(Hide)</a></div><div id="936704076" class="flexParent flexElement overflowHidden"><div id="936704076" class="flexParent flexElement overflowHidden collapsable"></div></div></div></div></div></div><div id="Tab-8u9ldirc-Content"></div><div id="Tab-kx0qaj59-Content"></div><div id="Tab-ey9wiukr-Content"><div class="tabsWrapper"><div class="tabs"><div data-tabs="true"><div id="Tab-doi97tk1"><div class="fab fa-app-store"></div><span style="text-transform:uppercase"> 2nd Level Tab - Test 4/1</span></div><div id="Tab-ux3fb5z6"><div></div><span style="text-transform:uppercase"> 2nd Level Tab - Test 4/2</span></div></div></div></div><div data-panes="true"><div id="Tab-doi97tk1-Content"><div class="flexParent flexElement overflowHidden"><div class="flexParent flexElement overflowHidden"><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Defaults" style="color: #ffffff;">Pie Charts - Defaults </a><a id="show_427058458" href="javascript:void(0)" onclick="show('427058458');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_427058458" href="javascript:void(0)" onclick="hide('427058458');" style="color: #ffffff;">(Hide)</a></div><div id="427058458" class="flexParent flexElement overflowHidden"><div id="427058458" class="flexParent flexElement overflowHidden collapsable"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-aei5r7un"></div></div></div></div></div><div class="defaultSection roundedCorners overflowHidden"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Pie Charts - Defaults" style="color: #ffffff;">Pie Charts - Defaults </a><a id="show_411099420" href="javascript:void(0)" onclick="show('411099420');" style="color: #ffffff; display:none;">(Show)</a><a id="hide_411099420" href="javascript:void(0)" onclick="hide('411099420');" style="color: #ffffff;">(Hide)</a></div><div id="411099420" class="flexParent flexElement overflowHidden"><div id="411099420" class="flexParent flexElement overflowHidden collapsable"><div class="flexPanel overflowHidden roundedCorners overflowHidden"><div id="ChartID-m8aji6x7"></div></div></div></div></div><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
+                    
                     //  Table code
-                    var table = $('#DT-fpFKrPAj').DataTable(
+                    var table = $('#DT-NlreFHod').DataTable(
                         {
     "dom":  "Bfrtip",
-    "buttons":  [
-                    {
-                        "extend":  "copyHtml5"
-                    },
-                    {
-                        "extend":  "excelHtml5"
-                    },
-                    {
-                        "extend":  "csvHtml5"
-                    },
-                    {
-                        "orientation":  "landscape",
-                        "extend":  "pdfHtml5",
-                        "pageSize":  "A3"
-                    },
-                    {
-                        "extend":  "pageLength"
-                    }
-                ],
+    "searchFade":  false,
     "colReorder":  true,
     "paging":  false,
     "scrollCollapse":  false,
@@ -607,48 +529,51 @@ function hide(obj) {
     "order":  [
 
               ],
+    "rowGroup":  "",
     "info":  true,
     "procesing":  true,
     "select":  true,
     "searching":  true,
     "stateSave":  true,
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3",
+                        "orientation":  "landscape"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
     "responsive":  {
                        "details":  {
                                        "type":  "inline",
                                        "display":  $.fn.dataTable.Responsive.display.childRowImmediate
                                    }
-                   },
-    "createdRow":  ""
+                   }
 }
                     );
                     
-                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-fpFKrPAj" class="display compact"><thead><tr><th>*</th></tr></thead><tbody><tr><td>No data available.</td></tr></tbody></table></div></div></div></div><div id="Tab-0emd3q12"><script>                $(document).ready(function() {
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-NlreFHod" class="display compact"><thead><tr><th>Name</th><th class="none">Id</th><th class="none">HandleCount</th><th>WorkingSet</th></tr></thead><tbody><tr><td>1Password</td><td>1252</td><td>935</td><td>71372800</td></tr><tr><td>aesm_service</td><td>16984</td><td>205</td><td>6578176</td></tr></tbody></table></div></div></div></div><div id="Tab-ux3fb5z6-Content"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                     
                     
+                    
                     //  Table code
-                    var table = $('#DT-IeFvgAzQ').DataTable(
+                    var table = $('#DT-nCmyngzw').DataTable(
                         {
     "dom":  "Bfrtip",
-    "buttons":  [
-                    {
-                        "extend":  "copyHtml5"
-                    },
-                    {
-                        "extend":  "excelHtml5"
-                    },
-                    {
-                        "extend":  "csvHtml5"
-                    },
-                    {
-                        "orientation":  "landscape",
-                        "extend":  "pdfHtml5",
-                        "pageSize":  "A3"
-                    },
-                    {
-                        "extend":  "pageLength"
-                    }
-                ],
+    "searchFade":  false,
     "colReorder":  true,
     "paging":  false,
     "scrollCollapse":  false,
@@ -675,22 +600,42 @@ function hide(obj) {
     "order":  [
 
               ],
+    "rowGroup":  "",
     "info":  true,
     "procesing":  true,
     "select":  true,
     "searching":  true,
     "stateSave":  true,
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3",
+                        "orientation":  "landscape"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
     "responsive":  {
                        "details":  {
                                        "type":  "inline",
                                        "display":  $.fn.dataTable.Responsive.display.childRowImmediate
                                    }
-                   },
-    "createdRow":  ""
+                   }
 }
                     );
                     
-                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-IeFvgAzQ" class="display compact"><thead><tr><th>*</th></tr></thead><tbody><tr><td>No data available.</td></tr></tbody></table></div></div></div></div><div id="Tab-mqtsh4bc"></div><div id="Tab-nie2tqkm"></div><div id="Tab-gsiow7ak"></div></div><script>var options = {
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-nCmyngzw" class="display compact"><thead><tr><th>Name</th><th class="none">Id</th><th class="none">HandleCount</th><th>WorkingSet</th></tr></thead><tbody><tr><td>1Password</td><td>1252</td><td>935</td><td>71372800</td></tr><tr><td>aesm_service</td><td>16984</td><td>205</td><td>6578176</td></tr></tbody></table></div></div></div></div><div id="Tab-wur3qexj-Content"></div><div id="Tab-ftue47o0-Content"></div><div id="Tab-j76yo1h9-Content"></div></div><script>var options = {
     "chart":  {
                   "height":  350,
                   "type":  "pie"
@@ -715,9 +660,6 @@ function hide(obj) {
                                   "shade":  "dark",
                                   "type":  "horizontal",
                                   "shadeIntensity":  0.5,
-                                  "gradientToColors":  [
-                                                           "#ABE5A1"
-                                                       ],
                                   "inverseColors":  true,
                                   "opacityFrom":  1,
                                   "opacityTo":  1,
@@ -731,7 +673,7 @@ function hide(obj) {
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-l709kf2y'),
+var chart = new ApexCharts(document.querySelector('#ChartID-aei5r7un'),
             options
         );
 chart.render();
@@ -760,9 +702,6 @@ chart.render();
                                   "shade":  "dark",
                                   "type":  "horizontal",
                                   "shadeIntensity":  0.5,
-                                  "gradientToColors":  [
-                                                           "#ABE5A1"
-                                                       ],
                                   "inverseColors":  true,
                                   "opacityFrom":  1,
                                   "opacityTo":  1,
@@ -776,11 +715,11 @@ chart.render();
                   "text":  ""
               }
 }
-var chart = new ApexCharts(document.querySelector('#ChartID-cae4ibw5'),
+var chart = new ApexCharts(document.querySelector('#ChartID-m8aji6x7'),
             options
         );
 chart.render();
-</script></body><!-- END BODY --><!-- FOOTER --><footer><!-- JS Elastic Tabbis START --><script type="text/javascript">var tabbis = (function () {
+</script><footer><!-- FOOTER --><!-- JS Elastic Tabbis START --><script type="text/javascript">var tabbis = (function () {
     var fn = {};
 
     var data;
@@ -838,22 +777,42 @@ chart.render();
         memory[groupIndex] = [];
         memory[groupIndex][itemIndex] = true;
 
-        localStorage.setItem('tabbis', JSON.stringify(memory));
+        try {
+            localStorage.setItem('tabbis', JSON.stringify(memory));
+        } catch (e) {
+            console.log('Tabs local storage failed. Most likely IE in use.')
+        }
     };
 
+    //fn.hasMemory = function () {
+    //    if (typeof memory === 'undefined') return;
+    //    if (typeof memory[indexGroup] === 'undefined') return;
+    //    if (typeof memory[indexGroup][indexItem] === 'undefined') return;
+    //    if (memory[indexGroup][indexItem] !== true) return;
+    //    return true;
+    //};
+
     fn.hasMemory = function () {
+        // https://stackoverflow.com/questions/41902495/javascript-multidimensional-array-is-valid
+
         if (typeof memory === 'undefined') return;
         if (typeof memory[indexGroup] === 'undefined') return;
+        if (memory[indexGroup] === null) return;
         if (typeof memory[indexGroup][indexItem] === 'undefined') return;
+        if (memory[indexGroup][indexItem] === null) return;
         if (memory[indexGroup][indexItem] !== true) return;
         return true;
     };
 
     fn.setMemory = function () {
-        if (localStorage.getItem('tabbis') === null) return;
-        if (localStorage.getItem('tabbis').length == 0) return;
+        try {
+            if (localStorage.getItem('tabbis') === null) return;
+            if (localStorage.getItem('tabbis').length == 0) return;
 
-        memory = Object.values(JSON.parse(localStorage.getItem('tabbis')));
+            memory = Object.values(JSON.parse(localStorage.getItem('tabbis')));
+        } catch (e) {
+            console.log('Tabs local storage failed. Most likely IE in use.')
+        }
     };
 
     fn.putActiveClass = function () {
@@ -917,16 +876,39 @@ chart.render();
     tabActive: "active",
     paneActive: "active",
     callback: function (tab, pane) {
-        // console.log(tab);
+        // console.log("TAB id:" + tab.id);
         // console.log(pane.id);
-
+        // console.log(tableid);
         // this makes sure to refresh tables on tab change to make sure they have buttons and everything
         // it's a bit heavy as it touches all tables, may require some improvements in future to consider
         // which tab has which table
+        function resizeTable(table) {
+            try {
+                $("#" + table.id).DataTable().columns.adjust().responsive.recalc();
+                console.log('Resized table with id ' + table.id);
+            } catch{
+                console.log('Failed to resize table with ' + table.id);
+            }
+        }
         try {
-            $('.dataTable').DataTable().columns.adjust().responsive.recalc();
-        } catch {
-            console.log('No datatables available.')
+            var table = document.getElementById(tab.id + "-Content").querySelectorAll('table[id^="DT-"]');
+            table.forEach(resizeTable)
+        } catch (e) {
+            console.log('No datatables available.');
+        }
+
+        // We need to make same thing for calendar
+        function redrawCalendar(calendar) {
+            //console.log(calendarTracker[calendar.id].view);
+            calendarTracker[calendar.id].changeView(calendarTracker[calendar.id].view.type);
+            console.log('Redrawing view for ' + calendar.id)
+        }
+
+        try {
+            var calendar = document.getElementById(tab.id + "-Content").querySelectorAll('div[id^="Calendar-"]');
+            calendar.forEach(redrawCalendar)
+        } catch (e) {
+            console.log('No calendars available.');
         }
     }
 });
@@ -934,4 +916,4 @@ chart.render();
 // in theory should take care of removing local storage for tabbis
 // some errors occurs if the local storage is not cleaned after a while
 window.addEventListener("unload", tabbis.remove, false);
-</script><!-- JS Elastic Tabbis END --></footer><!-- END FOOTER --></html>
+</script><!-- JS Elastic Tabbis END --><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END FOOTER --></footer><!-- END BODY --></body></html>
