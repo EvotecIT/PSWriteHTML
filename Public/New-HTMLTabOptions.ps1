@@ -12,7 +12,7 @@
         [alias('SelectorColorTarget')][string] $BackgroundColorActiveTarget,
         [switch] $Transition,
         [switch] $LinearGradient,
-        [ValidateSet('0px', '10px', '15px', '25px')][string] $BorderRadius = '0px',
+        [ValidateSet('0px', '10px', '15px', '25px')][string] $BorderRadius,
         [string] $BorderBackgroundColor,
 
         [ValidateSet('left', 'right', 'center', 'justify')][string] $Align,
@@ -65,14 +65,14 @@
     $AttributesDefault = [ordered] @{
         'background'     = $BackGroundColorActiveSelector
         'color'          = '#fff'
-        'border-radius'  = '4px'
+        'border-radius'  = $BorderRadius
         'text-transform' = $TextTransformActiveTab
     }
     $Tabbis = ConvertTo-CSS -ClassName '[data-tabs] .active' -Attributes $AttributesDefault
     $Script:HTMLSchema.CustomHeaderCSS.Add($Tabbis)
 
     # This adds styling in new New-HTMLTabHead for all tabs
-
+    <#
     $Script:BorderStyle = @{
         'border-radius' = "$BorderRadius";
         #'background-color' = ""
@@ -80,8 +80,9 @@
     if ($BorderBackgroundColor) {
         $Script:BorderStyle.'background-color' = ConvertFrom-Color -Color $BorderBackgroundColor
     }
+    #>
 
-    <#
+
     $BorderStyle = @{
         'border-radius'    = "$BorderRadius";
         'background-color' = ConvertFrom-Color -Color $BorderBackgroundColor
@@ -95,7 +96,7 @@
     }
     $BorderStyleCss = ConvertTo-CSS -ClassName 'tabsBorderStyleRadius' -Attributes $BorderStyleRadius
     $Script:HTMLSchema.CustomHeaderCSS.Add($BorderStyleCss)
-    #>
+
     # This adds Gradient
     if ($LinearGradient.IsPresent) {
         $AttributesGradient = [ordered] @{
