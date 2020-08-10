@@ -84,4 +84,53 @@
             Remove-Item -LiteralPath $FilePath
         }
     }
+    It 'Given Out-HTMLView (OrderedDictionary) we should get same nr of rows and properties per each row' {
+        $FilePath = "$PSScriptRoot\TemporaryTest.html"
+        $Process = [ordered] @{
+            Test  = 'Test3'
+            TEst2 = 'TEst4'
+        }
+        New-HTML {
+            New-HTMLTable -DataTable $Process -HideFooter
+        } -FilePath $FilePath
+        $Content = Get-Content -Path $FilePath -Raw
+        $TableOutput = ConvertFrom-HtmlTable -Content $Content
+        for ($i = 0; $i -lt $TableOutput.Count; $i++) {
+            $Properties = $TableOutput[$i].PSObject.Properties.Name
+            $Properties | Should -BeExactly Name, Value
+            $Properties.Count | Should -Be 2
+        }
+        $TableOutput[0].Name | Should -Be 'Test'
+        $TableOutput[1].Name | Should -Be 'Test2'
+        $TableOutput[0].Value | Should -Be 'Test3'
+        $TableOutput[1].Value | Should -Be 'TEst4'
+        if (Test-Path $FilePath) {
+            Remove-Item -LiteralPath $FilePath
+        }
+    }
+    It 'Given Out-HTMLView (PSCustomObject) we should get same nr of rows and properties per each row' {
+        $FilePath = "$PSScriptRoot\TemporaryTest.html"
+        $Process = [PSCustomObject] @{
+            Test1 = 'Value1'
+            TEst2 = 'Value2'
+            Test3 = 'Value3'
+        }
+        New-HTML {
+            New-HTMLTable -DataTable $Process -HideFooter
+        } -FilePath $FilePath
+        $Content = Get-Content -Path $FilePath -Raw
+        $TableOutput = ConvertFrom-HtmlTable -Content $Content
+        for ($i = 0; $i -lt $TableOutput.Count; $i++) {
+            $Properties = $Process[$i].PSObject.Properties.Name
+            $PropertiesTable = $TableOutput[$i].PSObject.Properties.Name
+            $Properties.Count -eq $PropertiesTable.Count | Should -Be $true
+        }
+        $TableOutput[0].Test1 | Should -Be 'Value1'
+        $TableOutput[0].Test2 | Should -Be 'Value2'
+        $TableOutput[0].Test3 | Should -Be 'Value3'
+        $TableOutput[1].Test3 | Should -Be $null
+        if (Test-Path $FilePath) {
+            Remove-Item -LiteralPath $FilePath
+        }
+    }
 }
