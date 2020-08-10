@@ -13,11 +13,19 @@
         if ($ID) {
             "#$ID $ClassName {"
         } else {
-            ".$ClassName {"
+            if ($ClassName.StartsWith('.')) {
+                "$ClassName {"
+            } elseif ($ClassName.StartsWith('[')) {
+                "$ClassName {"
+            } else {
+                ".$ClassName {"
+            }
         }
         foreach ($_ in $Attributes.Keys) {
             if ($null -ne $Attributes[$_]) {
-                "$($_): $($Attributes[$_]);"
+                # we remove empty chars because sometimes there cab be multiple lines similar to each other
+                $Property = $_.Replace(' ', '')
+                "    $Property`: $($Attributes[$_]);"
             }
         }
         '}'
