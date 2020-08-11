@@ -38,8 +38,6 @@ Function New-HTMLPanel {
     } else {
         [string] $Class = 'flexPanel overflowHidden'
     }
-
-    # New-HTMLTag -Tag 'div' -Attributes @{ class = "flexPanel roundedCorners"; style = $DivColumnStyle } {
     New-HTMLTag -Tag 'div' -Attributes @{ class = "$Class roundedCorners overflowHidden"; style = $DivColumnStyle } {
         Invoke-Command -ScriptBlock $Content
     }
