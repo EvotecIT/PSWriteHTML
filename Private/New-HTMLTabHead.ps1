@@ -10,7 +10,8 @@ function New-HTMLTabHead {
     }
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsWrapper' } {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsSlimmer' } {
-            New-HTMLTag -Tag 'div' -Attributes @{ 'data-tabs' = 'true'; class = 'tabsBorderStyle' } {
+            #New-HTMLTag -Tag 'div' -Attributes @{ 'data-tabs' = 'true'; class = 'tabsBorderStyle' } {
+            New-HTMLTag -Tag 'div' -Attributes @{ 'data-tabs' = 'true' } {
                 foreach ($Tab in $Tabs) {
                     if ($Tab.Active) {
                         $TabActive = 'active'

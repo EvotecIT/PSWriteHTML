@@ -11,7 +11,7 @@
     } else {
         $Name = ".$Name"
     }
-    # Lets remove dead code
+    # Lets remove dead code, or better not
     Remove-EmptyValue -Hashtable $Inject
     if ($Css) {
         if ($CSS[$Name] -and (-not $Overwrite)) {

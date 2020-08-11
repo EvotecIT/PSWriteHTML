@@ -345,18 +345,18 @@ $Script:Configuration = [ordered] @{
                 CssInline = [ordered] @{
                     ".tabsWrapper"         = [ordered]@{
                         'text-align'     = 'center'
-                        'margin'         = "10px auto"
+                        #'margin'         = "10px auto"
                         'font-family'    = "'Roboto', sans-serif !important"
                         'text-transform' = 'uppercase'
                         'font-size'      = '15px'
                     }
                     '[data-tabs]'          = [ordered]@{
                         'display'         = 'flex'
-                        'margin-top'      = '10px'
-                        # /*font-size =  15px;*/
+                        #'margin-top'      = '10px'
+                        'margin'          = '5px 5px 5px 5px'
                         'padding'         = '0px'
                         'box-shadow'      = '0px 5px 20px rgba(0, 0, 0, 0.1)'
-                        'border-radius'   = '4px'
+                        'border-radius'   = '5px'
                         'justify-content' = 'center'
                     }
                     '[data-tabs]>*'        = [ordered]@{
@@ -366,7 +366,7 @@ $Script:Configuration = [ordered] @{
                     '[data-tabs] .active'  = [ordered]@{
                         'background'    = '#1e90ff' # DodgerBlue
                         'color'         = '#fff'
-                        'border-radius' = '4px'
+                        'border-radius' = '5px'
                     }
                     '[data-panes]>*'       = [ordered]@{
                         'display' = 'none'
