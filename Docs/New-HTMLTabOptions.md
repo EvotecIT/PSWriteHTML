@@ -12,11 +12,23 @@ schema: 2.0.0
 
 ## SYNTAX
 
+### Manual (Default)
 ```
-New-HTMLTabOptions [[-TextSize] <String>] [[-TextColor] <String>] [-SlimTabs] [[-BackgroundColor] <String>]
- [[-BackgroundColorActive] <String>] [[-BackgroundColorActiveTarget] <String>] [-Transition] [-LinearGradient]
- [[-BorderRadius] <String>] [[-BorderBackgroundColor] <String>] [[-Align] <String>]
- [[-TextTransformAllTab] <String>] [[-TextTransformActiveTab] <String>] [<CommonParameters>]
+New-HTMLTabOptions [-TextSize <String>] [-TextSizeActive <String>] [-TextColor <String>]
+ [-TextColorActive <String>] [-FontWeight <String>] [-FontWeightActive <String>] [-FontStyle <String>]
+ [-FontStyleActive <String>] [-FontVariant <String>] [-FontVariantActive <String>] [-FontFamily <String>]
+ [-FontFamilyActive <String>] [-TextDecoration <String>] [-TextDecorationActive <String>]
+ [-BackgroundColor <String>] [-BackgroundColorActive <String>] [-BackgroundColorActiveTarget <String>]
+ [-BorderRadius <String>] [-BorderBackgroundColor <String>] [-TextTransform <String>]
+ [-TextTransformActive <String>] [-SlimTabs] [-Transition] [-LinearGradient] [-RemoveShadow]
+ [-BorderBottomWidth <String>] [-BorderBottomStyle <String>] [-BorderBottomColor <String>]
+ [-BorderBottomWidthActive <String>] [-BorderBottomStyleActive <String>] [-BorderBottomColorActive <String>]
+ [-Align <String>] [<CommonParameters>]
+```
+
+### Styled
+```
+New-HTMLTabOptions [-Style <String>] [-Align <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -39,11 +51,11 @@ PS C:\> {{ Add example code here }}
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: AlignTabs
 Accepted values: left, right, center, justify
 
 Required: False
-Position: 7
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -54,11 +66,11 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Manual
 Aliases:
 
 Required: False
-Position: 2
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -69,11 +81,11 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Manual
 Aliases: SelectorColor
 
 Required: False
-Position: 3
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -84,11 +96,11 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Manual
 Aliases: SelectorColorTarget
 
 Required: False
-Position: 4
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -99,11 +111,105 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Manual
 Aliases:
 
 Required: False
-Position: 6
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BorderBottomColor
+{{ Fill BorderBottomColor Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BorderBottomColorActive
+{{ Fill BorderBottomColorActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BorderBottomStyle
+{{ Fill BorderBottomStyle Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BorderBottomStyleActive
+{{ Fill BorderBottomStyleActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BorderBottomWidth
+{{ Fill BorderBottomWidth Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: medium, thin, thick
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BorderBottomWidthActive
+{{ Fill BorderBottomWidthActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: medium, thin, thick
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -114,12 +220,138 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Manual
 Aliases:
-Accepted values: 0px, 10px, 15px, 25px
+Accepted values: 0px, 5px, 10px, 15px, 20px, 25px
 
 Required: False
-Position: 5
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontFamily
+{{ Fill FontFamily Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontFamilyActive
+{{ Fill FontFamilyActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontStyle
+{{ Fill FontStyle Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: normal, italic, oblique
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontStyleActive
+{{ Fill FontStyleActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: normal, italic, oblique
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontVariant
+{{ Fill FontVariant Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: normal, small-caps
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontVariantActive
+{{ Fill FontVariantActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: normal, small-caps
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontWeight
+{{ Fill FontWeight Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontWeightActive
+{{ Fill FontWeightActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -130,7 +362,22 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: Manual
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RemoveShadow
+{{ Fill RemoveShadow Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Manual
 Aliases:
 
 Required: False
@@ -145,7 +392,22 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: Manual
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Style
+{{ Fill Style Description }}
+
+```yaml
+Type: String
+Parameter Sets: Styled
 Aliases:
 
 Required: False
@@ -160,11 +422,58 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Manual
 Aliases:
 
 Required: False
-Position: 1
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TextColorActive
+{{ Fill TextColorActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TextDecoration
+{{ Fill TextDecoration Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: none, line-through, overline, underline
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TextDecorationActive
+{{ Fill TextDecorationActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: none, line-through, overline, underline
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -175,43 +484,58 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Manual
 Aliases:
 
 Required: False
-Position: 0
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TextTransformActiveTab
-{{ Fill TextTransformActiveTab Description }}
+### -TextSizeActive
+{{ Fill TextSizeActive Description }}
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Manual
 Aliases:
-Accepted values: uppercase, lowercase, capitalize
 
 Required: False
-Position: 9
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TextTransformAllTab
-{{ Fill TextTransformAllTab Description }}
+### -TextTransform
+{{ Fill TextTransform Description }}
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Manual
 Aliases:
 Accepted values: uppercase, lowercase, capitalize
 
 Required: False
-Position: 8
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TextTransformActive
+{{ Fill TextTransformActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases:
+Accepted values: uppercase, lowercase, capitalize
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -222,7 +546,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: Manual
 Aliases:
 
 Required: False
