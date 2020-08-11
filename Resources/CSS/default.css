@@ -10,12 +10,14 @@ hr {
     width: 100%;
 }
 
+/*
 .defaultSection {
     border: 1px solid #bbbbbb;
     padding-bottom: 0px;
     margin: 5px;
     width: calc(100% - 10px);
 }
+*/
 
 .overflowHidden {
     overflow: hidden;
@@ -42,6 +44,7 @@ hr {
     flex-basis: 100%;
 }
 
+/*
 .roundedCorners {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
@@ -49,11 +52,14 @@ hr {
     margin: 5px;
 }
 
+
 .defaultHeader {
     padding: 5px;
     margin: 0px 0px 0px 0px;
     font-weight: bold;
 }
+
+*/
 
 .defaultFooter {
     padding-right: 5em;

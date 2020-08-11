@@ -14,7 +14,13 @@
         }
 
         $Output = foreach ($Key in $Css.Keys) {
-            "$Key {"
+            if ($Key.StartsWith('.') -or $Key.StartsWith('[') -or $Key.StartsWith('#')) {
+                # This means it's already decided
+                $Name = $Key
+            } else {
+                $Name = ".$Key"
+            }
+            "$Name {"
             foreach ($_ in $Css[$Key].Keys) {
                 if ($null -ne $Css[$Key][$_]) {
                     # we remove empty chars because sometimes there cab be multiple lines similar to each other

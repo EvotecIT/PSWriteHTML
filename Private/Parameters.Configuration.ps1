@@ -3,7 +3,29 @@ $Script:Configuration = [ordered] @{
         Default              = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\default.css"
+                Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
+                CssInline = [ordered] @{
+                    '.defaultSection' = [ordered] @{
+                        'border'         = '1px solid #bbbbbb'
+                        'padding-bottom' = '0px'
+                        'margin'         = '5px'
+                        'width'          = 'calc(100% - 10px)'
+                        'box-shadow'     = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
+                        'transition'     = '0.3s'
+                        'border-radius'  = '5px'
+                    }
+                    '.defaultPanel'   = [ordered] @{
+                        'box-shadow'    = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
+                        'transition'    = '0.3s'
+                        'border-radius' = '5px'
+                        'margin'        = '5px'
+                    }
+                    '.defaultHeader'  = [ordered] @{
+                        'padding'     = '5px'
+                        'margin'      = '0px 0px 0px 0px'
+                        'font-weight' = 'bold'
+                    }
+                }
             }
         }
         DefaultHeadings      = @{
