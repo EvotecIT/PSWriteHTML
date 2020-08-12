@@ -1,11 +1,17 @@
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
+        Inject               = @{
+            HeaderAlways = @{
+                CssInline = [ordered] @{}
+            }
+        }
+
         Default              = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
                 Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
                 CssInline = [ordered] @{
-                    '.defaultSection' = [ordered] @{
+                    'defaultSection'     = [ordered] @{
                         'border'         = '1px solid #bbbbbb'
                         'padding-bottom' = '0px'
                         'margin'         = '5px'
@@ -14,16 +20,23 @@ $Script:Configuration = [ordered] @{
                         'transition'     = '0.3s'
                         'border-radius'  = '5px'
                     }
-                    '.defaultPanel'   = [ordered] @{
+                    'defaultSectionHead' = [ordered] @{
+                        'display'          = 'flex'
+                        'justify-content'  = 'center'
+                        'padding'          = '5px'
+                        'margin'           = '0px 0px 0px 0px'
+                        'font-weight'      = 'bold'
+                        "background-color" = ConvertFrom-Color -Color "DeepSkyBlue"
+                        'color'            = ConvertFrom-Color -Color "White"
+                    }
+                    'defaultSectionText' = [ordered] @{
+                        "text-align" = 'center'
+                    }
+                    'defaultPanel'       = [ordered] @{
                         'box-shadow'    = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
                         'transition'    = '0.3s'
                         'border-radius' = '5px'
                         'margin'        = '5px'
-                    }
-                    '.defaultHeader'  = [ordered] @{
-                        'padding'     = '5px'
-                        'margin'      = '0px 0px 0px 0px'
-                        'font-weight' = 'bold'
                     }
                 }
             }
@@ -464,7 +477,7 @@ function Save-Resource {
             #$Target[$i]
         } else {
             $Splitted = $ResourceLinks[$i].OriginalString -split '/'
-            $FileName = $Splitted[-1]
+            $FileName = $Splitted[ - 1]
             $FilePath = [IO.Path]::Combine('C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources', $Type, $FileName)
             $FilePathScriptRoot = -Join ('"', '$PSScriptRoot\..\Resources\', "$Type", '\', $FileName, '"')
             $FilePathScriptRoot

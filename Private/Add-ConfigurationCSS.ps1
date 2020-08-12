@@ -6,22 +6,24 @@
         [System.Collections.IDictionary] $Inject,
         [switch] $Overwrite
     )
-    if ($Name.StartsWith('.') -or $Name.StartsWith('[') -or $Name.StartsWith('#')) {
-        # This means it's already decided
-    } else {
-        $Name = ".$Name"
-    }
-    # Lets remove dead code, or better not
-    Remove-EmptyValue -Hashtable $Inject
-    if ($Css) {
-        if ($CSS[$Name] -and (-not $Overwrite)) {
-            # if exists and is not supposed to be overwritten
-            # we just add or overwritte existing parts in $Inject
-            foreach ($Key in $Inject.Keys) {
-                $CSS[$Name][$Key] = $Inject[$Key]
+    #if ($Name.StartsWith('.') -or $Name.StartsWith('[') -or $Name.StartsWith('#')) {
+    #    # This means it's already decided
+    #} else {
+    #    $Name = ".$Name"
+    # }
+    # Lets remove dead code
+    if ($Inject) {
+        Remove-EmptyValue -Hashtable $Inject
+        if ($Css) {
+            if ($CSS[$Name] -and (-not $Overwrite)) {
+                # if exists and is not supposed to be overwritten
+                # we just add or overwritte existing parts in $Inject
+                foreach ($Key in $Inject.Keys) {
+                    $CSS[$Name][$Key] = $Inject[$Key]
+                }
+            } else {
+                $CSS[$Name] = $Inject
             }
-        } else {
-            $CSS[$Name] = $Inject
         }
     }
 }

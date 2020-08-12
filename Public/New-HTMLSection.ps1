@@ -4,9 +4,9 @@ Function New-HTMLSection {
     Param (
         [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace"),
         [alias('Name', 'Title')][Parameter(Mandatory = $false)][string]$HeaderText,
-        [alias('TextColor')][string]$HeaderTextColor = "White",
-        [alias('TextAlignment')][string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment = 'center',
-        [alias('TextBackGroundColor')][string]$HeaderBackGroundColor = "DeepSkyBlue",
+        [alias('TextColor')][string]$HeaderTextColor,
+        [alias('TextAlignment')][string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment,
+        [alias('TextBackGroundColor')][string]$HeaderBackGroundColor,
         [alias('BackgroundShade')][string]$BackgroundColor = "",
         [alias('Collapsable')][Parameter(Mandatory = $false)][switch] $CanCollapse,
         [Parameter(Mandatory = $false)][switch] $IsHidden,
@@ -19,7 +19,6 @@ Function New-HTMLSection {
         [string][ValidateSet('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch')] $AlignContent,
         [string][ValidateSet('stretch', 'flex-start', 'flex-end', 'center', 'baseline')] $AlignItems,
         [string][ValidateSet('flex-start', 'flex-end', 'center')] $JustifyContent,
-
         [System.Collections.IDictionary] $StyleSheetsConfiguration
     )
     # This is so we can support external CSS configuration
@@ -27,8 +26,23 @@ Function New-HTMLSection {
         $StyleSheetsConfiguration = [ordered] @{
             Section     = 'defaultSection'
             SectionText = 'defaultSectionText'
+            SectionHead = "defaultSectionHead"
         }
     }
+
+    if ($HeaderTextAlignment) {
+        # We need to translate it to Justify-Alignement - because Text-Aligment doesn't work with flex
+        if ($HeaderTextAlignment -eq 'justify' -or $HeaderTextAlignment -eq 'center') {
+            $HeaderAlignment = 'center'
+        } elseif ($HeaderTextAlignment -eq 'left') {
+            $HeaderAlignment = 'flex-start'
+        } elseif ($HeaderTextAlignment -eq 'right') {
+            $HeaderAlignment = 'flex-end'
+        } else {
+
+        }
+    }
+
     $RandomNumber = Get-Random
     $TextHeaderColorFromRGB = ConvertFrom-Color -Color $HeaderTextColor
     $HiddenDivStyle = [ordered] @{ }
@@ -36,25 +50,61 @@ Function New-HTMLSection {
     if ($CanCollapse) {
         $Script:HTMLSchema.Features.HideSection = $true
         if ($IsHidden) {
-            $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Show button
-            $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button
+            # shows Show button
+            $ShowStyle = @{
+                "color" = $TextHeaderColorFromRGB
+            }
+            # hides Hide button
+            $HideStyle = @{
+                "color"   = $TextHeaderColorFromRGB
+                'display' = 'none'
+            }
         } else {
             if ($Collapsed) {
-                $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
-                $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button
+                # hides Show button
+                $HideStyle = @{
+                    "color"   = $TextHeaderColorFromRGB;
+                    'display' = 'none'
+                }
+                # shows Hide button
+                $ShowStyle = @{
+                    "color" = $TextHeaderColorFromRGB
+                }
                 $HiddenDivStyle['display'] = 'none'
             } else {
-                $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
-                $HideStyle = "color: $TextHeaderColorFromRGB;" # shows Hide button
+                # hides Show button
+                $ShowStyle = @{
+                    "color"   = $TextHeaderColorFromRGB;
+                    'display' = 'none'
+                }
+                # shows Hide button
+                $HideStyle = @{
+                    "color" = $TextHeaderColorFromRGB
+                }
             }
         }
     } else {
         if ($IsHidden) {
-            $ShowStyle = "color: $TextHeaderColorFromRGB;" # shows Show button
-            $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Hide button
+            # shows Show button
+            $ShowStyle = @{
+                "color" = $TextHeaderColorFromRGB
+            }
+            # hides Hide button
+            $HideStyle = @{
+                "color"   = $TextHeaderColorFromRGB
+                'display' = 'none'
+            }
         } else {
-            $ShowStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
-            $HideStyle = "color: $TextHeaderColorFromRGB; display:none;" # hides Show button
+            # hides Show button
+            $ShowStyle = @{
+                "color"   = $TextHeaderColorFromRGB;
+                'display' = 'none'
+            }
+            # hides Show button
+            $HideStyle = @{
+                "color"   = $TextHeaderColorFromRGB;
+                'display' = 'none'
+            }
         }
     }
     if ($IsHidden) {
@@ -87,10 +137,11 @@ Function New-HTMLSection {
     }
 
     $DivHeaderStyle = @{
-        "text-align"       = $HeaderTextAlignment
+        #"text-align"       = $HeaderTextAlignment
+        'justify-content'  = $HeaderAlignment
         "background-color" = ConvertFrom-Color -Color $HeaderBackGroundColor
     }
-    $HeaderStyle = "color: $TextHeaderColorFromRGB;"
+    $HeaderStyle = @{ "color" = $TextHeaderColorFromRGB }
     if ($Invisible) {
         New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName } -Value {
             New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; Style = @{ 'justify-content' = $JustifyContent } } -Value {
@@ -101,13 +152,14 @@ Function New-HTMLSection {
             }
         }
     } else {
-        New-HTMLTag -Tag 'div' -Attributes @{ class = "$($StyleSheetsConfiguration.Section) roundedCorners overflowHidden"; style = $DivContentStyle } -Value {
-            New-HTMLTag -Tag 'div' -Attributes @{ class = "defaultHeader"; style = $DivHeaderStyle } -Value {
-                New-HTMLTag -Tag 'div' -Attributes @{ class = $($StyleSheetsConfiguration.SectionText) } {
+        New-HTMLTag -Tag 'div' -Attributes @{ class = "$($StyleSheetsConfiguration.Section) overflowHidden"; style = $DivContentStyle } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = $StyleSheetsConfiguration.SectionHead; style = $DivHeaderStyle } -Value {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = $StyleSheetsConfiguration.SectionText } {
                     New-HTMLAnchor -Name $HeaderText -Text "$HeaderText " -Style $HeaderStyle
+                    "&nbsp;" # this adds hard space
+                    New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber'); " -Style $ShowStyle -Text '(Show)'
+                    New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber'); " -Style $HideStyle -Text '(Hide)'
                 }
-                New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber');" -Style $ShowStyle -Text '(Show)'
-                New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber');" -Style $HideStyle -Text '(Hide)'
             }
             New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; id = $RandomNumber; Style = $HiddenDivStyle } -Value {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName collapsable"; id = $RandomNumber; Style = @{'justify-content' = $JustifyContent } } -Value {

@@ -2,46 +2,46 @@ function New-HTMLAnchor {
     <#
     .SYNOPSIS
     Short description
-    
+
     .DESCRIPTION
     Long description
-    
+
     .PARAMETER Name
     Parameter description
-    
+
     .PARAMETER Id
     Parameter description
-    
+
     .PARAMETER Target
     Parameter description
-    
+
     .PARAMETER Class
     Parameter description
-    
+
     .PARAMETER HrefLink
     Parameter description
-    
+
     .PARAMETER OnClick
     Parameter description
-    
+
     .PARAMETER Style
     Parameter description
-    
+
     .PARAMETER Text
     Parameter description
-    
+
     .EXAMPLE
     New-HTMLAnchor -Target _parent
 
-    New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style "color: #ffffff; display:none;" -Text 'Show' 
+    New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style "color: #ffffff; display:none;" -Text 'Show'
 
     Output:
     <a target = "_parent" />
-    
+
     .NOTES
     General notes
     #>
-    
+
 
     param(
         [alias('AnchorName')][string] $Name,
@@ -50,7 +50,7 @@ function New-HTMLAnchor {
         [string] $Class,
         [alias('Url', 'Link', 'UrlLink', 'Href')][string] $HrefLink,
         [string] $OnClick,
-        [string] $Style,
+        [System.Collections.IDictionary] $Style,
         [alias('AnchorText', 'Value')][string] $Text
     )
     $Attributes = [ordered]@{
