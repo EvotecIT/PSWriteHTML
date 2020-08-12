@@ -6,54 +6,54 @@ New-HTML -TitleText $Title -Online -FilePath $PSScriptRoot\Example13.html {
     <#
     New-HTMLContent -HeaderText '0 section' {
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter #-ImmediatelyShowHiddenDetails
+            New-HTMLTable -DataTable $Processes -HideFooter #-ImmediatelyShowHiddenDetails
         }
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
     }
     #>
     New-HTMLContent -HeaderText '1 section' {
-        New-HTMLTable -ArrayOfObjects $Processes -HideFooter {
+        New-HTMLTable -DataTable $Processes -HideFooter {
             New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
         } -ImmediatelyShowHiddenDetails
     }
     New-HTMLContent -HeaderText '2 section' {
-        New-HTMLTable -ArrayOfObjects $Processes -HideFooter {
+        New-HTMLTable -DataTable $Processes -HideFooter {
             New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
         } -ImmediatelyShowHiddenDetails -HideShowButton
     }
     New-HTMLContent -HeaderText '3 section' {
-        New-HTMLTable -ArrayOfObjects $Processes -HideFooter {
+        New-HTMLTable -DataTable $Processes -HideFooter {
             New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
         } -ImmediatelyShowHiddenDetails -HideShowButton -DisableResponsiveTable
     }
     New-HTMLContent -HeaderText '4 section' {
-        New-HTMLTable -ArrayOfObjects $Processes -HideFooter {
+        New-HTMLTable -DataTable $Processes -HideFooter {
             New-HTMLTableHeader -Names 'ID', 'HandleCount', 'WorkingSet' -ResponsiveOperations none
         }
     }
     <#
     New-HTMLContent -Invisible {
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
 
         }
     }
     New-HTMLPanel {
-        New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+        New-HTMLTable -DataTable $Processes -HideFooter
 
     }
     #>
