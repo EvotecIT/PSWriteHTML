@@ -9,16 +9,16 @@ $HTML = New-HtmlPage -Name 'Test' -Online {
         New-HTMLContent -HeaderText 'Content' {
             New-HTMLPanel {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -Simplify -DataTable $DomainAdminTable
                 }
             }
             New-HTMLPanel {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -Simplify -DataTable $DomainAdminTable
                 }
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
+                New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
@@ -27,7 +27,7 @@ $HTML = New-HtmlPage -Name 'Test' -Online {
     }
     New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
         New-HTMLContent -HeaderText 'My other text' {
-            New-HTMLTable -Simplify -ArrayOfObjects $EnterpriseAdminTable
+            New-HTMLTable -Simplify -DataTable $EnterpriseAdminTable
         }
     }
 }
@@ -52,14 +52,14 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example9.html -Sh
 
     New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
         New-HTMLPanel {
             $Processes = Get-Process | Select-Object -First 5
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
     }
     New-HTMLContent -HeaderText '-1 section' -CanCollapse {
@@ -114,7 +114,7 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example9.html -Sh
     }
     New-HTMLContent -HeaderText 'Section 3rd with 3 columns' {
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
         New-HTMLPanel {
             New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left  {

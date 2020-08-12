@@ -12,16 +12,16 @@ $HTML = New-HtmlPage -Name 'Test' -Online {
         New-HTMLContent -HeaderText 'Content' {
             New-HTMLPanel -ColumnNumber 1 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -DataTable $DomainAdminTable
                 }
             }
             New-HTMLPanel -ColumnNumber 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -DataTable $DomainAdminTable
                 }
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
+                New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
@@ -30,7 +30,7 @@ $HTML = New-HtmlPage -Name 'Test' -Online {
     }
     New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
         New-HTMLContent -HeaderText 'My other text' {
-            New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
+            New-HTMLTable -DataTable $EnterpriseAdminTable
         }
     }
 }

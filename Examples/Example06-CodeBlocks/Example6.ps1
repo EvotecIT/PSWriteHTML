@@ -9,16 +9,16 @@ $HTML = New-HtmlPage -Name 'Test' -Online {
         New-HTMLContent -HeaderText 'Content' {
             New-HTMLPanel -Count 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -Simplify -DataTable $DomainAdminTable
                 }
             }
             New-HTMLPanel -Count 2 {
                 New-HTMLContent -HeaderText 'My text' -CanCollapse {
-                    New-HTMLTable -Simplify -ArrayOfObjects $DomainAdminTable
+                    New-HTMLTable -Simplify -DataTable $DomainAdminTable
                 }
             }
             New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
-                New-HTMLTable -ArrayOfObjects $EnterpriseAdminTable
+                New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
@@ -27,7 +27,7 @@ $HTML = New-HtmlPage -Name 'Test' -Online {
     }
     New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
         New-HTMLContent -HeaderText 'My other text' {
-            New-HTMLTable -Simplify -ArrayOfObjects $EnterpriseAdminTable
+            New-HTMLTable -Simplify -DataTable $EnterpriseAdminTable
         }
     }
 }

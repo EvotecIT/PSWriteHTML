@@ -8,40 +8,40 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs04.ht
         New-HTMLTab -Name '2nd Level Tab - Test 1/1' -IconRegular address-card {
             New-HTMLTab -Name '3rd level' {
                 New-HTMLTab -Name '4th' {
-                    New-HTMLTable -ArrayOfObjects $Test1 -HideFooter
+                    New-HTMLTable -DataTable $Test1 -HideFooter
                 }
             }
         }
         New-HTMLTab -Name '2nd Level Tab - Test 1/2' -IconRegular address-card {
-            New-HTMLTable -ArrayOfObjects $Test1 -HideFooter
+            New-HTMLTable -DataTable $Test1 -HideFooter
         }
         New-HTMLTab -Name '2nd Level Tab - Test 1/3' -IconRegular address-card {
-            New-HTMLTable -ArrayOfObjects $Test1 -HideFooter
+            New-HTMLTable -DataTable $Test1 -HideFooter
         }
         New-HTMLTab -Name '2nd Level Tab - Test 1/4' -IconRegular address-card {
-            New-HTMLTable -ArrayOfObjects $Test1 -HideFooter
+            New-HTMLTable -DataTable $Test1 -HideFooter
         }
     }
 
     New-HTMLTab -Name 'First Level Tab - Test 4' -IconSolid bezier-curve {
         New-HTMLTab -Name '2nd Level Tab - Test 4/1' -IconBrands app-store {
-            New-HTMLTable -ArrayOfObjects $Test1 -HideFooter {
+            New-HTMLTable -DataTable $Test1 -HideFooter {
                 New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
             }
         }
         New-HTMLTab -Name '2nd Level Tab - Test 4/2' {
-            New-HTMLTable -ArrayOfObjects $Test1 -HideFooter {
+            New-HTMLTable -DataTable $Test1 -HideFooter {
                 New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
             }
         }
     }
     New-HTMLTab -Name 'First Level Tab - Test 4' -IconSolid bezier-curve {
         New-HTMLSection -Invisible {
-            New-HTMLTable -ArrayOfObjects $Test1 -HideFooter {
+            New-HTMLTable -DataTable $Test1 -HideFooter {
                 New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
             }
 
-            New-HTMLTable -ArrayOfObjects $Test1 -HideFooter {
+            New-HTMLTable -DataTable $Test1 -HideFooter {
                 New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
             }
         }

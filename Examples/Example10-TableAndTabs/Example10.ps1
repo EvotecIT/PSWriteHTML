@@ -7,7 +7,7 @@ New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example10.html -S
     New-HtmlTab -TabName 'Test' {
         New-HTMLContent -HeaderText '0 section' {
             New-HTMLPanel {
-                New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+                New-HTMLTable -DataTable $Processes -HideFooter
             }
             New-HTMLPanel {
                 New-HTMLTable -DataTable $Processes -HideFooter
@@ -23,10 +23,10 @@ New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example10.html -S
     New-HTMLTab -TabName 'Test5' {
         New-HTMLContent -HeaderText '1 section' {
             New-HTMLPanel {
-                New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+                New-HTMLTable -DataTable $Processes -HideFooter
             }
             New-HTMLPanel {
-                New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+                New-HTMLTable -DataTable $Processes -HideFooter
                 # New-HTMLTable -DataTable $Processes -HideFooter
             }
             New-HTMLPanel {
@@ -72,10 +72,10 @@ New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example10.html -S
         }
         New-HTMLContent -HeaderText '1 section' {
             New-HTMLPanel {
-                New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+                New-HTMLTable -DataTable $Processes -HideFooter
             }
             New-HTMLPanel {
-                New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+                New-HTMLTable -DataTable $Processes -HideFooter
                 # New-HTMLTable -DataTable $Processes -HideFooter
             }
             New-HTMLPanel {

@@ -59,13 +59,13 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs02.ht
                         }
                     }
                 }
-                New-HTMLTable -ArrayOfObjects $Processes -HideFooter {
+                New-HTMLTable -DataTable $Processes -HideFooter {
                     New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
                 } -ImmediatelyShowHiddenDetails
             }
         }
         New-HTMLTab -Name '2nd Level Tab - Test 4/2' {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter {
+            New-HTMLTable -DataTable $Processes -HideFooter {
                 New-HTMLTableHeader -Names 'ID', 'HandleCount' -ResponsiveOperations none
             } -ImmediatelyShowHiddenDetails
         }

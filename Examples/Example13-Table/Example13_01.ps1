@@ -6,12 +6,12 @@ $Title = 'My title'
 
 New-HTML -TitleText $Title -Online -FilePath $PSScriptRoot\Example13_01.html {
     #New-HTMLContent -HeaderText '1 section' {
-        New-HTMLTable -ArrayOfObjects $Processes -HideFooter { #-ImmediatelyShowHiddenDetails
+        New-HTMLTable -DataTable $Processes -HideFooter { #-ImmediatelyShowHiddenDetails
             #New-TableRowGrouping -Name 'PriorityClass' -Color Red -BackgroundColor GreenYellow
         } -DisableSearch
     #}
     #New-HTMLContent -HeaderText '2 section' {
-        #New-HTMLTable -ArrayOfObjects $Processes -HideFooter -ImmediatelyShowHiddenDetails -HideShowButton
+        #New-HTMLTable -DataTable $Processes -HideFooter -ImmediatelyShowHiddenDetails -HideShowButton
     #}
 } -ShowHTML
 #>

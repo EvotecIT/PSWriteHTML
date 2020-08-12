@@ -7,22 +7,22 @@ New-HTML -TitleText $Title -Online -FilePath $PSScriptRoot\Example14.html -AutoR
 
     New-HTMLContent -HeaderText '0 section' -CanCollapse {
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+            New-HTMLTable -DataTable $Processes -HideFooter
         }
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes1 -HideFooter
-        }
-        New-HTMLPanel {
-
+            New-HTMLTable -DataTable $Processes1 -HideFooter
         }
         New-HTMLPanel {
 
         }
         New-HTMLPanel {
-            New-HTMLTable -ArrayOfObjects $Processes1 -HideFooter
+
+        }
+        New-HTMLPanel {
+            New-HTMLTable -DataTable $Processes1 -HideFooter
         }
     }
     New-HTMLContent -HeaderText '1 section' {
-        New-HTMLTable -ArrayOfObjects $Processes -HideFooter
+        New-HTMLTable -DataTable $Processes -HideFooter
     }
 } -ShowHTML
