@@ -67,17 +67,19 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.93 - Unreleased
   - Public
-    - [x] Fix for `New-HTMLTabOption` switch "-SelectorColor" sets the colur permanently #128 [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
-    - [x] Choosing colors should be easier (wildcard added before and after)
-    - [ ] Make it optional for `New-HTMLTab` to force TextTransform (uses global)
-    - [ ] Fix for `InvokeHTMLTags` in `New-HTMLTable` - replacement of (`&amp;` to `&`) and (`&nbsp;` to `<space>`)
-      - [ ] Before it would try to change from `'&amp;nbsp;` to `<space>` which is wrong. Hopefully nothing will broken after that
-    - [x] Added `ConvertTo-CascadingStyleSheets` - converts hashtable into CSS
-    - [ ] Added `New-HTMLSectionOption` - **experimental**
-    - [ ] Added `New-HTMLPanel
+    - Fixes
+      - [x] Fix for `New-HTMLTabOption` switch "-SelectorColor" sets the colur permanently #128 [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
+      - [x] Fix for `InvokeHTMLTags` in `New-HTMLTable` - replacement of (`&amp;` to `&`) and (`&nbsp;` to `<space>`)
+        - [x] Before it would try to change from `'&amp;nbsp;` to `<space>` which is wrong. Hopefully nothing will broken after that
+    - Improvements
+      - [x] Choosing colors should be easier (wildcard added before and after)
+      - [x] Make it optional for `New-HTMLTab` to force TextTransform (uses global)
+    - New
+      - [x] Added `ConvertTo-CascadingStyleSheets` - converts hashtable into CSS
+      - [x] Added `New-HTMLSectionOption` - **experimental**
+      - [x] Added `New-HTMLPanelOption` - **experimental**
   - Internal
     - [x] Support interally for `Custom Header CSS`, `Custom Footer CSS`
-
 - 0.0.92 - 2020.08.08
   - Fixes `New-HierarchicalTreeNode` not recognized in latest modules [#141](https://github.com/EvotecIT/PSWriteHTML/issues/141)
 - 0.0.91 - 2020.08.03
