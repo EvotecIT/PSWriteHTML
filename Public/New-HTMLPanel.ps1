@@ -9,6 +9,7 @@ Function New-HTMLPanel {
         [string] $Margin,
 
         [string][ValidateSet('center', 'left', 'right', 'justify')] $AlignContentText,
+        [ValidateSet('0px', '5px', '10px', '15px', '20px', '25px')][string] $BorderRadius,
 
         [string] $AnchorName,
         [System.Collections.IDictionary] $StyleSheetsConfiguration
@@ -23,6 +24,7 @@ Function New-HTMLPanel {
     # This controls general panel style that overwrittes whatever is set globally
     $PanelStyle = [ordered] @{
         "background-color" = ConvertFrom-Color -Color $BackgroundColor
+        'border-radius'    = $BorderRadius
     }
     if ($Invisible) {
         $PanelStyle['box-shadow'] = 'unset !important;'

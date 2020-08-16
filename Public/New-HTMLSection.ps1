@@ -2,14 +2,14 @@ Function New-HTMLSection {
     [alias('New-HTMLContent', 'Section')]
     [CmdletBinding()]
     Param (
-        [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace"),
+        [Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace"),
         [alias('Name', 'Title')][Parameter(Mandatory = $false)][string]$HeaderText,
         [alias('TextColor')][string]$HeaderTextColor,
         [alias('TextAlignment')][string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment,
         [alias('TextBackGroundColor')][string]$HeaderBackGroundColor,
         [alias('BackgroundShade')][string]$BackgroundColor = "",
         [alias('Collapsable')][Parameter(Mandatory = $false)][switch] $CanCollapse,
-        [Parameter(Mandatory = $false)][switch] $IsHidden,
+        [switch] $IsHidden,
         [switch] $Collapsed,
         [int] $Height,
         [switch] $Invisible,
@@ -19,6 +19,8 @@ Function New-HTMLSection {
         [string][ValidateSet('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch')] $AlignContent,
         [string][ValidateSet('stretch', 'flex-start', 'flex-end', 'center', 'baseline')] $AlignItems,
         [string][ValidateSet('flex-start', 'flex-end', 'center')] $JustifyContent,
+
+        [ValidateSet('0px', '5px', '10px', '15px', '20px', '25px')][string] $BorderRadius,
 
         [string] $AnchorName,
         [System.Collections.IDictionary] $StyleSheetsConfiguration
@@ -111,15 +113,12 @@ Function New-HTMLSection {
             }
         }
     }
+    $DivContentStyle = [ordered] @{
+        "background-color" = ConvertFrom-Color -Color $BackgroundColor
+        'border-radius'    = $BorderRadius
+    }
     if ($IsHidden) {
-        $DivContentStyle = @{
-            "display"          = 'none'
-            "background-color" = ConvertFrom-Color -Color $BackgroundColor
-        }
-    } else {
-        $DivContentStyle = @{
-            "background-color" = ConvertFrom-Color -Color $BackgroundColor
-        }
+        $DivContentStyle["display"] = 'none'
     }
 
     $HiddenDivStyle['height'] = if ($Height -ne 0) { "$($Height)px" } else { '' }
