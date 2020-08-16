@@ -8,7 +8,7 @@ Function New-HTMLPanel {
         [alias('flex-basis')][string] $Width,
         [string] $Margin,
 
-        [string][ValidateSet('flex-start', 'flex-end', 'center')] $JustifyContent,
+        [string][ValidateSet('center', 'left', 'right', 'justify')] $AlignContentText,
 
         [string] $AnchorName,
         [System.Collections.IDictionary] $StyleSheetsConfiguration
@@ -20,12 +20,17 @@ Function New-HTMLPanel {
         }
     }
 
-    $DivColumnStyle = [ordered] @{
+    # This controls general panel style that overwrittes whatever is set globally
+    $PanelStyle = [ordered] @{
         "background-color" = ConvertFrom-Color -Color $BackgroundColor
-        'justify-content'  = $JustifyContent
     }
     if ($Invisible) {
-        $DivColumnStyle['box-shadow'] = 'unset !important;'
+        $PanelStyle['box-shadow'] = 'unset !important;'
+    }
+
+    # This controls content within panel if it's not 100% width such as text
+    $ContentStyle = @{
+        'text-align' = $AlignContentText
     }
 
     if ($Width -or $Margin) {
@@ -41,8 +46,10 @@ Function New-HTMLPanel {
     } else {
         [string] $Class = 'flexPanel overflowHidden'
     }
-    New-HTMLTag -Tag 'div' -Attributes @{ id = $AnchorName; class = "$Class $($StyleSheetsConfiguration.Panel) overflowHidden"; style = $DivColumnStyle } {
-        Invoke-Command -ScriptBlock $Content
+    New-HTMLTag -Tag 'div' -Attributes @{ id = $AnchorName; class = "$Class $($StyleSheetsConfiguration.Panel)"; style = $PanelStyle } {
+        New-HTMLTag -Tag 'div' -Attributes @{ style = $ContentStyle } {
+            Invoke-Command -ScriptBlock $Content
+        }
     }
 }
 
