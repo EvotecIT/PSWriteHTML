@@ -3,13 +3,33 @@
     [cmdletBinding()]
     param(
         [Parameter(ParameterSetName = 'Manual')][ValidateSet('0px', '5px', '10px', '15px', '20px', '25px')][string] $BorderRadius,
-        [Parameter(ParameterSetName = 'Manual')][switch] $RemoveShadow
-    )
+        [Parameter(ParameterSetName = 'Manual')][switch] $RemoveShadow,
 
+        [Parameter(ParameterSetName = 'Manual')][switch] $RequestConfiguration
+    )
     # lets get original CSS configuration
     $CssConfiguration = Get-ConfigurationCss -Feature 'Default' -Type 'HeaderAlways'
-    if ($RemoveShadow) {
-        Remove-ConfigurationCSS -CSS $CssConfiguration -Name 'defaultPanel' -Property 'box-shadow'
+
+    $StyleSheetsConfiguration = [ordered] @{
+        Panel = "defaultPanel"
     }
-    Add-ConfigurationCSS -CSS $CssConfiguration -Name 'defaultPanel' -Inject @{ 'border-radius' = $BorderRadius }
+
+    # This is only if we want to have multiple styles
+    if ($RequestConfiguration) {
+        $RequestedConfiguration = New-RequestCssConfiguration -Pair $StyleSheetsConfiguration -CSSConfiguration $CssConfiguration -Feature 'Inject' -Type 'HeaderAlways'
+        $StyleSheetsConfiguration = $RequestedConfiguration.StyleSheetConfiguration
+        $CssConfiguration = $RequestedConfiguration.CSSConfiguration
+    }
+
+    # Here's the real overwrite of panel configuration
+    if ($RemoveShadow) {
+        Remove-ConfigurationCSS -CSS $CssConfiguration -Name $StyleSheetsConfiguration.Panel -Property 'box-shadow'
+    }
+    Add-ConfigurationCSS -CSS $CssConfiguration -Name $StyleSheetsConfiguration.Panel -Inject @{ 'border-radius' = $BorderRadius }
+
+    if ($RequestConfiguration) {
+        # We only return this when requesting configuration
+        # otherwise this overwrites global section settings
+        return $StyleSheetsConfiguration
+    }
 }

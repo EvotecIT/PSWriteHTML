@@ -6,8 +6,15 @@ Function New-HTMLPanel {
         [alias('BackgroundShade')][string]$BackgroundColor,
         [switch] $Invisible,
         [alias('flex-basis')][string] $Width,
-        [string] $Margin
+        [string] $Margin,
+        [System.Collections.IDictionary] $StyleSheetsConfiguration
     )
+    # This is so we can support external CSS configuration
+    if (-not $StyleSheetsConfiguration) {
+        $StyleSheetsConfiguration = [ordered] @{
+            Panel = "defaultPanel"
+        }
+    }
     if ($BackgroundColor) {
         $BackGroundColorFromRGB = ConvertFrom-Color -Color $BackgroundColor
         $DivColumnStyle = "background-color:$BackGroundColorFromRGB;"
@@ -31,7 +38,7 @@ Function New-HTMLPanel {
     } else {
         [string] $Class = 'flexPanel overflowHidden'
     }
-    New-HTMLTag -Tag 'div' -Attributes @{ class = "$Class defaultPanel overflowHidden"; style = $DivColumnStyle } {
+    New-HTMLTag -Tag 'div' -Attributes @{ class = "$Class $($StyleSheetsConfiguration.Panel) overflowHidden"; style = $DivColumnStyle } {
         Invoke-Command -ScriptBlock $Content
     }
 }
