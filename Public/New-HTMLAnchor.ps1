@@ -41,8 +41,8 @@ function New-HTMLAnchor {
     .NOTES
     General notes
     #>
-
-
+    [alias('New-HTMLLink')]
+    [cmdletBinding()]
     param(
         [alias('AnchorName')][string] $Name,
         [string] $Id,

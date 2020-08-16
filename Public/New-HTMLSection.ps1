@@ -19,6 +19,8 @@ Function New-HTMLSection {
         [string][ValidateSet('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch')] $AlignContent,
         [string][ValidateSet('stretch', 'flex-start', 'flex-end', 'center', 'baseline')] $AlignItems,
         [string][ValidateSet('flex-start', 'flex-end', 'center')] $JustifyContent,
+
+        [string] $AnchorName,
         [System.Collections.IDictionary] $StyleSheetsConfiguration
     )
     # This is so we can support external CSS configuration
@@ -29,6 +31,9 @@ Function New-HTMLSection {
             SectionHead    = "defaultSectionHead"
             SectionContent = 'defaultSectionContent'
         }
+    }
+    if (-not $AnchorName) {
+        $AnchorName = Get-Random
     }
 
     if ($HeaderTextAlignment) {
@@ -43,8 +48,6 @@ Function New-HTMLSection {
 
         }
     }
-
-    $RandomNumber = Get-Random
     $TextHeaderColorFromRGB = ConvertFrom-Color -Color $HeaderTextColor
     $HiddenDivStyle = [ordered] @{ }
 
@@ -137,6 +140,10 @@ Function New-HTMLSection {
         [string] $ClassName = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
     }
 
+    $ContentStyle = @{
+        'justify-content' = $JustifyContent
+    }
+
     $DivHeaderStyle = @{
         #"text-align"       = $HeaderTextAlignment
         'justify-content'  = $HeaderAlignment
@@ -145,7 +152,7 @@ Function New-HTMLSection {
     $HeaderStyle = @{ "color" = $TextHeaderColorFromRGB }
     if ($Invisible) {
         New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName } -Value {
-            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; Style = @{ 'justify-content' = $JustifyContent } } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; Style = $ContentStyle } -Value {
                 $Object = Invoke-Command -ScriptBlock $Content
                 if ($null -ne $Object) {
                     $Object
@@ -158,12 +165,12 @@ Function New-HTMLSection {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = $StyleSheetsConfiguration.SectionText } {
                     New-HTMLAnchor -Name $HeaderText -Text "$HeaderText " -Style $HeaderStyle
                     "&nbsp;" # this adds hard space
-                    New-HTMLAnchor -Id "show_$RandomNumber" -Href 'javascript:void(0)' -OnClick "show('$RandomNumber'); " -Style $ShowStyle -Text '(Show)'
-                    New-HTMLAnchor -Id "hide_$RandomNumber" -Href 'javascript:void(0)' -OnClick "hide('$RandomNumber'); " -Style $HideStyle -Text '(Hide)'
+                    New-HTMLAnchor -Id "show_$AnchorName" -Href 'javascript:void(0)' -OnClick "show('$AnchorName'); " -Style $ShowStyle -Text '(Show)'
+                    New-HTMLAnchor -Id "hide_$AnchorName" -Href 'javascript:void(0)' -OnClick "hide('$AnchorName'); " -Style $HideStyle -Text '(Hide)'
                 }
             }
-            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; id = $RandomNumber; Style = $HiddenDivStyle } -Value {
-                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName collapsable"; id = $RandomNumber; Style = @{'justify-content' = $JustifyContent } } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ name = $AnchorName; class = $ClassName; id = $AnchorName; style = $HiddenDivStyle } -Value {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName collapsable"; id = $AnchorName; style = $ContentStyle } -Value {
                     $Object = Invoke-Command -ScriptBlock $Content
                     if ($null -ne $Object) {
                         $Object
