@@ -80,6 +80,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
       - [x] Added `New-HTMLSectionOption` - **experimental**
       - [x] Added `New-HTMLPanelOption` - **experimental**
       - [x] Added `AnchorName` for sections and panels
+      - [x] Added `New-HTMLAnchor/New-HTMLLink`
   - Internal
     - [x] Support interally for `Custom Header CSS`, `Custom Footer CSS`
 - 0.0.92 - 2020.08.08
