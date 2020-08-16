@@ -16,21 +16,21 @@ schema: 2.0.0
 ```
 New-HTMLTab [[-HtmlData] <ScriptBlock>] [[-Heading] <String>] [-Name <String>] [-IconBrands <String>]
  [-TextSize <Int32>] [-TextColor <String>] [-IconSize <Int32>] [-IconColor <String>] [-TextTransform <String>]
- [<CommonParameters>]
+ [-AnchorName <String>] [<CommonParameters>]
 ```
 
 ### FontAwesomeSolid
 ```
 New-HTMLTab [[-HtmlData] <ScriptBlock>] [[-Heading] <String>] [-Name <String>] [-IconSolid <String>]
  [-TextSize <Int32>] [-TextColor <String>] [-IconSize <Int32>] [-IconColor <String>] [-TextTransform <String>]
- [<CommonParameters>]
+ [-AnchorName <String>] [<CommonParameters>]
 ```
 
 ### FontAwesomeRegular
 ```
 New-HTMLTab [[-HtmlData] <ScriptBlock>] [[-Heading] <String>] [-Name <String>] [-IconRegular <String>]
  [-TextSize <Int32>] [-TextColor <String>] [-IconSize <Int32>] [-IconColor <String>] [-TextTransform <String>]
- [<CommonParameters>]
+ [-AnchorName <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -46,6 +46,21 @@ PS C:\> {{ Add example code here }}
 {{ Add example description here }}
 
 ## PARAMETERS
+
+### -AnchorName
+{{ Fill AnchorName Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -Heading
 {{ Fill Heading Description }}
@@ -758,6 +773,91 @@ Accept wildcard characters: False
 Type: Int32
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS
+
+
+```yaml
+Type: String
+Parameter Sets: FontAwesomeSolid
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Name
+{{ Fill Name Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: TabName
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TextColor
+{{ Fill TextColor Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TextSize
+{{ Fill TextSize Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TextTransform
+{{ Fill TextTransform Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: uppercase, lowercase, capitalize
 
 Required: False
 Position: Named

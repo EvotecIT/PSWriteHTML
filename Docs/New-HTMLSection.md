@@ -16,8 +16,8 @@ schema: 2.0.0
 New-HTMLSection [[-Content] <ScriptBlock>] [-HeaderText <String>] [-HeaderTextColor <String>]
  [-HeaderTextAlignment <String>] [-HeaderBackGroundColor <String>] [-BackgroundColor <String>] [-CanCollapse]
  [-IsHidden] [-Collapsed] [-Height <Int32>] [-Invisible] [-Wrap <String>] [-Direction <String>]
- [-AlignContent <String>] [-AlignItems <String>] [-JustifyContent <String>] [-AnchorName <String>]
- [-StyleSheetsConfiguration <IDictionary>] [<CommonParameters>]
+ [-AlignContent <String>] [-AlignItems <String>] [-JustifyContent <String>] [-BorderRadius <String>]
+ [-AnchorName <String>] [-StyleSheetsConfiguration <IDictionary>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -88,6 +88,22 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases: BackgroundShade
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BorderRadius
+{{ Fill BorderRadius Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: 0px, 5px, 10px, 15px, 20px, 25px
 
 Required: False
 Position: Named
