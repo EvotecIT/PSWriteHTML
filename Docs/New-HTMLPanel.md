@@ -14,7 +14,8 @@ schema: 2.0.0
 
 ```
 New-HTMLPanel [[-Content] <ScriptBlock>] [-BackgroundColor <String>] [-Invisible] [-Width <String>]
- [-Margin <String>] [<CommonParameters>]
+ [-Margin <String>] [-ContentAlignment <String>] [-AnchorName <String>]
+ [-StyleSheetsConfiguration <IDictionary>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,6 +31,21 @@ PS C:\> {{ Add example code here }}
 {{ Add example description here }}
 
 ## PARAMETERS
+
+### -AnchorName
+{{ Fill AnchorName Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -BackgroundColor
 {{ Fill BackgroundColor Description }}
@@ -61,6 +77,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ContentAlignment
+{{ Fill ContentAlignment Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: center, left, right, justify
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Invisible
 {{ Fill Invisible Description }}
 
@@ -81,6 +113,21 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -StyleSheetsConfiguration
+{{ Fill StyleSheetsConfiguration Description }}
+
+```yaml
+Type: IDictionary
 Parameter Sets: (All)
 Aliases:
 

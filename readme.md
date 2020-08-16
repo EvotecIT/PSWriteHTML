@@ -68,7 +68,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - 0.0.93 - Unreleased
   - Public
     - Fixes
-      - [x] Fix for `New-HTMLTabOption` switch "-SelectorColor" sets the colur permanently #128 [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
+      - [x] Fix for `New-HTMLTabOption` switch "-SelectorColor" sets the color permanently [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
       - [x] Fix for `InvokeHTMLTags` in `New-HTMLTable` - replacement of (`&amp;` to `&`) and (`&nbsp;` to `<space>`)
         - [x] Before it would try to change from `'&amp;nbsp;` to `<space>` which is wrong. Hopefully nothing will broken after that
     - Improvements
@@ -79,6 +79,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
       - [x] Added `ConvertTo-CascadingStyleSheets` - converts hashtable into CSS
       - [x] Added `New-HTMLSectionOption` - **experimental**
       - [x] Added `New-HTMLPanelOption` - **experimental**
+      - [x] Added `AnchorName` for sections and panels
   - Internal
     - [x] Support interally for `Custom Header CSS`, `Custom Footer CSS`
 - 0.0.92 - 2020.08.08
