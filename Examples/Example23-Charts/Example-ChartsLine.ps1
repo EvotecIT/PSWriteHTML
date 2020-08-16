@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML -TitleText 'Charts - Line' -Online -FilePath $PSScriptRoot\Example-ChartsLine.html {
-    New-HTMLTabOptions -SlimTabs
+    New-HTMLTabOption -SlimTabs
     New-HTMLTab -Name 'Line Charts' -IconRegular hourglass {
         New-HTMLSection -HeaderText 'Line Charts - Test' -CanCollapse {
             New-HTMLPanel {

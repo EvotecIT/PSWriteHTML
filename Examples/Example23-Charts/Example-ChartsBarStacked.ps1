@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsBarStacked.html {
-    New-HTMLTabOptions -SlimTabs
+    New-HTMLTabOption -SlimTabs
     New-HTMLTab -Name 'Bar Charts - Bar Stacked' -IconRegular chart-bar {
 
         New-HTMLSection -HeaderText 'Bar Charts 1 - Bar Stacked' -CanCollapse {

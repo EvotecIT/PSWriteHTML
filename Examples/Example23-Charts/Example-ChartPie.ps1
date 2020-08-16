@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-ChartPie.html {
-    New-HTMLTabOptions -SlimTabs
+    New-HTMLTabOption -SlimTabs
     New-HTMLTab -Name 'Pie / Donut Charts' -IconRegular chart-bar {
         New-HTMLSection -HeaderText 'Pie Charts - Defaults' -CanCollapse {
             New-HTMLPanel {
