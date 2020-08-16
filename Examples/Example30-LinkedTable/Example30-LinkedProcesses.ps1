@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-$Processes = Get-Process | Select-Object -First 10
+$Processes = Get-Process | Select-Object -First 3
 $TableID = 'RandomID'
 
 New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example30-LinkedProcesses.html -ShowHTML {
