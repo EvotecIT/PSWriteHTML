@@ -2,7 +2,7 @@
 
 $Forest = Get-ADForest
 New-HTML -TitleText 'My Title' -FilePath $PSScriptRoot\Example30-NestedTabs.html -ShowHTML {
-    New-HTMLTabOptions -SelectorColor Grey
+    New-HTMLTabOption -SelectorColor Grey
     foreach ($Domain in $Forest.Domains) {
         $Computers = Get-ADComputer -Server $Domain -Filter * -Properties OperatingSystem, OperatingSystemVersion, PasswordLastSet | Select-Object -Property DNSHostName, Name, Enabled, OperatingSystem, OperatingSystemVersion, PasswordLastSet
         $Users = Get-ADUser -Server $Domain -Filter * -Properties SamAccountName, Name, Title, Surname, PasswordNeverExpires, WhenCreated, WhenChanged | Select-Object UserPrincipalName, SamAccountName, Name, Title, Surname, PasswordNeverExpires, WhenCreated, WhenChanged #-First 17

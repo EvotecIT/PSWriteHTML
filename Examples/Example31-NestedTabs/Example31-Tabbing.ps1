@@ -2,7 +2,7 @@
 
 $Forest = Get-ADForest
 New-HTML -TitleText 'My Title' -FilePath $PSScriptRoot\Example31-Tabbing.html -ShowHTML {
-    New-HTMLTabOptions -SelectorColor Grey
+    New-HTMLTabOption -SelectorColor Grey
     foreach ($Domain in $Forest.Domains) {
 
         $Objects = @(
