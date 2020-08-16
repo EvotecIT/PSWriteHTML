@@ -13,13 +13,35 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example27-04.html
         }
     } -StyleSheetsConfiguration $SectionStyle1
 
+    # This sets new panel options globally
+    New-HTMLPanelOption -BorderRadius 0px
     New-HTMLPanel {
-    New-HTMLPanel {
-        New-HTMLTable -DataTable $Test1 -HideFooter
+        New-HTMLPanel {
+            New-HTMLTable -DataTable $Test1 -HideFooter
+        }
+        New-HTMLPanel {
+            New-HTMLTable -DataTable $Test1 -HideFooter
+        }
     }
-    New-HTMLPanel {
-        New-HTMLTable -DataTable $Test1 -HideFooter
-    }
-}
-}
 
+    # this overwrittes panel options for 1 or more panels (in this case just 1)
+    $StylePanel1 = New-HTMLPanelOption -RequestConfiguration -BorderRadius 0px -RemoveShadow
+    New-HTMLPanel {
+        New-HTMLPanel {
+            New-HTMLTable -DataTable $Test1 -HideFooter
+        }
+        New-HTMLPanel {
+            New-HTMLTable -DataTable $Test1 -HideFooter
+        }
+    } -StyleSheetsConfiguration $StylePanel1
+
+    # But you ccan use this style anywhere
+    New-HTMLPanel {
+        New-HTMLPanel {
+            New-HTMLTable -DataTable $Test1 -HideFooter
+        } -StyleSheetsConfiguration $StylePanel1
+        New-HTMLPanel {
+            New-HTMLTable -DataTable $Test1 -HideFooter
+        }
+    }
+}
