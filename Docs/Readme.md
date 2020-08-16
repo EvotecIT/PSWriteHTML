@@ -164,7 +164,7 @@ Allows more control when adding buttons to Table
 ### [New-HTMLTableReplace](New-HTMLTableReplace.md)
 {{ Fill in the Synopsis }}
 
-### [New-HTMLTabOptions](New-HTMLTabOptions.md)
+### [New-HTMLTabOption](New-HTMLTabOption.md)
 {{ Fill in the Synopsis }}
 
 ### [New-HTMLTag](New-HTMLTag.md)

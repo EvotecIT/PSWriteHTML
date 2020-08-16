@@ -67,12 +67,14 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.93 - Unreleased
   - Public
-    - [x] Fix for `New-HTMLTabOptions` switch "-SelectorColor" sets the colur permanently #128 [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
+    - [x] Fix for `New-HTMLTabOption` switch "-SelectorColor" sets the colur permanently #128 [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
     - [x] Choosing colors should be easier (wildcard added before and after)
     - [ ] Make it optional for `New-HTMLTab` to force TextTransform (uses global)
     - [ ] Fix for `InvokeHTMLTags` in `New-HTMLTable` - replacement of (`&amp;` to `&`) and (`&nbsp;` to `<space>`)
       - [ ] Before it would try to change from `'&amp;nbsp;` to `<space>` which is wrong. Hopefully nothing will broken after that
     - [x] Added `ConvertTo-CascadingStyleSheets` - converts hashtable into CSS
+    - [ ] Added `New-HTMLSectionOption` - **experimental**
+    - [ ] Added `New-HTMLPanel
   - Internal
     - [x] Support interally for `Custom Header CSS`, `Custom Footer CSS`
 
@@ -179,7 +181,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - Vis-Network to 6.4.6
   - Diagrams now work in Internet Explorer (yay!)
   - Add Tab border customization and Tab header background color (tnx xlrod!) [#87](https://github.com/EvotecIT/PSWriteHTML/pull/87)
-    - [x] New-HTMLTabOptions -SlimTabs -SelectorColor Blue **-BorderRadius 25px** **-BorderBackgroundColor LightBlue**
+    - [x] New-HTMLTabOption -SlimTabs -SelectorColor Blue **-BorderRadius 25px** **-BorderBackgroundColor LightBlue**
   - Added Tests so basic stuff is tested for regression (it's very basic)
   - Added alias for New-TableConditon (TableCondition)
 
