@@ -74,6 +74,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - Improvements
       - [x] Choosing colors should be easier (wildcard added before and after)
       - [x] Make it optional for `New-HTMLTab` to force TextTransform (uses global)
+      - [x] `New-HTMLSection`/`New-HTMLPanel` were updated to support additional options
     - New
       - [x] Added `ConvertTo-CascadingStyleSheets` - converts hashtable into CSS
       - [x] Added `New-HTMLSectionOption` - **experimental**
