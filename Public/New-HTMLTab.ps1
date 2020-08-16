@@ -69,11 +69,15 @@ function New-HTMLTab {
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor,
-        [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform  # New-HTMLTab - Add text-transform
+        [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform, # New-HTMLTab - Add text-transform
+        [string] $AnchorName
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTab - Creation of HTML aborted. Most likely New-HTML is missing.'
         Exit
+    }
+    if (-not $AnchorName) {
+        $AnchorName = "Tab-$(Get-RandomStringName -Size 8)"
     }
     [string] $Icon = ''
     if ($IconBrands) {
@@ -113,7 +117,7 @@ function New-HTMLTab {
 
     # Start Tab Tracking
     $Tab = [ordered] @{ }
-    $Tab.ID = "Tab-$(Get-RandomStringName -Size 8)"
+    $Tab.ID = $AnchorName
     $Tab.Name = " $Name"
     $Tab.StyleIcon = $StyleIcon
     $Tab.StyleText = $StyleText
