@@ -24,9 +24,10 @@ Function New-HTMLSection {
     # This is so we can support external CSS configuration
     if (-not $StyleSheetsConfiguration) {
         $StyleSheetsConfiguration = [ordered] @{
-            Section     = 'defaultSection'
-            SectionText = 'defaultSectionText'
-            SectionHead = "defaultSectionHead"
+            Section        = 'defaultSection'
+            SectionText    = 'defaultSectionText'
+            SectionHead    = "defaultSectionHead"
+            SectionContent = 'defaultSectionContent'
         }
     }
 
@@ -133,7 +134,7 @@ Function New-HTMLSection {
 
         $Script:HTMLSchema.CustomHeaderCSS.Add($Css)
     } else {
-        [string] $ClassName = 'flexParent flexElement overflowHidden'
+        [string] $ClassName = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
     }
 
     $DivHeaderStyle = @{
