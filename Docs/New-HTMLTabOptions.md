@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLTabOptions
+# New-HTMLTabOption
 
 ## SYNOPSIS
 {{ Fill in the Synopsis }}
@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ### Manual (Default)
 ```
-New-HTMLTabOptions [-TextSize <String>] [-TextSizeActive <String>] [-TextColor <String>]
+New-HTMLTabOption [-TextSize <String>] [-TextSizeActive <String>] [-TextColor <String>]
  [-TextColorActive <String>] [-FontWeight <String>] [-FontWeightActive <String>] [-FontStyle <String>]
  [-FontStyleActive <String>] [-FontVariant <String>] [-FontVariantActive <String>] [-FontFamily <String>]
  [-FontFamilyActive <String>] [-TextDecoration <String>] [-TextDecorationActive <String>]
@@ -28,7 +28,7 @@ New-HTMLTabOptions [-TextSize <String>] [-TextSizeActive <String>] [-TextColor <
 
 ### Styled
 ```
-New-HTMLTabOptions [-Style <String>] [-Align <String>] [<CommonParameters>]
+New-HTMLTabOption [-Style <String>] [-Align <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

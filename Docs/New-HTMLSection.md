@@ -16,7 +16,8 @@ schema: 2.0.0
 New-HTMLSection [[-Content] <ScriptBlock>] [-HeaderText <String>] [-HeaderTextColor <String>]
  [-HeaderTextAlignment <String>] [-HeaderBackGroundColor <String>] [-BackgroundColor <String>] [-CanCollapse]
  [-IsHidden] [-Collapsed] [-Height <Int32>] [-Invisible] [-Wrap <String>] [-Direction <String>]
- [-AlignContent <String>] [-AlignItems <String>] [-JustifyContent <String>] [<CommonParameters>]
+ [-AlignContent <String>] [-AlignItems <String>] [-JustifyContent <String>]
+ [-StyleSheetsConfiguration <IDictionary>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -162,7 +163,7 @@ Accept wildcard characters: False
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: Name
+Aliases: Name, Title
 
 Required: False
 Position: Named
@@ -255,6 +256,21 @@ Type: String
 Parameter Sets: (All)
 Aliases:
 Accepted values: flex-start, flex-end, center
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -StyleSheetsConfiguration
+{{ Fill StyleSheetsConfiguration Description }}
+
+```yaml
+Type: IDictionary
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named
