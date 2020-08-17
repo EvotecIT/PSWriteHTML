@@ -78,6 +78,7 @@ function New-HTMLTable {
     $ContentFormattingInline = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ReplaceCompare = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
     $TableColumnOptions = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $TableEvents = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     # This will be used to store the colulmnDef option for the datatable
     $ColumnDefinitionList = [System.Collections.Generic.List[PSCustomObject]]::New()
@@ -126,6 +127,8 @@ function New-HTMLTable {
                     $RowGrouping = $Parameters.Output
                 } elseif ($Parameters.Type -eq 'TableColumnOption') {
                     $TableColumnOptions.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableEvent') {
+                    $TableEvents.Add($Parameters.Output)
                 }
             }
         }
@@ -526,6 +529,7 @@ function New-HTMLTable {
         $FilteringTopCode = $FilteringOutput.FilteringTopCode
         $FilteringBottomCode = $FilteringOutput.FilteringBottomCode
         $LoadSavedState = Add-TableState -DataTableName $DataTableID -Filtering $Filtering -FilteringLocation $FilteringLocation -SavedState (-not $DisableStateSave)
+        $TableEventsCode = Add-TableEvent -Events $TableEvents
 
         if ($Tab.Active -eq $true) {
             New-HTMLTag -Tag 'script' {
@@ -541,6 +545,7 @@ function New-HTMLTable {
                     );
                     $FilteringBottomCode
                     $RowGroupingBottom
+                    $TableEventsCode
                 });
 "@
             }
