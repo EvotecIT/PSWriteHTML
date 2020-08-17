@@ -465,8 +465,37 @@
                                     }
                                 );
 
+                                table.on('deselect', function (e, dt, type, indexes) {
+                                    var table1 = $('#RandomID2').DataTable();
+                                    table1.columns(1).search('').draw();
+                                });
 
-                            });</script>
+                                table.on('select', function (e, dt, type, indexes) {
+                                    if (type === 'row') {
+                                        // var data = table.rows(indexes).data().pluck('id');
+                                        var data = table.rows(indexes).data();
+                                        console.log(data)
+                                        //alert(data[0][0])
+
+                                        var findValue = data[0][0];
+                                        var table1 = $('#RandomID2').DataTable();
+                                        if (findValue != '') {
+                                            table1.columns(1).search("^" + findValue + "$", true, false, true).draw();
+                                        } else {
+                                            table1.columns(1).search('').draw();
+                                        }
+                                        if (table1.page.info().recordsDisplay == 0) {
+                                            table1.columns(1).search('').draw();
+                                        }
+                                    }
+                                });
+                            });
+
+
+
+
+
+                        </script>
                         <div class="flexElement overflowHidden">
                             <table width="100%" id="RandomID1" class="display compact">
                                 <thead>
