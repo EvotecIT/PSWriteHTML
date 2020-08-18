@@ -81,20 +81,21 @@
             'display' = 'inline-block'
         }
         # Lets inject additional configuration into CSS
-        Add-ConfigurationCSS -CSS $TabbisCss -Name 'tabsSlimmer' -Inject $CssSlimTabs
+        Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsSlimmer' -Inject $CssSlimTabs
     }
 
     # This controls All Tabs
     $CssTabsWrapper = [ordered] @{
-        'text-align'      = $Align
-        'text-transform'  = $TextTransform
-        'font-size'       = ConvertFrom-FontSize -TextSize $TextSize
-        'color'           = ConvertFrom-Color -Color $TextColor
-        'font-weight'     = $FontWeight
-        'font-style'      = $FontStyle
-        'font-variant'    = $FontVariant
-        'font-family'     = $FontFamily
-        'text-decoration' = $TextDecoration
+        'text-align'       = $Align
+        'text-transform'   = $TextTransform
+        'font-size'        = ConvertFrom-FontSize -TextSize $TextSize
+        'color'            = ConvertFrom-Color -Color $TextColor
+        'background-color' = ConvertFrom-Color -Color $BackgroundColor
+        'font-weight'      = $FontWeight
+        'font-style'       = $FontStyle
+        'font-variant'     = $FontVariant
+        'font-family'      = $FontFamily
+        'text-decoration'  = $TextDecoration
     }
 
     # this will add configuration for tabsWrapper as it already exists

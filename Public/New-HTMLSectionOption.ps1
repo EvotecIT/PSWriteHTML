@@ -35,10 +35,10 @@
     # this is read from $Script:Configuration (or more precise $Script:CurrentConfiguration which is a copy on New-HTML start)
     $CssConfiguration = Get-ConfigurationCss -Feature 'Default' -Type 'HeaderAlways'
     $StyleSheetsConfiguration = [ordered] @{
-        Section        = "defaultSection"
-        SectionText    = "defaultSectionText"
-        SectionHead    = "defaultSectionHead"
-        SectionContent = 'defaultSectionContent'
+        Section        = ".defaultSection"
+        SectionText    = ".defaultSectionText"
+        SectionHead    = ".defaultSectionHead"
+        SectionContent = '.defaultSectionContent'
     }
 
     if ($RequestConfiguration) {

@@ -84,7 +84,13 @@ Function New-HTML {
         }
     }
 
+    $Script:HTMLSchema.Features.Main = $true
+    $Script:HTMLSchema.Features.MainFlex = $true
+    $Script:HTMLSchema.Features.MainImage = $true
+    $Script:HTMLSchema.Features.MainLink = $true
+
     $Features = Get-FeaturesInUse -PriorityFeatures 'JQuery', 'DataTables', 'Tabs'
+
 
 
     # This removes Nested Tabs from primary Tabs

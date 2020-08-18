@@ -11,7 +11,7 @@
     $CssConfiguration = Get-ConfigurationCss -Feature 'Default' -Type 'HeaderAlways'
 
     $StyleSheetsConfiguration = [ordered] @{
-        Panel = "defaultPanel"
+        Panel = ".defaultPanel"
     }
 
     # This is only if we want to have multiple styles
