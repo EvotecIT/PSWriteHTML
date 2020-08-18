@@ -5,13 +5,133 @@ $Script:Configuration = [ordered] @{
                 CssInline = [ordered] @{}
             }
         }
-
+        Main                 = [ordered]@{
+            HeaderAlways = [ordered]@{
+                CssInline = [ordered]@{
+                    'body'           = [ordered]@{
+                        'font-family' = 'Roboto Condensed, Helvetica Neue, sans-serif'
+                        'font-size'   = '8pt'
+                    }
+                    '.defaultHeader' = [ordered]@{
+                        'padding'     = '5px'
+                        'margin'      = '0px 0px 0px 0px'
+                        'font-weight' = 'bold'
+                    }
+                    '.defaultFooter' = [ordered]@{
+                        'padding-right' = '5em'
+                        'text-align'    = 'right'
+                    }
+                    '.container'     = [ordered]@{
+                        'padding' = '2px 16px'
+                    }
+                    '.header'        = [ordered]@{
+                        'background-color' = '#616a6b'
+                        'color'            = '#f7f9f9'
+                    }
+                    'hr'             = [ordered]@{
+                        'height'           = '4px'
+                        'background-color' = '#6Cf'
+                        'border'           = '0px'
+                        'width'            = '100%'
+                    }
+                    '.card:hover'    = [ordered]@{
+                        'box-shadow' = '0 8px 16px 0 rgba(0, 0, 0, 0.2)'
+                    }
+                    '.col'           = [ordered]@{
+                        'padding' = '20px'
+                        'margin'  = '1%'
+                        'flex'    = '1'
+                    }
+                }
+            }
+        }
+        MainFlex             = [ordered] @{
+            HeaderAlways = [ordered] @{
+                CssInline = [ordered]@{
+                    '.overflowHidden'      = [ordered] @{
+                        'overflow'   = 'hidden'
+                        'overflow-x' = 'hidden'
+                        'overflow-y' = 'hidden'
+                    }
+                    '.flexParent'          = [ordered]@{
+                        'display'         = 'flex'
+                        'justify-content' = 'space-between'
+                        'padding'         = '2px'
+                    }
+                    '.flexParentInvisible' = [ordered]@{
+                        ' display'        = 'flex'
+                        'justify-content' = 'space-between'
+                    }
+                    '.flexElement'         = [ordered]@{
+                        'flex-basis' = '100%'
+                    }
+                    '.flexPanel'           = [ordered]@{
+                        'flex-basis' = '100%'
+                    }
+                    '.flex-grid'           = [ordered]@{
+                        'display' = 'flex'
+                    }
+                }
+            }
+        }
+        MainLink             = [ordered]@{
+            HeaderAlways = [ordered] @{
+                CssInline = [ordered]@{
+                    'a.alink:link'      = [ordered]@{
+                        'color'           = '#007bff'
+                        'text-decoration' = 'none'
+                        'font-size'       = '120%'
+                    }
+                    'a.alink:visited'   = [ordered]@{
+                        'color'           = '#ff8400'
+                        'text-decoration' = 'none'
+                        'font-size'       = '120%'
+                    }
+                    'a.alink:hover'     = [ordered]@{
+                        'text-decoration' = 'underline'
+                        'font-size'       = '130%'
+                    }
+                    'a.paginate_button' = [ordered]@{
+                        'color'     = '#000000 !important'
+                        'font-size' = '10px'
+                    }
+                    'a.current'         = [ordered]@{
+                        'color' = '#000000 !important'
+                    }
+                }
+            }
+        }
+        MainImage            = [ordered]@{
+            HeaderAlways = [ordered] @{
+                CssInline = [ordered]@{
+                    '.logos'     = [ordered]@{
+                        'display' = 'flex'
+                    }
+                    '.leftLogo'  = [ordered]@{
+                        'flex-basis'     = '100%'
+                        'border'         = '0px'
+                        'padding-left'   = '0px'
+                        'vertical-align' = 'middle'
+                    }
+                    '.rightLogo' = [ordered]@{
+                        'flex-basis'     = '100%'
+                        'border'         = '0px'
+                        'padding-right'  = '5em'
+                        'text-align'     = 'right'
+                        'vertical-align' = 'middle'
+                    }
+                    'img'        = [ordered]@{
+                        'border-radius' = '5px 5px 0 0'
+                    }
+                }
+            }
+        }
         Default              = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
                 Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
                 CssInline = [ordered] @{
-                    'defaultSection'     = [ordered] @{
+                    '.defaultSection'     = [ordered] @{
                         'border'         = '1px solid #bbbbbb'
                         'padding-bottom' = '0px'
                         'margin'         = '5px'
@@ -20,7 +140,7 @@ $Script:Configuration = [ordered] @{
                         'transition'     = '0.3s'
                         'border-radius'  = '5px'
                     }
-                    'defaultSectionHead' = [ordered] @{
+                    '.defaultSectionHead' = [ordered] @{
                         'display'          = 'flex'
                         'justify-content'  = 'center'
                         'padding'          = '5px'
@@ -29,10 +149,10 @@ $Script:Configuration = [ordered] @{
                         "background-color" = ConvertFrom-Color -Color "DeepSkyBlue"
                         'color'            = ConvertFrom-Color -Color "White"
                     }
-                    'defaultSectionText' = [ordered] @{
+                    '.defaultSectionText' = [ordered] @{
                         "text-align" = 'center'
                     }
-                    'defaultPanel'       = [ordered] @{
+                    '.defaultPanel'       = [ordered] @{
                         'box-shadow'    = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
                         'transition'    = '0.3s'
                         'border-radius' = '5px'
