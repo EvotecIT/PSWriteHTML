@@ -6,11 +6,6 @@
         [System.Collections.IDictionary] $Inject,
         [switch] $Overwrite
     )
-    #if ($Name.StartsWith('.') -or $Name.StartsWith('[') -or $Name.StartsWith('#')) {
-    #    # This means it's already decided
-    #} else {
-    #    $Name = ".$Name"
-    # }
     # Lets remove dead code
     if ($Inject) {
         Remove-EmptyValue -Hashtable $Inject

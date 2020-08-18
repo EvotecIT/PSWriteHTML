@@ -15,13 +15,7 @@
     )
 
     if ($CSS -and $Name -and $Property) {
-        #if ($Name.StartsWith('.') -or $Name.StartsWith('[') -or $Name.StartsWith('#')) {
-        #    # This means it's already decided
-        #} else {
-        #    $Name = ".$Name"
-        #}
         # remove single property
-
         if ($CSS[$Name]) {
             if ($Property) {
                 if ($CSS[$Name][$Property]) {
