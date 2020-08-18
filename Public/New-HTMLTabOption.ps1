@@ -41,7 +41,14 @@
 
         [Parameter(ParameterSetName = 'Styled')]
         [Parameter(ParameterSetName = 'Manual')]
-        [alias('AlignTabs')][ValidateSet('left', 'right', 'center', 'justify')][string] $Align
+        [alias('AlignTabs')][ValidateSet('left', 'right', 'center', 'justify')][string] $Align,
+
+        [string][ValidateSet('wrap', 'nowrap', 'wrap-reverse')] $Wrap,
+        [string][ValidateSet('row', 'row-reverse', 'column', 'column-reverse')] $Direction,
+        [string][ValidateSet('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch')] $AlignContent,
+        [string][ValidateSet('stretch', 'flex-start', 'flex-end', 'center', 'baseline')] $AlignItems,
+        [string][ValidateSet('flex-start', 'flex-end', 'center')] $JustifyContent,
+        [int] $RowElements
 
     )
     if (-not $Script:HTMLSchema) {
@@ -77,18 +84,36 @@
         Add-ConfigurationCSS -CSS $TabbisCss -Name 'tabsSlimmer' -Inject $CssSlimTabs
     }
 
-    # This controls All tabs
+    # This controls All Tabs
     $CssTabsWrapper = [ordered] @{
-        'text-align'     = $Align
-        'text-transform' = $TextTransform
-        'font-size'      = ConvertFrom-FontSize -TextSize $TextSize
-        'color'          = ConvertFrom-Color -Color $TextColor
+        'text-align'      = $Align
+        'text-transform'  = $TextTransform
+        'font-size'       = ConvertFrom-FontSize -TextSize $TextSize
+        'color'           = ConvertFrom-Color -Color $TextColor
+        'font-weight'     = $FontWeight
+        'font-style'      = $FontStyle
+        'font-variant'    = $FontVariant
+        'font-family'     = $FontFamily
+        'text-decoration' = $TextDecoration
     }
 
     # this will add configuration for tabsWrapper as it already exists
     # any new elements will be added, any existing elements will be overwritten
     # any existing elements that are not defined will not be touched
-    Add-ConfigurationCSS -CSS $TabbisCss -Name 'tabsWrapper' -Inject $CssTabsWrapper
+    Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject $CssTabsWrapper
+
+    # This controls All Tabs in [Data-Tabs] class
+    $CssTabsData = @{
+        'border-radius'    = $BorderRadius
+        'background-color' = ConvertFrom-Color -Color $BorderBackgroundColor
+        'justify-content'  = $JustifyContent
+        'flex-wrap'        = $Wrap
+        'flex-direction'   = $Direction
+        'align-content'    = $AlignContent
+        'align-items'      = $AlignItems
+    }
+    Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs]' -Inject $CssTabsData
+
 
     # This controls Active tab
     $CssTabsActive = [ordered] @{
@@ -112,12 +137,6 @@
     #    'border-radius' = "$BorderRadius";
     #}
     #Add-ConfigurationCSS -CSS $TabbisCss -Name 'tabsBorderStyleRadius' -Inject $CssBorderStyleRadius
-
-    $CssTabsBorderStyle = @{
-        'border-radius'    = $BorderRadius
-        'background-color' = ConvertFrom-Color -Color $BorderBackgroundColor
-    }
-    Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs]' -Inject $CssTabsBorderStyle
 
     # This adds Gradient
     if ($LinearGradient.IsPresent) {
@@ -153,11 +172,12 @@
     }
 
 
-    Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject @{ 'font-weight' = $FontWeight }
-    Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject @{ 'font-style' = $FontStyle }
-    Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject @{ 'font-variant' = $FontVariant }
-    Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject @{ 'font-family' = $FontFamily }
-    Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject @{ 'text-decoration' = $TextDecoration }
+
+    #Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject @{ 'font-weight' = $FontWeight }
+    #Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject @{ 'font-style' = $FontStyle }
+    #Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject @{ 'font-variant' = $FontVariant }
+    #Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject @{ 'font-family' = $FontFamily }
+    #Add-ConfigurationCSS -CSS $TabbisCss -Name '.tabsWrapper' -Inject @{ 'text-decoration' = $TextDecoration }
 
     Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs] .active' -Inject @{ 'font-weight' = $FontWeightActive }
     Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs] .active' -Inject @{ 'font-style' = $FontStyleActive }
@@ -175,6 +195,10 @@
         Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs]>*' -Inject @{ 'border-bottom-color' = ConvertFrom-Color -Color $BorderBottomColor }
     } elseif ($BorderBottomColor -or $BorderBottomWidth) {
         Write-Warning "New-HTMLTabOption - You can't use BorderBottomColor or BorderBottomWidth without BorderBottomStyle."
+    }
+
+    if ($RowElements) {
+        Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs]>*' -Inject @{ 'flex-basis' = "calc(80%/$RowElements)" }
     }
 }
 

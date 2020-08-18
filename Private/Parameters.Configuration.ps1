@@ -393,10 +393,15 @@ $Script:Configuration = [ordered] @{
                         'box-shadow'      = '0px 5px 20px rgba(0, 0, 0, 0.1)'
                         'border-radius'   = '5px'
                         'justify-content' = 'center'
+                        'flex-wrap'       = 'wrap'
                     }
+                    # https://css-tricks.com/snippets/css/a-guide-to-flexbox/
                     '[data-tabs]>*'        = [ordered]@{
-                        'cursor'  = 'pointer'
-                        'padding' = '10px 20px'
+                        'cursor'      = 'pointer'
+                        'padding'     = '10px 20px'
+                        'flex-grow'   = 1
+                        'flex-shrink' = 1
+                        'flex-basis'  = 'auto'
                     }
                     '[data-tabs] .active'  = [ordered]@{
                         'background'    = '#1e90ff' # DodgerBlue
