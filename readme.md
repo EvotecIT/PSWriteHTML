@@ -65,6 +65,11 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.95 - Unreleased
+  - Improvements
+    - [x] Auto-wrapping of Tabs is enabled - can be disabled via `New-HTMLTabOption`
+    - [x] Bunch of options to control wrapping/direction of tabs via `New-HTMLTabOption`
+    - [x] Ability to define `RowElements` in `New-HTMLTabOption` to force number of tabs per row
 - 0.0.94 - 2020.08.18
   - Public
     - [x] Added `New-TableEvent` for `New-HTMLTable` **experimental**

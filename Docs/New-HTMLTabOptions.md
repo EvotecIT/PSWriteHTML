@@ -23,12 +23,15 @@ New-HTMLTabOption [-TextSize <String>] [-TextSizeActive <String>] [-TextColor <S
  [-TextTransformActive <String>] [-SlimTabs] [-Transition] [-LinearGradient] [-RemoveShadow]
  [-BorderBottomWidth <String>] [-BorderBottomStyle <String>] [-BorderBottomColor <String>]
  [-BorderBottomWidthActive <String>] [-BorderBottomStyleActive <String>] [-BorderBottomColorActive <String>]
- [-Align <String>] [<CommonParameters>]
+ [-Align <String>] [-Wrap <String>] [-Direction <String>] [-AlignContent <String>] [-AlignItems <String>]
+ [-JustifyContent <String>] [-RowElements <Int32>] [<CommonParameters>]
 ```
 
 ### Styled
 ```
-New-HTMLTabOption [-Style <String>] [-Align <String>] [<CommonParameters>]
+New-HTMLTabOption [-Style <String>] [-Align <String>] [-Wrap <String>] [-Direction <String>]
+ [-AlignContent <String>] [-AlignItems <String>] [-JustifyContent <String>] [-RowElements <Int32>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -53,6 +56,38 @@ Type: String
 Parameter Sets: (All)
 Aliases: AlignTabs
 Accepted values: left, right, center, justify
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AlignContent
+{{ Fill AlignContent Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: flex-start, flex-end, center, space-between, space-around, stretch
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AlignItems
+{{ Fill AlignItems Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: stretch, flex-start, flex-end, center, baseline
 
 Required: False
 Position: Named
@@ -231,6 +266,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Direction
+{{ Fill Direction Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: row, row-reverse, column, column-reverse
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -FontFamily
 {{ Fill FontFamily Description }}
 
@@ -357,6 +408,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -JustifyContent
+{{ Fill JustifyContent Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: flex-start, flex-end, center
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -LinearGradient
 {{ Fill LinearGradient Description }}
 
@@ -378,6 +445,21 @@ Accept wildcard characters: False
 ```yaml
 Type: SwitchParameter
 Parameter Sets: Manual
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RowElements
+{{ Fill RowElements Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -548,6 +630,22 @@ Accept wildcard characters: False
 Type: SwitchParameter
 Parameter Sets: Manual
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Wrap
+{{ Fill Wrap Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: wrap, nowrap, wrap-reverse
 
 Required: False
 Position: Named
