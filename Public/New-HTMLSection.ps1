@@ -7,7 +7,7 @@ Function New-HTMLSection {
         [alias('TextColor')][string]$HeaderTextColor,
         [alias('TextAlignment')][string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment,
         [alias('TextBackGroundColor')][string]$HeaderBackGroundColor,
-        [alias('BackgroundShade')][string]$BackgroundColor = "",
+        [alias('BackgroundShade')][string]$BackgroundColor,
         [alias('Collapsable')][Parameter(Mandatory = $false)][switch] $CanCollapse,
         [switch] $IsHidden,
         [switch] $Collapsed,
