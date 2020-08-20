@@ -109,7 +109,7 @@ function Email {
     }
     if ($AttachSelf) {
         if ($AttachSelfName) {
-            $TempFilePath = "$(Get-TemporaryDirectory)\$($AttachSelfName).html"
+            $TempFilePath = [System.IO.Path]::Combine($(Get-TemporaryDirectory), "$($AttachSelfName).html")
         } else {
             $TempFilePath = ''
         }
