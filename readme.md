@@ -67,9 +67,12 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.95 - Unreleased
   - Improvements
+    - [x] Fix TempFilePath for `Email` to work correctly on MacOS/Linux - tnx roberttoups [#146](https://github.com/EvotecIT/PSWriteHTML/pull/146)
     - [x] Auto-wrapping of Tabs is enabled - can be disabled via `New-HTMLTabOption`
     - [x] Bunch of options to control wrapping/direction of tabs via `New-HTMLTabOption`
     - [x] Ability to define `RowElements` in `New-HTMLTabOption` to force number of tabs per row
+    - [x] Fixed BackgroundColor for `New-HTMLTabOption`
+    - [x] Removed `default.css` in favor of native powershell css
 - 0.0.94 - 2020.08.18
   - Public
     - [x] Added `New-TableEvent` for `New-HTMLTable` **experimental**
