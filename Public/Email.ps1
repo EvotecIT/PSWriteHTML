@@ -109,7 +109,7 @@ function Email {
     }
     if ($AttachSelf) {
         if ($AttachSelfName) {
-            $TempFilePath = "$(Get-TemporaryDirectory)\$($AttachSelfName).html"
+            $TempFilePath = Join-Path -Path $(Get-TemporaryDirectory) -ChildPath "$($AttachSelfName).html"
         } else {
             $TempFilePath = ''
         }
