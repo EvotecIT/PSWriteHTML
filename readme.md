@@ -73,6 +73,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Ability to define `RowElements` in `New-HTMLTabOption` to force number of tabs per row
     - [x] Fixed BackgroundColor for `New-HTMLTabOption`
     - [x] Removed `default.css` in favor of native powershell css
+    - [x] New-HTMLTable warning - `Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both`
 - 0.0.94 - 2020.08.18
   - Public
     - [x] Added `New-TableEvent` for `New-HTMLTable` **experimental**

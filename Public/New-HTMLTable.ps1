@@ -65,6 +65,9 @@ function New-HTMLTable {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
         Exit
     }
+    if ($HideFooter -and $Filtering -and $FilteringLocation -notin @('Both', 'Top')) {
+        Write-Warning 'New-HTMLTable - Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both.'
+    }
     # Theme creator  https://datatables.net/manual/styling/theme-creator
     $ConditionalFormatting = [System.Collections.Generic.List[PSCustomObject]]::new()
     $CustomButtons = [System.Collections.Generic.List[PSCustomObject]]::new()
