@@ -14,7 +14,7 @@ var tabs = tabbis.init({
             try {
                 $("#" + table.id).DataTable().columns.adjust().responsive.recalc();
                 console.log('Resized table with id ' + table.id);
-            } catch{
+            } catch (e) {
                 console.log('Failed to resize table with ' + table.id);
             }
         }
