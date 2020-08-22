@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-Diagrams01.html {
-    New-HTMLTabOption -SlimTabs
+    New-HTMLTabStyle -SlimTabs
     New-HTMLTab -Name 'Diagrams' -IconRegular arrow-alt-circle-left {
         New-HTMLSection -HeaderText 'Diagram - Defaults' -CanCollapse {
             New-HTMLPanel {

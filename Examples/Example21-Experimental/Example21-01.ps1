@@ -5,7 +5,7 @@ $Test = Get-Process | Select-Object -First 5
 #$Test | Out-HtmlView
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example21-01.html -Show {
-    New-HTMLTabOption -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue -BorderRadius 0px
+    New-HTMLTabStyle -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue -BorderRadius 0px
     New-HTMLTab -IconBrands aws -Name 'Test 1' -IconColor DarkGoldenrod {
         New-HTMLTable -DataTable $Test -PagingOptions @(50, 100, 150, 200) {
             New-HTMLTableButtonPDF -PageSize TABLOID -Orientation portrait

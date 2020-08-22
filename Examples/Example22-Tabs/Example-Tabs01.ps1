@@ -3,7 +3,7 @@
 $Test = Get-Process | Select-Object -First 2 #-Property Name, Id,PriorityClass, HandleCount, WorkingSet
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs01-Old.html -Show {
-    New-HTMLTabOption -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue #-FontSize 15
+    New-HTMLTabStyle -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue #-FontSize 15
     New-HTMLTab -Name 'Test 1' -IconBrands acquisitions-incorporated -IconColor Coriander {
         New-HTMLTab -Name 'Nested Tab 1' {
             New-HTMLSection -Invisible {

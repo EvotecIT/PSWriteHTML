@@ -3,7 +3,7 @@
 $Test1 = Get-Process | Select-Object -First 2
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs06.html -Show {
-    New-HTMLTabOption -SlimTabs `
+    New-HTMLTabStyle -SlimTabs `
         -BorderBottomStyleActive solid -BorderBottomColorActive LightSkyBlue -BackgroundColorActive none `
         -TextColorActive Black -Align left -BorderRadius 0px -RemoveShadow -TextColor Grey -TextTransform capitalize -Wrap nowrap
 

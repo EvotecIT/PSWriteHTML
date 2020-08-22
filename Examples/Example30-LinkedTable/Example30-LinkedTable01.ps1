@@ -5,7 +5,7 @@ $Users = Get-ADUser -Filter * -Properties SamAccountName, Name, Title, Surname, 
 
 New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example30-LinkedTable.html -ShowHTML {
     #New-HTMLLogo
-    New-HTMLTabOption -SelectorColor Grey
+    New-HTMLTabStyle -SelectorColor Grey
     New-HTMLTab -TabName 'Test' -IconSolid dice {
         New-HTMLContent -HeaderText 'Active Directory Computers & Diagram' -HeaderBackGroundColor Grey {
             New-HTMLPanel {

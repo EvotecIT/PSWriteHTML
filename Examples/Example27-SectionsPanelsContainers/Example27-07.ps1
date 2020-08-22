@@ -16,7 +16,7 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example27-07.html
     # New-HTMLMain is not nessecary but I like to use it when Header/Footer are present to distinguish how things are placed
     New-HTMLMain {
         New-HTMLTab -Name 'Tab 1' {
-            New-HTMLSectionOption -RemoveShadow -BorderRadius 0px
+            New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px
             New-HTMLSection -HeaderText 'Default Section Style' {
                 New-HTMLTable -DataTable $Test1 -HideFooter
             }

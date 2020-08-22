@@ -4,47 +4,47 @@
 $Test1 = Get-Process | Select-Object -First 2
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs05.html -Show {
-    #New-HTMLTabOption -SlimTabs -LinearGradient -SelectorColor Blue -SelectorColorTarget AliceBlue -BorderRadius 25px -BorderBackgroundColor BurntOrange #-Align left
-    #New-HTMLTabOption -SelectorColor Blue -SelectorColorTarget AliceBlue -BorderRadius 5px -BorderBackgroundColor BurntOrange #-Align left
+    #New-HTMLTabStyle -SlimTabs -LinearGradient -SelectorColor Blue -SelectorColorTarget AliceBlue -BorderRadius 25px -BorderBackgroundColor BurntOrange #-Align left
+    #New-HTMLTabStyle -SelectorColor Blue -SelectorColorTarget AliceBlue -BorderRadius 5px -BorderBackgroundColor BurntOrange #-Align left
 
-    #New-HTMLTabOption -SlimTabs -Transition -LinearGradient -SelectorColor Blue -SelectorColorTarget AliceBlue
-    #New-HTMLTabOption -SlimTabs -Transition -SelectorColor Gold
-    #New-HTMLTabOption -SlimTabs -Transition -SelectorColor Gold -LinearGradient -TextTransform lowercase
-    #New-HTMLTabOption -SlimTabs -Transition -SelectorColor Gold -LinearGradient -TextTransform lowercase -TextTransformActive uppercase
-    #New-HTMLTabOption -SlimTabs -BackgroundColorActive Grey
-    #New-HTMLTabOption -SlimTabs -BackgroundColorActive Grey -BackgroundColorActiveTarget White -LinearGradient -TextTransform capitalize -Align left
-    #New-HTMLTabOption -SlimTabs -BackgroundColorActive Grey -BackgroundColorActiveTarget White -LinearGradient -TextTransform capitalize -Align left -TextSize 15 -TextColor Black
-    #New-HTMLTabOption -SlimTabs -BackgroundColorActive Grey -TextTransform capitalize -Align left #-TextTransformActive lowercase
-    #New-HTMLTabOption -SlimTabs -BackgroundColorActive Red -TextTransform capitalize -Align right
-    #New-HTMLTabOption -SlimTabs -BackgroundColorActive Red -TextTransform capitalize -Align left -TextSize '10px'
-    #New-HTMLTabOption -SlimTabs -BackgroundColorActive none -TextTransform capitalize -Align left -RemoveShadow -TextColorActive Black -FontWeightActive bold -FontStyleActive italic -BackgroundColorActive Green
+    #New-HTMLTabStyle -SlimTabs -Transition -LinearGradient -SelectorColor Blue -SelectorColorTarget AliceBlue
+    #New-HTMLTabStyle -SlimTabs -Transition -SelectorColor Gold
+    #New-HTMLTabStyle -SlimTabs -Transition -SelectorColor Gold -LinearGradient -TextTransform lowercase
+    #New-HTMLTabStyle -SlimTabs -Transition -SelectorColor Gold -LinearGradient -TextTransform lowercase -TextTransformActive uppercase
+    #New-HTMLTabStyle -SlimTabs -BackgroundColorActive Grey
+    #New-HTMLTabStyle -SlimTabs -BackgroundColorActive Grey -BackgroundColorActiveTarget White -LinearGradient -TextTransform capitalize -Align left
+    #New-HTMLTabStyle -SlimTabs -BackgroundColorActive Grey -BackgroundColorActiveTarget White -LinearGradient -TextTransform capitalize -Align left -TextSize 15 -TextColor Black
+    #New-HTMLTabStyle -SlimTabs -BackgroundColorActive Grey -TextTransform capitalize -Align left #-TextTransformActive lowercase
+    #New-HTMLTabStyle -SlimTabs -BackgroundColorActive Red -TextTransform capitalize -Align right
+    #New-HTMLTabStyle -SlimTabs -BackgroundColorActive Red -TextTransform capitalize -Align left -TextSize '10px'
+    #New-HTMLTabStyle -SlimTabs -BackgroundColorActive none -TextTransform capitalize -Align left -RemoveShadow -TextColorActive Black -FontWeightActive bold -FontStyleActive italic -BackgroundColorActive Green
 
-    #New-HTMLTabOption -BackgroundColorActive Red -BorderRadius 10px
-    #New-HTMLTabOption -BorderBottomWidth medium -BorderBottomColor Red -SlimTabs -BorderBottomStyle groove
-    #New-HTMLTabOption -BorderBottomWidth medium -BorderBottomColor Red -SlimTabs `
+    #New-HTMLTabStyle -BackgroundColorActive Red -BorderRadius 10px
+    #New-HTMLTabStyle -BorderBottomWidth medium -BorderBottomColor Red -SlimTabs -BorderBottomStyle groove
+    #New-HTMLTabStyle -BorderBottomWidth medium -BorderBottomColor Red -SlimTabs `
     #    -BorderBottomStyle groove -BorderBottomStyleActive dotted -BorderBottomColorActive Blue -RemoveShadow -BackgroundColorActive none `
     #    -TextColorActive Blue
-    #New-HTMLTabOption -SlimTabs `
+    #New-HTMLTabStyle -SlimTabs `
     #    -BorderBottomStyleActive solid -BorderBottomColorActive CuriousBlue -BackgroundColorActive none `
     #    -TextColorActive Black -Align left -BorderRadius 0px -RemoveShadow -TextColor Grey
 
-    #New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -WritingMode vertical-lr -Direction row -AlignItems flex-end
-    #New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -WritingMode vertical-lr -Direction row -TextOrientation upright
+    #New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -WritingMode vertical-lr -Direction row -AlignItems flex-end
+    #New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -WritingMode vertical-lr -Direction row -TextOrientation upright
 
 
-    New-HTMLSectionOption # This can overwrite all settings for Sections that are not using any styles
-    #$SectionStyle1 = New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -Direction row -WritingMode vertical-lr -RequestConfiguration
-    $SectionStyle1 = New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -Direction row -WritingMode vertical-lr -Rotate 180deg -RequestConfiguration
-    $SectionStyle2 = New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -Direction row -WritingMode vertical-lr -TextOrientation upright -RequestConfiguration
-    $SectionStyle3 = New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -Direction row -WritingMode vertical-lr -HeaderBackGroundColor Grey -AlignContent center -RequestConfiguration
-    $SectionStyle4 = New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -Direction row -WritingMode vertical-lr -AlignItems flex-end -RequestConfiguration
-    $SectionStyle5 = New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -RequestConfiguration -HeaderBackGroundColor none -HeaderTextColor Grey
-    $SectionStyle6 = New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -Direction row-reverse -RequestConfiguration -JustifyContent center -AlignItems center -AlignContent stretch
-    $SectionStyle7 = New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -Direction row-reverse -WritingMode vertical-rl -RequestConfiguration -Rotate 180deg
-    $SectionStyle8 = New-HTMLSectionOption -RemoveShadow -BorderRadius 0px -Direction column-reverse -RequestConfiguration
-    #New-HTMLPanelOptions -BorderRadius 0px
+    New-HTMLSectionStyle # This can overwrite all settings for Sections that are not using any styles
+    #$SectionStyle1 = New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -Direction row -WritingMode vertical-lr -RequestConfiguration
+    $SectionStyle1 = New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -Direction row -WritingMode vertical-lr -Rotate 180deg -RequestConfiguration
+    $SectionStyle2 = New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -Direction row -WritingMode vertical-lr -TextOrientation upright -RequestConfiguration
+    $SectionStyle3 = New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -Direction row -WritingMode vertical-lr -HeaderBackGroundColor Grey -AlignContent center -RequestConfiguration
+    $SectionStyle4 = New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -Direction row -WritingMode vertical-lr -AlignItems flex-end -RequestConfiguration
+    $SectionStyle5 = New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -RequestConfiguration -HeaderBackGroundColor none -HeaderTextColor Grey
+    $SectionStyle6 = New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -Direction row-reverse -RequestConfiguration -JustifyContent center -AlignItems center -AlignContent stretch
+    $SectionStyle7 = New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -Direction row-reverse -WritingMode vertical-rl -RequestConfiguration -Rotate 180deg
+    $SectionStyle8 = New-HTMLSectionStyle -RemoveShadow -BorderRadius 0px -Direction column-reverse -RequestConfiguration
+    #New-HTMLPanelStyle -BorderRadius 0px
 
-    New-HTMLTabOption -SlimTabs `
+    New-HTMLTabStyle -SlimTabs `
         -BorderBottomStyleActive solid -BorderBottomColorActive LightSkyBlue -BackgroundColorActive none `
         -TextColorActive Black -Align left -BorderRadius 0px -RemoveShadow -TextColor Grey -TextTransform capitalize
 

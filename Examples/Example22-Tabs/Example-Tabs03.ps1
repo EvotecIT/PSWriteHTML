@@ -3,7 +3,7 @@
 $Test1 = Get-Process | Select-Object -First 5
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs03.html -Show {
-    New-HTMLTabOption -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue
+    New-HTMLTabStyle -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue
     New-HTMLTab -Name 'First Level Tab - Test 1' -IconBrands acquisitions-incorporated {
         New-HTMLTab -Name '2nd Level Tab - Test 1/1' -IconRegular address-card {
             New-HTMLTab -Name '3rd level' {
