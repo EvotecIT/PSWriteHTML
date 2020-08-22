@@ -66,7 +66,21 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.95 - Unreleased
-  - Improvements
+  - Notes
+    - I'm reworking CSS model in which PSWriteHTML works allowing for more consistent design and more customization options. This means some breaking changes will happen soon enough.
+    - FontSize will be reworked for most commands (as I get to them) to take `[int]` input but also `[string]` input
+      - If `[int]` is provided it assumes size given in `px`. If text is provided it takes it as is.
+        - If `15` this means `15px`
+        - If `15px` this means `15px`
+        - If `15pt` this means `15pt`
+        - If `'15'` this means `15px` as it will convert to `[int]` first
+        - Anything else will be treated as is meaning you know what you are doing
+  - **Breaking**
+    - [x] Default Font Size for everything is `8pt`. This includes:
+      - [x] Tabs used to have `15px`. Now by default `8pt`. You will need `New-HTMLTabOption -FontSize '15px'` or `New-HTMLTabOption -FontSize 15` to set default fontsize for Tabs to it's old value (along with other customizations if needed)
+      - [x] Inputs for Tables (Filtering) having static `8pt`
+  - **Improvements**
+    - [x] `New-HTMLMain` - allows customizing font size, font type, background color and text color globally - this will overwrite defaults as described above
     - [x] Fix TempFilePath for `Email` to work correctly on MacOS/Linux - tnx roberttoups [#146](https://github.com/EvotecIT/PSWriteHTML/pull/146)
     - [x] Auto-wrapping of Tabs is enabled - can be disabled via `New-HTMLTabOption`
     - [x] Bunch of options to control wrapping/direction of tabs via `New-HTMLTabOption`
@@ -74,6 +88,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Fixed BackgroundColor for `New-HTMLTabOption`
     - [x] Removed `default.css` in favor of native powershell css
     - [x] New-HTMLTable warning - `Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both`
+    - [x] Fixed broken `Tab` switching in **Internet Explorer 11**
 - 0.0.94 - 2020.08.18
   - Public
     - [x] Added `New-TableEvent` for `New-HTMLTable` **experimental**
