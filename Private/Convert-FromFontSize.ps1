@@ -9,10 +9,12 @@
         }
     } elseif ($TextSize -is [string]) {
         if ($TextSize) {
-            if ($TextSize -like '*px' -or $TextSize -like '*pt') {
-                $TextSize
+            $IntSize = 0
+            $Conversion = [int]::TryParse($TextSize, [ref] $IntSize)
+            if ($Conversion) {
+                "$($IntSize)px"
             } else {
-                "$($TextSize)px"
+                $TextSize
             }
         }
     } else {
