@@ -30,7 +30,9 @@ table.simplify td {
     border-top: 1px solid #ddd;
 }
 
+
 /* Zebra striping */
+
 table.simplify tr:nth-of-type(odd) {
     background: #eee;
 }

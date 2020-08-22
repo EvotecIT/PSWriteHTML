@@ -2,8 +2,8 @@
     [alias('TabOptions', 'New-TabOption', 'New-HTMLTabOptions', 'TabOption')]
     [CmdletBinding(DefaultParameterSetName = 'Manual')]
     param(
-        [Parameter(ParameterSetName = 'Manual')][string] $TextSize,
-        [Parameter(ParameterSetName = 'Manual')][string] $TextSizeActive,
+        [Parameter(ParameterSetName = 'Manual')][alias('TextSize')][string] $FontSize,
+        [Parameter(ParameterSetName = 'Manual')][alias('TextSizeActive')][string] $FontSizeActive,
         [Parameter(ParameterSetName = 'Manual')][string] $TextColor,
         [Parameter(ParameterSetName = 'Manual')][string] $TextColorActive,
         [Parameter(ParameterSetName = 'Manual')][ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
@@ -88,7 +88,7 @@
     $CssTabsWrapper = [ordered] @{
         'text-align'       = $Align
         'text-transform'   = $TextTransform
-        'font-size'        = ConvertFrom-FontSize -TextSize $TextSize
+        'font-size'        = ConvertFrom-FontSize -TextSize $FontSize
         'color'            = ConvertFrom-Color -Color $TextColor
         'background-color' = ConvertFrom-Color -Color $BackgroundColor
         'font-weight'      = $FontWeight
@@ -166,7 +166,7 @@
         Remove-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs]' -Property 'box-shadow'
     }
     if ($PSBoundParameters.ContainsKey('TextSizeActive')) {
-        Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs] .active' -Inject @{ 'font-size' = ConvertFrom-FontSize -TextSize $TextSizeActive }
+        Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs] .active' -Inject @{ 'font-size' = ConvertFrom-FontSize -TextSize $FontSizeActive }
     }
     if ($PSBoundParameters.ContainsKey('TextColorActive')) {
         Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs] .active' -Inject @{ 'color' = ConvertFrom-Color -Color $TextColorActive }

@@ -12,6 +12,9 @@ $Script:Configuration = [ordered] @{
                         'font-family' = 'Roboto Condensed, Helvetica Neue, sans-serif'
                         'font-size'   = '8pt'
                     }
+                    'input'          = @{
+                        'font-size' = '8pt'
+                    }
                     '.defaultHeader' = [ordered]@{
                         'padding'     = '5px'
                         'margin'      = '0px 0px 0px 0px'
@@ -230,41 +233,75 @@ $Script:Configuration = [ordered] @{
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.4.1.min.js"
             }
         }
-        DataTablesOld        = @{
-            Comment      = 'DataTables'
+        DataTablesSearchFade = @{
+            Comment      = 'DataTables SearchFade'
             HeaderAlways = @{
-                Css         = "$PSScriptRoot\..\Resources\CSS\datatables.css"
-                CssNoscript = "$PSScriptRoot\..\Resources\CSS\datatables.noscript.css"
+                # https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.css
+                CssInline = @{
+                    '.notMatched td' = @{
+                        'opacity' = 0.2
+                    }
+                }
             }
             Header       = @{
-                CssLink = 'https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\datatables.min.css"
-                JsLink  = @(
-                    "https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/af-2.3.2/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.js"
-                    "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"
-                    "https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"
-                )
-                JS      = @(
-                    "$PSScriptRoot\..\Resources\JS\datatables.min.js"
-                    "$PSScriptRoot\..\Resources\JS\moment.min.js"
-                    "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
-                )
-            }
-        }
-        DataTablesSearchFade = @{
-            Comment = 'DataTables SearchFade'
-            Header  = @{
-                CssLink = 'https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\datatablesSearchFade.css"
-                JsLink  = "https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.js"
-                JS      = "$PSScriptRoot\..\Resources\JS\datatables.SearchFade.min"
+                JsLink = "https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.js"
+                JS     = "$PSScriptRoot\..\Resources\JS\datatables.SearchFade.min"
             }
         }
 
         DataTables           = @{
             Comment      = 'DataTables'
             HeaderAlways = @{
-                Css         = "$PSScriptRoot\..\Resources\CSS\datatables.css"
+                CssInline   = @{
+                    #/* Added to make sure plus logo fits in */
+                    td                       = @{
+                        'height' = '27px'
+                    }
+                    #/* Button in Table - giving it some colors */
+                    'td.sorting_1::before'   = @{
+                        'background' = '#007bff !important'
+                    }
+                    'td::before'             = @{
+                        'background' = '#007bff !important'
+                    }
+                    # /* giving some spaces between tables being to close */
+                    'div.dataTables_wrapper' = @{
+                        'padding' = '10px 10px 10px 10px'
+                    }
+                    'button.dt-button'       = @{
+                        #'font-size'     = '8pt !important'
+                        'color'         = 'blue !important'
+                        'border-radius' = '5px'
+                        'line-height'   = '1 !important'
+                    }
+                    #/* Filtering at the bottom */
+                    'tfoot input'            = @{
+                        'width'      = '100%'
+                        'padding'    = '-3px'
+                        'box-sizing' = 'border-box'
+                        #'font-size'  = '15pt'
+                    }
+                    #/* Filtering at the top */
+                    'thead input'            = @{
+                        'width'      = '100%'
+                        'padding'    = '-3px'
+                        'box-sizing' = 'border-box'
+                        #'font-size'  = '15pt'
+                    }
+                    'table'                  = @{
+                        #'font-size' = '8pt'
+                    }
+                    'th'                     = @{
+                        #'font-size' = '8pt'
+                    }
+                    '.dataTables_info'       = @{
+                        #/* lower left */
+                        #'font-size' = '8pt'
+                    }
+                    '.dataTables_filter'     = @{
+                        #'font-size' = '8pt'
+                    }
+                }         #= "$PSScriptRoot\..\Resources\CSS\datatables.css"
                 CssNoscript = "$PSScriptRoot\..\Resources\CSS\datatables.noscript.css"
             }
             Header       = @{
@@ -297,10 +334,6 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\select.dataTables.min.css"
                 )
                 JsLink  = @(
-                    #"https://code.jquery.com/jquery-3.3.1.min.js"
-                    #"https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"
-                    #"https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"
-                    #"https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"
                     "https://nightly.datatables.net/js/jquery.dataTables.min.js"
                     "https://cdn.datatables.net/autofill/2.3.4/js/dataTables.autoFill.min.js"
                     "https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"
@@ -478,21 +511,6 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        <#
-        Tabs                 = @{
-            Comment              = 'Elastic Tabs'
-            HeaderAlways         = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\tabs-elastic.css"
-            }
-            FooterAlways         = @{
-                JS = "$PSScriptRoot\..\Resources\JS\tabs-elastic.js"
-            }
-            CustomActionsReplace = @{
-                'ColorSelector' = ConvertFrom-Color -Color "DodgerBlue"
-                'ColorTarget'   = ConvertFrom-Color -Color "MediumSlateBlue"
-            }
-        }
-        #>
         Tabbis               = @{
             Comment      = 'Elastic Tabbis'
             HeaderAlways = @{
@@ -503,7 +521,7 @@ $Script:Configuration = [ordered] @{
                         #'margin'         = "10px auto"
                         'font-family'    = "'Roboto', sans-serif !important"
                         'text-transform' = 'uppercase'
-                        'font-size'      = '15px'
+                       # 'font-size'      = '15px'
                     }
                     '[data-tabs]'          = [ordered]@{
                         'display'         = 'flex'
