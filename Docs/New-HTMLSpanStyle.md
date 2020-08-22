@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 New-HTMLSpanStyle [[-Content] <ScriptBlock>] [[-Color] <String>] [[-BackGroundColor] <String>]
- [[-FontSize] <Int32>] [[-FontWeight] <String>] [[-FontStyle] <String>] [[-FontVariant] <String>]
+ [[-FontSize] <Object>] [[-FontWeight] <String>] [[-FontStyle] <String>] [[-FontVariant] <String>]
  [[-FontFamily] <String>] [[-Alignment] <String>] [[-TextDecoration] <String>] [[-TextTransform] <String>]
  [[-Direction] <String>] [-LineBreak] [<CommonParameters>]
 ```
@@ -129,7 +129,7 @@ Accept wildcard characters: False
 {{ Fill FontSize Description }}
 
 ```yaml
-Type: Int32
+Type: Object
 Parameter Sets: (All)
 Aliases:
 

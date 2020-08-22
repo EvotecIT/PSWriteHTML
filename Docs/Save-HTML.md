@@ -13,7 +13,7 @@ Short description
 ## SYNTAX
 
 ```
-Save-HTML [[-FilePath] <String>] [-HTML] <Array> [-ShowHTML] [[-Encoding] <Object>] [[-Suppress] <Boolean>]
+Save-HTML [[-FilePath] <String>] [-HTML] <String> [-ShowHTML] [[-Encoding] <Object>] [[-Suppress] <Boolean>]
  [<CommonParameters>]
 ```
 
@@ -48,7 +48,7 @@ Accept wildcard characters: False
 Parameter description
 
 ```yaml
-Type: Array
+Type: String
 Parameter Sets: (All)
 Aliases:
 

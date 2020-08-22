@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ### Manual (Default)
 ```
-New-HTMLTabOption [-TextSize <String>] [-TextSizeActive <String>] [-TextColor <String>]
+New-HTMLTabOption [-FontSize <String>] [-FontSizeActive <String>] [-TextColor <String>]
  [-TextColorActive <String>] [-FontWeight <String>] [-FontWeightActive <String>] [-FontStyle <String>]
  [-FontStyleActive <String>] [-FontVariant <String>] [-FontVariantActive <String>] [-FontFamily <String>]
  [-FontFamilyActive <String>] [-TextDecoration <String>] [-TextDecorationActive <String>]
@@ -312,6 +312,36 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -FontSize
+{{ Fill FontSize Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases: TextSize
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontSizeActive
+{{ Fill FontSizeActive Description }}
+
+```yaml
+Type: String
+Parameter Sets: Manual
+Aliases: TextSizeActive
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -FontStyle
 {{ Fill FontStyle Description }}
 
@@ -553,36 +583,6 @@ Type: String
 Parameter Sets: Manual
 Aliases:
 Accepted values: none, line-through, overline, underline
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -TextSize
-{{ Fill TextSize Description }}
-
-```yaml
-Type: String
-Parameter Sets: Manual
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -TextSizeActive
-{{ Fill TextSizeActive Description }}
-
-```yaml
-Type: String
-Parameter Sets: Manual
-Aliases:
 
 Required: False
 Position: Named
