@@ -89,6 +89,11 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Removed `default.css` in favor of native powershell css
     - [x] New-HTMLTable warning - `Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both`
     - [x] Fixed broken `Tab` switching in **Internet Explorer 11**
+  - Added cmdlets
+    - [x] `New-HTMLTableStyle`
+  - Renamed cmdlets (non-breaking change via aliases)
+    - [x] `New-HTMLTabOption` -> `New-HTMLTabStyle`
+    - [x] `New-HTMLSectionOption` -> `New-HTMLSectionStyle`
 - 0.0.94 - 2020.08.18
   - Public
     - [x] Added `New-TableEvent` for `New-HTMLTable` **experimental**
