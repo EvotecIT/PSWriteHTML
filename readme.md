@@ -66,7 +66,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.95 - Unreleased
-  - Notes
+  - **Notes**
     - I'm reworking CSS model in which PSWriteHTML works allowing for more consistent design and more customization options. This means some breaking changes will happen soon enough.
     - FontSize will be reworked for most commands (as I get to them) to take `[int]` input but also `[string]` input
       - If `[int]` is provided it assumes size given in `px`. If text is provided it takes it as is.
@@ -89,11 +89,15 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Removed `default.css` in favor of native powershell css
     - [x] New-HTMLTable warning - `Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both`
     - [x] Fixed broken `Tab` switching in **Internet Explorer 11**
-  - Added cmdlets
+    - [x] Added basic support for `SearchPane` within `New-HTMLTable`
+  - **Added cmdlets**
     - [x] `New-HTMLTableStyle`
-  - Renamed cmdlets (non-breaking change via aliases)
+  - **Renamed cmdlets** (non-breaking change via aliases)
     - [x] `New-HTMLTabOption` -> `New-HTMLTabStyle`
     - [x] `New-HTMLSectionOption` -> `New-HTMLSectionStyle`
+  - **Library updates**
+    - `DataTables` and all related libraries
+    - `JQuery` to 3.5.1
 - 0.0.94 - 2020.08.18
   - Public
     - [x] Added `New-TableEvent` for `New-HTMLTable` **experimental**
