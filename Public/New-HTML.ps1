@@ -4,8 +4,6 @@ Function New-HTML {
     param(
         [alias('Content')][Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $HtmlData = $(Throw "Have you put the open curly brace on the next line?"),
         [switch] $Online,
-        [switch] $UseCssLinks,
-        [switch] $UseJavaScriptLinks,
         [alias('Name', 'Title')][String] $TitleText,
         [string] $Author,
         [string] $DateFormat = 'yyyy-MM-dd HH:mm:ss',
@@ -14,7 +12,10 @@ Function New-HTML {
         [Parameter(Mandatory = $false)][string]$FilePath,
         [alias('Show', 'Open')][Parameter(Mandatory = $false)][switch]$ShowHTML,
         [ValidateSet('Unknown', 'String', 'Unicode', 'Byte', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'Ascii', 'Default', 'Oem', 'BigEndianUTF32')] $Encoding = 'UTF8',
-        [Uri] $FavIcon
+        [Uri] $FavIcon,
+        # Deprecated - will be removed
+        [Parameter(DontShow)][switch] $UseCssLinks,
+        [Parameter(DontShow)][switch] $UseJavaScriptLinks
     )
     if ($UseCssLinks -or $UseJavaScriptLinks) {
         Write-Warning "New-HTML - UseCssLinks and UseJavaScriptLinks is depreciated. Use Online switch instead. Those switches will be removed in near future."
