@@ -13,12 +13,11 @@ Email -AttachSelf -AttachSelfName 'My report' {
         EmailTo -Addresses "przemyslaw.klys@domain.pl"
         EmailCC -Addresses "przemyslaw.klys@domain.pl"
         EmailBCC -Addresses "kontakt@domain.pl"
-        EmailServer -Server 'mail.domain.pl' -UserName 'UserName' -Password 'C:\Support\Important\Password-Evotec-Reminder.txt' -PasswordAsSecure -PasswordFromFile
+        EmailServer -Server 'mail.domain.pl' -Username 'UserName' -Password 'C:\Support\Important\Password-Evotec-Reminder.txt' -PasswordAsSecure -PasswordFromFile
         EmailOptions -Priority Low
         EmailSubject -Subject 'This is a test email'
     }
-    EmailBody {
-
+    EmailBody -FontSize 8pt -FontFamily 'Tahoma' {
         EmailTextBox -FontFamily 'Calibri' -Size 17 -TextDecoration underline -Color DarkSalmon -Alignment center {
             'Demonstration'
         }
@@ -63,4 +62,4 @@ Email -AttachSelf -AttachSelfName 'My report' {
 
         EmailText -LineBreak
     }
-}
+} -FilePath "$PSScriptRoot\Output\Example-DifferentFeaturesInAction.html"
