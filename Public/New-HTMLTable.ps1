@@ -6,7 +6,7 @@ function New-HTMLTable {
         [Parameter(Mandatory = $false, Position = 1)][ScriptBlock] $PreContent,
         [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
-        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength'),
+        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchPanes')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
         [switch]$DisablePaging,
@@ -59,7 +59,9 @@ function New-HTMLTable {
         [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak = 'normal',
         [switch] $AutoSize,
         [switch] $DisableAutoWidthOptimization,
-        [string] $Title
+        [string] $Title,
+        [switch] $SearchPane,
+        [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top'
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -258,18 +260,7 @@ function New-HTMLTable {
 
     $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
     $Options = [ordered] @{
-        <# DOM Definition: https://datatables.net/reference/option/dom
-            l - length changing input control
-            f - filtering input
-            t - The table!
-            i - Table information summary
-            p - pagination control
-            r - processing display element
-            B - Buttons
-            S - Select
-            F - FadeSeaerch
-        #>
-        dom              = 'Bfrtip'
+        dom              = $Dom
         #buttons          = @($Buttons)
         "searchFade"     = $false
         "colReorder"     = -not $DisableColumnReorder.IsPresent
@@ -301,6 +292,29 @@ function New-HTMLTable {
         "searching"      = -not $DisableSearch.IsPresent
         "stateSave"      = -not $DisableStateSave.IsPresent
     }
+    # Set DOM
+    if ($SearchPane) {
+        <# DOM Definition: https://datatables.net/reference/option/dom
+            l - length changing input control
+            f - filtering input
+            t - The table!
+            i - Table information summary
+            p - pagination control
+            r - processing display element
+            B - Buttons
+            S - Select
+            F - FadeSeaerch
+            P - SearchPanes
+        #>
+        if ($SearchPaneLocation) {
+            $Options['dom'] = 'PBfrtip'
+        } else {
+            $Options['dom'] = 'BfrtipP'
+        }
+    } else {
+        $Options['dom'] = 'Bfrtip'
+    }
+
     if (-not $HideButtons) {
         $Options['buttons'] = @(
             if ($CustomButtons) {
