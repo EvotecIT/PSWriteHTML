@@ -99,10 +99,10 @@ Function New-HTML {
     }
 
 
-    $HTML = @(
-        '<!DOCTYPE html>'
+    [string] $HTML = @(
         #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
-        '<!-- saved from url=(0014)about:internet -->'
+        '<!-- saved from url=(0014)about:internet -->' + [System.Environment]::NewLine
+        '<!DOCTYPE html>' + [System.Environment]::NewLine
         New-HTMLTag -Tag 'html' {
             '<!-- HEAD -->'
             New-HTMLTag -Tag 'head' {

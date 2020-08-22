@@ -15,6 +15,9 @@ $Script:Configuration = [ordered] @{
                     'input'          = @{
                         'font-size' = '8pt'
                     }
+                    'table'          = @{
+                        #'font-size' = '8pt'
+                    }
                     '.defaultHeader' = [ordered]@{
                         'padding'     = '5px'
                         'margin'      = '0px 0px 0px 0px'
@@ -521,7 +524,7 @@ $Script:Configuration = [ordered] @{
                         #'margin'         = "10px auto"
                         'font-family'    = "'Roboto', sans-serif !important"
                         'text-transform' = 'uppercase'
-                       # 'font-size'      = '15px'
+                        # 'font-size'      = '15px'
                     }
                     '[data-tabs]'          = [ordered]@{
                         'display'         = 'flex'

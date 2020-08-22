@@ -126,7 +126,7 @@ function Email {
     }
 
     #$MailSentTo = "To: $($ServerParameters.To -join ', '); CC: $($ServerParameters.CC -join ', '); BCC: $($ServerParameters.BCC -join ', ')".Trim()
-    $EmailOutput = Send-Email -EmailParameters $ServerParameters -Body ($Body -join '') -Attachment $Attachments -WhatIf:$WhatIf
+    $EmailOutput = Send-Email -EmailParameters $ServerParameters -Body $Body -Attachment $Attachments -WhatIf:$WhatIf
     if (-not $Suppress) {
         $EmailOutput
     }

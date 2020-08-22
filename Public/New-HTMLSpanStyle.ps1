@@ -4,7 +4,7 @@ function New-HTMLSpanStyle {
         [ScriptBlock] $Content,
         [string] $Color,
         [string] $BackGroundColor,
-        [int] $FontSize,
+        [object] $FontSize,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,
         [ValidateSet('normal', 'small-caps')][string] $FontVariant,
@@ -15,16 +15,11 @@ function New-HTMLSpanStyle {
         [ValidateSet('rtl')][string] $Direction,
         [switch] $LineBreak
     )
-    if ($FontSize -eq 0) {
-        $Size = ''
-    } else {
-        $size = "$($FontSize)px"
-    }
     $Style = @{
         style = @{
             'color'            = ConvertFrom-Color -Color $Color
             'background-color' = ConvertFrom-Color -Color $BackGroundColor
-            'font-size'        = $Size
+            'font-size'        = ConvertFrom-FontSize -FontSize $Size
             'font-weight'      = $FontWeight
             'font-variant'     = $FontVariant
             'font-family'      = $FontFamily

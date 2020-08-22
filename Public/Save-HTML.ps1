@@ -31,7 +31,7 @@ Function Save-HTML {
     Param
     (
         [Parameter(Mandatory = $false)][string]$FilePath,
-        [Parameter(Mandatory = $true)][Array] $HTML,
+        [Parameter(Mandatory = $true)][string] $HTML,
         [alias('Show', 'Open')][Parameter(Mandatory = $false)][switch]$ShowHTML,
         [ValidateSet('Unknown', 'String', 'Unicode', 'Byte', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'Ascii', 'Default', 'Oem', 'BigEndianUTF32')] $Encoding = 'UTF8',
         [alias('Supress')][bool] $Suppress = $true

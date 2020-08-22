@@ -4,7 +4,7 @@ function EmailBody {
         [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $EmailBody,
         [string] $Color,
         [string] $BackGroundColor,
-        [alias('Size')][int] $FontSize,
+        [alias('Size')][object] $FontSize,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,
         [ValidateSet('normal', 'small-caps')][string] $FontVariant,

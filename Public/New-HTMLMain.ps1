@@ -26,6 +26,11 @@
     }
     Add-ConfigurationCSS -CSS $CssConfiguration -Name 'input' -Inject $InputStyle
 
+    #$TableStyle = @{
+    #'font-size' = ConvertFrom-FontSize -TextSize $FontSize
+    #}
+    #Add-ConfigurationCSS -CSS $CssConfiguration -Name 'table' -Inject $TableStyle
+
     # if HTML Content is given send it further down
     if ($HTMLContent) {
         # push this to New-HTML

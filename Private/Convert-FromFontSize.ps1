@@ -1,23 +1,23 @@
 ﻿function ConvertFrom-FontSize {
     [cmdletBinding()]
     param(
-        [object] $TextSize
+        [alias('TextSize')][object] $FontSize
     )
-    if ($TextSize -is [int]) {
-        if ($TextSize) {
-            "$($TextSize)px"
+    if ($FontSize -is [int]) {
+        if ($FontSize) {
+            "$($FontSize)px"
         }
-    } elseif ($TextSize -is [string]) {
-        if ($TextSize) {
+    } elseif ($FontSize -is [string]) {
+        if ($FontSize) {
             $IntSize = 0
-            $Conversion = [int]::TryParse($TextSize, [ref] $IntSize)
+            $Conversion = [int]::TryParse($FontSize, [ref] $IntSize)
             if ($Conversion) {
-                "$($IntSize)px"
+                "$($FontSize)px"
             } else {
-                $TextSize
+                $FontSize
             }
         }
     } else {
-        $TextSize
+        $FontSize
     }
 }
