@@ -1,5 +1,5 @@
-﻿function New-HTMLTabOption {
-    [alias('TabOptions', 'New-TabOption', 'New-HTMLTabOptions', 'TabOption')]
+﻿function New-HTMLTabStyle {
+    [alias('TabOptions', 'New-TabOption', 'New-HTMLTabOptions', 'TabOption', 'New-HTMLTabOption', 'TabStyle')]
     [CmdletBinding(DefaultParameterSetName = 'Manual')]
     param(
         [Parameter(ParameterSetName = 'Manual')][alias('TextSize')][string] $FontSize,
@@ -52,11 +52,11 @@
 
     )
     if (-not $Script:HTMLSchema) {
-        Write-Warning 'New-HTMLTabOption - Creation of HTML aborted. Most likely New-HTML is missing.'
+        Write-Warning 'New-HTMLTabStyle - Creation of HTML aborted. Most likely New-HTML is missing.'
         Exit
     }
     if ($BackgroundColorActive -and $BackgroundColorActiveTarget -and (-not $LinearGradient)) {
-        Write-Warning "New-HTMLTabOption - Using BackgroundColorActiveTarget without LinearGradient switch doesn't apply any changes."
+        Write-Warning "New-HTMLTabStyle - Using BackgroundColorActiveTarget without LinearGradient switch doesn't apply any changes."
     }
 
     # $Script:CurrentConfiguration.Features.Tabbis.HeaderAlways.CssInline
@@ -195,7 +195,7 @@
         Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs]>*' -Inject @{ 'border-bottom-width' = $BorderBottomWidth }
         Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs]>*' -Inject @{ 'border-bottom-color' = ConvertFrom-Color -Color $BorderBottomColor }
     } elseif ($BorderBottomColor -or $BorderBottomWidth) {
-        Write-Warning "New-HTMLTabOption - You can't use BorderBottomColor or BorderBottomWidth without BorderBottomStyle."
+        Write-Warning "New-HTMLTabStyle - You can't use BorderBottomColor or BorderBottomWidth without BorderBottomStyle."
     }
 
     if ($RowElements) {
@@ -203,11 +203,11 @@
     }
 }
 
-Register-ArgumentCompleter -CommandName New-HTMLTabOption -ParameterName TextColor -ScriptBlock $Script:ScriptBlockColors
-Register-ArgumentCompleter -CommandName New-HTMLTabOption -ParameterName TextColorActive -ScriptBlock $Script:ScriptBlockColors
-Register-ArgumentCompleter -CommandName New-HTMLTabOption -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
-Register-ArgumentCompleter -CommandName New-HTMLTabOption -ParameterName BackgroundColorActive -ScriptBlock $Script:ScriptBlockColors
-Register-ArgumentCompleter -CommandName New-HTMLTabOption -ParameterName BackgroundColorActiveTarget -ScriptBlock $Script:ScriptBlockColors
-Register-ArgumentCompleter -CommandName New-HTMLTabOption -ParameterName BorderBackgroundColor -ScriptBlock $Script:ScriptBlockColors
-Register-ArgumentCompleter -CommandName New-HTMLTabOption -ParameterName BorderBottomColor -ScriptBlock $Script:ScriptBlockColors
-Register-ArgumentCompleter -CommandName New-HTMLTabOption -ParameterName BorderBottomColorActive -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName TextColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName TextColorActive -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BackgroundColorActive -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BackgroundColorActiveTarget -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BorderBackgroundColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BorderBottomColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BorderBottomColorActive -ScriptBlock $Script:ScriptBlockColors
