@@ -19,7 +19,9 @@ var tabs = tabbis.init({
             }
         }
         try {
-            var table = document.getElementById(tab.id + "-Content").querySelectorAll('table[id^="DT-"]');
+            // Initially it was useed with ID, but if people use their own naming no tables were found
+            //var table = document.getElementById(tab.id + "-Content").querySelectorAll('table[id^="DT-"]');
+            var table = document.getElementById(tab.id + "-Content").querySelectorAll('table');
             table.forEach(resizeTable)
         } catch (e) {
             console.log('No datatables available.');
