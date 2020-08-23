@@ -75,7 +75,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
         - If `15pt` this means `15pt`
         - If `'15'` this means `15px` as it will convert to `[int]` first
         - Anything else will be treated as is meaning you know what you are doing
-  - **Breaking**
+  - **Breaking changes**
     - [x] Default Font Size for everything is `8pt`. This includes:
       - [x] Tabs used to have `15px`. Now by default `8pt`. You will need `New-HTMLTabOption -FontSize '15px'` or `New-HTMLTabOption -FontSize 15` to set default fontsize for Tabs to it's old value (along with other customizations if needed)
       - [x] Inputs for Tables (Filtering) having static `8pt`
@@ -90,6 +90,10 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] New-HTMLTable warning - `Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both`
     - [x] Fixed broken `Tab` switching in **Internet Explorer 11**
     - [x] Added basic support for `SearchPane` within `New-HTMLTable`
+    - [x] Fixed broken `Tables` refresh on `Tabs` when using named `Tables`
+    - [x] Fixed `New-HTMLTable`/`Out-HTMLView` with `-AllProperties` displaying wrong properties for IDictionary objects
+    - [x] Fixed `New-HTMLTable` properly displaying string/int and other data if passed as single value
+    - [x] Fixed `New-HTMLTable` properly displaying column name as `Name` in PowerShell 5.1 when used with int/string
   - **Added cmdlets**
     - [x] `New-HTMLTableStyle`
   - **Renamed cmdlets** (non-breaking change via aliases)
