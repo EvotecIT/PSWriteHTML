@@ -13,6 +13,8 @@ $DataTable2 = @(
     [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3' }
     [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3' }
 )
+$DataTable3 = [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3' }
+
 
 $RootDSE = Get-ADRootDSE
 $TranslatedRootDSE = [ordered] @{ }
@@ -21,9 +23,10 @@ foreach ($Key in $RootDSE.PSObject.Properties.Name) {
 }
 
 New-HTML {
-    New-HTMLTable -DataTable $DataTable2 -Title 'Test1' # Title will be used for filename when using export
+    New-HTMLTable -DataTable $DataTable1 -Title 'Test1' # Title will be used for filename when using export
 
-    New-HTMLTable -DataTable $DataTable1 -HideButtons
+    New-HTMLTable -DataTable $DataTable2 -HideButtons
 
+    New-HTMLTable -DataTable $DataTable3 -HideButtons
     #New-HTMLTable -DataTable $TranslatedRootDSE
 } -ShowHTML -FilePath $PSScriptRoot\Example7_01.html -Online
