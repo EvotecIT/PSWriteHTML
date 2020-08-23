@@ -197,8 +197,14 @@ function New-HTMLTable {
     }
 
     if ($AllProperties) {
-        $Properties = Select-Properties -Objects $DataTable -AllProperties:$AllProperties
-        $DataTable = $DataTable | Select-Object -Property $Properties
+        if ($DataTable[0] -is [System.Collections.IDictionary]) {
+            # we don't do anything, as dictionaries are displayed in two columns approach
+        } else {
+            $Properties = Select-Properties -Objects $DataTable -AllProperties:$AllProperties
+        }
+        if ($Properties -ne '*') {
+            $DataTable = $DataTable | Select-Object -Property $Properties
+        }
     }
 
     # This is more direct way of PriorityProperties that will work also on Scroll and in other circumstances
@@ -218,49 +224,18 @@ function New-HTMLTable {
 
     # This option disable paging if number of elements is less or equal count of elements in DataTable
     $PagingOptions = $PagingOptions | Sort-Object -Unique
-    if ($DataTable.Count -le $PagingOptions[0]) {
-        $DisablePaging = $true
-    }
+    #if ($DataTable.Count -le $PagingOptions[0]) {
+    #    $DisablePaging = $true
+    #}
 
     # Building HTML Table / Script
     if (-not $DataTableID) {
         # Only define this if user failed to deliver as per https://github.com/EvotecIT/PSWriteHTML/issues/29
         $DataTableID = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
     }
-    if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
-        #return ''
-        $Filtering = $false # setting it to false because it's not nessecary
-        $HideFooter = $true
-        $DataTable = $TextWhenNoData
-    }
-    if ($DataTable[0] -is [System.Collections.IDictionary]) {
-        Write-Verbose 'New-HTMLTable - Working with IDictionary'
-        [Array] $TemporaryTable = foreach ($_ in $DataTable) {
-            $_.GetEnumerator() | Select-Object Name, Value
-        }
-        [Array] $Table = $TemporaryTable | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
-        #[Array] $Table = $($DataTable).GetEnumerator() | Select-Object Name, Value | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
-    } elseif ($DataTable[0] -is [string]) {
-        [Array] $Table = $DataTable | ForEach-Object { [PSCustomObject]@{ 'Name' = $_ } } | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2
-    } else {
-        Write-Verbose 'New-HTMLTable - Working with Objects'
-        [Array] $Table = $DataTable | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
-    }
-    [string] $Header = $Table | Select-Object -First 1 # this gets header
-    [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
-    $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
 
-    # This modifies Table content.
-    # It basically goes thru every single row and checks if values to add styles or inline conditional formatting
-    # It's heavier then JS, so use when nessecary
-    if ($ContentRows.Capacity -gt 0 -or $ContentStyle.Count -gt 0 -or $ContentTop.Count -gt 0 -or $ContentFormattingInline.Count -gt 0) {
-        $Table = Add-TableContent -ContentRows $ContentRows -ContentStyle $ContentStyle -ContentTop $ContentTop -ContentFormattingInline $ContentFormattingInline -Table $Table -HeaderNames $HeaderNames
-    }
-
-
-    $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
     $Options = [ordered] @{
-        dom              = $Dom
+        'dom'            = $null
         #buttons          = @($Buttons)
         "searchFade"     = $false
         "colReorder"     = -not $DisableColumnReorder.IsPresent
@@ -314,6 +289,78 @@ function New-HTMLTable {
     } else {
         $Options['dom'] = 'Bfrtip'
     }
+
+
+    # this handles no data in Table - we want table to be minimalistic then
+    if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
+        #return ''
+        $Filtering = $false # setting it to false because it's not nessecary
+        $HideFooter = $true
+        $DataTable = $TextWhenNoData
+    }
+
+    # Prepare data for preprocessing. Convert Hashtable/Ordered Dictionary to their visual representation
+    $Table = $null
+    if ($DataTable[0] -is [System.Collections.IDictionary]) {
+        [Array] $Table = foreach ($_ in $DataTable) {
+            $_.GetEnumerator() | Select-Object Name, Value
+        }
+    } elseif ($DataTable[0].GetType().Name -match 'bool|byte|char|datetime|decimal|double|ExcelHyperLink|float|int|long|sbyte|short|string|timespan|uint|ulong|URI|ushort') {
+        [Array] $Table = $DataTable | ForEach-Object { [PSCustomObject]@{ 'Name' = $_ } }
+    } else {
+        [Array] $Table = $DataTable
+    }
+
+
+    if (-not $Script:HTMLSchema.Hosted.Enabled) {
+        #  Standard way to build inline table
+        <#
+        if ($DataTable[0] -is [System.Collections.IDictionary]) {
+            #Write-Verbose 'New-HTMLTable - Working with IDictionary'
+            #[Array] $TemporaryTable = foreach ($_ in $DataTable) {
+            #    $_.GetEnumerator() | Select-Object Name, Value
+            #}
+            [Array] $Table = foreach ($_ in $DataTable) {
+                $_.GetEnumerator() | Select-Object Name, Value
+            } #| ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
+            #[Array] $Table = $($DataTable).GetEnumerator() | Select-Object Name, Value | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
+        } elseif ($DataTable[0] -is [string]) {
+            [Array] $Table = $DataTable | ForEach-Object { [PSCustomObject]@{ 'Name' = $_ } } #| ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2
+        } else {
+            #Write-Verbose 'New-HTMLTable - Working with Objects'
+            [Array] $Table = $DataTable
+        }
+        #>
+        $Table = $Table | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
+        [string] $Header = $Table | Select-Object -First 1 # this gets header
+        [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
+
+        #$AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
+
+        # This modifies Table content.
+        # It basically goes thru every single row and checks if values to add styles or inline conditional formatting
+        # It's heavier then JS, so use when nessecary
+        if ($ContentRows.Capacity -gt 0 -or $ContentStyle.Count -gt 0 -or $ContentTop.Count -gt 0 -or $ContentFormattingInline.Count -gt 0) {
+            $Table = Add-TableContent -ContentRows $ContentRows -ContentStyle $ContentStyle -ContentTop $ContentTop -ContentFormattingInline $ContentFormattingInline -Table $Table -HeaderNames $HeaderNames
+        }
+        $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
+    } else {
+        # this is hosted solution that only works on servers
+        # this is a bit different so there's no full html building
+        [string] $Header = $Table | ConvertTo-Html -Fragment | Select-Object -Skip 2 -First 1
+        [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
+        New-TableServerSide -DataTable $Table -DataTableID $DataTableID -Options $Options -HeaderNames $HeaderNames
+        $Table = $null
+    }
+
+    if ($HeaderNames -eq '*') {
+        # HeaderNames normally contain proper header names, however ConvertTo-HTML -Fragment in PowerShell 5.1 incorrectly sets it to *
+        # PowerShell 7 works without issues. This is reproducible with [PSCustomObject]@{ 'Name' = 'Test' } | ConvertTo-Html -Fragment
+        $Header = $Header.Replace('*', 'Name')
+        $HeaderNames = 'Name'
+    }
+    # This modifies header adding styles, header rows, or doing some fancy stuff
+    $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
 
     if (-not $HideButtons) {
         $Options['buttons'] = @(
@@ -647,8 +694,10 @@ function New-HTMLTable {
                     $Header
                 }
             }
-            New-HTMLTag -Tag 'tbody' {
-                $Table
+            if ($Table) {
+                New-HTMLTag -Tag 'tbody' {
+                    $Table
+                }
             }
             if (-not $HideFooter) {
                 New-HTMLTag -Tag 'tfoot' {
