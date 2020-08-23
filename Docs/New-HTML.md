@@ -13,9 +13,9 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTML [[-HtmlData] <ScriptBlock>] [-Online] [-UseCssLinks] [-UseJavaScriptLinks] [-TitleText <String>]
- [-Author <String>] [-DateFormat <String>] [-AutoRefresh <Int32>] [-FilePath <String>] [-ShowHTML]
- [-Encoding <Object>] [-FavIcon <Uri>] [<CommonParameters>]
+New-HTML [[-HtmlData] <ScriptBlock>] [-Online] [-TitleText <String>] [-Author <String>] [-DateFormat <String>]
+ [-AutoRefresh <Int32>] [-FilePath <String>] [-ShowHTML] [-Encoding <Object>] [-FavIcon <Uri>] [-Hosted]
+ [-UseCssLinks] [-UseJavaScriptLinks] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -113,6 +113,21 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Hosted
+{{ Fill Hosted Description }}
+
+```yaml
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 

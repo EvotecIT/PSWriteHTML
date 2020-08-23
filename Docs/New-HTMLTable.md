@@ -26,7 +26,8 @@ New-HTMLTable [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostConte
  [-PriorityProperties <String[]>] [-DataTableID <String>] [-ImmediatelyShowHiddenDetails] [-HideShowButton]
  [-AllProperties] [-SkipProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>]
  [-CompareReplace <Array>] [-SearchRegularExpression] [-WordBreak <String>] [-AutoSize]
- [-DisableAutoWidthOptimization] [-Title <String>] [<CommonParameters>]
+ [-DisableAutoWidthOptimization] [-Title <String>] [-SearchPane] [-SearchPaneLocation <String>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -80,7 +81,7 @@ Accept wildcard characters: False
 Type: String[]
 Parameter Sets: (All)
 Aliases:
-Accepted values: copyHtml5, excelHtml5, csvHtml5, pdfHtml5, pageLength
+Accepted values: copyHtml5, excelHtml5, csvHtml5, pdfHtml5, pageLength, searchPanes
 
 Required: False
 Position: Named
@@ -804,6 +805,37 @@ Accept wildcard characters: False
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SearchPane
+{{ Fill SearchPane Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SearchPaneLocation
+{{ Fill SearchPaneLocation Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: top, bottom
 
 Required: False
 Position: Named
