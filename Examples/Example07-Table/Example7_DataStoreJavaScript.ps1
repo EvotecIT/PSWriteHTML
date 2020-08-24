@@ -32,7 +32,13 @@ $DataTable7 = 555
 
 $DataTable8 = 555, 555
 
+$DataTable9 = [PSCustomObject] @{
+    'ColumnName' = '123'
+}
+
 New-HTML {
+    New-HTMLTableOption -DataStore JavaScript
+
     New-HTMLSection -Invisible {
         New-HTMLSection -HeaderText 'Standard Table with PSCustomObjects' {
             New-HTMLTable -DataTable $DataTable1
@@ -65,7 +71,6 @@ New-HTML {
             New-HTMLTable -DataTable $DataTable4 -AllProperties
         }
     }
-
     New-HTMLSection -Invisible {
         New-HTMLSection -HeaderText 'Standard Table with single string' {
             New-HTMLTable -DataTable $DataTable5
@@ -82,7 +87,6 @@ New-HTML {
             New-HTMLTable -DataTable $DataTable6 -AllProperties
         }
     }
-
     New-HTMLSection -Invisible {
         New-HTMLSection -HeaderText 'Standard Table with single int' {
             New-HTMLTable -DataTable $DataTable7
@@ -91,7 +95,6 @@ New-HTML {
             New-HTMLTable -DataTable $DataTable7 -AllProperties
         }
     }
-
     New-HTMLSection -Invisible {
         New-HTMLSection -HeaderText 'Standard Table with multiple int' {
             New-HTMLTable -DataTable $DataTable8
@@ -100,4 +103,12 @@ New-HTML {
             New-HTMLTable -DataTable $DataTable8 -AllProperties
         }
     }
-} -ShowHTML -FilePath $PSScriptRoot\Example7_04.html -Online
+    New-HTMLSection -Invisible {
+        New-HTMLSection -HeaderText 'Standard Table with PSCustomObject' {
+            New-HTMLTable -DataTable $DataTable9
+        }
+        New-HTMLSection -HeaderText 'Standard Table with PSCustomObject - All properties' {
+            New-HTMLTable -DataTable $DataTable9 -AllProperties
+        }
+    }
+} -ShowHTML -FilePath $PSScriptRoot\Example7_DataStoreJavaScript.html -Online
