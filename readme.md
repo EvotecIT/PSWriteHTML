@@ -100,6 +100,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - **Added cmdlets**
     - [x] `New-HTMLTableStyle`
     - [x] `New-HTMLTableOption` - added to provide `DataStore` parameter which globally sets required store, may be used for other things in future
+    - [x] `New-ChartTimeLine` - added basic support for TimeLine Charts
   - **Renamed cmdlets** (non-breaking change via aliases)
     - [x] `New-HTMLTabOption` -> `New-HTMLTabStyle`
     - [x] `New-HTMLSectionOption` -> `New-HTMLSectionStyle`
