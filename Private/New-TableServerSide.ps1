@@ -6,20 +6,18 @@
         [string[]] $HeaderNames,
         [System.Collections.IDictionary] $Options
     )
-    $DataPath = [io.path]::Combine($Script:HTMLSchema['Hosted']['Folder'], 'data')
-    $FilePath = [io.path]::Combine($Script:HTMLSchema['Hosted']['Folder'], 'data', "$DataTableID.json")
-
-    $Data = @{
-        data = $DataTable
-    }
-    if ($Script:HTMLSchema['Hosted']['Type'] -eq 'structured') {
+    if ($Script:HTMLSchema['TableOptions']['Type'] -eq 'structured') {
+        $DataPath = [io.path]::Combine($Script:HTMLSchema['TableOptions']['Folder'], 'data')
+        $FilePath = [io.path]::Combine($DataPath, "$DataTableID.json")
+        $null = New-Item -Path $DataPath -ItemType Directory -Force
+        $Data = @{
+            data = $DataTable
+        }
         $Data | ConvertTo-Json -Depth 2 -Compress | Out-File -FilePath $FilePath
+        $Options['ajax'] = -join ('data', '\', "$DataTableID.json")
     } else {
-        # not yet done
+        # there is possibility for array without column names, not sure if it's worth the time
     }
-
-    $null = New-Item -Path $DataPath -ItemType Directory -Force
-    $Options['ajax'] = -join ('data', '\', "$DataTableID.json")
     $Options['columns'] = foreach ($Property in $HeaderNames) {
         @{ data = $Property }
     }

@@ -61,7 +61,8 @@ function New-HTMLTable {
         [switch] $DisableAutoWidthOptimization,
         [string] $Title,
         [switch] $SearchPane,
-        [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top'
+        [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top',
+        [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -70,6 +71,22 @@ function New-HTMLTable {
     if ($HideFooter -and $Filtering -and $FilteringLocation -notin @('Both', 'Top')) {
         Write-Warning 'New-HTMLTable - Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both.'
     }
+
+    # There are 3 types of storage: HTML, JavaScript, File
+    if ($DataStore -eq '' -and $Script:HTMLSchema.TableOptions.DataStore) {
+        # If DataStore is not picked locally, we use global value (assuming it's set)
+        $DataStore = $Script:HTMLSchema.TableOptions.DataStore
+    } else {
+        # No global value, no local value, we set it default
+        $DataStore = 'HTML'
+    }
+    if ($DataStore -eq 'AjaxJSON') {
+        if (-not $Script:HTMLSchema['TableOptions']['Folder']) {
+            Write-Warning "New-HTMLTable - FilePath wasn't used in New-HTML. It's required for Hosted Solution."
+            return
+        }
+    }
+
     # Theme creator  https://datatables.net/manual/styling/theme-creator
     $ConditionalFormatting = [System.Collections.Generic.List[PSCustomObject]]::new()
     $CustomButtons = [System.Collections.Generic.List[PSCustomObject]]::new()
@@ -205,6 +222,20 @@ function New-HTMLTable {
         if ($Properties -ne '*') {
             $DataTable = $DataTable | Select-Object -Property $Properties
         }
+    } else {
+        # JavaScript datastore is very picky for the inserted data so columns need to match for each object in array
+        # SO if 1st object has 3 columns called X,Y,Z and 2nd object has X,Y,G we need to make sure we force 2nd object to have X,Y,Z (Z will be empty) and skip G
+        # If you need need G as well you need to use AllProperties switch
+        if ($DataStore -in 'JavaScript', 'AjaxJSON') {
+            if ($DataTable[0] -is [System.Collections.IDictionary]) {
+                # we don't do anything, as dictionaries are displayed in two columns approach
+            } else {
+                $Properties = Select-Properties -Objects $DataTable
+                if ($Properties -ne '*') {
+                    $DataTable = $DataTable | Select-Object -Property $Properties
+                }
+            }
+        }
     }
 
     # This is more direct way of PriorityProperties that will work also on Scroll and in other circumstances
@@ -305,14 +336,16 @@ function New-HTMLTable {
         [Array] $Table = foreach ($_ in $DataTable) {
             $_.GetEnumerator() | Select-Object Name, Value
         }
+        $ObjectProperties = 'Name', 'Value'
     } elseif ($DataTable[0].GetType().Name -match 'bool|byte|char|datetime|decimal|double|ExcelHyperLink|float|int|long|sbyte|short|string|timespan|uint|ulong|URI|ushort') {
         [Array] $Table = $DataTable | ForEach-Object { [PSCustomObject]@{ 'Name' = $_ } }
+        $ObjectProperties = 'Name'
     } else {
         [Array] $Table = $DataTable
+        $ObjectProperties = $DataTable[0].PSObject.Properties.Name
     }
 
-
-    if (-not $Script:HTMLSchema.Hosted.Enabled) {
+    if ($DataStore -eq 'HTML') {
         #  Standard way to build inline table
         <#
         if ($DataTable[0] -is [System.Collections.IDictionary]) {
@@ -334,7 +367,17 @@ function New-HTMLTable {
         $Table = $Table | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
         [string] $Header = $Table | Select-Object -First 1 # this gets header
         [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
-
+        if ($HeaderNames -eq '*') {
+            # HeaderNames normally contain proper header names, however ConvertTo-HTML -Fragment in PowerShell 5.1 incorrectly sets it to *
+            # PowerShell 7 works without issues. This is reproducible with [PSCustomObject]@{ 'Name' = 'Test' } | ConvertTo-Html -Fragment
+            #if ($ObjectProperties) {
+            $Header = $Header.Replace('*', $ObjectProperties)
+            $HeaderNames = $ObjectProperties
+            # } else {
+            #    $Header = $Header.Replace('*', 'Name')
+            #    $HeaderNames = 'Name'
+            # }
+        }
         #$AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
 
         # This modifies Table content.
@@ -344,21 +387,33 @@ function New-HTMLTable {
             $Table = Add-TableContent -ContentRows $ContentRows -ContentStyle $ContentStyle -ContentTop $ContentTop -ContentFormattingInline $ContentFormattingInline -Table $Table -HeaderNames $HeaderNames
         }
         $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
-    } else {
+    } elseif ($DataStore -eq 'AjaxJSON') {
         # this is hosted solution that only works on servers
         # this is a bit different so there's no full html building
         [string] $Header = $Table | ConvertTo-Html -Fragment | Select-Object -Skip 2 -First 1
         [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
+        if ($HeaderNames -eq '*') {
+            # HeaderNames normally contain proper header names, however ConvertTo-HTML -Fragment in PowerShell 5.1 incorrectly sets it to *
+            # PowerShell 7 works without issues. This is reproducible with [PSCustomObject]@{ 'Name' = 'Test' } | ConvertTo-Html -Fragment
+            $Header = $Header.Replace('*', $ObjectProperties)
+            $HeaderNames = $ObjectProperties
+        }
         New-TableServerSide -DataTable $Table -DataTableID $DataTableID -Options $Options -HeaderNames $HeaderNames
         $Table = $null
+    } elseif ($DataStore -eq 'JavaScript') {
+        [string] $Header = $Table | ConvertTo-Html -Fragment | Select-Object -Skip 2 -First 1
+        [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
+        if ($HeaderNames -eq '*') {
+            # HeaderNames normally contain proper header names, however ConvertTo-HTML -Fragment in PowerShell 5.1 incorrectly sets it to *
+            # PowerShell 7 works without issues. This is reproducible with [PSCustomObject]@{ 'Name' = 'Test' } | ConvertTo-Html -Fragment
+            $Header = $Header.Replace('*', $ObjectProperties)
+            $HeaderNames = $ObjectProperties
+        }
+        New-TableJavaScript -HeaderNames $HeaderNames -Options $Options
+        # Due to ConvertTo-Json depth we can't insert data from Table to $Options here.
+        # We need to wait and insert it after it's converted to JSON
     }
 
-    if ($HeaderNames -eq '*') {
-        # HeaderNames normally contain proper header names, however ConvertTo-HTML -Fragment in PowerShell 5.1 incorrectly sets it to *
-        # PowerShell 7 works without issues. This is reproducible with [PSCustomObject]@{ 'Name' = 'Test' } | ConvertTo-Html -Fragment
-        $Header = $Header.Replace('*', 'Name')
-        $HeaderNames = 'Name'
-    }
     # This modifies header adding styles, header rows, or doing some fancy stuff
     $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
 
@@ -552,6 +607,19 @@ function New-HTMLTable {
     # Before: "display": "$.fn.dataTable.Responsive.display.childRowImmediate"
     # After: "display": $.fn.dataTable.Responsive.display.childRowImmediate
     $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.childRowImmediate)"', '$1'
+
+    if ($DataStore -eq 'JavaScript') {
+        # Since we only want first level of data from DataTable we need to do it via string replacement.
+        # ConvertTo-Json -Depth 6 from Options above would copy nested objects
+        $DataToInsert = $Table | ConvertTo-Json -Depth 1 #-Compress
+        if ($DataToInsert.StartsWith('[')) {
+            $Options = $Options -replace '"markerForDataReplacement"', $DataToInsert
+        } else {
+            $Options = $Options -replace '"markerForDataReplacement"', "[$DataToInsert]"
+        }
+        # we need to reset table to $Null to make sure it's not added as HTML as well
+        $Table = $null
+    }
 
     # Process Conditional Formatting. Ugly JS building
     $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames
