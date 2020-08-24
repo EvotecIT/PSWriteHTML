@@ -2,3 +2,5 @@ Ignore/*
 .vs/*
 .vscode/*
 Releases/*
+*.json
+*.html
