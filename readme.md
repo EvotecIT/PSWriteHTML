@@ -94,6 +94,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Fixed `New-HTMLTable`/`Out-HTMLView` with `-AllProperties` displaying wrong properties for IDictionary objects
     - [x] Fixed `New-HTMLTable` properly displaying string/int and other data if passed as single value
     - [x] Fixed `New-HTMLTable` properly displaying column name as `Name` in PowerShell 5.1 when used with int/string
+    - [x] Fixed `New-HTMLText` font size was ignored. Also now supports 15, 15px, 15pt as described in notes.
   - **Added cmdlets**
     - [x] `New-HTMLTableStyle`
   - **Renamed cmdlets** (non-breaking change via aliases)

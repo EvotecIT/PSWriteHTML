@@ -27,7 +27,7 @@ New-HTMLTable [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostConte
  [-AllProperties] [-SkipProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>]
  [-CompareReplace <Array>] [-SearchRegularExpression] [-WordBreak <String>] [-AutoSize]
  [-DisableAutoWidthOptimization] [-Title <String>] [-SearchPane] [-SearchPaneLocation <String>]
- [<CommonParameters>]
+ [-DataStore <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -112,6 +112,22 @@ Accept wildcard characters: False
 Type: Array
 Parameter Sets: (All)
 Aliases: Replace
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DataStore
+{{ Fill DataStore Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: HTML, JavaScript, Hosted
 
 Required: False
 Position: Named
