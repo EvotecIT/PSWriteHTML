@@ -9,7 +9,11 @@ function New-ApexChart {
     $Script = New-HTMLTag -Tag 'script' -Value {
         # Convert Dictionary to JSON and return chart within SCRIPT tag
         # Make sure to return with additional empty string
-        $JSON = $Options | ConvertTo-Json -Depth 5 | ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
+        Remove-EmptyValue -Hashtable $Options -Recursive -Rerun 2
+        $JSON = $Options | ConvertTo-Json -Depth 5
+        # replaces stuff for TImeLineCharts
+        $JSON = $JSON.Replace('"new Date(', 'new Date(').Replace(').getTime()"', ').getTime()')
+        $JSON = $JSON | ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
         "var options = $JSON"
         "var chart = new ApexCharts(document.querySelector('#$ID'),
             options

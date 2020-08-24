@@ -15,6 +15,7 @@
     $DataSet = [System.Collections.Generic.List[object]]::new()
     $DataName = [System.Collections.Generic.List[object]]::new()
 
+    $DataSetChartTimeLine = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     # Legend Variables
     $Colors = [System.Collections.Generic.List[string]]::new()
@@ -130,11 +131,13 @@
         } elseif ($Setting.ObjectType -eq 'ChartAxisX') {
             $ChartAxisX = $Setting.ChartAxisX
             #$DataCategory = $ChartAxisX.Names
-
         } elseif ($Setting.ObjectType -eq 'ChartGrid') {
             $GridOptions = $Setting.Grid
         } elseif ($Setting.ObjectType -eq 'ChartAxisY') {
             $ChartAxisY = $Setting.ChartAxisY
+        } elseif ($Setting.ObjectType -eq 'TimeLine') {
+            $Type = 'rangeBar'
+            $DataSetChartTimeLine.Add($Setting.TimeLine)
         }
     }
 
@@ -223,5 +226,12 @@
             -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
+    } elseif ($Type -eq 'rangeBar') {
+        New-HTMLChartTimeLine `
+            -Data $DataSetChartTimeLine `
+            -Title $Title -TitleAlignment $TitleAlignment `
+            -Height $Height -Width $Width `
+            -Theme $Theme -Toolbar $Toolbar `
+            -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
     }
 }
