@@ -255,9 +255,6 @@ function New-HTMLTable {
 
     # This option disable paging if number of elements is less or equal count of elements in DataTable
     $PagingOptions = $PagingOptions | Sort-Object -Unique
-    #if ($DataTable.Count -le $PagingOptions[0]) {
-    #    $DisablePaging = $true
-    #}
 
     # Building HTML Table / Script
     if (-not $DataTableID) {
@@ -347,39 +344,15 @@ function New-HTMLTable {
 
     if ($DataStore -eq 'HTML') {
         #  Standard way to build inline table
-        <#
-        if ($DataTable[0] -is [System.Collections.IDictionary]) {
-            #Write-Verbose 'New-HTMLTable - Working with IDictionary'
-            #[Array] $TemporaryTable = foreach ($_ in $DataTable) {
-            #    $_.GetEnumerator() | Select-Object Name, Value
-            #}
-            [Array] $Table = foreach ($_ in $DataTable) {
-                $_.GetEnumerator() | Select-Object Name, Value
-            } #| ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
-            #[Array] $Table = $($DataTable).GetEnumerator() | Select-Object Name, Value | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
-        } elseif ($DataTable[0] -is [string]) {
-            [Array] $Table = $DataTable | ForEach-Object { [PSCustomObject]@{ 'Name' = $_ } } #| ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2
-        } else {
-            #Write-Verbose 'New-HTMLTable - Working with Objects'
-            [Array] $Table = $DataTable
-        }
-        #>
         $Table = $Table | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
         [string] $Header = $Table | Select-Object -First 1 # this gets header
         [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
         if ($HeaderNames -eq '*') {
             # HeaderNames normally contain proper header names, however ConvertTo-HTML -Fragment in PowerShell 5.1 incorrectly sets it to *
             # PowerShell 7 works without issues. This is reproducible with [PSCustomObject]@{ 'Name' = 'Test' } | ConvertTo-Html -Fragment
-            #if ($ObjectProperties) {
             $Header = $Header.Replace('*', $ObjectProperties)
             $HeaderNames = $ObjectProperties
-            # } else {
-            #    $Header = $Header.Replace('*', 'Name')
-            #    $HeaderNames = 'Name'
-            # }
         }
-        #$AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
-
         # This modifies Table content.
         # It basically goes thru every single row and checks if values to add styles or inline conditional formatting
         # It's heavier then JS, so use when nessecary
@@ -401,6 +374,7 @@ function New-HTMLTable {
         New-TableServerSide -DataTable $Table -DataTableID $DataTableID -Options $Options -HeaderNames $HeaderNames
         $Table = $null
     } elseif ($DataStore -eq 'JavaScript') {
+        # This puts data as JavaScript Data field inline in html
         [string] $Header = $Table | ConvertTo-Html -Fragment | Select-Object -Skip 2 -First 1
         [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
         if ($HeaderNames -eq '*') {
