@@ -127,7 +127,7 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: HTML, JavaScript, Hosted
+Accepted values: HTML, JavaScript, AjaxJSON
 
 Required: False
 Position: Named

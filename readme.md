@@ -95,8 +95,10 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Fixed `New-HTMLTable` properly displaying string/int and other data if passed as single value
     - [x] Fixed `New-HTMLTable` properly displaying column name as `Name` in PowerShell 5.1 when used with int/string
     - [x] Fixed `New-HTMLText` font size was ignored. Also now supports 15, 15px, 15pt as described in notes.
+    - [x] Resolves peformance issues by adding new parameter `DataStore` for `New-HTMLTable` to use with large tables
   - **Added cmdlets**
     - [x] `New-HTMLTableStyle`
+    - [x] `New-HTMLTableOption` - added to provide `DataStore` parameter which globally sets required store, may be used for other things in future
   - **Renamed cmdlets** (non-breaking change via aliases)
     - [x] `New-HTMLTabOption` -> `New-HTMLTabStyle`
     - [x] `New-HTMLSectionOption` -> `New-HTMLSectionStyle`

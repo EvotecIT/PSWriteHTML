@@ -13,10 +13,10 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLText [[-Text] <String[]>] [[-Color] <String[]>] [[-BackGroundColor] <String[]>] [[-FontSize] <Int32[]>]
- [[-FontWeight] <String[]>] [[-FontStyle] <String[]>] [[-FontVariant] <String[]>] [[-FontFamily] <String[]>]
- [[-Alignment] <String[]>] [[-TextDecoration] <String[]>] [[-TextTransform] <String[]>]
- [[-Direction] <String[]>] [-LineBreak] [-SkipParagraph] [<CommonParameters>]
+New-HTMLText [[-Text] <String[]>] [[-Color] <String[]>] [[-BackGroundColor] <String[]>]
+ [[-FontSize] <Object[]>] [[-FontWeight] <String[]>] [[-FontStyle] <String[]>] [[-FontVariant] <String[]>]
+ [[-FontFamily] <String[]>] [[-Alignment] <String[]>] [[-TextDecoration] <String[]>]
+ [[-TextTransform] <String[]>] [[-Direction] <String[]>] [-LineBreak] [-SkipParagraph] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -114,7 +114,7 @@ Accept wildcard characters: False
 {{ Fill FontSize Description }}
 
 ```yaml
-Type: Int32[]
+Type: Object[]
 Parameter Sets: (All)
 Aliases:
 
