@@ -18,7 +18,7 @@ function New-HTMLResourceCSS {
                     New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
                         Write-Verbose "New-HTMLResourceCSS - Reading file from $File"
                         # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
-                        $FileContent = Get-Content -LiteralPath $File
+                        $FileContent = Get-Content -LiteralPath $File -Raw
                         if ($null -ne $ReplaceData) {
                             foreach ($_ in $ReplaceData.Keys) {
                                 $FileContent = $FileContent -replace $_, $ReplaceData[$_]
