@@ -197,6 +197,16 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
             }
         }
+        CodeBlocksHighlight  = @{
+            # future / possible use case # https://highlightjs.org/static/demo/
+            Comment      = 'HighlightJS CodeBlocks'
+            Header       = @{
+                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\highlight.min.css"
+                JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\highlight.min.js"
+            }
+        }
         ChartsApex           = @{
             Comment      = 'Apex Charts'
             Header       = @{
@@ -599,10 +609,10 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\vis-network.diagram.css"
             }
             Header       = @{
-                JsLink  = 'https://unpkg.com/vis-network@7.5.2/dist/vis-network.min.js'
+                JsLink  = 'https://unpkg.com/vis-network@8.2.0/dist/vis-network.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
-                Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
-                CssLink = 'https://unpkg.com/vis-network@7.5.2/dist/vis-network.min.css'
+               # Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
+               # CssLink = 'https://unpkg.com/vis-network@8.2.0/dist/vis-network.min.css'
             }
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
