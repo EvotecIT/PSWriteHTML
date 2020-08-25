@@ -100,7 +100,7 @@ Function New-HTML {
     $Script:HTMLSchema.Features.MainImage = $true
     $Script:HTMLSchema.Features.MainLink = $true
 
-    $Features = Get-FeaturesInUse -PriorityFeatures 'JQuery', 'DataTables', 'Tabs'
+    $Features = Get-FeaturesInUse -PriorityFeatures 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs'
 
 
 

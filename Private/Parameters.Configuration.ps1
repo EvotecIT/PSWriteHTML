@@ -199,8 +199,8 @@ $Script:Configuration = [ordered] @{
         }
         CodeBlocksHighlight  = @{
             # future / possible use case # https://highlightjs.org/static/demo/
-            Comment      = 'HighlightJS CodeBlocks'
-            Header       = @{
+            Comment = 'HighlightJS CodeBlocks'
+            Header  = @{
                 CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\highlight.min.css"
                 JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js'
@@ -243,7 +243,7 @@ $Script:Configuration = [ordered] @{
             Comment = 'Jquery'
             Header  = @{
                 JsLink = 'https://code.jquery.com/jquery-3.5.1.min.js'
-                Js     = "$PSScriptRoot\..\Resources\JS\jquery-3.5.1.min.js"
+                Js     = "$PSScriptRoot\..\Resources\JS\jquery.min.js"
             }
         }
         DataTablesSearchFade = @{
@@ -258,7 +258,7 @@ $Script:Configuration = [ordered] @{
             }
             Header       = @{
                 JsLink = "https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.js"
-                JS     = "$PSScriptRoot\..\Resources\JS\datatables.SearchFade.min"
+                JS     = "$PSScriptRoot\..\Resources\JS\datatables.SearchFade.min.js"
             }
         }
 
@@ -365,7 +365,7 @@ $Script:Configuration = [ordered] @{
                     "https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.min.js"
                     "https://cdn.datatables.net/searchpanes/1.1.1/js/dataTables.searchPanes.min.js"
                     "https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"
-                    "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+                    #"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
                     "https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js"
                 )
                 JS      = @(
@@ -385,7 +385,7 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\dataTables.scroller.min.js"
                     "$PSScriptRoot\..\Resources\JS\dataTables.searchPanes.min.js"
                     "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
-                    "$PSScriptRoot\..\Resources\JS\moment.min.js"
+                    #"$PSScriptRoot\..\Resources\JS\moment.min.js"
                     "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
                 )
             }
@@ -512,6 +512,14 @@ $Script:Configuration = [ordered] @{
             }
         }
         #>
+        Moment               = @{
+            Comment = 'Momment JS Library'
+            Header  = @{
+                JSLink = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js'
+                #JSLink = 'https://unpkg.com/moment@2.27.0/moment.js'
+                JS     = "$PSScriptRoot\..\Resources\JS\moment.min.js"
+            }
+        }
         Popper               = @{
             Comment      = 'Popper and Tooltip for FullCalendar'
             HeaderAlways = @{
@@ -596,26 +604,52 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\status.css"
             }
         }
-        TuiGrid              = @{
-            Comment = 'Tui Grid'
-            Header  = @{
-                Css     = "$PSScriptRoot\..\Resources\CSS\tuigrid.css"
-                CssLink = 'https://cdn.jsdelivr.net/npm/tui-grid@3.5.0/dist/tui-grid.css'
+        VisData              = @{
+            Header = @{
+                JsLink = 'https://unpkg.com/vis-data@7.0.0/peer/umd/vis-data.min.js'
+                Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
             }
         }
         VisNetwork           = @{
             Comment      = 'VIS Network Dynamic, browser based visualization libraries'
             HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\vis-network.diagram.css"
+                CssInline = [ordered]@{
+                    '.diagram'           = [ordered]@{
+                        'min-height' = '400px'
+                        'width'      = '100%'
+                        'height'     = '100%'
+                        'border'     = '0px solid unset'
+                    }
+                    '.vis-network:focus' = [ordered]@{
+                        'outline' = 'none'
+                    }
+                }
             }
             Header       = @{
-                JsLink  = 'https://unpkg.com/vis-network@8.2.0/dist/vis-network.min.js'
-                Js      = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
-               # Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
-               # CssLink = 'https://unpkg.com/vis-network@8.2.0/dist/vis-network.min.css'
+                JsLink = 'https://unpkg.com/vis-network@8.2.0/peer/umd/vis-network.min.js'
+                Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
+                # Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
+                # CssLink = 'https://unpkg.com/vis-network@8.2.0/dist/vis-network.min.css'
             }
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
+            }
+        }
+        VisTimeline          = [ordered]@{
+            Comment      = 'VIS TimeLine'
+            HeaderAlways = [ordered]@{
+                CssInline = [ordered] @{
+                    '.vis-timeline' = @{
+                        'outline' = 'none'
+                        'border'  = 'none !important'
+                    }
+                }
+            }
+            Header       = @{
+                JsLink  = 'https://unpkg.com/vis-timeline@7.3.7/peer/umd/vis-timeline-graph2d.min.js'
+                Js      = "$PSScriptRoot\..\Resources\JS\vis-timeline-graph2d.min.js"
+                Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
+                CssLink = 'https://unpkg.com/vis-timeline@7.3.7/styles/vis-timeline-graph2d.min.css'
             }
         }
     }
@@ -649,19 +683,34 @@ function Save-Resource {
 
 #$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
 
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.Fonts.HeaderAlways.JsLink -Type 'JS'
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.Fonts.HeaderAlways.CssLink -Type 'CSS'
+<# Refreshes libraries
 
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS'
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.CssLink -Type 'CSS'
+$Keys = $Script:Configuration.Features.Keys
+$Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'FontsAwesome', 'Jquery', 'DataTablesSearchFade', 'Popper', 'ChartsApex'
+foreach ($Key in $Keys) {
+    if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
+        Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js
+    }
+    if ($($Script:Configuration).Features.$Key.Header.CssLink -and $($Script:Configuration).Features.$Key.Header.Css) {
+        Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.$Key.Header.Css
+    }
+}
+#>
 
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.JsLink -Type 'JS'
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.CssLink -Type 'CSS'
 
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.CssLink -Type 'CSS'
+<#
+Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.DataTables.Header.Js
+Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.DataTables.Header.Css
+Save-Resource -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.VisNetwork.Header.Js
+Save-Resource -ResourceLinks $($Script:Configuration).Features.VisData.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.VisData.Header.Js
+Save-Resource -ResourceLinks $($Script:Configuration).Features.VisTimeline.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.VisTimeline.Header.Js
+Save-Resource -ResourceLinks $($Script:Configuration).Features.VisTimeline.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.VisTimeline.Header.Css
+Save-Resource -ResourceLinks $($Script:Configuration).Features.Moment.Header.JSLink -Type 'JS' -Target $($Script:Configuration).Features.Moment.Header.Js
+Save-Resource -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.FontsAwesome.HeaderAlways.Css
+Save-Resource -ResourceLinks $($Script:Configuration).Features.Jquery.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.Jquery.Header.Js
+#>
 
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.Jquery.Header.JsLink -Type 'JS'
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.Jquery.Header.CssLink -Type 'CSS'
+
 #Save-Resource -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.JsLink -Type 'JS'
 #Save-Resource -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.CssLink -Type 'CSS'
 

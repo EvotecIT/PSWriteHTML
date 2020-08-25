@@ -11,6 +11,8 @@ function New-InternalDiagram {
         [string] $BackgroundSize = '100% 100%'
     )
     $Script:HTMLSchema.Features.VisNetwork = $true
+    $Script:HTMLSchema.Features.VisData = $true
+    $Script:HTMLSchema.Features.Moment = $true
 
     [string] $ID = "Diagram-" + (Get-RandomStringName -Size 8)
 

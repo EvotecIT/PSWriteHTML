@@ -617,6 +617,7 @@ function New-HTMLTable {
     if (-not $Simplify) {
         $Script:HTMLSchema.Features.Jquery = $true
         $Script:HTMLSchema.Features.DataTables = $true
+        $Script:HTMLSchema.Features.Moment = $true
         if (-not $HideButtons) {
             $Script:HTMLSchema.Features.DataTablesPDF = $true
             $Script:HTMLSchema.Features.DataTablesExcel = $true
