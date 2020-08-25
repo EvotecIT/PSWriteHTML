@@ -445,11 +445,11 @@ $Script:Configuration = [ordered] @{
         FontsAwesome         = @{
             Comment      = 'Default fonts icons'
             HeaderAlways = @{
-                CssLink = 'https://use.fontawesome.com/releases/v5.13.0/css/all.css'
+                CssLink = 'https://use.fontawesome.com/releases/v5.14.0/css/all.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\all.css"
             }
             Other        = @{
-                Link = 'https://use.fontawesome.com/releases/v5.13.0/svgs/'
+                Link = 'https://use.fontawesome.com/releases/v5.14.0/svgs/'
             }
         }
         FullCalendar         = @{

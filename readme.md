@@ -108,6 +108,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - `DataTables` and all related libraries
     - `JQuery` to 3.5.1
     - `ApexCharts` updated from 3.18.2 to 3.20
+    - `FontAwesome` updated from 5.13 to 5.14
 - 0.0.94 - 2020.08.18
   - Public
     - [x] Added `New-TableEvent` for `New-HTMLTable` **experimental**
