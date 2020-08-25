@@ -1539,8 +1539,8 @@ $FontAwesomeSolid = @(
     'yin-yang'
 )
 
-function Test {
-    '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">'
+function Get-FontAwesomeIcons {
+    '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">'
     foreach ($Icon in $FontAwesomeBrands) {
         New-HTMLTag -Tag 'i' -Attributes @{ class = "fab fa-$Icon fa-5x  text-danger" } #; style = @{ 'font-size' = '50px'; 'color' = 'green' }  }
     }
@@ -1553,5 +1553,5 @@ function Test {
 }
 
 
-$Test = Test
+[string] $Test = Get-FontAwesomeIcons
 Save-HTML -FilePath $PSScriptRoot\FontAwesome.html -ShowHTML -HTML $Test
