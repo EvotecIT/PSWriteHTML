@@ -658,7 +658,6 @@ function Save-Resource {
 #Save-Resource -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.JsLink -Type 'JS'
 #Save-Resource -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.CssLink -Type 'CSS'
 
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.JsLink -Type 'JS'
 #Save-Resource -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.CssLink -Type 'CSS'
 
 #Save-Resource -ResourceLinks $($Script:Configuration).Features.Jquery.Header.JsLink -Type 'JS'
