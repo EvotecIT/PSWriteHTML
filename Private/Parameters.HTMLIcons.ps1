@@ -1,7 +1,8 @@
 # Another way to access
-# https://use.fontawesome.com/releases/v5.11.2/svgs/brands/accessible-icon.svg 
+# https://use.fontawesome.com/releases/v5.11.2/svgs/brands/accessible-icon.svg
+# https://github.com/FortAwesome/Font-Awesome/blob/master/UPGRADING.md
 
-$Global:HTMLIcons = @{
+$Global:HTMLIcons = [ordered] @{
     FontAwesomeBrands  = [ordered] @{
         '500px'                          = 'f26e'
         'accessible-icon'                = 'f368'
