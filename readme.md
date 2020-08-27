@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.95 - Unreleased
+- 0.0.95 - 2020.08.27
   - **Notes**
     - I'm reworking CSS model in which PSWriteHTML works allowing for more consistent design and more customization options. This means some breaking changes will happen soon enough.
     - FontSize will be reworked for most commands (as I get to them) to take `[int]` input but also `[string]` input
