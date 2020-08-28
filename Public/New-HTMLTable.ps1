@@ -297,6 +297,8 @@ function New-HTMLTable {
     }
     # Set DOM
     if ($SearchPane) {
+        # it seems DataTablesSearchPanes is conflicting with Diagrams in IE 11, so we only enable it on demand
+        $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
         <# DOM Definition: https://datatables.net/reference/option/dom
             l - length changing input control
             f - filtering input
@@ -316,6 +318,10 @@ function New-HTMLTable {
         }
     } else {
         $Options['dom'] = 'Bfrtip'
+    }
+    if ($Buttons -contains 'searchPanes') {
+        # it seems DataTablesSearchPanes is conflicting with Diagrams in IE 11, so we only enable it on demand
+        $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
     }
 
 

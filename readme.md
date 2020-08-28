@@ -65,6 +65,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.96 - 2020.08.28
+  - [x] It seems SearchPanes from DataTables conflict with `New-HTMLDiagram`
+    - [x] Separated that library to be added only on demand
 - 0.0.95 - 2020.08.27
   - **Notes**
     - I'm reworking CSS model in which PSWriteHTML works allowing for more consistent design and more customization options. This means some breaking changes will happen soon enough.

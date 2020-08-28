@@ -1,11 +1,11 @@
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
-        Inject               = @{
+        Inject                = @{
             HeaderAlways = @{
                 CssInline = [ordered] @{}
             }
         }
-        Main                 = [ordered]@{
+        Main                  = [ordered]@{
             HeaderAlways = [ordered]@{
                 CssInline = [ordered]@{
                     'body'           = [ordered]@{
@@ -51,7 +51,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
         }
-        MainFlex             = [ordered] @{
+        MainFlex              = [ordered] @{
             HeaderAlways = [ordered] @{
                 CssInline = [ordered]@{
                     '.overflowHidden'      = [ordered] @{
@@ -80,7 +80,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
         }
-        MainLink             = [ordered]@{
+        MainLink              = [ordered]@{
             HeaderAlways = [ordered] @{
                 CssInline = [ordered]@{
                     'a.alink:link'      = [ordered]@{
@@ -107,7 +107,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
         }
-        MainImage            = [ordered]@{
+        MainImage             = [ordered]@{
             HeaderAlways = [ordered] @{
                 CssInline = [ordered]@{
                     '.logos'     = [ordered]@{
@@ -132,7 +132,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
         }
-        Default              = @{
+        Default               = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
                 Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
@@ -167,19 +167,19 @@ $Script:Configuration = [ordered] @{
                 }
             }
         }
-        DefaultHeadings      = @{
+        DefaultHeadings       = @{
             Comment      = 'Always Required Default Headings'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\headings.css"
             }
         }
-        Accordion            = @{
+        Accordion             = @{
             Comment      = 'Accordion'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
             }
         }
-        CodeBlocks           = @{
+        CodeBlocks            = @{
             Comment      = 'EnlighterJS CodeBlocks'
             Header       = @{
                 CssLink = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.css'
@@ -197,7 +197,7 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
             }
         }
-        CodeBlocksHighlight  = @{
+        CodeBlocksHighlight   = @{
             # future / possible use case # https://highlightjs.org/static/demo/
             Comment = 'HighlightJS CodeBlocks'
             Header  = @{
@@ -207,7 +207,7 @@ $Script:Configuration = [ordered] @{
                 JS      = "$PSScriptRoot\..\Resources\JS\highlight.min.js"
             }
         }
-        ChartsApex           = @{
+        ChartsApex            = @{
             Comment      = 'Apex Charts'
             Header       = @{
                 JsLink = @(
@@ -229,7 +229,7 @@ $Script:Configuration = [ordered] @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
-        ChartsXkcd           = @{
+        ChartsXkcd            = @{
             Header = @{
                 JsLink = @(
                     'https://cdn.jsdelivr.net/npm/chart.xkcd@1.1.12/dist/chart.xkcd.min.js'
@@ -239,14 +239,14 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        Jquery               = @{
+        Jquery                = @{
             Comment = 'Jquery'
             Header  = @{
                 JsLink = 'https://code.jquery.com/jquery-3.5.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery.min.js"
             }
         }
-        DataTablesSearchFade = @{
+        DataTablesSearchFade  = @{
             Comment      = 'DataTables SearchFade'
             HeaderAlways = @{
                 # https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.css
@@ -262,7 +262,7 @@ $Script:Configuration = [ordered] @{
             }
         }
 
-        DataTables           = @{
+        DataTables            = @{
             Comment      = 'DataTables'
             HeaderAlways = @{
                 CssInline   = @{
@@ -331,7 +331,6 @@ $Script:Configuration = [ordered] @{
                     "https://cdn.datatables.net/rowreorder/1.2.7/css/rowReorder.dataTables.min.css"
                     "https://cdn.datatables.net/scroller/2.0.2/css/scroller.dataTables.min.css"
                     "https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css"
-                    "https://cdn.datatables.net/searchpanes/1.1.1/css/searchPanes.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\jquery.dataTables.min.css"
@@ -346,7 +345,6 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\rowReorder.dataTables.min.css"
                     "$PSScriptRoot\..\Resources\CSS\scroller.dataTables.min.css"
                     "$PSScriptRoot\..\Resources\CSS\select.dataTables.min.css"
-                    "$PSScriptRoot\..\Resources\CSS\searchPanes.dataTables.min.css"
                 )
                 JsLink  = @(
                     "https://nightly.datatables.net/js/jquery.dataTables.min.js"
@@ -363,7 +361,6 @@ $Script:Configuration = [ordered] @{
                     "https://cdn.datatables.net/rowgroup/1.1.2/js/dataTables.rowGroup.min.js"
                     "https://cdn.datatables.net/rowreorder/1.2.7/js/dataTables.rowReorder.min.js"
                     "https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.min.js"
-                    "https://cdn.datatables.net/searchpanes/1.1.1/js/dataTables.searchPanes.min.js"
                     "https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"
                     #"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
                     "https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js"
@@ -383,14 +380,13 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\dataTables.rowGroup.min.js"
                     "$PSScriptRoot\..\Resources\JS\dataTables.rowReorder.min.js"
                     "$PSScriptRoot\..\Resources\JS\dataTables.scroller.min.js"
-                    "$PSScriptRoot\..\Resources\JS\dataTables.searchPanes.min.js"
                     "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
                     #"$PSScriptRoot\..\Resources\JS\moment.min.js"
                     "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
                 )
             }
         }
-        DataTablesPDF        = @{
+        DataTablesPDF         = @{
             Comment = 'DataTables PDF Features'
             Header  = @{
                 JsLink = @(
@@ -403,7 +399,7 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        DataTablesExcel      = @{
+        DataTablesExcel       = @{
             Comment = 'DataTables Excel Features'
             Header  = @{
                 JsLink = @(
@@ -414,13 +410,30 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        DataTablesSimplify   = @{
+        DataTablesSearchPanes = @{
+            Comment = 'DataTables Search Panes Features'
+            Header  = @{
+                JsLink  = @(
+                    "https://cdn.datatables.net/searchpanes/1.1.1/js/dataTables.searchPanes.min.js"
+                )
+                Js      = @(
+                    "$PSScriptRoot\..\Resources\JS\dataTables.searchPanes.min.js"
+                )
+                CssLink = @(
+                    "https://cdn.datatables.net/searchpanes/1.1.1/css/searchPanes.dataTables.min.css"
+                )
+                Css     = @(
+                    "$PSScriptRoot\..\Resources\CSS\searchPanes.dataTables.min.css"
+                )
+            }
+        }
+        DataTablesSimplify    = @{
             Comment      = 'DataTables (not really) - Simplified'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\datatables.simplify.css"
             }
         }
-        D3Mitch              = @{
+        D3Mitch               = @{
             Comment      = 'D3Mitch Feature'
             Header       = @{
                 JsLink  = @(
@@ -436,13 +449,13 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\hierarchicalTree.css"
             }
         }
-        Fonts                = @{
+        Fonts                 = @{
             Comment      = 'Default fonts'
             HeaderAlways = @{
                 CssLink = 'https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald'
             }
         }
-        FontsAwesome         = @{
+        FontsAwesome          = @{
             Comment      = 'Default fonts icons'
             HeaderAlways = @{
                 CssLink = 'https://use.fontawesome.com/releases/v5.14.0/css/all.css'
@@ -452,7 +465,7 @@ $Script:Configuration = [ordered] @{
                 Link = 'https://use.fontawesome.com/releases/v5.14.0/svgs/'
             }
         }
-        FullCalendar         = @{
+        FullCalendar          = @{
             Comment      = 'FullCalendar Basic'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\calendar.css"
@@ -465,13 +478,13 @@ $Script:Configuration = [ordered] @{
                 JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
             }
         }
-        HideSection          = @{
+        HideSection           = @{
             Comment      = 'Hide Section Code'
             HeaderAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
             }
         }
-        FancyTree            = @{
+        FancyTree             = @{
             Header = @{
                 JSLink  = @(
                     'https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.33.0/jquery.fancytree-all-deps.min.js'
@@ -481,7 +494,7 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        JustGage             = @{
+        JustGage              = @{
             Comment = 'Just Gage Library'
             Header  = @{
                 JSLink = @(
@@ -512,7 +525,7 @@ $Script:Configuration = [ordered] @{
             }
         }
         #>
-        Moment               = @{
+        Moment                = @{
             Comment = 'Momment JS Library'
             Header  = @{
                 JSLink = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js'
@@ -520,7 +533,7 @@ $Script:Configuration = [ordered] @{
                 JS     = "$PSScriptRoot\..\Resources\JS\moment.min.js"
             }
         }
-        Popper               = @{
+        Popper                = @{
             Comment      = 'Popper and Tooltip for FullCalendar'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\popper.css"
@@ -536,7 +549,7 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        Tabbis               = @{
+        Tabbis                = @{
             Comment      = 'Elastic Tabbis'
             HeaderAlways = @{
                 #Css       = "$PSScriptRoot\..\Resources\CSS\tabbis.css"
@@ -586,31 +599,31 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
-        TimeLine             = @{
+        TimeLine              = @{
             Comment      = 'Timeline Simple'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\timeline-simple.css"
             }
         }
-        Toasts               = @{
+        Toasts                = @{
             Comment      = 'Toasts Looking Messages'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\Toasts.css"
             }
         }
-        StatusButtonical     = @{
+        StatusButtonical      = @{
             Comment      = 'Status Buttonical'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\status.css"
             }
         }
-        VisData              = @{
+        VisData               = [ordered]@{
             Header = @{
                 JsLink = 'https://unpkg.com/vis-data@7.0.0/peer/umd/vis-data.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
             }
         }
-        VisNetwork           = @{
+        VisNetwork            = [ordered]@{
             Comment      = 'VIS Network Dynamic, browser based visualization libraries'
             HeaderAlways = @{
                 CssInline = [ordered]@{
@@ -628,14 +641,35 @@ $Script:Configuration = [ordered] @{
             Header       = @{
                 JsLink = 'https://unpkg.com/vis-network@8.2.0/peer/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
-                # Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
-                # CssLink = 'https://unpkg.com/vis-network@8.2.0/dist/vis-network.min.css'
             }
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
             }
         }
-        VisTimeline          = [ordered]@{
+        VisNetworkStandalone  = [ordered]@{
+            Comment      = 'VIS Network Standalone Dynamic, browser based visualization libraries'
+            HeaderAlways = @{
+                CssInline = [ordered]@{
+                    '.diagram'           = [ordered]@{
+                        'min-height' = '400px'
+                        'width'      = '100%'
+                        'height'     = '100%'
+                        'border'     = '0px solid unset'
+                    }
+                    '.vis-network:focus' = [ordered]@{
+                        'outline' = 'none'
+                    }
+                }
+            }
+            Header       = @{
+                JsLink = 'https://unpkg.com/vis-network@8.2.0/standalone/umd/vis-network.min.js'
+                Js     = "$PSScriptRoot\..\Resources\JS\vis-networkStandalone.min.js"
+            }
+            FooterAlways = @{
+                JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
+            }
+        }
+        VisTimeline           = [ordered]@{
             Comment      = 'VIS TimeLine'
             HeaderAlways = [ordered]@{
                 CssInline = [ordered] @{
@@ -684,9 +718,9 @@ function Save-Resource {
 #$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
 
 <# Refreshes libraries
-
 $Keys = $Script:Configuration.Features.Keys
 $Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'FontsAwesome', 'Jquery', 'DataTablesSearchFade', 'Popper', 'ChartsApex'
+$Keys = 'VisNetworkStandalone'
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js
@@ -696,8 +730,6 @@ foreach ($Key in $Keys) {
     }
 }
 #>
-
-
 <#
 Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.DataTables.Header.Js
 Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.DataTables.Header.Css

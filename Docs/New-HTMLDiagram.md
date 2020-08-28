@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 New-HTMLDiagram [[-Diagram] <ScriptBlock>] [[-Height] <String>] [[-Width] <String>] [-BundleImages]
- [[-BackGroundImage] <Uri>] [[-BackgroundSize] <String>] [<CommonParameters>]
+ [[-BackGroundImage] <Uri>] [[-BackgroundSize] <String>] [-Legacy] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,23 +31,23 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -BackGroundImage
-{{ Fill BackGroundImage Description }}
+### -Diagram
+{{ Fill Diagram Description }}
 
 ```yaml
-Type: Uri
+Type: ScriptBlock
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -BackgroundSize
-{{ Fill BackgroundSize Description }}
+### -Height
+{{ Fill Height Description }}
 
 ```yaml
 Type: String
@@ -55,7 +55,22 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 4
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Width
+{{ Fill Width Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -76,23 +91,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Diagram
-{{ Fill Diagram Description }}
+### -BackGroundImage
+{{ Fill BackGroundImage Description }}
 
 ```yaml
-Type: ScriptBlock
+Type: Uri
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 0
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Height
-{{ Fill Height Description }}
+### -BackgroundSize
+{{ Fill BackgroundSize Description }}
 
 ```yaml
 Type: String
@@ -100,23 +115,23 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Width
-{{ Fill Width Description }}
+### -Legacy
+Enables Internet Explorer support, but disables TimeLine
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
-Default value: None
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
