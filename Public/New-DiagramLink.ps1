@@ -5,29 +5,29 @@
         [string[]] $From,
         [string[]] $To,
         [string] $Label,
-        [nullable[bool]] $ArrowsToEnabled,
+        [switch] $ArrowsToEnabled,
         [nullable[int]] $ArrowsToScaleFacto,
         [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsToType,
-        [nullable[bool]] $ArrowsMiddleEnabled,
+        [switch] $ArrowsMiddleEnabled,
         [nullable[int]]$ArrowsMiddleScaleFactor,
         [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsMiddleType,
-        [nullable[bool]] $ArrowsFromEnabled,
+        [switch] $ArrowsFromEnabled,
         [nullable[int]] $ArrowsFromScaleFactor,
         [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsFromType,
-        [nullable[bool]]$ArrowStrikethrough,
-        [nullable[bool]] $Chosen,
+        [switch] $ArrowStrikethrough,
+        [switch] $Chosen,
         [string] $Color,
         [string] $ColorHighlight,
         [string] $ColorHover,
         [ValidateSet('true', 'false', 'from', 'to', 'both')][string]$ColorInherit,
         [nullable[double]] $ColorOpacity, # range between 0 and 1
-        [nullable[bool]] $Dashes,
+        [switch] $Dashes,
         [string] $Length,
         [string] $FontColor,
-        [nullable[int]] $FontSize, #// px
+        [object] $FontSize,
         [string] $FontName,
         [string] $FontBackground,
-        [nullable[int]] $FontStrokeWidth, #// px
+        [object] $FontStrokeWidth, #// px
         [string] $FontStrokeColor,
         [ValidateSet('center', 'left')][string] $FontAlign,
         [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
@@ -45,23 +45,23 @@
             length             = $Length
             arrows             = [ordered]@{
                 to     = [ordered]@{
-                    enabled     = $ArrowsToEnabled
+                    enabled     = if ($ArrowsToEnabled) { $ArrowsToEnabled.IsPresent } else { $null }
                     scaleFactor = $ArrowsToScaleFactor
                     type        = $ArrowsToType
                 }
                 middle = [ordered]@{
-                    enabled     = $ArrowsMiddleEnabled
+                    enabled     = if ($ArrowsMiddleEnabled) { $ArrowsMiddleEnabled.IsPresent } else { $null }
                     scaleFactor = $ArrowsMiddleScaleFactor
                     type        = $ArrowsMiddleType
                 }
                 from   = [ordered]@{
-                    enabled     = $ArrowsFromEnabled
+                    enabled     = if ($ArrowsFromEnabled) { $ArrowsFromEnabled.IsPresent } else { $null }
                     scaleFactor = $ArrowsFromScaleFactor
                     type        = $ArrowsFromType
                 }
             }
-            arrowStrikethrough = $ArrowStrikethrough
-            chosen             = $Chosen
+            arrowStrikethrough = if ($ArrowStrikethrough) { $ArrowStrikethrough.IsPresent } else { $null }
+            chosen             = if ($Chosen) { $Chosen.IsPresent } else { $null }
             color              = [ordered]@{
                 color     = ConvertFrom-Color -Color $Color
                 highlight = ConvertFrom-Color -Color $ColorHighlight
@@ -71,16 +71,16 @@
             }
             font               = [ordered]@{
                 color       = ConvertFrom-Color -Color $FontColor
-                size        = $FontSize
+                size        = ConvertFrom-Size -Size $FontSize
                 face        = $FontName
                 background  = ConvertFrom-Color -Color $FontBackground
-                strokeWidth = $FontStrokeWidth
+                strokeWidth = ConvertFrom-Size -Size $FontStrokeWidth
                 strokeColor = ConvertFrom-Color -Color $FontStrokeColor
                 align       = $FontAlign
                 multi       = $FontMulti
                 vadjust     = $FontVAdjust
             }
-            dashes             = $Dashes
+            dashes             = if ($Dashes) { $Dashes.IsPresent } else { $null }
             widthConstraint    = $WidthConstraint
         }
     }

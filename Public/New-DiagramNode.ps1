@@ -22,6 +22,30 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
         [parameter(ParameterSetName = "Shape")][string[]] $To,
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "Image")]
+        [parameter(ParameterSetName = "Shape")]
+        [switch] $ArrowsToEnabled,
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "Image")]
+        [parameter(ParameterSetName = "Shape")]
+        [switch] $ArrowsMiddleEnabled,
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "Image")]
+        [parameter(ParameterSetName = "Shape")]
+        [switch] $ArrowsFromEnabled,
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "Image")]
+        [parameter(ParameterSetName = "Shape")]
+        [alias('EdgeColor')][string] $LinkColor,
         [parameter(ParameterSetName = "Shape")][string][ValidateSet(
             'circle', 'dot', 'diamond', 'ellipse', 'database', 'box', 'square', 'triangle', 'triangleDown', 'text', 'star', 'hexagon')] $Shape,
         [parameter(ParameterSetName = "Image")][ValidateSet('squareImage', 'circularImage')][string] $ImageType,
@@ -288,9 +312,23 @@ function New-DiagramNode {
     }
 
     if ($To) {
-        $Object.Edges = @{
-            from = if ($To) { $Id } else { '' }
-            to   = if ($To) { $To } else { '' }
+        $Object.Edges = [ordered] @{
+            arrows = [ordered]@{
+                to     = [ordered]@{
+                    enabled = if ($ArrowsToEnabled) { $ArrowsToEnabled.IsPresent } else { $null }
+                }
+                middle = [ordered]@{
+                    enabled = if ($ArrowsMiddleEnabled) { $ArrowsMiddleEnabled.IsPresent } else { $null }
+                }
+                from   = [ordered]@{
+                    enabled = if ($ArrowsFromEnabled) { $ArrowsFromEnabled.IsPresent } else { $null }
+                }
+            }
+            color  = [ordered]@{
+                color = ConvertFrom-Color -Color $LinkColor
+            }
+            from   = if ($To) { $Id } else { '' }
+            to     = if ($To) { $To } else { '' }
         }
     }
     $Object.Settings = [ordered] @{
@@ -350,7 +388,7 @@ function New-DiagramNode {
     }
 
     Remove-EmptyValue -Hashtable $Object.Settings -Recursive -Rerun 2
-    Remove-EmptyValue -Hashtable $Object.Edges -Recursive
+    Remove-EmptyValue -Hashtable $Object.Edges -Recursive -Rerun 2
     $Object
 }
 Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName ColorBorder -ScriptBlock $Script:ScriptBlockColors
@@ -363,6 +401,7 @@ Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontColor
 Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontBackground -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName FontStrokeColor -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName IconColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-DiagramNode -ParameterName LinkColor -ScriptBlock $Script:ScriptBlockColors
 <#
 // these are all options in full.
 var options = {

@@ -175,16 +175,16 @@ function New-DiagramOptionsPhysics {
         [nullable[int]] $WindY
     )
 
-    if ($PSCmdlet.ParameterSetName -eq 'Repulsion') {
-        $Solver = 'repulsion'
-    } elseif ($PSCmdlet.ParameterSetName -eq 'HierarchicalRepulsion') {
-        $Solver = 'hierarchicalRepulsion'
-    } elseif ($PSCmdlet.ParameterSetName -eq 'ForceAtlas2Based') {
-        $Solver = 'forceAtlas2Based'
-    } elseif ($PSCmdlet.ParameterSetName -eq 'BarnesHut') {
-        $Solver = 'barnesHut'
-    } else {
-        $Solver = $null
+    if (-not $Solver) {
+        if ($PSCmdlet.ParameterSetName -eq 'Repulsion') {
+            $Solver = 'repulsion'
+        } elseif ($PSCmdlet.ParameterSetName -eq 'HierarchicalRepulsion') {
+            $Solver = 'hierarchicalRepulsion'
+        } elseif ($PSCmdlet.ParameterSetName -eq 'ForceAtlas2Based') {
+            $Solver = 'forceAtlas2Based'
+        } elseif ($PSCmdlet.ParameterSetName -eq 'BarnesHut') {
+            $Solver = 'barnesHut'
+        }
     }
 
     $Object = [PSCustomObject] @{
@@ -192,7 +192,7 @@ function New-DiagramOptionsPhysics {
         Settings = [ordered] @{
             physics = [ordered] @{
                 enabled               = $Enabled
-                solves                = $Solver
+                solver                = $Solver
                 barnesHut             = [ordered] @{
                     theta                 = $BarnesHutTheta
                     gravitationalConstant = $BarnesHutGravitationalConstant

@@ -1,5 +1,5 @@
 function New-HTMLDiagram {
-    [alias('Diagram','New-Diagram')]
+    [alias('Diagram', 'New-Diagram')]
     [CmdletBinding()]
     param(
         [ScriptBlock] $Diagram,
@@ -7,7 +7,8 @@ function New-HTMLDiagram {
         [object] $Width,
         [switch] $BundleImages,
         [uri] $BackGroundImage,
-        [string] $BackgroundSize = '100% 100%'
+        [string] $BackgroundSize = '100% 100%',
+        [switch] $NoAutoResize # Doesn't seem to do anything
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLDiagram - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -26,7 +27,7 @@ function New-HTMLDiagram {
             #$DataEdges.Add($Node.Edges)
             foreach ($From in $Node.Edges.From) {
                 foreach ($To in $Node.Edges.To) {
-                    $Edge = $Node.Edges.Clone()
+                    $Edge = Copy-Dictionary -Dictionary $Node.Edges  #$Node.Edges.Clone()
                     $Edge['from'] = $From
                     $Edge['to'] = $To
                     $DataEdges.Add($Edge)
@@ -109,7 +110,9 @@ function New-HTMLDiagram {
         $_ | ConvertTo-Json -Depth 5 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
     }
 
-    $Options = @{ }
+    $Options = @{
+        autoResize = -not $NoAutoResize.IsPresent # Doesn't seem to do anything
+    }
     if ($DiagramOptionsInteraction) {
         if ($DiagramOptionsInteraction['interaction']) {
             $Options['interaction'] = $DiagramOptionsInteraction['interaction']

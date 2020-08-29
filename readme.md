@@ -66,6 +66,16 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.97 - Unreleased
+  - **Breaking changes**
+  - [x] Diagrams
+    - [x] New-DiagramLink
+      - [ ] `ArrowsToEnabled` -> `nullable bool` replaced with `switch`
+      - [ ] `ArrowsMiddleEnabled` -> `nullable bool` replaced with `switch`
+      - [ ] `ArrowsFromEnabled` -> `nullable bool` replaced with `switch`
+      - [ ] `ArrowStrikethrough` -> `nullable bool` replaced with `switch`
+      - [ ] `Chosen` -> `nullable bool` replaced with `switch`
+      - [ ] `FontSize` -> `int` replaced with `object` - check notes in `0.95`
+      - [ ] `FontStrokeWidth` -> `int` replaced with `object` - check notes in `0.95`
   - [x] Update to Diagram Height accepting multiple size values
     - [x] This allows for `New-HTMLDiagram -Height 'calc(100vh - 50px)'` which fills whole screen (within section)
     - [x] Or this `New-HTMLDiagram -Height 'calc(100vh - 50px)' -Width '50vw'` although not that useful, as flex fixes most of it
