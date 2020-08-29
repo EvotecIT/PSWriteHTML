@@ -11,7 +11,7 @@ Function New-HTMLSection {
         [alias('Collapsable')][Parameter(Mandatory = $false)][switch] $CanCollapse,
         [switch] $IsHidden,
         [switch] $Collapsed,
-        [int] $Height,
+        [object] $Height,
         [switch] $Invisible,
         # Following are based on https://css-tricks.com/snippets/css/a-guide-to-flexbox/
         [string][ValidateSet('wrap', 'nowrap', 'wrap-reverse')] $Wrap,
@@ -121,7 +121,7 @@ Function New-HTMLSection {
         $DivContentStyle["display"] = 'none'
     }
 
-    $HiddenDivStyle['height'] = if ($Height -ne 0) { "$($Height)px" } else { '' }
+    $HiddenDivStyle['height'] = ConvertFrom-Size -Size $Height
 
     if ($Wrap -or $Direction) {
         [string] $ClassName = "flexParent$(Get-RandomStringName -Size 8 -LettersOnly)"

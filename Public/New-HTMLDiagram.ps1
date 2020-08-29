@@ -1,10 +1,10 @@
 function New-HTMLDiagram {
-    [alias('Diagram')]
+    [alias('Diagram','New-Diagram')]
     [CmdletBinding()]
     param(
         [ScriptBlock] $Diagram,
-        [string] $Height,
-        [string] $Width,
+        [object] $Height,
+        [object] $Width,
         [switch] $BundleImages,
         [uri] $BackGroundImage,
         [string] $BackgroundSize = '100% 100%'
@@ -106,15 +106,7 @@ function New-HTMLDiagram {
         $NodeJson
     }
     [Array] $Edges = foreach ($_ in $DataEdges) {
-        #if ($_.From -and $_.To) {
-        #    foreach ($SingleTo in $_.To) {
-        # [ordered] @{
-        #    from = $_.From
-        #     to   = $SingleTo
-        # } | ConvertTo-Json -Depth 5
         $_ | ConvertTo-Json -Depth 5 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
-        #}
-        #}
     }
 
     $Options = @{ }

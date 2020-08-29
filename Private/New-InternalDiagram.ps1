@@ -5,8 +5,8 @@ function New-InternalDiagram {
         [System.Collections.IList] $Edges,
         [System.Collections.IList] $Events,
         [System.Collections.IDictionary] $Options,
-        [string] $Height,
-        [string] $Width,
+        [object] $Height,
+        [object] $Width,
         [string] $BackgroundImage,
         [string] $BackgroundSize = '100% 100%'
     )
@@ -16,31 +16,27 @@ function New-InternalDiagram {
 
     [string] $ID = "Diagram-" + (Get-RandomStringName -Size 8)
 
-    $Style = @{ }
-    $Style['position'] = 'absolute'
-    if ($Width -or $Height) {
-        $Style['width'] = $Width
-        $Style['height'] = $Height
+    $Style = [ordered] @{
+        position = 'relative'
+        width    = ConvertFrom-Size -Size $Width
+        height   = ConvertFrom-Size -Size $Height
     }
     if ($BackgroundImage) {
         $Style['background'] = "url('$BackgroundImage')"
         $Style['background-size'] = $BackgroundSize
     }
-    $AttributesInside = @{
-        id    = $ID
+
+    $Attributes = [ordered] @{
         class = 'diagram'
         style = $Style
     }
 
-
-    $Attributes = @{
-        Style = @{
-            position = 'relative'
-            width    = $Width
-            height   = $Height
-            #'min-height' = '300px'
+    $AttributesInside = [ordered] @{
+        class = 'diagram'
+        style = @{
+            position = 'absolute'
         }
-        Class = 'diagram'
+        id    = $ID
     }
 
     $Div = New-HTMLTag -Tag 'div' -Attributes $Attributes {

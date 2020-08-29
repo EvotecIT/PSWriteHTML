@@ -19,7 +19,7 @@ function New-HTMLSpanStyle {
         style = @{
             'color'            = ConvertFrom-Color -Color $Color
             'background-color' = ConvertFrom-Color -Color $BackGroundColor
-            'font-size'        = ConvertFrom-FontSize -FontSize $FontSize
+            'font-size'        = ConvertFrom-Size -FontSize $FontSize
             'font-weight'      = $FontWeight
             'font-variant'     = $FontVariant
             'font-family'      = $FontFamily

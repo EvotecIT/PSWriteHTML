@@ -88,7 +88,7 @@
     $CssTabsWrapper = [ordered] @{
         'text-align'       = $Align
         'text-transform'   = $TextTransform
-        'font-size'        = ConvertFrom-FontSize -TextSize $FontSize
+        'font-size'        = ConvertFrom-Size -TextSize $FontSize
         'color'            = ConvertFrom-Color -Color $TextColor
         'background-color' = ConvertFrom-Color -Color $BackgroundColor
         'font-weight'      = $FontWeight
@@ -166,7 +166,7 @@
         Remove-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs]' -Property 'box-shadow'
     }
     if ($PSBoundParameters.ContainsKey('TextSizeActive')) {
-        Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs] .active' -Inject @{ 'font-size' = ConvertFrom-FontSize -TextSize $FontSizeActive }
+        Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs] .active' -Inject @{ 'font-size' = ConvertFrom-Size -TextSize $FontSizeActive }
     }
     if ($PSBoundParameters.ContainsKey('TextColorActive')) {
         Add-ConfigurationCSS -CSS $TabbisCss -Name '[data-tabs] .active' -Inject @{ 'color' = ConvertFrom-Color -Color $TextColorActive }

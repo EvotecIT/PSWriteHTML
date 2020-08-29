@@ -15,7 +15,7 @@ schema: 2.0.0
 ```
 New-HTMLSection [[-Content] <ScriptBlock>] [-HeaderText <String>] [-HeaderTextColor <String>]
  [-HeaderTextAlignment <String>] [-HeaderBackGroundColor <String>] [-BackgroundColor <String>] [-CanCollapse]
- [-IsHidden] [-Collapsed] [-Height <Int32>] [-Invisible] [-Wrap <String>] [-Direction <String>]
+ [-IsHidden] [-Collapsed] [-Height <Object>] [-Invisible] [-Wrap <String>] [-Direction <String>]
  [-AlignContent <String>] [-AlignItems <String>] [-JustifyContent <String>] [-BorderRadius <String>]
  [-AnchorName <String>] [-StyleSheetsConfiguration <IDictionary>] [<CommonParameters>]
 ```
@@ -238,7 +238,7 @@ Accept wildcard characters: False
 {{ Fill Height Description }}
 
 ```yaml
-Type: Int32
+Type: Object
 Parameter Sets: (All)
 Aliases:
 

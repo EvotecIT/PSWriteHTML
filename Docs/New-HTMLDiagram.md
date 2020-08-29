@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLDiagram [[-Diagram] <ScriptBlock>] [[-Height] <String>] [[-Width] <String>] [-BundleImages]
+New-HTMLDiagram [[-Diagram] <ScriptBlock>] [[-Height] <Object>] [[-Width] <Object>] [-BundleImages]
  [[-BackGroundImage] <Uri>] [[-BackgroundSize] <String>] [<CommonParameters>]
 ```
 
@@ -95,7 +95,7 @@ Accept wildcard characters: False
 {{ Fill Height Description }}
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -110,7 +110,7 @@ Accept wildcard characters: False
 {{ Fill Width Description }}
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 

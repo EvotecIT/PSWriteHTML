@@ -639,7 +639,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JsLink = 'https://unpkg.com/vis-network@8.2.0/peer/umd/vis-network.min.js'
+                JsLink = 'https://unpkg.com/vis-network@8.2.1/peer/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
             }
             FooterAlways = @{
@@ -662,7 +662,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JsLink = 'https://unpkg.com/vis-network@8.2.0/standalone/umd/vis-network.min.js'
+                JsLink = 'https://unpkg.com/vis-network@8.2.1/standalone/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-networkStandalone.min.js"
             }
             FooterAlways = @{
@@ -720,7 +720,7 @@ function Save-Resource {
 <# Refreshes libraries
 $Keys = $Script:Configuration.Features.Keys
 $Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'FontsAwesome', 'Jquery', 'DataTablesSearchFade', 'Popper', 'ChartsApex'
-$Keys = 'VisNetworkStandalone'
+$Keys = 'VisNetwork'
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js

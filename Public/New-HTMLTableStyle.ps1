@@ -26,7 +26,7 @@
         'text-transform'   = $TextTransform
         'color'            = ConvertFrom-Color -Color $TextColor
         'background-color' = ConvertFrom-Color -Color $BackgroundColor
-        'font-size'        = ConvertFrom-FontSize -TextSize $FontSize
+        'font-size'        = ConvertFrom-Size -TextSize $FontSize
         'font-weight'      = $FontWeight
         'font-style'       = $FontStyle
         'font-variant'     = $FontVariant
