@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 New-HTMLDiagram [[-Diagram] <ScriptBlock>] [[-Height] <Object>] [[-Width] <Object>] [-BundleImages]
- [[-BackGroundImage] <Uri>] [[-BackgroundSize] <String>] [<CommonParameters>]
+ [[-BackGroundImage] <Uri>] [[-BackgroundSize] <String>] [-NoAutoResize] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -101,6 +101,21 @@ Aliases:
 
 Required: False
 Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -NoAutoResize
+{{ Fill NoAutoResize Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

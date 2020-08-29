@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.97 - Unreleased
+- 0.0.97 - 2020.08.29
   - **Breaking changes**
   - [x] Diagrams
     - [x] New-DiagramLink
@@ -76,11 +76,14 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
       - [ ] `Chosen` -> `nullable bool` replaced with `switch`
       - [ ] `FontSize` -> `int` replaced with `object` - check notes in `0.95`
       - [ ] `FontStrokeWidth` -> `int` replaced with `object` - check notes in `0.95`
+  - **New/Non-Breaking**
+    - [x] New-DiagramNode
+      - [ ] Exposed `ArrowsToEnabled`, `ArrowsMiddleEnabled`, `ArrowsFromEnabled`
   - [x] Update to Diagram Height accepting multiple size values
     - [x] This allows for `New-HTMLDiagram -Height 'calc(100vh - 50px)'` which fills whole screen (within section)
     - [x] Or this `New-HTMLDiagram -Height 'calc(100vh - 50px)' -Width '50vw'` although not that useful, as flex fixes most of it
-  - [x] Updates `New-DiagramOptionsPhysics`
-  - [x] Updates `New-DiagramOptionsLayout`
+  - [x] Updates `New-DiagramOptionsPhysics` - exposed a bunch of new options plus help
+  - [x] Updates `New-DiagramOptionsLayout` - added some help and new options
   - **Updated library**
     - [x] `Vis-network` to 8.2.1
 - 0.0.96 - 2020.08.28
