@@ -65,6 +65,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.99 - Unreleased
+  - [x] Added aliases for `New-HTMLTableOption`
+
 - 0.0.98 - 2020.08.30
   - **New/Non-Breaking**
     - [x] Added `DataStoreID` to `New-HTMLTable` for use with `DataStore = JavaScript`
