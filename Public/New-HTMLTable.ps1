@@ -63,7 +63,7 @@ function New-HTMLTable {
         [switch] $SearchPane,
         [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top',
         [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore,
-        [string] $DataSeparateID
+        [string] $DataStoreID
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -86,8 +86,8 @@ function New-HTMLTable {
             return
         }
     }
-    if ($DataSeparateID -and $DataStore -ne 'JavaScript') {
-        Write-Warning 'New-HTMLTable - Using DataSeparateID is only supported if DataStore is JavaScript.'
+    if ($DataStoreID -and $DataStore -ne 'JavaScript') {
+        Write-Warning 'New-HTMLTable - Using DataStoreID is only supported if DataStore is JavaScript.'
     }
 
     # Theme creator  https://datatables.net/manual/styling/theme-creator
@@ -594,18 +594,18 @@ function New-HTMLTable {
     if ($DataStore -eq 'JavaScript') {
         # Since we only want first level of data from DataTable we need to do it via string replacement.
         # ConvertTo-Json -Depth 6 from Options above would copy nested objects
-        if ($DataSeparateID) {
+        if ($DataStoreID) {
             # We decided we want to separate JS data from the table. This is useful for 2 reason
             # Data is pushed to footer and doesn't take place inside Body
             # Data can be reused in multiple tables for display purposes of same thing but in different table
-            $Options = $Options -replace '"markerForDataReplacement"', $DataSeparateID
+            $Options = $Options -replace '"markerForDataReplacement"', $DataStoreID
             # We only add data if it isn't added yet
-            if (-not $Script:HTMLSchema.CustomFooterJS[$DataSeparateID]) {
+            if (-not $Script:HTMLSchema.CustomFooterJS[$DataStoreID]) {
                 $DataToInsert = $Table | ConvertTo-Json -Depth 1 #-Compress
                 if ($DataToInsert.StartsWith('[')) {
-                    $Script:HTMLSchema.CustomFooterJS[$DataSeparateID] = "var $DataSeparateID = $DataToInsert;"
+                    $Script:HTMLSchema.CustomFooterJS[$DataStoreID] = "var $DataStoreID = $DataToInsert;"
                 } else {
-                    $Script:HTMLSchema.CustomFooterJS[$DataSeparateID] = "var $DataSeparateID = [$DataToInsert];"
+                    $Script:HTMLSchema.CustomFooterJS[$DataStoreID] = "var $DataStoreID = [$DataToInsert];"
                 }
             }
         } else {
@@ -621,7 +621,7 @@ function New-HTMLTable {
     }
 
     # Process Conditional Formatting. Ugly JS building
-    $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames
+    $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames -DataStore $DataStore
     # Process Row Grouping. Ugly JS building
     if ($RowGroupingColumnID -ne -1) {
         $Options = Convert-TableRowGrouping -Options $Options -RowGroupingColumnID $RowGroupingColumnID

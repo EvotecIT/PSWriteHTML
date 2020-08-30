@@ -67,7 +67,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.98 - 2020.08.30
   - **New/Non-Breaking**
-    - [x] Added `DataSeparateID` to `New-HTMLTable` for use with `DataStore = JavaScript`
+    - [x] Added `DataStoreID` to `New-HTMLTable` for use with `DataStore = JavaScript`
       - [x] This allows multiple tables to use same data. Useful if you want to present same data in different tables across single HTML file.
 - 0.0.97 - 2020.08.29
   - **Breaking changes**
