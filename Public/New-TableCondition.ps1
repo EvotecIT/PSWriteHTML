@@ -3,7 +3,7 @@ function New-TableCondition {
     [CmdletBinding()]
     param(
         [alias('ColumnName')][string] $Name,
-        [alias('Type')][ValidateSet('number', 'string')][string] $ComparisonType,
+        [alias('Type')][ValidateSet('number', 'string', 'bool')][string] $ComparisonType,
         [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'ne', 'contains', 'like')][string] $Operator,
         [Object] $Value,
         [switch] $Row,

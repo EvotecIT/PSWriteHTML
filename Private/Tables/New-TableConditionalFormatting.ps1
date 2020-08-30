@@ -34,6 +34,12 @@ function New-TableConditionalFormatting {
                     [string] $StyleDefinition = ".css($Style)"
                     if ($null -eq $Condition.Type -or $Condition.Type -eq 'number' -or $Condition.Type -eq 'int' -or $Condition.Type -eq 'decimal') {
                         "if (data[$ConditionHeaderNr] $($Condition.Operator) $($Condition.Value)) {"
+                    } elseif ($Condition.Value -is [bool]) {
+                        if ($Condition.Value -is [bool]) {
+                            "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
+                        } else {
+                            continue
+                        }
                     } elseif ($Condition.Type -eq 'string') {
                         switch -Regex ($Condition.Operator) {
                             "contains|like" {
@@ -74,6 +80,13 @@ function New-TableConditionalFormatting {
                     [string] $StyleDefinition = ".css($Style)"
                     if ($null -eq $Condition.Type -or $Condition.Type -eq 'number' -or $Condition.Type -eq 'int' -or $Condition.Type -eq 'decimal') {
                         "if (data.$ColumnName $($Condition.Operator) $($Condition.Value)) {"
+                    } elseif ($Condition.Type -eq 'bool') {
+                        if ($Condition.Value -is [bool]) {
+                            $Condition.Value = "$($Condition.Value)".ToLower()
+                            "if (data.$ColumnName $($Condition.Operator) $($Condition.Value)) {"
+                        } else {
+                            continue
+                        }
                     } elseif ($Condition.Type -eq 'string') {
                         switch -Regex ($Condition.Operator) {
                             "contains|like" {
