@@ -46,6 +46,8 @@ Function New-HTML {
         }
         CustomHeaderCSS   = [System.Collections.Generic.List[string]]::new()
         CustomFooterCSS   = [System.Collections.Generic.List[string]]::new()
+        CustomHeaderJS    = [ordered] @{}
+        CustomFooterJS    = [ordered] @{}
     }
 
     # If hosted is chosen that means we will be running things server side
@@ -161,7 +163,7 @@ Function New-HTML {
                     Get-Resources -Online:$Online.IsPresent -Location 'Header' -Features $Features
                 }
             }
-
+            New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
             New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS
             '<!-- END HEAD -->'
             '<!-- BODY -->'
@@ -211,11 +213,11 @@ Function New-HTML {
                         Get-Resources -Online:$Online.IsPresent -Location 'Footer' -Features $Features
                     }
                     New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS
+                    New-HTMLCustomJS -JS $Script:HTMLSchema.CustomFooterJS
                     '<!-- END FOOTER -->'
                 }
                 '<!-- END BODY -->'
             }
-
         }
     )
     if ($FilePath -ne '') {

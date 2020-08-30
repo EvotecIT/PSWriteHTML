@@ -62,7 +62,8 @@ function New-HTMLTable {
         [string] $Title,
         [switch] $SearchPane,
         [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top',
-        [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore
+        [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore,
+        [string] $DataSeparateID
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -71,7 +72,6 @@ function New-HTMLTable {
     if ($HideFooter -and $Filtering -and $FilteringLocation -notin @('Both', 'Top')) {
         Write-Warning 'New-HTMLTable - Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both.'
     }
-
     # There are 3 types of storage: HTML, JavaScript, File
     if ($DataStore -eq '' -and $Script:HTMLSchema.TableOptions.DataStore) {
         # If DataStore is not picked locally, we use global value (assuming it's set)
@@ -85,6 +85,9 @@ function New-HTMLTable {
             Write-Warning "New-HTMLTable - FilePath wasn't used in New-HTML. It's required for Hosted Solution."
             return
         }
+    }
+    if ($DataSeparateID -and $DataStore -ne 'JavaScript') {
+        Write-Warning 'New-HTMLTable - Using DataSeparateID is only supported if DataStore is JavaScript.'
     }
 
     # Theme creator  https://datatables.net/manual/styling/theme-creator
@@ -591,11 +594,27 @@ function New-HTMLTable {
     if ($DataStore -eq 'JavaScript') {
         # Since we only want first level of data from DataTable we need to do it via string replacement.
         # ConvertTo-Json -Depth 6 from Options above would copy nested objects
-        $DataToInsert = $Table | ConvertTo-Json -Depth 1 #-Compress
-        if ($DataToInsert.StartsWith('[')) {
-            $Options = $Options -replace '"markerForDataReplacement"', $DataToInsert
+        if ($DataSeparateID) {
+            # We decided we want to separate JS data from the table. This is useful for 2 reason
+            # Data is pushed to footer and doesn't take place inside Body
+            # Data can be reused in multiple tables for display purposes of same thing but in different table
+            $Options = $Options -replace '"markerForDataReplacement"', $DataSeparateID
+            # We only add data if it isn't added yet
+            if (-not $Script:HTMLSchema.CustomFooterJS[$DataSeparateID]) {
+                $DataToInsert = $Table | ConvertTo-Json -Depth 1 #-Compress
+                if ($DataToInsert.StartsWith('[')) {
+                    $Script:HTMLSchema.CustomFooterJS[$DataSeparateID] = "var $DataSeparateID = $DataToInsert;"
+                } else {
+                    $Script:HTMLSchema.CustomFooterJS[$DataSeparateID] = "var $DataSeparateID = [$DataToInsert];"
+                }
+            }
         } else {
-            $Options = $Options -replace '"markerForDataReplacement"', "[$DataToInsert]"
+            $DataToInsert = $Table | ConvertTo-Json -Depth 1 #-Compress
+            if ($DataToInsert.StartsWith('[')) {
+                $Options = $Options -replace '"markerForDataReplacement"', $DataToInsert
+            } else {
+                $Options = $Options -replace '"markerForDataReplacement"', "[$DataToInsert]"
+            }
         }
         # we need to reset table to $Null to make sure it's not added as HTML as well
         $Table = $null
