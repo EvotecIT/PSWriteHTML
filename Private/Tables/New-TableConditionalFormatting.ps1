@@ -33,7 +33,7 @@ function New-TableConditionalFormatting {
                     $Style = $Condition.Style | ConvertTo-Json
                     [string] $StyleDefinition = ".css($Style)"
                     if ($null -eq $Condition.Type -or $Condition.Type -eq 'number' -or $Condition.Type -eq 'int' -or $Condition.Type -eq 'decimal') {
-                        "if (data $($Condition.Operator) $($Condition.Value)) {"
+                        "if (data[$ConditionHeaderNr] $($Condition.Operator) $($Condition.Value)) {"
                     } elseif ($Condition.Type -eq 'string') {
                         switch -Regex ($Condition.Operator) {
                             "contains|like" {
