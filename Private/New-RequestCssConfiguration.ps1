@@ -10,7 +10,7 @@
     $Name = $(Get-RandomStringName -Size 7)
     $ExpectedStyleSheetsConfiguration = [ordered] @{}
     foreach ($Key in $Pair.Keys) {
-        $ExpectedStyleSheetsConfiguration[$Key] = "$Key-$Name"
+        $ExpectedStyleSheetsConfiguration[$Key] = ".$Key-$Name"
     }
     $RenamePair = [ordered] @{}
     foreach ($Key in $Pair.Keys) {

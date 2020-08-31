@@ -20,6 +20,8 @@ Function New-HTMLPanel {
             Panel = "defaultPanel"
         }
     }
+    # This takes care of starting dots in $StyleSheetsConfiguration
+    Remove-DotsFromCssClass -Css $StyleSheetsConfiguration
 
     # This controls general panel style that overwrittes whatever is set globally
     $PanelStyle = [ordered] @{

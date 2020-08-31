@@ -34,6 +34,8 @@ Function New-HTMLSection {
             SectionContent = 'defaultSectionContent'
         }
     }
+    # This takes care of starting dots in $StyleSheetsConfiguration
+    Remove-DotsFromCssClass -Css $StyleSheetsConfiguration
     if (-not $AnchorName) {
         $AnchorName = Get-Random
     }
