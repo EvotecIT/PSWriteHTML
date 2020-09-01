@@ -67,6 +67,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.99 - Unreleased
   - [x] Added aliases for `New-HTMLTableOption`
+  - [x] Fixes for Request Configuration for Sections and Panels
 
 - 0.0.98 - 2020.08.30
   - **New/Non-Breaking**
