@@ -57,6 +57,8 @@ function Set-Tag {
     } else {
         if ($HtmlObject.SelfClosing) {
             [void] $HTML.Append("/>")
+        } elseif ($HtmlObject.NoClosing) {
+            [void] $HTML.Append(">")
         } else {
             [void] $HTML.Append("></$($HtmlObject.Tag)>")
         }
