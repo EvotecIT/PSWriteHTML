@@ -76,12 +76,13 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
       - [x] In outlook it wouldn't matter as it would fix it, but in other clients such as Thunderbird it would go nuts
   - **Library updates**
     - Update to `vis-network` from 8.2.1 to 8.3.2
-
   - **New/Non-Breaking**
     - [x] Added aliases for `New-HTMLTableOption`
     - [x] Fixes for Request Configuration for Sections and Panels
     - [x] Fixes meta tags for HTML4/HTML5
     - [x] Addeed **NoClosing** parameter to `New-HTMLTag`
+    - [x] Improvements to `Section` Hiding horizontally and vertically
+    - [x] Improvements to diagram resizing when section resizes - should be no need to resize diagram anymore
 
 - 0.0.98 - 2020.08.30
   - **New/Non-Breaking**
