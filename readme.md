@@ -74,6 +74,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
       - [x] While not really breaking change, just thought I would make sure people are aware
       - [x] The reason is HTML was always `UTF8` and setting it up on transport level to `Unicode` or other encodings would break things
       - [x] In outlook it wouldn't matter as it would fix it, but in other clients such as Thunderbird it would go nuts
+  - **Library updates**
+    - Update to `vis-network` from 8.2.1 to 8.3.2
 
   - **New/Non-Breaking**
     - [x] Added aliases for `New-HTMLTableOption`
