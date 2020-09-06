@@ -107,6 +107,7 @@ function New-HTMLTab {
         $StyleIcon.'color' = ConvertFrom-Color -Color $IconColor
     }
     $Script:HTMLSchema.Features.Tabbis = $true
+    $Script:HTMLSchema.Features.RedrawObjects = $true
 
     # Reset all Tabs Headers to make sure there are no Current Tab Set
     # This is required for New-HTMLTable
