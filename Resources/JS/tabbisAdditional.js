@@ -4,20 +4,10 @@ var tabs = tabbis.init({
     tabActive: "active",
     paneActive: "active",
     callback: function (tab, pane) {
-        // console.log("TAB id:" + tab.id);
-        // console.log(pane.id);
-        // console.log(tableid);
+        // console.log("TAB id:" + tab.id + pane.id + tableid);
         // this makes sure to refresh tables on tab change to make sure they have buttons and everything
         // it's a bit heavy as it touches all tables, may require some improvements in future to consider
         // which tab has which table
-        function resizeTable(table) {
-            try {
-                $("#" + table.id).DataTable().columns.adjust().responsive.recalc();
-                console.log('Resized table with id ' + table.id);
-            } catch (e) {
-                console.log('Failed to resize table with ' + table.id);
-            }
-        }
         try {
             // Initially it was useed with ID, but if people use their own naming no tables were found
             //var table = document.getElementById(tab.id + "-Content").querySelectorAll('table[id^="DT-"]');
@@ -26,14 +16,7 @@ var tabs = tabbis.init({
         } catch (e) {
             console.log('No datatables available.');
         }
-
-        // We need to make same thing for calendar
-        function redrawCalendar(calendar) {
-            //console.log(calendarTracker[calendar.id].view);
-            calendarTracker[calendar.id].changeView(calendarTracker[calendar.id].view.type);
-            console.log('Redrawing view for ' + calendar.id)
-        }
-
+        // redrawCalendar
         try {
             var calendar = document.getElementById(tab.id + "-Content").querySelectorAll('div[id^="Calendar-"]');
             calendar.forEach(redrawCalendar)
