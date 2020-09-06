@@ -65,7 +65,7 @@ $Script:Configuration = [ordered] @{
                         'padding'         = '2px'
                     }
                     '.flexParentInvisible' = [ordered]@{
-                        ' display'        = 'flex'
+                        'display'         = 'flex'
                         'justify-content' = 'space-between'
                     }
                     '.flexElement'         = [ordered]@{
@@ -138,6 +138,10 @@ $Script:Configuration = [ordered] @{
                 Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
                 CssInline = [ordered] @{
                     '.defaultSection'     = [ordered] @{
+                        'display'        = 'flex';
+                        'flex-direction' = 'column'
+                        #'display'        = 'flex' # added to allow diagram to resize properly
+                        #'flex-direction' = 'default' # added to allow diagram to resize properly
                         'border'         = '1px solid #bbbbbb'
                         'padding-bottom' = '0px'
                         'margin'         = '5px'
@@ -478,10 +482,19 @@ $Script:Configuration = [ordered] @{
                 JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
             }
         }
-        HideSection           = @{
+        HideSection           = [ordered] @{
             Comment      = 'Hide Section Code'
-            HeaderAlways = @{
-                JS = "$PSScriptRoot\..\Resources\JS\HideSection.js"
+            HeaderAlways = [ordered] @{
+                JS        = "$PSScriptRoot\..\Resources\JS\hideSection.js"
+                CssInline = [ordered] @{
+                    '.sectionHide' = @{ # fixes problem with hiding section that are collapsing left/right
+                        'width'     = 'auto'
+                        'min-width' = '1.4rem'
+                    }
+                    '.sectionShow' = @{
+                        'width' = '100%'
+                    }
+                }
             }
         }
         FancyTree             = @{
@@ -547,6 +560,12 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\popper.js"
                     "$PSScriptRoot\..\Resources\JS\tooltip.js"
                 )
+            }
+        }
+        RedrawObjects         = @{
+            Comment      = 'Allows redrawObjects for collapsed sections and changing tabs'
+            FooterAlways = @{
+                JS = "$PSScriptRoot\..\Resources\JS\redrawJobjects.js"
             }
         }
         Tabbis                = @{
@@ -639,7 +658,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JsLink = 'https://unpkg.com/vis-network@8.2.1/peer/umd/vis-network.min.js'
+                JsLink = 'https://unpkg.com/vis-network@8.3.2/peer/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
             }
             FooterAlways = @{
@@ -662,7 +681,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JsLink = 'https://unpkg.com/vis-network@8.2.1/standalone/umd/vis-network.min.js'
+                JsLink = 'https://unpkg.com/vis-network@8.3.2/standalone/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-networkStandalone.min.js"
             }
             FooterAlways = @{

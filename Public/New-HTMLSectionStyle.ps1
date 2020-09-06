@@ -88,7 +88,10 @@
     # Manage SECTION
     if ($Wrap -or $Direction -or $Align -or $AlignItems) {
         # This makes sure we can control placement of HEAD within SECTION
-        Add-ConfigurationCSS -CSS $CssConfiguration -Name $StyleSheetsConfiguration.Section -Inject @{ display = 'flex' }
+        Add-ConfigurationCSS -CSS $CssConfiguration -Name $StyleSheetsConfiguration.Section -Inject @{
+            'display'        = 'flex'
+            'flex-direction' = $Direction
+        }
     }
 
     # keep in mind that also empty elements will be removed from this

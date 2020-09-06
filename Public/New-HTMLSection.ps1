@@ -37,7 +37,7 @@ Function New-HTMLSection {
     # This takes care of starting dots in $StyleSheetsConfiguration
     Remove-DotsFromCssClass -Css $StyleSheetsConfiguration
     if (-not $AnchorName) {
-        $AnchorName = Get-Random
+        $AnchorName = "anchor-$(Get-RandomStringName -Size 7)"
     }
 
     if ($HeaderTextAlignment) {
@@ -54,74 +54,72 @@ Function New-HTMLSection {
     }
     $TextHeaderColorFromRGB = ConvertFrom-Color -Color $HeaderTextColor
     $HiddenDivStyle = [ordered] @{ }
+    $AttributesTop = [ordered] @{}
+
+    # depending on flex-direction for section collapsing works a bit differently
+    # we need to find out what is required flex direction and applky rules accordingly
+    # same thing happens on JS level in hideSection.js
+    if ($StyleSheetsConfiguration.Section -eq 'defaultSection') {
+        $CurrentFlexDirection = $Script:CurrentConfiguration['Features']['Default']['HeaderAlways']['CssInline'][".$($StyleSheetsConfiguration.Section)"]['flex-direction']
+    } else {
+        $CurrentFlexDirection = $Script:CurrentConfiguration['Features']['Inject']['HeaderAlways']['CssInline'][".$($StyleSheetsConfiguration.Section)"]['flex-direction']
+    }
 
     if ($CanCollapse) {
         $Script:HTMLSchema.Features.HideSection = $true
-        if ($IsHidden) {
-            # shows Show button
+        $Script:HTMLSchema.Features.RedrawObjects = $true
+        if ($Collapsed) {
+            # hides Show button
+            $HideStyle = @{
+                "color"   = $TextHeaderColorFromRGB;
+                'display' = 'none'
+            }
+            # shows Hide button
             $ShowStyle = @{
                 "color" = $TextHeaderColorFromRGB
             }
-            # hides Hide button
-            $HideStyle = @{
-                "color"   = $TextHeaderColorFromRGB
-                'display' = 'none'
+            $HiddenDivStyle['display'] = 'none'
+
+            if ($CurrentFlexDirection -eq 'Row') {
+                $ClassTop = "sectionHide"
             }
         } else {
-            if ($Collapsed) {
-                # hides Show button
-                $HideStyle = @{
-                    "color"   = $TextHeaderColorFromRGB;
-                    'display' = 'none'
-                }
-                # shows Hide button
-                $ShowStyle = @{
-                    "color" = $TextHeaderColorFromRGB
-                }
-                $HiddenDivStyle['display'] = 'none'
-            } else {
-                # hides Show button
-                $ShowStyle = @{
-                    "color"   = $TextHeaderColorFromRGB;
-                    'display' = 'none'
-                }
-                # shows Hide button
-                $HideStyle = @{
-                    "color" = $TextHeaderColorFromRGB
-                }
+            # hides Show button
+            $ShowStyle = @{
+                "color"   = $TextHeaderColorFromRGB;
+                'display' = 'none'
+            }
+            # shows Hide button
+            $HideStyle = @{
+                "color" = $TextHeaderColorFromRGB
+            }
+            if ($CurrentFlexDirection -eq 'Row') {
+                $ClassTop = "sectionShow"
             }
         }
     } else {
-        if ($IsHidden) {
-            # shows Show button
-            $ShowStyle = @{
-                "color" = $TextHeaderColorFromRGB
-            }
-            # hides Hide button
-            $HideStyle = @{
-                "color"   = $TextHeaderColorFromRGB
-                'display' = 'none'
-            }
-        } else {
-            # hides Show button
-            $ShowStyle = @{
-                "color"   = $TextHeaderColorFromRGB;
-                'display' = 'none'
-            }
-            # hides Show button
-            $HideStyle = @{
-                "color"   = $TextHeaderColorFromRGB;
-                'display' = 'none'
-            }
+        # hides Show button
+        $ShowStyle = @{
+            "color"   = $TextHeaderColorFromRGB;
+            'display' = 'none'
         }
+        # hides Show button
+        $HideStyle = @{
+            "color"   = $TextHeaderColorFromRGB;
+            'display' = 'none'
+        }
+        $ClassTop = ''
     }
-    $DivContentStyle = [ordered] @{
+
+    $AttributesTop['class'] = "$($StyleSheetsConfiguration.Section) overflowHidden $ClassTop"
+    $AttributesTop['style'] = [ordered] @{
         "background-color" = ConvertFrom-Color -Color $BackgroundColor
         'border-radius'    = $BorderRadius
     }
     if ($IsHidden) {
-        $DivContentStyle["display"] = 'none'
+        $AttributesTop['style']["display"] = 'none'
     }
+
 
     $HiddenDivStyle['height'] = ConvertFrom-Size -Size $Height
 
@@ -161,7 +159,7 @@ Function New-HTMLSection {
             }
         }
     } else {
-        New-HTMLTag -Tag 'div' -Attributes @{ class = "$($StyleSheetsConfiguration.Section) overflowHidden"; style = $DivContentStyle } -Value {
+        New-HTMLTag -Tag 'div' -Attributes $AttributesTop -Value {
             New-HTMLTag -Tag 'div' -Attributes @{ class = $StyleSheetsConfiguration.SectionHead; style = $DivHeaderStyle } -Value {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = $StyleSheetsConfiguration.SectionText } {
                     New-HTMLAnchor -Name $HeaderText -Text "$HeaderText " -Style $HeaderStyle
