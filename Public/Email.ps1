@@ -19,7 +19,8 @@ function Email {
         [switch] $SSL,
         [ValidateSet('Low', 'Normal', 'High')] [string] $Priority = 'Normal',
         [ValidateSet('None', 'OnSuccess', 'OnFailure', 'Delay', 'Never')] $DeliveryNotifications = 'None',
-        [string] $Encoding = 'Unicode',
+        [Obsolete("Encoding is depracated. We're setting encoding to UTF8 always to prevent errors")]
+        [Parameter(DontShow)][string] $Encoding,
         [string] $FilePath,
         [alias('Supress')][bool] $Suppress = $true,
         [switch] $Online,
@@ -44,9 +45,12 @@ function Email {
         PasswordAsSecure      = $PasswordAsSecure
         PasswordFromFile      = $PasswordFromFile
         Port                  = $Port
-
         EnableSSL             = $SSL
-        Encoding              = $Encoding
+        # Overwrite whatever user set, from tests it seems UTF8 is the best way to go, always, especially that HTML created is UTF8
+        # When it's left alone Send-Email will autodetect content and set it to utf8
+        #
+        #Encoding              = 'utf8'
+        #Encoding              = $Encoding
         Subject               = $Subject
         Priority              = $Priority
         DeliveryNotifications = $DeliveryNotifications
@@ -91,7 +95,8 @@ function Email {
             }
             HeaderOptions {
                 $ServerParameters.DeliveryNotifications = $Parameter.DeliveryNotifications
-                $ServerParameters.Encoding = $Parameter.Encoding
+                # From tests it seems UTF8 is the best way to go, always, especially that HTML created is UTF8, no need to set it
+                #$ServerParameters.Encoding = $Parameter.Encoding
                 $ServerParameters.Priority = $Parameter.Priority
             }
             Default {

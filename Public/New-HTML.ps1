@@ -119,12 +119,12 @@ Function New-HTML {
         New-HTMLTag -Tag 'html' {
             '<!-- HEAD -->'
             New-HTMLTag -Tag 'head' {
-                New-HTMLTag -Tag 'meta' -Attributes [ordered] @{ 'http-equiv' = "Content-Type"; content = "text/html; charset=utf-8" } -NoClosing
+                New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = "Content-Type"; content = "text/html; charset=utf-8" } -NoClosing
                 #New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -NoClosing
                 #New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'X-UA-Compatible'; content = 'IE=8' } -SelfClosing
-                New-HTMLTag -Tag 'meta' -Attributes [ordered] @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -NoClosing
-                New-HTMLTag -Tag 'meta' -Attributes [ordered] @{ name = 'author'; content = $Author } -NoClosing
-                New-HTMLTag -Tag 'meta' -Attributes [ordered] @{ name = 'revised'; content = $CurrentDate } -NoClosing
+                New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -NoClosing
+                New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -NoClosing
+                New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -NoClosing
                 New-HTMLTag -Tag 'title' { $TitleText }
 
                 if ($null -ne $FavIcon) {
