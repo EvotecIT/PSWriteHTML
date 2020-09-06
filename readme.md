@@ -66,10 +66,20 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.99 - Unreleased
-  - [x] Added aliases for `New-HTMLTableOption`
-  - [x] Fixes for Request Configuration for Sections and Panels
-  - [x] Fixes meta tags for HTML4/HTML5
-  - [x] Addeed **NoClosing** parameter to `New-HTMLTag`
+  - **Notes**
+    - [x] `UTF8` will be set by default for `HTML`. `Email` will pick content encoding from `HTML`
+      - [x] It was already set for `HTML` for `charset` so just making sure it's all the same
+    - [x] Encoding parameter for `EmailOption` and `Email` are DEPRECATED
+      - [x] Whatever you set there doesn't matter - it will always be set to `UTF8`. From my tests setting it to anything else messes up display in some clients
+      - [x] While not really breaking change, just thought I would make sure people are aware
+      - [x] The reason is HTML was always `UTF8` and setting it up on transport level to `Unicode` or other encodings would break things
+      - [x] In outlook it wouldn't matter as it would fix it, but in other clients such as Thunderbird it would go nuts
+
+  - **New/Non-Breaking**
+    - [x] Added aliases for `New-HTMLTableOption`
+    - [x] Fixes for Request Configuration for Sections and Panels
+    - [x] Fixes meta tags for HTML4/HTML5
+    - [x] Addeed **NoClosing** parameter to `New-HTMLTag`
 
 - 0.0.98 - 2020.08.30
   - **New/Non-Breaking**
