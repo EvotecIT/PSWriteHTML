@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.99 - Unreleased
+- 0.0.99 - 2020.09.07
   - **Notes**
     - [x] `UTF8` will be set by default for `HTML`. `Email` will pick content encoding from `HTML`
       - [x] It was already set for `HTML` for `charset` so just making sure it's all the same
