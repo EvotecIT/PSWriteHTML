@@ -65,6 +65,10 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.100 - Unreleased
+  - **Library updates**
+    - Update to `Apex Charts` from 3.20.0 to 3.20.1
+
 - 0.0.99 - 2020.09.07
   - **Notes**
     - [x] `UTF8` will be set by default for `HTML`. `Email` will pick content encoding from `HTML`
