@@ -8,7 +8,8 @@ function New-InternalDiagram {
         [object] $Height,
         [object] $Width,
         [string] $BackgroundImage,
-        [string] $BackgroundSize = '100% 100%'
+        [string] $BackgroundSize = '100% 100%',
+        [switch] $IconsAvailable
     )
     $Script:HTMLSchema.Features.VisNetwork = $true
     $Script:HTMLSchema.Features.VisData = $true
@@ -75,7 +76,7 @@ function New-InternalDiagram {
         "var edges = new vis.DataSet([$ConvertedEdges]); "
 
         '// create a network'
-        "var Container = document.getElementById('$ID'); "
+        "var container = document.getElementById('$ID'); "
         "var data = { "
         "   nodes: nodes, "
         "   edges: edges"
@@ -87,8 +88,34 @@ function New-InternalDiagram {
         } else {
             "var options = { }; "
         }
-        'var network = new vis.Network(Container, data, options); '
-
+        if ($IconsAvailable.IsPresent) {
+            @"
+            if (document.fonts) {
+                // Decent browsers: Make sure the fonts are loaded.
+                document.fonts
+                    .load('normal normal 900 24px/1 "Font Awesome 5 Free"').catch(console.error.bind(console, "Failed to load Font Awesome 5."))
+                    .then(
+                        document.fonts
+                            .load('normal normal 900 24px/1 "Font Awesome 5 Brands"')
+                            .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
+                            .then(
+                                function () { var network = new vis.Network(container, data, options); }
+                            ).catch(
+                                console.error.bind(console, "Failed to render the network with Font Awesome 5.")
+                            )
+                    ).catch(
+                        console.error.bind(console, "Failed to render the network with Font Awesome 5.")
+                    );
+            } else {
+                // IE: Let's just hope the fonts are loaded (they're probably not, hence the timeout).
+                window.addEventListener("load", function () {
+                    setTimeout(function () { var network = new vis.Network(container, data, options); }, 500);
+                });
+            }
+"@
+        } else {
+            'var network = new vis.Network(container, data, options); '
+        }
         $PreparedEvents
     } -NewLine
 

@@ -81,7 +81,7 @@ function New-HTMLDiagram {
 
     #>
 
-
+    $IconsAvailable = $false
     [Array] $Nodes = foreach ($_ in $DataNodes.Keys) {
         if ($DataNodes[$_]['image']) {
             if ($BundleImages) {
@@ -89,7 +89,9 @@ function New-HTMLDiagram {
             }
         }
         $NodeJson = $DataNodes[$_] | ConvertTo-Json -Depth 5 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
-
+        if ($DataNodes[$_].icon) {
+            $IconsAvailable = $true
+        }
         # We need to fix wrong escaped chars, Unescape breaks other parts
         $Replace = @{
             '"\"Font Awesome 5 Solid\""'        = "'`"Font Awesome 5 Solid`"'"
@@ -150,5 +152,5 @@ function New-HTMLDiagram {
         $Image = $BackGroundImage
     }
 
-    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height -BackgroundImage $Image -Events $DataEvents
+    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height -BackgroundImage $Image -Events $DataEvents -IconsAvailable:$IconsAvailable
 }
