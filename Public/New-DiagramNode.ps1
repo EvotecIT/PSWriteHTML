@@ -268,7 +268,6 @@ function New-DiagramNode {
                     color  = ConvertFrom-Color -Color $IconColor
                     weight = 'bold'
                 }
-
             } else {
                 $NodeShape = 'image'
                 $Image = -join ($Script:CurrentConfiguration.Features.FontsAwesome.Other.Link, 'brands/', $IconBrands, '.svg')
@@ -295,7 +294,6 @@ function New-DiagramNode {
                     color  = ConvertFrom-Color -Color $IconColor
                     weight = 'bold'
                 }
-
             } else {
                 $NodeShape = 'image'
                 $Image = -join ($Script:CurrentConfiguration.Features.FontsAwesome.Other.Link, 'solid/', $IconSolid, '.svg')
