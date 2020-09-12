@@ -65,6 +65,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.101 - 2020.09.12
+  - **Updates**
+    - [x] Added `Transpose` to `New-HTMLTable`/`Out-HtmlView`
 - 0.0.100 - 2020.09.12
   - **Library updates**
     - Update to `Apex Charts` from 3.20.0 to 3.20.1

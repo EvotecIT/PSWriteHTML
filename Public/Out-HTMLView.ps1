@@ -82,7 +82,8 @@ function Out-HtmlView {
         [int] $Last,
         [alias('Replace')][Array] $CompareReplace,
         [switch] $PreventShowHTML,
-        [switch] $Online
+        [switch] $Online,
+        [switch] $Transpose
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -116,7 +117,7 @@ function Out-HtmlView {
                     -FixedHeader:$FixedHeader -FixedFooter:$FixedFooter -ResponsivePriorityOrder $ResponsivePriorityOrder `
                     -ResponsivePriorityOrderIndex $ResponsivePriorityOrderIndex -PriorityProperties $PriorityProperties -AllProperties:$AllProperties `
                     -SkipProperties:$SkipProperties -Compare:$Compare -HighlightDifferences:$HighlightDifferences -First $First -Last $Last `
-                    -ImmediatelyShowHiddenDetails:$ImmediatelyShowHiddenDetails -Simplify:$Simplify -HideShowButton:$HideShowButton -CompareReplace $CompareReplace
+                    -ImmediatelyShowHiddenDetails:$ImmediatelyShowHiddenDetails -Simplify:$Simplify -HideShowButton:$HideShowButton -CompareReplace $CompareReplace -Transpose:$Transpose
             }
             if ($PassThru) {
                 # This isn't really real PassThru but just passing final object further down the pipe when needed

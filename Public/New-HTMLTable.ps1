@@ -63,7 +63,8 @@ function New-HTMLTable {
         [switch] $SearchPane,
         [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top',
         [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore,
-        [string] $DataStoreID
+        [string] $DataStoreID,
+        [switch] $Transpose
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -108,6 +109,11 @@ function New-HTMLTable {
     # This will be used to store the colulmnDef option for the datatable
     $ColumnDefinitionList = [System.Collections.Generic.List[PSCustomObject]]::New()
     $RowGrouping = @{ }
+
+    if ($Transpose) {
+        # Allows easy conversion from PSCustomObject to Hashtable and vice versa
+        $DataTable = Format-TransposeTable -Object $DataTable
+    }
 
     if ($HTML) {
         [Array] $Output = & $HTML
