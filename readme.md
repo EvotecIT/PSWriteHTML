@@ -68,7 +68,10 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - 0.0.100 - Unreleased
   - **Library updates**
     - Update to `Apex Charts` from 3.20.0 to 3.20.1
-
+  - **Updates**
+    - [x] Fix long lasting issue with loading `FontIcons` in diagrams. Should be visible now.
+    - [x] Support for nested hashtables `ConvertTo-CascadingStyleSheets`
+    - [x] Fix/workaround for IE11 issue with section not showing any data, broken in 0.0.99
 - 0.0.99 - 2020.09.07
   - **Notes**
     - [x] `UTF8` will be set by default for `HTML`. `Email` will pick content encoding from `HTML`
@@ -87,7 +90,6 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Addeed **NoClosing** parameter to `New-HTMLTag`
     - [x] Improvements to `Section` Hiding horizontally and vertically
     - [x] Improvements to diagram resizing when section resizes - should be no need to resize diagram anymore
-
 - 0.0.98 - 2020.08.30
   - **New/Non-Breaking**
     - [x] Added `DataStoreID` to `New-HTMLTable` for use with `DataStore = JavaScript`
