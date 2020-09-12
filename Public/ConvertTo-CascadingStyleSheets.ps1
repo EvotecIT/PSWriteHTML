@@ -14,16 +14,33 @@
         }
 
         $Output = foreach ($Key in $Css.Keys) {
-            "$Key {"
-            foreach ($_ in $Css[$Key].Keys) {
-                if ($null -ne $Css[$Key][$_]) {
-                    # we remove empty chars because sometimes there cab be multiple lines similar to each other
-                    $Property = $_.Replace(' ', '')
-                    "    $Property`: $($Css[$Key][$_]);"
+
+            if ($Css[$Key] -is [System.Collections.IDictionary]) {
+                "$Key {"
+                foreach ($_ in $Css[$Key].Keys) {
+                    if ($null -ne $Css[$Key][$_]) {
+                        # we remove empty chars because sometimes there can be multiple lines similar to each other
+
+                        if ($Css[$Key][$_] -is [System.Collections.IDictionary]) {
+                            "$_ {"
+                            $Deep = ConvertTo-CascadingStyleSheets -Css $Css[$Key][$_]
+                            $Deep
+                            "}"
+                        } else {
+                            $Property = $_.Replace(' ', '')
+                            "    $Property`: $($Css[$Key][$_]);"
+                        }
+                    } else {
+                        Write-Verbose ""
+                    }
                 }
+                "}"
+                ''
+            } else {
+                $Property = $Key.Replace(' ', '')
+                "    $Property`: $($Css[$Key]);"
             }
-            "}"
-            ''
+
         }
         if ($WithTags) {
             New-HTMLTag -Tag 'style' {
@@ -34,3 +51,32 @@
         }
     }
 }
+<#
+
+$Test = @{
+    '@media all and (-ms-high-contrast:active)' = @{
+        '.defaultSection' = @{
+            'display'        = 'flex'
+            'flex-direction' = 'column'
+        }
+    }
+}
+
+$Test2 = @{
+    '.defaultSection'                           = [ordered] @{
+        #'display'        = 'flex';
+        #'flex-direction' = 'column'
+        #'display'        = 'flex' # added to allow diagram to resize properly
+        #'flex-direction' = 'default' # added to allow diagram to resize properly
+        'border'         = '1px solid #bbbbbb'
+        'padding-bottom' = '0px'
+        'margin'         = '5px'
+        'width'          = 'calc(100% - 10px)'
+        'box-shadow'     = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
+        'transition'     = '0.3s'
+        'border-radius'  = '5px'
+    }
+}
+
+ConvertTo-CascadingStyleSheets -Css $Test
+#>
