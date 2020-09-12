@@ -137,10 +137,15 @@ $Script:Configuration = [ordered] @{
             HeaderAlways = @{
                 Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
                 CssInline = [ordered] @{
-                    '.defaultSection'     = [ordered] @{
-                        'display'        = 'flex';
-                        'flex-direction' = 'column'
+                    # Workaround for IE 11
+                    '@media all and (-ms-high-contrast:active)' = @{
+                        '.defaultSection' = @{
+                            'display' = 'flex'
+                        }
+                    }
+                    '.defaultSection'                           = [ordered] @{
                         #'display'        = 'flex' # added to allow diagram to resize properly
+                        'flex-direction' = 'column' # added to allow diagram to resize properly
                         #'flex-direction' = 'default' # added to allow diagram to resize properly
                         'border'         = '1px solid #bbbbbb'
                         'padding-bottom' = '0px'
@@ -150,7 +155,7 @@ $Script:Configuration = [ordered] @{
                         'transition'     = '0.3s'
                         'border-radius'  = '5px'
                     }
-                    '.defaultSectionHead' = [ordered] @{
+                    '.defaultSectionHead'                       = [ordered] @{
                         'display'          = 'flex'
                         'justify-content'  = 'center'
                         'padding'          = '5px'
@@ -159,10 +164,10 @@ $Script:Configuration = [ordered] @{
                         "background-color" = ConvertFrom-Color -Color "DeepSkyBlue"
                         'color'            = ConvertFrom-Color -Color "White"
                     }
-                    '.defaultSectionText' = [ordered] @{
+                    '.defaultSectionText'                       = [ordered] @{
                         "text-align" = 'center'
                     }
-                    '.defaultPanel'       = [ordered] @{
+                    '.defaultPanel'                             = [ordered] @{
                         'box-shadow'    = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
                         'transition'    = '0.3s'
                         'border-radius' = '5px'
