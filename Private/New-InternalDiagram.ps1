@@ -10,14 +10,14 @@ function New-InternalDiagram {
         [string] $BackgroundImage,
         [string] $BackgroundSize = '100% 100%',
         [switch] $IconsAvailable,
-        [switch] $DisableLoadingBar
+        [switch] $DisableLoader
     )
     $Script:HTMLSchema.Features.VisNetwork = $true
     $Script:HTMLSchema.Features.VisData = $true
     $Script:HTMLSchema.Features.Moment = $true
 
 
-    if (-not $DisableLoadingBar) {
+    if (-not $DisableLoader) {
         $Script:HTMLSchema.Features.VisNetworkLoadingBar = $true
     }
     # Vis network clustering allows to cluster more than 1 node, there's no code to enable it yet
@@ -49,7 +49,7 @@ function New-InternalDiagram {
         id    = $ID
     }
 
-    if (-not $DisableLoadingBar) {
+    if (-not $DisableLoader) {
         $Div = New-HTMLTag -Tag 'div' -Attributes @{ class = 'diagramWrapper' } -Value {
             New-HTMLTag -Tag 'div' -Attributes $AttributesOutside -Value {
                 New-HTMLTag -Tag 'div' -Attributes $AttributesInside
