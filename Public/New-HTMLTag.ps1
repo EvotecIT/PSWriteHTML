@@ -15,6 +15,5 @@ function New-HTMLTag {
         SelfClosing = $SelfClosing
         NoClosing   = $NoClosing
     }
-    $HTML = Set-Tag -HtmlObject $HTMLTag -NewLine:$NewLine
-    $HTML
+    Set-Tag -HtmlObject $HTMLTag -NewLine:$NewLine
 }
