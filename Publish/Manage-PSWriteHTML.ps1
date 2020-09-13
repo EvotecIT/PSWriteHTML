@@ -8,30 +8,40 @@ $Configuration = @{
 
         Manifest          = @{
             # Version number of this module.
-            ModuleVersion        = '0.0.X'
+            ModuleVersion              = '0.0.X'
             # Supported PSEditions
-            CompatiblePSEditions = @('Desktop', 'Core')
+            CompatiblePSEditions       = @('Desktop', 'Core')
             # ID used to uniquely identify this module
-            GUID                 = 'a7bdf640-f5cb-4acf-9de0-365b322d245c'
+            GUID                       = 'a7bdf640-f5cb-4acf-9de0-365b322d245c'
             # Author of this module
-            Author               = 'Przemyslaw Klys'
+            Author                     = 'Przemyslaw Klys'
             # Company or vendor of this module
-            CompanyName          = 'Evotec'
+            CompanyName                = 'Evotec'
             # Copyright statement for this module
-            Copyright            = "(c) 2011 - $((Get-Date).Year) Przemyslaw Klys @ Evotec. All rights reserved."
+            Copyright                  = "(c) 2011 - $((Get-Date).Year) Przemyslaw Klys @ Evotec. All rights reserved."
             # Description of the functionality provided by this module
-            Description          = 'Module that allows creating HTML content/reports in a easy way.'
+            Description                = 'Module that allows creating HTML content/reports in a easy way.'
             # Minimum version of the Windows PowerShell engine required by this module
-            PowerShellVersion    = '5.1'
+            PowerShellVersion          = '5.1'
             # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
-            Tags                 = @('HTML', 'WWW', 'JavaScript', 'CSS', 'Reports', 'Reporting', 'Windows', 'MacOS', 'Linux')
+            Tags                       = @('HTML', 'WWW', 'JavaScript', 'CSS', 'Reports', 'Reporting', 'Windows', 'MacOS', 'Linux')
 
-            IconUri              = 'https://evotec.xyz/wp-content/uploads/2018/12/PSWriteHTML.png'
+            IconUri                    = 'https://evotec.xyz/wp-content/uploads/2018/12/PSWriteHTML.png'
 
-            ProjectUri           = 'https://github.com/EvotecIT/PSWriteHTML'
+            ProjectUri                 = 'https://github.com/EvotecIT/PSWriteHTML'
 
-            RequiredModules      = @(
+            RequiredModules            = @(
                 @{ ModuleName = 'PSSharedGoods'; ModuleVersion = "Latest"; Guid = 'ee272aa8-baaa-4edf-9f45-b6d6f7d844fe' }
+            )
+            ExternalModuleDependencies = @(
+                #"ActiveDirectory"
+                #"GroupPolicy"
+                #"DnsServer"
+                #"DnsClient"
+                #"CimCmdlets"
+                #"NetTCPIP"
+                #"Microsoft.PowerShell.Management"
+                #"Microsoft.PowerShell.Security"
             )
         }
     }
@@ -147,10 +157,10 @@ $Configuration = @{
             Verbose         = $false
         }
         PublishModule      = @{  # requires Enable to be on to process all of that
-            Enabled      = $false
+            Enabled      = $true
             Prerelease   = ''
             RequireForce = $false
-            GitHub       = $false
+            GitHub       = $true
         }
     }
 }
