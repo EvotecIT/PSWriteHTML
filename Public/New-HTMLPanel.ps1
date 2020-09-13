@@ -27,16 +27,11 @@ Function New-HTMLPanel {
     $PanelStyle = [ordered] @{
         "background-color" = ConvertFrom-Color -Color $BackgroundColor
         'border-radius'    = $BorderRadius
+        'text-align'       = $AlignContentText # This controls content within panel if it's not 100% width such as text
     }
     if ($Invisible) {
         $PanelStyle['box-shadow'] = 'unset !important;'
     }
-
-    # This controls content within panel if it's not 100% width such as text
-    $ContentStyle = @{
-        'text-align' = $AlignContentText
-    }
-
     if ($Width -or $Margin) {
         [string] $ClassName = "flexPanel$(Get-RandomStringName -Size 8 -LettersOnly)"
         $Attributes = @{
@@ -51,9 +46,7 @@ Function New-HTMLPanel {
         [string] $Class = 'flexPanel overflowHidden'
     }
     New-HTMLTag -Tag 'div' -Attributes @{ id = $AnchorName; class = "$Class $($StyleSheetsConfiguration.Panel)"; style = $PanelStyle } {
-        New-HTMLTag -Tag 'div' -Attributes @{ style = $ContentStyle } {
-            Invoke-Command -ScriptBlock $Content
-        }
+        Invoke-Command -ScriptBlock $Content
     }
 }
 
