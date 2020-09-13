@@ -48,7 +48,7 @@ function loadDiagram(container, data, options, id, loader) {
         });
         network.once("stabilizationIterationsDone", function () {
             document.getElementById(id + "-diagramText").innerHTML = "100%";
-            document.getElementById(id + "-diagramBar").style.width = "496px";
+            document.getElementById(id + "-diagramBar").style.width = "100%";
             document.getElementById(id + "-diagramLoadingBar").style.opacity = 0;
             // really clean the dom element
             setTimeout(function () {
