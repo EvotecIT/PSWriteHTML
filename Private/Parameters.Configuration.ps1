@@ -666,8 +666,17 @@ $Script:Configuration = [ordered] @{
                 JsLink = 'https://unpkg.com/vis-network@8.3.2/peer/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
             }
+        }
+        VisNetworkClustering  = [ordered] @{
+            Comment      = 'VIS Network Clustering'
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
+            }
+        }
+        VisNetworkLoadingBar  = [ordered]@{
+            Comment      = 'VIS Network Loading Bar'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\vis-network.loadingbar.css"
             }
         }
         VisNetworkStandalone  = [ordered]@{
