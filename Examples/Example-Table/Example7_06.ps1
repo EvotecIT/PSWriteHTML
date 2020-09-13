@@ -7,4 +7,7 @@ New-HTML -TitleText "Testing HideButtons" -Online -FilePath "$PSScriptRoot\Examp
     New-HTMLSection -HeaderText "Hide Buttons" -Content {
         New-HTMLTable -DataTable $Table -HideButtons
     }
+    New-HTMLSection -HeaderText "Hide Buttons" -Content {
+        New-HTMLTable -DataTable $Table -HideButtons -Transpose
+    }
 } -ShowHTML

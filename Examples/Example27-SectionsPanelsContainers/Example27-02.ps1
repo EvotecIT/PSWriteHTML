@@ -32,6 +32,4 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example27-02.html
             New-HTMLTable -DataTable $Test1 -HideFooter
         } -StyleSheetsConfiguration $SectionStyle3
     } -StyleSheetsConfiguration $SectionStyleHidden
-
 }
-

@@ -4,7 +4,7 @@ if ($null -eq $Table) {
     $Table = (Get-Process | Select-Object -First 5 -Property Name, BasePriority, Company, CompanyName)
 }
 if ($null -eq $Table1) {
-    $Table1 = (Get-ChildItem | Select-Object -First 5)
+    $Table1 = (Get-ChildItem | Select-Object -First 5 -Property Name, BasePriority, Company, CompanyName)
 }
 
 Email -AttachSelf -AttachSelfName 'My report' {
@@ -13,11 +13,15 @@ Email -AttachSelf -AttachSelfName 'My report' {
         EmailTo -Addresses "przemyslaw.klys@domain.pl"
         EmailCC -Addresses "przemyslaw.klys@domain.pl"
         EmailBCC -Addresses "kontakt@domain.pl"
-        EmailServer -Server 'mail.domain.pl' -Username 'UserName' -Password 'C:\Support\Important\Password-Evotec-Reminder.txt' -PasswordAsSecure -PasswordFromFile
+        EmailServer -Server 'mail.domain.pl' -UserName 'UserName' -Password 'C:\Support\Important\Password-Evotec-Reminder.txt' -PasswordAsSecure -PasswordFromFile
         EmailOptions -Priority Low
         EmailSubject -Subject 'This is a test email'
     }
-    EmailBody -FontSize 8pt -FontFamily 'Tahoma' {
+    EmailBody -FontSize 8px -FontFamily 'Tahoma' {
+        EmailText -Text 'This should be font 8pt, table should also be font 8pt'
+        EmailTable -Table $Table
+        EmailText -LineBreak
+
         EmailTextBox -FontFamily 'Calibri' -Size 17 -TextDecoration underline -Color DarkSalmon -Alignment center {
             'Demonstration'
         }
@@ -62,4 +66,4 @@ Email -AttachSelf -AttachSelfName 'My report' {
 
         EmailText -LineBreak
     }
-} -FilePath "$PSScriptRoot\Output\Example-DifferentFeaturesInAction.html"
+} -FilePath "$PSScriptRoot\Output\Example-DifferentFeaturesInAction.html" -WhatIf -Online

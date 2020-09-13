@@ -4,12 +4,12 @@ New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-Diagrams
     New-HTMLTabStyle -SlimTabs
     New-HTMLTab -Name 'Diagrams' -IconRegular arrow-alt-circle-left {
         New-HTMLSection -HeaderText 'Diagram - Defaults' -CanCollapse {
-            New-HTMLPanel {
-                New-HTMLDiagram -Width '1000px' -Height '1000px' {
+            New-HTMLSection -Height '1000px' {
+                New-HTMLDiagram {
                     New-DiagramOptionsInteraction -Hover $true
                     #New-DiagramOptionsManipulation
-                    New-DiagramNode -Label '1 test' -To '3','6','7' -ColorBackground Bisque
-                    New-DiagramNode -Label '2' -To 'Przemyslaw Klys','1 test'
+                    New-DiagramNode -Label '1 test' -To '3', '6', '7' -ColorBackground Bisque
+                    New-DiagramNode -Label '2' -To 'Przemyslaw Klys', '1 test'
                     New-DiagramNode -Label '3'
                     New-DiagramNode -Label 'Size based on name' -Shape database -Size 10
                     New-DiagramNode -Label 'Przemyslaw Klys'
@@ -19,7 +19,7 @@ New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-Diagrams
                 }
             }
             New-HTMLPanel {
-                New-HTMLTable -DataTable (Get-Process | Select-Object -First 5)
+                New-HTMLTable -DataTable (Get-Process | Select-Object -First 2)
             }
         }
     }

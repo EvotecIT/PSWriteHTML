@@ -10,7 +10,7 @@ New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example30-LinkedP
         }
         New-HTMLPanel {
             New-HTMLDiagram {
-                New-DiagramEvent -ID $TableID -ColumnID 1
+                New-DiagramEvent -ID $TableID -ColumnID 2
                 New-DiagramNode -Label 'Processes' -IconBrands delicious
                 foreach ($_ in $Processes) {
                     New-DiagramNode -Label $_.ProcessName -Id $_.Id -To 'Processes'

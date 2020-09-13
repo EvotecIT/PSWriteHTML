@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 Dashboard -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-Diagrams02_DashimoStyle.html {
-    Diagram -Height '540px' {
+    Diagram -Height 'calc(100vh - 20px)' {
         DiagramOptionsInteraction -Hover $true
         DiagramOptionsPhysics -Enabled $false
         DiagramNode -Label '1 test' -To '3', '6', '7' -ColorBackground Bisque

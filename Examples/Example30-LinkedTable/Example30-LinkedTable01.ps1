@@ -28,7 +28,7 @@ New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example30-LinkedT
                     foreach ($_ in $Users) {
                         New-DiagramNode -Label $_.SamAccountName -To 'AD Users' -IconRegular user-circle
                     }
-                }
+                } #-DisableLoadingBar
             }
         }
         New-HTMLSection -HeaderText 'Active Directory Users' -HeaderBackGroundColor Grey {
