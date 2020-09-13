@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.103 - 2020.09.13
+  - Fix for wrong custom CSS placement
 - 0.0.102 - 2020.09.13
   - **Updates**
   - Fix for `New-DiagramEvent` to work while `FontIcons` are used

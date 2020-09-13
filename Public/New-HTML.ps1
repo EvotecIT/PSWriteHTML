@@ -163,9 +163,9 @@ Function New-HTML {
                     Get-Resources -Online:$false -Location 'HeaderAlways' -Features $Features -NoScript
                     Get-Resources -Online:$Online.IsPresent -Location 'Header' -Features $Features
                 }
+                New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
+                New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS
             }
-            New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
-            New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS
             '<!-- END HEAD -->'
             '<!-- BODY -->'
             New-HTMLTag -Tag 'body' {
