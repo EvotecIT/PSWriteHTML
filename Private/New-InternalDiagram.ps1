@@ -99,7 +99,10 @@ function New-InternalDiagram {
                             .load('normal normal 900 24px/1 "Font Awesome 5 Brands"')
                             .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
                             .then(
-                                function () { var network = new vis.Network(container, data, options); }
+                                function () {
+                                    var network = new vis.Network(container, data, options);
+                                    $PreparedEvents
+                                }
                             ).catch(
                                 console.error.bind(console, "Failed to render the network with Font Awesome 5.")
                             )
@@ -109,14 +112,17 @@ function New-InternalDiagram {
             } else {
                 // IE: Let's just hope the fonts are loaded (they're probably not, hence the timeout).
                 window.addEventListener("load", function () {
-                    setTimeout(function () { var network = new vis.Network(container, data, options); }, 500);
+                    setTimeout(function () {
+                        var network = new vis.Network(container, data, options);
+                        $PreparedEvents
+                    }, 500);
                 });
             }
 "@
         } else {
             'var network = new vis.Network(container, data, options); '
+            $PreparedEvents
         }
-        $PreparedEvents
     } -NewLine
 
     $Div
