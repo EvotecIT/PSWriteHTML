@@ -8,7 +8,8 @@ function New-HTMLDiagram {
         [switch] $BundleImages,
         [uri] $BackGroundImage,
         [string] $BackgroundSize = '100% 100%',
-        [switch] $NoAutoResize # Doesn't seem to do anything
+        [switch] $NoAutoResize, # Doesn't seem to do anything
+        [switch] $DisableLoadingBar
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLDiagram - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -152,5 +153,5 @@ function New-HTMLDiagram {
         $Image = $BackGroundImage
     }
 
-    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height -BackgroundImage $Image -Events $DataEvents -IconsAvailable:$IconsAvailable
+    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height -BackgroundImage $Image -Events $DataEvents -IconsAvailable:$IconsAvailable -DisableLoadingBar:$DisableLoadingBar
 }

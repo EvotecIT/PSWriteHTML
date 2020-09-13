@@ -9,13 +9,22 @@ function New-InternalDiagram {
         [object] $Width,
         [string] $BackgroundImage,
         [string] $BackgroundSize = '100% 100%',
-        [switch] $IconsAvailable
+        [switch] $IconsAvailable,
+        [switch] $DisableLoadingBar
     )
     $Script:HTMLSchema.Features.VisNetwork = $true
     $Script:HTMLSchema.Features.VisData = $true
     $Script:HTMLSchema.Features.Moment = $true
 
-    [string] $ID = "Diagram-" + (Get-RandomStringName -Size 8)
+
+    if (-not $DisableLoadingBar) {
+        $Script:HTMLSchema.Features.VisNetworkLoadingBar = $true
+    }
+    # Vis network clustering allows to cluster more than 1 node, there's no code to enable it yet
+    #$Script:HTMLSchema.Features.VisNetworkClustering = $true
+
+
+    [string] $ID = "Diagram" + (Get-RandomStringName -Size 8)
 
     $Style = [ordered] @{
         position = 'relative'
@@ -27,7 +36,7 @@ function New-InternalDiagram {
         $Style['background-size'] = $BackgroundSize
     }
 
-    $Attributes = [ordered] @{
+    $AttributesOutside = [ordered] @{
         class = 'diagram'
         style = $Style
     }
@@ -40,8 +49,40 @@ function New-InternalDiagram {
         id    = $ID
     }
 
-    $Div = New-HTMLTag -Tag 'div' -Attributes $Attributes {
-        New-HTMLTag -Tag 'div' -Attributes $AttributesInside
+    if (-not $DisableLoadingBar) {
+        $Div = New-HTMLTag -Tag 'div' -Attributes @{ class = 'diagramWrapper' } -Value {
+            New-HTMLTag -Tag 'div' -Attributes $AttributesOutside -Value {
+                New-HTMLTag -Tag 'div' -Attributes $AttributesInside
+            }
+            New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramLoadingBar"; class = 'diagramLoadingBar' } {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = "diagramOuterBorder" } {
+                    New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramText"; class = 'diagramText' } -Value { '0%' }
+                    New-HTMLTag -Tag 'div' -Attributes @{ class = 'diagramBorder' } {
+                        New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramBar"; class = 'diagramBar' }
+                    }
+                }
+            }
+        }
+
+        <#
+        $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramWrapper"; class = 'diagramWrapper' } -Value {
+            New-HTMLTag -Tag 'div' -Attributes $AttributesOutside -Value {
+                New-HTMLTag -Tag 'div' -Attributes $AttributesInside
+            }
+            New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramLoadingBar"; class = 'diagramLoadingBar' } {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ID-diagramOuterBorder" } {
+                    New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramText"; class = 'diagramText' } -Value { '0%' }
+                    New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramBorder"; class = 'diagramBorder' } {
+                        New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramBar"; class = 'diagramBar' }
+                    }
+                }
+            }
+        }
+        #>
+    } else {
+        $Div = New-HTMLTag -Tag 'div' -Attributes $AttributesOutside {
+            New-HTMLTag -Tag 'div' -Attributes $AttributesInside
+        }
     }
     $ConvertedNodes = $Nodes -join ', '
     $ConvertedEdges = $Edges -join ', '
@@ -63,7 +104,33 @@ function New-InternalDiagram {
             '});'
         )
     }
+    if ($DisableLoadingBar) {
+        $LoadingBarEvent = ''
+    } else {
+        $LoadingBarEvent = @"
+            network.on("stabilizationProgress", function (params) {
+                var maxWidth = 496;
+                var minWidth = 20;
+                var widthFactor = params.iterations / params.total;
+                var width = Math.max(minWidth, maxWidth * widthFactor);
 
+                document.getElementById("$ID-diagramBar").style.width = width + "px";
+                document.getElementById("$ID-diagramText").innerHTML = Math.round(widthFactor * 100) + "%";
+            });
+            network.once("stabilizationIterationsDone", function () {
+                document.getElementById("$ID-diagramText").innerHTML = "100%";
+                document.getElementById("$ID-diagramBar").style.width = "496px";
+                document.getElementById("$ID-diagramLoadingBar").style.opacity = 0;
+                // really clean the dom element
+                setTimeout(function () {
+                    document.getElementById("$ID-diagramLoadingBar").style.display = "none";
+                }, 500);
+            });
+            //window.addEventListener("load", () => {
+            //    draw();
+            //});
+"@
+    }
 
     $Script = New-HTMLTag -Tag 'script' -Value {
         # Convert Dictionary to JSON and return chart within SCRIPT tag
@@ -102,6 +169,7 @@ function New-InternalDiagram {
                                 function () {
                                     var network = new vis.Network(container, data, options);
                                     $PreparedEvents
+                                    $LoadingBarEvent
                                 }
                             ).catch(
                                 console.error.bind(console, "Failed to render the network with Font Awesome 5.")
@@ -115,6 +183,7 @@ function New-InternalDiagram {
                     setTimeout(function () {
                         var network = new vis.Network(container, data, options);
                         $PreparedEvents
+                        $LoadingBarEvent
                     }, 500);
                 });
             }
@@ -122,6 +191,7 @@ function New-InternalDiagram {
         } else {
             'var network = new vis.Network(container, data, options); '
             $PreparedEvents
+            $LoadingBarEvent
         }
     } -NewLine
 
