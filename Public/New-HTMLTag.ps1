@@ -10,11 +10,11 @@ function New-HTMLTag {
     )
     $HTMLTag = [Ordered] @{
         Tag         = $Tag
-        Attributes  = $Attributes
         Value       = if ($null -eq $Value) { '' } else { Invoke-Command -ScriptBlock $Value }
+        Attributes  = $Attributes
         SelfClosing = $SelfClosing
         NoClosing   = $NoClosing
     }
     $HTML = Set-Tag -HtmlObject $HTMLTag -NewLine:$NewLine
-    return $HTML
+    $HTML
 }
