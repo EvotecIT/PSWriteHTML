@@ -65,6 +65,10 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.102 - UNreleased
+  - **Updates**
+  - Fix for `New-DiagramEvent` to work while `FontIcons` are used
+  - Some improvements to `New-HTMLPanel` to better position Diagrams
 - 0.0.101 - 2020.09.12
   - **Updates**
     - [x] Added `Transpose` to `New-HTMLTable`/`Out-HtmlView`
