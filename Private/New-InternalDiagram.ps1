@@ -15,7 +15,7 @@ function New-InternalDiagram {
     $Script:HTMLSchema.Features.VisNetwork = $true
     $Script:HTMLSchema.Features.VisData = $true
     $Script:HTMLSchema.Features.Moment = $true
-
+    $Script:HTMLSchema.Features.VisNetworkLoad = $true
 
     if (-not $DisableLoader) {
         $Script:HTMLSchema.Features.VisNetworkLoadingBar = $true
@@ -89,12 +89,7 @@ function New-InternalDiagram {
 
     if ($Events.Count -gt 0) {
         [Array] $PreparedEvents = @(
-            # https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex'
-            @'
-            function escapeRegExp(string) {
-                return string.toString().replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-            };
-'@
+
             'network.on("click", function (params) {'
             'params.event = "[original event]";'
             'var findValue = escapeRegExp(params.nodes);'
@@ -104,7 +99,7 @@ function New-InternalDiagram {
             '});'
         )
     }
-    if ($DisableLoadingBar) {
+    if ($DisableLoader) {
         $LoadingBarEvent = ''
     } else {
         $LoadingBarEvent = @"
@@ -132,6 +127,14 @@ function New-InternalDiagram {
 "@
     }
 
+    $FunctionInclude = @"
+    function loadDiagram(container, data, options) {
+        var network = new vis.Network(container, data, options);
+        $PreparedEvents
+        $LoadingBarEvent
+    }
+"@
+
     $Script = New-HTMLTag -Tag 'script' -Value {
         # Convert Dictionary to JSON and return chart within SCRIPT tag
         # Make sure to return with additional empty string
@@ -155,44 +158,11 @@ function New-InternalDiagram {
         } else {
             "var options = { }; "
         }
-        if ($IconsAvailable.IsPresent) {
-            @"
-            if (document.fonts) {
-                // Decent browsers: Make sure the fonts are loaded.
-                document.fonts
-                    .load('normal normal 900 24px/1 "Font Awesome 5 Free"').catch(console.error.bind(console, "Failed to load Font Awesome 5."))
-                    .then(
-                        document.fonts
-                            .load('normal normal 900 24px/1 "Font Awesome 5 Brands"')
-                            .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
-                            .then(
-                                function () {
-                                    var network = new vis.Network(container, data, options);
-                                    $PreparedEvents
-                                    $LoadingBarEvent
-                                }
-                            ).catch(
-                                console.error.bind(console, "Failed to render the network with Font Awesome 5.")
-                            )
-                    ).catch(
-                        console.error.bind(console, "Failed to render the network with Font Awesome 5.")
-                    );
-            } else {
-                // IE: Let's just hope the fonts are loaded (they're probably not, hence the timeout).
-                window.addEventListener("load", function () {
-                    setTimeout(function () {
-                        var network = new vis.Network(container, data, options);
-                        $PreparedEvents
-                        $LoadingBarEvent
-                    }, 500);
-                });
-            }
-"@
-        } else {
-            'var network = new vis.Network(container, data, options); '
-            $PreparedEvents
-            $LoadingBarEvent
-        }
+        $DisableLoaderString = (-not $DisableLoader).ToString().ToLower()
+        $IconsAvailableString = $IconsAvailable.IsPresent.ToString().ToLower()
+        "var network = loadDiagramWithFonts(container, data, options, '$ID', $DisableLoaderString , $IconsAvailableString);"
+        "$PreparedEvents"
+
     } -NewLine
 
     $Div

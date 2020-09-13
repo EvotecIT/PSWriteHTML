@@ -679,6 +679,12 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\vis-network.loadingbar.css"
             }
         }
+        VisNetworkLoad        = [ordered] @{
+            Comment      = 'VIS Network Load'
+            HeaderAlways = @{
+                JS = "$PSScriptRoot\..\Resources\JS\vis-networkLoadDiagram.js"
+            }
+        }
         VisNetworkStandalone  = [ordered]@{
             Comment      = 'VIS Network Standalone Dynamic, browser based visualization libraries'
             HeaderAlways = @{

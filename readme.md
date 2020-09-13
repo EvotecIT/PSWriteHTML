@@ -69,6 +69,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - **Updates**
   - Fix for `New-DiagramEvent` to work while `FontIcons` are used
   - Some improvements to `New-HTMLPanel` to better position Diagrams
+  - Added Loading Bar to `New-HTMLDiagram`. You can disable it using `DisableLoader` switch.
 - 0.0.101 - 2020.09.12
   - **Updates**
     - [x] Added `Transpose` to `New-HTMLTable`/`Out-HtmlView`
