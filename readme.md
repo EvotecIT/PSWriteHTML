@@ -65,6 +65,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.104 - 2020.09.14
+  - Added `notlike`/`notcontains` operators to `New-TableCondition`
+  - Fixed `like/notcontains` operators for JavaScript datasource in `New-TableCondition`
 - 0.0.103 - 2020.09.13
   - Fix for wrong custom CSS placement
 - 0.0.102 - 2020.09.13

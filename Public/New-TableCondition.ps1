@@ -4,7 +4,7 @@ function New-TableCondition {
     param(
         [alias('ColumnName')][string] $Name,
         [alias('Type')][ValidateSet('number', 'string', 'bool')][string] $ComparisonType,
-        [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'ne', 'contains', 'like')][string] $Operator,
+        [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'ne', 'contains', 'like', 'notlike', 'notcontains')][string] $Operator,
         [Object] $Value,
         [switch] $Row,
         [string]$Color,

@@ -44,6 +44,11 @@ function New-TableConditionalFormatting {
                         switch -Regex ($Condition.Operator) {
                             "contains|like" {
                                 "if (/$($Condition.Value.Replace('*','.*'))/i.test(data[$($ConditionHeaderNr)])) {"
+                                break
+                            }
+                            "notcontains|notlike" {
+                                "if (!/$($Condition.Value.Replace('*','.*'))/i.test(data[$($ConditionHeaderNr)])) {"
+                                break
                             }
                             default {
                                 "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
@@ -89,8 +94,13 @@ function New-TableConditionalFormatting {
                         }
                     } elseif ($Condition.Type -eq 'string') {
                         switch -Regex ($Condition.Operator) {
+                            "notcontains|notlike" {
+                                "if (!/$($Condition.Value.Replace('*','.*'))/i.test(data.$ColumnName)) {"
+                                break
+                            }
                             "contains|like" {
-                                "if (/$($Condition.Value.Replace('*','.*'))/i.test(data[$($ConditionHeaderNr)])) {"
+                                "if (/$($Condition.Value.Replace('*','.*'))/i.test(data.$ColumnName)) {"
+                                break
                             }
                             default {
                                 "if (data.$ColumnName $($Condition.Operator) '$($Condition.Value)') {"
