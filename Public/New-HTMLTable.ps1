@@ -273,7 +273,6 @@ function New-HTMLTable {
 
     $Options = [ordered] @{
         'dom'            = $null
-        #buttons          = @($Buttons)
         "searchFade"     = $false
         "colReorder"     = -not $DisableColumnReorder.IsPresent
 
@@ -420,7 +419,7 @@ function New-HTMLTable {
                             title       = $Title
                         }
                     } elseif ($button -eq 'pageLength') {
-                        if (-not $DisablePaging) {
+                        if (-not $DisablePaging -and -not $ScrollY) {
                             $ButtonOutput = @{
                                 extend = $button
                             }
