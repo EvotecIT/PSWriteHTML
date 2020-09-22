@@ -420,8 +420,10 @@ function New-HTMLTable {
                             title       = $Title
                         }
                     } elseif ($button -eq 'pageLength') {
-                        $ButtonOutput = @{
-                            extend = $button
+                        if (-not $DisablePaging) {
+                            $ButtonOutput = @{
+                                extend = $button
+                            }
                         }
                     } else {
                         $ButtonOutput = [ordered] @{

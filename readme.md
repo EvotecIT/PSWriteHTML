@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.105 - Unreleased
+  - Improved `New-HTMLTable - removed page button if`DisablePaging` is selected
 - 0.0.104 - 2020.09.14
   - Added `notlike`/`notcontains` operators to `New-TableCondition`
   - Fixed `like/notcontains` operators for JavaScript datasource in `New-TableCondition`
