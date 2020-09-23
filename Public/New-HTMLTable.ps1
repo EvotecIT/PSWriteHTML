@@ -74,12 +74,14 @@ function New-HTMLTable {
         Write-Warning 'New-HTMLTable - Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both.'
     }
     # There are 3 types of storage: HTML, JavaScript, File
-    if ($DataStore -eq '' -and $Script:HTMLSchema.TableOptions.DataStore) {
-        # If DataStore is not picked locally, we use global value (assuming it's set)
-        $DataStore = $Script:HTMLSchema.TableOptions.DataStore
-    } else {
-        # No global value, no local value, we set it default
-        $DataStore = 'HTML'
+    if ($DataStore -eq '') {
+        if ($Script:HTMLSchema.TableOptions.DataStore) {
+            # If DataStore is not picked locally, we use global value (assuming it's set)
+            $DataStore = $Script:HTMLSchema.TableOptions.DataStore
+        } else {
+            # No global value, no local value, we set it default
+            $DataStore = 'HTML'
+        }
     }
     if ($DataStore -eq 'AjaxJSON') {
         if (-not $Script:HTMLSchema['TableOptions']['Folder']) {
@@ -88,7 +90,7 @@ function New-HTMLTable {
         }
     }
     if ($DataStoreID -and $DataStore -ne 'JavaScript') {
-        Write-Warning 'New-HTMLTable - Using DataStoreID is only supported if DataStore is JavaScript.'
+        Write-Warning "New-HTMLTable - Using DataStoreID is only supported if DataStore is JavaScript. It doesn't do anything without it"
     }
 
     # Theme creator  https://datatables.net/manual/styling/theme-creator
