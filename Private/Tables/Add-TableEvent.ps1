@@ -9,7 +9,7 @@
         $Value = @"
     table.on('deselect', function (e, dt, type, indexes) {
         var table1 = `$('$ID').DataTable();
-        table1.columns(1).search('').draw();
+        table1.columns($ColumnID).search('').draw();
     });
 
     table.on('select', function (e, dt, type, indexes) {
@@ -22,18 +22,16 @@
             var findValue = data[0][$ColumnID];
             var table1 = `$('$ID').DataTable();
             if (findValue != '') {
-                table1.columns(1).search("^" + findValue + "`$", true, false, true).draw();
+                table1.columns($ColumnID).search("^" + findValue + "`$", true, false, true).draw();
             } else {
-                table1.columns(1).search('').draw();
+                table1.columns($ColumnID).search('').draw();
             }
             if (table1.page.info().recordsDisplay == 0) {
-                table1.columns(1).search('').draw();
+                table1.columns($ColumnID).search('').draw();
             }
         }
     });
 "@
         $Value
     }
-
-
 }
