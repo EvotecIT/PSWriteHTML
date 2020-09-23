@@ -570,7 +570,7 @@ $Script:Configuration = [ordered] @{
         RedrawObjects         = @{
             Comment      = 'Allows redrawObjects for collapsed sections and changing tabs'
             FooterAlways = @{
-                JS = "$PSScriptRoot\..\Resources\JS\redrawJobjects.js"
+                JS = "$PSScriptRoot\..\Resources\JS\redrawObjects.js"
             }
         }
         Tabbis                = @{
