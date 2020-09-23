@@ -670,7 +670,7 @@ function New-HTMLTable {
         $FilteringTopCode = $FilteringOutput.FilteringTopCode
         $FilteringBottomCode = $FilteringOutput.FilteringBottomCode
         $LoadSavedState = Add-TableState -DataTableName $DataTableID -Filtering $Filtering -FilteringLocation $FilteringLocation -SavedState (-not $DisableStateSave)
-        $TableEventsCode = Add-TableEvent -Events $TableEvents
+        $TableEventsCode = Add-TableEvent -Events $TableEvents -HeaderNames $HeaderNames -DataStore $DataStore
 
         if ($Tab.Active -eq $true) {
             New-HTMLTag -Tag 'script' {

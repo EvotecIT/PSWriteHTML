@@ -1,15 +1,23 @@
 ﻿function New-TableEvent {
     [cmdletBinding()]
     param(
-        [string] $ID,
-        [nullable[int]] $ColumnID
+        [alias('ID')][string] $TableID,
+        [string] $SourceColumnName,
+        [nullable[int]] $TargetColumnID,
+        [nullable[int]] $SourceColumnID
     )
-    $Object = [PSCustomObject] @{
-        Type     = 'TableEvent'
-        Output = @{
-            ID       = $ID
-            ColumnID = $ColumnID
+    if (($null -ne $SourceColumnID -or $SourceColumnName) -and $null -ne $TargetColumnID) {
+        $Object = [PSCustomObject] @{
+            Type   = 'TableEvent'
+            Output = @{
+                TableID          = $TableID
+                SourceColumnID   = $SourceColumnID
+                SourceColumnName = $SourceColumnName
+                TargetColumnID   = $TargetColumnID
+            }
         }
+        $Object
+    } else {
+        Write-Warning "New-TableEvent - SourceColumnId or SourceColumnName and TargetColumnID are required for events to work."
     }
-    $Object
 }
