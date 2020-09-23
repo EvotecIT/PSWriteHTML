@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.107 - 2020.09.23
+  - Fix for Table Redraw/Calendar Redraw when tab switching/section collapsing
 - 0.0.106 - 2020.09.23
   - Fix for `New-TableEvent` not working properly for column id different than `1`
   - Improvements to `New-TableEvent` introducing Source/Target columns with Source Column Names support
