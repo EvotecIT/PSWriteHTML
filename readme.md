@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.108 - Unreleased
+- 0.0.108 - 2020.09.23
   - Added escaping regex for string comparison during `New-TableEvent`
 - 0.0.107 - 2020.09.23
   - Fix for Table Redraw/Calendar Redraw when tab switching/section collapsing
