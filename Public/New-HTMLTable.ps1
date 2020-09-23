@@ -670,7 +670,11 @@ function New-HTMLTable {
         $FilteringTopCode = $FilteringOutput.FilteringTopCode
         $FilteringBottomCode = $FilteringOutput.FilteringBottomCode
         $LoadSavedState = Add-TableState -DataTableName $DataTableID -Filtering $Filtering -FilteringLocation $FilteringLocation -SavedState (-not $DisableStateSave)
-        $TableEventsCode = Add-TableEvent -Events $TableEvents -HeaderNames $HeaderNames -DataStore $DataStore
+        if ($TableEvents.Count -gt 0) {
+            $TableEventsCode = Add-TableEvent -Events $TableEvents -HeaderNames $HeaderNames -DataStore $DataStore
+            # this adds required JS script to escape regex when needed
+            $Script:HTMLSchema.Features.EscapeRegex = $true
+        }
 
         if ($Tab.Active -eq $true) {
             New-HTMLTag -Tag 'script' {

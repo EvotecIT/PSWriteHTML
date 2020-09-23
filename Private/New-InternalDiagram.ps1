@@ -16,6 +16,7 @@ function New-InternalDiagram {
     $Script:HTMLSchema.Features.VisData = $true
     $Script:HTMLSchema.Features.Moment = $true
     $Script:HTMLSchema.Features.VisNetworkLoad = $true
+    $Script:HTMLSchema.Features.EscapeRegex = $true
 
     if (-not $DisableLoader) {
         $Script:HTMLSchema.Features.VisNetworkLoadingBar = $true

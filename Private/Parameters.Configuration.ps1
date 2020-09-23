@@ -502,6 +502,12 @@ $Script:Configuration = [ordered] @{
                 }
             }
         }
+        EscapeRegex         = @{
+            Comment      = 'Allows EscapeRegex for diagrams and table events'
+            FooterAlways = @{
+                JS = "$PSScriptRoot\..\Resources\JS\escapeRegex.js"
+            }
+        }
         FancyTree             = @{
             Header = @{
                 JSLink  = @(

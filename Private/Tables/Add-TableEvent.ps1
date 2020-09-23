@@ -31,9 +31,9 @@
             //alert(data[0][$ColumnID])
 
             if (dataStore.toLowerCase() === 'html') {
-                var findValue = data[0][$ColumnID];
+                var findValue = escapeRegExp(data[0][$ColumnID]);
             } else {
-                var findValue = data[0].$ColumnName;
+                var findValue = escapeRegExp(data[0].$ColumnName);
             }
             var table1 = `$('$ID').DataTable();
             if (findValue != '') {
