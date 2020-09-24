@@ -123,7 +123,9 @@ Function New-HTML {
                 #New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -NoClosing
                 #New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'X-UA-Compatible'; content = 'IE=8' } -SelfClosing
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -NoClosing
-                New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -NoClosing
+                if ($Author) {
+                    New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -NoClosing
+                }
                 New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -NoClosing
                 New-HTMLTag -Tag 'title' { $TitleText }
 
