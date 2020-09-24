@@ -5,7 +5,7 @@ function EmailText {
         [string[]] $Text,
         [string[]] $Color = @(),
         [string[]] $BackGroundColor = @(),
-        [alias('Size')][int[]] $FontSize = @(),
+        [alias('Size')][object[]] $FontSize = @(),
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string[]] $FontWeight = @(),
         [ValidateSet('normal', 'italic', 'oblique')][string[]] $FontStyle = @(),
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string[]] $TextDecoration = @(),
