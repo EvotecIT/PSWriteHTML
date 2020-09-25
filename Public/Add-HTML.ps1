@@ -1,4 +1,5 @@
-function EmailHTML {
+function Add-HTML {
+    [alias('EmailHTML')]
     [CmdletBinding()]
     param(
         [ScriptBlock] $HTML
