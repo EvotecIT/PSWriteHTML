@@ -1,7 +1,8 @@
 function New-HTMLText {
-    [alias('HTMLText', 'Text')]
+    [alias('HTMLText', 'Text', 'EmailText')]
     [CmdletBinding()]
     param(
+        [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $TextBlock,
         [string[]] $Text,
         [string[]] $Color = @(),
         [string[]] $BackGroundColor = @(),
@@ -19,6 +20,14 @@ function New-HTMLText {
         #[bool[]] $NewLine = @()
     )
     #Write-Verbose 'New-HTMLText - Processing...'
+
+    if ($TextBlock) {
+        $Text = (Invoke-Command -ScriptBlock $TextBlock)
+        #if ($Text.Count) {
+        #    $LineBreak = $false
+        #}
+    }
+
     $DefaultColor = $Color[0]
     $DefaultFontSize = $FontSize[0]
     $DefaultFontWeight = if ($null -eq $FontWeight[0] ) { '' } else { $FontWeight[0] }
