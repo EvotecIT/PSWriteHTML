@@ -345,7 +345,10 @@ function New-HTMLTable {
 
     # Prepare data for preprocessing. Convert Hashtable/Ordered Dictionary to their visual representation
     $Table = $null
-    if ($DataTable[0] -is [System.Collections.IDictionary]) {
+    if ($null -eq $DataTable[0]) {
+        Write-Warning 'New-HTMLTable - First value in DataTable is null. Skipping.'
+        return
+    } elseif ($DataTable[0] -is [System.Collections.IDictionary]) {
         [Array] $Table = foreach ($_ in $DataTable) {
             $_.GetEnumerator() | Select-Object Name, Value
         }
