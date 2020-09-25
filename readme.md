@@ -68,6 +68,12 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - 0.0.109 - Unreleased
   - If no author is provided meta is not added
   - `EmailText` `size` parameter supports the usual settings as described below
+  - Removed `EmailText` and added it as alias to `New-HTMLText` which does the same thing
+  - Renamed `EmailHTML` to `Add-HTML`, added `EmailHTML` as alias - this allows to inline any code wherever it's used
+  - Added `EmailImage` as alias to `New-HTMLImage`
+  - Added `Inline` switch to `New-HTMLImage (EmailImage)` which embeddes given url/file image directly into HTML
+  - Improved `New-HTMLImage/EmailImage`
+  - Prvents errors `New-HTMLTable` if null is passed as DataTable
 - 0.0.108 - 2020.09.23
   - Added escaping regex for string comparison during `New-TableEvent`
 - 0.0.107 - 2020.09.23
