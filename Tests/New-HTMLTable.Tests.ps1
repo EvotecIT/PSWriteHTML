@@ -45,8 +45,8 @@
         $GroupedNames.Count | Should -be 2
         $GroupedValues.Count | Should -be 4
 
-        $TableOutput[3].Name | Should -BeIn 'Test','Test2'
-        $TableOutput[3].Value | Should -BeIn 'Test3','Test4','Test1','Test2'
+        $TableOutput[3].Name | Should -BeIn 'Test', 'Test2'
+        $TableOutput[3].Value | Should -BeIn 'Test3', 'Test4', 'Test1', 'Test2'
         if (Test-Path $FilePath) {
             Remove-Item -LiteralPath $FilePath
         }
@@ -130,6 +130,19 @@
         $TableOutput[0].Test2 | Should -Be 'Value2'
         $TableOutput[0].Test3 | Should -Be 'Value3'
         $TableOutput[1].Test3 | Should -Be $null
+        if (Test-Path $FilePath) {
+            Remove-Item -LiteralPath $FilePath
+        }
+    }
+    It 'Given New-HTMLTable with Null values it shouldnt throw' {
+        $FilePath = "$PSScriptRoot\TemporaryTest.html"
+        $Output = for($i = 0;$i -le 10; $i++) {
+            $null
+        }
+        New-HTML {
+            New-HTMLTable -DataTable $Output -HideFooter
+        } -FilePath $FilePath
+
         if (Test-Path $FilePath) {
             Remove-Item -LiteralPath $FilePath
         }
