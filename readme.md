@@ -73,7 +73,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - Added `EmailImage` as alias to `New-HTMLImage`
   - Added `Inline` switch to `New-HTMLImage (EmailImage)` which embeddes given url/file image directly into HTML
   - Improved `New-HTMLImage/EmailImage`
-  - Prvents errors `New-HTMLTable` if null is passed as DataTable
+  - Prevents errors `New-HTMLTable` if null is passed as first element in DataTable (skips processing)
 - 0.0.108 - 2020.09.23
   - Added escaping regex for string comparison during `New-TableEvent`
 - 0.0.107 - 2020.09.23
