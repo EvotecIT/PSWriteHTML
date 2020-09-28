@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.109 - Unreleased
+- 0.0.109 - 2020.09.28
   - If no author is provided meta is not added
   - `EmailText` `size` parameter supports the usual settings as described below
   - Removed `EmailText` and added it as alias to `New-HTMLText` which does the same thing
