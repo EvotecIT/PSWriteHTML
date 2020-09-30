@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.110 - 2020.09.29
+  - Fix for `New-HTMLImage` messed up height with width
 - 0.0.109 - 2020.09.28
   - If no author is provided meta is not added
   - `EmailText` `size` parameter supports the usual settings as described below

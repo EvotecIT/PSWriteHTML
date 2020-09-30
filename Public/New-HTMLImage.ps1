@@ -51,8 +51,8 @@ function New-HTMLImage {
         [string] $AlternativeText = '',
         [string] $Class = 'Logo',
         [string] $Target = '_blank',
-        [string] $Width,
-        [string] $Height,
+        [object] $Width,
+        [object] $Height,
         [switch] $Inline,
         [Parameter(DontShow)][switch] $DisableCache
     )
@@ -74,15 +74,15 @@ function New-HTMLImage {
                 $ImgAttributes = [ordered]@{
                     'src'    = "$BinaryImage"
                     'alt'    = "$AlternativeText"
-                    'width'  = "$Height"
-                    'height' = "$Width"
+                    'width'  = ConvertFrom-Size -Size $Width
+                    'height' = ConvertFrom-Size -Size $Height
                 }
             } else {
                 $ImgAttributes = [ordered]@{
                     'src'    = "$Source"
                     'alt'    = "$AlternativeText"
-                    'width'  = "$Height"
-                    'height' = "$Width"
+                    'width'  = ConvertFrom-Size -Size $Width
+                    'height' = ConvertFrom-Size -Size $Height
                 }
             }
             New-HTMLTag -Tag 'img' -Attributes $ImgAttributes
