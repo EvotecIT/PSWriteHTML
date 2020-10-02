@@ -65,6 +65,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.111 - Unreleased
+  - Added `New-HTMLOrgChart`
+  - Added `New-OrgChartNode`
 - 0.0.110 - 2020.09.29
   - Fix for `New-HTMLImage` messed up height with width
 - 0.0.109 - 2020.09.28
