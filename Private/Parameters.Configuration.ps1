@@ -238,6 +238,41 @@ $Script:Configuration = [ordered] @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
+        ChartsOrg             = @{
+            Comment      = 'OrgChart'
+            Header       = @{
+                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.3/css/jquery.orgchart.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\jquery.orgchart.min.css"
+                JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.3/js/jquery.orgchart.min.js'
+                Js      = "$PSScriptRoot\..\Resources\JS\jquery.orgchart.min.js"
+            }
+            HeaderAlways = @{
+                CssInline = [ordered] @{
+                    '.orgChart' = @{
+                        #'font-family'   = 'Arial'
+                        'height'        = '420px'
+                        'border'        = '2px dashed #aaa'
+                        'border-radius' = '5px'
+                        #'overflow'      = 'auto'
+                        'text-align'    = 'center'
+                    }
+                }
+            }
+        }
+        ChartsOrgExportPDF    = @{
+            Comment = 'OrgChartExport'
+            Header  = @{
+                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js'
+                Js     = "$PSScriptRoot\..\Resources\JS\jspdf.min.js"
+            }
+        }
+        ChartsOrgExportPNG    = @{
+            Comment = 'OrgChartExport'
+            Header  = @{
+                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js'
+                Js     = "$PSScriptRoot\..\Resources\JS\html2canvas.min.js"
+            }
+        }
         ChartsXkcd            = @{
             Header = @{
                 JsLink = @(
@@ -502,7 +537,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
         }
-        EscapeRegex         = @{
+        EscapeRegex           = @{
             Comment      = 'Allows EscapeRegex for diagrams and table events'
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\escapeRegex.js"
@@ -766,6 +801,7 @@ function Save-Resource {
 $Keys = $Script:Configuration.Features.Keys
 $Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'FontsAwesome', 'Jquery', 'DataTablesSearchFade', 'Popper', 'ChartsApex'
 $Keys = 'ChartsApex'
+$Keys = 'ChartsOrg','ChartsOrgExportPDF','ChartsOrgExportPNG'
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js
