@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.112 - 2020.10.05
+  - Better handling of empty data in `New-HTMLTable`
 - 0.0.111 - 2020.10.05
   - Added `New-HTMLOrgChart` (WIP)
   - Added `New-OrgChartNode` (WIP)
