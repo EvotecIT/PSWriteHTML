@@ -26,7 +26,7 @@ function New-HTMLTable {
         [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom',
         [string[]][ValidateSet('display', 'cell-border', 'compact', 'hover', 'nowrap', 'order-column', 'row-border', 'stripe')] $Style = @('display', 'compact'),
         [switch]$Simplify,
-        [string]$TextWhenNoData = 'No data available.',
+        [string]$TextWhenNoData = 'No data available to display.',
         [int] $ScreenSizePercent = 0,
         [string[]] $DefaultSortColumn,
         [int[]] $DefaultSortIndex,
@@ -224,6 +224,17 @@ function New-HTMLTable {
         }
     }
 
+    # this handles no data in Table - we want table to be minimalistic then with just 1 element
+    # this also handles situation if first element is null, if that happens it assumes whole array is null and sets no data
+    if ($null -eq $DataTable -or $DataTable.Count -eq 0 -or $null -eq $DataTable[0]) {
+        if ($DataTable.Count -gt 0) {
+            Write-Warning "New-HTMLTable - First element of array is null, but there are more elements in array that were ignored. Please verify your DataTable input."
+        }
+        $Filtering = $false # setting it to false because it's not nessecary
+        $HideFooter = $true
+        [Array] $DataTable = $TextWhenNoData
+    }
+
     if ($AllProperties) {
         if ($DataTable[0] -is [System.Collections.IDictionary]) {
             # we don't do anything, as dictionaries are displayed in two columns approach
@@ -334,21 +345,9 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
     }
 
-
-    # this handles no data in Table - we want table to be minimalistic then
-    if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
-        #return ''
-        $Filtering = $false # setting it to false because it's not nessecary
-        $HideFooter = $true
-        $DataTable = $TextWhenNoData
-    }
-
     # Prepare data for preprocessing. Convert Hashtable/Ordered Dictionary to their visual representation
     $Table = $null
-    if ($null -eq $DataTable[0]) {
-        Write-Warning 'New-HTMLTable - First value in DataTable is null. Skipping.'
-        return
-    } elseif ($DataTable[0] -is [System.Collections.IDictionary]) {
+    if ($DataTable[0] -is [System.Collections.IDictionary]) {
         [Array] $Table = foreach ($_ in $DataTable) {
             $_.GetEnumerator() | Select-Object Name, Value
         }
