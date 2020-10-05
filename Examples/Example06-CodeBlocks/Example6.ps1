@@ -1,4 +1,4 @@
-#Import-Module PSWriteHTML -Force
+Import-Module .\PSWriteHTML.psd1 -Force
 
 # Code Block for PowerShell Code (Showing how <pre> tags work)
 $CodeBlock = @'
@@ -77,7 +77,7 @@ $CodeBlocksXML = @'
 </building>
 '@
 
-$HTML = New-Html -Online -FilePath "$PSScriptRoot\Example6.html" -ShowHTML {
+$HTML = New-HTML -Online -FilePath "$PSScriptRoot\Example6.html" -ShowHTML {
     New-HTMLTab -TabName 'Coding' {
         New-HTMLContent -HeaderText 'This shows PowerShell Language' {
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Group 'Test123' -Title 'PowerShell Code 1' -Theme godzilla -Highlight '2-5, 13'

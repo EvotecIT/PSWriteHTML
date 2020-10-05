@@ -238,7 +238,7 @@ $Script:Configuration = [ordered] @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
         }
-        ChartsOrg             = @{
+        ChartsOrg             = [ordered] @{
             Comment      = 'OrgChart'
             Header       = @{
                 CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.3/css/jquery.orgchart.min.css'
@@ -246,15 +246,18 @@ $Script:Configuration = [ordered] @{
                 JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.3/js/jquery.orgchart.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\jquery.orgchart.min.js"
             }
-            HeaderAlways = @{
+            HeaderAlways = [ordered] @{
                 CssInline = [ordered] @{
-                    '.orgChart' = @{
+                    '.orgChart'      = @{
                         #'font-family'   = 'Arial'
                         'height'        = '420px'
                         'border'        = '2px dashed #aaa'
                         'border-radius' = '5px'
                         #'overflow'      = 'auto'
                         'text-align'    = 'center'
+                    }
+                    ".oc-export-btn" = @{
+                        'flex-basis' = '100%'
                     }
                 }
             }
@@ -281,6 +284,14 @@ $Script:Configuration = [ordered] @{
                 Js     = @(
                     "$PSScriptRoot\..\Resources\JS\chart.xkcd.min.js"
                 )
+            }
+        }
+        ES6Promise            = @{
+            Comment = 'ES6Promise'
+            Header  = @{
+                JSLink = "https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"
+                Js     = "$PSScriptRoot\..\Resources\JS\es6-promise.auto.min.js"
+
             }
         }
         Jquery                = @{

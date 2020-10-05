@@ -158,13 +158,13 @@ Function New-HTML {
                 if ($Autorefresh -gt 0) {
                     New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = $Autorefresh } -SelfClosing
                 }
-                Get-Resources -Online:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome
-                Get-Resources -Online:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings
                 if ($null -ne $Features) {
+                    Get-Resources -Online:$Online.IsPresent -Location 'Header' -Features $Features
                     Get-Resources -Online:$true -Location 'HeaderAlways' -Features $Features -NoScript
                     Get-Resources -Online:$false -Location 'HeaderAlways' -Features $Features -NoScript
-                    Get-Resources -Online:$Online.IsPresent -Location 'Header' -Features $Features
                 }
+                Get-Resources -Online:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome
+                Get-Resources -Online:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings
                 New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
                 New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS
             }

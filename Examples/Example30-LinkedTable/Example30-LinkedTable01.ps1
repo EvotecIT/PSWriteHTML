@@ -3,7 +3,7 @@
 $Computers = Get-ADComputer -Filter * -Properties OperatingSystem, OperatingSystemVersion, PasswordLastSet | Select-Object -Property DNSHostName, Name, Enabled, OperatingSystem, OperatingSystemVersion, PasswordLastSet
 $Users = Get-ADUser -Filter * -Properties SamAccountName, Name, Title, Surname, PasswordNeverExpires, WhenCreated, WhenChanged | Select-Object UserPrincipalName, SamAccountName, Name, Title, Surname, PasswordNeverExpires, WhenCreated, WhenChanged #-First 17
 
-New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example30-LinkedTable.html -ShowHTML {
+New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example30-LinkedTable01.html -ShowHTML {
     #New-HTMLLogo
     New-HTMLTabStyle -SelectorColor Grey
     New-HTMLTab -TabName 'Test' -IconSolid dice {
