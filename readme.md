@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.113 - 2020.10.06
+  - Fixed issue with x2 PDF Export button - [If ScrollY is selected the pdf button is doubled then #154](https://github.com/EvotecIT/PSWriteHTML/issues/154) - tnx Jekastr
 - 0.0.112 - 2020.10.05
   - Better handling of empty data in `New-HTMLTable`
 - 0.0.111 - 2020.10.05
