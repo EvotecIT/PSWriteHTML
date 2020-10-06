@@ -35,6 +35,7 @@ function New-HTMLTable {
         [alias('Search')][string]$Find,
         [switch] $InvokeHTMLTags,
         [switch] $DisableNewLine,
+        [switch] $EnableKeys,
         [switch] $Scroller,
         [switch] $ScrollX,
         [switch] $ScrollY,
@@ -350,6 +351,14 @@ function New-HTMLTable {
         # it seems DataTablesSearchPanes is conflicting with Diagrams in IE 11, so we only enable it on demand
         $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
     }
+    if ($EnableKeys) {
+        $Script:HTMLSchema.Features.DataTablesKeyTable = $true
+        $Options['keys'] = $true
+        # More options to check # https://datatables.net/extensions/keytable/examples/
+        #$Options['keys'] = @{
+        #    blurable = $false
+        #}
+    }
 
     # Prepare data for preprocessing. Convert Hashtable/Ordered Dictionary to their visual representation
     $Table = $null
@@ -462,6 +471,7 @@ function New-HTMLTable {
         $Options.'scrollY' = "$($ScrollSizeY)px"
     }
     if ($Scroller) {
+        $Script:HTMLSchema.Features.DataTablesScroller = $true
         $Options['scroller'] = @{
             loadingIndicator = $true
         }
@@ -469,7 +479,8 @@ function New-HTMLTable {
     }
 
     if ($FreezeColumnsLeft -or $FreezeColumnsRight) {
-        $Options.fixedColumns = [ordered] @{ }
+        $Script:HTMLSchema.Features.DataTablesFixedColumn = $true
+        $Options['fixedColumns'] = [ordered] @{ }
         if ($FreezeColumnsLeft) {
             $Options.fixedColumns.leftColumns = $FreezeColumnsLeft
         }
@@ -478,8 +489,9 @@ function New-HTMLTable {
         }
     }
     if ($FixedHeader -or $FixedFooter) {
+        $Script:HTMLSchema.Features.DataTablesFixedHeader = $true
         # Using FixedHeader/FixedFooter won't work with ScrollY.
-        $Options.fixedHeader = [ordered] @{ }
+        $Options['fixedHeader'] = [ordered] @{ }
         if ($FixedHeader) {
             $Options.fixedHeader.header = $FixedHeader.IsPresent
         }

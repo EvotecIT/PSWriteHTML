@@ -66,6 +66,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.114 - Unreleased
+  - [x] Added `EnableKeys` (excel like movement) to `New-HTMLTable`. Probably could add more options for this via nested `New-TableXXX`
   - [x] Added `PagingLength` to `New-HTMLTable`. This improves `PagingOptions` / `DisablePaging`.
     - If user doesn't set Paging Length it will use defaults
     - If user doesn't set Paging Options it will use default `@(15, 25, 50, 100)`
