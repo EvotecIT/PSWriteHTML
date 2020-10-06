@@ -15,7 +15,6 @@ function New-HTMLTable {
         [switch]$DisableInfo,
         [switch]$HideFooter,
         [alias('DisableButtons')][switch]$HideButtons,
-        [switch]$DisableColumnReorder,
         [switch]$DisableProcessing,
         [switch]$DisableResponsiveTable,
         [switch]$DisableSelect,
@@ -36,6 +35,8 @@ function New-HTMLTable {
         [switch] $InvokeHTMLTags,
         [switch] $DisableNewLine,
         [switch] $EnableKeys,
+        [switch] $EnableColumnReorder,
+        [switch] $EnableRowReorder,
         [switch] $Scroller,
         [switch] $ScrollX,
         [switch] $ScrollY,
@@ -290,7 +291,6 @@ function New-HTMLTable {
     $Options = [ordered] @{
         'dom'            = $null
         "searchFade"     = $false
-        "colReorder"     = -not $DisableColumnReorder.IsPresent
         # https://datatables.net/examples/basic_init/scroll_y_dynamic.html
         "scrollCollapse" = $ScrollCollapse.IsPresent
         "ordering"       = -not $DisableOrdering.IsPresent
@@ -477,6 +477,10 @@ function New-HTMLTable {
         }
         #$Options['scroller'] = $true
     }
+    if ($EnableRowReorder) {
+        $Script:HTMLSchema.Features.DataTablesRowReorder = $true
+        $Options['rowReorder'] = $true
+    }
 
     if ($FreezeColumnsLeft -or $FreezeColumnsRight) {
         $Script:HTMLSchema.Features.DataTablesFixedColumn = $true
@@ -503,6 +507,7 @@ function New-HTMLTable {
 
     # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
     if (-not $DisableResponsiveTable) {
+        $Script:HTMLSchema.Features.DataTablesResponsive = $true
         $Options["responsive"] = @{ }
         $Options["responsive"]['details'] = @{ }
         if ($ImmediatelyShowHiddenDetails) {
@@ -573,7 +578,11 @@ function New-HTMLTable {
         $Options."order" = @($ColumnsOrder)
         # there seems to be a bug in ordering and colReorder plugin
         # Disabling colReorder
-        $Options.colReorder = $false
+        #$Options.colReorder = $false
+    }
+    if ($EnableColumnReorder -and $ColumnsOrder.Count -eq 0) {
+        $Script:HTMLSchema.Features.DataTablesColReorder = $true
+        $Options["colReorder"] = $true
     }
 
     # Overwriting table size - screen size in percent. With added Section/Panels it shouldn't be more than 90%

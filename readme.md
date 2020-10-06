@@ -66,6 +66,12 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.114 - Unreleased
+  - [x] Reworked JS/CSS loading for DataTables. It should now load less JS/CSS code by default making HTML smaller and more readable especially if not using all features
+    - [ ] Some more work in this area is required. Small breaking change was introduced
+  - [x] **Breaking Change** - Renamed `DisableColumnReorder` to `EnableColumnReorder`
+    - [ ] The reason for this is that the functionality is most likely used by very few people if at all
+    - [ ] This in turn allows me to load JS/CSS for ColumnReordering only when someone requests for this functionality
+  - [x] Added `EnableRowReorder`
   - [x] Added `EnableKeys` (excel like movement) to `New-HTMLTable`. Probably could add more options for this via nested `New-TableXXX`
   - [x] Added `PagingLength` to `New-HTMLTable`. This improves `PagingOptions` / `DisablePaging`.
     - If user doesn't set Paging Length it will use defaults
