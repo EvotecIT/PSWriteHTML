@@ -66,11 +66,13 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.114 - Unreleased
-  - Added `PagingLength` to `New-HTMLTable`. This improves `PagingOptions` / `DisablePaging`.
+  - [x] Added `PagingLength` to `New-HTMLTable`. This improves `PagingOptions` / `DisablePaging`.
     - If user doesn't set Paging Length it will use defaults
     - If user doesn't set Paging Options it will use default `@(15, 25, 50, 100)`
     - If user doesn't set Paging Length, but sets different Paging Options such as `@(5,10,15)`, initial paging length will be set to lowest value `5`
     - If user sets paging options and sets paging length it will set as requested
+  - [x] Added `Scroller` to `New-HTMLTable`. This improves `ScrollY`. It allows to load data as it appears rather than loading everything. Should be plenty useful in JavaScript DataStore for large datasets
+    - Enabling Scroller doesn't require ScrollY enablement, but it will use ScrollSizeY default 500px. You can change it tho.
 - 0.0.113 - 2020.10.06
   - Fixed issue with x2 PDF Export button - [If ScrollY is selected the pdf button is doubled then #154](https://github.com/EvotecIT/PSWriteHTML/issues/154) - tnx Jekastr
 - 0.0.112 - 2020.10.05

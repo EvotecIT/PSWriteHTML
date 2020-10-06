@@ -21,7 +21,6 @@ function New-HTMLTable {
         [switch]$DisableSelect,
         [switch]$DisableStateSave,
         [switch]$DisableSearch,
-        [switch]$ScrollCollapse,
         [switch]$OrderMulti,
         [switch]$Filtering,
         [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom',
@@ -36,9 +35,11 @@ function New-HTMLTable {
         [alias('Search')][string]$Find,
         [switch] $InvokeHTMLTags,
         [switch] $DisableNewLine,
+        [switch] $Scroller,
         [switch] $ScrollX,
         [switch] $ScrollY,
         [int] $ScrollSizeY = 500,
+        [switch]$ScrollCollapse,
         [int] $FreezeColumnsLeft,
         [int] $FreezeColumnsRight,
         [switch] $FixedHeader,
@@ -456,8 +457,15 @@ function New-HTMLTable {
         # disabling responsive table because it won't work with ScrollX
         $DisableResponsiveTable = $true
     }
-    if ($ScrollY) {
+    if ($ScrollY -or $Scroller) {
+        # Scroller only works if ScrollY is set
         $Options.'scrollY' = "$($ScrollSizeY)px"
+    }
+    if ($Scroller) {
+        $Options['scroller'] = @{
+            loadingIndicator = $true
+        }
+        #$Options['scroller'] = $true
     }
 
     if ($FreezeColumnsLeft -or $FreezeColumnsRight) {
