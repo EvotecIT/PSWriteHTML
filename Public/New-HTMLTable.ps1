@@ -9,6 +9,7 @@ function New-HTMLTable {
         [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchPanes')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
+        [int] $PagingLength,
         [switch]$DisablePaging,
         [switch]$DisableOrdering,
         [switch]$DisableInfo,
@@ -288,12 +289,17 @@ function New-HTMLTable {
         'dom'            = $null
         "searchFade"     = $false
         "colReorder"     = -not $DisableColumnReorder.IsPresent
-
-
         # https://datatables.net/examples/basic_init/scroll_y_dynamic.html
-        "paging"         = -not $DisablePaging
         "scrollCollapse" = $ScrollCollapse.IsPresent
-
+        "ordering"       = -not $DisableOrdering.IsPresent
+        "order"          = @() # this makes sure there's no default ordering upon start (usually it would be 1st column)
+        "rowGroup"       = ''
+        "info"           = -not $DisableInfo.IsPresent
+        "procesing"      = -not $DisableProcessing.IsPresent
+        "select"         = -not $DisableSelect.IsPresent
+        "searching"      = -not $DisableSearch.IsPresent
+        "stateSave"      = -not $DisableStateSave.IsPresent
+        "paging"         = -not $DisablePaging
         <# Paging Type
             numbers - Page number buttons only
             simple - 'Previous' and 'Next' buttons only
@@ -307,14 +313,13 @@ function New-HTMLTable {
             , @($PagingOptions + (-1))
             , @($PagingOptions + "All")
         )
-        "ordering"       = -not $DisableOrdering.IsPresent
-        "order"          = @() # this makes sure there's no default ordering upon start (usually it would be 1st column)
-        "rowGroup"       = ''
-        "info"           = -not $DisableInfo.IsPresent
-        "procesing"      = -not $DisableProcessing.IsPresent
-        "select"         = -not $DisableSelect.IsPresent
-        "searching"      = -not $DisableSearch.IsPresent
-        "stateSave"      = -not $DisableStateSave.IsPresent
+    }
+    if ($PagingLength) {
+        # User made a choice for page length
+        $Options['pageLength'] = $PagingLength
+    } elseif ($PagingOptions[0] -ne 15) {
+        # User didn't made a choice for page length, but user made a choice for paging options (default set by us is different)
+        $Options['pageLength'] = $PagingOptions[0]
     }
     # Set DOM
     if ($SearchPane) {
