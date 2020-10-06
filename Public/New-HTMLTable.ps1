@@ -427,6 +427,8 @@ function New-HTMLTable {
                             $ButtonOutput = @{
                                 extend = $button
                             }
+                        } else {
+                            $ButtonOutput = $null
                         }
                     } else {
                         $ButtonOutput = [ordered] @{
@@ -434,8 +436,10 @@ function New-HTMLTable {
                             title  = $Title
                         }
                     }
-                    Remove-EmptyValue -Hashtable $ButtonOutput
-                    $ButtonOutput
+                    if ($ButtonOutput) {
+                        Remove-EmptyValue -Hashtable $ButtonOutput
+                        $ButtonOutput
+                    }
                 }
             }
         )
