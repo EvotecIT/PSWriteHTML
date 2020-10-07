@@ -82,6 +82,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - [x] Added `EnableScroller` to `New-HTMLTable`. This improves `ScrollY`. It allows to load data as it appears rather than loading everything. Should be plenty useful in JavaScript DataStore for large datasets
     - Enabling Scroller doesn't require ScrollY enablement, but it will use ScrollSizeY default 500px. You can change it tho.
   - [x] Added `EnableAutoFill` to `New-HTMLTable`
+  - [x] Updated `New-HTMLTable` to load only required CSS/JS (hopefully nothing will be broken)
+  - [x] Updated `Out-HTMLView` with all new and old parameters to keep it synced with same features as `New-HTMLTable`
 - 0.0.113 - 2020.10.06
   - Fixed issue with x2 PDF Export button - [If ScrollY is selected the pdf button is doubled then #154](https://github.com/EvotecIT/PSWriteHTML/issues/154) - tnx Jekastr
 - 0.0.112 - 2020.10.05
