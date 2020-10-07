@@ -375,14 +375,12 @@ $Script:Configuration = [ordered] @{
             Header       = @{
                 CssLink = @(
                     "https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"
-                    "https://cdn.datatables.net/autofill/2.3.5/css/autoFill.dataTables.css"
                     "https://cdn.datatables.net/buttons/1.6.3/css/buttons.dataTables.min.css"
                     "https://cdn.datatables.net/rowgroup/1.1.2/css/rowGroup.dataTables.min.css"
                     "https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\jquery.dataTables.min.css"
-                    "$PSScriptRoot\..\Resources\CSS\autoFill.dataTables.css"
                     "$PSScriptRoot\..\Resources\CSS\buttons.dataTables.min.css"
                     "$PSScriptRoot\..\Resources\CSS\keyTable.dataTables.min.css"
                     "$PSScriptRoot\..\Resources\CSS\rowGroup.dataTables.min.css"
@@ -390,7 +388,6 @@ $Script:Configuration = [ordered] @{
                 )
                 JsLink  = @(
                     "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"
-                    "https://cdn.datatables.net/autofill/2.3.5/js/dataTables.autoFill.min.js"
                     "https://cdn.datatables.net/buttons/1.6.3/js/dataTables.buttons.min.js"
                     "https://cdn.datatables.net/buttons/1.6.3/js/buttons.colVis.min.js"
                     "https://cdn.datatables.net/buttons/1.6.3/js/buttons.html5.min.js"
@@ -401,7 +398,6 @@ $Script:Configuration = [ordered] @{
                 )
                 JS      = @(
                     "$PSScriptRoot\..\Resources\JS\jquery.dataTables.min.js"
-                    "$PSScriptRoot\..\Resources\JS\dataTables.autoFill.min.js"
                     "$PSScriptRoot\..\Resources\JS\dataTables.buttons.min.js"
                     "$PSScriptRoot\..\Resources\JS\buttons.colVis.min.js"
                     "$PSScriptRoot\..\Resources\JS\buttons.html5.min.js"
@@ -409,6 +405,23 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\dataTables.rowGroup.min.js"
                     "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
                     "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
+                )
+            }
+        }
+        DataTablesAutoFill    = @{
+            Comment = 'DataTables AutoFill Features'
+            Header  = @{
+                JsLink  = @(
+                    "https://cdn.datatables.net/autofill/2.3.5/js/dataTables.autoFill.min.js"
+                )
+                JS      = @(
+                    "$PSScriptRoot\..\Resources\JS\dataTables.autoFill.min.js"
+                )
+                CssLink = @(
+                    "https://cdn.datatables.net/autofill/2.3.5/css/autoFill.dataTables.css"
+                )
+                Css     = @(
+                    "$PSScriptRoot\..\Resources\CSS\autoFill.dataTables.css"
                 )
             }
         }

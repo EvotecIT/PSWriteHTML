@@ -37,7 +37,8 @@ function New-HTMLTable {
         [switch] $EnableKeys,
         [switch] $EnableColumnReorder,
         [switch] $EnableRowReorder,
-        [switch] $Scroller,
+        [switch] $EnableAutoFill,
+        [switch] $EnableScroller,
         [switch] $ScrollX,
         [switch] $ScrollY,
         [int] $ScrollSizeY = 500,
@@ -359,6 +360,10 @@ function New-HTMLTable {
         #    blurable = $false
         #}
     }
+    if ($EnableAutoFill) {
+        $Script:HTMLSchema.Features.DataTablesAutoFill = $true
+        $Options['autoFill'] = $true
+    }
 
     # Prepare data for preprocessing. Convert Hashtable/Ordered Dictionary to their visual representation
     $Table = $null
@@ -466,11 +471,11 @@ function New-HTMLTable {
         # disabling responsive table because it won't work with ScrollX
         $DisableResponsiveTable = $true
     }
-    if ($ScrollY -or $Scroller) {
+    if ($ScrollY -or $EnableScroller) {
         # Scroller only works if ScrollY is set
         $Options.'scrollY' = "$($ScrollSizeY)px"
     }
-    if ($Scroller) {
+    if ($EnableScroller) {
         $Script:HTMLSchema.Features.DataTablesScroller = $true
         $Options['scroller'] = @{
             loadingIndicator = $true
