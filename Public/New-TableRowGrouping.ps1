@@ -8,7 +8,7 @@
         [string] $Color,
         [string] $BackgroundColor
     )
-    $Script:HTMLSchema.Features.DataTablesRowGrouping
+    $Script:HTMLSchema.Features.DataTablesRowGrouping = $true
 
     $Object = [PSCustomObject] @{
         Type   = 'TableRowGrouping'
