@@ -376,14 +376,11 @@ $Script:Configuration = [ordered] @{
                 CssLink = @(
                     "https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"
                     "https://cdn.datatables.net/buttons/1.6.3/css/buttons.dataTables.min.css"
-                    "https://cdn.datatables.net/rowgroup/1.1.2/css/rowGroup.dataTables.min.css"
                     "https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\jquery.dataTables.min.css"
                     "$PSScriptRoot\..\Resources\CSS\buttons.dataTables.min.css"
-                    "$PSScriptRoot\..\Resources\CSS\keyTable.dataTables.min.css"
-                    "$PSScriptRoot\..\Resources\CSS\rowGroup.dataTables.min.css"
                     "$PSScriptRoot\..\Resources\CSS\select.dataTables.min.css"
                 )
                 JsLink  = @(
@@ -392,7 +389,6 @@ $Script:Configuration = [ordered] @{
                     "https://cdn.datatables.net/buttons/1.6.3/js/buttons.colVis.min.js"
                     "https://cdn.datatables.net/buttons/1.6.3/js/buttons.html5.min.js"
                     "https://cdn.datatables.net/buttons/1.6.3/js/buttons.print.min.js"
-                    "https://cdn.datatables.net/rowgroup/1.1.2/js/dataTables.rowGroup.min.js"
                     "https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"
                     "https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js"
                 )
@@ -402,7 +398,6 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\buttons.colVis.min.js"
                     "$PSScriptRoot\..\Resources\JS\buttons.html5.min.js"
                     "$PSScriptRoot\..\Resources\JS\buttons.print.min.js"
-                    "$PSScriptRoot\..\Resources\JS\dataTables.rowGroup.min.js"
                     "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
                     "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
                 )
@@ -531,6 +526,23 @@ $Script:Configuration = [ordered] @{
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\rowReorder.dataTables.min.css"
+                )
+            }
+        }
+        DataTablesRowGrouping = @{
+            Comment = 'DataTables RowGrouping Features'
+            Header  = @{
+                JsLink  = @(
+                    "https://cdn.datatables.net/rowgroup/1.1.2/js/dataTables.rowGroup.min.js"
+                )
+                JS      = @(
+                    "$PSScriptRoot\..\Resources\JS\dataTables.rowGroup.min.js"
+                )
+                CssLink = @(
+                    "https://cdn.datatables.net/rowgroup/1.1.2/css/rowGroup.dataTables.min.css"
+                )
+                Css     = @(
+                    "$PSScriptRoot\..\Resources\CSS\rowGroup.dataTables.min.css"
                 )
             }
         }
