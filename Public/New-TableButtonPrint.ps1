@@ -4,7 +4,7 @@
     param(
         [string] $Title
     )
-
+    $Script:HTMLSchema.Features.DataTablesButtons = $true
     $Output = @{}
     $Output['extend'] = 'print'
     if ($Title) {

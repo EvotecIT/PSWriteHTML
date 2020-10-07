@@ -66,7 +66,7 @@
 
     #>
 
-    [alias('TableButtonPDF', 'EmailTableButtonPDF','New-HTMLTableButtonPDF')]
+    [alias('TableButtonPDF', 'EmailTableButtonPDF', 'New-HTMLTableButtonPDF')]
     [CmdletBinding()]
     param(
         [string] $Title,
@@ -85,6 +85,9 @@
         [switch] $Header,
         [switch] $Footer
     )
+    $Script:HTMLSchema.Features.DataTablesButtons = $true
+    $Script:HTMLSchema.Features.DataTablesButtonsPDF = $true
+    $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
     $Button = @{ }
     $Button.extend = 'pdfHtml5'
     $Button.pageSize = $PageSize

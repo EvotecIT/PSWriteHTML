@@ -34,37 +34,43 @@ function Out-HtmlView {
         [string] $FilePath,
         [string] $Title = 'Out-HTMLView',
         [switch] $PassThru,
-        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength'),
+        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchPanes')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
+        [int] $PagingLength,
         [switch]$DisablePaging,
         [switch]$DisableOrdering,
         [switch]$DisableInfo,
         [switch]$HideFooter,
-        [switch]$DisableColumnReorder,
+        [alias('DisableButtons')][switch]$HideButtons,
         [switch]$DisableProcessing,
         [switch]$DisableResponsiveTable,
         [switch]$DisableSelect,
         [switch]$DisableStateSave,
         [switch]$DisableSearch,
-        [switch]$ScrollCollapse,
         [switch]$OrderMulti,
         [switch]$Filtering,
         [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom',
         [string[]][ValidateSet('display', 'cell-border', 'compact', 'hover', 'nowrap', 'order-column', 'row-border', 'stripe')] $Style = @('display', 'compact'),
         [switch]$Simplify,
-        [string]$TextWhenNoData = 'No data available.',
+        [string]$TextWhenNoData = 'No data available to display.',
         [int] $ScreenSizePercent = 0,
         [string[]] $DefaultSortColumn,
         [int[]] $DefaultSortIndex,
         [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending',
-        [string[]]$DateTimeSortingFormat,
+        [string[]] $DateTimeSortingFormat,
         [alias('Search')][string]$Find,
         [switch] $InvokeHTMLTags,
         [switch] $DisableNewLine,
+        [switch] $EnableKeys,
+        [switch] $EnableColumnReorder,
+        [switch] $EnableRowReorder,
+        [switch] $EnableAutoFill,
+        [switch] $EnableScroller,
         [switch] $ScrollX,
         [switch] $ScrollY,
         [int] $ScrollSizeY = 500,
+        [switch]$ScrollCollapse,
         [int] $FreezeColumnsLeft,
         [int] $FreezeColumnsRight,
         [switch] $FixedHeader,
@@ -81,9 +87,16 @@ function Out-HtmlView {
         [int] $First,
         [int] $Last,
         [alias('Replace')][Array] $CompareReplace,
+        [alias('RegularExpression')][switch]$SearchRegularExpression,
+        [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak = 'normal',
+        [switch] $AutoSize,
+        [switch] $DisableAutoWidthOptimization,
+        [switch] $SearchPane,
+        [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top',
+        [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore,
+        [switch] $Transpose,
         [switch] $PreventShowHTML,
-        [switch] $Online,
-        [switch] $Transpose
+        [switch] $Online
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -102,22 +115,78 @@ function Out-HtmlView {
         if ($null -ne $Table) {
             # HTML generation part
             New-HTML -FilePath $FilePath -Online:($Online.IsPresent) -TitleText $Title -ShowHTML:(-not $PreventShowHTML) {
-                New-HTMLTable -DataTable $DataTable `
-                    -HideFooter:$HideFooter `
-                    -Buttons $Buttons -PagingStyle $PagingStyle -PagingOptions $PagingOptions `
-                    -DisablePaging:$DisablePaging -DisableOrdering:$DisableOrdering -DisableInfo:$DisableInfo -DisableColumnReorder:$DisableColumnReorder -DisableProcessing:$DisableProcessing `
-                    -DisableResponsiveTable:$DisableResponsiveTable -DisableSelect:$DisableSelect -DisableStateSave:$DisableStateSave -DisableSearch:$DisableSearch -ScrollCollapse:$ScrollCollapse `
-                    -Style $Style -TextWhenNoData:$TextWhenNoData -ScreenSizePercent $ScreenSizePercent `
-                    -HTML $HTML -PreContent $PreContent -PostContent $PostContent `
-                    -DefaultSortColumn $DefaultSortColumn -DefaultSortIndex $DefaultSortIndex -DefaultSortOrder $DefaultSortOrder `
-                    -DateTimeSortingFormat $DateTimeSortingFormat -Find $Find -OrderMulti:$OrderMulti `
-                    -Filtering:$Filtering -FilteringLocation $FilteringLocation `
-                    -InvokeHTMLTags:$InvokeHTMLTags -DisableNewLine:$DisableNewLine -ScrollX:$ScrollX -ScrollY:$ScrollY -ScrollSizeY $ScrollSizeY `
-                    -FreezeColumnsLeft $FreezeColumnsLeft -FreezeColumnsRight $FreezeColumnsRight `
-                    -FixedHeader:$FixedHeader -FixedFooter:$FixedFooter -ResponsivePriorityOrder $ResponsivePriorityOrder `
-                    -ResponsivePriorityOrderIndex $ResponsivePriorityOrderIndex -PriorityProperties $PriorityProperties -AllProperties:$AllProperties `
-                    -SkipProperties:$SkipProperties -Compare:$Compare -HighlightDifferences:$HighlightDifferences -First $First -Last $Last `
-                    -ImmediatelyShowHiddenDetails:$ImmediatelyShowHiddenDetails -Simplify:$Simplify -HideShowButton:$HideShowButton -CompareReplace $CompareReplace -Transpose:$Transpose
+                $newHTMLTableSplat = @{
+                    DataTable                    = $DataTable
+                    HideFooter                   = $HideFooter
+                    Buttons                      = $Buttons
+                    PagingStyle                  = $PagingStyle
+                    PagingOptions                = $PagingOptions
+                    DisablePaging                = $DisablePaging
+                    DisableOrdering              = $DisableOrdering
+                    DisableInfo                  = $DisableInfo
+                    DisableProcessing            = $DisableProcessing
+                    DisableResponsiveTable       = $DisableResponsiveTable
+                    DisableSelect                = $DisableSelect
+                    DisableStateSave             = $DisableStateSave
+                    DisableSearch                = $DisableSearch
+                    ScrollCollapse               = $ScrollCollapse
+                    Style                        = $Style
+                    TextWhenNoData               = $TextWhenNoData
+                    ScreenSizePercent            = $ScreenSizePercent
+                    HTML                         = $HTML
+                    PreContent                   = $PreContent
+                    PostContent                  = $PostContent
+                    DefaultSortColumn            = $DefaultSortColumn
+                    DefaultSortIndex             = $DefaultSortIndex
+                    DefaultSortOrder             = $DefaultSortOrder
+                    DateTimeSortingFormat        = $DateTimeSortingFormat
+                    Find                         = $Find
+                    OrderMulti                   = $OrderMulti
+                    Filtering                    = $Filtering
+                    FilteringLocation            = $FilteringLocation
+                    InvokeHTMLTags               = $InvokeHTMLTags
+                    DisableNewLine               = $DisableNewLine
+                    ScrollX                      = $ScrollX
+                    ScrollY                      = $ScrollY
+                    ScrollSizeY                  = $ScrollSizeY
+                    FreezeColumnsLeft            = $FreezeColumnsLeft
+                    FreezeColumnsRight           = $FreezeColumnsRight
+                    FixedHeader                  = $FixedHeader
+                    FixedFooter                  = $FixedFooter
+                    ResponsivePriorityOrder      = $ResponsivePriorityOrder
+                    ResponsivePriorityOrderIndex = $ResponsivePriorityOrderIndex
+                    PriorityProperties           = $PriorityProperties
+                    AllProperties                = $AllProperties
+                    SkipProperties               = $SkipProperties
+                    Compare                      = $Compare
+                    HighlightDifferences         = $HighlightDifferences
+                    First                        = $First
+                    Last                         = $Last
+                    ImmediatelyShowHiddenDetails = $ImmediatelyShowHiddenDetails
+                    Simplify                     = $Simplify
+                    HideShowButton               = $HideShowButton
+                    CompareReplace               = $CompareReplace
+                    Transpose                    = $Transpose
+                    SearchRegularExpression      = $SearchRegularExpression
+                    WordBreak                    = $WordBreak
+                    AutoSize                     = $AutoSize
+                    DisableAutoWidthOptimization = $DisableAutoWidthOptimization
+                    Title                        = $Title
+                    SearchPane                   = $SearchPane
+                    SearchPaneLocation           = $SearchPaneLocation
+                    EnableScroller               = $EnableScroller
+                    EnableKeys                   = $EnableKeys
+                    EnableAutoFill               = $EnableAutoFill
+                    EnableRowReorder             = $EnableRowReorder
+                    EnableColumnReorder          = $EnableColumnReorder
+                    HideButtons                  = $HideButtons
+                    PagingLength                 = $PagingLength
+                    DataStore                    = $DataStore
+                    DisableColumnReorder         = $DisableColumnReorder
+                }
+                Remove-EmptyValue -Hashtable $newHTMLTableSplat
+                New-HTMLTable @newHTMLTableSplat
+
             }
             if ($PassThru) {
                 # This isn't really real PassThru but just passing final object further down the pipe when needed

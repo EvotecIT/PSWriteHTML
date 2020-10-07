@@ -6,6 +6,7 @@ function New-HTMLTable {
         [Parameter(Mandatory = $false, Position = 1)][ScriptBlock] $PreContent,
         [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
+        [string] $Title,
         [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchPanes')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
@@ -50,7 +51,6 @@ function New-HTMLTable {
         [string[]] $ResponsivePriorityOrder,
         [int[]] $ResponsivePriorityOrderIndex,
         [string[]] $PriorityProperties,
-        [alias('DataTableName')][string] $DataTableID,
         [switch] $ImmediatelyShowHiddenDetails,
         [alias('RemoveShowButton')][switch] $HideShowButton,
         [switch] $AllProperties,
@@ -64,10 +64,10 @@ function New-HTMLTable {
         [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak = 'normal',
         [switch] $AutoSize,
         [switch] $DisableAutoWidthOptimization,
-        [string] $Title,
         [switch] $SearchPane,
         [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top',
         [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore,
+        [alias('DataTableName')][string] $DataTableID,
         [string] $DataStoreID,
         [switch] $Transpose
     )
@@ -430,6 +430,7 @@ function New-HTMLTable {
     $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
 
     if (-not $HideButtons) {
+        $Script:HTMLSchema.Features.DataTablesButtons = $true
         $Options['buttons'] = @(
             if ($CustomButtons) {
                 $CustomButtons
@@ -442,6 +443,7 @@ function New-HTMLTable {
                             orientation = 'landscape'
                             title       = $Title
                         }
+                        $Script:HTMLSchema.Features.DataTablesButtonsPDF = $true
                     } elseif ($button -eq 'pageLength') {
                         if (-not $DisablePaging -and -not $ScrollY) {
                             $ButtonOutput = @{
@@ -449,6 +451,37 @@ function New-HTMLTable {
                             }
                         } else {
                             $ButtonOutput = $null
+                        }
+                    } elseif ($button -eq 'excelHtml5') {
+                        $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
+                        $Script:HTMLSchema.Features.DataTablesButtonsExcel = $true
+                        $ButtonOutput = [ordered] @{
+                            extend = $button
+                            title  = $Title
+                        }
+                    } elseif ($button -eq 'copyHtml5') {
+                        $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
+                        $ButtonOutput = [ordered] @{
+                            extend = $button
+                            title  = $Title
+                        }
+                    } elseif ($button -eq 'csvHtml5') {
+                        $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
+                        $ButtonOutput = [ordered] @{
+                            extend = $button
+                            title  = $Title
+                        }
+                    } elseif ($button -eq 'searchPanes') {
+                        $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
+                        $ButtonOutput = [ordered] @{
+                            extend = $button
+                            title  = $Title
+                        }
+                    } elseif ($button -eq 'print') {
+                        $Script:HTMLSchema.Features.DataTablesButtonsPrint = $true
+                        $ButtonOutput = [ordered] @{
+                            extend = $button
+                            title  = $Title
                         }
                     } else {
                         $ButtonOutput = [ordered] @{
@@ -698,8 +731,8 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTables = $true
         $Script:HTMLSchema.Features.Moment = $true
         if (-not $HideButtons) {
-            $Script:HTMLSchema.Features.DataTablesPDF = $true
-            $Script:HTMLSchema.Features.DataTablesExcel = $true
+            #$Script:HTMLSchema.Features.DataTablesButtonsPDF = $true
+            #$Script:HTMLSchema.Features.DataTablesButtonsExcel = $true
         }
         #$Script:HTMLSchema.Features.DataTablesSearchFade = $true
 

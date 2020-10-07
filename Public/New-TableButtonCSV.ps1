@@ -4,7 +4,8 @@
     param(
         [string] $Title
     )
-
+    $Script:HTMLSchema.Features.DataTablesButtons = $true
+    $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
     $Output = [ordered]@{}
     $Output['extend'] = 'csvHtml5'
     if ($Title) {
