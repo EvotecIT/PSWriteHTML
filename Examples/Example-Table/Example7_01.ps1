@@ -23,10 +23,11 @@ foreach ($Key in $RootDSE.PSObject.Properties.Name) {
 }
 
 New-HTML {
-    New-HTMLTable -DataTable $DataTable1 -Title 'Test1' # Title will be used for filename when using export
-
-    New-HTMLTable -DataTable $DataTable2 -HideButtons
-
+    New-HTMLTable -DataTable $DataTable1 -Title 'Test1' -PagingLength 2 # Title will be used for filename when using export
+    New-HTMLTable -DataTable (Get-Process | Select-Object -First 30) -Title 'Test2' # Title will be used for filename when using export
+    New-HTMLTable -DataTable $DataTable2 -PagingLength 5
+    New-HTMLTable -DataTable $DataTable2 -PagingLength 5 -Simplify -HideFooter
+    New-HTMLTable -DataTable $DataTable2 -PagingLength 5 -HideFooter -Buttons print
     New-HTMLTable -DataTable $DataTable3 -HideButtons
-    #New-HTMLTable -DataTable $TranslatedRootDSE
+    New-HTMLTable -DataTable $TranslatedRootDSE
 } -ShowHTML -FilePath $PSScriptRoot\Example7_01.html -Online
