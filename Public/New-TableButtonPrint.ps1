@@ -1,10 +1,12 @@
 ﻿function New-TableButtonPrint {
-    [alias('TableButtonPrint', 'EmailTableButtonPrint','New-HTMLTableButtonPrint')]
+    [alias('TableButtonPrint', 'EmailTableButtonPrint', 'New-HTMLTableButtonPrint')]
     [CmdletBinding()]
     param(
         [string] $Title
     )
-    $Script:HTMLSchema.Features.DataTablesButtons = $true
+    if (-not $Script:HTMLSchema['TableSimplify']) {
+        $Script:HTMLSchema.Features.DataTablesButtons = $true
+    }
     $Output = @{}
     $Output['extend'] = 'print'
     if ($Title) {

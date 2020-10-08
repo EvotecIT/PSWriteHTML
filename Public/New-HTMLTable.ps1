@@ -7,7 +7,7 @@ function New-HTMLTable {
         [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
         [string] $Title,
-        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchPanes')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength'),
+        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'print', 'searchPanes')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
         [int] $PagingLength,
@@ -75,6 +75,18 @@ function New-HTMLTable {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
         Exit
     }
+    # Building HTML Table / Script
+    if (-not $DataTableID) {
+        # Only define this if user failed to deliver as per https://github.com/EvotecIT/PSWriteHTML/issues/29
+        $DataTableID = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
+    }
+    # This makes sure we only load proper JS/CSS code when simplify is used
+    if ($Simplify) {
+        $Script:HTMLSchema['TableSimplify'] = $true
+    } else {
+        $Script:HTMLSchema['TableSimplify'] = $false
+    }
+
     if ($HideFooter -and $Filtering -and $FilteringLocation -notin @('Both', 'Top')) {
         Write-Warning 'New-HTMLTable - Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both.'
     }
@@ -283,12 +295,6 @@ function New-HTMLTable {
     # This option disable paging if number of elements is less or equal count of elements in DataTable
     $PagingOptions = $PagingOptions | Sort-Object -Unique
 
-    # Building HTML Table / Script
-    if (-not $DataTableID) {
-        # Only define this if user failed to deliver as per https://github.com/EvotecIT/PSWriteHTML/issues/29
-        $DataTableID = "DT-$(Get-RandomStringName -Size 8 -LettersOnly)" # this builds table ID
-    }
-
     $Options = [ordered] @{
         'dom'            = $null
         "searchFade"     = $false
@@ -429,7 +435,7 @@ function New-HTMLTable {
     # This modifies header adding styles, header rows, or doing some fancy stuff
     $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
 
-    if (-not $HideButtons) {
+    if (-not $Script:HTMLSchema['TableSimplify'] -and -not $HideButtons) {
         $Script:HTMLSchema.Features.DataTablesButtons = $true
         $Options['buttons'] = @(
             if ($CustomButtons) {
@@ -508,19 +514,19 @@ function New-HTMLTable {
         # Scroller only works if ScrollY is set
         $Options.'scrollY' = "$($ScrollSizeY)px"
     }
-    if ($EnableScroller) {
+    if (-not $Script:HTMLSchema['TableSimplify'] -and $EnableScroller) {
         $Script:HTMLSchema.Features.DataTablesScroller = $true
         $Options['scroller'] = @{
             loadingIndicator = $true
         }
         #$Options['scroller'] = $true
     }
-    if ($EnableRowReorder) {
+    if (-not $Script:HTMLSchema['TableSimplify'] -and $EnableRowReorder) {
         $Script:HTMLSchema.Features.DataTablesRowReorder = $true
         $Options['rowReorder'] = $true
     }
 
-    if ($FreezeColumnsLeft -or $FreezeColumnsRight) {
+    if (-not $Script:HTMLSchema['TableSimplify'] -and ($FreezeColumnsLeft -or $FreezeColumnsRight)) {
         $Script:HTMLSchema.Features.DataTablesFixedColumn = $true
         $Options['fixedColumns'] = [ordered] @{ }
         if ($FreezeColumnsLeft) {
@@ -530,7 +536,7 @@ function New-HTMLTable {
             $Options.fixedColumns.rightColumns = $FreezeColumnsRight
         }
     }
-    if ($FixedHeader -or $FixedFooter) {
+    if (-not $Script:HTMLSchema['TableSimplify'] -and ($FixedHeader -or $FixedFooter)) {
         $Script:HTMLSchema.Features.DataTablesFixedHeader = $true
         # Using FixedHeader/FixedFooter won't work with ScrollY.
         $Options['fixedHeader'] = [ordered] @{ }
@@ -544,7 +550,7 @@ function New-HTMLTable {
     #}
 
     # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
-    if (-not $DisableResponsiveTable) {
+    if (-not $Script:HTMLSchema['TableSimplify'] -and -not $DisableResponsiveTable) {
         $Script:HTMLSchema.Features.DataTablesResponsive = $true
         $Options["responsive"] = @{ }
         $Options["responsive"]['details'] = @{ }
@@ -618,7 +624,7 @@ function New-HTMLTable {
         # Disabling colReorder
         #$Options.colReorder = $false
     }
-    if ($EnableColumnReorder -and $ColumnsOrder.Count -eq 0) {
+    if (-not $Script:HTMLSchema['TableSimplify'] -and $EnableColumnReorder -and $ColumnsOrder.Count -eq 0) {
         $Script:HTMLSchema.Features.DataTablesColReorder = $true
         $Options["colReorder"] = $true
     }
@@ -726,7 +732,7 @@ function New-HTMLTable {
     }
 
     # return data
-    if (-not $Simplify) {
+    if (-not $Script:HTMLSchema['TableSimplify']) {
         $Script:HTMLSchema.Features.Jquery = $true
         $Script:HTMLSchema.Features.DataTables = $true
         $Script:HTMLSchema.Features.Moment = $true

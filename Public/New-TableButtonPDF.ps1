@@ -85,9 +85,11 @@
         [switch] $Header,
         [switch] $Footer
     )
-    $Script:HTMLSchema.Features.DataTablesButtons = $true
-    $Script:HTMLSchema.Features.DataTablesButtonsPDF = $true
-    $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
+    if (-not $Script:HTMLSchema['TableSimplify']) {
+        $Script:HTMLSchema.Features.DataTablesButtons = $true
+        $Script:HTMLSchema.Features.DataTablesButtonsPDF = $true
+        $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
+    }
     $Button = @{ }
     $Button.extend = 'pdfHtml5'
     $Button.pageSize = $PageSize

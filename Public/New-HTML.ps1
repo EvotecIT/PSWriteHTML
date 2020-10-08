@@ -39,6 +39,8 @@ Function New-HTML {
         TabOptions        = @{
             SlimTabs = $false
         }
+        Table             = [ordered] @{}
+        TableSimplify     = $false # Tracks current table only
         TableOptions      = [ordered] @{
             DataStore = ''
             Type      = 'Structured'

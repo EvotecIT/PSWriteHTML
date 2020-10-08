@@ -1,10 +1,12 @@
 ﻿function New-TableButtonPageLength {
-    [alias('TableButtonPageLength', 'EmailTableButtonPageLength','New-HTMLTableButtonPageLength')]
+    [alias('TableButtonPageLength', 'EmailTableButtonPageLength', 'New-HTMLTableButtonPageLength')]
     [CmdletBinding()]
     param(
         [string] $Title
     )
-    $Script:HTMLSchema.Features.DataTablesButtons = $true
+    if (-not $Script:HTMLSchema['TableSimplify']) {
+        $Script:HTMLSchema.Features.DataTablesButtons = $true
+    }
     $Output = @{}
     $Output['extend'] = 'pageLength'
     if ($Title) {
