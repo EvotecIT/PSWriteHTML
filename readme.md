@@ -84,6 +84,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - [x] Improved `New-HTMLTable` to load only required CSS/JS (hopefully nothing will be broken)
   - [x] Updated `Out-HTMLView` with all new and old parameters to keep it synced with same features as `New-HTMLTable` - hopefully I didn't break anything
   - [x] Updated some `DataTables` JS/CSS versions
+  - [x] Added `New-HTMLNav` command (WIP)
+  - [x] Added `New-HTMLNavLink` command (WIP)
 - 0.0.113 - 2020.10.06
   - Fixed issue with x2 PDF Export button - [If ScrollY is selected the pdf button is doubled then #154](https://github.com/EvotecIT/PSWriteHTML/issues/154) - tnx Jekastr
 - 0.0.112 - 2020.10.05
