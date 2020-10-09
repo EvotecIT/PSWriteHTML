@@ -767,6 +767,15 @@ $Script:Configuration = [ordered] @{
             }
             #>
         }
+        NavigationMenu         = @{
+            Comment      = 'Navigation'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\jside-menu.css", "$PSScriptRoot\..\Resources\CSS\jside-skins.css"
+            }
+            FooterAlways = @{
+                Js = "$PSScriptRoot\..\Resources\JS\jquery.jside.menu.js"
+            }
+        }
         Popper                 = @{
             Comment      = 'Popper and Tooltip for FullCalendar'
             HeaderAlways = @{

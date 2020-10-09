@@ -1,22 +1,19 @@
-function New-HTMLResourceCSS {
-    [alias('New-ResourceCSS', 'New-CSS')]
+function Add-HTMLScript {
+    [alias('Add-JavaScript', 'New-JavaScript', 'Add-JS')]
     [CmdletBinding()]
     param(
         [alias('ScriptContent')][Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content,
         [string[]] $Link,
         [string] $ResourceComment,
         [string[]] $FilePath,
-        [System.Collections.IDictionary] $CssInline,
         [System.Collections.IDictionary] $ReplaceData
-
     )
     $Output = @(
-        "<!-- CSS $ResourceComment START -->"
+        "<!-- JS $ResourceComment START -->"
         foreach ($File in $FilePath) {
             if ($File -ne '') {
                 if (Test-Path -LiteralPath $File) {
-                    New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
-                        Write-Verbose "New-HTMLResourceCSS - Reading file from $File"
+                    New-HTMLTag -Tag 'script' -Attributes @{ type = 'text/javascript' } {
                         # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
                         $FileContent = Get-Content -LiteralPath $File -Raw
                         if ($null -ne $ReplaceData) {
@@ -24,21 +21,21 @@ function New-HTMLResourceCSS {
                                 $FileContent = $FileContent -replace $_, $ReplaceData[$_]
                             }
                         }
-                        $FileContent -replace '@charset "UTF-8";'
+                        $FileContent
                     } -NewLine
+                } else {
+                    return
                 }
             }
         }
         foreach ($L in $Link) {
             if ($L -ne '') {
-                Write-Verbose "New-HTMLResourceCSS - Adding link $L"
-                New-HTMLTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $L } -SelfClosing -NewLine
+                New-HTMLTag -Tag 'script' -Attributes @{ type = "text/javascript"; src = $L } -NewLine
+            } else {
+                return
             }
         }
-        if ($CssInline) {
-            ConvertTo-CascadingStyleSheets -Css $CssInline -WithTags
-        }
-        "<!-- CSS $ResourceComment END -->"
+        "<!-- JS $ResourceComment END -->"
     )
     if ($Output.Count -gt 2) {
         # Outputs only if more than comments

@@ -1,19 +1,22 @@
-function New-HTMLResourceJS {
-    [alias('New-ResourceJS', 'New-JavaScript')]
+function Add-HTMLStyle {
+    [alias('Add-CSS')]
     [CmdletBinding()]
     param(
         [alias('ScriptContent')][Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content,
         [string[]] $Link,
         [string] $ResourceComment,
         [string[]] $FilePath,
+        [System.Collections.IDictionary] $CssInline,
         [System.Collections.IDictionary] $ReplaceData
+
     )
     $Output = @(
-        "<!-- JS $ResourceComment START -->"
+        "<!-- CSS $ResourceComment START -->"
         foreach ($File in $FilePath) {
             if ($File -ne '') {
                 if (Test-Path -LiteralPath $File) {
-                    New-HTMLTag -Tag 'script' -Attributes @{ type = 'text/javascript' } {
+                    New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
+                        Write-Verbose "Add-HTMLStyle - Reading file from $File"
                         # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
                         $FileContent = Get-Content -LiteralPath $File -Raw
                         if ($null -ne $ReplaceData) {
@@ -21,21 +24,21 @@ function New-HTMLResourceJS {
                                 $FileContent = $FileContent -replace $_, $ReplaceData[$_]
                             }
                         }
-                        $FileContent
+                        $FileContent -replace '@charset "UTF-8";'
                     } -NewLine
-                } else {
-                    return
                 }
             }
         }
         foreach ($L in $Link) {
             if ($L -ne '') {
-                New-HTMLTag -Tag 'script' -Attributes @{ type = "text/javascript"; src = $L } -NewLine
-            } else {
-                return
+                Write-Verbose "Add-HTMLStyle - Adding link $L"
+                New-HTMLTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $L } -SelfClosing -NewLine
             }
         }
-        "<!-- JS $ResourceComment END -->"
+        if ($CssInline) {
+            ConvertTo-CascadingStyleSheets -Css $CssInline -WithTags
+        }
+        "<!-- CSS $ResourceComment END -->"
     )
     if ($Output.Count -gt 2) {
         # Outputs only if more than comments
