@@ -173,13 +173,13 @@ Function New-HTML {
             '<!-- END HEAD -->'
             '<!-- BODY -->'
             New-HTMLTag -Tag 'body' {
-                '<!-- HEADER -->'
-                New-HTMLTag -Tag 'header' {
-                    if ($HeaderHTML) {
+                if ($HeaderHTML) {
+                    '<!-- HEADER -->'
+                    New-HTMLTag -Tag 'header' {
                         $HeaderHTML
                     }
+                    '<!-- END HEADER -->'
                 }
-                '<!-- END HEADER -->'
                 # Add logo if there is one
                 $Script:HTMLSchema.Logos
                 # Add tabs header if there is one
