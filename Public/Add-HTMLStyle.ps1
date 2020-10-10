@@ -2,16 +2,20 @@ function Add-HTMLStyle {
     [alias('Add-CSS')]
     [CmdletBinding()]
     param(
-        [alias('ScriptContent')][Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content,
-        [string[]] $Link,
+        [ValidateSet('Inline', 'Header', 'Footer')][string] $Placement = 'Header',
         [string] $ResourceComment,
+        [string[]] $Link,
+        [string[]] $Content,
         [string[]] $FilePath,
-        [System.Collections.IDictionary] $CssInline,
-        [System.Collections.IDictionary] $ReplaceData
-
+        [alias('CssInline')][System.Collections.IDictionary] $Css,
+        [Parameter(DontShow)][System.Collections.IDictionary] $ReplaceData
     )
+    if (-not $ResourceComment) {
+        $ResourceComment = "ResourceCSS-$(Get-RandomStringName -Size 8 -LettersOnly)"
+    }
     $Output = @(
         "<!-- CSS $ResourceComment START -->"
+        # Content from files
         foreach ($File in $FilePath) {
             if ($File -ne '') {
                 if (Test-Path -LiteralPath $File) {
@@ -29,19 +33,34 @@ function Add-HTMLStyle {
                 }
             }
         }
+        # Content from string
+        if ($Content) {
+            New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
+                Write-Verbose "Add-HTMLStyle - Reading file from $File"
+                $Content
+            } -NewLine
+        }
+        # Content from Link
         foreach ($L in $Link) {
             if ($L -ne '') {
                 Write-Verbose "Add-HTMLStyle - Adding link $L"
                 New-HTMLTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $L } -SelfClosing -NewLine
             }
         }
-        if ($CssInline) {
-            ConvertTo-CascadingStyleSheets -Css $CssInline -WithTags
+        # Content from Hashtable
+        if ($Css) {
+            ConvertTo-CascadingStyleSheets -Css $Css -WithTags
         }
         "<!-- CSS $ResourceComment END -->"
     )
     if ($Output.Count -gt 2) {
         # Outputs only if more than comments
-        $Output
+        if ($Placement -eq 'Footer') {
+            $Script:HTMLSchema.CustomFooterCSS[$ResourceComment] = $Output
+        } elseif ($Placement -eq 'Header') {
+            $Script:HTMLSchema.CustomHeaderCSS[$ResourceComment] = $Output
+        } else {
+            $Output
+        }
     }
 }
