@@ -46,8 +46,8 @@ Function New-HTML {
             Type      = 'Structured'
             Folder    = if ($FilePath) { Split-Path -Path $FilePath } else { '' }
         }
-        CustomHeaderCSS   = [System.Collections.Generic.List[string]]::new()
-        CustomFooterCSS   = [System.Collections.Generic.List[string]]::new()
+        CustomHeaderCSS   = [ordered] @{}
+        CustomFooterCSS   = [ordered] @{}
         CustomHeaderJS    = [ordered] @{}
         CustomFooterJS    = [ordered] @{}
     }
@@ -180,29 +180,30 @@ Function New-HTML {
                     }
                     '<!-- END HEADER -->'
                 }
-                # Add logo if there is one
-                $Script:HTMLSchema.Logos
-                # Add tabs header if there is one
-                if ($Script:HTMLSchema.TabsHeaders) {
-                    New-HTMLTabHead
-                    New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'main-section' } {
+                    # Add logo if there is one
+                    $Script:HTMLSchema.Logos
+                    # Add tabs header if there is one
+                    if ($Script:HTMLSchema.TabsHeaders) {
+                        New-HTMLTabHead
+                        New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
+                            # Add remaining data
+                            #$OutputHTML
+                            $MainHTML
+                        }
+                    } else {
                         # Add remaining data
-                        #$OutputHTML
                         $MainHTML
+                        #$OutputHTML
                     }
-                } else {
-                    # Add remaining data
-                    $MainHTML
-                    #$OutputHTML
+                    # Add charts scripts if those are there
+                    foreach ($Chart in $Script:HTMLSchema.Charts) {
+                        $Chart
+                    }
+                    foreach ($Diagram in $Script:HTMLSchema.Diagrams) {
+                        $Diagram
+                    }
                 }
-                # Add charts scripts if those are there
-                foreach ($Chart in $Script:HTMLSchema.Charts) {
-                    $Chart
-                }
-                foreach ($Diagram in $Script:HTMLSchema.Diagrams) {
-                    $Diagram
-                }
-
                 New-HTMLTag -Tag 'footer' {
                     '<!-- FOOTER -->'
                     if ($FooterHTML) {
