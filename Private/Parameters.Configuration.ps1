@@ -848,6 +848,16 @@ $Script:Configuration = [ordered] @{
                 )
             }
         }
+        TabsInline             = @{
+            # http://techlaboratory.net/jquery-smarttab
+            Comment      = 'Tabs Inline'
+            Header = @{
+                JsLink  = 'https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/js/jquery.smartTab.min.js'
+                Js      = "$PSScriptRoot\..\Resources\JS\jquery.smartTab.min.js"
+                CssLink = "https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/css/smart_tab_all.min.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\jquery.smartTab.min.css"
+            }
+        }
         TimeLine               = @{
             Comment      = 'Timeline Simple'
             HeaderAlways = @{
