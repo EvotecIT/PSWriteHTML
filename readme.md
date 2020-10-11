@@ -66,26 +66,29 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 ## Changelog
 
 - 0.0.114 - Unreleased
-  - [x] Reworked JS/CSS loading for DataTables. It should now load less JS/CSS code by default making HTML smaller and more readable especially if not using all features
-    - [ ] Some more work in this area is required. Small breaking change was introduced
-  - [x] **Breaking Change** - Renamed `DisableColumnReorder` to `EnableColumnReorder`
-    - [ ] The reason for this is that the functionality is most likely used by very few people if at all
-    - [ ] This in turn allows me to load JS/CSS for ColumnReordering only when someone requests for this functionality
-  - [x] Added `EnableRowReorder`
-  - [x] Added `EnableKeys` (excel like movement) to `New-HTMLTable`. Probably could add more options for this via nested `New-TableXXX`
-  - [x] Added `PagingLength` to `New-HTMLTable`. This improves `PagingOptions` / `DisablePaging`.
-    - If user doesn't set Paging Length it will use defaults
-    - If user doesn't set Paging Options it will use default `@(15, 25, 50, 100)`
-    - If user doesn't set Paging Length, but sets different Paging Options such as `@(5,10,15)`, initial paging length will be set to lowest value `5`
-    - If user sets paging options and sets paging length it will set as requested
-  - [x] Added `EnableScroller` to `New-HTMLTable`. This improves `ScrollY`. It allows to load data as it appears rather than loading everything. Should be plenty useful in JavaScript DataStore for large datasets
-    - Enabling Scroller doesn't require ScrollY enablement, but it will use ScrollSizeY default 500px. You can change it tho.
-  - [x] Added `EnableAutoFill` to `New-HTMLTable`
-  - [x] Improved `New-HTMLTable` to load only required CSS/JS (hopefully nothing will be broken)
-  - [x] Updated `Out-HTMLView` with all new and old parameters to keep it synced with same features as `New-HTMLTable` - hopefully I didn't break anything
-  - [x] Updated some `DataTables` JS/CSS versions
+  - [x] `New-HTMLTable` - changes/improvements/adds
+    - [x] Reworked JS/CSS loading for DataTables. It should now load less JS/CSS code by default making HTML smaller and more readable especially if not using all features
+      - [ ] Some more work in this area is required. Small breaking change was introduced
+    - [x] **Breaking Change** - Renamed `DisableColumnReorder` to `EnableColumnReorder`
+      - [ ] The reason for this is that the functionality is most likely used by very few people if at all
+      - [ ] This in turn allows me to load JS/CSS for ColumnReordering only when someone requests for this functionality
+    - [x] Added `EnableRowReorder`
+    - [x] Added `EnableKeys` (excel like movement) to `New-HTMLTable`. Probably could add more options for this via nested `New-TableXXX`
+    - [x] Added `PagingLength` to `New-HTMLTable`. This improves `PagingOptions` / `DisablePaging`.
+      - If user doesn't set Paging Length it will use defaults
+      - If user doesn't set Paging Options it will use default `@(15, 25, 50, 100)`
+      - If user doesn't set Paging Length, but sets different Paging Options such as `@(5,10,15)`, initial paging length will be set to lowest value `5`
+      - If user sets paging options and sets paging length it will set as requested
+    - [x] Added `EnableScroller` to `New-HTMLTable`. This improves `ScrollY`. It allows to load data as it appears rather than loading everything. Should be plenty useful in JavaScript DataStore for large datasets
+      - Enabling Scroller doesn't require ScrollY enablement, but it will use ScrollSizeY default 500px. You can change it tho.
+    - [x] Added `EnableAutoFill` to `New-HTMLTable`
+    - [x] Improved `New-HTMLTable` to load only required CSS/JS (hopefully nothing will be broken)
+    - [x] Updated `Out-HTMLView` with all new and old parameters to keep it synced with same features as `New-HTMLTable` - hopefully I didn't break anything
+    - [x] Updated some `DataTables` JS/CSS versions
   - [x] Added `New-HTMLNav` command (WIP)
   - [x] Added `New-HTMLNavLink` command (WIP)
+  - [ ] Changed `New-HTMLText` to add `5px` margin. Hopefully things are not affected.
+  - [x] Added `New-HTMLTabPanel` - additional way to define tabs
 - 0.0.113 - 2020.10.06
   - Fixed issue with x2 PDF Export button - [If ScrollY is selected the pdf button is doubled then #154](https://github.com/EvotecIT/PSWriteHTML/issues/154) - tnx Jekastr
 - 0.0.112 - 2020.10.05
