@@ -47,5 +47,5 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example27-08.html" -Show {
                 New-HTMLTable -DataTable $ProcessSmaller
             }
         }
-    } -
+    }
 }
