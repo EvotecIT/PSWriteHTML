@@ -63,7 +63,7 @@ $Script:Configuration = [ordered] @{
                     '.flexParent'          = [ordered]@{
                         'display'         = 'flex'
                         'justify-content' = 'space-between'
-                        'padding'         = '2px'
+                        #'padding'         = '2px'
                     }
                     '.flexParentInvisible' = [ordered]@{
                         'display'         = 'flex'
