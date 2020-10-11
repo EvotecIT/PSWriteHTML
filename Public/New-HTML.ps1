@@ -39,6 +39,7 @@ Function New-HTML {
         TabOptions        = @{
             SlimTabs = $false
         }
+        TabPanel          = $false
         Table             = [ordered] @{}
         TableSimplify     = $false # Tracks current table only
         TableOptions      = [ordered] @{

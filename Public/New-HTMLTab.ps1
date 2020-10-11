@@ -16,56 +16,47 @@ function New-HTMLTab {
         [alias('TabName')][string] $Name = 'Tab',
 
         # ICON BRANDS
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
         [ArgumentCompleter(
             {
                 param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
                 ($Global:HTMLIcons.FontAwesomeBrands.Keys)
             }
         )]
-        [ValidateScript(
-            {
-                $_ -in (($Global:HTMLIcons.FontAwesomeBrands.Keys))
-            }
-        )]
-        [parameter(ParameterSetName = "FontAwesomeBrands")][string] $IconBrands,
+        [ValidateScript( { $_ -in (($Global:HTMLIcons.FontAwesomeBrands.Keys)) })]
+        [string] $IconBrands,
 
         # ICON REGULAR
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
         [ArgumentCompleter(
             {
                 param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
                 ($Global:HTMLIcons.FontAwesomeRegular.Keys)
             }
         )]
-        [ValidateScript(
-            {
-                $_ -in (($Global:HTMLIcons.FontAwesomeRegular.Keys))
-            }
-        )]
-        [parameter(ParameterSetName = "FontAwesomeRegular")][string] $IconRegular,
+        [ValidateScript( { $_ -in (($Global:HTMLIcons.FontAwesomeRegular.Keys)) })]
+        [string] $IconRegular,
 
         # ICON SOLID
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
         [ArgumentCompleter(
             {
                 param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
                 ($Global:HTMLIcons.FontAwesomeSolid.Keys)
             }
         )]
-        [ValidateScript(
-            {
-                $_ -in (($Global:HTMLIcons.FontAwesomeSolid.Keys))
-            }
-        )]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconSolid,
+        [ValidateScript( { $_ -in (($Global:HTMLIcons.FontAwesomeSolid.Keys)) })]
+        [string] $IconSolid,
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][int] $TextSize,
+        [parameter(ParameterSetName = "FontAwesomeSolid")][object] $TextSize,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")][string] $TextColor,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
-        [parameter(ParameterSetName = "FontAwesomeSolid")][int] $IconSize,
+        [parameter(ParameterSetName = "FontAwesomeSolid")][object] $IconSize,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor,
@@ -89,9 +80,9 @@ function New-HTMLTab {
     }
 
     $StyleText = @{ }
-    if ($TextSize -ne 0) {
-        $StyleText.'font-size' = "$($TextSize)px"
-    }
+    #if ($TextSize -ne 0) {
+    $StyleText['font-size'] = ConvertFrom-Size -Size $TextSize  #"$($TextSize)px"
+    #}
     if ($TextColor) {
         $StyleText.'color' = ConvertFrom-Color -Color $TextColor
     }
@@ -100,82 +91,93 @@ function New-HTMLTab {
     # end
 
     $StyleIcon = @{ }
-    if ($IconSize -ne 0) {
-        $StyleIcon.'font-size' = "$($IconSize)px"
-    }
+    #if ($IconSize -ne 0) {
+    $StyleIcon.'font-size' = ConvertFrom-Size -Size $IconSize #"$($IconSize)px"
+    #}
     if ($IconColor) {
         $StyleIcon.'color' = ConvertFrom-Color -Color $IconColor
     }
-    $Script:HTMLSchema.Features.Tabbis = $true
-    $Script:HTMLSchema.Features.RedrawObjects = $true
-
-    # Reset all Tabs Headers to make sure there are no Current Tab Set
-    # This is required for New-HTMLTable
-
-    foreach ($Tab in $Script:HTMLSchema.TabsHeaders) {
-        $Tab.Current = $false
-    }
-
-    # Start Tab Tracking
-    $Tab = [ordered] @{ }
-    $Tab.ID = $AnchorName
-    $Tab.Name = " $Name"
-    $Tab.StyleIcon = $StyleIcon
-    $Tab.StyleText = $StyleText
-    #$Tab.Used = $true
-    $Tab.Current = $true
-
-
-    if ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
-        $Tab.Active = $false
-    } else {
-        $Tab.Active = $true
-    }
-
-    # $Tab.Active = $true
-    # $Tab.Active = $true
-    $Tab.Icon = $Icon
-    # End Tab Tracking
-
-    # This is building HTML
-
-    if ($Tab.Active) {
-        $Class = 'active'
-    } else {
-        $Class = ''
-    }
-    #New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $Class } {
-    New-HTMLTag -Tag 'div' -Attributes @{ id = "$($Tab.ID)-Content"; class = $Class } {
-        if (-not [string]::IsNullOrWhiteSpace($Heading)) {
-            New-HTMLTag -Tag 'h7' {
-                $Heading
-            }
+    if ($Script:HTMLSchema.TabPanel -eq $false) {
+        # Reset all Tabs Headers to make sure there are no Current Tab Set
+        # This is required for New-HTMLTable
+        foreach ($Tab in $Script:HTMLSchema.TabsHeaders) {
+            $Tab.Current = $false
         }
-        $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
-        [Array] $TabsCollection = foreach ($_ in $OutputHTML) {
-            if ($_ -is [System.Collections.IDictionary]) {
-                $_
-                $Script:HTMLSchema.TabsHeadersNested.Add($_)
-            }
+        # Start Tab Tracking
+        $Tab = [ordered] @{ }
+        $Tab.ID = $AnchorName
+        $Tab.Name = $Name
+        $Tab.StyleIcon = $StyleIcon
+        $Tab.StyleText = $StyleText
+        $Tab.Current = $true
+
+        if ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
+            $Tab.Active = $false
+        } else {
+            $Tab.Active = $true
         }
-        [Array] $HTML = foreach ($_ in $OutputHTML) {
-            if ($_ -isnot [System.Collections.IDictionary]) {
-                $_
-            }
+        $Tab.Icon = $Icon
+        # End Tab Tracking
+
+        # This is building HTML
+
+        if ($Tab.Active) {
+            $Class = 'active'
+        } else {
+            $Class = ''
         }
-        if ($TabsCollection.Count -gt 0) {
-            New-HTMLTabHead -TabsCollection $TabsCollection
-            New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
-                # Add remaining data
+
+
+        $Script:HTMLSchema.Features.Tabbis = $true
+        $Script:HTMLSchema.Features.RedrawObjects = $true
+        #New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $Class } {
+        New-HTMLTag -Tag 'div' -Attributes @{ id = "$($Tab.ID)-Content"; class = $Class } {
+            if (-not [string]::IsNullOrWhiteSpace($Heading)) {
+                New-HTMLTag -Tag 'h7' {
+                    $Heading
+                }
+            }
+            $OutputHTML = Invoke-Command -ScriptBlock $HtmlData
+            [Array] $TabsCollection = foreach ($_ in $OutputHTML) {
+                if ($_ -is [System.Collections.IDictionary]) {
+                    $_
+                    $Script:HTMLSchema.TabsHeadersNested.Add($_)
+                }
+            }
+            [Array] $HTML = foreach ($_ in $OutputHTML) {
+                if ($_ -isnot [System.Collections.IDictionary]) {
+                    $_
+                }
+            }
+            if ($TabsCollection.Count -gt 0) {
+                New-HTMLTabHead -TabsCollection $TabsCollection
+                New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
+                    # Add remaining data
+                    $HTML
+                }
+
+            } else {
                 $HTML
             }
-
+        }
+        $Script:HTMLSchema.TabsHeaders.Add($Tab)
+        $Tab
+    } else {
+        # Tabs related to tab panel (New-HTMLTabPanel)
+        if ($HtmlData) {
+            $TabExecutedCode = & $HtmlData
         } else {
-            $HTML
+            $TabExecutedCode = ''
+        }
+        [PSCustomObject] @{
+            Name      = $Name
+            ID        = $AnchorName #"TabPanelID-$(Get-RandomStringName -Size 8 -LettersOnly)"
+            Icon      = $Icon
+            StyleIcon = $StyleIcon
+            StyleText = $StyleText
+            Content   = $TabExecutedCode
         }
     }
-    $Script:HTMLSchema.TabsHeaders.Add($Tab)
-    $Tab
 }
 
 Register-ArgumentCompleter -CommandName New-HTMLTab -ParameterName IconColor -ScriptBlock $Script:ScriptBlockColors

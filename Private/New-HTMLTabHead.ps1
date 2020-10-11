@@ -19,7 +19,10 @@ function New-HTMLTabHead {
                         $TabActive = ''
                     }
                     New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $TabActive; } {
-                        New-HTMLTag -Tag 'div' -Attributes @{ class = $($Tab.Icon); style = $($Tab.StyleIcon) }
+                        if ($Tab.Icon) {
+                            New-HTMLTag -Tag 'span' -Attributes @{ class = $($Tab.Icon); style = $($Tab.StyleIcon) }
+                            '&nbsp;' # adds an extra space when adding icon before it
+                        }
                         New-HTMLTag -Tag 'span' -Attributes @{ style = $($Tab.StyleText ) } -Value { $Tab.Name }
                     }
                 }
