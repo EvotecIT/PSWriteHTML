@@ -49,10 +49,10 @@
         [switch] $DisableBackButtonSupport,
         [switch] $DisableURLhash,
         [ValidateSet('none', 'fade', 'slide-horizontal', 'slide-vertical', 'slide-swing')][string] $TransitionAnimation, # 'none', // Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing
-        [int] $TransitionSpeed, #: '400', // Transion animation speed
+        [int] $TransitionSpeed,
         [switch] $AutoProgress,
-        [int] $AutoProgressInterval, # 3500, // Auto navigate Interval (used only if "autoProgress" is set to true)
-        [switch] $DisableAutoProgressStopOnFocus #: true, // Stop auto navigation on focus and resume on outfocus
+        [int] $AutoProgressInterval,
+        [switch] $DisableAutoProgressStopOnFocus
     )
     $Script:HTMLSchema.Features.JQuery = $true
     $Script:HTMLSchema.Features.TabsInline = $true
