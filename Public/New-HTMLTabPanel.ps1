@@ -18,7 +18,7 @@
 
     $TabID = "TabPanel-$(Get-RandomStringName -Size 8 -LettersOnly)"
     if ($Tabs) {
-        $Script:HTMLSchema.TabPanel = $true
+        $Script:HTMLSchema['TabPanelsList'].Add($TabID)
         $TabContent = & $Tabs
         if ($TabContent) {
             New-HTMLTag -Tag 'div' -Attributes @{ id = $TabID; class = 'flexElement' } {
@@ -37,7 +37,7 @@
                 }
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'tab-content' } {
                     foreach ($Tab in $TabContent) {
-                        New-HTMLTag -Tag 'div' -Attributes @{ class = 'tab-pane'; id = $Tab.ID; role = 'tabpanel' } {
+                        New-HTMLTag -Tag 'div' -Attributes @{ class = 'tab-pane'; id = $Tab.ID; role = 'tabpanel'; } {
                             $Tab.Content
                         }
                     }
@@ -83,6 +83,6 @@
 "@
             }
         }
-        $Script:HTMLSchema.TabPanel = $false
+        $null = $Script:HTMLSchema['TabPanelsList'].Remove($TabID)
     }
 }

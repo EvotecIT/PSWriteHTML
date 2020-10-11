@@ -28,18 +28,23 @@ Function New-HTML {
     $Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
 
     $Script:HTMLSchema = @{
-        TabsHeaders       = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
-        TabsHeadersNested = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
         Features          = [ordered] @{ } # tracks features for CSS/JS implementation
         Charts            = [System.Collections.Generic.List[string]]::new()
         Diagrams          = [System.Collections.Generic.List[string]]::new()
 
         Logos             = ""
-        # Tab settings
+
+        # Tabs Tracking/Options (Top Level Ones)
+        TabsHeaders       = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
+        TabsHeadersNested = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
         TabOptions        = @{
             SlimTabs = $false
         }
-        TabPanel          = $false
+
+        # TabPanels Tracking
+        TabPanelsList     = [System.Collections.Generic.List[string]]::new()
+
+        # Table Related Tracking
         Table             = [ordered] @{}
         TableSimplify     = $false # Tracks current table only
         TableOptions      = [ordered] @{

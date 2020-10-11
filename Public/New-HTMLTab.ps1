@@ -97,7 +97,14 @@ function New-HTMLTab {
     if ($IconColor) {
         $StyleIcon.'color' = ConvertFrom-Color -Color $IconColor
     }
-    if ($Script:HTMLSchema.TabPanel -eq $false) {
+
+    if ($Script:HTMLSchema['TabPanelsList'].Count -eq 0) {
+        #$Script:HTMLSchema['TabPanelsList'][-1]
+        #}
+
+
+        #if ($Script:HTMLSchema['TabPanels'] -eq $false) {
+        #if ($Script:HTMLSchema.TabPanel -eq $false) {
         # Reset all Tabs Headers to make sure there are no Current Tab Set
         # This is required for New-HTMLTable
         foreach ($Tab in $Script:HTMLSchema.TabsHeaders) {
