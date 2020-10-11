@@ -62,7 +62,7 @@
         $Script:HTMLSchema['TabPanelsList'].Add($TabID)
         $TabContent = & $Tabs
         if ($TabContent) {
-            New-HTMLTag -Tag 'div' -Attributes @{ id = $TabID; class = 'flexElement'; } {
+            New-HTMLTag -Tag 'div' -Attributes @{ id = $TabID; class = 'flexElement'; style = @{margin = '5px' } } {
                 New-HTMLTag -Tag 'ul' -Attributes @{ class = 'nav' } {
                     foreach ($Tab in $TabContent) {
                         New-HTMLTag -Tag 'li' {

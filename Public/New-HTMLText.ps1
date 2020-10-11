@@ -16,16 +16,10 @@ function New-HTMLText {
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string[]] $TextTransform = @(),
         [ValidateSet('rtl')][string[]] $Direction = @(),
         [switch] $LineBreak,
-        [switch] $SkipParagraph #,
-        #[bool[]] $NewLine = @()
+        [switch] $SkipParagraph
     )
-    #Write-Verbose 'New-HTMLText - Processing...'
-
     if ($TextBlock) {
         $Text = (Invoke-Command -ScriptBlock $TextBlock)
-        #if ($Text.Count) {
-        #    $LineBreak = $false
-        #}
     }
 
     $DefaultColor = $Color[0]
@@ -39,7 +33,6 @@ function New-HTMLText {
     $DefaultFontVariant = if ($null -eq $FontVariant[0]) { '' } else { $FontVariant }
     $DefaultDirection = if ($null -eq $Direction[0]) { '' } else { $Direction[0] }
     $DefaultAlignment = if ($null -eq $Alignment[0]) { '' } else { $Alignment[0] }
-    # $DefaultNewLine = if ($null -eq $NewLine[0]) { $false } else { $NewLine[0] }
 
     $Output = for ($i = 0; $i -lt $Text.Count; $i++) {
         if ($null -eq $FontWeight[$i]) {
@@ -156,7 +149,7 @@ function New-HTMLText {
     if ($SkipParagraph) {
         $Output -join ''
     } else {
-        New-HTMLTag -Tag 'div' {
+        New-HTMLTag -Tag 'div' -Attributes @{ style = @{ 'margin' = '5px' } } {
             $Output
         }
     }

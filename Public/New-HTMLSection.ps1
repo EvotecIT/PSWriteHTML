@@ -137,7 +137,11 @@ Function New-HTMLSection {
         #$Script:HTMLSchema.CustomHeaderCSS.Add($Css)
         $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css
     } else {
-        [string] $ClassName = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
+        if ($Invisible) {
+            [string] $ClassName = "flexParentInvisible flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
+        } else {
+            [string] $ClassName = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
+        }
     }
 
     $ContentStyle = @{
