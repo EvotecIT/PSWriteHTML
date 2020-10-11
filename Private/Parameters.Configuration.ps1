@@ -713,17 +713,20 @@ $Script:Configuration = [ordered] @{
             }
         }
         JustGage               = @{
-            Comment = 'Just Gage Library'
-            Header  = @{
+            Comment     = 'Just Gage Library'
+            Demos       = 'https://toorshia.github.io/justgage'
+            Header      = @{
                 JSLink = @(
                     'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js'
-                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.3.5/justgage.min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.0/justgage.min.js'
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\raphael.min.js"
                     "$PSScriptRoot\..\Resources\JS\justgage.min.js"
                 )
             }
+            License     = 'MIT'
+            SourceCodes = 'https://github.com/toorshia/justgage'
         }
         <#
         JsTree                  = @{
@@ -1009,6 +1012,7 @@ $Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'FontsAwesome', 'Jq
 $Keys = 'ChartsApex'
 $Keys = 'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
 $Keys = $Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
+$Keys = 'JustGage'
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js
@@ -1017,8 +1021,6 @@ foreach ($Key in $Keys) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.$Key.Header.Css
     }
 }
-
-
 #>
 <#
 Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.DataTables.Header.Js
