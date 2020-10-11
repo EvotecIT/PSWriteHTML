@@ -80,15 +80,20 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
       - If user doesn't set Paging Length, but sets different Paging Options such as `@(5,10,15)`, initial paging length will be set to lowest value `5`
       - If user sets paging options and sets paging length it will set as requested
     - [x] Added `EnableScroller` to `New-HTMLTable`. This improves `ScrollY`. It allows to load data as it appears rather than loading everything. Should be plenty useful in JavaScript DataStore for large datasets
-      - Enabling Scroller doesn't require ScrollY enablement, but it will use ScrollSizeY default 500px. You can change it tho.
+    - [ ] Enabling Scroller doesn't require ScrollY enablement, but it will use ScrollSizeY default 500px. You can change it tho.
     - [x] Added `EnableAutoFill` to `New-HTMLTable`
     - [x] Improved `New-HTMLTable` to load only required CSS/JS (hopefully nothing will be broken)
     - [x] Updated `Out-HTMLView` with all new and old parameters to keep it synced with same features as `New-HTMLTable` - hopefully I didn't break anything
     - [x] Updated some `DataTables` JS/CSS versions
-  - [x] Added `New-HTMLNav` command (WIP)
-  - [x] Added `New-HTMLNavLink` command (WIP)
-  - [ ] Changed `New-HTMLText` to add `5px` margin. Hopefully things are not affected.
-  - [x] Added `New-HTMLTabPanel` - additional way to define tabs
+  - [x] Navigation Functionality (WIP)
+    - [x] Added `New-HTMLNav` command (WIP)
+    - [x] Added `New-HTMLNavLink` command (WIP)
+  - [x] Wizard Functionality
+    - [x] Added `New-HTMLWizard`
+    - [x] Added `New-HTMLWizardStep`
+  - [x] Other
+    - [x] Changed `New-HTMLText` to add `5px` margin. Hopefully things are not affected.
+    - [x] Added `New-HTMLTabPanel` - additional way to define tabs
 - 0.0.113 - 2020.10.06
   - Fixed issue with x2 PDF Export button - [If ScrollY is selected the pdf button is doubled then #154](https://github.com/EvotecIT/PSWriteHTML/issues/154) - tnx Jekastr
 - 0.0.112 - 2020.10.05

@@ -850,8 +850,8 @@ $Script:Configuration = [ordered] @{
         }
         TabsInline             = @{
             # http://techlaboratory.net/jquery-smarttab
-            Comment      = 'Tabs Inline'
-            Header = @{
+            Comment = 'Tabs Inline'
+            Header  = @{
                 JsLink  = 'https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/js/jquery.smartTab.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\jquery.smartTab.min.js"
                 CssLink = "https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/css/smart_tab_all.min.css"
@@ -959,6 +959,18 @@ $Script:Configuration = [ordered] @{
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
                 CssLink = 'https://unpkg.com/vis-timeline@7.3.7/styles/vis-timeline-graph2d.min.css'
             }
+        }
+        Wizard                 = [ordered] @{
+            Comment     = 'Wizard'
+            Demos       = 'http://techlaboratory.net/jquery-smartwizard'
+            Header      = @{
+                JsLink  = 'https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js'
+                Js      = "$PSScriptRoot\..\Resources\JS\jquery.smartWizard.min.js"
+                CssLink = "https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\jquery.smartWizard.min.css"
+            }
+            License     = 'MIT'
+            SourceCodes = 'https://github.com/techlab/jquery-smartwizard'
         }
     }
 }
