@@ -1,8 +1,49 @@
 ﻿function New-HTMLTabPanel {
+    <#
+    .SYNOPSIS
+    Flexible and easy to implement Tab Panel with a lot of features, cool animation effects, event support, easy to customize.
+
+    .DESCRIPTION
+    Flexible and easy to implement Tab Panel with a lot of features, cool animation effects, event support, easy to customize.
+
+    .PARAMETER Orientation
+    Nav menu orientation. Default value is 'horizontal'.
+
+    .PARAMETER DisableJustification
+    Disable navigation menu justification
+
+    .PARAMETER DisableBackButtonSupport
+    Disable the back button support
+
+    .PARAMETER DisableURLhash
+    Disable selection of the tab based on url hash
+
+    .PARAMETER TransitionAnimation
+    Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing
+
+    .PARAMETER TransitionSpeed
+    Transion animation speed. Default 400
+
+    .PARAMETER AutoProgress
+    Enables auto navigation
+
+    .PARAMETER AutoProgressInterval
+    Auto navigate Interval (used only if "autoProgress" is enabled). Default 3500
+
+    .PARAMETER DisableAutoProgressStopOnFocus
+    Disable stop auto navigation on focus and resume on outfocus (used only if "autoProgress" is enabled)
+
+    .EXAMPLE
+    An example
+
+    .NOTES
+    Implementation based on: http://techlaboratory.net/jquery-smarttab
+    License: MIT
+
+    #>
     [cmdletBinding()]
     param(
         [ScriptBlock] $Tabs,
-        [int] $Selected,
         [ValidateSet('horizontal', 'vertical')][string] $Orientation,
         [switch] $DisableJustification,
         [switch] $DisableBackButtonSupport,
@@ -21,7 +62,7 @@
         $Script:HTMLSchema['TabPanelsList'].Add($TabID)
         $TabContent = & $Tabs
         if ($TabContent) {
-            New-HTMLTag -Tag 'div' -Attributes @{ id = $TabID; class = 'flexElement' } {
+            New-HTMLTag -Tag 'div' -Attributes @{ id = $TabID; class = 'flexElement'; } {
                 New-HTMLTag -Tag 'ul' -Attributes @{ class = 'nav' } {
                     foreach ($Tab in $TabContent) {
                         New-HTMLTag -Tag 'li' {
@@ -35,17 +76,17 @@
                         }
                     }
                 }
-                New-HTMLTag -Tag 'div' -Attributes @{ class = 'tab-content' } {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'tab-content flexElement' } {
                     foreach ($Tab in $TabContent) {
-                        New-HTMLTag -Tag 'div' -Attributes @{ class = 'tab-pane'; id = $Tab.ID; role = 'tabpanel'; } {
+                        New-HTMLTag -Tag 'div' -Attributes @{ class = 'tab-pane flexElement'; id = $Tab.ID; role = 'tabpanel'; style = @{ padding = '0px' } } {
                             $Tab.Content
                         }
                     }
                 }
             }
-
             $SmartTab = [ordered] @{
-                orientation = $Orientation
+                orientation      = $Orientation
+                autoAdjustHeight = $false # this fights with Flex
             }
             if ($TransitionAnimation) {
                 $SmartTab['transition'] = [ordered] @{}
@@ -73,12 +114,14 @@
                     $SmartTab['autoProgress']['stopOnFocus'] = $false
                 }
             }
+            Remove-EmptyValue -Hashtable $SmartTab
+            $SmartTabConfiguration = $SmartTab | ConvertTo-Json -Depth 2
 
             New-HTMLTag -Tag 'script' {
                 @"
             `$(document).ready(function(){
                 // SmartTab initialize
-                `$('#$TabID').smartTab();
+                `$('#$TabID').smartTab($SmartTabConfiguration);
             });
 "@
             }

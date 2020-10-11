@@ -22,6 +22,9 @@ Function New-HTMLPanel {
     }
     # This takes care of starting dots in $StyleSheetsConfiguration
     Remove-DotsFromCssClass -Css $StyleSheetsConfiguration
+    if (-not $AnchorName) {
+        $AnchorName = "anchor-$(Get-RandomStringName -Size 7)"
+    }
 
     # This controls general panel style that overwrittes whatever is set globally
     $PanelStyle = [ordered] @{
@@ -40,7 +43,8 @@ Function New-HTMLPanel {
         }
         $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes
 
-        $Script:HTMLSchema.CustomHeaderCSS.Add($Css)
+        #$Script:HTMLSchema.CustomHeaderCSS.Add($Css)
+        $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css
         [string] $Class = "$ClassName overflowHidden"
     } else {
         [string] $Class = 'flexPanel overflowHidden'

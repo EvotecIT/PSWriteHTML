@@ -134,7 +134,8 @@ Function New-HTMLSection {
         }
         $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes
 
-        $Script:HTMLSchema.CustomHeaderCSS.Add($Css)
+        #$Script:HTMLSchema.CustomHeaderCSS.Add($Css)
+        $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css
     } else {
         [string] $ClassName = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
     }
@@ -150,7 +151,7 @@ Function New-HTMLSection {
     }
     $HeaderStyle = @{ "color" = $TextHeaderColorFromRGB }
     if ($Invisible) {
-        New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName } -Value {
+        New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; style = $AttributesTop['style'] } -Value {
             New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; Style = $ContentStyle } -Value {
                 $Object = Invoke-Command -ScriptBlock $Content
                 if ($null -ne $Object) {
