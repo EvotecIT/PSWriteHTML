@@ -42,5 +42,30 @@ New-HTML {
                 New-HTMLTable -DataTable 'test 3'
             }
         }
+
+    }
+    New-HTMLSection -HeaderText 'Another section' -HeaderBackGroundColor Grey {
+        New-HTMLTabPanel -Orientation vertical {
+            New-HTMLTab -Name 'More tabs 1' {
+                New-HTMLSection -HeaderText 'OK 1' {
+                    New-HTMLTable -DataTable 'Test 1'
+                }
+            }
+            New-HTMLTab -Name 'More tabs 2' {
+                New-HTMLSection -HeaderText 'OK 2' {
+                    New-HTMLTable -DataTable 'Test 2'
+                }
+            }
+            New-HTMLTab -Name 'More tabs 3' {
+                New-HTMLSection -HeaderText 'OK 3' {
+                    New-HTMLTable -DataTable 'Test 3'
+                }
+            }
+            New-HTMLTab -Name 'More tabs 4' {
+                New-HTMLSection -HeaderText 'OK 4' {
+                    New-HTMLTable -DataTable 'Test 4'
+                }
+            }
+        }
     }
 } -Online -ShowHTML -FilePath $PSScriptRoot\Example-TabsInLine04.html
