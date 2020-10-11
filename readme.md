@@ -94,6 +94,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - [x] Other
     - [x] Changed `New-HTMLText` to add `5px` margin. Hopefully things are not affected.
     - [x] Added `New-HTMLTabPanel` - additional way to define tabs
+    - [x] Updated `JustGate` from 1.3.5 to 1.4.0
 - 0.0.113 - 2020.10.06
   - Fixed issue with x2 PDF Export button - [If ScrollY is selected the pdf button is doubled then #154](https://github.com/EvotecIT/PSWriteHTML/issues/154) - tnx Jekastr
 - 0.0.112 - 2020.10.05
