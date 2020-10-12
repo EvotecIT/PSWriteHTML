@@ -13,15 +13,15 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-DiagramLink [[-From] <String[]>] [[-To] <String[]>] [[-Label] <String>] [[-ArrowsToEnabled] <Boolean>]
- [[-ArrowsToScaleFacto] <Int32>] [[-ArrowsToType] <String>] [[-ArrowsMiddleEnabled] <Boolean>]
- [[-ArrowsMiddleScaleFactor] <Int32>] [[-ArrowsMiddleType] <String>] [[-ArrowsFromEnabled] <Boolean>]
- [[-ArrowsFromScaleFactor] <Int32>] [[-ArrowsFromType] <String>] [[-ArrowStrikethrough] <Boolean>]
- [[-Chosen] <Boolean>] [[-Color] <String>] [[-ColorHighlight] <String>] [[-ColorHover] <String>]
- [[-ColorInherit] <String>] [[-ColorOpacity] <Double>] [[-Dashes] <Boolean>] [[-Length] <String>]
- [[-FontColor] <String>] [[-FontSize] <Int32>] [[-FontName] <String>] [[-FontBackground] <String>]
- [[-FontStrokeWidth] <Int32>] [[-FontStrokeColor] <String>] [[-FontAlign] <String>] [[-FontMulti] <String>]
- [[-FontVAdjust] <Int32>] [[-WidthConstraint] <Int32>] [<CommonParameters>]
+New-DiagramLink [[-From] <String[]>] [[-To] <String[]>] [[-Label] <String>] [-ArrowsToEnabled]
+ [[-ArrowsToScaleFacto] <Int32>] [[-ArrowsToType] <String>] [-ArrowsMiddleEnabled]
+ [[-ArrowsMiddleScaleFactor] <Int32>] [[-ArrowsMiddleType] <String>] [-ArrowsFromEnabled]
+ [[-ArrowsFromScaleFactor] <Int32>] [[-ArrowsFromType] <String>] [-ArrowStrikethrough] [-Chosen]
+ [[-Color] <String>] [[-ColorHighlight] <String>] [[-ColorHover] <String>] [[-ColorInherit] <String>]
+ [[-ColorOpacity] <Double>] [-Dashes] [[-Length] <String>] [[-FontColor] <String>] [[-FontSize] <Object>]
+ [[-FontName] <String>] [[-FontBackground] <String>] [[-FontStrokeWidth] <Object>]
+ [[-FontStrokeColor] <String>] [[-FontAlign] <String>] [[-FontMulti] <String>] [[-FontVAdjust] <Int32>]
+ [[-WidthConstraint] <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -42,12 +42,12 @@ PS C:\> {{ Add example code here }}
 {{ Fill ArrowStrikethrough Description }}
 
 ```yaml
-Type: Boolean
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 12
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -57,12 +57,12 @@ Accept wildcard characters: False
 {{ Fill ArrowsFromEnabled Description }}
 
 ```yaml
-Type: Boolean
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 9
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -77,7 +77,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 10
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -93,7 +93,7 @@ Aliases:
 Accepted values: arrow, bar, circle
 
 Required: False
-Position: 11
+Position: 8
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -103,12 +103,12 @@ Accept wildcard characters: False
 {{ Fill ArrowsMiddleEnabled Description }}
 
 ```yaml
-Type: Boolean
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 6
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -123,7 +123,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 7
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -139,7 +139,7 @@ Aliases:
 Accepted values: arrow, bar, circle
 
 Required: False
-Position: 8
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -149,12 +149,12 @@ Accept wildcard characters: False
 {{ Fill ArrowsToEnabled Description }}
 
 ```yaml
-Type: Boolean
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -169,7 +169,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 4
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -185,7 +185,7 @@ Aliases:
 Accepted values: arrow, bar, circle
 
 Required: False
-Position: 5
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -195,12 +195,12 @@ Accept wildcard characters: False
 {{ Fill Chosen Description }}
 
 ```yaml
-Type: Boolean
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 13
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -215,7 +215,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 14
+Position: 9
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -230,7 +230,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 15
+Position: 10
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -245,7 +245,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 16
+Position: 11
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -261,7 +261,7 @@ Aliases:
 Accepted values: true, false, from, to, both
 
 Required: False
-Position: 17
+Position: 12
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -276,7 +276,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 18
+Position: 13
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -286,12 +286,12 @@ Accept wildcard characters: False
 {{ Fill Dashes Description }}
 
 ```yaml
-Type: Boolean
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 19
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -307,7 +307,7 @@ Aliases:
 Accepted values: center, left
 
 Required: False
-Position: 27
+Position: 21
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -322,7 +322,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 24
+Position: 18
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -337,7 +337,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 21
+Position: 15
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -353,7 +353,7 @@ Aliases:
 Accepted values: false, true, markdown, html
 
 Required: False
-Position: 28
+Position: 22
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -368,7 +368,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 23
+Position: 17
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -378,12 +378,12 @@ Accept wildcard characters: False
 {{ Fill FontSize Description }}
 
 ```yaml
-Type: Int32
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 22
+Position: 16
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -398,7 +398,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 26
+Position: 20
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -408,12 +408,12 @@ Accept wildcard characters: False
 {{ Fill FontStrokeWidth Description }}
 
 ```yaml
-Type: Int32
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 25
+Position: 19
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -428,7 +428,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 29
+Position: 23
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -473,7 +473,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 20
+Position: 14
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -503,7 +503,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 30
+Position: 24
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

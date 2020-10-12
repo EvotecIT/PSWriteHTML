@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLContainer
+# Add-HTML
 
 ## SYNOPSIS
 {{ Fill in the Synopsis }}
@@ -13,8 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLContainer [[-HTML] <ScriptBlock>] [-Width <String>] [-Margin <String>] [-AnchorName <String>]
- [<CommonParameters>]
+Add-HTML [[-HTML] <ScriptBlock>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,61 +30,16 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -AnchorName
-{{ Fill AnchorName Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -HTML
 {{ Fill HTML Description }}
 
 ```yaml
 Type: ScriptBlock
 Parameter Sets: (All)
-Aliases: Content
+Aliases:
 
 Required: False
 Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Margin
-{{ Fill Margin Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Width
-{{ Fill Width Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

@@ -14,8 +14,8 @@ schema: 2.0.0
 
 ```
 New-HTML [[-HtmlData] <ScriptBlock>] [-Online] [-TitleText <String>] [-Author <String>] [-DateFormat <String>]
- [-AutoRefresh <Int32>] [-FilePath <String>] [-ShowHTML] [-Encoding <Object>] [-FavIcon <Uri>] [-UseCssLinks]
- [-UseJavaScriptLinks] [<CommonParameters>]
+ [-AutoRefresh <Int32>] [-FilePath <String>] [-ShowHTML] [-Encoding <Object>] [-FavIcon <Uri>] [-Temporary]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -168,6 +168,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Temporary
+{{ Fill Temporary Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -TitleText
 {{Fill TitleText Description}}
 
@@ -175,36 +190,6 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases: Name, Title
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -UseCssLinks
-{{Fill UseCssLinks Description}}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -UseJavaScriptLinks
-{{ Fill UseJavaScriptLinks Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
 
 Required: False
 Position: Named

@@ -15,17 +15,20 @@ Small function that allows to send output to HTML
 ```
 Out-HtmlView [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostContent] <ScriptBlock>]
  [-Table <Object>] [-FilePath <String>] [-Title <String>] [-PassThru] [-Buttons <String[]>]
- [-PagingStyle <String[]>] [-PagingOptions <Int32[]>] [-DisablePaging] [-DisableOrdering] [-DisableInfo]
- [-HideFooter] [-DisableColumnReorder] [-DisableProcessing] [-DisableResponsiveTable] [-DisableSelect]
- [-DisableStateSave] [-DisableSearch] [-ScrollCollapse] [-OrderMulti] [-Filtering]
- [-FilteringLocation <String>] [-Style <String[]>] [-Simplify] [-TextWhenNoData <String>]
- [-ScreenSizePercent <Int32>] [-DefaultSortColumn <String[]>] [-DefaultSortIndex <Int32[]>]
- [-DefaultSortOrder <String>] [-DateTimeSortingFormat <String[]>] [-Find <String>] [-InvokeHTMLTags]
- [-DisableNewLine] [-ScrollX] [-ScrollY] [-ScrollSizeY <Int32>] [-FreezeColumnsLeft <Int32>]
- [-FreezeColumnsRight <Int32>] [-FixedHeader] [-FixedFooter] [-ResponsivePriorityOrder <String[]>]
- [-ResponsivePriorityOrderIndex <Int32[]>] [-PriorityProperties <String[]>] [-ImmediatelyShowHiddenDetails]
- [-HideShowButton] [-AllProperties] [-SkipProperties] [-Compare] [-HighlightDifferences] [-First <Int32>]
- [-Last <Int32>] [-CompareReplace <Array>] [-PreventShowHTML] [-Online] [<CommonParameters>]
+ [-PagingStyle <String[]>] [-PagingOptions <Int32[]>] [-PagingLength <Int32>] [-DisablePaging]
+ [-DisableOrdering] [-DisableInfo] [-HideFooter] [-HideButtons] [-DisableProcessing] [-DisableResponsiveTable]
+ [-DisableSelect] [-DisableStateSave] [-DisableSearch] [-OrderMulti] [-Filtering] [-FilteringLocation <String>]
+ [-Style <String[]>] [-Simplify] [-TextWhenNoData <String>] [-ScreenSizePercent <Int32>]
+ [-DefaultSortColumn <String[]>] [-DefaultSortIndex <Int32[]>] [-DefaultSortOrder <String>]
+ [-DateTimeSortingFormat <String[]>] [-Find <String>] [-InvokeHTMLTags] [-DisableNewLine] [-EnableKeys]
+ [-EnableColumnReorder] [-EnableRowReorder] [-EnableAutoFill] [-EnableScroller] [-ScrollX] [-ScrollY]
+ [-ScrollSizeY <Int32>] [-ScrollCollapse] [-FreezeColumnsLeft <Int32>] [-FreezeColumnsRight <Int32>]
+ [-FixedHeader] [-FixedFooter] [-ResponsivePriorityOrder <String[]>] [-ResponsivePriorityOrderIndex <Int32[]>]
+ [-PriorityProperties <String[]>] [-ImmediatelyShowHiddenDetails] [-HideShowButton] [-AllProperties]
+ [-SkipProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>]
+ [-CompareReplace <Array>] [-SearchRegularExpression] [-WordBreak <String>] [-AutoSize]
+ [-DisableAutoWidthOptimization] [-SearchPane] [-SearchPaneLocation <String>] [-DataStore <String>]
+ [-Transpose] [-PreventShowHTML] [-Online] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -192,6 +195,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -PagingLength
+{{ Fill PagingLength Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -DisablePaging
 {{ Fill DisablePaging Description }}
 
@@ -252,13 +270,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -DisableColumnReorder
-{{ Fill DisableColumnReorder Description }}
+### -HideButtons
+{{ Fill HideButtons Description }}
 
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases:
+Aliases: DisableButtons
 
 Required: False
 Position: Named
@@ -329,21 +347,6 @@ Accept wildcard characters: False
 
 ### -DisableSearch
 {{ Fill DisableSearch Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ScrollCollapse
-{{ Fill ScrollCollapse Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -567,6 +570,81 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -EnableKeys
+{{ Fill EnableKeys Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EnableColumnReorder
+{{ Fill EnableColumnReorder Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EnableRowReorder
+{{ Fill EnableRowReorder Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EnableAutoFill
+{{ Fill EnableAutoFill Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EnableScroller
+{{ Fill EnableScroller Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -ScrollX
 {{ Fill ScrollX Description }}
 
@@ -608,6 +686,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: 500
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ScrollCollapse
+{{ Fill ScrollCollapse Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -848,6 +941,126 @@ Aliases: Replace
 Required: False
 Position: Named
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SearchRegularExpression
+{{ Fill SearchRegularExpression Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: RegularExpression
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WordBreak
+{{ Fill WordBreak Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: Normal
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AutoSize
+{{ Fill AutoSize Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DisableAutoWidthOptimization
+{{ Fill DisableAutoWidthOptimization Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SearchPane
+{{ Fill SearchPane Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SearchPaneLocation
+{{ Fill SearchPaneLocation Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: Top
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DataStore
+{{ Fill DataStore Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Transpose
+{{ Fill Transpose Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

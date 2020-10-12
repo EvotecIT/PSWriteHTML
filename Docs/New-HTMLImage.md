@@ -14,7 +14,7 @@ Short description
 
 ```
 New-HTMLImage [[-Source] <String>] [[-UrlLink] <Uri>] [[-AlternativeText] <String>] [[-Class] <String>]
- [[-Target] <String>] [[-Width] <String>] [[-Height] <String>] [<CommonParameters>]
+ [[-Target] <String>] [[-Width] <Object>] [[-Height] <Object>] [-Inline] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -108,7 +108,7 @@ Accept wildcard characters: False
 Parameter description
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -123,13 +123,28 @@ Accept wildcard characters: False
 Parameter description
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: 7
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Inline
+Inserts given Image URL/File directly into HTML
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

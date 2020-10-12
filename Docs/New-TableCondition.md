@@ -87,7 +87,7 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases: Type
-Accepted values: number, string
+Accepted values: number, string, bool
 
 Required: False
 Position: 1
@@ -227,7 +227,7 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: lt, le, eq, ge, gt, ne, contains, like
+Accepted values: lt, le, eq, ge, gt, ne, contains, like, notlike, notcontains
 
 Required: False
 Position: 2

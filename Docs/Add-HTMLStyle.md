@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLDiagram
+# Add-HTMLStyle
 
 ## SYNOPSIS
 {{ Fill in the Synopsis }}
@@ -13,8 +13,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLDiagram [[-Diagram] <ScriptBlock>] [[-Height] <Object>] [[-Width] <Object>] [-BundleImages]
- [[-BackGroundImage] <Uri>] [[-BackgroundSize] <String>] [-NoAutoResize] [-DisableLoader] [<CommonParameters>]
+Add-HTMLStyle [[-Placement] <String>] [[-ResourceComment] <String>] [[-Link] <String[]>]
+ [[-Content] <String[]>] [[-FilePath] <String[]>] [[-Css] <IDictionary>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,11 +31,11 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -BackGroundImage
-{{ Fill BackGroundImage Description }}
+### -Content
+{{ Fill Content Description }}
 
 ```yaml
-Type: Uri
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
@@ -46,11 +46,26 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -BackgroundSize
-{{ Fill BackgroundSize Description }}
+### -Css
+{{ Fill Css Description }}
 
 ```yaml
-Type: String
+Type: IDictionary
+Parameter Sets: (All)
+Aliases: CssInline
+
+Required: False
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FilePath
+{{ Fill FilePath Description }}
+
+```yaml
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
@@ -61,28 +76,29 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -BundleImages
-{{ Fill BundleImages Description }}
+### -Link
+{{ Fill Link Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Diagram
-{{ Fill Diagram Description }}
+### -Placement
+{{ Fill Placement Description }}
 
 ```yaml
-Type: ScriptBlock
+Type: String
 Parameter Sets: (All)
 Aliases:
+Accepted values: Inline, Header, Footer
 
 Required: False
 Position: 0
@@ -91,61 +107,16 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -DisableLoader
-{{ Fill DisableLoader Description }}
+### -ResourceComment
+{{ Fill ResourceComment Description }}
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Height
-{{ Fill Height Description }}
-
-```yaml
-Type: Object
+Type: String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -NoAutoResize
-{{ Fill NoAutoResize Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Width
-{{ Fill Width Description }}
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

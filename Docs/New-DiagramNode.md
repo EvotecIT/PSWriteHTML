@@ -14,22 +14,9 @@ schema: 2.0.0
 
 ### Shape (Default)
 ```
-New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-Shape <String>]
- [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-ColorBorder <String>]
- [-ColorBackground <String>] [-ColorHighlightBorder <String>] [-ColorHighlightBackground <String>]
- [-ColorHoverBorder <String>] [-ColorHoverBackground <String>] [-FixedX <Boolean>] [-FixedY <Boolean>]
- [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
- [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
- [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-Level <Int32>]
- [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>] [-WidthConstraintMinimum <Int32>]
- [-WidthConstraintMaximum <Int32>] [<CommonParameters>]
-```
-
-### Image
-```
-New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>]
- [-ImageType <String>] [-Image <Uri>] [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>]
- [-BrokenImages <String>] [-Chosen <Boolean>] [-ColorBorder <String>] [-ColorBackground <String>]
+New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-ArrowsToEnabled]
+ [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>] [-Shape <String>] [-BorderWidth <Int32>]
+ [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-ColorBorder <String>] [-ColorBackground <String>]
  [-ColorHighlightBorder <String>] [-ColorHighlightBackground <String>] [-ColorHoverBorder <String>]
  [-ColorHoverBackground <String>] [-FixedX <Boolean>] [-FixedY <Boolean>] [-FontColor <String>]
  [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>] [-FontStrokeWidth <Int32>]
@@ -39,11 +26,26 @@ New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <
  [<CommonParameters>]
 ```
 
+### Image
+```
+New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-ArrowsToEnabled]
+ [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>] [-ImageType <String>] [-Image <Uri>]
+ [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-BrokenImages <String>] [-Chosen <Boolean>]
+ [-ColorBorder <String>] [-ColorBackground <String>] [-ColorHighlightBorder <String>]
+ [-ColorHighlightBackground <String>] [-ColorHoverBorder <String>] [-ColorHoverBackground <String>]
+ [-FixedX <Boolean>] [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>]
+ [-FontBackground <String>] [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>]
+ [-FontMulti <String>] [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-Level <Int32>]
+ [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>] [-WidthConstraintMinimum <Int32>]
+ [-WidthConstraintMaximum <Int32>] [<CommonParameters>]
+```
+
 ### FontAwesomeSolid
 ```
-New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>]
- [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>]
- [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
+New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-ArrowsToEnabled]
+ [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>] [-BorderWidth <Int32>]
+ [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>] [-FixedY <Boolean>]
+ [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
  [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
  [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-IconAsImage] [-IconColor <String>]
  [-IconSolid <String>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>]
@@ -52,9 +54,10 @@ New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <
 
 ### FontAwesomeRegular
 ```
-New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>]
- [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>]
- [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
+New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-ArrowsToEnabled]
+ [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>] [-BorderWidth <Int32>]
+ [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>] [-FixedY <Boolean>]
+ [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
  [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
  [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-IconAsImage] [-IconColor <String>]
  [-IconRegular <String>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>]
@@ -63,9 +66,10 @@ New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <
 
 ### FontAwesomeBrands
 ```
-New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>]
- [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>]
- [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
+New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-ArrowsToEnabled]
+ [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>] [-BorderWidth <Int32>]
+ [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>] [-FixedY <Boolean>]
+ [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
  [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
  [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-IconAsImage] [-IconColor <String>]
  [-IconBrands <String>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>]
@@ -85,6 +89,51 @@ PS C:\> {{ Add example code here }}
 {{ Add example description here }}
 
 ## PARAMETERS
+
+### -ArrowsFromEnabled
+{{ Fill ArrowsFromEnabled Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ArrowsMiddleEnabled
+{{ Fill ArrowsMiddleEnabled Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ArrowsToEnabled
+{{ Fill ArrowsToEnabled Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -BorderWidth
 {{ Fill BorderWidth Description }}
@@ -577,6 +626,21 @@ Accept wildcard characters: False
 Type: Int32
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LinkColor
+{{ Fill LinkColor Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: EdgeColor
 
 Required: False
 Position: Named

@@ -14,20 +14,21 @@ schema: 2.0.0
 
 ```
 New-HTMLTable [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostContent] <ScriptBlock>]
- [-DataTable <Array>] [-Buttons <String[]>] [-PagingStyle <String[]>] [-PagingOptions <Int32[]>]
- [-DisablePaging] [-DisableOrdering] [-DisableInfo] [-HideFooter] [-HideButtons] [-DisableColumnReorder]
- [-DisableProcessing] [-DisableResponsiveTable] [-DisableSelect] [-DisableStateSave] [-DisableSearch]
- [-ScrollCollapse] [-OrderMulti] [-Filtering] [-FilteringLocation <String>] [-Style <String[]>] [-Simplify]
- [-TextWhenNoData <String>] [-ScreenSizePercent <Int32>] [-DefaultSortColumn <String[]>]
- [-DefaultSortIndex <Int32[]>] [-DefaultSortOrder <String>] [-DateTimeSortingFormat <String[]>]
- [-Find <String>] [-InvokeHTMLTags] [-DisableNewLine] [-ScrollX] [-ScrollY] [-ScrollSizeY <Int32>]
- [-FreezeColumnsLeft <Int32>] [-FreezeColumnsRight <Int32>] [-FixedHeader] [-FixedFooter]
- [-ResponsivePriorityOrder <String[]>] [-ResponsivePriorityOrderIndex <Int32[]>]
- [-PriorityProperties <String[]>] [-DataTableID <String>] [-ImmediatelyShowHiddenDetails] [-HideShowButton]
- [-AllProperties] [-SkipProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>]
+ [-DataTable <Array>] [-Title <String>] [-Buttons <String[]>] [-PagingStyle <String[]>]
+ [-PagingOptions <Int32[]>] [-PagingLength <Int32>] [-DisablePaging] [-DisableOrdering] [-DisableInfo]
+ [-HideFooter] [-HideButtons] [-DisableProcessing] [-DisableResponsiveTable] [-DisableSelect]
+ [-DisableStateSave] [-DisableSearch] [-OrderMulti] [-Filtering] [-FilteringLocation <String>]
+ [-Style <String[]>] [-Simplify] [-TextWhenNoData <String>] [-ScreenSizePercent <Int32>]
+ [-DefaultSortColumn <String[]>] [-DefaultSortIndex <Int32[]>] [-DefaultSortOrder <String>]
+ [-DateTimeSortingFormat <String[]>] [-Find <String>] [-InvokeHTMLTags] [-DisableNewLine] [-EnableKeys]
+ [-EnableColumnReorder] [-EnableRowReorder] [-EnableAutoFill] [-EnableScroller] [-ScrollX] [-ScrollY]
+ [-ScrollSizeY <Int32>] [-ScrollCollapse] [-FreezeColumnsLeft <Int32>] [-FreezeColumnsRight <Int32>]
+ [-FixedHeader] [-FixedFooter] [-ResponsivePriorityOrder <String[]>] [-ResponsivePriorityOrderIndex <Int32[]>]
+ [-PriorityProperties <String[]>] [-ImmediatelyShowHiddenDetails] [-HideShowButton] [-AllProperties]
+ [-SkipProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>]
  [-CompareReplace <Array>] [-SearchRegularExpression] [-WordBreak <String>] [-AutoSize]
- [-DisableAutoWidthOptimization] [-Title <String>] [-SearchPane] [-SearchPaneLocation <String>]
- [-DataStore <String>] [<CommonParameters>]
+ [-DisableAutoWidthOptimization] [-SearchPane] [-SearchPaneLocation <String>] [-DataStore <String>]
+ [-DataTableID <String>] [-DataStoreID <String>] [-Transpose] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -81,7 +82,7 @@ Accept wildcard characters: False
 Type: String[]
 Parameter Sets: (All)
 Aliases:
-Accepted values: copyHtml5, excelHtml5, csvHtml5, pdfHtml5, pageLength, searchPanes
+Accepted values: copyHtml5, excelHtml5, csvHtml5, pdfHtml5, pageLength, print, searchPanes
 
 Required: False
 Position: Named
@@ -128,6 +129,21 @@ Type: String
 Parameter Sets: (All)
 Aliases:
 Accepted values: HTML, JavaScript, AjaxJSON
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DataStoreID
+{{ Fill DataStoreID Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named
@@ -229,21 +245,6 @@ Accept wildcard characters: False
 
 ### -DisableAutoWidthOptimization
 {{ Fill DisableAutoWidthOptimization Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DisableColumnReorder
-{{Fill DisableColumnReorder Description}}
 
 ```yaml
 Type: SwitchParameter
@@ -379,6 +380,81 @@ Accept wildcard characters: False
 
 ### -DisableStateSave
 {{Fill DisableStateSave Description}}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EnableAutoFill
+{{ Fill EnableAutoFill Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EnableColumnReorder
+{{ Fill EnableColumnReorder Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EnableKeys
+{{ Fill EnableKeys Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EnableRowReorder
+{{ Fill EnableRowReorder Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EnableScroller
+{{ Fill EnableScroller Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -638,6 +714,21 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PagingLength
+{{ Fill PagingLength Description }}
+
+```yaml
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
@@ -941,6 +1032,21 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Transpose
+{{ Fill Transpose Description }}
+
+```yaml
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
