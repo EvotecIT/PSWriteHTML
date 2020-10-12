@@ -85,6 +85,13 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Improved `New-HTMLTable` to load only required CSS/JS (hopefully nothing will be broken)
     - [x] Updated `Out-HTMLView` with all new and old parameters to keep it synced with same features as `New-HTMLTable` - hopefully I didn't break anything
     - [x] Updated some `DataTables` JS/CSS versions
+    - [ ] `New-HTMLTableOption` allows now to define `BoolAsString`, `NumberAsString` and `DateTimeFormat`
+      - [ ] This only works in `JavaScript` and `AjaxJSON` datastore.
+      - [ ] This wllows one to better control how they want their bools, numbers and DateTime displayed
+      - [ ] For example: `New-HTMLTableOption -DateTimeFormat "yyyy-MM-dd HH:mm:ss" -BoolAsString`
+      - [ ] It will make sure all dates are converted to their string representation as requested
+      - [ ] Default DateTime is `yyyy-MM-dd HH:mm:ss`
+      - [ ] This is possible thanks to `ConvertTo-JsonLiteral` which is my own implementation of `ConvertTo-JSON`
   - [x] Navigation Functionality (WIP)
     - [x] Added `New-HTMLNav` command (WIP)
     - [x] Added `New-HTMLNavLink` command (WIP)
@@ -95,6 +102,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Changed `New-HTMLText` to add `5px` margin. Hopefully things are not affected.
     - [x] Added `New-HTMLTabPanel` - additional way to define tabs
     - [x] Updated `JustGate` from 1.3.5 to 1.4.0
+
 - 0.0.113 - 2020.10.06
   - Fixed issue with x2 PDF Export button - [If ScrollY is selected the pdf button is doubled then #154](https://github.com/EvotecIT/PSWriteHTML/issues/154) - tnx Jekastr
 - 0.0.112 - 2020.10.05

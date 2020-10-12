@@ -49,9 +49,15 @@ Function New-HTML {
         Table             = [ordered] @{}
         TableSimplify     = $false # Tracks current table only
         TableOptions      = [ordered] @{
-            DataStore = ''
-            Type      = 'Structured'
-            Folder    = if ($FilePath) { Split-Path -Path $FilePath } else { '' }
+            DataStore        = ''
+            # Applies to only JavaScript and AjaxJSON store
+            DataStoreOptions = [ordered] @{
+                BoolAsString   = $false
+                NumberAsString = $false
+                DateTimeFormat = "yyyy-MM-dd HH:mm:ss"
+            }
+            Type             = 'Structured'
+            Folder           = if ($FilePath) { Split-Path -Path $FilePath } else { '' }
         }
         CustomHeaderCSS   = [ordered] @{}
         CustomFooterCSS   = [ordered] @{}

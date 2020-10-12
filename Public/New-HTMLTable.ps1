@@ -694,7 +694,9 @@ function New-HTMLTable {
             $Options = $Options -replace '"markerForDataReplacement"', $DataStoreID
             # We only add data if it isn't added yet
             if (-not $Script:HTMLSchema.CustomFooterJS[$DataStoreID]) {
-                $DataToInsert = $Table | ConvertTo-Json -Depth 1 #-Compress
+                $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
+                    -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
+                    -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat
                 if ($DataToInsert.StartsWith('[')) {
                     $Script:HTMLSchema.CustomFooterJS[$DataStoreID] = "var $DataStoreID = $DataToInsert;"
                 } else {
@@ -702,7 +704,9 @@ function New-HTMLTable {
                 }
             }
         } else {
-            $DataToInsert = $Table | ConvertTo-Json -Depth 1 #-Compress
+            $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
+                -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
+                -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat
             if ($DataToInsert.StartsWith('[')) {
                 $Options = $Options -replace '"markerForDataReplacement"', $DataToInsert
             } else {

@@ -7,32 +7,34 @@ Enum Fruit {
 }
 
 $Date = Get-Date
+$Date2 = (Get-Date).AddDays(2)
+$Date3 = (Get-Date).AddMonths(1)
 $Int = 5001
 $Enum = [System.Drawing.Color]::AntiqueWhite
 $EnumFruit = [Fruit]::Kiwi
 
 
 $DataTable1 = @(
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
+    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date2; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date3; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date2; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
 )
 
 $DataTable2 = @(
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name4'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name5'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name6'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
+    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name4'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name5'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name6'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
 )
 
 $DataTable3 = @(
-    [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
-    [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
-    [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
-    [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
+    [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
 )
-$DataTable4 = [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit }
+$DataTable4 = [ordered] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
 
 $DataTable5 = 'test'
 
@@ -47,6 +49,7 @@ $DataTable9 = [PSCustomObject] @{
 }
 
 New-HTML {
+    New-HTMLTableOption -DateTimeFormat "yyyy-MM-dd HH:mm:ss" -BoolAsString
     New-HTMLSection -Invisible {
         New-HTMLSection -HeaderText 'Standard Table with PSCustomObjects' {
             New-HTMLTable -DataTable $DataTable1

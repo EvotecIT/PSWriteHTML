@@ -13,7 +13,11 @@
         $Data = @{
             data = $DataTable
         }
-        $Data | ConvertTo-Json -Depth 2 -Compress | Out-File -FilePath $FilePath
+
+        $Data | ConvertTo-JsonLiteral -Depth 0 `
+            -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
+            -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
+            -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat | Out-File -FilePath $FilePath
         $Options['ajax'] = -join ('data', '\', "$DataTableID.json")
     } else {
         # there is possibility for array without column names, not sure if it's worth the time
