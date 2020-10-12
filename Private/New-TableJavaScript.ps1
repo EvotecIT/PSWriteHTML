@@ -6,7 +6,7 @@
     )
     $Options['data'] = "markerForDataReplacement"
     [Array] $Options['columns'] = foreach ($Property in $HeaderNames) {
-        @{ data = $Property }
+        @{ data = [regex]::Escape($Property) }
     }
     $Options['deferRender'] = $true
 }
