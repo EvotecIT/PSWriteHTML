@@ -3,10 +3,10 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
 $DataTable1 = @(
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3' }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3' }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3' }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name1'; Test2 = 'Name2'; Test3 = 'Name3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name2'; Test2 = 'Name2'; Test3 = 'Name3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name3'; Test2 = 'Name2'; Test3 = 'Name3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name4'; Test2 = 'Name2'; Test3 = 'Name3' }
 )
 
 $DataTable2 = @(
