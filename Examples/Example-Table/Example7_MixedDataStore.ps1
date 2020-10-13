@@ -13,12 +13,12 @@ $Int = 5001
 $Enum = [System.Drawing.Color]::AntiqueWhite
 $EnumFruit = [Fruit]::Kiwi
 
-
+# Testing weird column names that require escaping when using JavaScript
 $DataTable1 = @(
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date2; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date3; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
-    [PSCustomObject] @{ Test = 'Name'; Test2 = 'Name2'; Test3 = 'Name3'; Dates = $Date2; Numbers = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ 'Test.1' = 'Name'; 'Test 2 Another' = 'Name2'; 'Test..3' = 'Name3'; "Da't'es" = $Date; 'Numbers' = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ 'Test.1' = 'Name'; 'Test 2 Another' = 'Name2'; 'Test..3' = 'Name3'; "Da't'es" = $Date2; 'Numbers' = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ 'Test.1' = 'Name'; 'Test 2 Another' = 'Name2'; 'Test..3' = 'Name3'; "Da't'es" = $Date3; 'Numbers' = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ 'Test.1' = 'Name'; 'Test 2 Another' = 'Name2'; 'Test..3' = 'Name3'; "Da't'es" = $Date2; 'Numbers' = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
 )
 
 $DataTable2 = @(
