@@ -28,8 +28,8 @@
     [PSCustomObject] @{
         ObjectType         = 'BarOptions'
         Type               = $Type
-        Title              = $Title
-        TitleAlignment     = $TitleAlignment
+        #Title              = $Title
+        # TitleAlignment     = $TitleAlignment
         Horizontal         = -not $Vertical.IsPresent
         DataLabelsEnabled  = $DataLabelsEnabled
         DataLabelsOffsetX  = $DataLabelsOffsetX

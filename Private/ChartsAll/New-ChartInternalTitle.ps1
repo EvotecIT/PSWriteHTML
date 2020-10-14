@@ -7,7 +7,7 @@ function New-ChartInternalTitle {
     )
     # title
     $Options.title = [ordered] @{ }
-    if ($TitleText -ne '') {
+    if ($Title -ne '') {
         $Options.title.text = $Title
     }
     if ($TitleAlignment -ne 'default') {
