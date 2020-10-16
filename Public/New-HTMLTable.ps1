@@ -694,19 +694,24 @@ function New-HTMLTable {
             $Options = $Options -replace '"markerForDataReplacement"', $DataStoreID
             # We only add data if it isn't added yet
             if (-not $Script:HTMLSchema.CustomFooterJS[$DataStoreID]) {
-                $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
+                $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 `
+                    -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
                     -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
-                    -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat
+                    -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat `
+                    -NewLineFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat
                 if ($DataToInsert.StartsWith('[')) {
                     $Script:HTMLSchema.CustomFooterJS[$DataStoreID] = "var $DataStoreID = $DataToInsert;"
                 } else {
                     $Script:HTMLSchema.CustomFooterJS[$DataStoreID] = "var $DataStoreID = [$DataToInsert];"
                 }
             }
+
         } else {
-            $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
+            $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 `
+                -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
                 -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
-                -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat
+                -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat `
+                -NewLineFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat
             if ($DataToInsert.StartsWith('[')) {
                 $Options = $Options -replace '"markerForDataReplacement"', $DataToInsert
             } else {

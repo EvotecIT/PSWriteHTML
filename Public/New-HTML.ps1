@@ -55,6 +55,11 @@ Function New-HTML {
                 BoolAsString   = $false
                 NumberAsString = $false
                 DateTimeFormat = "yyyy-MM-dd HH:mm:ss"
+                NewLineFormat  = @{
+                    NewLineCarriage = '<br>'
+                    NewLine         = "\n"
+                    Carriage        = "\r"
+                }
             }
             Type             = 'Structured'
             Folder           = if ($FilePath) { Split-Path -Path $FilePath } else { '' }

@@ -18,8 +18,27 @@
     .PARAMETER DateTimeFormat
     When JavaScript or AjaxJSON is used, one can configure DateTimeFormat (in PowerShell way)
 
+    .PARAMETER NewLineCarriage
+    When JavaScript or AjaxJSON is used, one can configure NewLineCarriage. Default NewLineCarriage = '<br>'
+
+    .PARAMETER NewLine
+    When JavaScript or AjaxJSON is used, one can configure NewLine. Default value for NewLine = "\n"
+
+    .PARAMETER Carriage
+    When JavaScript or AjaxJSON is used, one can configure Carriage. Default value for Carriage = "\r"
+
     .EXAMPLE
-    An example
+    New-HTML {
+        New-HTMLTableOption -DateTimeFormat "yyyy-MM-dd HH:mm:ss" -BoolAsString
+        New-HTMLSection -Invisible {
+            New-HTMLSection -HeaderText 'Standard Table with PSCustomObjects' {
+                New-HTMLTable -DataTable $DataTable1
+            }
+            New-HTMLSection -HeaderText 'Standard Table with PSCustomObjects' {
+                New-HTMLTable -DataTable $DataTable1 -DataStore JavaScript
+            }
+        }
+    } -ShowHTML
 
     .NOTES
     General notes
@@ -30,7 +49,10 @@
         [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore,
         [switch] $BoolAsString,
         [switch] $NumberAsString,
-        [string] $DateTimeFormat
+        [string] $DateTimeFormat,
+        [string] $NewLineCarriage,
+        [string] $NewLine,
+        [string] $Carriage
     )
     if ($Script:HTMLSchema) {
         if ($DataStore ) {
@@ -44,6 +66,15 @@
         }
         if ($DateTimeFormat) {
             $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat = $DateTimeFormat
+        }
+        if ($NewLineCarriage) {
+            $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat.NewLineCarriage = $NewLineCarriage
+        }
+        if ($NewLine) {
+            $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat.NewLine = $NewLine
+        }
+        if ($Carriage) {
+            $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat.Carriage = $Carriage
         }
     }
 }
