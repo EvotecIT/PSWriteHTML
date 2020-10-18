@@ -6,7 +6,7 @@ New-HTML {
         New-HTMLPanel {
             New-HTMLChart {
                 New-ChartToolbar -Download
-                New-ChartBarOptions -Gradient
+                #New-ChartBarOptions -Gradient
                 New-ChartLegend -Name 'Time', 'Money', 'Taxes'
                 New-ChartBar -Name 'Test' -Value 1, 2, 3
                 New-ChartBar -Name 'Test1' -Value 2, 5, 7
@@ -16,8 +16,8 @@ New-HTML {
         New-HTMLPanel {
             New-HTMLChart {
                 New-ChartToolbar -Download
-                New-ChartBarOptions -Gradient
-                New-ChartLegend -Name 'Time', 'Money', 'Taxes'
+                #New-ChartBarOptions -Gradient
+                New-ChartLegend -Name 'Time', 'Money', 'Taxes' -Color Red, Yellow, Green
                 New-ChartBar -Name 'Test' -Value 1, 2, 3
                 New-ChartBar -Name 'Test1' -Value 2, 5, 7
                 New-ChartBar -Name 'Test2' -Value 3, 1, 2
@@ -26,8 +26,8 @@ New-HTML {
         New-HTMLPanel {
             New-HTMLChart {
                 New-ChartToolbar -Download
-                New-ChartBarOptions -Gradient
-                New-ChartLegend -Name 'Time', 'Money', 'Taxes'
+                New-ChartBarOptions -Type barStacked
+                New-ChartLegend -Name 'Time', 'Money', 'Taxes' -Color Red, Yellow, Green
                 New-ChartBar -Name 'Test' -Value 1, 2, 3
                 New-ChartBar -Name 'Test1' -Value 2, 5, 7
                 New-ChartBar -Name 'Test2' -Value 3, 1, 2

@@ -9,7 +9,7 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsBar
                     New-ChartBar -Name 'Test' -Value 1
                     New-ChartBar -Name 'Test1' -Value 2
                     New-ChartBar -Name 'Test2' -Value 3
-                }
+                } -Title 'Testing Title' -TitleAlignment center
             }
             New-HTMLPanel {
                 New-HTMLChart {
@@ -18,7 +18,7 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsBar
                     New-ChartBar -Name 'Test' -Value 1, 2, 3
                     New-ChartBar -Name 'Test1' -Value 2, 5, 7
                     New-ChartBar -Name 'Test2' -Value 3, 1, 2
-                }
+                } -Title 'Testing Title' -TitleAlignment center
             }
             New-HTMLPanel {
                 New-HTMLChart {
@@ -28,7 +28,7 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsBar
                     New-ChartBar -Name 'Test' -Value 1, 2, 3
                     New-ChartBar -Name 'Test1' -Value 2, 5, 7
                     New-ChartBar -Name 'Test2' -Value 3, 1, 2
-                }
+                } -Title 'Testing Title' -TitleAlignment center
             }
             New-HTMLPanel {
                 New-HTMLChart {
@@ -84,7 +84,6 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsBar
             }
         }
         New-HTMLSection -HeaderText 'Bar Charts - Standard Bar' -CanCollapse {
-
             New-HTMLPanel {
                 $Data1 = 400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380
                 $DataNames1 = 'South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan', 'United States', 'China', 'Germany'
