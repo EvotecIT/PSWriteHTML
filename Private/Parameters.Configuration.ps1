@@ -192,16 +192,23 @@ $Script:Configuration = [ordered] @{
         CodeBlocks             = @{
             Comment      = 'EnlighterJS CodeBlocks'
             Header       = @{
-                CssLink = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.css'
+                CssLink = 'https://cdn.jsdelivr.net/npm/enlighterjs@3.4.0/dist/enlighterjs.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\enlighterjs.min.css"
-                JsLink  = 'https://evotec.xyz/wp-content/uploads/pswritehtml/enlighterjs30/enlighterjs.min.js'
+                JsLink  = 'https://cdn.jsdelivr.net/npm/enlighterjs@3.4.0/dist/enlighterjs.min.js'
                 JS      = "$PSScriptRoot\..\Resources\JS\enlighterjs.min.js"
             }
             Footer       = @{
 
             }
             HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\enlighterjs.css"
+                #Css       = "$PSScriptRoot\..\Resources\CSS\enlighterjs.css"
+                CssInline = @{
+                    'div.enlighter-default' = @{
+                        'flex-basis'    = '100%'
+                        'margin'        = '5px'
+                        'border-radius' = '0px'
+                    }
+                }
             }
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
@@ -1012,7 +1019,7 @@ $Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'FontsAwesome', 'Jq
 $Keys = 'ChartsApex'
 $Keys = 'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
 $Keys = $Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
-$Keys = 'JustGage'
+$Keys = 'CodeBlocks'
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js
