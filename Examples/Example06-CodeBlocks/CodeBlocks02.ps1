@@ -86,8 +86,17 @@ New-HTML -Online -FilePath "$PSScriptRoot\CodeBlocks02.html" -ShowHTML {
         New-HTMLSection -HeaderText 'This shows PowerShell Language' {
             New-HTMLCodeBlock -Code $CodeBlockJS -Style 'JavaScript' -Theme enlighter -Highlight '2, 5'
         }
-        New-HTMLSection -HeaderText 'XML Language' {
-            New-HTMLCodeBlock -Code $CodeBlocksXML -Style 'xml' -Highlight '12, 19'
+        New-HTMLSection -HeaderText 'XML Language Minimal Theme' {
+            New-HTMLCodeBlock -Code $CodeBlocksXML -Style 'xml' -Highlight '12, 19' -Theme minimal
+        }
+        New-HTMLSection -HeaderText 'XML Language - Monokai Theme' {
+            New-HTMLCodeBlock -Code $CodeBlocksXML -Style 'xml' -Highlight '12, 19' -Theme monokai
+        }
+        New-HTMLSection -HeaderText 'XML Language - bootstrap4 Theme' {
+            New-HTMLCodeBlock -Code $CodeBlocksXML -Style 'xml' -Highlight '12, 19' -Theme bootstrap4
+        }
+        New-HTMLSection -HeaderText 'XML Language - Classic Theme' {
+            New-HTMLCodeBlock -Code $CodeBlocksXML -Style 'xml' -Highlight '12, 19' -Theme classic
         }
     }
     New-HTMLTab -TabName 'Other' {
