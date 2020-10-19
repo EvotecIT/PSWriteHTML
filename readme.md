@@ -102,6 +102,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Changed `New-HTMLText` to add `5px` margin. Hopefully things are not affected.
     - [x] Added `New-HTMLTabPanel` - additional way to define tabs
     - [x] Updated `JustGate` from 1.3.5 to 1.4.0
+    - [x] Updated `EnlighterJs` from 3.0 to 3.4.0
+    - [x] Small updates to `New-HTMLCodeBlock`
     - [x] Fix for `New-HTMLChart` broken `Title` parameter
     - [x] `New-HTMLList` and `New-HTMLListItem` updated with `FontSize`
 - 0.0.113 - 2020.10.06
