@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.114 - Unreleased
+- 0.0.113 - 2020.10.19
   - [x] `New-HTMLTable` - changes/improvements/adds
     - [x] Reworked JS/CSS loading for DataTables. It should now load less JS/CSS code by default making HTML smaller and more readable especially if not using all features
       - [ ] Some more work in this area is required. Small breaking change was introduced
@@ -106,9 +106,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Small updates to `New-HTMLCodeBlock`
     - [x] Fix for `New-HTMLChart` broken `Title` parameter
     - [x] `New-HTMLList` and `New-HTMLListItem` updated with `FontSize`
-- 0.0.113 - 2020.10.06
+- 0.0.112 - 2020.10.06
   - Fixed issue with x2 PDF Export button - [If ScrollY is selected the pdf button is doubled then #154](https://github.com/EvotecIT/PSWriteHTML/issues/154) - tnx Jekastr
-- 0.0.112 - 2020.10.05
   - Better handling of empty data in `New-HTMLTable`
 - 0.0.111 - 2020.10.05
   - Added `New-HTMLOrgChart` (WIP)
