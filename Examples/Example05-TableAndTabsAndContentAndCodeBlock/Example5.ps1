@@ -9,27 +9,27 @@ $CodeBlock = @'
 $HTML = New-HtmlPage -Name 'Test' -Online {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
-        New-HTMLContent -HeaderText 'Content' {
+        New-HTMLSection -HeaderText 'Content' {
             New-HTMLPanel -ColumnNumber 1 {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
+                New-HTMLSection -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -DataTable $DomainAdminTable
                 }
             }
             New-HTMLPanel -ColumnNumber 2 {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
+                New-HTMLSection -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -DataTable $DomainAdminTable
                 }
             }
-            New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
+            New-HTMLSection -HeaderText 'My text 2' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
-        New-HTMLContent -HeaderText 'This shows PowerShell Language' {
+        New-HTMLSection -HeaderText 'This shows PowerShell Language' {
             Get-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell'
         }
     }
     New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
-        New-HTMLContent -HeaderText 'My other text' {
+        New-HTMLSection -HeaderText 'My other text' {
             New-HTMLTable -DataTable $EnterpriseAdminTable
         }
     }
@@ -114,61 +114,61 @@ $CodeBlocksXML1 = @'
 New-HTML -Online -FilePath "$PSScriptRoot\Example5.html" -ShowHTML {
     New-HTMLTab -TabName 'Dashboard' {
 
-        New-HTMLContent -HeaderText 'Content' {
+        New-HTMLSection -HeaderText 'Content' {
             New-HTMLPanel {
                 New-HTMLTable -DataTable $DomainAdminTable
             }
             New-HTMLPanel {
                 New-HTMLTable -DataTable $DomainAdminTable
             }
-            New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
+            New-HTMLSection -HeaderText 'My text 2' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
 
-        New-HTMLContent -HeaderText 'Content New' {
+        New-HTMLSection -HeaderText 'Content New' {
             New-HTMLPanel {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
+                New-HTMLSection -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -DataTable $DomainAdminTable
                 }
             }
             New-HTMLPanel {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
+                New-HTMLSection -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -DataTable $DomainAdminTable
                 }
             }
-            New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
+            New-HTMLSection -HeaderText 'My text 2' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
 
-        New-HTMLContent -HeaderText 'This shows PowerShell Language' -CanCollapse {
+        New-HTMLSection -HeaderText 'This shows PowerShell Language' -CanCollapse {
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Group 'Test123' -Title 'PowerShell Code 1' -Theme godzilla -Highlight '2-5, 13'
             New-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell' -Group 'Test123' -Title 'PowerShell Code 2'
         }
-        New-HTMLContent -HeaderText 'This shows PowerShell Language' -CanCollapse {
+        New-HTMLSection -HeaderText 'This shows PowerShell Language' -CanCollapse {
             New-HTMLCodeBlock -Code $CodeBlockJS -Style 'JavaScript' -Theme enlighter -Highlight '2, 5'
         }
-        New-HTMLContent -HeaderText 'XML Language' {
+        New-HTMLSection -HeaderText 'XML Language' {
             New-HTMLCodeBlock -Code $CodeBlocksXML -Style 'xml' -Highlight '12, 19'
         }
-        New-HTMLContent -HeaderText 'XML Language' {
+        New-HTMLSection -HeaderText 'XML Language' {
             New-HTMLCodeBlock -Code $CodeBlocksXML1 -Style 'xml' -Highlight '12, 19'
         }
     }
 
     New-HTMLTab -TabName 'Test 2' {
-        New-HTMLContent -HeaderText 'My other text' {
+        New-HTMLSection -HeaderText 'My other text' {
             New-HTMLTable -DataTable $EnterpriseAdminTable
         }
-        New-HTMLContent -HeaderText 'Content' {
+        New-HTMLSection -HeaderText 'Content' {
             New-HTMLPanel {
                 New-HTMLTable -DataTable $DomainAdminTable
             }
             New-HTMLPanel {
                 New-HTMLTable -DataTable $DomainAdminTable
             }
-            New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
+            New-HTMLSection -HeaderText 'My text 2' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }

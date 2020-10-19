@@ -6,17 +6,17 @@ $EnterpriseAdminTable = Get-Process | Select-Object -First 5
 
 New-HTML -TitleText $ReportTitle -Online -FilePath "$PSScriptRoot\Example4-01.html" {
     New-HTMLTab -TabName 'Dashboard' {
-        New-HTMLContent -HeaderText "Groups" {
-            New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
+        New-HTMLSection -HeaderText "Groups" {
+            New-HTMLSection -HeaderText 'Domain Administrators' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable {
                     New-TableHeader -Color Red -Title 'This shows standard table with header'
                 }
             }
-            New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
+            New-HTMLSection -HeaderText 'Domain Administrators' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
-        New-HTMLContent -HeaderText 'Test 2' {
+        New-HTMLSection -HeaderText 'Test 2' {
             New-HTMLTable -DataTable $EnterpriseAdminTable
         }
     }

@@ -11,8 +11,8 @@ $ImageLink = 'https://evotec.xyz/wp-content/uploads/2015/05/Logo-evotec-012.png'
 New-HTML -TitleText $ReportTitle -Online -FilePath "$PSScriptRoot\Example3.html" {
     New-HTMLLogo -RightLogoString $ImageLink
     New-HTMLTab -TabName 'Dashboard' {
-        New-HTMLContent  -HeaderText "Groups" {
-            New-HTMLContent -HeaderText 'Domain Administrators' -CanCollapse {
+        New-HTMLSection  -HeaderText "Groups" {
+            New-HTMLSection -HeaderText 'Domain Administrators' -CanCollapse {
                 New-HTMLPanel {
                     New-HTMLTable -DataTable $DomainAdminTable -HideFooter
                 }

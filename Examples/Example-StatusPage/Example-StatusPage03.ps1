@@ -1,8 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML -TitleText 'Services Status' -Online {
-
-    New-HTMLContent -Invisible {
+    New-HTMLSection -Invisible {
         New-HTMLContainer {
 
         }

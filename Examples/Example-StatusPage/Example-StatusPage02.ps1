@@ -2,7 +2,7 @@
 
 New-HTML -TitleText 'Services Status' -Online {
 
-    New-HTMLContent {
+    New-HTMLSection {
         New-HTMLContainer {
             New-HTMLPanel -Invisible {
                 New-HTMLToast -TextHeader 'Information' -Text 'Everything is running smoothly!' -BarColorLeft Blue -IconSolid info-circle -IconColor Blue
