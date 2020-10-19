@@ -6,7 +6,7 @@ function New-HTMLList {
         [ValidateSet('Unordered', 'Ordered')] [string] $Type = 'Unordered',
         [string] $Color,
         [string] $BackGroundColor,
-        [int] $FontSize,
+        [object] $FontSize,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,
         [ValidateSet('normal', 'small-caps')][string] $FontVariant,
@@ -64,8 +64,20 @@ function New-HTMLList {
         }
     }
 
-    if ($SpanRequired) {
-        New-HTMLSpanStyle @newHTMLSplat {
+    if ($ListItems) {
+        if ($SpanRequired) {
+            New-HTMLSpanStyle @newHTMLSplat {
+                if ($Type -eq 'Unordered') {
+                    New-HTMLTag -Tag 'ul' {
+                        Invoke-Command -ScriptBlock $ListItems
+                    }
+                } else {
+                    New-HTMLTag -Tag 'ol' {
+                        Invoke-Command -ScriptBlock $ListItems
+                    }
+                }
+            }
+        } else {
             if ($Type -eq 'Unordered') {
                 New-HTMLTag -Tag 'ul' {
                     Invoke-Command -ScriptBlock $ListItems
@@ -77,15 +89,7 @@ function New-HTMLList {
             }
         }
     } else {
-        if ($Type -eq 'Unordered') {
-            New-HTMLTag -Tag 'ul' {
-                Invoke-Command -ScriptBlock $ListItems
-            }
-        } else {
-            New-HTMLTag -Tag 'ol' {
-                Invoke-Command -ScriptBlock $ListItems
-            }
-        }
+        Write-Warning "New-HTMLList - No content provided. Please use New-HTMLListItem inside New-HTMLList."
     }
 }
 

@@ -4,7 +4,7 @@ function New-HTMLListItem {
         [string[]] $Text,
         [string[]] $Color = @(),
         [string[]] $BackGroundColor = @(),
-        [int[]] $FontSize = @(),
+        [object[]] $FontSize = @(),
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string[]] $FontWeight = @(),
         [ValidateSet('normal', 'italic', 'oblique')][string[]] $FontStyle = @(),
         [ValidateSet('normal', 'small-caps')][string[]] $FontVariant = @(),
@@ -31,17 +31,12 @@ function New-HTMLListItem {
         FontWeight      = $FontWeight
         LineBreak       = $LineBreak
     }
-
-    if (($FontSize.Count -eq 0) -or ($FontSize -eq 0)) {
-        $Size = ''
-    } else {
-        $size = "$($FontSize)px"
-    }
+    <#
     $Style = @{
         style = @{
             'color'            = ConvertFrom-Color -Color $Color
             'background-color' = ConvertFrom-Color -Color $BackGroundColor
-            'font-size'        = $Size
+            'font-size'        = ConvertFrom-Size -FontSize $FontSize
             'font-weight'      = $FontWeight
             'font-variant'     = $FontVariant
             'font-family'      = $FontFamily
@@ -54,6 +49,7 @@ function New-HTMLListItem {
             'direction'        = $Direction
         }
     }
+    #>
 
     New-HTMLTag -Tag 'li' -Attributes $Style -Value {
         New-HTMLText @newHTMLTextSplat -SkipParagraph
