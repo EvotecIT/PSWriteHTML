@@ -1,7 +1,7 @@
 ﻿$Processes = Get-Process | Select-Object -First 20
 
 New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example25.html {
-    New-HTMLContent -Invisible {
+    New-HTMLSection -Invisible {
         New-HTMLPanel -Invisible {
             New-HTMLToast -TextHeader 'Maintenance' -Text "We've planned maintenance on 24th of January 2020. It will last 30 hours." -IconRegular address-card
         }
@@ -9,7 +9,7 @@ New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example25.html {
             New-HTMLToast -TextHeader 'Maintenance' -Text "We've planned maintenance on 24th of January 2020. It will last 30 hours." -IconColor DarkGrey -BarColorLeft ForestGreen -TextColor Gainsboro -IconBrands 500px
         }
     }
-    New-HTMLContent -Invisible {
+    New-HTMLSection -Invisible {
         New-HTMLTable -DataTable $Processes -HideFooter
     }
     New-HTMLPanel -Invisible {

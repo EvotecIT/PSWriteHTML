@@ -17,7 +17,7 @@ $ProcessesAll = Get-Process | Select-Object -First 10
 $Processes = $ProcessesAll | Select-Object -First 10 -Property $Properties
 
 New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example24_02.html -ShowHTML {
-    New-HTMLContent -HeaderText 'Section 1' {
+    New-HTMLSection -HeaderText 'Section 1' {
         New-HTMLContainer {
             New-HTMLPanel {
                 New-HTMLTable -DataTable $Processes -HideFooter -ScrollCollapse {
@@ -43,7 +43,7 @@ New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example24_02.html -S
             }
         }
     }
-    New-HTMLContent -HeaderText 'Section 2' {
+    New-HTMLSection -HeaderText 'Section 2' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $Processes -HideFooter -ScrollCollapse {
 

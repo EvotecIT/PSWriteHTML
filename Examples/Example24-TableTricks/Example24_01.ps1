@@ -16,7 +16,7 @@ $ProcessesAll = Get-Process | Select-Object -First 10
 $Processes = $ProcessesAll | Select-Object -First 10 -Property $Properties
 
 New-HTML -TitleText 'Title' -Online:$false -FilePath $PSScriptRoot\Example24_01.html -ShowHTML {
-    New-HTMLContent -HeaderText '0 section' {
+    New-HTMLSection -HeaderText '0 section' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $Processes -HideFooter -ScrollCollapse {
                 New-HTMLTableContent -Names 'Name' -RowIndex 5 -BackGroundColor Blue

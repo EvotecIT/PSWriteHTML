@@ -13,7 +13,7 @@ New-HTML -TitleText 'My Title' -FilePath $PSScriptRoot\Example31-Tabbing.html -S
         $DataTableIDComputers = Get-Random -Minimum 100000 -Maximum 2000000
 
         New-HTMLTab -TabName "Domain $Domain" -IconSolid dice {
-            New-HTMLContent -HeaderText 'Active Directory Computers & Diagram' -HeaderBackGroundColor Grey {
+            New-HTMLSection -HeaderText 'Active Directory Computers & Diagram' -HeaderBackGroundColor Grey {
                 New-HTMLPanel {
                     New-HTMLTable -DataTable $Objects -DataTableID $DataTableIDComputers
                 }

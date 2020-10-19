@@ -3,7 +3,7 @@
 $Process = Get-Process | Select-Object -First 10
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example21.html -Show {
-    New-HTMLContent -HeaderText 'Test' -BackgroundColor Azure {
+    New-HTMLSection -HeaderText 'Test' -BackgroundColor Azure {
         New-HTMLTable -DataTable $Process -PagingOptions @(50, 100, 150, 200) -Find '' {
             New-HTMLTableButtonPDF
             New-HTMLTableCondition -Name 'HandleCount' -Type number -Operator gt -Value 300 -BackgroundColor Yellow
@@ -22,7 +22,7 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example21.html -S
             New-HTMLTableCondition -Name 'Name' -Type string -Operator eq -Value 'browser_broker' -BackgroundColor Gold -Row
         }
     }
-    New-HTMLContent -HeaderText 'Test' {
+    New-HTMLSection -HeaderText 'Test' {
         New-HTMLContainer {
             New-HTMLText -Text 'You can also use Container for that' -Alignment center -Color Red -FontSize 20
             New-HTMLTable -DataTable $Process -PagingOptions @(50, 100, 150, 200) -DefaultSortColumn 'PriorityClass' {

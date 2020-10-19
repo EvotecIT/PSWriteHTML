@@ -13,7 +13,7 @@ New-HTML -TitleText "Title" -Online -FilePath $PSScriptRoot\Example11.html -Show
     New-HTMLHeading -Heading h6  -HeadingText 'This is my heading'
 
     New-HtmlTab -TabName 'Test' {
-        New-HTMLContent -HeaderText '0 section' {
+        New-HTMLSection -HeaderText '0 section' {
             New-HTMLPanel {
                 New-HTMLTable -DataTable $Processes -HideFooter
             }
@@ -29,7 +29,7 @@ New-HTML -TitleText "Title" -Online -FilePath $PSScriptRoot\Example11.html -Show
         }
     }
     New-HTMLTab -TabName 'Test5' {
-        New-HTMLContent -HeaderText '1 section' {
+        New-HTMLSection -HeaderText '1 section' {
             New-HTMLPanel {
                 New-HTMLTable -DataTable $Processes -HideFooter
             }

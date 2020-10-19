@@ -25,7 +25,7 @@ $ProcessesAll = Get-Process | Select-Object -First 30
 $Processes = $ProcessesAll | Select-Object -First 30 -Property $Properties
 
 New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example08.html -ShowHTML {
-    New-HTMLContent -HeaderText '0 section' {
+    New-HTMLSection -HeaderText '0 section' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $Processes -HideFooter -ScrollCollapse {
                 New-HTMLTableHeader -Names 'Name', 'ID' -Title 'Process Information' -Color Red -FontWeight lighter -Alignment left -BackGroundColor LightBlue
@@ -39,7 +39,7 @@ New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example08.html -Show
         }
     }
 
-    New-HTMLContent -HeaderText '1 section' {
+    New-HTMLSection -HeaderText '1 section' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $Processes {
                 New-HTMLTableHeader -Names 'Name', 'ID' -Title 'Process Information'
@@ -51,7 +51,7 @@ New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example08.html -Show
             } -Filtering
         }
     }
-    New-HTMLContent -HeaderText '2 section' {
+    New-HTMLSection -HeaderText '2 section' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $ProcessesAll -HideFooter -DisableResponsiveTable {
                 New-HTMLTableHeader -Names 'Name', 'ID' -Title 'Process Information'
@@ -60,7 +60,7 @@ New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example08.html -Show
         }
     }
 
-    New-HTMLContent -HeaderText '3 section' {
+    New-HTMLSection -HeaderText '3 section' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $Processes  {
                 New-HTMLTableHeader -Names 'PriorityClass', 'FileVersion', 'HandleCount' -BackGroundColor Gold -Color White
@@ -70,22 +70,22 @@ New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example08.html -Show
             } -HideFooter
         }
     }
-    New-HTMLContent -HeaderText '4 section' {
+    New-HTMLSection -HeaderText '4 section' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $ProcessesAll -DisableResponsiveTable
         }
     }
-    New-HTMLContent -HeaderText 'Demo for ScrollX - disables responsive table automatically' {
+    New-HTMLSection -HeaderText 'Demo for ScrollX - disables responsive table automatically' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $ProcessesAll -HideFooter -ScrollX
         }
     }
-    New-HTMLContent -HeaderText 'Demo for ScrollX - disables responsive table automatically' {
+    New-HTMLSection -HeaderText 'Demo for ScrollX - disables responsive table automatically' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $ProcessesAll -HideFooter -ScrollX -FreezeColumnsRight 2 -FreezeColumnsLeft 2
         }
     }
-    New-HTMLContent -HeaderText 'Demo for ScrollY' {
+    New-HTMLSection -HeaderText 'Demo for ScrollY' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $ProcessesAll -HideFooter -ScrollY -DisablePaging
         }

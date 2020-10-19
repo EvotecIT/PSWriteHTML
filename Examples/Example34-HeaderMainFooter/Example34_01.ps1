@@ -6,7 +6,7 @@ New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example34_01.html"
     }
     New-HTMLMain {
         New-HTMLTab -TabName 'Test' {
-            New-HTMLContent -HeaderText '0 section' {
+            New-HTMLSection -HeaderText '0 section' {
                 New-HTMLPanel {
                     New-HTMLTable -DataTable $Processes -HideFooter
                 }
@@ -22,7 +22,7 @@ New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example34_01.html"
             }
         }
         New-HTMLTab -TabName 'Test5' {
-            New-HTMLContent -HeaderText '1 section' {
+            New-HTMLSection -HeaderText '1 section' {
                 New-HTMLPanel {
                     New-HTMLTable -DataTable $Processes -HideFooter
                 }

@@ -5,7 +5,7 @@
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example20_01.html -Show {
     New-HTMLTableOption -DataStore HTML
     <#
-    New-HTMLContent -HeaderText 'Test' {
+    New-HTMLSection -HeaderText 'Test' {
         New-HTMLContainer {
             New-HTMLText -Text 'You can also use Container for that' -Alignment center -Color Red -FontSize 20
             New-HTMLTable -DataTable $Process -PagingOptions @(50, 100, 150, 200) -DefaultSortColumn 'PriorityClass' {

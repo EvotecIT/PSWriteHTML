@@ -6,27 +6,27 @@ $CodeBlock = @'
 $HTML = New-HtmlPage -Name 'Test' -Online {
     New-HTMLTabHeader -TabNames 'Dashboard', 'Other'
     New-HTMLTab -TabName 'Dashboard' {
-        New-HTMLContent -HeaderText 'Content' {
+        New-HTMLSection -HeaderText 'Content' {
             New-HTMLPanel {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
+                New-HTMLSection -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -Simplify -DataTable $DomainAdminTable
                 }
             }
             New-HTMLPanel {
-                New-HTMLContent -HeaderText 'My text' -CanCollapse {
+                New-HTMLSection -HeaderText 'My text' -CanCollapse {
                     New-HTMLTable -Simplify -DataTable $DomainAdminTable
                 }
             }
-            New-HTMLContent -HeaderText 'My text 2' -CanCollapse {
+            New-HTMLSection -HeaderText 'My text 2' -CanCollapse {
                 New-HTMLTable -DataTable $EnterpriseAdminTable
             }
         }
-        New-HTMLContent -HeaderText 'This shows PowerShell Language' {
+        New-HTMLSection -HeaderText 'This shows PowerShell Language' {
             Get-HTMLCodeBlock -Code $CodeBlock -Style 'PowerShell'
         }
     }
     New-HTMLTab -TabName 'Other' -TabHeading 'Test 2' {
-        New-HTMLContent -HeaderText 'My other text' {
+        New-HTMLSection -HeaderText 'My other text' {
             New-HTMLTable -Simplify -DataTable $EnterpriseAdminTable
         }
     }
@@ -50,7 +50,7 @@ $(window).bind("resize", function(e) {
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example9.html -ShowHTML {
     New-HTMLLogo
 
-    New-HTMLContent -HeaderText '0 section' -BackgroundColor SkyBlue {
+    New-HTMLSection -HeaderText '0 section' -BackgroundColor SkyBlue {
         New-HTMLPanel {
             New-HTMLTable -DataTable $Processes -HideFooter
         }
@@ -62,10 +62,10 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example9.html -Sh
             New-HTMLTable -DataTable $Processes -HideFooter
         }
     }
-    New-HTMLContent -HeaderText '-1 section' -CanCollapse {
+    New-HTMLSection -HeaderText '-1 section' -CanCollapse {
         New-HTMLPanel {
             New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left {
-                New-ChartCategory -Name  '2015', '2016', '2017'
+                New-ChartCategory -Name '2015', '2016', '2017'
                 New-ChartLine -Name 'People count' -Value @(400, 430, 448) -Color Blue
                 New-ChartLine -Name 'People Death' -Value @(450, 0, 200) -Color Green
             }
@@ -112,19 +112,19 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example9.html -Sh
             }
         }
     }
-    New-HTMLContent -HeaderText 'Section 3rd with 3 columns' {
+    New-HTMLSection -HeaderText 'Section 3rd with 3 columns' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $Processes -HideFooter
         }
         New-HTMLPanel {
-            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left  {
-                New-ChartCategory -Name  '2015', '2016', '2017'
+            New-HTMLChart -Title 'Product Trends by Month' -TitleAlignment left {
+                New-ChartCategory -Name '2015', '2016', '2017'
                 New-ChartLine -Name 'People count' -Value @(400, 430, 448) -Color Blue
                 New-ChartLine -Name 'People Death' -Value @(450, 0, 200) -Color Green
             }
         }
     }
-    New-HTMLContent -HeaderText 'Another conteent' -CanCollapse {
+    New-HTMLSection -HeaderText 'Another conteent' -CanCollapse {
         New-HTMLPanel {
             New-HTMLCodeBlock -Code $CodeBlockJS -Style 'JavaScript' -Theme enlighter -Highlight '2, 5'
         }

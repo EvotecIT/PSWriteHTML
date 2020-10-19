@@ -11,7 +11,7 @@ New-HTML -TitleText 'My Title' -FilePath $PSScriptRoot\Example30-NestedTabs.html
 
         New-HTMLTab -TabName "Domain $Domain" -IconSolid dice {
             New-HTMLTab -TabName 'Computers' {
-                New-HTMLContent -HeaderText 'Active Directory Computers & Diagram' -HeaderBackGroundColor Grey {
+                New-HTMLSection -HeaderText 'Active Directory Computers & Diagram' -HeaderBackGroundColor Grey {
                     New-HTMLPanel {
                         New-HTMLTable -DataTable $Computers -DataTableID $DataTableIDComputers
                     }

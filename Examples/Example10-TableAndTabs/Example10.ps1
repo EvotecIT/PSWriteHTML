@@ -5,7 +5,7 @@ $Processes = Get-Process | Select-Object -First 5
 New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example10.html -ShowHTML {
     New-HTMLLogo
     New-HtmlTab -TabName 'Test' {
-        New-HTMLContent -HeaderText '0 section' {
+        New-HTMLSection -HeaderText '0 section' {
             New-HTMLPanel {
                 New-HTMLTable -DataTable $Processes -HideFooter
             }
@@ -21,7 +21,7 @@ New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example10.html -S
         }
     }
     New-HTMLTab -TabName 'Test5' {
-        New-HTMLContent -HeaderText '1 section' {
+        New-HTMLSection -HeaderText '1 section' {
             New-HTMLPanel {
                 New-HTMLTable -DataTable $Processes -HideFooter
             }
@@ -70,7 +70,7 @@ New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example10.html -S
         New-HTMLPanel {
             New-HTMLTable -DataTable $Processes -HideFooter
         }
-        New-HTMLContent -HeaderText '1 section' {
+        New-HTMLSection -HeaderText '1 section' {
             New-HTMLPanel {
                 New-HTMLTable -DataTable $Processes -HideFooter
             }

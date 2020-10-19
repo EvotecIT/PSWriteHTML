@@ -7,7 +7,7 @@ New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example30-LinkedT
     #New-HTMLLogo
     New-HTMLTabStyle -SelectorColor Grey
     New-HTMLTab -TabName 'Test' -IconSolid dice {
-        New-HTMLContent -HeaderText 'Active Directory Computers & Diagram' -HeaderBackGroundColor Grey {
+        New-HTMLSection -HeaderText 'Active Directory Computers & Diagram' -HeaderBackGroundColor Grey {
             New-HTMLPanel {
                 New-HTMLTable -DataTable $Computers -DataTableID 'OtherTable'
             }
