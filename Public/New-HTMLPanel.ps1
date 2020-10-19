@@ -2,7 +2,7 @@ Function New-HTMLPanel {
     [alias('New-HTMLColumn', 'Panel')]
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $false, Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace with Content"),
+        [Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $Content,
         [alias('BackgroundShade')][string]$BackgroundColor,
         [switch] $Invisible,
         [alias('flex-basis')][string] $Width,
@@ -10,7 +10,6 @@ Function New-HTMLPanel {
 
         [string][ValidateSet('center', 'left', 'right', 'justify')] $AlignContentText,
         [ValidateSet('0px', '5px', '10px', '15px', '20px', '25px')][string] $BorderRadius,
-
         [string] $AnchorName,
         [System.Collections.IDictionary] $StyleSheetsConfiguration
     )
@@ -33,25 +32,28 @@ Function New-HTMLPanel {
         'text-align'       = $AlignContentText # This controls content within panel if it's not 100% width such as text
     }
     if ($Invisible) {
-        $PanelStyle['box-shadow'] = 'unset !important;'
-    }
-    if ($Width -or $Margin) {
-        [string] $ClassName = "flexPanel$(Get-RandomStringName -Size 8 -LettersOnly)"
+        #$PanelStyle['box-shadow'] = 'unset !important;'
+        $StyleSheetsConfiguration.Panel = ''
+        [string] $Class = "flexPanel overflowHidden $($StyleSheetsConfiguration.Panel)"
+    } elseif ($Width -or $Margin) {
         $Attributes = @{
             'flex-basis' = if ($Width) { $Width } else { '100%' }
             'margin'     = if ($Margin) { $Margin }
         }
+        [string] $ClassName = "defaultPanel$(Get-RandomStringName -Size 8 -LettersOnly)"
         $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes
-
-        #$Script:HTMLSchema.CustomHeaderCSS.Add($Css)
         $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css
-        [string] $Class = "$ClassName overflowHidden"
+        [string] $Class = "flexPanel overflowHidden $ClassName"
     } else {
-        [string] $Class = 'flexPanel overflowHidden'
+        [string] $Class = "flexPanel overflowHidden $($StyleSheetsConfiguration.Panel)"
     }
-    New-HTMLTag -Tag 'div' -Attributes @{ id = $AnchorName; class = "$Class $($StyleSheetsConfiguration.Panel)"; style = $PanelStyle } {
-        Invoke-Command -ScriptBlock $Content
+    # New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParent' } {
+    New-HTMLTag -Tag 'div' -Attributes @{ id = $AnchorName; class = $Class; style = $PanelStyle } {
+        if ($Content) {
+            Invoke-Command -ScriptBlock $Content
+        }
     }
+    # }
 }
 
 Register-ArgumentCompleter -CommandName New-HTMLPanel -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
