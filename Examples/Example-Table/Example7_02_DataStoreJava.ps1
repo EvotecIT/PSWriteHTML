@@ -21,13 +21,4 @@ $DataTable3 = @(
 
     }
 )
-
-<#
-$DataTable3 | ConvertTo-JsonLiteral -NewLineFormat @{
-    NewLineCarriage = '<br>'
-    NewLine         = "\n"
-    Carriage        = "\r"
-}
-$DataTable3 | ConvertTo-Json
-#>
 $DataTable3 | Out-HtmlView -DataStore JavaScript -FilePath $PSScriptRoot\Example7_02_DataStoreJava.html -Online
