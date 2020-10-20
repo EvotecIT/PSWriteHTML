@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.114 - Unreleased
+  - [x] Small fix to `New-HTMLTable` with DataStore `JavaScript`
 - 0.0.113 - 2020.10.19
   - [x] `New-HTMLTable` - changes/improvements/adds
     - [x] Reworked JS/CSS loading for DataTables. It should now load less JS/CSS code by default making HTML smaller and more readable especially if not using all features
