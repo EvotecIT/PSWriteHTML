@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.116 - Unreleased
+  - [x] Charts improvement for `Flex` usage (doesn't require `Panel` anymore for positioning)
 - 0.0.115 - 2020.10.21
   - [x] Updates to DataStore Javascript
 - 0.0.114 - 2020.10.20
