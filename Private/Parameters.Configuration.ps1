@@ -888,7 +888,7 @@ $Script:Configuration = [ordered] @{
         }
         VisData                = [ordered]@{
             Header = @{
-                JsLink = 'https://unpkg.com/vis-data@7.0.0/peer/umd/vis-data.min.js'
+                JsLink = 'https://unpkg.com/vis-data@7.1.0/peer/umd/vis-data.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
             }
         }
@@ -908,7 +908,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JsLink = 'https://unpkg.com/vis-network@8.3.2/peer/umd/vis-network.min.js'
+                JsLink = 'https://unpkg.com/vis-network@8.4.1/peer/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
             }
         }
@@ -930,6 +930,7 @@ $Script:Configuration = [ordered] @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkLoadDiagram.js"
             }
         }
+        <#
         VisNetworkStandalone   = [ordered]@{
             Comment      = 'VIS Network Standalone Dynamic, browser based visualization libraries'
             HeaderAlways = @{
@@ -946,13 +947,14 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JsLink = 'https://unpkg.com/vis-network@8.3.2/standalone/umd/vis-network.min.js'
+                JsLink = 'https://unpkg.com/vis-network@8.4.1/standalone/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-networkStandalone.min.js"
             }
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
             }
         }
+        #>
         VisTimeline            = [ordered]@{
             Comment      = 'VIS TimeLine'
             HeaderAlways = [ordered]@{
@@ -1019,7 +1021,7 @@ $Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'FontsAwesome', 'Jq
 $Keys = 'ChartsApex'
 $Keys = 'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
 $Keys = $Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
-$Keys = 'CodeBlocks'
+$Keys = 'ChartsApex', 'VisNetwork', 'VisTimeline', 'VisData'
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js
