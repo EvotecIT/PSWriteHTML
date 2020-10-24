@@ -966,10 +966,10 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JsLink  = 'https://unpkg.com/vis-timeline@7.3.7/peer/umd/vis-timeline-graph2d.min.js'
+                JsLink  = 'https://unpkg.com/vis-timeline@7.4.2/peer/umd/vis-timeline-graph2d.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-timeline-graph2d.min.js"
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
-                CssLink = 'https://unpkg.com/vis-timeline@7.3.7/styles/vis-timeline-graph2d.min.css'
+                CssLink = 'https://unpkg.com/vis-timeline@7.4.2/styles/vis-timeline-graph2d.min.css'
             }
         }
         Wizard                 = [ordered] @{
