@@ -69,6 +69,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - [x] Fix for issue when Charts are used with Diagrams
   - [x] `ApexCharts` update to 3.22 from 3.20.2
   - [x] `Vis.js` update to 8.4.1 from 8.3.2
+  - [x] Small update to `New-HTMLList` with `Reversed` parameter
 - 0.0.116 - 2020.10.21
   - [x] Charts improvement for `Flex` usage (doesn't require `Panel` anymore for positioning)
 - 0.0.115 - 2020.10.21

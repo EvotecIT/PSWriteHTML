@@ -15,7 +15,8 @@ function New-HTMLList {
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl')][string] $Direction,
-        [switch] $LineBreak
+        [switch] $LineBreak,
+        [switch] $Reversed
     )
 
     $newHTMLSplat = @{ }
@@ -64,29 +65,28 @@ function New-HTMLList {
         }
     }
 
+    $ListAttributes = [ordered] @{}
+    if ($Reversed) {
+        $ListAttributes['reversed'] = 'reversed'
+    }
     if ($ListItems) {
-        if ($SpanRequired) {
-            New-HTMLSpanStyle @newHTMLSplat {
-                if ($Type -eq 'Unordered') {
-                    New-HTMLTag -Tag 'ul' {
-                        Invoke-Command -ScriptBlock $ListItems
-                    }
-                } else {
-                    New-HTMLTag -Tag 'ol' {
-                        Invoke-Command -ScriptBlock $ListItems
-                    }
-                }
-            }
-        } else {
+        [string] $List = @(
             if ($Type -eq 'Unordered') {
-                New-HTMLTag -Tag 'ul' {
+                New-HTMLTag -Tag 'ul' -Attributes $ListAttributes {
                     Invoke-Command -ScriptBlock $ListItems
                 }
             } else {
-                New-HTMLTag -Tag 'ol' {
+                New-HTMLTag -Tag 'ol' -Attributes $ListAttributes {
                     Invoke-Command -ScriptBlock $ListItems
                 }
             }
+        )
+        if ($SpanRequired) {
+            New-HTMLSpanStyle @newHTMLSplat {
+                $List
+            }
+        } else {
+            $List
         }
     } else {
         Write-Warning "New-HTMLList - No content provided. Please use New-HTMLListItem inside New-HTMLList."
