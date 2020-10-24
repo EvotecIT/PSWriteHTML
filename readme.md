@@ -65,6 +65,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.117 - Unreleased
+  - [x] Fix for issue when Charts are used with Diagrams
+  - [x] `ApexCharts` update to 3.22 from 3.20.2
 - 0.0.116 - 2020.10.21
   - [x] Charts improvement for `Flex` usage (doesn't require `Panel` anymore for positioning)
 - 0.0.115 - 2020.10.21
