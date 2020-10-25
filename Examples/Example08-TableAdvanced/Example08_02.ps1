@@ -21,10 +21,10 @@ $Properties = @(
     'NPM'
     #>
 )
-$ProcessesAll = Get-Process | Select-Object -First 30
-$Processes = $ProcessesAll | Select-Object -First 30 -Property $Properties
+$ProcessesAll = Get-Process | Select-Object -First 1
+$Processes = $ProcessesAll | Select-Object -First 1 -Property $Properties
 
-New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example08_02.html -ShowHTML {
+New-HTML -TitleText 'Title' -FilePath $PSScriptRoot\Example08_02.html -ShowHTML {
     New-HTMLSection -HeaderText '2 section' {
         New-HTMLPanel {
             New-HTMLTable -DataTable $Processes -HideFooter {
