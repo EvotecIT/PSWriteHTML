@@ -309,22 +309,6 @@ $Script:Configuration = [ordered] @{
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery.min.js"
             }
         }
-        DataTablesSearchFade   = @{
-            Comment      = 'DataTables SearchFade'
-            HeaderAlways = @{
-                # https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.css
-                CssInline = @{
-                    '.notMatched td' = @{
-                        'opacity' = 0.2
-                    }
-                }
-            }
-            Header       = @{
-                JsLink = "https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.js"
-                JS     = "$PSScriptRoot\..\Resources\JS\datatables.SearchFade.min.js"
-            }
-        }
-
         DataTables             = @{
             Comment      = 'DataTables'
             HeaderAlways = @{
@@ -618,6 +602,21 @@ $Script:Configuration = [ordered] @{
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\scroller.dataTables.min.css"
                 )
+            }
+        }
+        DataTablesSearchFade   = @{
+            Comment      = 'DataTables SearchFade'
+            HeaderAlways = @{
+                # https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.css
+                CssInline = @{
+                    '.notMatched td' = @{
+                        'opacity' = 0.2
+                    }
+                }
+            }
+            Header       = @{
+                JsLink = "https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.js"
+                JS     = "$PSScriptRoot\..\Resources\JS\datatables.SearchFade.min.js"
             }
         }
         DataTablesSearchPanes  = @{
@@ -1022,6 +1021,11 @@ $Keys = 'ChartsApex'
 $Keys = 'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
 $Keys = $Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
 $Keys = 'ChartsApex', 'VisNetwork', 'VisTimeline', 'VisData'
+$Keys = @(
+    'DataTables', 'DataTablesSearchFade', 'DataTablesAutoFill', 'DataTablesButtons', 'DataTablesButtonsHTML5', 'DataTablesButtonsPrint',
+    'DataTablesButtonsPDF', 'DataTablesButtonsExcel', 'DataTablesColReorder', 'DataTablesFixedColumn', 'DataTablesFixedHeader', 'DataTablesKeyTable',
+    'DataTablesRowReorder', 'DataTablesRowGrouping', 'DataTablesResponsive', 'DataTablesScroller', 'DataTablesSearchPanes'
+)
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js
@@ -1030,6 +1034,7 @@ foreach ($Key in $Keys) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.$Key.Header.Css
     }
 }
+
 #>
 <#
 Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.DataTables.Header.Js

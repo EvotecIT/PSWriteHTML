@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.117 - Unreleased
+- 0.0.117 - 2020.10.25
   - [x] Fix for issue when Charts are used with Diagrams
   - [x] `ApexCharts` update to 3.22 from 3.20.2
   - [x] `Vis.js` update to 8.4.1 from 8.3.2
