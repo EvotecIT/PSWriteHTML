@@ -20,11 +20,11 @@
 
 # PSWriteHTML - PowerShell Module
 
-`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is complete rewrite and  doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) or even same code, therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features.
+`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is a complete rewrite and doesn't use the same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) or even the same code, therefore you can have both. Keep in mind the approach to building HTML is much more simplified and I'm adding more and more features.
 
 ## How to install
 
-While you can take sources and use it from here, **PSWriteHTML** actually is composed of multiple other of my modules. To get it up and running you will need ***PSSharedGoods**, and **PSSharedGoods** will need **Connectimo** and **PSWriteColor**. While **Connectimo** or **PSWriteColor** aren't needed for **PSWriteHTML**, **PSSharedGoods** uses them for some of the commands and it will fail without them. You can get all that from sources but if you **just want** to use my modules you should use `Install-Module` command. It's available in PowerShell 5.1. As an added bonus when I publish modules to **PowerShellGallery** I remove any junk, minimize modules to a single file which makes them faster to load and use. I really encourage you to use module from PowerShellGallery and treat **GitHub** as highely development version. Since version 0.0.61 when **PSWriteHTML** is published every dependency is baked into **PSWriteHTML**. That means you don't need to download any other modules unless you want to contribute to this project.
+While you can take sources and use it from here, **PSWriteHTML** actually is composed of multiple other of my modules. To get it up and running you will need ***PSSharedGoods**, and **PSSharedGoods** will need **Connectimo** and **PSWriteColor**. While **Connectimo** or **PSWriteColor** aren't needed for **PSWriteHTML**, **PSSharedGoods** uses them for some of the commands and it will fail without them. You can get all that from sources but if you **just want** to use my modules you should use the `Install-Module` command. It's available in PowerShell 5.1. As an added bonus when I publish modules to **PowerShellGallery** I remove any junk, minimize modules to a single file which makes them faster to load and use. I really encourage you to use the module from PowerShellGallery and treat **GitHub** as a highly development version. Since version 0.0.61 when **PSWriteHTML** is published every dependency is baked into **PSWriteHTML**. That means you don't need to download any other modules unless you want to contribute to this project.
 
 ### To install
 
@@ -40,11 +40,11 @@ Force and AllowClobber aren't necessary but they do skip errors in case some app
 Update-Module -Name PSWriteHTML
 ```
 
-That's it. Whenever there's new version you simply run the command and you can enjoy it. Remember, that you may need to close, reopen PowerShell session if you have already used module before updating it.
+That's it. Whenever there's a new version you simply run the command and you can enjoy it. Remember, that you may need to close, reopen the PowerShell session if you have already used the module before updating it.
 
 **The important thing** is if something works for you on production, keep using it till you test the new version on a test computer. I do changes that may not be big, but big enough that auto-update will break your code. For example, small rename to a parameter and your code stops working! Be responsible!
 
-Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only used during development. When published to PSGallery / Releases it's merged release without any dependencies.
+Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only used during development. When published to PSGallery / Releases it's a merged release without any dependencies.
 
 ## Articles worth reading to understand use cases
 
@@ -82,7 +82,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
       - [ ] Some more work in this area is required. Small breaking change was introduced
     - [x] **Breaking Change** - Renamed `DisableColumnReorder` to `EnableColumnReorder`
       - [ ] The reason for this is that the functionality is most likely used by very few people if at all
-      - [ ] This in turn allows me to load JS/CSS for ColumnReordering only when someone requests for this functionality
+      - [ ] This, in turn, allows me to load JS/CSS for ColumnReordering only when someone requests for this functionality
     - [x] Added `EnableRowReorder`
     - [x] Added `EnableKeys` (excel like movement) to `New-HTMLTable`. Probably could add more options for this via nested `New-TableXXX`
     - [x] Added `PagingLength` to `New-HTMLTable`. This improves `PagingOptions` / `DisablePaging`.
@@ -94,11 +94,11 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [ ] Enabling Scroller doesn't require ScrollY enablement, but it will use ScrollSizeY default 500px. You can change it tho.
     - [x] Added `EnableAutoFill` to `New-HTMLTable`
     - [x] Improved `New-HTMLTable` to load only required CSS/JS (hopefully nothing will be broken)
-    - [x] Updated `Out-HTMLView` with all new and old parameters to keep it synced with same features as `New-HTMLTable` - hopefully I didn't break anything
+    - [x] Updated `Out-HTMLView` with all new and old parameters to keep it synced with same the features as `New-HTMLTable` - hopefully, I didn't break anything
     - [x] Updated some `DataTables` JS/CSS versions
     - [ ] `New-HTMLTableOption` allows now to define `BoolAsString`, `NumberAsString` and `DateTimeFormat`
       - [ ] This only works in `JavaScript` and `AjaxJSON` datastore.
-      - [ ] This wllows one to better control how they want their bools, numbers and DateTime displayed
+      - [ ] This allows one to better control how they want their bools, numbers, and DateTime displayed
       - [ ] For example: `New-HTMLTableOption -DateTimeFormat "yyyy-MM-dd HH:mm:ss" -BoolAsString`
       - [ ] It will make sure all dates are converted to their string representation as requested
       - [ ] Default DateTime is `yyyy-MM-dd HH:mm:ss`
@@ -128,12 +128,12 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - 0.0.109 - 2020.09.28
   - If no author is provided meta is not added
   - `EmailText` `size` parameter supports the usual settings as described below
-  - Removed `EmailText` and added it as alias to `New-HTMLText` which does the same thing
+  - Removed `EmailText` and added it as an alias to `New-HTMLText` which does the same thing
   - Renamed `EmailHTML` to `Add-HTML`, added `EmailHTML` as alias - this allows to inline any code wherever it's used
   - Added `EmailImage` as alias to `New-HTMLImage`
   - Added `Inline` switch to `New-HTMLImage (EmailImage)` which embeddes given url/file image directly into HTML
   - Improved `New-HTMLImage/EmailImage`
-  - Prevents errors `New-HTMLTable` if null is passed as first element in DataTable (skips processing)
+  - Prevents errors `New-HTMLTable` if null is passed as the first element in DataTable (skips processing)
 - 0.0.108 - 2020.09.23
   - Added escaping regex for string comparison during `New-TableEvent`
 - 0.0.107 - 2020.09.23
@@ -143,7 +143,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - Improvements to `New-TableEvent` introducing Source/Target columns with Source Column Names support
 - 0.0.105 - 2020.09.23
   - Improved `New-HTMLTable` - removed page button if `DisablePaging` or `ScrollY` is selected
-  - Updated PSD1 to better version
+  - Updated PSD1 to a better version
   - Fix for `New-HTMLTable` always forcing to HTML if not global option was used
 - 0.0.104 - 2020.09.14
   - Added `notlike`/`notcontains` operators to `New-TableCondition`
@@ -154,7 +154,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - **Updates**
   - Fix for `New-DiagramEvent` to work while `FontIcons` are used
   - Some improvements to `New-HTMLPanel` to better positioning Diagrams
-  - Added Loading Bar to `New-HTMLDiagram`. You can disable it using `DisableLoader` switch.
+  - Added Loading Bar to `New-HTMLDiagram`. You can disable it using the `DisableLoader` switch.
 - 0.0.101 - 2020.09.12
   - **Updates**
     - [x] Added `Transpose` to `New-HTMLTable`/`Out-HtmlView`
@@ -162,7 +162,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - **Library updates**
     - Update to `Apex Charts` from 3.20.0 to 3.20.1
   - **Updates**
-    - [x] Fix long lasting issue with loading `FontIcons` in diagrams. Should be visible now.
+    - [x] Fix long-lasting issue with loading `FontIcons` in diagrams. Should be visible now.
     - [x] Support for nested hashtables `ConvertTo-CascadingStyleSheets`
     - [x] Fix/workaround for IE11 issue with section not showing any data, broken in 0.0.99
 - 0.0.99 - 2020.09.07
@@ -186,7 +186,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - 0.0.98 - 2020.08.30
   - **New/Non-Breaking**
     - [x] Added `DataStoreID` to `New-HTMLTable` for use with `DataStore = JavaScript`
-      - [x] This allows multiple tables to use same data. Useful if you want to present same data in different tables across single HTML file.
+      - [x] This allows multiple tables to use the same data. Useful if you want to present the same data in different tables across a single HTML file.
     - [x] Fixes for JavaScript datastore and conditional formatting
 - 0.0.97 - 2020.08.29
   - **Breaking changes**
@@ -227,7 +227,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
       - [x] Tabs used to have `15px`. Now by default `8pt`. You will need `New-HTMLTabOption -FontSize '15px'` or `New-HTMLTabOption -FontSize 15` to set default fontsize for Tabs to it's old value (along with other customizations if needed)
       - [x] Inputs for Tables (Filtering) having static `8pt`
   - **Improvements**
-    - [x] `New-HTMLMain` - allows customizing font size, font type, background color and text color globally - this will overwrite defaults as described above
+    - [x] `New-HTMLMain` - allows customizing font size, font type, background color, and text color globally - this will overwrite defaults as described above
     - [x] Fix TempFilePath for `Email` to work correctly on MacOS/Linux - tnx roberttoups [#146](https://github.com/EvotecIT/PSWriteHTML/pull/146)
     - [x] Auto-wrapping of Tabs is enabled - can be disabled via `New-HTMLTabOption`
     - [x] Bunch of options to control wrapping/direction of tabs via `New-HTMLTabOption`
@@ -239,7 +239,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] Added basic support for `SearchPane` within `New-HTMLTable`
     - [x] Fixed broken `Tables` refresh on `Tabs` when using named `Tables`
     - [x] Fixed `New-HTMLTable`/`Out-HTMLView` with `-AllProperties` displaying wrong properties for IDictionary objects
-    - [x] Fixed `New-HTMLTable` properly displaying string/int and other data if passed as single value
+    - [x] Fixed `New-HTMLTable` properly displaying string/int and other data if passed as a single value
     - [x] Fixed `New-HTMLTable` properly display ordered dictionary, array of strings, array of singular objects, PSCustomObject with 1 column
     - [x] Fixed `New-HTMLTable` properly displaying column name as `Name` in PowerShell 5.1 when used with int/string
     - [x] Fixed `New-HTMLText` font size was ignored. Also now supports 15, 15px, 15pt as described in notes.
@@ -264,7 +264,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - Fixes
       - [x] Fix for `New-HTMLTabOption` switch "-SelectorColor" sets the color permanently [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
       - [x] Fix for `InvokeHTMLTags` in `New-HTMLTable` - replacement of (`&amp;` to `&`) and (`&nbsp;` to `<space>`)
-        - [x] Before it would try to change from `'&amp;nbsp;` to `<space>` which is wrong. Hopefully nothing will broken after that
+        - [x] Before it would try to change from `'&amp;nbsp;` to `<space>` which is wrong. Hopefully, nothing will be broken after that
     - Improvements
       - [x] Choosing colors should be easier (wildcard added before and after)
       - [x] Make it optional for `New-HTMLTab` to force TextTransform (uses global)
@@ -276,7 +276,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
       - [x] Added `AnchorName` for sections and panels
       - [x] Added `New-HTMLAnchor/New-HTMLLink`
   - Internal
-    - [x] Support interally for `Custom Header CSS`, `Custom Footer CSS`
+    - [x] Support internally for `Custom Header CSS`, `Custom Footer CSS`
 - 0.0.92 - 2020.08.08
   - Fixes `New-HierarchicalTreeNode` not recognized in latest modules [#141](https://github.com/EvotecIT/PSWriteHTML/issues/141)
 - 0.0.91 - 2020.08.03
@@ -301,11 +301,11 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - Module is now signed (hopefully that doesn't break anything)
 - 0.0.85 - 2020.06.27
   - Update `New-HTMLSpanStyle` with some protection for errors
-  - Fix from PSSCriptAnalyzer - The Variable 'Event' is an automatic variable that is built into PowerShell, assigning to it might have undesired side effects. If assignment is not by design, please use a different name.
+  - Fix from PSSCriptAnalyzer - The Variable 'Event' is an automatic variable that is built into PowerShell, assigning to it might have undesired side effects. If the assignment is not by design, please use a different name.
 - 0.0.84 - 2020.06.11
   - `Colors` autocompleter should be now a bit smarter
   - Added `Online` to `EmailBody`
-  - `EmailBody` can be used separatly now to generate HTML in case someone would like to use it with their own Send Email
+  - `EmailBody` can be used separately now to generate HTML in case someone would like to use it with their own Send Email
     - Say .. using `Mailozaurr` (new PowerShell module)
   - `Email` has `OutputHTML` parameter which can send email but also output HTML for whatever reason
 
@@ -313,7 +313,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - Fix for `New-HTMLMain` and junk code showing up in HTML
 
 - 0.0.82 - 2020.04.23
-  - `New-HTMLTable` added ability to define Title which will be used as filename when exporting
+  - `New-HTMLTable` added ability to define Title which will be used as the filename when exporting
     - If no Title is defined title is used from `New-HTML`
     - If no Title is provided name of button will be used (default)
   - `New-TableButtonXXX` also have `Title` field which allows different naming for buttons
@@ -367,8 +367,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - 0.0.70 - 2019.12.19
   - Library update
     - JQuery to 3.4.1
-    - ApexCharts to 3.11.1, and set a static version (instead of latest)
-  - Addeed New-HTMLTree, New-TreeNode (basic preview)
+    - ApexCharts to 3.11.1, and set a static version (instead of the latest)
+  - Added New-HTMLTree, New-TreeNode (basic preview)
   - Added New-HTMLHeader, New-HTMLFooter, New-HTMLMain allowing adding content before Tabs or after all content. ([#74](https://github.com/EvotecIT/PSWriteHTML/issues/74))
 
 - 0.0.69 - 2019.12.10
@@ -404,9 +404,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - IE doesn't require approving running scripts anymore! (tnx orzfly)
 
 - 0.0.61 - 2019.11.11
-  - New colors (tnx Ferdi), along with ability to use #HEX as color codes
+  - New colors (tnx Ferdi), along with the ability to use #HEX as color codes
   - Emailimo integrated into PSWriteHTML
-  - PSSharedGoods is no longer dependency
+  - PSSharedGoods is no longer a dependency
     - The way it works is that during development it still is dependency, but during publish it gets merged into one package using PSPublishModule
 
 - 0.0.60 - 2019.11.05
@@ -441,7 +441,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - Added New-HTMLHierarchicalTreeView
     - Added New-HierarchicalTreeNode
   - Changes to **Diagrams**
-    - Updated Visjs to 6.1.1 (local version), linked version is always newest
+    - Updated Visjs to 6.1.1 (local version), linked version is always the newest
     - Added New-DiagramEvent for linking Tables with Diagrams
     - Fix for Diagram Size
     - Fix for using diagram defaults (smaller size), should work better now
@@ -456,7 +456,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.54 - 2019.09.29 - [Blog Post about release](https://evotec.xyz/easy-way-to-create-diagrams-using-powershell-and-pswritehtml/)
   - **Support for Diagrams**
-  - Font Awesome update to 5.11.2
+  - Font Awesome updated to 5.11.2
   - Enlighter updated to 3.0
   - **Dashimo** integrated to **PSWriteHTML** as aliases
 
@@ -490,12 +490,12 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [ ] Added Compare/Replacements
 
 - 0.0.48 - 2019.08.11
-  - I don't know. Got confused what was changed :-p
+  - I don't know. Got confused about what was changed :-p
 
 - 0.0.47 - 2019.08.04
   - [x] Fix for LOGO in PowerShell Core
   - [x] New-HTMLTable
-    - [x] Added ImmediatelyShowHiddenDetails switch - Responsive has the ability to display the details that it has hidden in a variety of different ways. Its default is to allow the end user to toggle the the display by clicking on a row and showing the information in a DataTables child row. At times it can be useful not to require end user interaction to display the hidden data in a responsive manner, which can be done with the childRowImmediate display type.
+    - [x] Added ImmediatelyShowHiddenDetails switch - Responsive has the ability to display the details that it has hidden in a variety of different ways. Its default is to allow the end-user to toggle the display by clicking on a row and showing the information in a DataTables child row. At times it can be useful not to require end-user interaction to display the hidden data in a responsive manner, which can be done with the childRowImmediate display type.
   - [x] Fix for New-HTML wrong positioning in certain conditions - bug introduced in 0.0.46
   - [x] Fix for Table Simplify with margins
 
@@ -578,31 +578,31 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 [Matthew Quickenden](https://www.linkedin.com/in/matthewquickenden/) ([@lucidqdreams](https://github.com/lucidqdreams)) - author of  ReportHTML - without him this wouldn't be possible.
 
-## Projects using PSWriteHTML (to give you ideas what you can do)
+## Projects using PSWriteHTML (to give you ideas of what you can do)
 
 - [Statusimo](https://github.com/EvotecIT/Statusimo) is a PowerShell module that is able to generate a Status Page entirely from PowerShell.
 - [Dashimo](https://github.com/EvotecIT/Dashimo) is a PowerShell module that makes generating Dashboards, nice looking HTML, a breeze.
-- [Emailimo](https://github.com/EvotecIT/Emailimo) is a PowerShell module that makes writting nice looking HTML emails, easy!
+- [Emailimo](https://github.com/EvotecIT/Emailimo) is a PowerShell module that makes writing nice looking HTML emails, easy!
 - [Out-HTMLView](https://evotec.xyz/out-htmlview-html-alternative-to-out-gridview/) is a PowerShell cross-platform command alternative to Out-GridView
 
 ![Out-HTMLView](https://evotec.xyz/wp-content/uploads/2019/04/Out-HtmlView.gif)
 
-Following external libaries and frameworks are in use. They make `PSWriteHTML` what it is now. This list is dynamic and doesn't cover everything yet.
+Following external libraries and frameworks are in use. They make `PSWriteHTML` what it is now. This list is dynamic and doesn't cover everything yet.
 
-For colors you can visit this [online page](https://evotec.xyz/wp-content/uploads/2019/05/Example-Colors.html).
+For colors, you can visit this [online page](https://evotec.xyz/wp-content/uploads/2019/05/Example-Colors.html).
 
 ## 3rd Party Libraries
 
-**PSWriteHTML** uses some 3rd party libraries to deliver it's functionality. It requires those. There are two ways to use it
+**PSWriteHTML** uses some 3rd party libraries to deliver its functionality. It requires those. There are two ways to use it
 
 - With links to CSS/JS which makes code cleaner and easy to see what is happening
 - With code inline in HTML which makes HTML much bigger
 
-Below you can find some of 3rd party libraries being used.
+Below you can find some of the 3rd party libraries being used.
 
 ### External JS Framework - DataTables
 
-Following JS Framework is intergrated as part of this module. It's responsible for building Tables
+Following JS Framework is integrated as part of this module. It's responsible for building Tables
 
 - [x] Downloaded from <https://datatables.net/download/>
 
@@ -648,7 +648,7 @@ JSZip and PDFMake are not downloaded as part of this package. They fail to impor
 
 ![EnlighterJS Example](https://evotec.xyz/wp-content/uploads/2019/03/img_5c9fea1322df8.png)
 
-This allows for **code blocks** support. Currently it uses Release Candidate version as it's first version to support **PowerShell highlighting** and many additional languages. It will be updated to new version
+This allows for **code blocks** support. Currently, it uses Release Candidate version as its the first version to support **PowerShell highlighting** and many additional languages. It will be updated to the new version
 
 - [x] Downloaded from <https://github.com/EnlighterJS/EnlighterJS>
 
