@@ -87,6 +87,7 @@ function Email {
                 $ServerParameters.PasswordFromFile = $Parameter.PasswordFromFile
                 $ServerParameters.PasswordAsSecure = $Parameter.PasswordAsSecure
                 $ServerParameters.EnableSSL = $Parameter.SSL
+                $ServerParameters.UseDefaultCredentials = $Parameter.UseDefaultCredentials
             }
             HeaderAttachment {
                 foreach ($Attachment in  $Parameter.FilePath) {

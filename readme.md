@@ -65,6 +65,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.118 - 2020.10.27
+  - [x] Improvements to tab switching very fast which could cause an error [#126 DATATABLE warning - Cannot reinitialize DataTable](https://github.com/EvotecIT/PSWriteHTML/issues/126)
+  - [ ] Added UseDefaultCredential for `EmailServer`
 - 0.0.117 - 2020.10.25
   - [x] Fix for issue when Charts are used with Diagrams
   - [x] `ApexCharts` update to 3.22 from 3.20.2
