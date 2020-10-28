@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.119 - Unreleased
+  - [x] Added ability to use nested lists in `New-HTMLList`,`EmailList`
 - 0.0.118 - 2020.10.27
   - [x] Improvements to tab switching very fast which could cause an error [#126 DATATABLE warning - Cannot reinitialize DataTable](https://github.com/EvotecIT/PSWriteHTML/issues/126)
   - [ ] Added UseDefaultCredential for `EmailServer`

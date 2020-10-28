@@ -1,6 +1,7 @@
 function New-HTMLListItem {
     [CmdletBinding()]
     param(
+        [scriptblock] $NestedListItems,
         [string[]] $Text,
         [string[]] $Color = @(),
         [string[]] $BackGroundColor = @(),
@@ -53,6 +54,9 @@ function New-HTMLListItem {
 
     New-HTMLTag -Tag 'li' -Attributes $Style -Value {
         New-HTMLText @newHTMLTextSplat -SkipParagraph
+        if ($NestedListItems) {
+            & $NestedListItems
+        }
     }
 }
 

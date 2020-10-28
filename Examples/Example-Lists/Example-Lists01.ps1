@@ -6,14 +6,25 @@ New-HTML {
             New-HTMLList -Type Ordered {
                 New-HTMLListItem -Text 'Test 1'
                 New-HTMLListItem -Text 'Test 2'
-                New-HTMLListItem -Text 'Test 3'
+                New-HTMLListItem -Text 'Test Nested' -Color Blue {
+                    New-HTMLList -Type Unordered {
+                        New-HTMLListItem -Text 'Test 3'
+                        New-HTMLListItem -Text 'Test 4'
+                        New-HTMLListItem -Text 'Test 5'
+                    }
+                }
             } -Color Red -Reversed
         }
         New-HTMLPanel {
-            New-HTMLList -Type Ordered {
-                New-HTMLListItem -Text 'Test 1'
-                New-HTMLListItem -Text 'Test 2'
-                New-HTMLListItem -Text 'Test 3'
+            New-HTMLList -Type Unordered {
+                New-HTMLListItem -Text 'Coffe'
+                New-HTMLListItem -Text 'Tea' {
+                    New-HTMLList -Type Unordered {
+                        New-HTMLListItem -Text 'Black Tea'
+                        New-HTMLListItem -Text 'Green Tea'
+                    }
+                }
+                New-HTMLListItem -Text 'Milk'
             }
         }
     }
