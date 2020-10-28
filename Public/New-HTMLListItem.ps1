@@ -1,10 +1,10 @@
 function New-HTMLListItem {
     [CmdletBinding()]
     param(
-        [scriptblock] $NestedListItems,
-        [string[]] $Text,
-        [string[]] $Color = @(),
-        [string[]] $BackGroundColor = @(),
+        [Parameter(Position = 0)][scriptblock] $NestedListItems,
+        [Parameter(Position = 1)][string[]] $Text,
+        [Parameter(Position = 2)][string[]] $Color = @(),
+        [Parameter(Position = 3)][string[]] $BackGroundColor = @(),
         [object[]] $FontSize = @(),
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string[]] $FontWeight = @(),
         [ValidateSet('normal', 'italic', 'oblique')][string[]] $FontStyle = @(),

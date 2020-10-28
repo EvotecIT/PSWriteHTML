@@ -2,7 +2,7 @@ function New-HTMLList {
     [alias('EmailList')]
     [CmdletBinding()]
     param(
-        [ScriptBlock]$ListItems,
+        [Parameter(Position = 0)][ScriptBlock]$ListItems,
         [ValidateSet('Unordered', 'Ordered')] [string] $Type = 'Unordered',
         [string] $Color,
         [string] $BackGroundColor,
