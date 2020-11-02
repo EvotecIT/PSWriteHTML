@@ -65,6 +65,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.120 - Unreleased
+  - [x] Fixes partially `New-HTMLTable -FixedFooter` issue [#166](https://github.com/EvotecIT/PSWriteHTML/issues/166)
 - 0.0.119 - 2020.10.28
   - [x] Added ability to use nested lists in `New-HTMLList`,`EmailList`
 - 0.0.118 - 2020.10.27
