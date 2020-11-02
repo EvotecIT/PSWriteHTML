@@ -539,15 +539,12 @@ function New-HTMLTable {
     if (-not $Script:HTMLSchema['TableSimplify'] -and ($FixedHeader -or $FixedFooter)) {
         $Script:HTMLSchema.Features.DataTablesFixedHeader = $true
         # Using FixedHeader/FixedFooter won't work with ScrollY.
-        $Options['fixedHeader'] = [ordered] @{ }
-        if ($FixedHeader) {
-            $Options.fixedHeader.header = $FixedHeader.IsPresent
-        }
-        if ($FixedFooter) {
-            $Options.fixedHeader.footer = $FixedFooter.IsPresent
+        # Setting any of those requires to set both of them to prevent one being enabled even if we only requested one
+        $Options['fixedHeader'] = [ordered] @{
+            header = $FixedHeader.IsPresent
+            footer = $FixedFooter.IsPresent
         }
     }
-    #}
 
     # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
     if (-not $Script:HTMLSchema['TableSimplify'] -and -not $DisableResponsiveTable) {
