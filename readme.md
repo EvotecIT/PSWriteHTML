@@ -67,6 +67,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 - 0.0.120 - Unreleased
   - [x] Fixes partially `New-HTMLTable -FixedFooter` issue [#166](https://github.com/EvotecIT/PSWriteHTML/issues/166)
+  - [x] ApexChart update 3.20 to 3.20.1
+  - [x] VisNetwork update 8.4.1 to 8.5.2
+  - [x] VisTimeLine update 7.3.7 to 7.4.2
 - 0.0.119 - 2020.10.28
   - [x] Added ability to use nested lists in `New-HTMLList`,`EmailList`
 - 0.0.118 - 2020.10.27
