@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.120 - Unreleased
+- 0.0.120 - 2020.11.07
   - [x] Fixes partially `New-HTMLTable -FixedFooter` issue [#166](https://github.com/EvotecIT/PSWriteHTML/issues/166)
   - [x] ApexChart update 3.20 to 3.20.1
   - [x] VisNetwork update 8.4.1 to 8.5.2
