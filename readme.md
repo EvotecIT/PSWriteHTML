@@ -65,6 +65,10 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.121 - Unreleased
+  - [x] Added `Accordion` (alpha)
+    - [x] `New-HTMLAccordion`
+    - [x] `New-AccordionItem`
 - 0.0.120 - 2020.11.07
   - [x] Fixes partially `New-HTMLTable -FixedFooter` issue [#166](https://github.com/EvotecIT/PSWriteHTML/issues/166)
   - [x] ApexChart update 3.20 to 3.20.1
