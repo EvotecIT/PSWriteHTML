@@ -189,6 +189,37 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
             }
         }
+        AccordionFAQ            = @{
+            Comment      = 'Accordion FAQ'
+            Header       = @{
+                CssLink = 'https://unpkg.com/accordion-js@3.0.0/dist/accordion.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\accordion.min.css"
+                JsLink  = 'https://unpkg.com/accordion-js@3.0.0/dist/accordion.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\accordion.min.js"
+            }
+            HeaderAlways = @{
+                CssInline = @{
+                    '.accordion-container' = @{
+                        margin  = '5px'
+                        padding = '0px'
+                        color   = '#4d5974'
+
+                    }
+                    '.ac'                  = @{
+                        # 'border-style' = 'none'
+                    }
+                    '.ac-header'           = @{
+                        #border = 'none' # '1px solid #03b5d2'
+                        #'border-style' = 'none'
+                    }
+                    '.ac-panel'            = @{
+                        #border = 'none'
+                        #'border-style' = 'none'
+
+                    }
+                }
+            }
+        }
         CodeBlocks              = @{
             Comment      = 'EnlighterJS CodeBlocks'
             Header       = @{
@@ -1033,6 +1064,8 @@ $Keys = @(
     'DataTablesRowReorder', 'DataTablesRowGrouping', 'DataTablesResponsive', 'DataTablesScroller', 'DataTablesSearchPanes'
 )
 $Keys = 'ChartsApex', 'VisNetwork', 'VisTimeline', 'VisData'
+
+$Keys = 'AccordionFAQ'
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js
@@ -1041,6 +1074,7 @@ foreach ($Key in $Keys) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.$Key.Header.Css
     }
 }
+
 #>
 <#
 Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.DataTables.Header.Js
