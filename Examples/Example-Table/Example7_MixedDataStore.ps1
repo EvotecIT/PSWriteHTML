@@ -49,7 +49,7 @@ $DataTable9 = [PSCustomObject] @{
 }
 
 New-HTML {
-    New-HTMLTableOption -DateTimeFormat "yyyy-MM-dd HH:mm:ss" -BoolAsString
+    New-HTMLTableOption -DateTimeFormat "yyyy-MM-dd HH:mm:ss" -BoolAsString -DataStore JavaScript
     New-HTMLSection -Invisible {
         New-HTMLSection -HeaderText 'Standard Table with PSCustomObjects' {
             New-HTMLTable -DataTable $DataTable1

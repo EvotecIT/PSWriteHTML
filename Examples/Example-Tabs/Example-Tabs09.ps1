@@ -1,6 +1,6 @@
 ﻿Import-Module $PSScriptRoot\..\..\PSWriteHTML.psd1 -Force
 
-$DataTable = Get-Process | Select-Object -First 30
+$DataTable = Get-Process | Select-Object -First 100
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs09.html -Show {
     New-HTMLTabStyle -RowElements 4
