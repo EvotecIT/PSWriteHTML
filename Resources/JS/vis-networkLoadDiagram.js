@@ -11,7 +11,9 @@
                         .load('normal normal 900 24px/1 "Font Awesome 5 Brands"')
                         .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
                         .then(
-                            network = loadDiagram(container, data, options, id, loader)
+                            function () {
+                                network = loadDiagram(container, data, options, id, loader)
+                            }
                         )
                         .catch(
                             console.error.bind(console, "Failed to render the network with Font Awesome 5.")

@@ -70,6 +70,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
     - [x] `New-HTMLAccordion`
     - [x] `New-AccordionItem`
   - [x] Fix for `New-HTMLDiagram` to disable loader if physics is disabled, as diagram wouldn't load, and loader is not nessecary
+  - [x] Fix for `New-HTMLDiagram` to load icons properly in Chrome, IE still requires press
   - [ ] VisNetwork update from `8.5.2` to `8.5.3`
 - 0.0.120 - 2020.11.07
   - [x] Fixes partially `New-HTMLTable -FixedFooter` issue [#166](https://github.com/EvotecIT/PSWriteHTML/issues/166)
