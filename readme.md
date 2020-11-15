@@ -65,7 +65,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.121 - Unreleased
+- 0.0.121 - 2020.11.15
   - [x] Added `Accordion` (alpha)
     - [x] `New-HTMLAccordion`
     - [x] `New-AccordionItem`
