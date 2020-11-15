@@ -924,12 +924,16 @@ $Script:Configuration = [ordered] @{
         }
         VisData                 = [ordered]@{
             Header = @{
+                # https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js
                 JsLink = 'https://unpkg.com/vis-data@7.1.0/peer/umd/vis-data.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
             }
         }
         VisNetwork              = [ordered]@{
             Comment      = 'VIS Network Dynamic, browser based visualization libraries'
+            Demos        = @(
+                'https://visjs.github.io/vis-network/examples/'
+            )
             HeaderAlways = @{
                 CssInline = [ordered]@{
                     '.diagram'           = [ordered]@{
@@ -944,9 +948,12 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JsLink = 'https://unpkg.com/vis-network@8.5.2/peer/umd/vis-network.min.js'
+                # https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js
+                # https://unpkg.com/vis-network/styles/vis-network.min.css
+                JsLink = 'https://unpkg.com/vis-network@8.5.3/peer/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
             }
+            SourceCodes  = 'https://github.com/visjs'
         }
         VisNetworkClustering    = [ordered] @{
             Comment      = 'VIS Network Clustering'
@@ -1002,6 +1009,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
+                # https://unpkg.com/vis-timeline@latest/peer/umd/vis-timeline-graph2d.min.js
                 JsLink  = 'https://unpkg.com/vis-timeline@7.4.2/peer/umd/vis-timeline-graph2d.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-timeline-graph2d.min.js"
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
@@ -1050,7 +1058,6 @@ function Save-Resource {
 }
 
 #$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
-
 <# Refreshes libraries
 $Keys = $Script:Configuration.Features.Keys
 $Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'FontsAwesome', 'Jquery', 'DataTablesSearchFade', 'Popper', 'ChartsApex'
@@ -1063,9 +1070,8 @@ $Keys = @(
     'DataTablesButtonsPDF', 'DataTablesButtonsExcel', 'DataTablesColReorder', 'DataTablesFixedColumn', 'DataTablesFixedHeader', 'DataTablesKeyTable',
     'DataTablesRowReorder', 'DataTablesRowGrouping', 'DataTablesResponsive', 'DataTablesScroller', 'DataTablesSearchPanes'
 )
-$Keys = 'ChartsApex', 'VisNetwork', 'VisTimeline', 'VisData'
-
 $Keys = 'AccordionFAQ'
+$Keys = 'ChartsApex', 'VisNetwork', 'VisTimeline', 'VisData'
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js
@@ -1074,7 +1080,6 @@ foreach ($Key in $Keys) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.$Key.Header.Css
     }
 }
-
 #>
 <#
 Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.DataTables.Header.Js
