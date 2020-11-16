@@ -3,8 +3,8 @@ function New-ChartInternalAxisX {
     param(
         [System.Collections.IDictionary] $Options,
         [string] $TitleText,
-        [int] $Min,
-        [int] $Max,
+        [Int64] $Min,
+        [Int64] $Max,
         [ValidateSet('datetime', 'category', 'numeric')][string] $Type = 'category',
         [Array] $Names
     )
@@ -16,10 +16,10 @@ function New-ChartInternalAxisX {
         $Options.xaxis.title = @{ }
         $Options.xaxis.title.text = $TitleText
     }
-    if ($MinValue -gt 0) {
+    if ($Min -gt 0) {
         $Options.xaxis.min = $Min
     }
-    if ($MinValue -gt 0) {
+    if ($Max -gt 0) {
         $Options.xaxis.max = $Max
     }
     if ($Type -ne '') {

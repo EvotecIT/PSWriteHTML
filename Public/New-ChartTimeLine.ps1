@@ -5,21 +5,31 @@
         [parameter(Mandatory)][string] $Name,
         [DateTime] $DateFrom,
         [DateTime] $DateTo,
-        [string] $Color
+        [string] $Color,
+        [string] $TimeZoneOffset,
+        [string] $DateFormatPattern = "yyyy-MM-dd HH:mm:ss"
         #[ValidateSet('straight', 'smooth', 'stepline')] $Curve = 'straight',
         #[int] $Width = 6,
         #[ValidateSet('butt', 'square', 'round')][string] $Cap = 'butt',
         #[int] $Dash = 0
     )
 
-    $FormattedDateFrom = Get-Date -Date $DateFrom -Format "yyyy-MM-dd"
-    $FormattedDateTo = Get-Date -Date $DateTo -Format "yyyy-MM-dd"
+    $timezoneString = ""
+    if ($TimeZoneOffset) {
+        if($TimeZoneOffset -Notlike "-*" -and $TimeZoneOffset -Notlike "+*"){
+            $TimeZoneOffset = "+$TimeZoneOffset"
+        }
+        $timezoneString = " GMT$TimeZoneOffset"
+    }
+
+    $FormattedDateFrom = Get-Date -Date $DateFrom -Format $DateFormatPattern
+    $FormattedDateTo = Get-Date -Date $DateTo -Format $DateFormatPattern
 
     $TimeLine = [ordered] @{
         x         = $Name
         y         = @(
-            "new Date('$FormattedDateFrom').getTime()"
-            "new Date('$FormattedDateTo').getTime()"
+            "new Date('$FormattedDateFrom$timezoneString').getTime()"
+            "new Date('$FormattedDateTo$timezoneString').getTime()"
         )
         fillColor = ConvertFrom-Color -Color $Color
     }

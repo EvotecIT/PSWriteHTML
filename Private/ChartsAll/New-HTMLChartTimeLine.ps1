@@ -21,13 +21,28 @@
 
         [System.Collections.IDictionary] $GridOptions,
         [System.Collections.IDictionary] $Toolbar,
-        [System.Collections.IDictionary] $Theme
+        [System.Collections.IDictionary] $Theme,
 
+        [System.Collections.IDictionary] $ChartAxisX,
+        [System.Collections.IDictionary] $ChartAxisY,
+
+        [System.Collections.IDictionary] $ChartToolTip
+
+        
     )
+    $Options = [ordered] @{}
+    
+    if ($ChartAxisX) {
+        New-ChartInternalAxisX -Options $Options @ChartAxisX
+    }
+    if ($ChartAxisY) {
+        New-ChartInternalAxisY -Options $Options @ChartAxisY
+    }
+    if ($ChartToolTip) {
+        New-ChartInternalToolTip -Options $Options @ChartToolTip
+    }
 
-    $Options = [ordered] @{ }
-
-    New-ChartInternalTimeLine -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Data $Data
+    New-ChartInternalTimeLine -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Data $Data #-Min 1605225600000 -Max 1605311999000
 
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
