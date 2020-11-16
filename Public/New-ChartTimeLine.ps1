@@ -16,7 +16,7 @@
 
     $timezoneString = ""
     if ($TimeZoneOffset) {
-        if($TimeZoneOffset -Notlike "-*" -and $TimeZoneOffset -Notlike "+*"){
+        if ($TimeZoneOffset -Notlike "-*" -and $TimeZoneOffset -Notlike "+*") {
             $TimeZoneOffset = "+$TimeZoneOffset"
         }
         $timezoneString = " GMT$TimeZoneOffset"
