@@ -17,7 +17,11 @@ function New-InternalDiagram {
     $Script:HTMLSchema.Features.Moment = $true
     $Script:HTMLSchema.Features.VisNetworkLoad = $true
     $Script:HTMLSchema.Features.EscapeRegex = $true
-
+    # We need to disable loader if physics is disabled, as it doesn't give us anything
+    # and it prevents loading
+    if ($Options.physics -and $Options.physics.enabled -eq $false) {
+        $DisableLoader = $true
+    }
     if (-not $DisableLoader) {
         $Script:HTMLSchema.Features.VisNetworkLoadingBar = $true
     }

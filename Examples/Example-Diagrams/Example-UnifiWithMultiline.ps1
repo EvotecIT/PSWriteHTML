@@ -23,7 +23,12 @@ New-HTML -TitleText 'My Ubiquiti Network' -Online -FilePath $PSScriptRoot\Exampl
                 New-DiagramNode -Label $Label1
                 $Label2 = 'Test3' + "`r`n" + 'Test4'
                 New-DiagramNode -Label $Label2
-            } #-BundleImages
+
+                #for ($i = 0; $i -le 500; $i++) {
+                #    New-DiagramNode -Label "Test$i"
+                #    New-DiagramLink -From "Test$i" -To 'USG Pro'
+                #}
+            } #-DisableLoader
         }
     }
 } -ShowHTML

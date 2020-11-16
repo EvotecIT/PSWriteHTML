@@ -189,6 +189,37 @@ $Script:Configuration = [ordered] @{
                 Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
             }
         }
+        AccordionFAQ            = @{
+            Comment      = 'Accordion FAQ'
+            Header       = @{
+                CssLink = 'https://unpkg.com/accordion-js@3.0.0/dist/accordion.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\accordion.min.css"
+                JsLink  = 'https://unpkg.com/accordion-js@3.0.0/dist/accordion.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\accordion.min.js"
+            }
+            HeaderAlways = @{
+                CssInline = @{
+                    '.accordion-container' = @{
+                        margin  = '5px'
+                        padding = '0px'
+                        color   = '#4d5974'
+
+                    }
+                    '.ac'                  = @{
+                        # 'border-style' = 'none'
+                    }
+                    '.ac-header'           = @{
+                        #border = 'none' # '1px solid #03b5d2'
+                        #'border-style' = 'none'
+                    }
+                    '.ac-panel'            = @{
+                        #border = 'none'
+                        #'border-style' = 'none'
+
+                    }
+                }
+            }
+        }
         CodeBlocks              = @{
             Comment      = 'EnlighterJS CodeBlocks'
             Header       = @{
@@ -893,12 +924,16 @@ $Script:Configuration = [ordered] @{
         }
         VisData                 = [ordered]@{
             Header = @{
+                # https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js
                 JsLink = 'https://unpkg.com/vis-data@7.1.0/peer/umd/vis-data.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
             }
         }
         VisNetwork              = [ordered]@{
             Comment      = 'VIS Network Dynamic, browser based visualization libraries'
+            Demos        = @(
+                'https://visjs.github.io/vis-network/examples/'
+            )
             HeaderAlways = @{
                 CssInline = [ordered]@{
                     '.diagram'           = [ordered]@{
@@ -913,9 +948,12 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JsLink = 'https://unpkg.com/vis-network@8.5.2/peer/umd/vis-network.min.js'
+                # https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js
+                # https://unpkg.com/vis-network/styles/vis-network.min.css
+                JsLink = 'https://unpkg.com/vis-network@8.5.3/peer/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
             }
+            SourceCodes  = 'https://github.com/visjs'
         }
         VisNetworkClustering    = [ordered] @{
             Comment      = 'VIS Network Clustering'
@@ -971,6 +1009,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
+                # https://unpkg.com/vis-timeline@latest/peer/umd/vis-timeline-graph2d.min.js
                 JsLink  = 'https://unpkg.com/vis-timeline@7.4.2/peer/umd/vis-timeline-graph2d.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-timeline-graph2d.min.js"
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
@@ -1019,7 +1058,6 @@ function Save-Resource {
 }
 
 #$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
-
 <# Refreshes libraries
 $Keys = $Script:Configuration.Features.Keys
 $Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'FontsAwesome', 'Jquery', 'DataTablesSearchFade', 'Popper', 'ChartsApex'
@@ -1032,6 +1070,7 @@ $Keys = @(
     'DataTablesButtonsPDF', 'DataTablesButtonsExcel', 'DataTablesColReorder', 'DataTablesFixedColumn', 'DataTablesFixedHeader', 'DataTablesKeyTable',
     'DataTablesRowReorder', 'DataTablesRowGrouping', 'DataTablesResponsive', 'DataTablesScroller', 'DataTablesSearchPanes'
 )
+$Keys = 'AccordionFAQ'
 $Keys = 'ChartsApex', 'VisNetwork', 'VisTimeline', 'VisData'
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
