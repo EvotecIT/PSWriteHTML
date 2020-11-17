@@ -17,7 +17,10 @@
     if ($TimeZoneOffset) {
         $offsetMilliseconds = ([System.TimeSpan]::Parse($TimeZoneOffset)).TotalMilliseconds
     }
-
+    # if Dates are given, lets auto change type to DateTime
+    if ($MinValue -is [DateTime] -or $MaxValue -is [DateTime]) {
+        $Type = 'datetime'
+    }
     switch ($Type) {
         'datetime' {
             if ($MinValue -is [System.DateTime]) {
