@@ -4,7 +4,7 @@ New-HTML -TitleText 'Charts - TimeLine' -Online -FilePath $PSScriptRoot\Example-
     New-HTMLSection -Invisible {
         New-HTMLPanel {
             New-HTMLChart -Title 'Incidents Reported vs Solved' -TitleAlignment center {
-                New-ChartTooltip -TitleText 'Timeline' -XAxisFormatPattern 'HH:mm:s'
+                New-ChartTooltip -TitleText 'Timeline' -XAxisFormatPattern 'HH:mm:ss'
                 New-ChartAxisX -MinValue ((Get-Date).AddDays(-1)) -MaxValue ((Get-Date).AddDays(1)) -Type 'datetime'
                 $From = (Get-Date).AddDays(-1)
                 $To = (Get-Date)
@@ -25,7 +25,7 @@ New-HTML -TitleText 'Charts - TimeLine' -Online -FilePath $PSScriptRoot\Example-
         }
         New-HTMLPanel {
             New-HTMLChart -Title 'Incidents Reported vs Solved' -TitleAlignment center {
-                New-ChartTooltip -TitleText 'Timeline' -XAxisFormatPattern 'HH:mm:s'
+                New-ChartTooltip -TitleText 'Timeline' -XAxisFormatPattern 'HH:mm:ss'
                 New-ChartAxisX -MinValue (Get-Date) -MaxValue ((Get-Date).AddHours(1)) -Type 'datetime'
                 $From = (Get-Date).AddMinutes(15)
                 $To = (Get-Date).AddMinutes(30)
