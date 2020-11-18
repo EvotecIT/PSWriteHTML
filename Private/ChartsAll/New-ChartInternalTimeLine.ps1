@@ -7,8 +7,11 @@
         [string] $SubTitle,
         [int] $FontSizeTitle = 24,
         [int] $FontSizeSubtitle = 14,
-        [Array] $Data
+        [Array] $Data,
+        [Int64] $Min,
+        [Int64] $Max
     )
+
     if ($Data.Count -eq 0) {
         Write-Warning 'New-ChartInternalTimeLine - Data Empty'
     }
@@ -53,9 +56,6 @@
                 hideOverflowingLabels = $false
             }
         }
-    }
-    $Options.xaxis = @{
-        type = 'datetime'
     }
 
     $Options.series = @(

@@ -5,11 +5,37 @@
         [alias('Name')][Array] $Names,
         [alias('Title')][string] $TitleText,
         [ValidateSet('datetime', 'category', 'numeric')][string] $Type = 'category',
-        [int] $MinValue,
-        [int] $MaxValue
+        [object] $MinValue,
+        [object] $MaxValue,
+
+        [string] $TimeZoneOffset
         #[ValidateSet('top', 'topRight', 'left', 'right', 'bottom', '')][string] $LegendPosition = '',
         # [string[]] $Color
     )
+
+    $offsetMilliseconds = 0
+    if ($TimeZoneOffset) {
+        $offsetMilliseconds = ([System.TimeSpan]::Parse($TimeZoneOffset)).TotalMilliseconds
+    }
+    # if Dates are given, lets auto change type to DateTime
+    if ($MinValue -is [DateTime] -or $MaxValue -is [DateTime]) {
+        $Type = 'datetime'
+    }
+    switch ($Type) {
+        'datetime' {
+            if ($MinValue -is [System.DateTime]) {
+                $MinValue = [int64]([System.DateTimeOffset]$MinValue).ToUnixTimeMilliseconds() + $offsetMilliseconds
+            }
+
+            if ($MaxValue -is [System.DateTime]) {
+                $MaxValue = [int64]([System.DateTimeOffset]$MaxValue).ToUnixTimeMilliseconds() + $offsetMilliseconds
+            }
+        }
+        Default {
+            $MinValue = [int]$MinValue
+            $MaxValue = [int]$MaxValue
+        }
+    }
     [PSCustomObject] @{
         ObjectType = 'ChartAxisX'
         ChartAxisX = @{

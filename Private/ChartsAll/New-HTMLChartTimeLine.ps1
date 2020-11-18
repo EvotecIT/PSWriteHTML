@@ -21,11 +21,34 @@
 
         [System.Collections.IDictionary] $GridOptions,
         [System.Collections.IDictionary] $Toolbar,
-        [System.Collections.IDictionary] $Theme
+        [System.Collections.IDictionary] $Theme,
 
+        [System.Collections.IDictionary] $ChartAxisX,
+        [System.Collections.IDictionary] $ChartAxisY,
+
+        [System.Collections.IDictionary] $ChartToolTip,
+        [System.Collections.IDictionary] $DataLabel
     )
+    $Options = [ordered] @{}
 
-    $Options = [ordered] @{ }
+    if ($ChartAxisX) {
+        $ChartAxisX.type = "datetime"
+        New-ChartInternalAxisX -Options $Options @ChartAxisX
+    } else {
+        $ChartAxisX = @{
+            Type = "datetime"
+        }
+        New-ChartInternalAxisX -Options $Options @ChartAxisX
+    }
+    if ($ChartAxisY) {
+        New-ChartInternalAxisY -Options $Options @ChartAxisY
+    }
+    if ($ChartToolTip) {
+        New-ChartInternalToolTip -Options $Options @ChartToolTip
+    }
+    if ($DataLabel) {
+        $Options.dataLabels = $DataLabel
+    }
 
     New-ChartInternalTimeLine -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Data $Data
 

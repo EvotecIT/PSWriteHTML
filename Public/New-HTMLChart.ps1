@@ -46,7 +46,7 @@
         if ($Setting.ObjectType -eq 'Bar') {
             # For Bar Charts
             if (-not $Type) {
-                # thiss makes sure type is not set if BarOptions is used which already set type to BarStacked or similar
+                # this makes sure type is not set if BarOptions is used which already set type to BarStacked or similar
                 $Type = $Setting.ObjectType
             }
             $DataSet.Add($Setting.Value)
@@ -130,7 +130,6 @@
             }
         } elseif ($Setting.ObjectType -eq 'ChartAxisX') {
             $ChartAxisX = $Setting.ChartAxisX
-            #$DataCategory = $ChartAxisX.Names
         } elseif ($Setting.ObjectType -eq 'ChartGrid') {
             $GridOptions = $Setting.Grid
         } elseif ($Setting.ObjectType -eq 'ChartAxisY') {
@@ -138,6 +137,10 @@
         } elseif ($Setting.ObjectType -eq 'TimeLine') {
             $Type = 'rangeBar'
             $DataSetChartTimeLine.Add($Setting.TimeLine)
+        } elseif ($Setting.ObjectType -eq 'ChartToolTip') {
+            $ChartToolTip = $Setting.ChartToolTip
+        } elseif ($Setting.ObjectType -eq 'DataLabel') {
+            $DataLabel = $Setting.DataLabel
         }
     }
 
@@ -229,9 +232,14 @@
     } elseif ($Type -eq 'rangeBar') {
         New-HTMLChartTimeLine `
             -Data $DataSetChartTimeLine `
-            -Title $Title -TitleAlignment $TitleAlignment `
+            -Title $Title `
+            -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar `
-            -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
+            -ChartAxisX $ChartAxisX `
+            -ChartAxisY $ChartAxisY `
+            -ChartToolTip $ChartToolTip `
+            -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient `
+            -DataLabel $DataLabel
     }
 }

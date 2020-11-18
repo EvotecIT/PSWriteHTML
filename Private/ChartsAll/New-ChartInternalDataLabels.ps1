@@ -1,4 +1,5 @@
 function New-ChartInternalDataLabels {
+    [cmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
         [bool] $DataLabelsEnabled = $true,
