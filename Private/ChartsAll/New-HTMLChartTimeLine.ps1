@@ -48,7 +48,7 @@
         New-ChartInternalToolTip -Options $Options @ChartToolTip
     }
 
-    New-ChartInternalTimeLine -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Data $Data #-Min 1605225600000 -Max 1605311999000
+    New-ChartInternalTimeLine -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Data $Data
 
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
