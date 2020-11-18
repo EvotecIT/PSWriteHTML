@@ -4,6 +4,7 @@ function EmailBody {
         [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $EmailBody,
         [string] $Color,
         [string] $BackGroundColor,
+        [string] $LineHeight,
         [alias('Size')][object] $FontSize,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,
@@ -50,6 +51,7 @@ function EmailBody {
     if ($FontWeight) {
         $newHTMLSplat.FontWeight = $FontWeight
     }
+    $newHTMLSplat.LineHeight = $LineHeight
     <#
     [bool] $SpanRequired = $false
     foreach ($Entry in $newHTMLSplat.GetEnumerator()) {

@@ -5,6 +5,7 @@ function New-HTMLSpanStyle {
         [string] $Color,
         [string] $BackGroundColor,
         [object] $FontSize,
+        [string] $LineHeight,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,
         [ValidateSet('normal', 'small-caps')][string] $FontVariant,
@@ -25,8 +26,7 @@ function New-HTMLSpanStyle {
             'font-family'      = $FontFamily
             'font-style'       = $FontStyle
             'text-align'       = $Alignment
-
-
+            'line-height'      = $LineHeight
             'text-decoration'  = $TextDecoration
             'text-transform'   = $TextTransform
             'direction'        = $Direction

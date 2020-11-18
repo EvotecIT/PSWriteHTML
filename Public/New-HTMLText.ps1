@@ -6,7 +6,8 @@ function New-HTMLText {
         [string[]] $Text,
         [string[]] $Color = @(),
         [string[]] $BackGroundColor = @(),
-        [object[]] $FontSize = @(),
+        [alias('Size')][object[]] $FontSize = @(),
+        [string[]] $LineHeight = @(),
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string[]] $FontWeight = @(),
         [ValidateSet('normal', 'italic', 'oblique')][string[]] $FontStyle = @(),
         [ValidateSet('normal', 'small-caps')][string[]] $FontVariant = @(),
@@ -33,6 +34,7 @@ function New-HTMLText {
     $DefaultFontVariant = if ($null -eq $FontVariant[0]) { '' } else { $FontVariant }
     $DefaultDirection = if ($null -eq $Direction[0]) { '' } else { $Direction[0] }
     $DefaultAlignment = if ($null -eq $Alignment[0]) { '' } else { $Alignment[0] }
+    $DefaultLineHeight = if ($null -eq $LineHeight[0]) { '' } else { $LineHeight[0] }
 
     $Output = for ($i = 0; $i -lt $Text.Count; $i++) {
         if ($null -eq $FontWeight[$i]) {
@@ -93,6 +95,11 @@ function New-HTMLText {
         } else {
             $ParamAlignment = $Alignment[$i]
         }
+        if ($null -eq $LineHeight[$i]) {
+            $ParamLineHeight = $DefaultLineHeight
+        } else {
+            $ParamLineHeight = $LineHeight[$i]
+        }
 
         $newSpanTextSplat = @{ }
         $newSpanTextSplat.Color = $ParamColor
@@ -120,6 +127,9 @@ function New-HTMLText {
         }
         if ($ParamAlignment -ne '') {
             $newSpanTextSplat.Alignment = $ParamAlignment
+        }
+        if ($ParamLineHeight -ne '') {
+            $newSpanTextSplat.LineHeight = $ParamLineHeight
         }
 
         $newSpanTextSplat.LineBreak = $LineBreak
