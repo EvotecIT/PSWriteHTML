@@ -33,6 +33,12 @@
     $Options = [ordered] @{}
     
     if ($ChartAxisX) {
+        $ChartAxisX.type = "datetime"
+        New-ChartInternalAxisX -Options $Options @ChartAxisX
+    } else {
+        $ChartAxisX = @{
+            Type = "datetime"
+        }
         New-ChartInternalAxisX -Options $Options @ChartAxisX
     }
     if ($ChartAxisY) {
