@@ -139,6 +139,8 @@
             $DataSetChartTimeLine.Add($Setting.TimeLine)
         } elseif ($Setting.ObjectType -eq 'ChartToolTip') {
             $ChartToolTip = $Setting.ChartToolTip
+        } elseif ($Setting.ObjectType -eq 'DataLabel') {
+            $DataLabel = $Setting.DataLabel
         }
     }
 
@@ -237,6 +239,7 @@
             -ChartAxisX $ChartAxisX `
             -ChartAxisY $ChartAxisY `
             -ChartToolTip $ChartToolTip `
-            -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
+            -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient `
+            -DataLabel $DataLabel
     }
 }

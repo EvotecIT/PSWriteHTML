@@ -26,12 +26,11 @@
         [System.Collections.IDictionary] $ChartAxisX,
         [System.Collections.IDictionary] $ChartAxisY,
 
-        [System.Collections.IDictionary] $ChartToolTip
-
-        
+        [System.Collections.IDictionary] $ChartToolTip,
+        [System.Collections.IDictionary] $DataLabel
     )
     $Options = [ordered] @{}
-    
+
     if ($ChartAxisX) {
         $ChartAxisX.type = "datetime"
         New-ChartInternalAxisX -Options $Options @ChartAxisX
@@ -46,6 +45,9 @@
     }
     if ($ChartToolTip) {
         New-ChartInternalToolTip -Options $Options @ChartToolTip
+    }
+    if ($DataLabel) {
+        $Options.dataLabels = $DataLabel
     }
 
     New-ChartInternalTimeLine -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Data $Data
