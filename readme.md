@@ -65,6 +65,12 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.122 - 2020.11.18
+  - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
+  - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
+  - [x] Added `New-ChartToolTip` currently supported in `New-ChartTimeLine` only - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
+  - [x] Improvements `New-ChartAxisY`
+  - [x] Added parameter for `EmailBody`,`New-HTMLText`, `New-HTMLSpanStyle` - `LineHeight`. This allows for controling line height.
 - 0.0.121 - 2020.11.15
   - [x] Added `Accordion` (alpha)
     - [x] `New-HTMLAccordion`
