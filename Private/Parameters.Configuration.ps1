@@ -361,8 +361,8 @@ $Script:Configuration = [ordered] @{
             HeaderAlways = @{
                 CssInline   = @{
                     #/* Added to make sure plus logo fits in */
-                    td                       = @{
-                        'height' = '27px'
+                    'td'                     = @{
+                        'height' = '14px'
                     }
                     #/* Button in Table - giving it some colors */
                     'td.sorting_1::before'   = @{
@@ -373,7 +373,8 @@ $Script:Configuration = [ordered] @{
                     }
                     # /* giving some spaces between tables being to close */
                     'div.dataTables_wrapper' = @{
-                        'padding' = '10px 10px 10px 10px'
+                        #    'padding' = '10px 10px 10px 10px'
+                        'margin' = '5px';
                     }
                     'button.dt-button'       = @{
                         #'font-size'     = '8pt !important'
@@ -382,32 +383,30 @@ $Script:Configuration = [ordered] @{
                         'line-height'   = '1 !important'
                     }
                     #/* Filtering at the bottom */
-                    'tfoot input'            = @{
-                        'width'      = '100%'
-                        'padding'    = '-3px'
-                        'box-sizing' = 'border-box'
-                        #'font-size'  = '15pt'
-                    }
+                    #'tfoot input'            = @{
+                    #    'width'      = '100%'
+                    #    'padding'    = '-3px'
+                    #    'box-sizing' = 'border-box'
+                    #}
                     #/* Filtering at the top */
-                    'thead input'            = @{
-                        'width'      = '100%'
-                        'padding'    = '-3px'
-                        'box-sizing' = 'border-box'
-                        #'font-size'  = '15pt'
-                    }
-                    'table'                  = @{
-                        #'font-size' = '8pt'
-                    }
-                    'th'                     = @{
-                        #'font-size' = '8pt'
-                    }
-                    '.dataTables_info'       = @{
-                        #/* lower left */
-                        #'font-size' = '8pt'
-                    }
-                    '.dataTables_filter'     = @{
-                        #'font-size' = '8pt'
-                    }
+                    #'thead input'            = @{
+                    #    'width'      = '100%'
+                    #    'padding'    = '-3px'
+                    #    'box-sizing' = 'border-box'
+                    #}
+                    #'table'                  = @{
+                    #'font-size' = '8pt'
+                    #}
+                    #'th'                     = @{
+                    #'font-size' = '8pt'
+                    #}
+                    #'.dataTables_info'       = @{
+                    #/* lower left */
+                    #'font-size' = '8pt'
+                    #}
+                    #'.dataTables_filter'     = @{
+                    #'font-size' = '8pt'
+                    #}
                 }         #= "$PSScriptRoot\..\Resources\CSS\datatables.css"
                 CssNoscript = "$PSScriptRoot\..\Resources\CSS\datatables.noscript.css"
             }
