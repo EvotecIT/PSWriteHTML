@@ -1,22 +1,22 @@
 ﻿table.simplify {
     border-width: 1px;
     border-style: solid;
-    border-color: black;
     border-collapse: collapse;
     box-sizing: border-box;
-    width: calc(100% - 16px);
-    margin: 8px;
+    width: 100%;
+    margin: 5px;
 }
 
 table.simplify th {
-    border-width: 1px;
-    padding: 4px;
-    border-style: solid;
-    border-color: black;
-    background-color: #616a6b;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 4px 17px;
+    border: 1px solid #333;
+    /*background-color: #616a6b;*/
+    background-color: #333;
     color: white;
     font-weight: bold;
-    padding: 10px;
 }
 
 table.simplify td {
@@ -25,27 +25,12 @@ table.simplify td {
     padding-left: 2px;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-style: solid;
-    border-color: black;
-    border-top: 1px solid #ddd;
+    border: 1px solid #ddd;
+    text-align: left;
 }
-
 
 /* Zebra striping */
 
 table.simplify tr:nth-of-type(odd) {
     background: #eee;
-}
-
-table.simplify th {
-    background: #333;
-    color: white;
-    font-weight: bold;
-}
-
-table.simplify td,
-table.simplify th {
-    padding: 6px;
-    border: 1px solid #ccc;
-    text-align: left;
 }

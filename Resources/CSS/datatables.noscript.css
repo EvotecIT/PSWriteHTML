@@ -1,22 +1,21 @@
 table {
     border-width: 1px;
     border-style: solid;
-    border-color: black;
     border-collapse: collapse;
     box-sizing: border-box;
-    width: calc(100% - 16px);
-    margin: 8px;
+    width: 100%;
 }
 
 table th {
-    border-width: 1px;
-    padding: 4px;
-    border-style: solid;
-    border-color: black;
-    background-color: #616a6b;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 4px 17px;
+    border: 1px solid #333;
+    /*background-color: #616a6b;*/
+    background-color: #333;
     color: white;
     font-weight: bold;
-    padding: 10px;
 }
 
 table td {
@@ -25,25 +24,12 @@ table td {
     padding-left: 2px;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-style: solid;
-    border-color: black;
-    border-top: 1px solid #ddd;
+    border: 1px solid #ddd;
+    text-align: left;
 }
 
 /* Zebra striping */
+
 table tr:nth-of-type(odd) {
     background: #eee;
-}
-
-table th {
-    background: #333;
-    color: white;
-    font-weight: bold;
-}
-
-table td,
-table th {
-    padding: 6px;
-    border: 1px solid #ccc;
-    text-align: left;
 }
