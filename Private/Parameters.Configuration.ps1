@@ -136,8 +136,8 @@ $Script:Configuration = [ordered] @{
         Default                 = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
-                Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
-                CssInline = [ordered] @{
+                Css               = "$PSScriptRoot\..\Resources\CSS\default.css"
+                CssInline         = [ordered] @{
                     # Workaround for IE 11
                     '@media all and (-ms-high-contrast:active)' = @{
                         '.defaultSection' = @{
@@ -168,11 +168,27 @@ $Script:Configuration = [ordered] @{
                     '.defaultSectionText'                       = [ordered] @{
                         "text-align" = 'center'
                     }
+                    #'.defaultSectionContent'                    = [ordered] @{
+                    #'padding-top'   = '5px'
+                    #'padding-right' = '5px'
+                    #'padding-left'  = '5px'
+                    #'padding' = '5px'
+                    #}
                     '.defaultPanel'                             = [ordered] @{
                         'box-shadow'    = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
                         'transition'    = '0.3s'
                         'border-radius' = '5px'
                         'margin'        = '5px'
+                    }
+                    '.defaultText'                              = [ordered] @{
+                        'margin' = '5px'
+                    }
+                }
+                # We want email to have no margins
+                CssInlineNoScript = @{
+                    '.defaultText' = [ordered] @{
+                        'margin' = '0px !important'
+                        #'background' = 'red'
                     }
                 }
             }
@@ -1017,16 +1033,23 @@ $Script:Configuration = [ordered] @{
             }
         }
         Wizard                  = [ordered] @{
-            Comment     = 'Wizard'
-            Demos       = 'http://techlaboratory.net/jquery-smartwizard'
-            Header      = @{
+            Comment      = 'Wizard'
+            Demos        = 'http://techlaboratory.net/jquery-smartwizard'
+            Header       = @{
                 JsLink  = 'https://cdn.jsdelivr.net/npm/smartwizard@5.1.1/dist/js/jquery.smartWizard.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\jquery.smartWizard.min.js"
                 CssLink = "https://cdn.jsdelivr.net/npm/smartwizard@5.1.1/dist/css/smart_wizard_all.min.css"
                 Css     = "$PSScriptRoot\..\Resources\CSS\jquery.smartWizard.min.css"
             }
-            License     = 'MIT'
-            SourceCodes = 'https://github.com/techlab/jquery-smartwizard'
+            HeaderAlways = @{
+                CssInline = @{
+                    '.defaultWizard' = [ordered] @{
+                        'margin' = '5px'
+                    }
+                }
+            }
+            License      = 'MIT'
+            SourceCodes  = 'https://github.com/techlab/jquery-smartwizard'
         }
     }
 }
