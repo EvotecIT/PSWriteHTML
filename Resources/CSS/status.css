@@ -9,9 +9,10 @@
     z-index: 0;
     height: 60px;
     float: none;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
     border-radius: 5px;
     display: block;
     box-shadow: 0 2px 4px -1px rgba(25, 25, 25, 0.2);
