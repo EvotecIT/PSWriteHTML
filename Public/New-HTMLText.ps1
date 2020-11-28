@@ -17,7 +17,8 @@ function New-HTMLText {
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string[]] $TextTransform = @(),
         [ValidateSet('rtl')][string[]] $Direction = @(),
         [switch] $LineBreak,
-        [switch] $SkipParagraph
+        [switch] $SkipParagraph #,
+        #[string] $Margin = '5px'
     )
     if ($TextBlock) {
         $Text = (Invoke-Command -ScriptBlock $TextBlock)
@@ -159,7 +160,8 @@ function New-HTMLText {
     if ($SkipParagraph) {
         $Output -join ''
     } else {
-        New-HTMLTag -Tag 'div' -Attributes @{ style = @{ 'margin' = '5px' } } {
+        New-HTMLTag -Tag 'div' -Attributes @{ class = 'defaultText' } {
+            #    New-HTMLTag -Tag 'div' -Attributes @{ style = @{ 'margin' = ConvertFrom-Size -Size $Margin } } {
             $Output
         }
     }
