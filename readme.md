@@ -87,8 +87,9 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 - 0.0.123
   - [x] **Breaking Changes**
-    - [x] Removed custom Headings (H1,H2,H3,H4,H5,H6,H7) -> `New-HTMLHeading` still works just using defaults
-      - [ ] It was totally inconsistent between H1-H7, probably needs new CSS for those later on that will be consistent and inline with other code
+    - [x] Removed custom Headings (H1,H2,H3,H4,H5,H6) -> `New-HTMLHeading` still works just using defaults
+      - [ ] It was totally inconsistent between H1-H6, probably needs new CSS for those later on that will be consistent and inline with other code
+    - [x] Removed H7 heading totally - it got there by some copy paste from internet
     - [x] Removed custom Horizontal Line (HR) -> `New-HTMLHorizonalLine` still works just using defaults
       - [ ] Not looking good, the default one looks better, more consitent but may need some work in the future
     - [x] `New-HTMLLogo` is now marked as obsolete. It was there from day one but it's not really customizable. New way will be given sometime in the future
