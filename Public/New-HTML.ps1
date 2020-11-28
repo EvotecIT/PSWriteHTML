@@ -16,7 +16,8 @@ Function New-HTML {
         # Deprecated - will be removed
         [Parameter(DontShow)][switch] $UseCssLinks,
         [Parameter(DontShow)][switch] $UseJavaScriptLinks,
-        [switch] $Temporary
+        [switch] $Temporary,
+        [switch] $AddComment
     )
     if ($UseCssLinks -or $UseJavaScriptLinks) {
         Write-Warning "New-HTML - UseCssLinks and UseJavaScriptLinks is depreciated. Use Online switch instead. Those switches will be removed in near future."
@@ -121,26 +122,19 @@ Function New-HTML {
     }
 
     $Script:HTMLSchema.Features.Main = $true
-    $Script:HTMLSchema.Features.MainFlex = $true
-    $Script:HTMLSchema.Features.MainImage = $true
-    $Script:HTMLSchema.Features.MainLink = $true
 
     $Features = Get-FeaturesInUse -PriorityFeatures 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs'
-
-
 
     # This removes Nested Tabs from primary Tabs
     foreach ($_ in $Script:HTMLSchema.TabsHeadersNested) {
         $null = $Script:HTMLSchema.TabsHeaders.Remove($_)
     }
-
-
     [string] $HTML = @(
         #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
         '<!-- saved from url=(0014)about:internet -->' + [System.Environment]::NewLine
         '<!DOCTYPE html>' + [System.Environment]::NewLine
         New-HTMLTag -Tag 'html' {
-            '<!-- HEAD -->'
+            if ($AddComment) { '<!-- HEAD -->' }
             New-HTMLTag -Tag 'head' {
                 New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = "Content-Type"; content = "text/html; charset=utf-8" } -NoClosing
                 #New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -NoClosing
@@ -182,8 +176,8 @@ Function New-HTML {
                     New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = $Autorefresh } -SelfClosing
                 }
                 # Those are CSS we always add
-                Get-Resources -Online:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome -NoScript
-                Get-Resources -Online:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings -NoScript
+                Get-Resources -Online:$true -Location 'HeaderAlways' -Features DefaultHeadings, Fonts, FontsAwesome -NoScript
+                Get-Resources -Online:$false -Location 'HeaderAlways' -Features DefaultHeadings -NoScript
 
                 # Those are CSS we only add if user selected proper data
                 if ($null -ne $Features) {
@@ -194,15 +188,17 @@ Function New-HTML {
                 New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
                 New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS
             }
-            '<!-- END HEAD -->'
-            '<!-- BODY -->'
+            if ($AddComment) {
+                '<!-- END HEAD -->'
+                '<!-- BODY -->'
+            }
             New-HTMLTag -Tag 'body' {
                 if ($HeaderHTML) {
-                    '<!-- HEADER -->'
+                    if ($AddComment) { '<!-- HEADER -->' }
                     New-HTMLTag -Tag 'header' {
                         $HeaderHTML
                     }
-                    '<!-- END HEADER -->'
+                    if ($AddComment) { '<!-- END HEADER -->' }
                 }
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'main-section' } {
                     # Add logo if there is one
@@ -228,8 +224,8 @@ Function New-HTML {
                         $Diagram
                     }
                 }
+                if ($AddComment) { '<!-- FOOTER -->' }
                 New-HTMLTag -Tag 'footer' {
-                    '<!-- FOOTER -->'
                     if ($FooterHTML) {
                         $FooterHTML
                     }
@@ -244,9 +240,11 @@ Function New-HTML {
                     }
                     New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS
                     New-HTMLCustomJS -JS $Script:HTMLSchema.CustomFooterJS
-                    '<!-- END FOOTER -->'
                 }
-                '<!-- END BODY -->'
+                if ($AddComment) {
+                    '<!-- END FOOTER -->'
+                    '<!-- END BODY -->'
+                }
             }
         }
     )
