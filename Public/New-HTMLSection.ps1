@@ -30,10 +30,11 @@ Function New-HTMLSection {
     # This is so we can support external CSS configuration
     if (-not $StyleSheetsConfiguration) {
         $StyleSheetsConfiguration = [ordered] @{
-            Section        = 'defaultSection'
-            SectionText    = 'defaultSectionText'
-            SectionHead    = "defaultSectionHead"
-            SectionContent = 'defaultSectionContent'
+            Section                 = 'defaultSection'
+            SectionText             = 'defaultSectionText'
+            SectionHead             = "defaultSectionHead"
+            SectionContent          = 'defaultSectionContent'
+            SectionContentInvisible = 'defaultSectionContentInvisible'
         }
     }
     # This takes care of starting dots in $StyleSheetsConfiguration
@@ -141,7 +142,7 @@ Function New-HTMLSection {
         $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css
     } else {
         if ($Invisible) {
-            [string] $ClassName = "flexParentInvisible flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
+            [string] $ClassName = "flexParentInvisible flexElement overflowHidden $($StyleSheetsConfiguration.SectionContentInvisible)"
         } else {
             [string] $ClassName = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
         }

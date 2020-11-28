@@ -35,10 +35,11 @@
     # this is read from $Script:Configuration (or more precise $Script:CurrentConfiguration which is a copy on New-HTML start)
     $CssConfiguration = Get-ConfigurationCss -Feature 'DefaultSection' -Type 'HeaderAlways'
     $StyleSheetsConfiguration = [ordered] @{
-        Section        = ".defaultSection"
-        SectionText    = ".defaultSectionText"
-        SectionHead    = ".defaultSectionHead"
-        SectionContent = '.defaultSectionContent'
+        Section                 = ".defaultSection"
+        SectionText             = ".defaultSectionText"
+        SectionHead             = ".defaultSectionHead"
+        SectionContent          = '.defaultSectionContent'
+        SectionContentInvisible = '.defaultSectionContentInvisible'
     }
 
     if ($RequestConfiguration) {
@@ -169,7 +170,7 @@
         'justify-content' = $JustifyContent
     }
     Add-ConfigurationCSS -CSS $CssConfiguration -Name $StyleSheetsConfiguration.SectionContent -Inject $SectionContentStyle
-
+    Add-ConfigurationCSS -CSS $CssConfiguration -Name $StyleSheetsConfiguration.SectionContentInvisible -Inject $SectionContentStyle
 
     if ($RequestConfiguration) {
         # We only return this when requesting configuration
