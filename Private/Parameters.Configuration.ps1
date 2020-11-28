@@ -8,47 +8,47 @@ $Script:Configuration = [ordered] @{
         Main                    = [ordered]@{
             HeaderAlways = [ordered]@{
                 CssInline = [ordered]@{
-                    'body'           = [ordered]@{
+                    'body'  = [ordered]@{
                         'font-family' = 'Roboto Condensed, Helvetica Neue, sans-serif'
                         'font-size'   = '8pt'
                         'margin'      = '0';
                     }
-                    'input'          = @{
+                    'input' = @{
                         'font-size' = '8pt'
                     }
-                    'table'          = @{
-                        #'font-size' = '8pt'
-                    }
-                    '.defaultHeader' = [ordered]@{
-                        'padding'     = '5px'
-                        'margin'      = '0px 0px 0px 0px'
-                        'font-weight' = 'bold'
-                    }
-                    '.defaultFooter' = [ordered]@{
-                        'padding-right' = '5em'
-                        'text-align'    = 'right'
-                    }
-                    '.container'     = [ordered]@{
-                        'padding' = '2px 16px'
-                    }
-                    '.header'        = [ordered]@{
-                        'background-color' = '#616a6b'
-                        'color'            = '#f7f9f9'
-                    }
-                    'hr'             = [ordered]@{
-                        'height'           = '4px'
-                        'background-color' = '#6Cf'
-                        'border'           = '0px'
-                        'width'            = '100%'
-                    }
-                    '.card:hover'    = [ordered]@{
-                        'box-shadow' = '0 8px 16px 0 rgba(0, 0, 0, 0.2)'
-                    }
-                    '.col'           = [ordered]@{
-                        'padding' = '20px'
-                        'margin'  = '1%'
-                        'flex'    = '1'
-                    }
+                    #'table'          = @{
+                    #'font-size' = '8pt'
+                    #}
+                    #'.defaultHeader' = [ordered]@{
+                    #    'padding'     = '5px'
+                    #    'margin'      = '0px 0px 0px 0px'
+                    #    'font-weight' = 'bold'
+                    #}
+                    #'.defaultFooter' = [ordered]@{
+                    #    'padding-right' = '5em'
+                    #    'text-align'    = 'right'
+                    #}
+                    #'.container'     = [ordered]@{
+                    #    'padding' = '2px 16px'
+                    #}
+                    #'.header'        = [ordered]@{
+                    #    'background-color' = '#616a6b'
+                    #    'color'            = '#f7f9f9'
+                    #}
+                    #'hr'    = [ordered]@{
+                    #    'height'           = '4px'
+                    #    'background-color' = '#6Cf'
+                    #    'border'           = '0px'
+                    #    'width'            = '100%'
+                    #}
+                    #'.card:hover' = [ordered]@{
+                    #    'box-shadow' = '0 8px 16px 0 rgba(0, 0, 0, 0.2)'
+                    #}
+                    #'.col'        = [ordered]@{
+                    #    'padding' = '20px'
+                    #    'margin'  = '1%'
+                    #    'flex'    = '1'
+                    #}
                 }
             }
         }
@@ -81,6 +81,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
         }
+        <# Doesn't seem to be in use
         MainLink                = [ordered]@{
             HeaderAlways = [ordered] @{
                 CssInline = [ordered]@{
@@ -108,6 +109,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
         }
+        #>
         MainImage               = [ordered]@{
             HeaderAlways = [ordered] @{
                 CssInline = [ordered]@{
@@ -246,12 +248,14 @@ $Script:Configuration = [ordered] @{
                 }
             }
         }
+        <#
         DefaultHeadings         = @{
             Comment      = 'Always Required Default Headings'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\headings.css"
             }
         }
+        #>
         DefaultText             = @{
             Comment      = 'Text Style'
             HeaderAlways = @{
