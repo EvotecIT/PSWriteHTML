@@ -1,7 +1,7 @@
 Function New-HTMLHeading {
     [CmdletBinding()]
     Param (
-        [validateset('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7')][string] $Heading,
+        [validateset('h1', 'h2', 'h3', 'h4', 'h5', 'h6')][string] $Heading,
         [string] $HeadingText,
         [switch] $Underline,
         [string] $Color
