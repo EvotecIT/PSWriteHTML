@@ -136,8 +136,7 @@ $Script:Configuration = [ordered] @{
         Default                 = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
-                Css               = "$PSScriptRoot\..\Resources\CSS\default.css"
-                CssInline         = [ordered] @{
+                CssInline = [ordered] @{
                     # Workaround for IE 11
                     '@media all and (-ms-high-contrast:active)' = @{
                         '.defaultSection' = @{
@@ -180,7 +179,85 @@ $Script:Configuration = [ordered] @{
                         'border-radius' = '5px'
                         'margin'        = '5px'
                     }
-                    '.defaultText'                              = [ordered] @{
+                    #'.defaultText'                              = [ordered] @{
+                    #    'margin' = '5px'
+                    #}
+                }
+                # We want email to have no margins
+                # CssInlineNoScript = @{
+                #     '.defaultText' = [ordered] @{
+                #         'margin' = '0px !important'
+                #    }
+                # }
+            }
+        }
+        DefaultPanel            = @{
+            Comment      = 'Panel Style'
+            HeaderAlways = @{
+                Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
+                CssInline = [ordered] @{
+                    '.defaultPanel' = [ordered] @{
+                        'box-shadow'    = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
+                        'transition'    = '0.3s'
+                        'border-radius' = '5px'
+                        'margin'        = '5px'
+                    }
+                }
+            }
+        }
+        DefaultSection          = @{
+            Comment      = 'Section Style'
+            HeaderAlways = @{
+                Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
+                CssInline = [ordered] @{
+                    # Workaround for IE 11
+                    '@media all and (-ms-high-contrast:active)' = @{
+                        '.defaultSection' = @{
+                            'display' = 'flex'
+                        }
+                    }
+                    '.defaultSection'                           = [ordered] @{
+                        #'display'        = 'flex' # added to allow diagram to resize properly
+                        'flex-direction' = 'column' # added to allow diagram to resize properly
+                        #'flex-direction' = 'default' # added to allow diagram to resize properly
+                        'border'         = '1px solid #bbbbbb'
+                        'padding-bottom' = '0px'
+                        'margin'         = '5px'
+                        'width'          = 'calc(100% - 10px)'
+                        'box-shadow'     = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
+                        'transition'     = '0.3s'
+                        'border-radius'  = '5px'
+                    }
+                    '.defaultSectionHead'                       = [ordered] @{
+                        'display'          = 'flex'
+                        'justify-content'  = 'center'
+                        'padding'          = '5px'
+                        'margin'           = '0px 0px 0px 0px'
+                        'font-weight'      = 'bold'
+                        "background-color" = ConvertFrom-Color -Color "DeepSkyBlue"
+                        'color'            = ConvertFrom-Color -Color "White"
+                    }
+                    #'.defaultSectionContent'                    = [ordered] @{
+                    #'padding-top'   = '5px'
+                    #'padding-right' = '5px'
+                    #'padding-left'  = '5px'
+                    #'padding' = '5px'
+                    #}
+                }
+            }
+        }
+        DefaultHeadings         = @{
+            Comment      = 'Always Required Default Headings'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\headings.css"
+            }
+        }
+        DefaultText             = @{
+            Comment      = 'Text Style'
+            HeaderAlways = @{
+                Css               = "$PSScriptRoot\..\Resources\CSS\default.css"
+                CssInline         = [ordered] @{
+                    '.defaultText' = [ordered] @{
                         'margin' = '5px'
                     }
                 }
@@ -191,12 +268,6 @@ $Script:Configuration = [ordered] @{
                         #'background' = 'red'
                     }
                 }
-            }
-        }
-        DefaultHeadings         = @{
-            Comment      = 'Always Required Default Headings'
-            HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\headings.css"
             }
         }
         Accordion               = @{
