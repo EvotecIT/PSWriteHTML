@@ -101,6 +101,7 @@ Please make sure to read changes before updating, as we're undergoing some break
     - [x] Changed Tables row height to fit more data
     - [x] Changed Tables `noscript` version (email + no javascript) to fit more how DataTables looks like
     - [x] Improved HTMLTable with `Simplify` switch positioning
+    - [x] `New-HTML` added parameter `AddComment` - by default comments are not added to code now
 - 0.0.122 - 2020.11.18
   - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
   - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
