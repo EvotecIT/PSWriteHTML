@@ -8,6 +8,10 @@ function New-HTMLLogo {
         [string] $RightLogoString,
         [switch] $HideLogos
     )
+    $Script:HTMLSchema.Features.MainImage = $true
+
+    Write-Warning "New-HTMLLogo - This function is deprecated. If you're using it consider letting me know on https://github.com/evotecit/PSWriteHTML"
+    Write-Warning "New-HTMLLogo - There will be replacement for this sooner or later."
 
     $LogoSources = Get-HTMLLogos `
         -RightLogoName $RightLogoName `
