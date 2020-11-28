@@ -6,6 +6,7 @@ Function New-HTMLHeading {
         [switch] $Underline,
         [string] $Color
     )
+    $Script:HTMLSchema.Features.DefaultHeadings = $true
     if ($null -ne $Color) {
         $RGBcolor = ConvertFrom-Color -Color $Color
         $Attributes = @{
