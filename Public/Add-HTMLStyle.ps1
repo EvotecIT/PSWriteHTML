@@ -8,13 +8,13 @@ function Add-HTMLStyle {
         [string[]] $Content,
         [string[]] $FilePath,
         [alias('CssInline')][System.Collections.IDictionary] $Css,
-        [Parameter(DontShow)][System.Collections.IDictionary] $ReplaceData
+        [Parameter(DontShow)][System.Collections.IDictionary] $ReplaceData,
+        [switch] $AddComment
     )
     if (-not $ResourceComment) {
         $ResourceComment = "ResourceCSS-$(Get-RandomStringName -Size 8 -LettersOnly)"
     }
     $Output = @(
-        "<!-- CSS $ResourceComment START -->"
         # Content from files
         foreach ($File in $FilePath) {
             if ($File -ne '') {
@@ -51,9 +51,15 @@ function Add-HTMLStyle {
         if ($Css) {
             ConvertTo-CascadingStyleSheets -Css $Css -WithTags
         }
-        "<!-- CSS $ResourceComment END -->"
     )
-    if ($Output.Count -gt 2) {
+    if ($Output) {
+        if ($AddComment) {
+            $Output = @(
+                "<!-- CSS $ResourceComment START -->"
+                $Output
+                "<!-- CSS $ResourceComment END -->"
+            )
+        }
         # Outputs only if more than comments
         if ($Placement -eq 'Footer') {
             $Script:HTMLSchema.CustomFooterCSS[$ResourceComment] = $Output

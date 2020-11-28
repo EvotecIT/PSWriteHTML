@@ -7,13 +7,13 @@ function Add-HTMLScript {
         [string[]] $Link,
         [string[]] $Content,
         [string[]] $FilePath,
-        [Parameter(DontShow)][System.Collections.IDictionary] $ReplaceData
+        [Parameter(DontShow)][System.Collections.IDictionary] $ReplaceData,
+        [switch] $AddComments
     )
     if (-not $ResourceComment) {
         $ResourceComment = "ResourceJS-$(Get-RandomStringName -Size 8 -LettersOnly)"
     }
     $Output = @(
-        "<!-- JS $ResourceComment START -->"
         # Content from File(s)
         foreach ($File in $FilePath) {
             if ($File -ne '') {
@@ -47,9 +47,15 @@ function Add-HTMLScript {
                 return
             }
         }
-        "<!-- JS $ResourceComment END -->"
     )
-    if ($Output.Count -gt 2) {
+    if ($Output) {
+        if ($AddComment) {
+            $Output = @(
+                "<!-- JS $ResourceComment START -->"
+                $Output
+                "<!-- JS $ResourceComment END -->"
+            )
+        }
         # Outputs only if more than comments
         if ($Placement -eq 'Footer') {
             $Script:HTMLSchema.CustomFooterJS[$ResourceComment] = $Output
