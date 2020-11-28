@@ -97,7 +97,7 @@
         $Script:HTMLSchema['WizardList'].Add($WizardID)
         $WizardContent = & $WizardSteps
         if ($WizardContent) {
-            New-HTMLTag -Tag 'div' -Attributes @{ id = $WizardID; class = 'flexElement'; style = @{margin = '5px' } } {
+            New-HTMLTag -Tag 'div' -Attributes @{ id = $WizardID; class = 'flexElement defaultWizard' } {
                 New-HTMLTag -Tag 'ul' -Attributes @{ class = 'nav' } {
                     foreach ($Step in $WizardContent) {
                         New-HTMLTag -Tag 'li' {
