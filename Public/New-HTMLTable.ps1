@@ -844,7 +844,14 @@ function New-HTMLTable {
     } else {
         $RowGroupingCSS = ''
     }
-    New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexElement overflowHidden' } -Value {
+
+    if ($Simplify) {
+        $AttributeDiv = @{ class = 'flexElement overflowHidden' ; style = @{ display = 'flex' } }
+    } else {
+        $AttributeDiv = @{ class = 'flexElement overflowHidden' }
+    }
+
+    New-HTMLTag -Tag 'div' -Attributes $AttributeDiv -Value {
         $RowGroupingCSS
         $BeforeTableCode
         $BeforeTable
