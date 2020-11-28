@@ -1,36 +1,52 @@
 ﻿table.simplify {
-    border-width: 1px;
-    border-style: solid;
     border-collapse: collapse;
     box-sizing: border-box;
     width: 100%;
     margin: 5px;
 }
 
-table.simplify th {
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    padding: 4px 17px;
-    border: 1px solid #333;
-    /*background-color: #616a6b;*/
-    background-color: #333;
-    color: white;
-    font-weight: bold;
-}
-
 table.simplify td {
     border-width: 1px;
+    padding: 4px;
+    /*
     padding-right: 2px;
     padding-left: 2px;
     padding-top: 0px;
     padding-bottom: 0px;
-    border: 1px solid #ddd;
+    */
+    /*border: 1px solid #ddd;*/
     text-align: left;
+    border-top: 1px solid #ddd
 }
 
-/* Zebra striping */
+table.simplify thead th {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 4px 17px;
+    border-bottom: 1px solid #111;
+    /*background-color: #616a6b;*/
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+table.simplify tfoot th {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 4px 17px;
+    border-top: 1px solid #111;
+    /*background-color: #616a6b;*/
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
 
 table.simplify tr:nth-of-type(odd) {
-    background: #eee;
+    background-color: #F6F6F5;
+}
+
+table.simplify tr:nth-of-type(even) {
+    background-color: white;
 }
