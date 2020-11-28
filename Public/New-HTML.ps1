@@ -225,7 +225,8 @@ Function New-HTML {
                     }
                 }
                 if ($AddComment) { '<!-- FOOTER -->' }
-                New-HTMLTag -Tag 'footer' {
+
+                [string] $Footer = @(
                     if ($FooterHTML) {
                         $FooterHTML
                     }
@@ -240,6 +241,11 @@ Function New-HTML {
                     }
                     New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS
                     New-HTMLCustomJS -JS $Script:HTMLSchema.CustomFooterJS
+                )
+                if ($Footer) {
+                    New-HTMLTag -Tag 'footer' {
+                        $Footer
+                    }
                 }
                 if ($AddComment) {
                     '<!-- END FOOTER -->'
