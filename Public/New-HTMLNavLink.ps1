@@ -5,6 +5,7 @@
         [string] $Name = 'Menu',
         [string] $Icon = 'fa-dashboard'
     )
+    $Script:HTMLSchema.Features.MainFlex = $true
     if ($SubMenu) {
         $Attributes = @{ class = 'menu-hasdropdown' }
     } else {

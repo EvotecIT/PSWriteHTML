@@ -92,6 +92,7 @@
         "LeftToRight" = 'l2r'
         "RightToLeft" = 'r2l'
     }
+    $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.Jquery = $true
     $Script:HTMLSchema.Features.ChartsOrg = $true
     if ($ExportExtension -eq 'png' -and $AllowExport) {

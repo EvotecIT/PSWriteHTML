@@ -34,6 +34,7 @@
         Write-Warning 'New-HTMLCalendar - Creation of HTML aborted. Most likely New-HTML is missing.'
         Exit
     }
+    $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.FullCalendar = $true
     <#
     $Script:HTMLSchema.Features.FullCalendarCore = $true

@@ -84,7 +84,7 @@
     } elseif ($IconSolid) {
         $Icon = "fas fa-$IconSolid" # fa-$($FontSize)x"
     }
-
+    $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.Toasts = $true
 
     [string] $DivClass = "toast"

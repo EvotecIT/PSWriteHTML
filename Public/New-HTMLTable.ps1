@@ -75,6 +75,7 @@ function New-HTMLTable {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
         Exit
     }
+    $Script:HTMLSchema.Features.MainFlex = $true
     # Building HTML Table / Script
     if (-not $DataTableID) {
         # Only define this if user failed to deliver as per https://github.com/EvotecIT/PSWriteHTML/issues/29

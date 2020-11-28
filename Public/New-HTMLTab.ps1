@@ -67,6 +67,7 @@ function New-HTMLTab {
         Write-Warning 'New-HTMLTab - Creation of HTML aborted. Most likely New-HTML is missing.'
         Exit
     }
+    $Script:HTMLSchema.Features.MainFlex = $true
     if (-not $AnchorName) {
         $AnchorName = "Tab-$(Get-RandomStringName -Size 8)"
     }

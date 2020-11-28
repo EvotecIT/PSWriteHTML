@@ -7,7 +7,7 @@
         [Parameter(ParameterSetName = 'Manual')][switch] $RequestConfiguration
     )
     # lets get original CSS configuration
-    $CssConfiguration = Get-ConfigurationCss -Feature 'Default' -Type 'HeaderAlways'
+    $CssConfiguration = Get-ConfigurationCss -Feature 'DefaultPanel' -Type 'HeaderAlways'
 
     $StyleSheetsConfiguration = [ordered] @{
         Panel = ".defaultPanel"

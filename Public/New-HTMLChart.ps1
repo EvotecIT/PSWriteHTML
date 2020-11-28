@@ -10,7 +10,7 @@
         [alias('GradientColors')][switch] $Gradient,
         [alias('PatternedColors')][switch] $Patterned
     )
-
+    $Script:HTMLSchema.Features.MainFlex = $true
     # Datasets Bar/Line
     $DataSet = [System.Collections.Generic.List[object]]::new()
     $DataName = [System.Collections.Generic.List[object]]::new()

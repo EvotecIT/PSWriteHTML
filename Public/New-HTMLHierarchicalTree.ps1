@@ -1,8 +1,9 @@
 ﻿function New-HTMLHierarchicalTree {
+    [cmdletBinding()]
     param(
         [ScriptBlock] $TreeView
     )
-
+    $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.D3Mitch = $true
 
     [string] $ID = "HierarchicalTree-" + (Get-RandomStringName -Size 8)

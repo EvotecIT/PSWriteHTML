@@ -15,6 +15,7 @@ function New-HTMLDiagram {
         Write-Warning 'New-HTMLDiagram - Creation of HTML aborted. Most likely New-HTML is missing.'
         Exit
     }
+    $Script:HTMLSchema.Features.MainFlex = $true
 
     $DataEdges = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
     $DataNodes = [ordered] @{ }

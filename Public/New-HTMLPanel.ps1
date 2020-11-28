@@ -13,8 +13,11 @@ Function New-HTMLPanel {
         [string] $AnchorName,
         [System.Collections.IDictionary] $StyleSheetsConfiguration
     )
+    $Script:HTMLSchema.Features.Main = $true
+    $Script:HTMLSchema.Features.MainFlex = $true
     # This is so we can support external CSS configuration
     if (-not $StyleSheetsConfiguration) {
+        $Script:HTMLSchema.Features.DefaultPanel = $true
         $StyleSheetsConfiguration = [ordered] @{
             Panel = "defaultPanel"
         }

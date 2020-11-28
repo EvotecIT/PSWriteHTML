@@ -20,6 +20,8 @@ function New-HTMLText {
         [switch] $SkipParagraph #,
         #[string] $Margin = '5px'
     )
+    $Script:HTMLSchema.Features.DefaultText = $true
+
     if ($TextBlock) {
         $Text = (Invoke-Command -ScriptBlock $TextBlock)
     }

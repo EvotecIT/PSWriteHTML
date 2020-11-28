@@ -25,6 +25,8 @@ Function New-HTMLSection {
         [string] $AnchorName,
         [System.Collections.IDictionary] $StyleSheetsConfiguration
     )
+    $Script:HTMLSchema.Features.Main = $true
+    $Script:HTMLSchema.Features.MainFlex = $true
     # This is so we can support external CSS configuration
     if (-not $StyleSheetsConfiguration) {
         $StyleSheetsConfiguration = [ordered] @{
@@ -60,7 +62,8 @@ Function New-HTMLSection {
     # we need to find out what is required flex direction and applky rules accordingly
     # same thing happens on JS level in hideSection.js
     if ($StyleSheetsConfiguration.Section -eq 'defaultSection') {
-        $CurrentFlexDirection = $Script:CurrentConfiguration['Features']['Default']['HeaderAlways']['CssInline'][".$($StyleSheetsConfiguration.Section)"]['flex-direction']
+        $Script:HTMLSchema.Features.DefaultSection = $true
+        $CurrentFlexDirection = $Script:CurrentConfiguration['Features']['DefaultSection']['HeaderAlways']['CssInline'][".$($StyleSheetsConfiguration.Section)"]['flex-direction']
     } else {
         $CurrentFlexDirection = $Script:CurrentConfiguration['Features']['Inject']['HeaderAlways']['CssInline'][".$($StyleSheetsConfiguration.Section)"]['flex-direction']
     }

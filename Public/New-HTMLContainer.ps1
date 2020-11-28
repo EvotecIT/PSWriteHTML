@@ -7,6 +7,7 @@
         [string] $Margin,
         [string] $AnchorName
     )
+    $Script:HTMLSchema.Features.MainFlex = $true
     if (-not $AnchorName) {
         $AnchorName = "anchor-$(Get-RandomStringName -Size 7)"
     }

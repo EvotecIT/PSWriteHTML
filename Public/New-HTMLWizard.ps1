@@ -88,7 +88,7 @@
         [ValidateSet('none', 'fade', 'slide-horizontal', 'slide-vertical', 'slide-swing')][string] $TransitionAnimation, # 'none', // Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing
         [int] $TransitionSpeed
     )
-
+    $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.JQuery = $true
     $Script:HTMLSchema.Features.Wizard = $true
 

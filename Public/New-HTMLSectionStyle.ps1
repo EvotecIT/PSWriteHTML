@@ -33,7 +33,7 @@
     )
     # lets get original CSS configuration
     # this is read from $Script:Configuration (or more precise $Script:CurrentConfiguration which is a copy on New-HTML start)
-    $CssConfiguration = Get-ConfigurationCss -Feature 'Default' -Type 'HeaderAlways'
+    $CssConfiguration = Get-ConfigurationCss -Feature 'DefaultSection' -Type 'HeaderAlways'
     $StyleSheetsConfiguration = [ordered] @{
         Section        = ".defaultSection"
         SectionText    = ".defaultSectionText"

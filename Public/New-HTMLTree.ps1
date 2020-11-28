@@ -5,6 +5,7 @@
         [ValidateSet('none', 'checkbox', 'radio')][string] $Checkbox = 'none',
         [ValidateSet('none', '1', '2', '3')] $SelectMode = '2'
     )
+    $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.Jquery = $true
     $Script:HTMLSchema.Features.FancyTree = $true
 
