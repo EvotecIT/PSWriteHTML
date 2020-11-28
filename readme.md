@@ -65,6 +65,10 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+- 0.0.123
+  - [x] Changed Tables row height to fit more data
+  - [x] Changed Tables `noscript` version (email + no javascript) to fit more how DataTables looks like
+  - [x] Improved HTMLTable with `Simplify` switch positioning
 - 0.0.122 - 2020.11.18
   - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
   - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)

@@ -8,7 +8,7 @@
     Description          = 'Module that allows creating HTML content/reports in a easy way.'
     FunctionsToExport    = @('Add-HTML', 'Add-HTMLScript', 'Add-HTMLStyle', 'ConvertTo-CascadingStyleSheets', 'Email', 'EmailAttachment', 'EmailBCC', 'EmailBody', 'EmailCC', 'EmailFrom', 'EmailHeader', 'EmailListItem', 'EmailOptions', 'EmailReplyTo', 'EmailServer', 'EmailSubject', 'EmailTextBox', 'EmailTo', 'New-AccordionItem', 'New-CalendarEvent', 'New-ChartAxisX', 'New-ChartAxisY', 'New-ChartBar', 'New-ChartBarOptions', 'New-ChartDataLabel', 'New-ChartDonut', 'New-ChartGrid', 'New-ChartLegend', 'New-ChartLine', 'New-ChartPie', 'New-ChartRadial', 'New-ChartTheme', 'New-ChartTimeLine', 'New-ChartToolbar', 'New-ChartToolTip', 'New-DiagramEvent', 'New-DiagramLink', 'New-DiagramNode', 'New-DiagramOptionsInteraction', 'New-DiagramOptionsLayout', 'New-DiagramOptionsLinks', 'New-DiagramOptionsManipulation', 'New-DiagramOptionsNodes', 'New-DiagramOptionsPhysics', 'New-GageSector', 'New-HierarchicalTreeNode', 'New-HTML', 'New-HTMLAccordion', 'New-HTMLAnchor', 'New-HTMLCalendar', 'New-HTMLChart', 'New-HTMLCodeBlock', 'New-HTMLContainer', 'New-HTMLDiagram', 'New-HTMLFooter', 'New-HTMLGage', 'New-HTMLHeader', 'New-HTMLHeading', 'New-HTMLHierarchicalTree', 'New-HTMLHorizontalLine', 'New-HTMLImage', 'New-HTMLList', 'New-HTMLListItem', 'New-HTMLLogo', 'New-HTMLMain', 'New-HTMLNav', 'New-HTMLNavHam', 'New-HTMLNavLink', 'New-HTMLOrgChart', 'New-HTMLPanel', 'New-HTMLPanelStyle', 'New-HTMLSection', 'New-HTMLSectionStyle', 'New-HTMLSpanStyle', 'New-HTMLStatus', 'New-HTMLStatusItem', 'New-HTMLTab', 'New-HTMLTable', 'New-HTMLTableOption', 'New-HTMLTableStyle', 'New-HTMLTabPanel', 'New-HTMLTabStyle', 'New-HTMLTag', 'New-HTMLText', 'New-HTMLTimeline', 'New-HTMLTimelineItem', 'New-HTMLToast', 'New-HTMLTree', 'New-HTMLWizard', 'New-HTMLWizardStep', 'New-OrgChartNode', 'New-TableButtonCopy', 'New-TableButtonCSV', 'New-TableButtonExcel', 'New-TableButtonPageLength', 'New-TableButtonPDF', 'New-TableButtonPrint', 'New-TableColumnOption', 'New-TableCondition', 'New-TableContent', 'New-TableEvent', 'New-TableHeader', 'New-TableReplace', 'New-TableRowGrouping', 'New-TreeNode', 'Out-HtmlView', 'Save-HTML')
     GUID                 = 'a7bdf640-f5cb-4acf-9de0-365b322d245c'
-    ModuleVersion        = '0.0.122'
+    ModuleVersion        = '0.0.123'
     PowerShellVersion    = '5.1'
     PrivateData          = @{
         PSData = @{
@@ -18,7 +18,7 @@
         }
     }
     RequiredModules      = @(@{
-            ModuleVersion = '0.0.188'
+            ModuleVersion = '0.0.189'
             ModuleName    = 'PSSharedGoods'
             Guid          = 'ee272aa8-baaa-4edf-9f45-b6d6f7d844fe'
         })
