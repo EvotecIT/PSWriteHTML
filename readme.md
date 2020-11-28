@@ -22,11 +22,27 @@
 
 `PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is a complete rewrite and doesn't use the same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) or even the same code, therefore you can have both. Keep in mind the approach to building HTML is much more simplified and I'm adding more and more features.
 
+- [PSWriteHTML - PowerShell Module](#pswritehtml---powershell-module)
+  - [How to install](#how-to-install)
+    - [Installing](#installing)
+    - [Updating](#updating)
+  - [Articles worth reading to understand use cases](#articles-worth-reading-to-understand-use-cases)
+  - [Changelog](#changelog)
+  - [Advantages over ReportHTML](#advantages-over-reporthtml)
+  - [Credits](#credits)
+  - [Projects using PSWriteHTML (to give you ideas of what you can do)](#projects-using-pswritehtml-to-give-you-ideas-of-what-you-can-do)
+  - [3rd Party Libraries](#3rd-party-libraries)
+    - [External JS Framework - DataTables](#external-js-framework---datatables)
+    - [External JS Framework -EnlighterJS (Mozilla Public License Version 2.0 LICENSE)](#external-js-framework--enlighterjs-mozilla-public-license-version-20-license)
+      - [Following languages are supported for New-HTMLCodeBlock](#following-languages-are-supported-for-new-htmlcodeblock)
+      - [Following themes are supported for New-HTMLCodeBlock](#following-themes-are-supported-for-new-htmlcodeblock)
+    - [External JS Framework - VIS Network (MIT LICENSE)](#external-js-framework---vis-network-mit-license)
+
 ## How to install
 
 While you can take sources and use it from here, **PSWriteHTML** actually is composed of multiple other of my modules. To get it up and running you will need ***PSSharedGoods**, and **PSSharedGoods** will need **Connectimo** and **PSWriteColor**. While **Connectimo** or **PSWriteColor** aren't needed for **PSWriteHTML**, **PSSharedGoods** uses them for some of the commands and it will fail without them. You can get all that from sources but if you **just want** to use my modules you should use the `Install-Module` command. It's available in PowerShell 5.1. As an added bonus when I publish modules to **PowerShellGallery** I remove any junk, minimize modules to a single file which makes them faster to load and use. I really encourage you to use the module from PowerShellGallery and treat **GitHub** as a highly development version. Since version 0.0.61 when **PSWriteHTML** is published every dependency is baked into **PSWriteHTML**. That means you don't need to download any other modules unless you want to contribute to this project.
 
-### To install
+### Installing
 
 ```powershell
 Install-Module -Name PSWriteHTML -AllowClobber -Force
@@ -34,7 +50,7 @@ Install-Module -Name PSWriteHTML -AllowClobber -Force
 
 Force and AllowClobber aren't necessary but they do skip errors in case some appear.
 
-### And to update
+### Updating
 
 ```powershell
 Update-Module -Name PSWriteHTML
@@ -65,10 +81,26 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
+PSWriteHTML undergoes changes that hopefully will make it more versalite, consistent and better.
+Unfortunetly some code is very old, some code doesn't server it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
+Please make sure to read changes before updating, as we're undergoing some breaking changes.
+
 - 0.0.123
-  - [x] Changed Tables row height to fit more data
-  - [x] Changed Tables `noscript` version (email + no javascript) to fit more how DataTables looks like
-  - [x] Improved HTMLTable with `Simplify` switch positioning
+  - [x] **Breaking Changes**
+    - [x] Removed custom Headings (H1,H2,H3,H4,H5,H6,H7) -> `New-HTMLHeading` still works just using defaults
+      - [ ] It was totally inconsistent between H1-H7, probably needs new CSS for those later on that will be consistent and inline with other code
+    - [x] Removed custom Horizontal Line (HR) -> `New-HTMLHorizonalLine` still works just using defaults
+      - [ ] Not looking good, the default one looks better, more consitent but may need some work in the future
+    - [x] `New-HTMLLogo` is now marked as obsolete. It was there from day one but it's not really customizable. New way will be given sometime in the future
+      - [x] It still works, CSS code is only added when it's used
+    - [x] Removed custom link highlights CSS. Not sure if it was ever used, hopefully not. May come back in future in better form
+  - [x] **Improvements to CSS**
+    - [x] The goal of PSWriteHTML is to get into state where only really nessecary code is added. Less CSS is now included by default
+    - [x] Hopefully there are no major problems from those changes
+  - [x] **Other changes**
+    - [x] Changed Tables row height to fit more data
+    - [x] Changed Tables `noscript` version (email + no javascript) to fit more how DataTables looks like
+    - [x] Improved HTMLTable with `Simplify` switch positioning
 - 0.0.122 - 2020.11.18
   - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
   - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
