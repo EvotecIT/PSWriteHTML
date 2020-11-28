@@ -97,6 +97,8 @@ Please make sure to read changes before updating, as we're undergoing some break
   - [x] **Improvements to CSS**
     - [x] The goal of PSWriteHTML is to get into state where only really nessecary code is added. Less CSS is now included by default
     - [x] Hopefully there are no major problems from those changes
+    - [x] The default margin for all elements should be `5px`, however when used within email it will be set to `0px`
+      - [ ] This mainly is important for Images/Text/Headings but all other html objects such as tables and so on, also are supposed to have `5px` margin
   - [x] **Other changes**
     - [x] Changed Tables row height to fit more data
     - [x] Changed Tables `noscript` version (email + no javascript) to fit more how DataTables looks like
