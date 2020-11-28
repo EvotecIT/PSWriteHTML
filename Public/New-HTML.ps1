@@ -181,13 +181,16 @@ Function New-HTML {
                 if ($Autorefresh -gt 0) {
                     New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = $Autorefresh } -SelfClosing
                 }
+                # Those are CSS we always add
+                Get-Resources -Online:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome -NoScript
+                Get-Resources -Online:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings -NoScript
+
+                # Those are CSS we only add if user selected proper data
                 if ($null -ne $Features) {
-                    Get-Resources -Online:$Online.IsPresent -Location 'Header' -Features $Features
+                    Get-Resources -Online:$Online.IsPresent -Location 'Header' -Features $Features -NoScript
                     Get-Resources -Online:$true -Location 'HeaderAlways' -Features $Features -NoScript
                     Get-Resources -Online:$false -Location 'HeaderAlways' -Features $Features -NoScript
                 }
-                Get-Resources -Online:$true -Location 'HeaderAlways' -Features Default, DefaultHeadings, Fonts, FontsAwesome
-                Get-Resources -Online:$false -Location 'HeaderAlways' -Features Default, DefaultHeadings
                 New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
                 New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS
             }
@@ -234,10 +237,10 @@ Function New-HTML {
                     if ($null -ne $Features) {
                         # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included
                         # either as links or from file per required features
-                        Get-Resources -Online -Location 'FooterAlways' -Features $Features
-                        Get-Resources -Online:$false -Location 'FooterAlways' -Features $Features
+                        Get-Resources -Online:$true -Location 'FooterAlways' -Features $Features -NoScript
+                        Get-Resources -Online:$false -Location 'FooterAlways' -Features $Features -NoScript
                         # standard footer features
-                        Get-Resources -Online:$Online.IsPresent -Location 'Footer' -Features $Features
+                        Get-Resources -Online:$Online.IsPresent -Location 'Footer' -Features $Features -NoScript
                     }
                     New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS
                     New-HTMLCustomJS -JS $Script:HTMLSchema.CustomFooterJS
