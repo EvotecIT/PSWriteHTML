@@ -31,12 +31,12 @@ function New-HTMLLogo {
         $Rightlogo = $Options.Logos[$RightLogoName]
         $Script:HTMLSchema.Logos = @(
             '<!-- START LOGO -->'
-            New-HTMLTag -Tag 'div' -Attributes @{ class = 'logos' } {
-                New-HTMLTag -Tag 'div' -Attributes @{ class = 'leftLogo' } {
-                    New-HTMLTag -Tag 'img' -Attributes @{ src = "$LeftLogo" } -SelfClosing
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'legacyLogo' } {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'legacyLeftLogo' } {
+                    New-HTMLTag -Tag 'img' -Attributes @{ src = "$LeftLogo"; class = 'legacyImg' } -SelfClosing
                 }
-                New-HTMLTag -Tag 'div' -Attributes @{ class = 'rightLogo' } {
-                    New-HTMLTag -Tag 'img' -Attributes @{ src = "$RightLogo" } -SelfClosing
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'legacyRightLogo' } {
+                    New-HTMLTag -Tag 'img' -Attributes @{ src = "$RightLogo"; class = 'legacyImg' } -SelfClosing
                 }
             }
             '<!-- END LOGO -->'

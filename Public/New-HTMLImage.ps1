@@ -49,13 +49,14 @@ function New-HTMLImage {
         [string] $Source,
         [Uri] $UrlLink = '',
         [string] $AlternativeText = '',
-        [string] $Class = 'Logo',
+        [string] $Class = 'logo',
         [string] $Target = '_blank',
         [object] $Width,
         [object] $Height,
         [switch] $Inline,
         [Parameter(DontShow)][switch] $DisableCache
     )
+    $Script:HTMLSchema.Features.DefaultImage = $true
 
     if ($Inline) {
         # Cache makes sure that file is downloaded once and can be reused over and over until cache is reset
