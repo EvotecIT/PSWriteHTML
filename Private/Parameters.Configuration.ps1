@@ -113,23 +113,23 @@ $Script:Configuration = [ordered] @{
         MainImage               = [ordered]@{
             HeaderAlways = [ordered] @{
                 CssInline = [ordered]@{
-                    '.logos'     = [ordered]@{
+                    '.legacyLogo'      = [ordered]@{
                         'display' = 'flex'
                     }
-                    '.leftLogo'  = [ordered]@{
+                    '.legacyLeftLogo'  = [ordered]@{
                         'flex-basis'     = '100%'
                         'border'         = '0px'
                         'padding-left'   = '0px'
                         'vertical-align' = 'middle'
                     }
-                    '.rightLogo' = [ordered]@{
+                    '.legacyRightLogo' = [ordered]@{
                         'flex-basis'     = '100%'
                         'border'         = '0px'
                         'padding-right'  = '5em'
                         'text-align'     = 'right'
                         'vertical-align' = 'middle'
                     }
-                    'img'        = [ordered]@{
+                    '.legacyImg'       = [ordered]@{
                         'border-radius' = '5px 5px 0 0'
                     }
                 }
@@ -193,10 +193,25 @@ $Script:Configuration = [ordered] @{
                 # }
             }
         }
+        DefaultImage            = @{
+            Comment      = 'Image Style'
+            HeaderAlways = @{
+                CssInline         = [ordered] @{
+                    '.logo' = [ordered] @{
+                        'margin' = '5px'
+                    }
+                }
+                # We want email to have no margins
+                CssInlineNoScript = @{
+                    '.logo' = [ordered] @{
+                        'margin' = '0px !important'
+                    }
+                }
+            }
+        }
         DefaultPanel            = @{
             Comment      = 'Panel Style'
             HeaderAlways = @{
-                Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
                 CssInline = [ordered] @{
                     '.defaultPanel' = [ordered] @{
                         'box-shadow'    = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
@@ -210,7 +225,6 @@ $Script:Configuration = [ordered] @{
         DefaultSection          = @{
             Comment      = 'Section Style'
             HeaderAlways = @{
-                Css       = "$PSScriptRoot\..\Resources\CSS\default.css"
                 CssInline = [ordered] @{
                     # Workaround for IE 11
                     '@media all and (-ms-high-contrast:active)' = @{
@@ -259,7 +273,6 @@ $Script:Configuration = [ordered] @{
         DefaultHeadings         = @{
             Comment      = 'Heading Style'
             HeaderAlways = @{
-                Css               = "$PSScriptRoot\..\Resources\CSS\default.css"
                 CssInline         = [ordered] @{
                     'h1' = [ordered] @{
                         'margin' = '5px'
@@ -277,9 +290,6 @@ $Script:Configuration = [ordered] @{
                         'margin' = '5px'
                     }
                     'h6' = [ordered] @{
-                        'margin' = '5px'
-                    }
-                    'h7' = [ordered] @{
                         'margin' = '5px'
                     }
                 }
@@ -303,16 +313,12 @@ $Script:Configuration = [ordered] @{
                     'h6' = [ordered] @{
                         'margin' = '0px !important'
                     }
-                    'h7' = [ordered] @{
-                        'margin' = '0px !important'
-                    }
                 }
             }
         }
         DefaultText             = @{
             Comment      = 'Text Style'
             HeaderAlways = @{
-                Css               = "$PSScriptRoot\..\Resources\CSS\default.css"
                 CssInline         = [ordered] @{
                     '.defaultText' = [ordered] @{
                         'margin' = '5px'
