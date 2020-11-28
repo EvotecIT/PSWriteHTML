@@ -256,6 +256,59 @@ $Script:Configuration = [ordered] @{
             }
         }
         #>
+        DefaultHeadings         = @{
+            Comment      = 'Heading Style'
+            HeaderAlways = @{
+                Css               = "$PSScriptRoot\..\Resources\CSS\default.css"
+                CssInline         = [ordered] @{
+                    'h1' = [ordered] @{
+                        'margin' = '5px'
+                    }
+                    'h2' = [ordered] @{
+                        'margin' = '5px'
+                    }
+                    'h3' = [ordered] @{
+                        'margin' = '5px'
+                    }
+                    'h4' = [ordered] @{
+                        'margin' = '5px'
+                    }
+                    'h5' = [ordered] @{
+                        'margin' = '5px'
+                    }
+                    'h6' = [ordered] @{
+                        'margin' = '5px'
+                    }
+                    'h7' = [ordered] @{
+                        'margin' = '5px'
+                    }
+                }
+                # We want email to have no margins
+                CssInlineNoScript = @{
+                    'h1' = [ordered] @{
+                        'margin' = '0px !important'
+                    }
+                    'h2' = [ordered] @{
+                        'margin' = '0px !important'
+                    }
+                    'h3' = [ordered] @{
+                        'margin' = '0px !important'
+                    }
+                    'h4' = [ordered] @{
+                        'margin' = '0px !important'
+                    }
+                    'h5' = [ordered] @{
+                        'margin' = '0px !important'
+                    }
+                    'h6' = [ordered] @{
+                        'margin' = '0px !important'
+                    }
+                    'h7' = [ordered] @{
+                        'margin' = '0px !important'
+                    }
+                }
+            }
+        }
         DefaultText             = @{
             Comment      = 'Text Style'
             HeaderAlways = @{
