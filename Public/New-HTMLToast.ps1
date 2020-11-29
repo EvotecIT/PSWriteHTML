@@ -86,6 +86,7 @@
     }
     $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.Toasts = $true
+    $Script:HTMLSchema.Features.FontsAwesome = $true
 
     [string] $DivClass = "toast"
 

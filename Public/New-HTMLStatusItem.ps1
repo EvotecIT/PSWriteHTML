@@ -93,6 +93,7 @@ function New-HTMLStatusItem {
             $IconType = '&#x2714'
         }
     } elseif ($PSCmdlet.ParameterSetName -like 'FontAwesome*') {
+        $Script:HTMLSchema.Features.FontsAwesome = $true
         $BackgroundColor = Convert-FromColor -Color $BackgroundColor
 
         if ($IconBrands) {
