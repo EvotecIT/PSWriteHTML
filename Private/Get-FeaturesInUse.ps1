@@ -1,10 +1,10 @@
 function Get-FeaturesInUse {
     <#
     .SYNOPSIS
-    Short description
+    Defines which features will be used within HTML and in which order
 
     .DESCRIPTION
-    Long description
+    Defines which features will be used within HTML and in which order
 
     .PARAMETER PriorityFeatures
     Define priority features - important for ordering when CSS or JS has to be processed in certain order
@@ -12,16 +12,35 @@ function Get-FeaturesInUse {
     .EXAMPLE
     Get-FeaturesInUse -PriorityFeatures 'Jquery', 'DataTables', 'Tabs', 'Test'
 
+    .EXAMPLE
+    Get-FeaturesInUse -PriorityFeatures 'Jquery', 'DataTables', 'Tabs', 'Test' -Email
+
     .NOTES
     General notes
     #>
 
     [CmdletBinding()]
     param(
-        [string[]] $PriorityFeatures
+        [string[]] $PriorityFeatures,
+        [switch] $Email
     )
     [Array] $Features = foreach ($Key in $Script:HTMLSchema.Features.Keys) {
         if ($Script:HTMLSchema.Features[$Key]) {
+            $Key
+        }
+    }
+    # This checks whether the features are for email or for normal HTML and allows or dissalows further processing
+    [Array] $Features = foreach ($Key in $Features) {
+        if ($Script:CurrentConfiguration['Features'][$Key]) {
+            if ($Email) {
+                if ($Script:CurrentConfiguration['Features'][$Key]['Email'] -ne $true) {
+                    continue
+                }
+            } else {
+                if ($Script:CurrentConfiguration['Features'][$Key]['Default'] -ne $true) {
+                    continue
+                }
+            }
             $Key
         }
     }
