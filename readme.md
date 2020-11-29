@@ -86,12 +86,12 @@ Unfortunetly some code is very old, some code doesn't server it's purpose anymor
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 - 0.0.123
-  - [x] **Breaking Changes**
+  - [x] **Potentially Breaking Changes**
     - [x] Removed custom Headings (H1,H2,H3,H4,H5,H6) -> `New-HTMLHeading` still works just using defaults
-      - [ ] It was totally inconsistent between H1-H6, probably needs new CSS for those later on that will be consistent and inline with other code
+      - [x] It was totally inconsistent between H1-H6, probably needs new CSS for those later on that will be consistent and inline with other code
     - [x] Removed H7 heading totally - it got there by some copy paste from internet
     - [x] Removed custom Horizontal Line (HR) -> `New-HTMLHorizonalLine` still works just using defaults
-      - [ ] Not looking good, the default one looks better, more consitent but may need some work in the future
+      - [x] Not looking good, the default one looks better, more consitent but may need some work in the future
     - [x] `New-HTMLLogo` is now marked as obsolete. It was there from day one but it's not really customizable. New way will be given sometime in the future
       - [x] It still works, CSS code is only added when it's used
     - [x] Removed custom link highlights CSS. Not sure if it was ever used, hopefully not. May come back in future in better form
@@ -100,11 +100,23 @@ Please make sure to read changes before updating, as we're undergoing some break
     - [x] Hopefully there are no major problems from those changes
     - [x] The default margin for all elements should be `5px`, however when used within email it will be set to `0px`
       - [ ] This mainly is important for Images/Text/Headings but all other html objects such as tables and so on, also are supposed to have `5px` margin
+    - [x] It would seem `Roboto Condensed` or other fonts defined in font-family across code were never used and defaults were kicking in
+      - [x] I've now fixed it so `Roboto Condensed` is used when `Online` mode
+      - [x] In `Offline` mode it will still go back to `Sans-Serif` (usually `Arial`)
+      - [x] I've removed other `font-families` from multiple CSS files to make it visually consistent
+      - [ ] May need to be revisited if `Roboto Condensed` is best choice
+    - [x] Update to `FontsAwesome` from 5.14 to 5.15.1
+    - [x] Update to `FontsAwesome` to work offline
+      - [] Unfortunetly this means 500KB file size in CSS module size and output HTML file is 500KB bigger
+      - [ ] It's a bit inconsistent in Toasts. Will need to investigate and fallback to online only link if not able to fix
+      - [x] I'm skipping including of TTF/SVG/EOT types as WOFF and WOFF2 should be enough for modern browsers
   - [x] **Other changes**
-    - [x] Changed Tables row height to fit more data
+    - [x] Changed Tables `row height` to fit more data
     - [x] Changed Tables `noscript` version (email + no javascript) to fit more how DataTables looks like
     - [x] Improved HTMLTable with `Simplify` switch positioning
     - [x] `New-HTML` added parameter `AddComment` - by default comments are not added to code now
+    - [x] Added `link` preloading for styles - not sure if it will help but why not
+    - [x] Fix for `New-DiagramOptionsLinks` setting lenght which would have resultant html error
 - 0.0.122 - 2020.11.18
   - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
   - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
