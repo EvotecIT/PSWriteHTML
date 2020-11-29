@@ -35,7 +35,7 @@ function New-DiagramOptionsLinks {
         Type     = 'DiagramOptionsEdges'
         Settings = @{
             edges = [ordered] @{
-                length             = $Length
+                #length             = $Length
                 arrows             = [ordered]@{
                     to     = [ordered]@{
                         enabled     = $ArrowsToEnabled
