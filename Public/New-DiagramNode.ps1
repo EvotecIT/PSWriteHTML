@@ -256,6 +256,7 @@ function New-DiagramNode {
     }
 
     if ($IconBrands -or $IconRegular -or $IconSolid) {
+        $Script:HTMLSchema.Features.FontsAwesome = $true
         if ($IconBrands) {
             if (-not $IconAsImage) {
                 # Workaround using image for Fonts
