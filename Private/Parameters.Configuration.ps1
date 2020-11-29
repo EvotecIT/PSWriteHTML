@@ -4,14 +4,42 @@ $Script:Configuration = [ordered] @{
             HeaderAlways = @{
                 CssInline = [ordered] @{}
             }
+            Default      = $true
+            Email        = $false
+        }
+        Fonts                   = @{
+            Comment      = 'Default fonts'
+            HeaderAlways = @{
+                #CssLink = 'https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald'
+                #CssLink = 'https://fonts.googleapis.com/css?family=Roboto'
+                CssLink = 'https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap'
+            }
+            Default      = $true
+            Email        = $false
+        }
+        FontsAwesome            = @{
+            Comment = 'Default fonts icons'
+            Header  = @{
+                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\fontsAwesome.css"
+            }
+            Other   = @{
+                Link = 'https://use.fontawesome.com/releases/v5.15.1/svgs/'
+            }
+            Default = $true
+            Email   = $false
         }
         Main                    = [ordered]@{
             HeaderAlways = [ordered]@{
                 CssInline = [ordered]@{
                     'body'  = [ordered]@{
-                        'font-family' = 'Roboto Condensed, Helvetica Neue, sans-serif'
+                        # https://fonts.google.com/analytics
+                        # https://web3canvas.com/best-fonts-for-web-designers/
+                        #   font-family: "Raleway", sans-serif;
+                        #'font-family' = 'Roboto Condensed, Helvetica Neue, sans-serif'
+                        'font-family' = "'Roboto Condensed', sans-serif"
                         'font-size'   = '8pt'
-                        'margin'      = '0';
+                        'margin'      = '5px'
                     }
                     'input' = @{
                         'font-size' = '8pt'
@@ -51,6 +79,8 @@ $Script:Configuration = [ordered] @{
                     #}
                 }
             }
+            Default      = $true
+            Email        = $false
         }
         MainFlex                = [ordered] @{
             HeaderAlways = [ordered] @{
@@ -80,6 +110,8 @@ $Script:Configuration = [ordered] @{
                     }
                 }
             }
+            Default      = $true
+            Email        = $false
         }
         <# Doesn't seem to be in use
         MainLink                = [ordered]@{
@@ -134,7 +166,10 @@ $Script:Configuration = [ordered] @{
                     }
                 }
             }
+            Default      = $true
+            Email        = $false
         }
+        <#
         Default                 = @{
             Comment      = 'Always Required Default Visual Settings'
             HeaderAlways = @{
@@ -193,21 +228,24 @@ $Script:Configuration = [ordered] @{
                 # }
             }
         }
+        #>
         DefaultImage            = @{
             Comment      = 'Image Style'
             HeaderAlways = @{
-                CssInline         = [ordered] @{
+                CssInline = [ordered] @{
                     '.logo' = [ordered] @{
                         'margin' = '5px'
                     }
                 }
                 # We want email to have no margins
-                CssInlineNoScript = @{
-                    '.logo' = [ordered] @{
-                        'margin' = '0px !important'
-                    }
-                }
+                #CssInlineNoScript = @{
+                #    '.logo' = [ordered] @{
+                #        'margin' = '0px !important'
+                #    }
+                #}
             }
+            Default      = $true
+            Email        = $true
         }
         DefaultPanel            = @{
             Comment      = 'Panel Style'
@@ -221,6 +259,8 @@ $Script:Configuration = [ordered] @{
                     }
                 }
             }
+            Default      = $true
+            Email        = $false
         }
         DefaultSection          = @{
             Comment      = 'Section Style'
@@ -261,6 +301,8 @@ $Script:Configuration = [ordered] @{
                     #}
                 }
             }
+            Default      = $true
+            Email        = $false
         }
         <#
         DefaultHeadings         = @{
@@ -273,7 +315,7 @@ $Script:Configuration = [ordered] @{
         DefaultHeadings         = @{
             Comment      = 'Heading Style'
             HeaderAlways = @{
-                CssInline         = [ordered] @{
+                CssInline = [ordered] @{
                     'h1' = [ordered] @{
                         'margin' = '5px'
                     }
@@ -294,50 +336,56 @@ $Script:Configuration = [ordered] @{
                     }
                 }
                 # We want email to have no margins
-                CssInlineNoScript = @{
-                    'h1' = [ordered] @{
-                        'margin' = '0px !important'
-                    }
-                    'h2' = [ordered] @{
-                        'margin' = '0px !important'
-                    }
-                    'h3' = [ordered] @{
-                        'margin' = '0px !important'
-                    }
-                    'h4' = [ordered] @{
-                        'margin' = '0px !important'
-                    }
-                    'h5' = [ordered] @{
-                        'margin' = '0px !important'
-                    }
-                    'h6' = [ordered] @{
-                        'margin' = '0px !important'
-                    }
-                }
+                # CssInlineNoScript = @{
+                # 'h1' = [ordered] @{
+                # 'margin' = '0px !important'
+                # }
+                # 'h2' = [ordered] @{
+                # 'margin' = '0px !important'
+                # }
+                # 'h3' = [ordered] @{
+                # 'margin' = '0px !important'
+                # }
+                # 'h4' = [ordered] @{
+                # 'margin' = '0px !important'
+                # }
+                # 'h5' = [ordered] @{
+                # 'margin' = '0px !important'
+                # }
+                # 'h6' = [ordered] @{
+                # 'margin' = '0px !important'
+                # }
+                # }
             }
+            Default      = $true
+            Email        = $true
         }
         DefaultText             = @{
             Comment      = 'Text Style'
             HeaderAlways = @{
-                CssInline         = [ordered] @{
+                CssInline = [ordered] @{
                     '.defaultText' = [ordered] @{
                         'margin' = '5px'
                     }
                 }
                 # We want email to have no margins
-                CssInlineNoScript = @{
-                    '.defaultText' = [ordered] @{
-                        'margin' = '0px !important'
-                        #'background' = 'red'
-                    }
-                }
+                #CssInlineNoScript = @{
+                #    '.defaultText' = [ordered] @{
+                #        'margin' = '0px !important'
+                #        #'background' = 'red'
+                #    }
+                #}
             }
+            Default      = $true
+            Email        = $true
         }
         Accordion               = @{
             Comment      = 'Accordion'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
             }
+            Default      = $true
+            Email        = $false
         }
         AccordionFAQ            = @{
             Comment      = 'Accordion FAQ'
@@ -369,6 +417,8 @@ $Script:Configuration = [ordered] @{
                     }
                 }
             }
+            Default      = $true
+            Email        = $false
         }
         CodeBlocks              = @{
             Comment      = 'EnlighterJS CodeBlocks'
@@ -394,6 +444,8 @@ $Script:Configuration = [ordered] @{
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
             }
+            Default      = $true
+            Email        = $false
         }
         CodeBlocksHighlight     = @{
             # future / possible use case # https://highlightjs.org/static/demo/
@@ -404,6 +456,8 @@ $Script:Configuration = [ordered] @{
                 JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js'
                 JS      = "$PSScriptRoot\..\Resources\JS\highlight.min.js"
             }
+            Default = $true
+            Email   = $false
         }
         ChartsApex              = @{
             Comment      = 'Apex Charts'
@@ -426,6 +480,8 @@ $Script:Configuration = [ordered] @{
             HeaderAlways = @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\apexcharts.css"
             }
+            Default      = $true
+            Email        = $false
         }
         ChartsOrg               = [ordered] @{
             Comment      = 'OrgChart'
@@ -450,6 +506,8 @@ $Script:Configuration = [ordered] @{
                     }
                 }
             }
+            Default      = $true
+            Email        = $false
         }
         ChartsOrgExportPDF      = @{
             Comment = 'OrgChartExport'
@@ -457,6 +515,8 @@ $Script:Configuration = [ordered] @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jspdf.min.js"
             }
+            Default = $true
+            Email   = $false
         }
         ChartsOrgExportPNG      = @{
             Comment = 'OrgChartExport'
@@ -464,9 +524,11 @@ $Script:Configuration = [ordered] @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\html2canvas.min.js"
             }
+            Default = $true
+            Email   = $false
         }
         ChartsXkcd              = @{
-            Header = @{
+            Header  = @{
                 JsLink = @(
                     'https://cdn.jsdelivr.net/npm/chart.xkcd@1.1.12/dist/chart.xkcd.min.js'
                 )
@@ -474,6 +536,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\chart.xkcd.min.js"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         ES6Promise              = @{
             Comment = 'ES6Promise'
@@ -482,6 +546,8 @@ $Script:Configuration = [ordered] @{
                 Js     = "$PSScriptRoot\..\Resources\JS\es6-promise.auto.min.js"
 
             }
+            Default = $true
+            Email   = $false
         }
         Jquery                  = @{
             Comment = 'Jquery'
@@ -489,6 +555,8 @@ $Script:Configuration = [ordered] @{
                 JsLink = 'https://code.jquery.com/jquery-3.5.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery.min.js"
             }
+            Default = $true
+            Email   = $false
         }
         DataTables              = @{
             Comment      = 'DataTables'
@@ -564,6 +632,23 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
                 )
             }
+            Default      = $true
+            Email        = $false
+        }
+        DataTablesEmail         = @{
+            Comment      = 'DataTables for use in Email'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\datatables.noscript.css"
+                #CssInline = @{
+                #   'table' = @{
+                #       'border-collapse' = 'collapse'
+                #       'box-sizing'      = 'border-box'
+                #       'width'           = '100%'
+                #   }
+                #}
+            }
+            Default      = $false
+            Email        = $true
         }
         DataTablesAutoFill      = @{
             Comment = 'DataTables AutoFill Features'
@@ -581,6 +666,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.autoFill.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesButtons       = @{
             Comment = 'DataTables Buttons Features'
@@ -598,6 +685,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\datatables.buttons.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
 
         DataTablesButtonsHTML5  = @{
@@ -610,6 +699,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\datatables.buttons.html5.min.js"
                 )
             }
+            Default = $true
+            Email   = $false
         }
 
         DataTablesButtonsPrint  = @{
@@ -622,6 +713,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\datatables.buttons.print.min.js"
                 )
             }
+            Default = $true
+            Email   = $false
         }
 
         DataTablesButtonsPDF    = @{
@@ -636,6 +729,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\vfs_fonts.js"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesButtonsExcel  = @{
             Comment = 'DataTables Excel Features'
@@ -647,6 +742,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\jszip.min.js"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesColReorder    = @{
             Comment = 'DataTables ColReorder Features'
@@ -664,6 +761,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.colReorder.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesFixedColumn   = @{
             Comment = 'DataTables Fixed Column Features'
@@ -681,6 +780,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.fixedColumns.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesFixedHeader   = @{
             Comment = 'DataTables Fixed Header Features'
@@ -698,6 +799,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.fixedHeader.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesKeyTable      = @{
             Comment = 'DataTables KeyTable Features'
@@ -715,6 +818,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.keyTable.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesResponsive    = @{
             Comment = 'DataTables Responsive Features'
@@ -732,6 +837,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.responsive.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesRowGrouping   = @{
             Comment = 'DataTables RowGrouping Features'
@@ -749,6 +856,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.rowGroup.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesRowReorder    = @{
             Comment = 'DataTables RowReorder Features'
@@ -766,6 +875,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.rowReorder.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesScroller      = @{
             Comment = 'DataTables Scroller Features'
@@ -783,6 +894,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.scroller.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesSearchBuilder = @{
             Comment = 'DataTables SearchBuilder'
@@ -790,6 +903,8 @@ $Script:Configuration = [ordered] @{
                 JsLink = "https://cdn.datatables.net/searchbuilder/1.0.0/js/dataTables.searchBuilder.min.js"
                 JS     = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.min.j"
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesSearchFade    = @{
             Comment      = 'DataTables SearchFade'
@@ -804,6 +919,8 @@ $Script:Configuration = [ordered] @{
                 JsLink = "https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.js"
                 JS     = "$PSScriptRoot\..\Resources\JS\datatables.SearchFade.min.js"
             }
+            Default      = $true
+            Email        = $false
         }
         DataTablesSearchPanes   = @{
             Comment = 'DataTables Search Panes Features'
@@ -821,12 +938,16 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.searchPanes.min.css"
                 )
             }
+            Default = $true
+            Email   = $false
         }
         DataTablesSimplify      = @{
             Comment      = 'DataTables (not really) - Simplified'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\datatables.simplify.css"
             }
+            Default      = $true
+            Email        = $true
         }
         D3Mitch                 = @{
             Comment      = 'D3Mitch Feature'
@@ -843,22 +964,8 @@ $Script:Configuration = [ordered] @{
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\hierarchicalTree.css"
             }
-        }
-        Fonts                   = @{
-            Comment      = 'Default fonts'
-            HeaderAlways = @{
-                CssLink = 'https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald'
-            }
-        }
-        FontsAwesome            = @{
-            Comment      = 'Default fonts icons'
-            HeaderAlways = @{
-                CssLink = 'https://use.fontawesome.com/releases/v5.14.0/css/all.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\all.css"
-            }
-            Other        = @{
-                Link = 'https://use.fontawesome.com/releases/v5.14.0/svgs/'
-            }
+            Default      = $true
+            Email        = $false
         }
         FullCalendar            = @{
             Comment      = 'FullCalendar Basic'
@@ -872,6 +979,8 @@ $Script:Configuration = [ordered] @{
                 Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendar.css"
                 JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
             }
+            Default      = $true
+            Email        = $false
         }
         HideSection             = [ordered] @{
             Comment      = 'Hide Section Code'
@@ -887,15 +996,19 @@ $Script:Configuration = [ordered] @{
                     }
                 }
             }
+            Default      = $true
+            Email        = $false
         }
         EscapeRegex             = @{
             Comment      = 'Allows EscapeRegex for diagrams and table events'
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\escapeRegex.js"
             }
+            Default      = $true
+            Email        = $false
         }
         FancyTree               = @{
-            Header = @{
+            Header  = @{
                 JSLink  = @(
                     'https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.33.0/jquery.fancytree-all-deps.min.js'
                 )
@@ -903,6 +1016,8 @@ $Script:Configuration = [ordered] @{
                     'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.33/dist/skin-win8/ui.fancytree.min.css'
                 )
             }
+            Default = $true
+            Email   = $false
         }
         JustGage                = @{
             Comment     = 'Just Gage Library'
@@ -917,6 +1032,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\justgage.min.js"
                 )
             }
+            Default     = $true
+            Email       = $false
             License     = 'MIT'
             SourceCodes = 'https://github.com/toorshia/justgage'
         }
@@ -945,6 +1062,8 @@ $Script:Configuration = [ordered] @{
                 #JSLink = 'https://unpkg.com/moment@2.27.0/moment.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\moment.min.js"
             }
+            Default = $true
+            Email   = $false
         }
 
         Navigation              = @{
@@ -961,6 +1080,8 @@ $Script:Configuration = [ordered] @{
                 JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
             }
             #>
+            Default      = $true
+            Email        = $false
         }
         NavigationMenu          = @{
             Comment      = 'Navigation'
@@ -970,6 +1091,8 @@ $Script:Configuration = [ordered] @{
             FooterAlways = @{
                 Js = "$PSScriptRoot\..\Resources\JS\jquery.jside.menu.js"
             }
+            Default      = $true
+            Email        = $false
         }
         Popper                  = @{
             Comment      = 'Popper and Tooltip for FullCalendar'
@@ -986,12 +1109,16 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\tooltip.js"
                 )
             }
+            Default      = $true
+            Email        = $false
         }
         RedrawObjects           = @{
             Comment      = 'Allows redrawObjects for collapsed sections and changing tabs'
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\redrawObjects.js"
             }
+            Default      = $true
+            Email        = $false
         }
         Tabbis                  = @{
             Comment      = 'Elastic Tabbis'
@@ -1042,6 +1169,8 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\tabbisAdditional.js"
                 )
             }
+            Default      = $true
+            Email        = $false
         }
         TabsInline              = @{
             # http://techlaboratory.net/jquery-smarttab
@@ -1052,31 +1181,41 @@ $Script:Configuration = [ordered] @{
                 CssLink = "https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/css/smart_tab_all.min.css"
                 Css     = "$PSScriptRoot\..\Resources\CSS\jquery.smartTab.min.css"
             }
+            Default = $true
+            Email   = $false
         }
         TimeLine                = @{
             Comment      = 'Timeline Simple'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\timeline-simple.css"
             }
+            Default      = $true
+            Email        = $false
         }
         Toasts                  = @{
             Comment      = 'Toasts Looking Messages'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\Toasts.css"
             }
+            Default      = $true
+            Email        = $false
         }
         StatusButtonical        = @{
             Comment      = 'Status Buttonical'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\status.css"
             }
+            Default      = $true
+            Email        = $false
         }
         VisData                 = [ordered]@{
-            Header = @{
+            Header  = @{
                 # https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js
                 JsLink = 'https://unpkg.com/vis-data@7.1.0/peer/umd/vis-data.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
             }
+            Default = $true
+            Email   = $false
         }
         VisNetwork              = [ordered]@{
             Comment      = 'VIS Network Dynamic, browser based visualization libraries'
@@ -1102,6 +1241,8 @@ $Script:Configuration = [ordered] @{
                 JsLink = 'https://unpkg.com/vis-network@8.5.3/peer/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
             }
+            Default      = $true
+            Email        = $false
             SourceCodes  = 'https://github.com/visjs'
         }
         VisNetworkClustering    = [ordered] @{
@@ -1109,18 +1250,24 @@ $Script:Configuration = [ordered] @{
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
             }
+            Default      = $true
+            Email        = $false
         }
         VisNetworkLoadingBar    = [ordered]@{
             Comment      = 'VIS Network Loading Bar'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\vis-network.loadingbar.css"
             }
+            Default      = $true
+            Email        = $false
         }
         VisNetworkLoad          = [ordered] @{
             Comment      = 'VIS Network Load'
             HeaderAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkLoadDiagram.js"
             }
+            Default      = $true
+            Email        = $false
         }
         <#
         VisNetworkStandalone   = [ordered]@{
@@ -1164,6 +1311,8 @@ $Script:Configuration = [ordered] @{
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
                 CssLink = 'https://unpkg.com/vis-timeline@7.4.2/styles/vis-timeline-graph2d.min.css'
             }
+            Default      = $true
+            Email        = $false
         }
         Wizard                  = [ordered] @{
             Comment      = 'Wizard'
@@ -1181,6 +1330,8 @@ $Script:Configuration = [ordered] @{
                     }
                 }
             }
+            Default      = $true
+            Email        = $false
             License      = 'MIT'
             SourceCodes  = 'https://github.com/techlab/jquery-smartwizard'
         }
@@ -1216,7 +1367,7 @@ function Save-Resource {
 #$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
 <# Refreshes libraries
 $Keys = $Script:Configuration.Features.Keys
-$Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'FontsAwesome', 'Jquery', 'DataTablesSearchFade', 'Popper', 'ChartsApex'
+$Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'Jquery', 'DataTablesSearchFade', 'Popper', 'ChartsApex'
 $Keys = 'ChartsApex'
 $Keys = 'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
 $Keys = $Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
@@ -1237,21 +1388,37 @@ foreach ($Key in $Keys) {
     }
 }
 #>
-<#
-Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.DataTables.Header.Js
-Save-Resource -ResourceLinks $($Script:Configuration).Features.DataTables.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.DataTables.Header.Css
-Save-Resource -ResourceLinks $($Script:Configuration).Features.VisNetwork.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.VisNetwork.Header.Js
-Save-Resource -ResourceLinks $($Script:Configuration).Features.VisData.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.VisData.Header.Js
-Save-Resource -ResourceLinks $($Script:Configuration).Features.VisTimeline.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.VisTimeline.Header.Js
-Save-Resource -ResourceLinks $($Script:Configuration).Features.VisTimeline.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.VisTimeline.Header.Css
-Save-Resource -ResourceLinks $($Script:Configuration).Features.Moment.Header.JSLink -Type 'JS' -Target $($Script:Configuration).Features.Moment.Header.Js
-Save-Resource -ResourceLinks $($Script:Configuration).Features.FontsAwesome.HeaderAlways.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.FontsAwesome.HeaderAlways.Css
-Save-Resource -ResourceLinks $($Script:Configuration).Features.Jquery.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.Jquery.Header.Js
+
+
+
+<# read https://css-tricks.com/understanding-web-fonts-getting/ to undderstand
+# Builds Fonts Awasome for Offline Use
+# remeber to remove types from original file
+# ttf / svg / eot / eot
+$FontReplacePath = 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\webfonts'
+$FontPath = 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.min.css'
+$TargetPath = "$PSScriptRoot\..\Resources\CSS\fontsAwesome.css"
+
+Optimize-CSS -File 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.css' -OutputFile 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.min.css'
+Copy-Item -Path $FontPath -Destination $TargetPath
+
+$Content = Get-Content -Raw -Path $PSScriptRoot\..\Resources\CSS\fontsAwesome.css
+#$Content = Convert-FontToBinary -FileType 'font-eot' -Search '../webfonts/fa-solid-900.eot' -ReplacePath "$FontReplacePath\fa-solid-900.eot" -Content $Content
+$Content = Convert-FontToBinary -FileType 'font-woff2' -Search '../webfonts/fa-solid-900.woff2' -ReplacePath "$FontReplacePath\fa-solid-900.woff2" -Content $Content
+$Content = Convert-FontToBinary -FileType 'font-woff' -Search '../webfonts/fa-solid-900.woff' -ReplacePath "$FontReplacePath\fa-solid-900.woff" -Content $Content
+#$Content = Convert-FontToBinary -FileType 'font-ttf' -Search '../webfonts/fa-solid-900.ttf' -ReplacePath "$FontReplacePath\fa-solid-900.ttf" -Content $Content
+#$Content = Convert-FontToBinary -FileType 'font-svg' -Search '../webfonts/fa-solid-900.svg' -ReplacePath "$FontReplacePath\fa-solid-900.svg" -Content $Content
+#
+#$Content = Convert-FontToBinary -FileType 'font-eot' -Search '../webfonts/fa-brands-400.eot' -ReplacePath "$FontReplacePath\fa-brands-400.eot" -Content $Content
+$Content = Convert-FontToBinary -FileType 'font-woff2' -Search '../webfonts/fa-brands-400.woff2' -ReplacePath "$FontReplacePath\fa-brands-400.woff2" -Content $Content
+$Content = Convert-FontToBinary -FileType 'font-woff' -Search '../webfonts/fa-brands-400.woff' -ReplacePath "$FontReplacePath\fa-brands-400.woff" -Content $Content
+#$Content = Convert-FontToBinary -FileType 'font-ttf' -Search '../webfonts/fa-brands-400.ttf' -ReplacePath "$FontReplacePath\fa-brands-400.ttf" -Content $Content
+#$Content = Convert-FontToBinary -FileType 'font-svg' -Search '../webfonts/fa-brands-400.svg' -ReplacePath "$FontReplacePath\fa-brands-400.svg" -Content $Content
+#
+#$Content = Convert-FontToBinary -FileType 'font-eot' -Search '../webfonts/fa-regular-400.eot' -ReplacePath "$FontReplacePath\fa-regular-400.eot" -Content $Content
+$Content = Convert-FontToBinary -FileType 'font-woff2' -Search '../webfonts/fa-regular-400.woff2' -ReplacePath "$FontReplacePath\fa-regular-400.woff2" -Content $Content
+$Content = Convert-FontToBinary -FileType 'font-woff' -Search '../webfonts/fa-regular-400.woff' -ReplacePath "$FontReplacePath\fa-regular-400.woff" -Content $Content
+#$Content = Convert-FontToBinary -FileType 'font-ttf' -Search '../webfonts/fa-regular-400.ttf' -ReplacePath "$FontReplacePath\fa-regular-400.ttf" -Content $Content
+#$Content = Convert-FontToBinary -FileType 'font-svg' -Search '../webfonts/fa-regular-400.svg' -ReplacePath "$FontReplacePath\fa-regular-400.svg" -Content $Content
+Set-Content -Path $PSScriptRoot\..\Resources\CSS\fontsAwesome.css -Value $Content -Encoding UTF8
 #>
-
-
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.JsLink -Type 'JS'
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.ChartsApex.Header.CssLink -Type 'CSS'
-
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.JustGage.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.JustGage.Header.Js -Verbose
-#Save-Resource -ResourceLinks $($Script:Configuration).Features.JustGage.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.JustGage.Header.Css -Verbose
