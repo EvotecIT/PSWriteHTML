@@ -30,6 +30,7 @@ Function New-HTML {
     $Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
 
     $Script:HTMLSchema = @{
+        Email             = $false
         Features          = [ordered] @{ } # tracks features for CSS/JS implementation
         Charts            = [System.Collections.Generic.List[string]]::new()
         Diagrams          = [System.Collections.Generic.List[string]]::new()
@@ -123,7 +124,7 @@ Function New-HTML {
 
     $Script:HTMLSchema.Features.Main = $true
 
-    $Features = Get-FeaturesInUse -PriorityFeatures 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs'
+    $Features = Get-FeaturesInUse -PriorityFeatures 'Main', 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs' -Email:$Script:HTMLSchema['Email']
 
     # This removes Nested Tabs from primary Tabs
     foreach ($_ in $Script:HTMLSchema.TabsHeadersNested) {
@@ -176,17 +177,33 @@ Function New-HTML {
                     New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = $Autorefresh } -SelfClosing
                 }
                 # Those are CSS we always add
-                Get-Resources -Online:$true -Location 'HeaderAlways' -Features DefaultHeadings, Fonts, FontsAwesome -NoScript
-                Get-Resources -Online:$false -Location 'HeaderAlways' -Features DefaultHeadings -NoScript
+                #Get-Resources -Online:$true -Location 'HeaderAlways' -Features Fonts, FontsAwesome -NoScript
+                #Get-Resources -Online:$false -Location 'HeaderAlways' -Features DefaultHeadings -NoScript
+                Get-Resources -Online:$Online.IsPresent -Location 'HeaderAlways' -Features Fonts #-NoScript
+
+                # we dont need all the scripts/styles in emails, we limit it to approved few
+                #if ($Script:HTMLSchema['Email'] -eq $true) {
+                #  $EmailFeatures = 'DefaultHeadings', 'DefaultText', 'DefaultImage', 'Main' #, 'Fonts', 'FontsAwesome'
+                #[string[]] $Features = foreach ($Feature in $Features) {
+                #    if ($Feature -in $EmailFeatures) {
+                #        $Feature
+                #    }
+                #}
+                #}
 
                 # Those are CSS we only add if user selected proper data
                 if ($null -ne $Features) {
+                    # additionally we want to have different rules when Email is being built and not
                     Get-Resources -Online:$Online.IsPresent -Location 'Header' -Features $Features -NoScript
                     Get-Resources -Online:$true -Location 'HeaderAlways' -Features $Features -NoScript
                     Get-Resources -Online:$false -Location 'HeaderAlways' -Features $Features -NoScript
                 }
-                New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
-                New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS
+                if ($Script:HTMLSchema['Email'] -ne $true -and $Script:HTMLSchema.CustomHeaderJS) {
+                    New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
+                }
+                if ($Script:HTMLSchema.CustomHeaderCSS) {
+                    New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS
+                }
             }
             if ($AddComment) {
                 '<!-- END HEAD -->'
@@ -238,9 +255,14 @@ Function New-HTML {
                         Get-Resources -Online:$false -Location 'FooterAlways' -Features $Features -NoScript
                         # standard footer features
                         Get-Resources -Online:$Online.IsPresent -Location 'Footer' -Features $Features -NoScript
+
                     }
-                    New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS
-                    New-HTMLCustomJS -JS $Script:HTMLSchema.CustomFooterJS
+                    if ($Script:HTMLSchema.CustomFooterCSS) {
+                        New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS
+                    }
+                    if ($Script:HTMLSchema['Email'] -ne $true -and $Script:HTMLSchema.CustomFooterJS) {
+                        New-HTMLCustomJS -JS $Script:HTMLSchema.CustomFooterJS
+                    }
                 )
                 if ($Footer) {
                     New-HTMLTag -Tag 'footer' {
