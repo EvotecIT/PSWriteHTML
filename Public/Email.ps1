@@ -27,11 +27,10 @@ function Email {
         [switch] $OutputHTML,
         [switch] $WhatIf
     )
-    if ($Online) {
-        $Script:EmailOnline = $true
-    } else {
-        $Script:EmailOnline = $false
-    }
+    $Script:EmailSchema = [ordered]@{}
+    $Script:EmailSchema['AttachSelf'] = $AttachSelf.IsPresent
+    $Script:EmailSchema['Online'] = $Online.IsPresent
+
     $StartTime = [System.Diagnostics.Stopwatch]::StartNew()
     $ServerParameters = [ordered] @{
         From                  = $From
@@ -101,10 +100,17 @@ function Email {
                 $ServerParameters.Priority = $Parameter.Priority
             }
             Default {
-                $Body = $Parameter
+                $OutputBody = $Parameter
             }
         }
     }
+    if ($OutputBody -is [System.Collections.IDictionary]) {
+        $Body = $OutputBody.Body
+        $AttachSelfBody = $OutputBody.AttachSelfBody
+    } else {
+        $Body = $OutputBody
+    }
+
     if ($FilePath) {
         # Saving HTML to file
         $SavedPath = Save-HTML -FilePath $FilePath -HTML $Body -Suppress $false
@@ -124,7 +130,7 @@ function Email {
             $Saved = $SavedPath
         } else {
             # we save it to temp file or attachselfname
-            $Saved = Save-HTML -FilePath $TempFilePath -HTML $Body -Suppress $false
+            $Saved = Save-HTML -FilePath $TempFilePath -HTML $AttachSelfBody -Suppress $false
         }
         if ($Saved) {
             $Attachments.Add($Saved)
@@ -139,5 +145,5 @@ function Email {
 
     $EndTime = Stop-TimeLog -Time $StartTime -Option OneLiner
     Write-Verbose "Email - Time to send: $EndTime"
-    $Script:EmailOnline = $false
+    $Script:EmailSchema = $null
 }
