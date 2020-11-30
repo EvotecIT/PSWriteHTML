@@ -62,7 +62,7 @@ function EmailBody {
     # This is used if Email is used and someone would set Online switch there.
     # Since we moved New-HTML here - we need to do some workaround
     if (-not $Online) {
-        if ($Script:EmailSchema['Online']) {
+        if ($Script:EmailSchema -and $Script:EmailSchema['Online']) {
             $HTMLOnline = $true
         } else {
             $HTMLOnline = $false
@@ -103,7 +103,7 @@ function EmailBody {
         $Body = $Body.Replace("<script$Script</script>", '')
     }
 
-    if ($Script:EmailSchema['AttachSelf']) {
+    if ($Script:EmailSchema -and $Script:EmailSchema['AttachSelf']) {
         # if attach self is used we will generate better version with JS present, proper margins and so on
         $AttachSelfBody = New-HTML -Online:$HTMLOnline {
             if ($SpanRequired) {
