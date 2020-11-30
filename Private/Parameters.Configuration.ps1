@@ -640,44 +640,48 @@ $Script:Configuration = [ordered] @{
             HeaderAlways = @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\datatables.noscript.css"
                 CssInline = @{
-                    'table'                      = @{
+                    'table'          = @{
                         'border-collapse' = 'collapse'
                         'box-sizing'      = 'border-box'
                         'width'           = '100%'
                     }
-                    'table td'                   = @{
+                    'table td'       = @{
                         'border-width' = '1px'
                         'padding'      = '4px'
                         'text-align'   = 'left'
-                        'border-top'   = '1px solid #ddd'
+                        #'border-top'   = '1px solid #ddd'
+                        'border'       = '1px solid black'
                     }
-                    'table thead th'             = @{
+                    'table thead th' = @{
                         #'color'= 'white';
                         'text-align'       = 'center';
                         'font-weight'      = 'bold';
                         'padding'          = '4px 17px';
-                        'border-bottom'    = '1px solid #111'
+                        #'border-bottom'    = '1px solid #111'
                         'background-color' = 'white'
                         'color'            = 'black'
+                        'border'           = '1px solid black'
                     }
-                    'table tfoot th'             = @{
+                    'table tfoot th' = @{
                         #'color'= 'white'
                         'text-align'       = 'center'
                         'font-weight'      = 'bold'
                         'padding'          = '4px 17px'
-                        'border-top'       = '1px solid #111'
+                        #'border-top'       = '1px solid #111'
                         'background-color' = 'white'
                         'color'            = 'black'
+                        'border'           = '1px solid black'
                     }
-                    'table tr:nth-of-type(odd)'  = @{
-                        'background-color' = '#F6F6F5'
-                    }
-                    'table tr:nth-of-type(even)' = @{
-                        'background-color' = 'white'
-                    }
-                    'table td, table th'         = @{
-                        'border' = '1px solid black'
-                    }
+                    # not needed as not visible in Email anyways
+                    #'table tr:nth-of-type(odd)'  = @{
+                    #    'background-color' = '#F6F6F5'
+                    #}
+                    #'table tr:nth-of-type(even)' = @{
+                    #    'background-color' = 'white'
+                    #}
+                    #'table td, table th'         = @{
+                    #    'border' = '1px solid black'
+                    #}
                 }
             }
             Default      = $false
