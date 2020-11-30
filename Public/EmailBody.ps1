@@ -14,7 +14,9 @@ function EmailBody {
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl')][string] $Direction,
-        [switch] $Online
+        [switch] $Online,
+        [switch] $Format,
+        [switch] $Minify
     )
 
     $newHTMLSplat = @{}
@@ -91,7 +93,7 @@ function EmailBody {
         } else {
             Invoke-Command -ScriptBlock $EmailBody
         }
-    }
+    } -Format:$Format -Minify:$Minify
     # This section makes sure that if any script is present in HTML it will be removed.
     # Our goal here is to make HTML in EMAIL as small as possible without added junk which won't be read anyways
     # https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexoptions?view=net-5.0
@@ -111,7 +113,7 @@ function EmailBody {
             } else {
                 Invoke-Command -ScriptBlock $EmailBody
             }
-        }
+        } -Format:$Format -Minify:$Minify
 
         @{
             Body           = $Body

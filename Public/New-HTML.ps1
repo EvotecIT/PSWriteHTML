@@ -17,7 +17,9 @@ Function New-HTML {
         [Parameter(DontShow)][switch] $UseCssLinks,
         [Parameter(DontShow)][switch] $UseJavaScriptLinks,
         [switch] $Temporary,
-        [switch] $AddComment
+        [switch] $AddComment,
+        [switch] $Format,
+        [switch] $Minify
     )
     if ($UseCssLinks -or $UseJavaScriptLinks) {
         Write-Warning "New-HTML - UseCssLinks and UseJavaScriptLinks is depreciated. Use Online switch instead. Those switches will be removed in near future."
@@ -277,13 +279,13 @@ Function New-HTML {
         }
     )
     if ($FilePath -ne '') {
-        Save-HTML -HTML $HTML -FilePath $FilePath -ShowHTML:$ShowHTML -Encoding $Encoding
+        Save-HTML -HTML $HTML -FilePath $FilePath -ShowHTML:$ShowHTML -Encoding $Encoding -Format:$Format -Minify:$Minify
     } else {
         if ($ShowHTML -or $Temporary) {
             # if we have not chosen filepath but we used ShowHTML user wants to show it right? Or we have chosen temporary
             # We want to make sure we don't return useless HTML to the user
             $FilePath = Get-FileName -Extension 'html' -Temporary
-            Save-HTML -HTML $HTML -FilePath $FilePath -ShowHTML:$ShowHTML -Encoding $Encoding
+            Save-HTML -HTML $HTML -FilePath $FilePath -ShowHTML:$ShowHTML -Encoding $Encoding -Format:$Format -Minify:$Minify
         } else {
             # User opted to return all data in form of html
             $HTML

@@ -34,7 +34,9 @@ Function Save-HTML {
         [Parameter(Mandatory = $true)][string] $HTML,
         [alias('Show', 'Open')][Parameter(Mandatory = $false)][switch]$ShowHTML,
         [ValidateSet('Unknown', 'String', 'Unicode', 'Byte', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'Ascii', 'Default', 'Oem', 'BigEndianUTF32')] $Encoding = 'UTF8',
-        [alias('Supress')][bool] $Suppress = $true
+        [alias('Supress')][bool] $Suppress = $true,
+        [switch] $Format,
+        [switch] $Minify
     )
     if ([string]::IsNullOrEmpty($FilePath)) {
         $FilePath = Get-FileName -Temporary -Extension 'html'
@@ -45,6 +47,18 @@ Function Save-HTML {
         }
     }
     Write-Verbose "Save-HTML - Saving HTML to file $FilePath"
+
+    if ($Format -or $Minify) {
+        $Commands = Get-Command -Name 'Format-HTML'
+        if ($Commands.Source -eq 'PSParseHTML') {
+            if ($Format) {
+                $HTML = Format-HTML -Content $HTML
+            }
+            if ($Minify) {
+                $HTML = Optimize-HTML -Content $HTML
+            }
+        }
+    }
     try {
         $HTML | Set-Content -LiteralPath $FilePath -Force -Encoding $Encoding -ErrorAction Stop
         if (-not $Suppress) {
