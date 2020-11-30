@@ -81,7 +81,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-PSWriteHTML undergoes changes that hopefully will make it more versalite, consistent and better.
+`PSWriteHTML` undergoes changes that hopefully will make it more versalite, consistent and better.
 Unfortunetly some code is very old, some code doesn't server it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
@@ -113,7 +113,7 @@ Please make sure to read changes before updating, as we're undergoing some break
       - [ ] May need to be revisited if `Roboto Condensed` is best choice
     - [x] Update to `FontsAwesome` from 5.14 to 5.15.1
     - [x] Update to `FontsAwesome` to work offline
-      - [] Unfortunetly this means 500KB file size in CSS module size and output HTML file is 500KB bigger
+      - [ ] Unfortunetly this means 500KB file size in CSS module size and output HTML file is 500KB bigger
       - [ ] It's a bit inconsistent in Toasts. Will need to investigate and fallback to online only link if not able to fix
       - [x] I'm skipping including of TTF/SVG/EOT types as WOFF and WOFF2 should be enough for modern browsers
   - [x] **Other changes**
@@ -124,8 +124,9 @@ Please make sure to read changes before updating, as we're undergoing some break
     - [x] Added `link` preloading for styles - not sure if it will help but why not
     - [x] Fix for `New-DiagramOptionsLinks` setting lenght which would have resultant html error
     - [x] `EmailTextBox` renamed to `New-HTMLTextBox`. `EmailTextBox` added as alias to that command
-    - [ ] Added `Format` and `Minify` switches to `New-HTML` and `EmailBody`. Those will only be working if [PSParseHTML](https://github.com/EvotecIT/PSParseHTML) is installed.
-      - [ ] Known issue: Removes comment required for `Internet Explorer` javascript to not prompt when using as local file
+    - [x] Added `Format` and `Minify` switches to `New-HTML` and `EmailBody`. Those will only be working if [PSParseHTML](https://github.com/EvotecIT/PSParseHTML) is installed.
+      - [ ] `PSParseHTML` is not installed by default and you need to install it separatly `Install-Module PSParseHTML`. There is no intention of bundling it at this moment.
+      - [ ] **Known issue**: Removes comment required for `Internet Explorer` javascript to not prompt when using as local file
 - 0.0.122 - 2020.11.18
   - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
   - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
