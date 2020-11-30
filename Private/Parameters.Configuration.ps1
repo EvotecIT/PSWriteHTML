@@ -585,17 +585,17 @@ $Script:Configuration = [ordered] @{
                         'line-height'   = '1 !important'
                     }
                     #/* Filtering at the bottom */
-                    #'tfoot input'            = @{
-                    #    'width'      = '100%'
-                    #    'padding'    = '-3px'
-                    #    'box-sizing' = 'border-box'
-                    #}
+                    'tfoot input'            = @{
+                        'width'      = '100%'
+                        'padding'    = '-3px'
+                        'box-sizing' = 'border-box'
+                    }
                     #/* Filtering at the top */
-                    #'thead input'            = @{
-                    #    'width'      = '100%'
-                    #    'padding'    = '-3px'
-                    #    'box-sizing' = 'border-box'
-                    #}
+                    'thead input'            = @{
+                        'width'      = '100%'
+                        'padding'    = '-3px'
+                        'box-sizing' = 'border-box'
+                    }
                     #'table'                  = @{
                     #'font-size' = '8pt'
                     #}
@@ -638,14 +638,47 @@ $Script:Configuration = [ordered] @{
         DataTablesEmail         = @{
             Comment      = 'DataTables for use in Email'
             HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\datatables.noscript.css"
-                #CssInline = @{
-                #   'table' = @{
-                #       'border-collapse' = 'collapse'
-                #       'box-sizing'      = 'border-box'
-                #       'width'           = '100%'
-                #   }
-                #}
+                #Css = "$PSScriptRoot\..\Resources\CSS\datatables.noscript.css"
+                CssInline = @{
+                    'table'                      = @{
+                        'border-collapse' = 'collapse'
+                        'box-sizing'      = 'border-box'
+                        'width'           = '100%'
+                    }
+                    'table td'                   = @{
+                        'border-width' = '1px'
+                        'padding'      = '4px'
+                        'text-align'   = 'left'
+                        'border-top'   = '1px solid #ddd'
+                    }
+                    'table thead th'             = @{
+                        #'color'= 'white';
+                        'text-align'       = 'center';
+                        'font-weight'      = 'bold';
+                        'padding'          = '4px 17px';
+                        'border-bottom'    = '1px solid #111'
+                        'background-color' = 'white'
+                        'color'            = 'black'
+                    }
+                    'table tfoot th'             = @{
+                        #'color'= 'white'
+                        'text-align'       = 'center'
+                        'font-weight'      = 'bold'
+                        'padding'          = '4px 17px'
+                        'border-top'       = '1px solid #111'
+                        'background-color' = 'white'
+                        'color'            = 'black'
+                    }
+                    'table tr:nth-of-type(odd)'  = @{
+                        'background-color' = '#F6F6F5'
+                    }
+                    'table tr:nth-of-type(even)' = @{
+                        'background-color' = 'white'
+                    }
+                    'table td, table th'         = @{
+                        'border' = '1px solid black'
+                    }
+                }
             }
             Default      = $false
             Email        = $true
