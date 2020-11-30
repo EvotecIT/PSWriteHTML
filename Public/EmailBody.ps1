@@ -73,7 +73,7 @@ function EmailBody {
     $Body = New-HTML -Online:$HTMLOnline {
         # Email is special and we want margins to be 0px
         $Script:HTMLSchema['Email'] = $true
-        $Script:CurrentConfiguration['Features']['Main']['HeaderAlways']['CssInLine']['body']['margin'] = '0px'
+        #$Script:CurrentConfiguration['Features']['Main']['HeaderAlways']['CssInLine']['body']['margin'] = '0px'
         $Script:CurrentConfiguration['Features']['DefaultImage']['HeaderAlways']['CssInLine']['.logo']['margin'] = '0px'
         $Script:CurrentConfiguration['Features']['DefaultHeadings']['HeaderAlways']['CssInLine']['h1']['margin'] = '0px'
         $Script:CurrentConfiguration['Features']['DefaultHeadings']['HeaderAlways']['CssInLine']['h2']['margin'] = '0px'
@@ -92,6 +92,8 @@ function EmailBody {
             Invoke-Command -ScriptBlock $EmailBody
         }
     }
+    # This section makes sure that if any script is present in HTML it will be removed.
+    # Our goal here is to make HTML in EMAIL as small as possible without added junk which won't be read anyways
     # https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexoptions?view=net-5.0
     $options = [Text.RegularExpressions.RegexOptions] 'Singleline,IgnoreCase' #, CultureInvariant'
     $OutputToCheck = [Regex]::Matches($Body, '(?<=<script)(.*?)(?=<\/script>)', $options) | Select-Object -ExpandProperty Value
