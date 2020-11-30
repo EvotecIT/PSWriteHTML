@@ -13,16 +13,18 @@ function New-HTMLTimelineItem {
 
     if ($null -ne $Color) {
         $RGBcolor = ConvertFrom-Color -Color $Color
-        $Style = "color: $RGBcolor;"
+        $Style = @{
+            color = $RGBcolor
+        }
     } else {
-        $Style = ''
+        $Style = @{}
     }
     # $Script:HTMLSchema.Features.TimeLine = $true
     New-HTMLTag -Tag 'div' -Attributes $Attributes -Value {
         New-HTMLTag -Tag 'h1' -Attributes @{ class = 'timelineSimple'; style = $style } {
             $HeadingText
         }
-        New-HTMLTag -Tag 'p' -Attributes @{ class = 'timelineSimple'} {
+        New-HTMLTag -Tag 'p' -Attributes @{ class = 'timelineSimple' } {
             $Text -Replace [Environment]::NewLine, '<br>' -replace '\n', '<br>'
         }
     }
