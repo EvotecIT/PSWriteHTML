@@ -95,6 +95,12 @@ Please make sure to read changes before updating, as we're undergoing some break
     - [x] `New-HTMLLogo` is now marked as obsolete. It was there from day one but it's not really customizable. New way will be given sometime in the future
       - [x] It still works, CSS code is only added when it's used
     - [x] Removed custom link highlights CSS. Not sure if it was ever used, hopefully not. May come back in future in better form
+    - [x] When `EmailBody` is used it will no longer put `JavaScript` or `CSS` inside HTML for advanced features such as DataTables, or anything that used to be there
+      - [x] This is to make sure EMAIL HTML is as small as possbile
+      - [x] JavaScript in emails won't work in 90% of cases and it would just add to the junk in HTML
+      - [x] However if EmailBody is used within `Email` and `AttachSelf` is used it will generate same HTML using full JS/CSS code
+      - [x] This ensures that self attach should work as it used to, at the same time providing small HTML in email
+    - [x] JavaScript/CSS is now marked as safe for email or normal HTML reports/pages. What that means some CSS/JS is marked only as being added to Email or vice versa.
   - [x] **Improvements to CSS**
     - [x] The goal of PSWriteHTML is to get into state where only really nessecary code is added. Less CSS is now included by default
     - [x] Hopefully there are no major problems from those changes
@@ -117,6 +123,7 @@ Please make sure to read changes before updating, as we're undergoing some break
     - [x] `New-HTML` added parameter `AddComment` - by default comments are not added to code now
     - [x] Added `link` preloading for styles - not sure if it will help but why not
     - [x] Fix for `New-DiagramOptionsLinks` setting lenght which would have resultant html error
+    - [x] `EmailTextBox` renamed to `New-HTMLTextBox`. `EmailTextBox` added as alias to that command
 - 0.0.122 - 2020.11.18
   - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
   - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
