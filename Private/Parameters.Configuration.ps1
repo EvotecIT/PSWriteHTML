@@ -39,7 +39,7 @@ $Script:Configuration = [ordered] @{
                         #'font-family' = 'Roboto Condensed, Helvetica Neue, sans-serif'
                         'font-family' = "'Roboto Condensed', sans-serif"
                         'font-size'   = '8pt'
-                        'margin'      = '5px'
+                        'margin'      = '0px'
                     }
                     'input' = @{
                         'font-size' = '8pt'
