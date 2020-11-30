@@ -9,29 +9,25 @@ table.simplify td {
     border-width: 1px;
     padding: 4px;
     text-align: left;
-    border-top: 1px solid #ddd
+    border-top: 1px solid #ddd;
 }
 
 table.simplify thead th {
-    color: white;
     text-align: center;
     font-weight: bold;
     padding: 4px 17px;
     border-bottom: 1px solid #111;
     background-color: white;
     color: black;
-    font-weight: bold;
 }
 
 table.simplify tfoot th {
-    color: white;
     text-align: center;
     font-weight: bold;
     padding: 4px 17px;
     border-top: 1px solid #111;
     background-color: white;
     color: black;
-    font-weight: bold;
 }
 
 table.simplify tr:nth-of-type(odd) {

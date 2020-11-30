@@ -8,29 +8,25 @@ table td {
     border-width: 1px;
     padding: 4px;
     text-align: left;
-    border-top: 1px solid #ddd
+    border-top: 1px solid #ddd;
 }
 
 table thead th {
-    color: white;
     text-align: center;
     font-weight: bold;
     padding: 4px 17px;
     border-bottom: 1px solid #111;
     background-color: white;
     color: black;
-    font-weight: bold;
 }
 
 table tfoot th {
-    color: white;
     text-align: center;
     font-weight: bold;
     padding: 4px 17px;
     border-top: 1px solid #111;
     background-color: white;
     color: black;
-    font-weight: bold;
 }
 
 table tr:nth-of-type(odd) {
