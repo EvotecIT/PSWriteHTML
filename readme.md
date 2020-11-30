@@ -20,7 +20,7 @@
 
 # PSWriteHTML - PowerShell Module
 
-`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is a complete rewrite and doesn't use the same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) or even the same code, therefore you can have both. Keep in mind the approach to building HTML is much more simplified and I'm adding more and more features.
+`PSWriteHTML` is PowerShell Module to generate beautiful HTML reports, pages, emails without any knowledge of HTML, CSS or JavaScript. To get started basics PowerShell knowledge is required. `PSWriteHTML` is a fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not maintained. I also wanted to address some problems it had and add more features. As it stands `PSWriteHTML` is a complete rewrite. Make sure to read blog posts provided to understand the concepts and how you can use `PSWriteHTML` for your own needs.
 
 - [PSWriteHTML - PowerShell Module](#pswritehtml---powershell-module)
   - [How to install](#how-to-install)
@@ -124,6 +124,8 @@ Please make sure to read changes before updating, as we're undergoing some break
     - [x] Added `link` preloading for styles - not sure if it will help but why not
     - [x] Fix for `New-DiagramOptionsLinks` setting lenght which would have resultant html error
     - [x] `EmailTextBox` renamed to `New-HTMLTextBox`. `EmailTextBox` added as alias to that command
+    - [ ] Added `Format` and `Minify` switches to `New-HTML` and `EmailBody`. Those will only be working if [PSParseHTML](https://github.com/EvotecIT/PSParseHTML) is installed.
+      - [ ] Known issue: Removes comment required for `Internet Explorer` javascript to not prompt when using as local file
 - 0.0.122 - 2020.11.18
   - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
   - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
