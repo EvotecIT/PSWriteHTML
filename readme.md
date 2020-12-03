@@ -128,6 +128,7 @@ Please make sure to read changes before updating, as we're undergoing some break
       - [ ] `PSParseHTML` is not installed by default and you need to install it separatly `Install-Module PSParseHTML`. There is no intention of bundling it at this moment.
       - [ ] **Known issue**: Removes comment required for `Internet Explorer` javascript to not prompt when using as local file
     - [x] Improved `New-HTMLTimelineItem` generated HTML when no color is used
+    - [x] Added `Enable-HTMLFeature` to bring JS/CSS even if it's not used
 - 0.0.122 - 2020.11.18
   - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
   - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
