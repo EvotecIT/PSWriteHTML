@@ -1,4 +1,4 @@
-$Script:Configuration = [ordered] @{
+﻿$Script:Configuration = [ordered] @{
     Features = [ordered] @{
         Inject                  = @{
             HeaderAlways = @{
@@ -1434,6 +1434,7 @@ foreach ($Key in $Keys) {
 # ttf / svg / eot / eot
 $FontReplacePath = 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\webfonts'
 $FontPath = 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.min.css'
+#$FontPath = 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.css'
 $TargetPath = "$PSScriptRoot\..\Resources\CSS\fontsAwesome.css"
 
 Optimize-CSS -File 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.css' -OutputFile 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.min.css'
@@ -1457,5 +1458,5 @@ $Content = Convert-FontToBinary -FileType 'font-woff2' -Search '../webfonts/fa-r
 $Content = Convert-FontToBinary -FileType 'font-woff' -Search '../webfonts/fa-regular-400.woff' -ReplacePath "$FontReplacePath\fa-regular-400.woff" -Content $Content
 #$Content = Convert-FontToBinary -FileType 'font-ttf' -Search '../webfonts/fa-regular-400.ttf' -ReplacePath "$FontReplacePath\fa-regular-400.ttf" -Content $Content
 #$Content = Convert-FontToBinary -FileType 'font-svg' -Search '../webfonts/fa-regular-400.svg' -ReplacePath "$FontReplacePath\fa-regular-400.svg" -Content $Content
-Set-Content -Path $PSScriptRoot\..\Resources\CSS\fontsAwesome.css -Value $Content -Encoding UTF8
+Out-File -Encoding utf8 -FilePath $PSScriptRoot\..\Resources\CSS\fontsAwesome.css -InputObject $Content
 #>
