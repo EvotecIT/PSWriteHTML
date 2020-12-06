@@ -113,8 +113,7 @@ Please make sure to read changes before updating, as we're undergoing some break
       - [ ] May need to be revisited if `Roboto Condensed` is best choice
     - [x] Update to `FontsAwesome` from 5.14 to 5.15.1
     - [x] Update to `FontsAwesome` to work offline
-      - [ ] Unfortunetly this means 500KB file size in CSS module size and output HTML file is 500KB bigger
-      - [ ] It's a bit inconsistent in Toasts. Will need to investigate and fallback to online only link if not able to fix
+      - [x] Unfortunetly this means 500KB file size in CSS module size and output HTML file is 500KB bigger
       - [x] I'm skipping including of TTF/SVG/EOT types as WOFF and WOFF2 should be enough for modern browsers
   - [x] **Other changes**
     - [x] Changed Tables `row height` to fit more data
