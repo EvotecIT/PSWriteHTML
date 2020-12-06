@@ -1007,8 +1007,14 @@
         FullCalendar            = @{
             Comment      = 'FullCalendar Basic'
             HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\calendar.css"
-                Js  = "$PSScriptRoot\..\Resources\JS\fullCalendarTracker.js"
+                #Css       = "$PSScriptRoot\..\Resources\CSS\calendar.css"
+                CssInline = @{
+                    '.calendarFullCalendar' = @{
+                        'flex-basis' = '100%'
+                        'margin'     = '5px'
+                    }
+                }
+                Js        = "$PSScriptRoot\..\Resources\JS\fullCalendarTracker.js"
             }
             Header       = @{
                 JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js'
