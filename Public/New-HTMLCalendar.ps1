@@ -36,16 +36,6 @@
     }
     $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.FullCalendar = $true
-    <#
-    $Script:HTMLSchema.Features.FullCalendarCore = $true
-    $Script:HTMLSchema.Features.FullCalendarDayGrid = $true
-    $Script:HTMLSchema.Features.FullCalendarInteraction = $true
-    $Script:HTMLSchema.Features.FullCalendarList = $true
-    $Script:HTMLSchema.Features.FullCalendarRRule = $true
-    $Script:HTMLSchema.Features.FullCalendarTimeGrid = $true
-    $Script:HTMLSchema.Features.FullCalendarTimeLine = $true
-
-    #>
     $Script:HTMLSchema.Features.Popper = $true
 
     $CalendarEvents = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
