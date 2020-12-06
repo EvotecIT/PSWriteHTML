@@ -1051,7 +1051,14 @@
             Email        = $false
         }
         FancyTree               = @{
-            Header  = @{
+            HeaderAlways = @{
+                CssInline = @{
+                    '.fancyTree' = @{
+                        'margin' = '5px'
+                    }
+                }
+            }
+            Header       = @{
                 JSLink  = @(
                     'https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.33.0/jquery.fancytree-all-deps.min.js'
                 )
@@ -1059,8 +1066,8 @@
                     'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.33/dist/skin-win8/ui.fancytree.min.css'
                 )
             }
-            Default = $true
-            Email   = $false
+            Default      = $true
+            Email        = $false
         }
         JustGage                = @{
             Comment     = 'Just Gage Library'
