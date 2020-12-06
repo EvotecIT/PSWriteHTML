@@ -1,4 +1,4 @@
-Import-Module PSWriteHTML -Force
+Import-Module .\PSWriteHTML.psd1 -Force
 
 $Process = Get-Process | Select-Object -First 35
 
@@ -8,7 +8,7 @@ $Author = $env:USERNAME
 $SaveFilePath = $PSCommandPath -replace "ps1$", "html"
 
 
-New-HTML -Name $Name -Author $Author -FilePath $SaveFilePath -AutoRefresh 0 -ShowHTML -Online:$false -HTMLData {
+New-HTML -Name $Name -Author $Author -FilePath $SaveFilePath -AutoRefresh 0 -ShowHTML -Online:$true -HTMLData {
     $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength')
     $PreContent = { New-HTMLText -Text 'Smart Search Enabled for Column Searches' -Color DodgerBlue -Alignment center -FontSize 20 }
 

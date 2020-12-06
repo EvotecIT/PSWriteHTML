@@ -1,6 +1,6 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'My Ubiquiti Network' -Online -FilePath $PSScriptRoot\Example-NodesEdgesOptions.html {
+New-HTML -TitleText 'My Ubiquiti Network' -Online:$true -FilePath $PSScriptRoot\Example-NodesEdgesOptions.html {
     New-HTMLPanel {
         New-HTMLDiagram -Height '1024px' {
             New-DiagramOptionsInteraction -Hover $true

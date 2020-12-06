@@ -38,19 +38,19 @@ New-HTML {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test1' -PagingLength 3 -HideFooter # Title will be used for filename when using export
         }
         New-HTMLSection {
-            New-HTMLTable -DataTable $DataTable2 -Title 'Test2' -PagingLength 3 -HideFooter # Title will be used for filename when using export
+            New-HTMLTable -DataTable $DataTable2 -Title 'Test2' -PagingLength 3 -Filtering -FilteringLocation Both # Title will be used for filename when using export
         }
     }
     New-HTMLSection {
         New-HTMLPanel {
-            New-HTMLText -Text "This is my text"
+            New-HTMLText -Text "This is my text inside panel and inside section 1"
         }
         New-HTMLPanel {
-            New-HTMLText -Text "This is my text"
+            New-HTMLText -Text "This is my text inside panel and inside section 2"
         }
     }
     New-HTMLSection {
-        New-HTMLText -Text "This is my text"
+        New-HTMLText -Text "This is my text inside section directly"
     }
     New-HTMLSection -HeaderText 'Theme Arrows' {
         New-HTMLWizard -Theme arrows {
@@ -121,5 +121,13 @@ New-HTML {
     New-HTMLSection {
         New-HTMLTable -DataTable $DataTable1 -Title 'Test1' -PagingLength 3 -Simplify # Title will be used for filename when using export
         New-HTMLTable -DataTable $DataTable1 -Title 'Test1' -PagingLength 3 -Simplify # Title will be used for filename when using export
+    }
+    New-HTMLSection -Invisible {
+        New-HTMLTable -DataTable $DataTable1 -Title 'Test1' -PagingLength 3 -Simplify # Title will be used for filename when using export
+        New-HTMLTable -DataTable $DataTable1 -Title 'Test1' -PagingLength 3 -Simplify # Title will be used for filename when using export
+    }
+    New-HTMLSection -Invisible {
+        New-HTMLText -Text "This is my text inside panel and inside section 1"
+        New-HTMLText -Text "This is my text inside panel and inside section 1"
     }
 } -ShowHTML -FilePath $PSScriptRoot\Example-Margins01.html -Online
