@@ -3,7 +3,6 @@
     [CmdletBinding()]
     param(
         [ScriptBlock] $CalendarSettings,
-        #[ValidateSet('interaction', 'dayGrid', 'timeGrid', 'list', 'rrule')][string[]] $Plugins = @('interaction', 'dayGrid', 'timeGrid', 'list', 'rrule'),
         [ValidateSet(
             'prev', 'next', 'today', 'prevYear', 'nextYear', 'dayGridDay', 'dayGridWeek', 'dayGridMonth',
             'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title'
@@ -51,7 +50,6 @@
     [string] $ID = "Calendar-" + (Get-RandomStringName -Size 8)
 
     $Calendar = [ordered] @{
-        #plugins               = $Plugins
         headerToolbar         = @{
             left   = $HeaderLeft -join ','
             center = $HeaderCenter -join ','
@@ -69,7 +67,6 @@
         events                = $CalendarEvents
         dayMaxEventRows       = $EventLimit
         weekNumbers           = $WeekNumbers
-        #weekNumbersWithinDays = $WeekNumbersWithinDays
         weekNumberCalculation = 'ISO'
         selectable            = $Selectable
         selectMirror          = $SelectMirror
