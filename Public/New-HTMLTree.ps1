@@ -42,7 +42,7 @@
     Remove-EmptyValue -Hashtable $FancyTree -Rerun 1 -Recursive
 
     # Build HTML
-    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; }
+    $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = 'fancyTree' }
 
     $Script = New-HTMLTag -Tag 'script' -Value {
         $DivID = -join ('#', $ID)
