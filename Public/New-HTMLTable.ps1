@@ -750,11 +750,11 @@ function New-HTMLTable {
         }
         #$Script:HTMLSchema.Features.DataTablesSearchFade = $true
 
-        if ($ScrollX) {
-            $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = $Width }
-        } else {
-            $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = $Width }
-        }
+        #if ($ScrollX) {
+        #    $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = $Width }
+        #} else {
+            $TableAttributes = @{ id = $DataTableID; class = "dataTables $($Style -join ' ')"; width = $Width }
+        #}
 
         # Enable Custom Date fromat sorting
         $SortingFormatDateTime = Add-CustomFormatForDatetimeSorting -DateTimeSortingFormat $DateTimeSortingFormat
