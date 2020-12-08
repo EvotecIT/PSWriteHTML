@@ -47,7 +47,7 @@ function New-InternalDiagram {
     }
 
     $AttributesInside = [ordered] @{
-        class = 'diagram'
+        class = 'diagram diagramObject'
         style = @{
             position = 'absolute'
         }
