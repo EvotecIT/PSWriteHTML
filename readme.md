@@ -131,6 +131,7 @@ Please make sure to read changes before updating, as we're undergoing some break
   - [x] **Diagram Changes**
     - [x] `New-DiagramLink` - added `SmoothType`, `SmoothForceDirection` and `SmoothRoundness`
     - [x] `New-DiagramLink` - fixed `FontAlign` which was using wrong `validateset`.
+    - [x] `Diagrams` should now fit properly upon changing tabs. It used to hide outside of screen.
 - 0.0.122 - 2020.11.18
   - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
   - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
