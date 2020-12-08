@@ -1,4 +1,127 @@
 ﻿function New-DiagramLink {
+    <#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER From
+    Parameter description
+
+    .PARAMETER To
+    Parameter description
+
+    .PARAMETER Label
+    Parameter description
+
+    .PARAMETER ArrowsToEnabled
+    Parameter description
+
+    .PARAMETER ArrowsToScaleFacto
+    Parameter description
+
+    .PARAMETER ArrowsToType
+    Parameter description
+
+    .PARAMETER ArrowsMiddleEnabled
+    Parameter description
+
+    .PARAMETER ArrowsMiddleScaleFactor
+    Parameter description
+
+    .PARAMETER ArrowsMiddleType
+    Parameter description
+
+    .PARAMETER ArrowsFromEnabled
+    Parameter description
+
+    .PARAMETER ArrowsFromScaleFactor
+    Parameter description
+
+    .PARAMETER ArrowsFromType
+    Parameter description
+
+    .PARAMETER ArrowStrikethrough
+    Parameter description
+
+    .PARAMETER Chosen
+    Parameter description
+
+    .PARAMETER Color
+    Parameter description
+
+    .PARAMETER ColorHighlight
+    Parameter description
+
+    .PARAMETER ColorHover
+    Parameter description
+
+    .PARAMETER ColorInherit
+    Parameter description
+
+    .PARAMETER ColorOpacity
+    Parameter description
+
+    .PARAMETER Dashes
+    Parameter description
+
+    .PARAMETER Length
+    Parameter description
+
+    .PARAMETER FontColor
+    Parameter description
+
+    .PARAMETER FontSize
+    Parameter description
+
+    .PARAMETER FontName
+    Parameter description
+
+    .PARAMETER FontBackground
+    Parameter description
+
+    .PARAMETER FontStrokeWidth
+    Parameter description
+
+    .PARAMETER FontStrokeColor
+    Parameter description
+
+    .PARAMETER FontAlign
+    Possible options: 'horizontal','top','middle','bottom'.
+    The alignment determines how the label is aligned over the edge.
+    The default value horizontal aligns the label horizontally, regardless of the orientation of the edge.
+    When an option other than horizontal is chosen, the label will align itself according to the edge.
+
+    .PARAMETER FontMulti
+    Parameter description
+
+    .PARAMETER FontVAdjust
+    Parameter description
+
+    .PARAMETER WidthConstraint
+    Parameter description
+
+    .PARAMETER SmoothType
+    Possible options: 'dynamic', 'continuous', 'discrete', 'diagonalCross', 'straightCross', 'horizontal', 'vertical', 'curvedCW', 'curvedCCW', 'cubicBezier'.
+    Take a look at this example to see what these look like and pick the one that you like best! When using dynamic, the edges will have an invisible support node guiding the shape.
+    This node is part of the physics simulation.
+
+    .PARAMETER SmoothForceDirection
+    Accepted options: ['horizontal', 'vertical', 'none'].
+    This options is only used with the cubicBezier curves.
+    When true, horizontal is chosen, when false, the direction that is larger (x distance between nodes vs y distance between nodes) is used.
+    If the x distance is larger, horizontal. This is ment to be used with hierarchical layouts.
+
+    .PARAMETER SmoothRoundness
+    Accepted range: 0 .. 1.0. This parameter tweaks the roundness of the smooth curves for all types EXCEPT dynamic.
+
+    .EXAMPLE
+    An example
+
+    .NOTES
+    General notes
+    #>
     [alias('DiagramEdge', 'DiagramEdges', 'New-DiagramEdge', 'DiagramLink')]
     [CmdletBinding()]
     param(
@@ -29,10 +152,14 @@
         [string] $FontBackground,
         [object] $FontStrokeWidth, #// px
         [string] $FontStrokeColor,
-        [ValidateSet('center', 'left')][string] $FontAlign,
+        [ValidateSet('horizontal', 'top', 'middle', 'bottom')][string] $FontAlign,
         [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
         [nullable[int]] $FontVAdjust,
-        [nullable[int]] $WidthConstraint
+        [nullable[int]] $WidthConstraint,
+
+        [ValidateSet('dynamic', 'continuous', 'discrete', 'diagonalCross', 'straightCross', 'horizontal', 'vertical', 'curvedCW', 'curvedCCW', 'cubicBezier')][string] $SmoothType,
+        [ValidateSet('horizontal', 'vertical', 'none')][string] $SmoothForceDirection,
+        [string] $SmoothRoundness
     )
     $Object = [PSCustomObject] @{
         Type     = 'DiagramLink'
@@ -84,6 +211,21 @@
             widthConstraint    = $WidthConstraint
         }
     }
+    if ($SmoothType -or $SmoothRoundness -or $SmoothForceDirection) {
+        $Object.Edges['smooth'] = @{
+            'enabled' = $true
+        }
+        if ($SmoothType) {
+            $Object.Edges['smooth']['type'] = $SmoothType
+        }
+        if ($SmoothRoundness -ne '') {
+            $Object.Edges['smooth']['roundness'] = $SmoothRoundness
+        }
+        if ($SmoothForceDirection) {
+            $Object.Edges['smooth']['forceDirection'] = $SmoothForceDirection
+        }
+    }
+
     Remove-EmptyValue -Hashtable $Object.Settings -Recursive
     Remove-EmptyValue -Hashtable $Object.Edges -Recursive -Rerun 2
     $Object
