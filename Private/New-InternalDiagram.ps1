@@ -29,7 +29,7 @@ function New-InternalDiagram {
     #$Script:HTMLSchema.Features.VisNetworkClustering = $true
 
 
-    [string] $ID = "Diagram" + (Get-RandomStringName -Size 8)
+    [string] $ID = "Diagram-" + (Get-RandomStringName -Size 8)
 
     $Style = [ordered] @{
         position = 'relative'
@@ -51,7 +51,7 @@ function New-InternalDiagram {
         style = @{
             position = 'absolute'
         }
-        id    = $ID
+        id    = "$ID"
     }
 
     if (-not $DisableLoader) {
@@ -166,6 +166,7 @@ function New-InternalDiagram {
         $DisableLoaderString = (-not $DisableLoader).ToString().ToLower()
         $IconsAvailableString = $IconsAvailable.IsPresent.ToString().ToLower()
         "var network = loadDiagramWithFonts(container, data, options, '$ID', $DisableLoaderString , $IconsAvailableString);"
+        "diagramTracker['$ID'] = network;"
         "$PreparedEvents"
 
     } -NewLine

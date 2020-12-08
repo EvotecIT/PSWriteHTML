@@ -1014,7 +1014,8 @@
                         'margin'     = '5px'
                     }
                 }
-                Js        = "$PSScriptRoot\..\Resources\JS\fullCalendarTracker.js"
+                #Js        = "$PSScriptRoot\..\Resources\JS\fullCalendarTracker.js"
+                JsInLine  = "var calendarTracker = {};"
             }
             Header       = @{
                 JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js'
@@ -1284,6 +1285,7 @@
                         'outline' = 'none'
                     }
                 }
+                JsInLine  = "var diagramTracker = {};"
             }
             Header       = @{
                 # https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js

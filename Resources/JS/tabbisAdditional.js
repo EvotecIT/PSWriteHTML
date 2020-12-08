@@ -12,16 +12,23 @@ var tabs = tabbis.init({
             // Initially it was useed with ID, but if people use their own naming no tables were found
             //var table = document.getElementById(tab.id + "-Content").querySelectorAll('table[id^="DT-"]');
             var table = document.getElementById(tab.id + "-Content").querySelectorAll('table');
-            table.forEach(resizeTable)
+            table.forEach(resizeTable);
         } catch (e) {
             console.log('No datatables available.');
         }
         // redrawCalendar
         try {
             var calendar = document.getElementById(tab.id + "-Content").querySelectorAll('div[id^="Calendar-"]');
-            calendar.forEach(redrawCalendar)
+            calendar.forEach(redrawCalendar);
         } catch (e) {
             console.log('No calendars available.');
+        }
+        // redrawDiagram
+        try {
+            var diagram = document.getElementById(tab.id + "-Content").querySelectorAll('div.diagram[id^="Diagram-"');
+            diagram.forEach(redrawDiagram);
+        } catch (e) {
+            console.log('No diagrams available.');
         }
     }
 });

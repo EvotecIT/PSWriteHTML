@@ -27,9 +27,19 @@ function Get-Resources {
                 }
             }
             if ($Online) {
-                Add-HTMLScript -Placement Inline -Link $Script:CurrentConfiguration.Features.$Feature.$Location.'JsLink' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -AddComment:$AddComment
+                $Data = Add-HTMLScript -Placement Inline -Link $Script:CurrentConfiguration.Features.$Feature.$Location.'JsLink' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -AddComment:$AddComment
+                if ($Data) {
+                    $Data
+                }
             } else {
-                Add-HTMLScript -Placement Inline -FilePath $Script:CurrentConfiguration.Features.$Feature.$Location.'Js' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -ReplaceData $Script:CurrentConfiguration.Features.$Feature.CustomActionsReplace -AddComment:$AddComment
+                $Data = Add-HTMLScript -Placement Inline -FilePath $Script:CurrentConfiguration.Features.$Feature.$Location.'Js' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -ReplaceData $Script:CurrentConfiguration.Features.$Feature.CustomActionsReplace -AddComment:$AddComment
+                if ($Data) {
+                    $Data
+                }
+                $Data = Add-HTMLScript -Placement Inline -Content $Script:CurrentConfiguration.Features.$Feature.$Location.'JsInLine' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -AddComment:$AddComment
+                if ($Data) {
+                    $Data
+                }
             }
 
             if ($NoScript) {
