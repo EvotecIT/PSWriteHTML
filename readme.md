@@ -128,6 +128,9 @@ Please make sure to read changes before updating, as we're undergoing some break
       - [ ] **Known issue**: Removes comment required for `Internet Explorer` javascript to not prompt when using as local file
     - [x] Improved `New-HTMLTimelineItem` generated HTML when no color is used
     - [x] Added `Enable-HTMLFeature` to bring JS/CSS even if it's not used
+    - [x] `Calendars` & `DataTables` & `Diagrams` should now resize/fit properly on Global Tab change
+    - [x] `Calendars` & `DataTables` & `Diagrams` are now resize/fit properly on Wizard Step Change
+    - [x] `Calendars` & `DataTables` & `Diagrams` are now resize/fit properly on Tab Panel Tab Change
   - [x] **Diagram Changes**
     - [x] `New-DiagramLink` - added `SmoothType`, `SmoothForceDirection` and `SmoothRoundness`
     - [x] `New-DiagramLink` - fixed `FontAlign` which was using wrong `validateset`.
