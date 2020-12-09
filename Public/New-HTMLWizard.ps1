@@ -91,6 +91,7 @@
     $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.JQuery = $true
     $Script:HTMLSchema.Features.Wizard = $true
+    $Script:HTMLSchema.Features.RedrawObjects = $true
 
     $WizardID = "TabPanel-$(Get-RandomStringName -Size 8 -LettersOnly)"
     if ($WizardSteps) {
@@ -191,6 +192,13 @@
                 `$(document).ready(function(){
                     // SmartWizard initialize
                     `$('#$WizardID').smartWizard($SmartWizardConfiguration);
+                });
+                // Initialize the stepContent event
+                `$("#$WizardID").on("showStep", function (e, anchorObject, stepIndex, stepDirection) {
+                    if (anchorObject[0].hash) {
+                        var id = anchorObject[0].hash.replace('#', '');
+                        findObjectsToRedraw(id);
+                    };
                 });
 "@
                 }
