@@ -56,6 +56,7 @@
     )
     $Script:HTMLSchema.Features.JQuery = $true
     $Script:HTMLSchema.Features.TabsInline = $true
+    $Script:HTMLSchema.Features.RedrawObjects = $true
 
     $TabID = "TabPanel-$(Get-RandomStringName -Size 8 -LettersOnly)"
     if ($Tabs) {
@@ -122,6 +123,13 @@
             `$(document).ready(function(){
                 // SmartTab initialize
                 `$('#$TabID').smartTab($SmartTabConfiguration);
+                `$("#$TabID").on("showTab", function(e, anchorObject, tabIndex) {
+                    //alert("You are on tab "+tabIndex+" now");
+                    if (anchorObject[0].hash) {
+                        var id = anchorObject[0].hash.replace('#', '');
+                        findObjectsToRedraw(id);
+                    };
+                });
             });
 "@
             }

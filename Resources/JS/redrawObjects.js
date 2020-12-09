@@ -22,8 +22,7 @@ function redrawDiagram(diagram) {
 function findObjectsToRedraw(id) {
     // redrawTables
     try {
-        //var table = document.getElementById(tab.id + "-Content").querySelectorAll('table[id^="DT-"]');
-        var table = document.getElementById(id).querySelectorAll('table.dataTables');
+        var table = document.getElementById(id).querySelectorAll('table.dataTables'); //.querySelectorAll('table[id^="DT-"]');
         table.forEach(resizeTable);
     } catch (e) {
         console.log('No datatables available.');
