@@ -28,10 +28,10 @@ New-HTML {
 
         New-HTMLSection -Invisible {
             New-HTMLTabPanel {
-                New-HTMLTab -Name 'This Tab Is Almost At The End 1' -IconBrands adobe {
+                New-HTMLTab -Name 'This Tab Is Almost At The End 1' -IconBrands cc-amazon-pay {
                     New-HTMLTable -DataTable 'Last Table Under Tab 1'
                 }
-                New-HTMLTab -Name 'This Tab Is Almost At The End 2' -IconBrands cc-mastercard {
+                New-HTMLTab -Name 'This Tab Is Almost At The End 2' -IconBrands 500px {
                     New-HTMLTable -DataTable 'test 4'
                 }
             }

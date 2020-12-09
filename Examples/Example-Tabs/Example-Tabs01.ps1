@@ -1,14 +1,14 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-$Test = Get-Process | Select-Object -First 2 #-Property Name, Id,PriorityClass, HandleCount, WorkingSet
+$Test = Get-Process | Select-Object -First 15 -Property Name, Id,PriorityClass, HandleCount, WorkingSet
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs01-Old.html -Show {
     New-HTMLTabStyle -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue #-FontSize 15
     New-HTMLTab -Name 'Test 1' -IconBrands acquisitions-incorporated -IconColor Coriander {
-        New-HTMLTab -Name 'Nested Tab 1' {
+        New-HTMLTab -Name 'Nested Tab 1' -IconRegular address-card {
             New-HTMLSection -Invisible {
                 New-HTMLPanel {
-                    New-HTMLTable -DataTable $Test
+                    New-HTMLTable -DataTable $Test -FixedFooter
                 }
                 New-HTMLPanel {
                     New-HTMLChart -Gradient {
@@ -21,7 +21,7 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs01-Ol
                 }
             }
         }
-        New-HTMLTab -Name 'Nested Tab 2' {
+        New-HTMLTab -Name 'Nested Tab 2' -IconSolid atlas {
             New-HTMLSection -HeaderText 'Test' -HeaderBackGroundColor BrightRed {
                 New-HTMLTable -DataTable $Test
             }
