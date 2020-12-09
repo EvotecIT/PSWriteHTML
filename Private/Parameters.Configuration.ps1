@@ -821,8 +821,11 @@
             Email   = $false
         }
         DataTablesFixedHeader   = @{
-            Comment = 'DataTables Fixed Header Features'
-            Header  = @{
+            Comment      = 'DataTables Fixed Header Features'
+            HeaderAlways = @{
+                JsInLine = "var dataTablesFixedTracker = {};"
+            }
+            Header       = @{
                 JsLink  = @(
                     "https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"
                 )
@@ -836,8 +839,8 @@
                     "$PSScriptRoot\..\Resources\CSS\dataTables.fixedHeader.min.css"
                 )
             }
-            Default = $true
-            Email   = $false
+            Default      = $true
+            Email        = $false
         }
         DataTablesKeyTable      = @{
             Comment = 'DataTables KeyTable Features'

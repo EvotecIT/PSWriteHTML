@@ -753,7 +753,7 @@ function New-HTMLTable {
         #if ($ScrollX) {
         #    $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = $Width }
         #} else {
-            $TableAttributes = @{ id = $DataTableID; class = "dataTables $($Style -join ' ')"; width = $Width }
+        $TableAttributes = @{ id = $DataTableID; class = "dataTables $($Style -join ' ')"; width = $Width }
         #}
 
         # Enable Custom Date fromat sorting
@@ -785,6 +785,9 @@ function New-HTMLTable {
                     $TableEventsCode
                 });
 "@
+                if ($FixedHeader -or $FixedFooter) {
+                    "dataTablesFixedTracker['$DataTableID'] = true;"
+                }
             }
         } else {
             [string] $TabName = $Tab.Id
@@ -807,6 +810,9 @@ function New-HTMLTable {
                         $RowGroupingBottom
                     });
 "@
+                if ($FixedHeader -or $FixedFooter) {
+                    "dataTablesFixedTracker['$DataTableID'] = true;"
+                }
             }
         }
     } else {

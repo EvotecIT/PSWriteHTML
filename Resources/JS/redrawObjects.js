@@ -18,7 +18,14 @@ function redrawDiagram(diagram) {
     diagramTracker[diagram.id].fit();
     console.log('Fitting diagram with id ' + diagram.id);
 }
-
+function redrawFixedHeaderFooter() {
+    var keys = Object.keys(dataTablesFixedTracker);
+    for (i in keys) {
+        console.log('Fitting fixed footer/header for table with id ' + keys[i]);
+        var table = $("#" + keys[i]).DataTable();
+        table.fixedHeader.adjust();
+    }
+}
 function findObjectsToRedraw(id) {
     // redrawTables
     try {
@@ -41,4 +48,6 @@ function findObjectsToRedraw(id) {
     } catch (e) {
         console.log('No diagrams available.');
     }
+    // finds all tables with fixed headers and footers and forces them to check if they are visible or not and hide or show accordingly
+    redrawFixedHeaderFooter();
 }
