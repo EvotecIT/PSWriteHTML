@@ -131,6 +131,7 @@ Please make sure to read changes before updating, as we're undergoing some break
     - [x] `Calendars` & `DataTables` & `Diagrams` should now resize/fit properly on Global Tab change
     - [x] `Calendars` & `DataTables` & `Diagrams` are now resize/fit properly on Wizard Step Change
     - [x] `Calendars` & `DataTables` & `Diagrams` are now resize/fit properly on Tab Panel Tab Change
+    - [x] Tracks all `tables` with `Fixed Headers`/`Footers` and `disables`/`enables` them on `tab switch`/`wizard step` switch / `tab panel` switch
   - [x] **Diagram Changes**
     - [x] `New-DiagramLink` - added `SmoothType`, `SmoothForceDirection` and `SmoothRoundness`
     - [x] `New-DiagramLink` - fixed `FontAlign` which was using wrong `validateset`.
