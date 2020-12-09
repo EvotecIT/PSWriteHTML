@@ -611,6 +611,7 @@
                     #}
                 }         #= "$PSScriptRoot\..\Resources\CSS\datatables.css"
                 CssNoscript = "$PSScriptRoot\..\Resources\CSS\datatables.noscript.css"
+                #JsInLine    = "var dataTablesInitializationTracker = {};"
             }
             Header       = @{
                 CssLink = @(
