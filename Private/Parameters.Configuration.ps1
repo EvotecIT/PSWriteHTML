@@ -486,28 +486,34 @@
         ChartsOrg               = [ordered] @{
             Comment      = 'OrgChart'
             Header       = @{
-                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.3/css/jquery.orgchart.min.css'
+                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.10/css/jquery.orgchart.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\jquery.orgchart.min.css"
-                JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.3/js/jquery.orgchart.min.js'
+                JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.10/js/jquery.orgchart.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\jquery.orgchart.min.js"
             }
             HeaderAlways = [ordered] @{
                 CssInline = [ordered] @{
-                    '.orgChart'      = @{
-                        #'font-family'   = 'Arial'
-                        'height'        = '420px'
-                        'border'        = '2px dashed #aaa'
-                        'border-radius' = '5px'
-                        #'overflow'      = 'auto'
+                    '.orgchartWrapper' = @{
+                        'min-height'    = '420px'
+                        'border'        = '1px dashed #aaa'
+                        'border-radius' = '0px'
                         'text-align'    = 'center'
+                        'margin'        = '5px'
+                        #background      = '#fff';
+
                     }
-                    ".oc-export-btn" = @{
+                    '.orgchart'        = @{
+                        'background-image' = 'none'
+                    }
+                    ".oc-export-btn"   = @{
                         'flex-basis' = '100%'
                     }
                 }
             }
             Default      = $true
             Email        = $false
+            SourceCodes  = 'https://github.com/dabeng/OrgChart'
+            Demo         = 'https://codepen.io/collection/AWxGVb/', 'https://dabeng.github.io/OrgChart/'
         }
         ChartsOrgExportPDF      = @{
             Comment = 'OrgChartExport'
