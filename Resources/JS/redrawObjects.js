@@ -55,5 +55,9 @@ function findObjectsToRedraw(id) {
         console.log('No diagrams available.');
     }
     // finds all tables with fixed headers and footers and forces them to check if they are visible or not and hide or show accordingly
-    redrawFixedHeaderFooter();
+    try {
+        redrawFixedHeaderFooter();
+    } catch (e) {
+        console.log('No datatables fixed header/footer available.');
+    }
 }
