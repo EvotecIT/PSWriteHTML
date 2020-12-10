@@ -47,11 +47,17 @@ function redrawDiagram(diagram) {
     console.log('Fitting diagram with id ' + diagram.id);
 }
 function redrawFixedHeaderFooter() {
-    var keys = Object.keys(dataTablesFixedTracker);
-    for (i in keys) {
-        console.log('Fitting fixed footer/header for table with id ' + keys[i]);
-        var table = $("#" + keys[i]).DataTable();
-        table.fixedHeader.adjust();
+    if (typeof dataTablesFixedTracker !== 'undefined') {
+        var keys = Object.keys(dataTablesFixedTracker);
+        for (i in keys) {
+            try {
+                console.log('Fitting fixed footer/header for table with id ' + keys[i]);
+                var table = $("#" + keys[i]).DataTable();
+                table.fixedHeader.adjust();
+            } catch (e) {
+                console.log('Fitting fixed footer/header failed.');
+            }
+        }
     }
 }
 function findObjectsToRedraw(id) {
