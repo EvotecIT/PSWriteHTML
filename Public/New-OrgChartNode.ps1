@@ -39,8 +39,43 @@
         [scriptblock] $Children,
         [string] $Name,
         [string] $Title,
-        [string] $ClassName
+        # [string] $ClassName,
+        [string] $TitleBackgroundColor,
+        #[string] $TitleBorderColor,
+        [string] $TitleColor,
+        [string] $ContentBackgroundColor,
+        [string] $ContentBorderColor,
+        [string] $ContentColor
     )
+
+    $ClassName = "orgchartColoring$(Get-RandomStringName -Size 8 -LettersOnly)"
+    $additionalData = @{
+        ".orgchart .$ClassName .title"   = @{
+            'color'            = ConvertFrom-Color -Color $TitleColor
+            #'border-color'     = ConvertFrom-Color -Color $TitleBorderColor
+            'background-color' = ConvertFrom-Color -Color $TitleBackgroundColor
+        }
+        ".orgchart .$ClassName .content" = @{
+            'color'            = ConvertFrom-Color -Color $ContentColor
+            'border-color'     = ConvertFrom-Color -Color $ContentBorderColor
+            'background-color' = ConvertFrom-Color -Color $ContentBackgroundColor
+        }
+        <#
+                    .orgchart td.left,
+            .orgchart td.right,
+            .orgchart td.top {
+                border-color: #aaa;
+            }
+
+            .orgchart td>.down {
+                background-color: #aaa;
+            }
+        #>
+    }
+    Remove-EmptyValue -Hashtable $additionalData -Recursive -Rerun 2
+    if ($additionalData) {
+        Add-HTMLStyle -Placement Header -Css $additionalData -SkipTags
+    }
     $ChartNode = [ordered] @{
         name      = $Name
         title     = $Title
@@ -54,3 +89,7 @@
     Remove-EmptyValue -Hashtable $ChartNode
     $ChartNode
 }
+
+Register-ArgumentCompleter -CommandName New-OrgChartNode -ParameterName TitleBackgroundColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-OrgChartNode -ParameterName TitleColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-OrgChartNode -ParameterName BorderColor -ScriptBlock $Script:ScriptBlockColors
