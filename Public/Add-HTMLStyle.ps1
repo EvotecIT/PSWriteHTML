@@ -56,15 +56,6 @@ function Add-HTMLStyle {
         foreach ($L in $Link) {
             if ($L -ne '') {
                 Write-Verbose "Add-HTMLStyle - Adding link $L"
-                #$UriLink = [uri] $L
-                #$TopLink = -join ($UriLink.Scheme, '://', $UriLink.DnsSafeHost )
-                #if (-not $Script:HTMLSchema['Preload'][$TopLink]) {
-                #   $Script:HTMLSchema['Preload'][$TopLink] = $true
-                #New-HTMLTag -Tag 'link' -Attributes @{ rel = $RelType; href = $TopLink } -SelfClosing -NewLine
-                #New-HTMLTag -Tag 'link' -Attributes @{ rel = $RelType; href = $TopLink; as = 'style' } -SelfClosing -NewLine
-                # }
-                #New-HTMLTag -Tag 'link' -Attributes @{ rel = "stylesheet"; type = "text/css"; href = $L; } -SelfClosing -NewLine
-                #New-HTMLTag -Tag 'link' -Attributes @{ rel = "preload"; type = "text/css"; href = $L; as = 'style' } -SelfClosing -NewLine
                 New-HTMLTag -Tag 'link' -Attributes @{ rel = "stylesheet preload prefetch"; type = "text/css"; href = $L; as = 'style' } -SelfClosing -NewLine
             }
         }
