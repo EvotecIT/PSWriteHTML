@@ -493,21 +493,51 @@
             }
             HeaderAlways = [ordered] @{
                 CssInline = [ordered] @{
-                    '.orgchartWrapper' = @{
+                    <#
+                    '.orgchartWrapper'            = @{
                         'min-height'    = '420px'
                         'border'        = '1px dashed #aaa'
                         'border-radius' = '0px'
                         'text-align'    = 'center'
                         'margin'        = '5px'
                         #background      = '#fff';
+                    }
+                    #>
+                    '.orgchart'      = @{
+                        #'background-image' = 'none'
+                        'min-height'    = '420px'
+                        'border'        = '1px dashed #aaa'
+                        'border-radius' = '0px'
+                        'text-align'    = 'center'
+                        'margin'        = '5px'
 
+                        'display'       = 'flex'
+                        'flex-basis'    = '100%'
+                        'overflow'      = 'hidden'
                     }
-                    '.orgchart'        = @{
-                        'background-image' = 'none'
-                    }
-                    ".oc-export-btn"   = @{
+                    ".oc-export-btn" = @{
                         'flex-basis' = '100%'
                     }
+                    <#
+                    '.orgchart .lines .topLine'   = @{
+                        'border-top-width' = '2px'
+                        'border-top-style' = 'solid'
+                        'border-top-color' = 'blue'
+                    }
+                    '.orgchart .lines .rightLine' = @{
+                        'border-right-width' = '1px'
+                        'border-right-style' = 'solid'
+                        'border-right-color' = 'blue'
+                    }
+                    '.orgchart .lines .leftLine'  = @{
+                        'border-left-width' = '1px'
+                        'border-left-style' = 'solid'
+                        'border-left-color' = 'blue'
+                    }
+                    '.orgchart .lines .downLine'  = @{
+                        'background-color' = 'blue'
+                    }
+                    #>
                 }
             }
             Default      = $true
