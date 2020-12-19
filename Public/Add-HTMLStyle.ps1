@@ -10,7 +10,8 @@ function Add-HTMLStyle {
         [alias('CssInline')][System.Collections.IDictionary] $Css,
         [Parameter(DontShow)][System.Collections.IDictionary] $ReplaceData,
         [switch] $AddComment,
-        [ValidateSet('dns-prefetch', 'preconnect', 'preload')][string] $RelType = 'preload'
+        [ValidateSet('dns-prefetch', 'preconnect', 'preload')][string] $RelType = 'preload',
+        [switch] $SkipTags
     )
     if (-not $ResourceComment) {
         $ResourceComment = "ResourceCSS-$(Get-RandomStringName -Size 8 -LettersOnly)"
@@ -20,26 +21,36 @@ function Add-HTMLStyle {
         foreach ($File in $FilePath) {
             if ($File -ne '') {
                 if (Test-Path -LiteralPath $File) {
-                    New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
-                        Write-Verbose "Add-HTMLStyle - Reading file from $File"
-                        # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
-                        $FileContent = Get-Content -LiteralPath $File -Raw
-                        if ($null -ne $ReplaceData) {
-                            foreach ($_ in $ReplaceData.Keys) {
-                                $FileContent = $FileContent -replace $_, $ReplaceData[$_]
-                            }
+                    Write-Verbose "Add-HTMLStyle - Reading file from $File"
+                    # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
+                    $FileContent = Get-Content -LiteralPath $File -Raw
+                    if ($null -ne $ReplaceData) {
+                        foreach ($_ in $ReplaceData.Keys) {
+                            $FileContent = $FileContent -replace $_, $ReplaceData[$_]
                         }
-                        $FileContent -replace '@charset "UTF-8";'
-                    } -NewLine
+                    }
+                    $FileContent = $FileContent -replace '@charset "UTF-8";'
+                    # Put with tags or without them
+                    if ($SkipTags) {
+                        $FileContent
+                    } else {
+                        New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
+                            $FileContent
+                        } -NewLine
+                    }
                 }
             }
         }
         # Content from string
         if ($Content) {
-            New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
-                Write-Verbose "Add-HTMLStyle - Reading file from $File"
+            Write-Verbose "Add-HTMLStyle - Adding style from Content"
+            if ($SkipTags) {
                 $Content
-            } -NewLine
+            } else {
+                New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
+                    $Content
+                } -NewLine
+            }
         }
         # Content from Link
         foreach ($L in $Link) {
@@ -59,7 +70,7 @@ function Add-HTMLStyle {
         }
         # Content from Hashtable
         if ($Css) {
-            ConvertTo-CascadingStyleSheets -Css $Css -WithTags
+            ConvertTo-CascadingStyleSheets -Css $Css -WithTags:(-not $SkipTags.IsPresent) #:$false
         }
     )
     if ($Output) {
