@@ -204,7 +204,7 @@ Function New-HTML {
                     New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
                 }
                 if ($Script:HTMLSchema.CustomHeaderCSS) {
-                    New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS
+                    New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS -AddComment:$AddComment
                 }
             }
             if ($AddComment) {
@@ -260,7 +260,7 @@ Function New-HTML {
 
                     }
                     if ($Script:HTMLSchema.CustomFooterCSS) {
-                        New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS
+                        New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS -AddComment:$AddComment
                     }
                     if ($Script:HTMLSchema['Email'] -ne $true -and $Script:HTMLSchema.CustomFooterJS) {
                         New-HTMLCustomJS -JS $Script:HTMLSchema.CustomFooterJS
