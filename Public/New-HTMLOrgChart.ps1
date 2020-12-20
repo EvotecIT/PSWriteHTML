@@ -161,5 +161,5 @@
         "`$(`"#$ChartID`").orgchart($JsonOrgChart);"
         "});"
     }
-    New-HTMLTag -Tag 'div' -Attributes @{ id = $ChartID; class = 'flexElement' }
+    New-HTMLTag -Tag 'div' -Attributes @{ id = $ChartID; class = 'orgchartWrapper flexElement' }
 }

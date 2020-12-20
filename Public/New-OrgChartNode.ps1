@@ -41,7 +41,7 @@
         [string] $Title,
         # [string] $ClassName,
         [string] $TitleBackgroundColor,
-        #[string] $TitleBorderColor,
+        [string] $TitleBorderColor,
         [string] $TitleColor,
         [string] $ContentBackgroundColor,
         [string] $ContentBorderColor,
@@ -49,10 +49,10 @@
     )
 
     $ClassName = "orgchartColoring$(Get-RandomStringName -Size 8 -LettersOnly)"
-    $additionalData = @{
+    $StyleNodeInformation = @{
         ".orgchart .$ClassName .title"   = @{
             'color'            = ConvertFrom-Color -Color $TitleColor
-            #'border-color'     = ConvertFrom-Color -Color $TitleBorderColor
+            'border-color'     = ConvertFrom-Color -Color $TitleBorderColor
             'background-color' = ConvertFrom-Color -Color $TitleBackgroundColor
         }
         ".orgchart .$ClassName .content" = @{
@@ -60,21 +60,10 @@
             'border-color'     = ConvertFrom-Color -Color $ContentBorderColor
             'background-color' = ConvertFrom-Color -Color $ContentBackgroundColor
         }
-        <#
-                    .orgchart td.left,
-            .orgchart td.right,
-            .orgchart td.top {
-                border-color: #aaa;
-            }
-
-            .orgchart td>.down {
-                background-color: #aaa;
-            }
-        #>
     }
-    Remove-EmptyValue -Hashtable $additionalData -Recursive -Rerun 2
-    if ($additionalData) {
-        Add-HTMLStyle -Placement Header -Css $additionalData -SkipTags
+    Remove-EmptyValue -Hashtable $StyleNodeInformation -Recursive -Rerun 2
+    if ($StyleNodeInformation) {
+        Add-HTMLStyle -Placement Header -Css $StyleNodeInformation -SkipTags
     }
     $ChartNode = [ordered] @{
         name      = $Name
