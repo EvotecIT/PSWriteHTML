@@ -1,4 +1,4 @@
-﻿Import-Module PSWriteHTML -Force
+﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 $outputfile = "$PSScriptRoot\Output\DashboardEasy11.html"
 $p1 = Get-Process | select-object -first 5
@@ -13,7 +13,6 @@ Dashboard -Name "Office365 Status" -FilePath $outputfile -AutoRefresh 300 {
                     TableConditionalFormatting -Name 'Name' -ComparisonType string -Operator eq -Value "ApplicationFrameHost" -Color White -BackgroundColor Yellow -Row
                 }
             }
-
         }
     }
 } -Show

@@ -1,4 +1,6 @@
-﻿Dashboard -Name 'Dashimo Test' -FilePath $PSScriptRoot\Output\DashboardTabsLoop.html -Show {
+﻿Import-Module .\PSWriteHTML.psd1 -Force
+
+Dashboard -Name 'Dashimo Test' -FilePath $PSScriptRoot\Output\DashboardTabsLoop.html -Show {
     $Tabs = 'vCenter', 'vCenter1', 'vCenter2'
     foreach ($_ in $Tabs) {
         Tab -Name $_ {

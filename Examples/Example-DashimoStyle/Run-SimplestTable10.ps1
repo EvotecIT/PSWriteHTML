@@ -1,4 +1,6 @@
-﻿$Process = Get-Process | Select-Object -First 30
+﻿Import-Module .\PSWriteHTML.psd1 -Force
+
+$Process = Get-Process | Select-Object -First 30
 
 Dashboard -Name 'Dashimo Test' -FilePath $PSScriptRoot\Output\DashboardEasy10.html -Show {
     TabOptions -SlimTabs -SelectorColor AntiqueWhite -Transition -LinearGradient -SelectorColorTarget DodgerBlue

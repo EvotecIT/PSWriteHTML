@@ -1,6 +1,4 @@
-﻿#Import-Module 'C:\Support\GitHub\PSSharedGoods\PSSharedGoods.psd1' -Force
-#Import-Module 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\PSWriteHTML.psd1' -Force
-
+﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 Get-ADComputer -SearchBase 'OU=Domain Controllers,DC=ad,DC=evotec,DC=xyz' -Filter * -Properties * | Select-Object -First 5 | Out-HtmlView -Compare -HighlightDifferences {
     New-HTMLTableReplace -Replacements 'AD2', 'AD1'

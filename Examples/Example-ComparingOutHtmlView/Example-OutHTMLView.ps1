@@ -1,5 +1,4 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
-#Import-Module 'C:\Support\GitHub\PSSharedGoods\PSSharedGoods.psd1' -Force
 
 $Objects2 = @(
     Get-ADComputer -SearchBase 'OU=Domain Controllers,DC=ad,DC=evotec,DC=xyz' -Filter * -Properties *

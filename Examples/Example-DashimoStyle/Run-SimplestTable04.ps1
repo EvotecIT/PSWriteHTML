@@ -1,4 +1,6 @@
-﻿$Process = Get-Process | Select-Object -First 15 | Select-Object name, Priorityclass, fileversion, handles, cpu
+﻿Import-Module .\PSWriteHTML.psd1 -Force
+
+$Process = Get-Process | Select-Object -First 15 | Select-Object name, Priorityclass, fileversion, handles, cpu
 
 Dashboard -Name 'Dashimo Test' -FilePath $PSScriptRoot\Output\DashboardEasy04_00.html -Show {
     Section -Name 'Test2' -Collapsable {

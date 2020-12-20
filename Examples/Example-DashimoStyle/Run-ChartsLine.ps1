@@ -1,4 +1,4 @@
-﻿Import-Module Dashimo -Force
+﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 Dashboard -Name 'Charts - Line' -FilePath $PSScriptRoot\Output\DashboardChartsLine.html {
     TabOptions -SlimTabs

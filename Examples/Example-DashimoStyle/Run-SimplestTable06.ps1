@@ -1,4 +1,6 @@
-﻿$Process = Get-Process | Select-Object -First 15 | Select-Object name, Priorityclass, fileversion, handles, cpu
+﻿Import-Module .\PSWriteHTML.psd1 -Force
+
+$Process = Get-Process | Select-Object -First 15 | Select-Object name, Priorityclass, fileversion, handles, cpu
 
 $PagingOptions = @(5, 10)
 $Proces = '1Password', 'aesm_service'

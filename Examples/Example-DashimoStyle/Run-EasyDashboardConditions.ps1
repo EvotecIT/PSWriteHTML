@@ -1,3 +1,4 @@
+Import-Module .\PSWriteHTML.psd1 -Force
 
 $Process = Get-Process | Select-Object -First 30
 $Process1 = Get-Process | Select-Object -First 5

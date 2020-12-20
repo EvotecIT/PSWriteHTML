@@ -1,3 +1,5 @@
+Import-Module .\PSWriteHTML.psd1 -Force
+
 $Process = Get-Process | Select-Object -First 30
 
 Dashboard -Name 'Dashimo Test' -FilePath $PSScriptRoot\Output\DashboardEasy07.html -Show {
