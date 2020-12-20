@@ -1,8 +1,8 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-$Test = Get-Process | Select-Object -First 15 -Property Name, Id,PriorityClass, HandleCount, WorkingSet
+$Test = Get-Process | Select-Object -First 2 #-Property Name, Id,PriorityClass, HandleCount, WorkingSet
 
-New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs01-Old.html -Show {
+New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Tabs01.html -Show {
     New-HTMLTabStyle -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue #-FontSize 15
     New-HTMLTab -Name 'Test 1' -IconBrands acquisitions-incorporated -IconColor Coriander {
         New-HTMLTab -Name 'Nested Tab 1' -IconRegular address-card {
