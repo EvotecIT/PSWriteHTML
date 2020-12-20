@@ -493,31 +493,32 @@
             }
             HeaderAlways = [ordered] @{
                 CssInline = [ordered] @{
-                    <#
-                    '.orgchartWrapper'            = @{
+
+                    '.orgchartWrapper' = @{
                         'min-height'    = '420px'
                         'border'        = '1px dashed #aaa'
                         'border-radius' = '0px'
                         'text-align'    = 'center'
                         'margin'        = '5px'
                         #background      = '#fff';
-                    }
-                    #>
-                    '.orgchart'      = @{
-                        #'background-image' = 'none'
-                        'min-height'    = '420px'
-                        'border'        = '1px dashed #aaa'
-                        'border-radius' = '0px'
-                        'text-align'    = 'center'
-                        'margin'        = '5px'
 
                         'display'       = 'flex'
                         'flex-basis'    = '100%'
                         'overflow'      = 'hidden'
                     }
-                    ".oc-export-btn" = @{
-                        'flex-basis' = '100%'
+
+                    '.orgchart'        = @{
+                        'background-image' = 'none'
+                        'min-height'       = '420px'
+                        'border'           = '1px dashed #aaa'
+                        #'border-radius' = '0px'
+                        #'text-align'    = 'center'
+                        #'margin'        = '5px'
+                        'flex-basis'       = '100%'
                     }
+                    #".oc-export-btn"   = @{
+                    #    'flex-basis' = '100%'
+                    #}
                     <#
                     '.orgchart .lines .topLine'   = @{
                         'border-top-width' = '2px'
