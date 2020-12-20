@@ -258,4 +258,4 @@ Dashboard -Name 'Charts - Bar' -FilePath $PSScriptRoot\Output\DashboardChartsBar
             }
         }
     }
-} -Show
+} -Show -Online

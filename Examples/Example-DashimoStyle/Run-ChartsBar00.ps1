@@ -2,7 +2,7 @@
 
 $Process = Get-Process | Select-Object -First 30
 
-Dashboard -Name 'Charts - Bar' -FilePath $PSScriptRoot\Output\DashboardChartsBar00.html {
+Dashboard -Name 'Charts - Bar' -FilePath $PSScriptRoot\Output\DashboardChartsBar00.html -Online {
     Section -Invisible {
         Panel -Invisible {
             Chart {
