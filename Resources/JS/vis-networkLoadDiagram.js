@@ -11,9 +11,7 @@
                         .load('normal normal 900 24px/1 "Font Awesome 5 Brands"')
                         .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
                         .then(
-                            function () {
-                                network = loadDiagram(container, data, options, id, loader)
-                            }
+                            network = loadDiagram(container, data, options, id, loader)
                         )
                         .catch(
                             console.error.bind(console, "Failed to render the network with Font Awesome 5.")
@@ -29,7 +27,6 @@
                 }, 500);
             });
         }
-
     } else {
         network = loadDiagram(container, data, options, id, loader);
     }
@@ -59,7 +56,4 @@ function loadDiagram(container, data, options, id, loader) {
         });
     }
     return network;
-    //window.addEventListener("load", () => {
-    //    loadDiagramDiagram();
-    //});
 }

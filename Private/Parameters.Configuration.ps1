@@ -1048,14 +1048,12 @@
         FullCalendar            = @{
             Comment      = 'FullCalendar Basic'
             HeaderAlways = @{
-                #Css       = "$PSScriptRoot\..\Resources\CSS\calendar.css"
                 CssInline = @{
                     '.calendarFullCalendar' = @{
                         'flex-basis' = '100%'
                         'margin'     = '5px'
                     }
                 }
-                #Js        = "$PSScriptRoot\..\Resources\JS\fullCalendarTracker.js"
                 JsInLine  = "var calendarTracker = {};"
             }
             Header       = @{
@@ -1066,6 +1064,8 @@
             }
             Default      = $true
             Email        = $false
+            License      = 'MIT'
+            SourceCodes  = 'https://github.com/fullcalendar/fullcalendar'
         }
         HideSection             = [ordered] @{
             Comment      = 'Hide Section Code'
@@ -1110,6 +1110,8 @@
             }
             Default      = $true
             Email        = $false
+            License      = 'MIT'
+            SourceCodes  = 'https://github.com/mar10/fancytree'
         }
         JustGage                = @{
             Comment     = 'Just Gage Library'
@@ -1164,14 +1166,6 @@
                 Css = "$PSScriptRoot\..\Resources\CSS\nav.css"
                 Js  = "$PSScriptRoot\..\Resources\JS\nav.js"
             }
-            <#
-            Header       = @{
-                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js'
-                CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendar.css"
-                JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
-            }
-            #>
             Default      = $true
             Email        = $false
         }
@@ -1303,7 +1297,7 @@
         VisData                 = [ordered]@{
             Header  = @{
                 # https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js
-                JsLink = 'https://unpkg.com/vis-data@7.1.0/peer/umd/vis-data.min.js'
+                JsLink = 'https://unpkg.com/vis-data@7.1.1/peer/umd/vis-data.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
             }
             Default = $true
@@ -1331,7 +1325,7 @@
             Header       = @{
                 # https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js
                 # https://unpkg.com/vis-network/styles/vis-network.min.css
-                JsLink = 'https://unpkg.com/vis-network@8.5.3/peer/umd/vis-network.min.js'
+                JsLink = 'https://unpkg.com/vis-network@8.5.5/peer/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
             }
             Default      = $true
