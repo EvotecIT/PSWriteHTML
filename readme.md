@@ -85,7 +85,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't server it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-- 0.0.123
+- 0.0.123 - 2020.12.23
   - [x] **Potentially Breaking Changes**
     - [x] Removed custom Headings (H1,H2,H3,H4,H5,H6) -> `New-HTMLHeading` still works just using defaults
       - [x] It was totally inconsistent between H1-H6, probably needs new CSS for those later on that will be consistent and inline with other code
