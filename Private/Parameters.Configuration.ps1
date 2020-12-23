@@ -467,7 +467,7 @@
                     'https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
                     'https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn@1.0.0/findIndex.min.js' # You will need this only if you require timeline/rangebar charts
                     #'https://unpkg.com/canvg@3.0.4/lib/umd.js' # You will need this only if you require PNG download of your charts
-                    'https://cdn.jsdelivr.net/npm/apexcharts@3.22.1/dist/apexcharts.min.js'
+                    'https://cdn.jsdelivr.net/npm/apexcharts@3.23.0/dist/apexcharts.min.js'
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\polyfill.min.js"
