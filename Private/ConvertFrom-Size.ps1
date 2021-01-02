@@ -1,7 +1,7 @@
 ﻿function ConvertFrom-Size {
     [cmdletBinding()]
     param(
-        [alias('TextSize','FontSize')][object] $Size
+        [alias('TextSize', 'FontSize')][object] $Size
     )
     if ($Size -is [int]) {
         if ($Size) {
