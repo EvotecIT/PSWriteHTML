@@ -8,7 +8,8 @@ function Add-HTMLScript {
         [string[]] $Content,
         [string[]] $FilePath,
         [Parameter(DontShow)][System.Collections.IDictionary] $ReplaceData,
-        [switch] $AddComments
+        [switch] $AddComments,
+        [switch] $SkipTags
     )
     if (-not $ResourceComment) {
         $ResourceComment = "ResourceJS-$(Get-RandomStringName -Size 8 -LettersOnly)"
@@ -18,26 +19,33 @@ function Add-HTMLScript {
         foreach ($File in $FilePath) {
             if ($File -ne '') {
                 if (Test-Path -LiteralPath $File) {
-                    New-HTMLTag -Tag 'script' -Attributes @{ type = 'text/javascript' } {
-                        # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
-                        $FileContent = Get-Content -LiteralPath $File -Raw
-                        if ($null -ne $ReplaceData) {
-                            foreach ($_ in $ReplaceData.Keys) {
-                                $FileContent = $FileContent -replace $_, $ReplaceData[$_]
-                            }
+                    # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
+                    # Not really used anymore
+                    $FileContent = Get-Content -LiteralPath $File -Raw
+                    if ($null -ne $ReplaceData) {
+                        foreach ($_ in $ReplaceData.Keys) {
+                            $FileContent = $FileContent -replace $_, $ReplaceData[$_]
                         }
+                    }
+                    if ($SkipTags) {
                         $FileContent
-                    } -NewLine
-                } else {
-                    return
+                    } else {
+                        New-HTMLTag -Tag 'script' -Attributes @{ type = 'text/javascript' } {
+                            $FileContent
+                        } -NewLine
+                    }
                 }
             }
         }
         # Content from string
         if ($Content) {
-            New-HTMLTag -Tag 'script' -Attributes @{ type = 'text/javascript' } {
+            if ($SkipTags) {
                 $Content
-            } -NewLine
+            } else {
+                New-HTMLTag -Tag 'script' -Attributes @{ type = 'text/javascript' } {
+                    $Content
+                } -NewLine
+            }
         }
         # Content from link
         foreach ($L in $Link) {
