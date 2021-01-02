@@ -86,7 +86,7 @@ Unfortunetly some code is very old, some code doesn't server it's purpose anymor
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 - 0.0.124
-  - [x] Added `New-HTMLQRCode`
+  - [x] Added `New-HTMLQRCode` to provide HTML based QR codes
 - 0.0.123 - 2020.12.23
   - [x] **Potentially Breaking Changes**
     - [x] Removed custom Headings (H1,H2,H3,H4,H5,H6) -> `New-HTMLHeading` still works just using defaults
