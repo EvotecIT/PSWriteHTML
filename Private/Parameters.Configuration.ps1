@@ -1401,6 +1401,16 @@
             Default      = $true
             Email        = $false
         }
+        QR                      = [ordered] @{
+            Comment     = 'QR Code'
+            Demos       = 'https://www.easyproject.cn/easyqrcodejs/tryit.html'
+            Header      = @{
+                JSLink = 'https://cdn.jsdelivr.net/npm/easyqrcodejs@4.2.1/dist/easy.qrcode.min.js'
+                Js     = "$PSScriptRoot\..\Resources\JS\easy.qrcode.min.js"
+            }
+            License     = 'MIT'
+            SourceCodes = 'https://github.com/ushelp/EasyQRCodeJS'
+        }
         Wizard                  = [ordered] @{
             Comment      = 'Wizard'
             Demos        = 'http://techlaboratory.net/jquery-smartwizard'
