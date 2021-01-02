@@ -85,6 +85,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't server it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.124
+  - [x] Added `New-HTMLQRCode`
 - 0.0.123 - 2020.12.23
   - [x] **Potentially Breaking Changes**
     - [x] Removed custom Headings (H1,H2,H3,H4,H5,H6) -> `New-HTMLHeading` still works just using defaults
