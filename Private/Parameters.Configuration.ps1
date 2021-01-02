@@ -1402,14 +1402,23 @@
             Email        = $false
         }
         QR                      = [ordered] @{
-            Comment     = 'QR Code'
-            Demos       = 'https://www.easyproject.cn/easyqrcodejs/tryit.html'
-            Header      = @{
+            Comment      = 'QR Code'
+            Demos        = 'https://www.easyproject.cn/easyqrcodejs/tryit.html'
+            HeaderAlways = @{
+                CssInline = @{
+                    '.qrcode' = [ordered] @{
+                        'margin' = '5px'
+                    }
+                }
+            }
+            Header       = @{
                 JSLink = 'https://cdn.jsdelivr.net/npm/easyqrcodejs@4.2.1/dist/easy.qrcode.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\easy.qrcode.min.js"
             }
-            License     = 'MIT'
-            SourceCodes = 'https://github.com/ushelp/EasyQRCodeJS'
+            Default      = $true
+            Email        = $false
+            License      = 'MIT'
+            SourceCodes  = 'https://github.com/ushelp/EasyQRCodeJS'
         }
         Wizard                  = [ordered] @{
             Comment      = 'Wizard'
