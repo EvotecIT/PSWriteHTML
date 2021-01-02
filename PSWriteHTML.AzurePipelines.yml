@@ -33,7 +33,7 @@ jobs:
           brew update
           brew tap caskroom/cask
           brew install mono-libgdiplus
-          brew cask install powershell
+          brew install --cask powershell
         displayName: "Install PowerShell Core"
       - script: |
           pwsh -c '.\PSWriteHTML.Tests.ps1'
