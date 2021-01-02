@@ -1412,7 +1412,7 @@
                 }
             }
             Header       = @{
-                JSLink = 'https://cdn.jsdelivr.net/npm/easyqrcodejs@4.2.1/dist/easy.qrcode.min.js'
+                JSLink = 'https://cdn.jsdelivr.net/npm/easyqrcodejs@4.3.0/dist/easy.qrcode.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\easy.qrcode.min.js"
             }
             Default      = $true
