@@ -86,6 +86,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.127 - 2021.01.06
+  - [x] Reverted ApexCharts to 3.22 from 3.23 (offline version)
 - 0.0.126 - 2021.01.06
   - [x] Reverted ApexCharts to 3.22 from 3.23
     - [x] During tab switch it would sometimes fail to display charts properly - reported to apex [#2137](https://github.com/apexcharts/apexcharts.js/issues/2137)
