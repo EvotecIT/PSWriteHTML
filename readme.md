@@ -87,7 +87,8 @@ Unfortunetly some code is very old, some code doesn't serve it's purpose anymore
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 - 0.0.126 - 2021.01.06
-  - [x] Rewerted ApexCharts to 3.22 from 3.23 - chart errors on Tabs
+  - [x] Reverted ApexCharts to 3.22 from 3.23
+    - [ ] During tab switch it would sometimes fail to display charts properly
 - 0.0.125 - 2021.01.02
   - [x] Easy QR Code update `4.2.1` to `4.3.0`
 - 0.0.124 - 2021.01.02
