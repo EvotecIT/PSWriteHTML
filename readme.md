@@ -86,9 +86,11 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-- 0.0.125 - 2020.01.02
+- 0.0.126 - 2021.01.06
+  - [x] Rewerted ApexCharts to 3.22 from 3.23 - chart errors on Tabs
+- 0.0.125 - 2021.01.02
   - [x] Easy QR Code update `4.2.1` to `4.3.0`
-- 0.0.124 - 2020.01.02
+- 0.0.124 - 2021.01.02
   - [x] Added `New-HTMLQRCode` to provide HTML based QR codes
 - 0.0.123 - 2020.12.23
   - [x] **Potentially Breaking Changes**
