@@ -463,8 +463,12 @@ function New-HTMLTable {
                         $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
                         $Script:HTMLSchema.Features.DataTablesButtonsExcel = $true
                         $ButtonOutput = [ordered] @{
-                            extend = $button
-                            title  = $Title
+                            extend        = $button
+                            title         = $Title
+                            exportOptions = @{
+                                columns = ':visible'
+                                format  = "findExportOptions"
+                            }
                         }
                     } elseif ($button -eq 'copyHtml5') {
                         $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
@@ -681,6 +685,16 @@ function New-HTMLTable {
     # Before: "display": "$.fn.dataTable.Responsive.display.childRowImmediate"
     # After: "display": $.fn.dataTable.Responsive.display.childRowImmediate
     $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.childRowImmediate)"', '$1'
+
+    #
+    $ExportExcelOptions = @'
+    {
+        body: function (data, row, column, node) {
+            data = $('<p>' + data + '</p>').text(); return $.isNumeric(data.replace(',', '.')) ? data.replace(',', '.') : data;
+        }
+    }
+'@
+    $Options = $Options -replace '"findExportOptions"', $ExportExcelOptions
 
     if ($DataStore -eq 'JavaScript') {
         # Since we only want first level of data from DataTable we need to do it via string replacement.
