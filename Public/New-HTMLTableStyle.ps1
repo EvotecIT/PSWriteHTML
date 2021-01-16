@@ -1,8 +1,109 @@
 ﻿function New-HTMLTableStyle {
+    <#
+    .SYNOPSIS
+    Apply new style for HTML Table
+
+    .DESCRIPTION
+    Apply new style for HTML Table. Currently only works with DataTables.
+
+    .PARAMETER Type
+    Choose type to apply style on. You can choose from: 'Content', 'Table', 'Header', 'Row', 'Footer', 'RowOdd', 'RowEven', 'RowSelected', 'RowSelectedEven', 'RowSelectedOdd', 'RowHover', 'RowHoverSelected', 'Button'. Content is duplicate to Row.
+
+    .PARAMETER FontSize
+    Choose FontSize
+
+    .PARAMETER FontWeight
+    Parameter description
+
+    .PARAMETER FontStyle
+    Parameter description
+
+    .PARAMETER FontVariant
+    Parameter description
+
+    .PARAMETER FontFamily
+    Parameter description
+
+    .PARAMETER BackgroundColor
+    Parameter description
+
+    .PARAMETER TextColor
+    Parameter description
+
+    .PARAMETER TextDecoration
+    Parameter description
+
+    .PARAMETER TextTransform
+    Parameter description
+
+    .PARAMETER TextAlign
+    Parameter description
+
+    .PARAMETER BorderTopStyle
+    Parameter description
+
+    .PARAMETER BorderTopColor
+    Parameter description
+
+    .PARAMETER BorderTopWidthSize
+    Parameter description
+
+    .PARAMETER BorderBottomStyle
+    Parameter description
+
+    .PARAMETER BorderBottomColor
+    Parameter description
+
+    .PARAMETER BorderBottomWidthSize
+    Parameter description
+
+    .PARAMETER BorderLeftStyle
+    Parameter description
+
+    .PARAMETER BorderLeftColor
+    Parameter description
+
+    .PARAMETER BorderLeftWidthSize
+    Parameter description
+
+    .PARAMETER BorderRightStyle
+    Parameter description
+
+    .PARAMETER BorderRightColor
+    Parameter description
+
+    .PARAMETER BorderRightWidthSize
+    Parameter description
+
+    .EXAMPLE
+    $Table = Get-Process | Select-Object -First 3
+    New-HTML -ShowHTML -HtmlData {
+        New-HTMLTable -DataTable $table -HideButtons {
+            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Yellow -TextColor Aquamarine -TextAlign center -Type RowOdd
+            New-HTMLTableStyle -BackgroundColor Red -TextColor Aquamarine -Type Button
+            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor DarkSlateGray -TextColor Aquamarine -TextAlign center -Type RowEven
+            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor DarkSlateGray -TextColor Aquamarine -TextAlign center -Type Row
+            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor DarkSlateGray -TextColor Aquamarine -TextAlign center -Type Header
+            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Orange -TextColor Aquamarine -TextAlign center -Type Footer
+            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Orange -TextColor Aquamarine -TextAlign center -Type RowSelectedEven
+            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Green -TextColor Aquamarine -TextAlign center -Type RowSelectedOdd
+            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Yellow -TextColor Aquamarine -TextAlign center -Type RowHover
+            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Red -TextColor Aquamarine -TextAlign center -Type RowHoverSelected
+            New-HTMLTableStyle -Type Header -BorderLeftStyle dashed -BorderLeftColor Red -BorderLeftWidthSize 1px
+            New-HTMLTableStyle -Type Footer -BorderLeftStyle dotted -BorderLeftColor Red -BorderleftWidthSize 1px
+            New-HTMLTableStyle -Type Footer -BorderTopStyle none -BorderTopColor Red -BorderTopWidthSize 5px -BorderBottomColor Yellow -BorderBottomStyle solid
+            New-HTMLTableStyle -Type Footer -BorderTopStyle none -BorderTopColor Red -BorderTopWidthSize 5px -BorderBottomColor Yellow -BorderBottomStyle solid
+            New-HTMLTableStyle -Type Footer -BorderTopStyle none -BorderTopColor Red -BorderTopWidthSize 5px -BorderBottomColor Yellow -BorderBottomStyle none
+        } -DisablePaging
+    } -FilePath $PSScriptRoot\Example7_TableStyle.html -Online
+
+    .NOTES
+    General notes
+    #>
     [alias('EmailTableStyle', 'TableStyle', 'New-TableStyle')]
     [cmdletBinding(DefaultParameterSetName = 'Manual')]
     param(
-        [Parameter(ParameterSetName = 'Manual')][ValidateSet('Table', 'Header', 'Row', 'Footer', 'RowOdd', 'RowEven', 'RowSelected', 'RowSelectedEven', 'RowSelectedOdd', 'RowHover', 'RowHoverSelected', 'Button')][string] $Type = 'Table',
+        [Parameter(ParameterSetName = 'Manual')][ValidateSet('Content', 'Table', 'Header', 'Row', 'Footer', 'RowOdd', 'RowEven', 'RowSelected', 'RowSelectedEven', 'RowSelectedOdd', 'RowHover', 'RowHoverSelected', 'Button')][string] $Type = 'Table',
         [Parameter(ParameterSetName = 'Manual')][alias('TextSize')][string] $FontSize,
         [Parameter(ParameterSetName = 'Manual')][ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [Parameter(ParameterSetName = 'Manual')][ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,
@@ -129,12 +230,12 @@
     if ($Type -in 'Footer', 'Table') {
         Add-ConfigurationCSS -CSS $CssConfiguration -Name 'table.dataTable tfoot th, table.dataTable tfoot td' -Inject $TableStyle
     }
-    if ($Type -in 'RowOdd', 'Row', 'Table') {
+    if ($Type -in 'RowOdd', 'Row', 'Table', 'Content') {
         foreach ($Name in $RowOdd) {
             Add-ConfigurationCSS -CSS $CssConfiguration -Name $Name -Inject $TableStyle
         }
     }
-    if ($Type -in 'RowEven', 'Row', 'Table') {
+    if ($Type -in 'RowEven', 'Row', 'Table', 'Content') {
         foreach ($Name in $RowEven) {
             Add-ConfigurationCSS -CSS $CssConfiguration -Name $Name -Inject $TableStyle
         }
