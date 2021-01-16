@@ -86,6 +86,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.130 - 2021.01.16
+  - [x] Update `New-HTMLTableStyle` with more options and functionality
 - 0.0.129 - 2021.01.11
   - [x] Update `New-HTMLText` regex for urls - tnx chrisdent!
 - 0.0.128 - 2021.01.09
