@@ -597,39 +597,52 @@
             HeaderAlways = @{
                 CssInline   = @{
                     #/* Added to make sure plus logo fits in */
-                    'td'                     = @{
+                    'td'                              = @{
                         'height' = '14px'
                     }
                     #/* Button in Table - giving it some colors */
+                    <#
                     'td.sorting_1::before'   = @{
-                        'background' = '#007bff !important'
+                        'background-color' = '#007bff !important'
                     }
                     'td::before'             = @{
-                        'background' = '#007bff !important'
+                        'background-color' = '#007bff !important'
+                    }
+                    #>
+                    'td::before, td.sorting_1::before' = @{
+                        'background-color' = '#007bff !important'
                     }
                     # /* giving some spaces between tables being to close */
-                    'div.dataTables_wrapper' = @{
+                    'div.dataTables_wrapper'          = @{
                         #    'padding' = '10px 10px 10px 10px'
                         'margin' = '5px';
                     }
-                    'button.dt-button'       = @{
+                    'button.dt-button'                = @{
                         #'font-size'     = '8pt !important'
                         'color'         = 'blue !important'
                         'border-radius' = '5px'
                         'line-height'   = '1 !important'
                     }
                     #/* Filtering at the bottom */
-                    'tfoot input'            = @{
+                    'tfoot input'                     = @{
                         'width'      = '100%'
                         'padding'    = '-3px'
                         'box-sizing' = 'border-box'
                     }
                     #/* Filtering at the top */
-                    'thead input'            = @{
+                    'thead input'                     = @{
                         'width'      = '100%'
                         'padding'    = '-3px'
                         'box-sizing' = 'border-box'
                     }
+                    #'tr:nth-of-type(odd)'  = @{
+                    #'background-color' = '#F6F6F5'
+                    #'background-color' = 'green'
+                    #}
+
+                    # 'tr:nth-of-type(even)' = @{
+                    #    'background-color' = 'yellow'
+                    #}
                     #'table'                  = @{
                     #'font-size' = '8pt'
                     #}
