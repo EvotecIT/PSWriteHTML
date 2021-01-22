@@ -13,7 +13,7 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example40-Body.ht
             New-HTMLTab -Name '2nd Level Tab - Test 4/1' -IconBrands app-store {
                 New-HTMLSection -HeaderText 'Default Section Style' {
                     New-HTMLTableStyle -Type Header -TextAlign right -TextColor Blue
-                    New-HTMLTableStyle -Type Content -TextAlign left -TextColor Grey
+                    New-HTMLTableStyle -Type Row -TextAlign left -TextColor Grey
                     New-HTMLTable -DataTable $Test1 {
                         New-HTMLTableHeader -Names 'ID', 'HandleCount'
                     } -Filtering #-HideFooter -FilteringLocation Both
