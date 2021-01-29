@@ -22,8 +22,9 @@
     } else {
         # there is possibility for array without column names, not sure if it's worth the time
     }
-    $Options['columns'] = foreach ($Property in $HeaderNames) {
-        @{ data = $Property }
+    [Array] $Options['columns'] = foreach ($Property in $HeaderNames) {
+        #@{ data = $Property }
+        @{ data = $Property.Replace('.', '\.') }
     }
     $Options['deferRender'] = $true
 }
