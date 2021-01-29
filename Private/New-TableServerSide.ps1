@@ -14,7 +14,7 @@
             data = $DataTable
         }
 
-        $Data | ConvertTo-JsonLiteral -Depth 0 `
+        $Data | ConvertTo-JsonLiteral -Depth 1 `
             -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
             -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
             -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat | Out-File -FilePath $FilePath
