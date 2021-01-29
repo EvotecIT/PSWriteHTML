@@ -597,7 +597,7 @@
             HeaderAlways = @{
                 CssInline   = @{
                     #/* Added to make sure plus logo fits in */
-                    'td'                              = @{
+                    'td'                               = @{
                         'height' = '14px'
                     }
                     #/* Button in Table - giving it some colors */
@@ -613,24 +613,24 @@
                         'background-color' = '#007bff !important'
                     }
                     # /* giving some spaces between tables being to close */
-                    'div.dataTables_wrapper'          = @{
+                    'div.dataTables_wrapper'           = @{
                         #    'padding' = '10px 10px 10px 10px'
                         'margin' = '5px';
                     }
-                    'button.dt-button'                = @{
+                    'button.dt-button'                 = @{
                         #'font-size'     = '8pt !important'
                         'color'         = 'blue !important'
                         'border-radius' = '5px'
                         'line-height'   = '1 !important'
                     }
                     #/* Filtering at the bottom */
-                    'tfoot input'                     = @{
+                    'tfoot input'                      = @{
                         'width'      = '100%'
                         'padding'    = '-3px'
                         'box-sizing' = 'border-box'
                     }
                     #/* Filtering at the top */
-                    'thead input'                     = @{
+                    'thead input'                      = @{
                         'width'      = '100%'
                         'padding'    = '-3px'
                         'box-sizing' = 'border-box'
@@ -1187,6 +1187,24 @@
             FooterAlways = @{
                 Js = "$PSScriptRoot\..\Resources\JS\jquery.jside.menu.js"
             }
+            Default      = $true
+            Email        = $false
+        }
+        NavigationMultilevel    = @{
+            Comment      = 'Navigation Multilevel'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\jquery.multilevelpushmenu_grey.css"
+            }
+            Header       = @{
+                CssLink = 'https://cdn.jsdelivr.net/gh/adgsm/multi-level-push-menu/jquery.multilevelpushmenu.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\jquery.multilevelpushmenu.min.css"
+            }
+            Footer       = @{
+                Js     = "$PSScriptRoot\..\Resources\JS\jquery.multilevelpushmenu.min.js"
+                JSLink = 'https://cdn.jsdelivr.net/gh/adgsm/multi-level-push-menu/jquery.multilevelpushmenu.min.js'
+            }
+            SourceCodes  = 'https://github.com/adgsm/multi-level-push-menu'
+            License      = 'MIT'
             Default      = $true
             Email        = $false
         }
