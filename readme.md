@@ -86,6 +86,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.132 - 2021.02.02
+  - [x] Fixed `Format/Minify` error message when `PSParseHTML` is not installed.
+  - [ ] Fixed Table headers pushed to the left when using ScrollX with Tabs [#191](https://github.com/EvotecIT/PSWriteHTML/issues/191)
 - 0.0.131 - 2021.01.29
   - [x] New-HTMLTable AjaxJSON fixed - [#189](https://github.com/EvotecIT/PSWriteHTML/issues/189)
 - 0.0.130 - 2021.01.16
