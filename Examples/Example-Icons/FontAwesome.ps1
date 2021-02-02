@@ -1542,7 +1542,7 @@ $FontAwesomeSolid = @(
 function Get-FontAwesomeIcons {
     '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">'
     foreach ($Icon in $FontAwesomeBrands) {
-        New-HTMLTag -Tag 'i' -Attributes @{ class = "fab fa-$Icon fa-5x  text-danger" } #; style = @{ 'font-size' = '50px'; 'color' = 'green' }  }
+        New-HTMLTag -Tag 'i' -Attributes @{ class = "fab fa-$Icon fa-5x" } #; style = @{ 'font-size' = '50px'; 'color' = 'green' }  }
     }
     foreach ($Icon in $FontAwesomeRegular) {
         New-HTMLTag -Tag 'i' -Attributes @{ class = "far fa-$Icon fa-5x" } # style = @{ 'font-size' = '50px' } }

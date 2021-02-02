@@ -104,6 +104,12 @@ Function New-HTML {
                     # it's added here to track nested tabs
                     if ($_ -isnot [System.Collections.IDictionary]) { $_ }
                 }
+            } elseif ($ObjectTemp.Type -eq 'Navigation') {
+                $Navigation = foreach ($_ in $ObjectTemp.Output) {
+                    # this gets rid of any non-strings
+                    # it's added here to track nested tabs
+                    if ($_ -isnot [System.Collections.IDictionary]) { $_ }
+                }
             } else {
                 if ($ObjectTemp.Output) {
                     # this gets rid of any non-strings
@@ -218,6 +224,11 @@ Function New-HTML {
                         $HeaderHTML
                     }
                     if ($AddComment) { '<!-- END HEADER -->' }
+                }
+                if ($Navigation) {
+                    if ($AddComment) { '<!-- NAVIGATION -->' }
+                    $Navigation
+                    if ($AddComment) { '<!-- END NAVIGATION -->' }
                 }
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'main-section' } {
                     # Add logo if there is one
