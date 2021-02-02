@@ -3,15 +3,21 @@
     console.log('Fitting calendar with id ' + calendar.id);
 }
 function resizeTable(table) {
-    if ($.fn.DataTable.isDataTable("#" + table.id)) {
-        try {
-            $("#" + table.id).DataTable().columns.adjust().responsive.recalc();
-            console.log('Fitting table with id ' + table.id);
-        } catch (e) {
-            console.log('Failed to fit table with id ' + table.id);
+    if (table.id) {
+        if ($.fn.DataTable.isDataTable("#" + table.id)) {
+            try {
+                $("#" + table.id).DataTable().columns.adjust().responsive.recalc();
+                console.log('Fitting table with id ' + table.id);
+            } catch (e) {
+                try {
+                    $("#" + table.id).DataTable().columns.adjust();
+                } catch (e) {
+                    console.log('Failed to fit table with id ' + table.id);
+                }
+            }
+        } else {
+            console.log('Skipping fitting table id ' + table.id);
         }
-    } else {
-        console.log('Skipping fitting table id ' + table.id);
     }
 }
 function redrawDiagram(diagram) {
