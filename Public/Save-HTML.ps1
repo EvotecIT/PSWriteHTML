@@ -49,14 +49,16 @@ Function Save-HTML {
     Write-Verbose "Save-HTML - Saving HTML to file $FilePath"
 
     if ($Format -or $Minify) {
-        $Commands = Get-Command -Name 'Format-HTML'
-        if ($Commands.Source -eq 'PSParseHTML') {
+        $Commands = Get-Command -Name 'Format-HTML' -ErrorAction SilentlyContinue
+        if ($Commands -and $Commands.Source -eq 'PSParseHTML') {
             if ($Format) {
                 $HTML = Format-HTML -Content $HTML
             }
             if ($Minify) {
                 $HTML = Optimize-HTML -Content $HTML
             }
+        } else {
+            Write-Warning "Save-HTML - Minify or Format functionality requires PSParseHTML module. Please install it using Install-Module PSParseHTML -Force."
         }
     }
     try {
