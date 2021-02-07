@@ -150,8 +150,11 @@ function New-HTMLText {
                 # Default
                 $Text[$i]
             }
-            <#
+            # Replaces code above -> JustinWGrote made it -> complains go to him
+            #$markdownRegex = '\[(?<title>[^\]]+)\]\((?<uri>https?.+?)\)[\s\r\n$]'
+            #$Text[$i] -replace $markdownRegex, '<a href="$2">$1</a>'
 
+            <#
             if ($Text[$i] -match "\[[^\]]+\]\([^)]+\)") {
                 # Covers markdown LINK  "[somestring](https://evotec.xyz)"
 
