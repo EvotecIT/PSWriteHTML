@@ -66,10 +66,13 @@ function New-HTMLTable {
         [switch] $DisableAutoWidthOptimization,
         [switch] $SearchPane,
         [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top',
+        [switch] $SearchBuilder,
+        [ValidateSet('top', 'bottom')][string] $SearchBuilderLocation = 'top',
         [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore,
         [alias('DataTableName')][string] $DataTableID,
         [string] $DataStoreID,
-        [switch] $Transpose
+        [switch] $Transpose,
+        [string] $OverwriteDOM
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -332,28 +335,55 @@ function New-HTMLTable {
         $Options['pageLength'] = $PagingOptions[0]
     }
     # Set DOM
-    if ($SearchPane) {
-        # it seems DataTablesSearchPanes is conflicting with Diagrams in IE 11, so we only enable it on demand
-        $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
-        <# DOM Definition: https://datatables.net/reference/option/dom
-            l - length changing input control
-            f - filtering input
-            t - The table!
-            i - Table information summary
-            p - pagination control
-            r - processing display element
-            B - Buttons
-            S - Select
-            F - FadeSeaerch
-            P - SearchPanes
-        #>
-        if ($SearchPaneLocation) {
-            $Options['dom'] = 'PBfrtip'
-        } else {
-            $Options['dom'] = 'BfrtipP'
-        }
+    <# DOM Definition: https://datatables.net/reference/option/dom
+        l - length changing input control
+        f - filtering input
+        t - The table!
+        i - Table information summary
+        p - pagination control
+        r - processing display element
+        B - Buttons
+        S - Select
+        F - FadeSeaerch
+        P - SearchPanes
+        H - jQueryUI theme "header" classes (fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix)
+        F - jQueryUI theme "footer" classes (fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix)
+        Q - SearchBuilder
+    #>
+    if ($OverwriteDOM) {
+        # We allow user to decide how DOM looks like
+        $Options['dom'] = $OverwriteDOM
     } else {
-        $Options['dom'] = 'Bfrtip'
+        if ($SearchBuilder -and $SearchPane) {
+            $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
+            $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
+            if ($SearchPaneLocation -eq 'top' -and $SearchBuilderLocation -eq 'top') {
+                $Options['dom'] = 'QPBfrtip'
+            } elseif ($SearchPaneLocation -eq 'top' -and $SearchBuilderLocation -eq 'bottom') {
+                $Options['dom'] = 'PBfrtipQ'
+            } elseif ($SearchPaneLocation -eq 'bottom' -and $SearchBuilderLocation -eq 'top') {
+                $Options['dom'] = 'QBfrtipP'
+            } elseif ($SearchPaneLocation -eq 'bottom' -and $SearchBuilderLocation -eq 'bottom') {
+                $Options['dom'] = 'BfrtipQP'
+            }
+        } elseif ($SearchBuilder) {
+            $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
+            if ($SearchBuilderLocation -eq 'top') {
+                $Options['dom'] = 'QBfrtip'
+            } else {
+                $Options['dom'] = 'BfrtipQ'
+            }
+        } elseif ($SearchPane) {
+            # it seems DataTablesSearchPanes is conflicting with Diagrams in IE 11, so we only enable it on demand
+            $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
+            if ($SearchPaneLocation -eq 'top') {
+                $Options['dom'] = 'PBfrtip'
+            } else {
+                $Options['dom'] = 'BfrtipP'
+            }
+        } else {
+            $Options['dom'] = 'Bfrtip'
+        }
     }
     if ($Buttons -contains 'searchPanes') {
         # it seems DataTablesSearchPanes is conflicting with Diagrams in IE 11, so we only enable it on demand
