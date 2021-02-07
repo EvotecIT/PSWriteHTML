@@ -86,6 +86,18 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.133
+  - [x] Library
+    - [ ] Updated DataTables ColReorder 1.5.2 -> 1.5.3
+    - [ ] Updated DataTables FixedColumns 3.3.1 -> 3.3.2
+    - [ ] Updated DataTables FixedHeader 3.1.7 -> 3.1.8
+    - [ ] Updated DataTables 1.10.22 -> 1.10.23
+    - [ ] Updated DataTables KeyTable 2.5.3 -> 2.6.0
+    - [ ] Updated DataTables Responsive 2.2.6 -> 2.2.7
+    - [ ] Added DataTables SearchBuilder 1.0.1
+    - [ ] Updated DataTables SearchPanes 1.2.1 -> 1.2.2
+  - [x] Added ability `OverwriteDOM` in `New-HTMLTable` to provide granular option how options are visually positioned
+
 - 0.0.132 - 2021.02.02
   - [x] Fixed `Format/Minify` error message when `PSParseHTML` is not installed.
   - [ ] Fixed Table headers pushed to the left when using ScrollX with Tabs [#191](https://github.com/EvotecIT/PSWriteHTML/issues/191)
