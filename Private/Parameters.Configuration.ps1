@@ -996,8 +996,11 @@
             }
             HeaderAlways = @{
                 CssInline = [ordered] @{
-                    "div.dtsb-logicContainer" = [ordered]@{
-                        'width' = 'auto !important'
+                    # "div.dtsb-logicContainer" = [ordered]@{
+                    #     'width' = 'auto !important'
+                    # }
+                    'div.dtsb-searchBuilder' = @{
+                        'font-size' = '12pt'
                     }
                 }
             }
