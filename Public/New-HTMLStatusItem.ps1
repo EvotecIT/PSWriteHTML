@@ -94,7 +94,7 @@ function New-HTMLStatusItem {
         }
     } elseif ($PSCmdlet.ParameterSetName -like 'FontAwesome*') {
         $Script:HTMLSchema.Features.FontsAwesome = $true
-        $BackgroundColor = Convert-FromColor -Color $BackgroundColor
+        $BackgroundColor = ConvertFrom-Color -Color $BackgroundColor
 
         if ($IconBrands) {
             $IconClass = "fab fa-$IconBrands"
@@ -106,7 +106,7 @@ function New-HTMLStatusItem {
     } elseif ($PSCmdlet.ParameterSetName -eq 'Hex') {
         $IconType = $IconHex
     }
-    $FontColor = Convert-FromColor -Color $FontColor
+    $FontColor = ConvertFrom-Color -Color $FontColor
 
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'buttonical'; style = @{ "background-color" = $BackgroundColor } } -Value {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'label' } {
