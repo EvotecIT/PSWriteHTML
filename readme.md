@@ -100,6 +100,7 @@ Please make sure to read changes before updating, as we're undergoing some break
   - [x] Added basic ability `SearchBuilder` in `New-HTMLTable` for multi-condition search
     - [x] **KNOWN ISSUE** - Search builder font is set to 12pt, it will be fixed later on when SearchBuilder library gets this bug fixed
   - [x] Fixes `New-ChartLegend` hex colors but most likely all other cmdlets where more than one HEX based color was used
+  - [x] Added `HeaderTextSize` to `New-HTMLSection`
 - 0.0.132 - 2021.02.02
   - [x] Fixed `Format/Minify` error message when `PSParseHTML` is not installed.
   - [ ] Fixed Table headers pushed to the left when using ScrollX with Tabs [#191](https://github.com/EvotecIT/PSWriteHTML/issues/191)
