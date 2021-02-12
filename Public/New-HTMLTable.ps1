@@ -72,7 +72,9 @@ function New-HTMLTable {
         [alias('DataTableName')][string] $DataTableID,
         [string] $DataStoreID,
         [switch] $Transpose,
-        [string] $OverwriteDOM
+        [string] $OverwriteDOM,
+        [switch] $EnableSearchHighlight,
+        [switch] $EnableSearchAlphabet
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -350,39 +352,48 @@ function New-HTMLTable {
         F - jQueryUI theme "footer" classes (fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix)
         Q - SearchBuilder
     #>
+    if ($EnableSearchAlphabet) {
+        $Script:HTMLSchema.Features.DataTablesSearchAlphabet = $true
+    }
+    if ($SearchBuilder) {
+        $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
+    }
+    if ($SearchPane) {
+        $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
+    }
     if ($OverwriteDOM) {
         # We allow user to decide how DOM looks like
         $Options['dom'] = $OverwriteDOM
     } else {
+        $DOM = 'Bfrtip'
+        if ($EnableSearchAlphabet) {
+            $DOM = "A$($Dom)"
+        }
         if ($SearchBuilder -and $SearchPane) {
-            $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
-            $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
             if ($SearchPaneLocation -eq 'top' -and $SearchBuilderLocation -eq 'top') {
-                $Options['dom'] = 'QPBfrtip'
+                $Options['dom'] = "QP$($DOM)"
             } elseif ($SearchPaneLocation -eq 'top' -and $SearchBuilderLocation -eq 'bottom') {
-                $Options['dom'] = 'PBfrtipQ'
+                $Options['dom'] = "P$($DOM)Q"
             } elseif ($SearchPaneLocation -eq 'bottom' -and $SearchBuilderLocation -eq 'top') {
-                $Options['dom'] = 'QBfrtipP'
+                $Options['dom'] = "Q$($DOM)P"
             } elseif ($SearchPaneLocation -eq 'bottom' -and $SearchBuilderLocation -eq 'bottom') {
-                $Options['dom'] = 'BfrtipQP'
+                $Options['dom'] = "$($DOM)QP"
             }
         } elseif ($SearchBuilder) {
-            $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
             if ($SearchBuilderLocation -eq 'top') {
-                $Options['dom'] = 'QBfrtip'
+                $Options['dom'] = "Q$($DOM)"
             } else {
-                $Options['dom'] = 'BfrtipQ'
+                $Options['dom'] = "$($DOM)Q"
             }
         } elseif ($SearchPane) {
             # it seems DataTablesSearchPanes is conflicting with Diagrams in IE 11, so we only enable it on demand
-            $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
             if ($SearchPaneLocation -eq 'top') {
-                $Options['dom'] = 'PBfrtip'
+                $Options['dom'] = "P$($DOM)"
             } else {
-                $Options['dom'] = 'BfrtipP'
+                $Options['dom'] = "$($DOM)P"
             }
         } else {
-            $Options['dom'] = 'Bfrtip'
+            $Options['dom'] = "$($DOM)"
         }
     }
     if ($Buttons -contains 'searchPanes') {
@@ -401,7 +412,10 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTablesAutoFill = $true
         $Options['autoFill'] = $true
     }
-
+    if ($EnableSearchHighlight) {
+        $Script:HTMLSchema.Features.DataTablesSearchHighlight = $true
+        $Options['searchHighlight'] = $true
+    }
     # Prepare data for preprocessing. Convert Hashtable/Ordered Dictionary to their visual representation
     $Table = $null
     if ($DataTable[0] -is [System.Collections.IDictionary]) {
