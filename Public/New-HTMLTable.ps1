@@ -130,6 +130,7 @@ function New-HTMLTable {
     $ReplaceCompare = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
     $TableColumnOptions = [System.Collections.Generic.List[PSCustomObject]]::new()
     $TableEvents = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $TablePercentageBar = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     # This will be used to store the colulmnDef option for the datatable
     $ColumnDefinitionList = [System.Collections.Generic.List[PSCustomObject]]::New()
@@ -185,6 +186,8 @@ function New-HTMLTable {
                     $TableColumnOptions.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableEvent') {
                     $TableEvents.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TablePercentageBar') {
+                    $TablePercentageBar.Add($Parameters.Output)
                 }
             }
         }
@@ -713,6 +716,13 @@ function New-HTMLTable {
         }
     }
 
+    if ($TablePercentageBar.Count -gt 0) {
+        $Script:HTMLSchema.Features.DataTablesPercentageBars = $true
+        foreach ($Bar in $TablePercentageBar) {
+            $ColumnDefinitionList.Add($(New-TablePercentageBarInternal @Bar))
+        }
+    }
+
     # If we have a column definition list defined, then set the columnDefs option
     If ($ColumnDefinitionList.Count -gt 0) {
         $Options.columnDefs = $ColumnDefinitionList.ToArray()
@@ -722,13 +732,14 @@ function New-HTMLTable {
         $Options.autoWidth = $false
     }
 
-    $Options = $Options | ConvertTo-Json -Depth 6
+    $Options = $Options | ConvertTo-JsonLiteral -Depth 6
 
     # cleans up $Options for ImmediatelyShowHiddenDetails
     # Since it's JavaScript inside we're basically removing double quotes from JSON in favor of no quotes at all
     # Before: "display": "$.fn.dataTable.Responsive.display.childRowImmediate"
     # After: "display": $.fn.dataTable.Responsive.display.childRowImmediate
     $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.childRowImmediate)"', '$1'
+    $Options = $Options -replace '"(\$\.fn\.dataTable\.render\.percentBar\(.+\))"', '$1'
 
     #
     $ExportExcelOptions = @'

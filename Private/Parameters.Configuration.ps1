@@ -909,6 +909,19 @@
             Default = $true
             Email   = $false
         }
+        DataTablesPercentageBars  = @{
+            Comment = 'DataTables PercentageBars'
+            Header  = @{
+                JsLink  = @(
+                    "https://cdn.datatables.net/plug-ins/1.10.22/dataRender/percentageBars.js"
+                )
+                JS      = @(
+                    "$PSScriptRoot\..\Resources\JS\dataTables.percentageBars.js"
+                )
+            }
+            Default = $true
+            Email   = $false
+        }
         DataTablesResponsive      = @{
             Comment = 'DataTables Responsive Features'
             Header  = @{
