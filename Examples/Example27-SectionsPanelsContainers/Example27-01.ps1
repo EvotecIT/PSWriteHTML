@@ -4,7 +4,7 @@
 $ProcessSmaller = Get-Process | Select-Object -First 1
 
 New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example27-01.html" -Show {
-    New-HTMLSection {
+    New-HTMLSection -HeaderText 'Test Header' -HeaderTextSize 20 {
         New-HTMLSection -HeaderText 'Test 1' -CanCollapse -Collapsed {
             New-HTMLTable -DataTable $ProcessSmaller
         }
@@ -56,4 +56,4 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example27-01.html" -Show {
             }
         }
     }
-} -Online
+} -Online -Format
