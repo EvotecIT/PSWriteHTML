@@ -5,6 +5,7 @@ Function New-HTMLSection {
         [Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace"),
         [alias('Name', 'Title')][Parameter(Mandatory = $false)][string]$HeaderText,
         [alias('TextColor')][string]$HeaderTextColor,
+        [alias('TextSize')][string] $HeaderTextSize,
         [alias('TextAlignment')][string][ValidateSet('center', 'left', 'right', 'justify')] $HeaderTextAlignment,
         [alias('TextBackGroundColor')][string]$HeaderBackGroundColor,
         [alias('BackgroundShade')][string]$BackgroundColor,
@@ -56,6 +57,7 @@ Function New-HTMLSection {
         }
     }
     $TextHeaderColorFromRGB = ConvertFrom-Color -Color $HeaderTextColor
+    $TextSize = ConvertFrom-Size -Size $HeaderTextSize
     $HiddenDivStyle = [ordered] @{ }
     $AttributesTop = [ordered] @{}
 
@@ -155,6 +157,7 @@ Function New-HTMLSection {
     $DivHeaderStyle = @{
         #"text-align"       = $HeaderTextAlignment
         'justify-content'  = $HeaderAlignment
+        'font-size'        = $TextSize
         "background-color" = ConvertFrom-Color -Color $HeaderBackGroundColor
     }
     $HeaderStyle = @{ "color" = $TextHeaderColorFromRGB }
