@@ -1030,7 +1030,7 @@
             Comment = 'DataTables SearchHighlight'
             Header  = @{
                 JsLink  = "https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.min.js", 'https://cdn.jsdelivr.net/gh/bartaz/sandbox.js@master/jquery.highlight.min.js'
-                JS      = "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlight.min.js", 'dataTables.searchHighlightJquery.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlight.min.js", "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlightRequire.min.js"
                 CSSLink = 'https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.css'
                 CSS     = "$PSScriptRoot\..\Resources\CSS\dataTables.searchHighlight.css"
             }
@@ -1040,9 +1040,11 @@
         DataTablesSearchAlphabet  = @{
             Comment = 'DataTables AlphabetSearch'
             Header  = @{
-                JsLink  = "https://cdn.datatables.net/plug-ins/1.10.22/features/alphabetSearch/dataTables.alphabetSearch.min.js"
+                #JsLink  = "https://cdn.datatables.net/plug-ins/1.10.22/features/alphabetSearch/dataTables.alphabetSearch.min.js"
+                JsLink  = "https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.js"
                 JS      = "$PSScriptRoot\..\Resources\JS\dataTables.alphabetSearch.min.js"
-                CSSLink = 'https://cdn.datatables.net/plug-ins/1.10.22/features/alphabetSearch/dataTables.alphabetSearch.css'
+                #CSSLink = 'https://cdn.datatables.net/plug-ins/1.10.22/features/alphabetSearch/dataTables.alphabetSearch.css'
+                CSSLink = 'https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.css'
                 CSS     = "$PSScriptRoot\..\Resources\CSS\dataTables.alphabetSearch.css"
             }
             Default = $true
@@ -1112,8 +1114,8 @@
                 JsInLine  = "var calendarTracker = {};"
             }
             Header       = @{
-                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js'
-                CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css'
+                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js'
+                CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendar.css"
                 JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
             }
@@ -1157,10 +1159,10 @@
             }
             Header       = @{
                 JSLink  = @(
-                    'https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.33.0/jquery.fancytree-all-deps.min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.38.0/jquery.fancytree-all-deps.min.js'
                 )
                 CSSLink = @(
-                    'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.33/dist/skin-win8/ui.fancytree.min.css'
+                    'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38/dist/skin-win8/ui.fancytree.min.css'
                 )
             }
             Default      = $true
@@ -1174,7 +1176,7 @@
             Header      = @{
                 JSLink = @(
                     'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js'
-                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.0/justgage.min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.1/justgage.min.js'
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\raphael.min.js"
@@ -1545,18 +1547,21 @@ function Save-Resource {
 
 #$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
 <# Refreshes libraries
-$Keys = $Script:Configuration.Features.Keys
-$Keys = 'DataTables', 'VisNetwork', 'VisTimeline', 'Moment', 'Jquery', 'DataTablesSearchFade', 'Popper', 'ChartsApex'
-$Keys = 'ChartsApex'
-$Keys = 'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
-$Keys = $Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
-$Keys = 'ChartsApex', 'VisNetwork', 'VisTimeline', 'VisData'
-$Keys = 'AccordionFAQ'
-$Keys = 'ChartsApex', 'VisNetwork', 'VisTimeline', 'VisData'
 $Keys = @(
-    'DataTables', 'DataTablesSearchFade', 'DataTablesAutoFill', 'DataTablesButtons', 'DataTablesButtonsHTML5', 'DataTablesButtonsPrint',
-    'DataTablesButtonsPDF', 'DataTablesButtonsExcel', 'DataTablesColReorder', 'DataTablesFixedColumn', 'DataTablesFixedHeader', 'DataTablesKeyTable',
-    'DataTablesRowReorder', 'DataTablesRowGrouping', 'DataTablesResponsive', 'DataTablesScroller', 'DataTablesSearchPanes','DataTablesSearchBuilder'
+    #'Popper'
+    #'Moment'
+    #'Jquery'
+    #'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
+    #'ChartsApex'
+    #'AccordionFAQ'
+    #'VisNetwork'
+    #'VisTimeline'
+    #'VisData'
+    #'FullCalendar'
+    #'DataTablesSearchAlphabet'
+    $Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
+    #'FancyTree'
+    #'JustGage'
 )
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
@@ -1566,7 +1571,6 @@ foreach ($Key in $Keys) {
         Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.$Key.Header.Css
     }
 }
-<# Refreshes libraries
 #>
 
 
