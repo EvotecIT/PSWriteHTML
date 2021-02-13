@@ -101,8 +101,9 @@ Please make sure to read changes before updating, as we're undergoing some break
     - [x] Updated FullCalendar `5.1.0 -> 5.5.1`
     - [x] Added DataTables Search Alphabet `1.0.0 with personal PR`
   - [x] Added ability `OverwriteDOM` in `New-HTMLTable` to provide granular option how options are visually positioned
-  - [x] Added basic ability `SearchBuilder` in `New-HTMLTable` for multi-condition search
-    - [x] **KNOWN ISSUE** - Search builder font is set to 12pt, it will be fixed later on when SearchBuilder library gets this bug fixed
+  - [x] Added ability `SearchBuilder` in `New-HTMLTable` for multi-condition search
+  - [x] Added ability `SearchHighlight` in `New-HTMLTable`
+  - [x] Added ability `AlphabetSearch` in `New-HTMLTable`
   - [x] Fixes `New-ChartLegend` hex colors but most likely all other cmdlets where more than one HEX based color was used
   - [x] Added `HeaderTextSize` to `New-HTMLSection`
   - [x] Added `New-TablePercentageBar` for `New-HTMLTable`
