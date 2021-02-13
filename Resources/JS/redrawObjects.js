@@ -1,5 +1,6 @@
 ﻿function redrawCalendar(calendar) {
-    calendarTracker[calendar.id].changeView(calendarTracker[calendar.id].view.type);
+    //calendarTracker[calendar.id].changeView(calendarTracker[calendar.id].view.type);
+    calendarTracker[calendar.id].updateSize();
     console.log('Fitting calendar with id ' + calendar.id);
 }
 function resizeTable(table) {
