@@ -912,10 +912,10 @@
         DataTablesPercentageBars  = @{
             Comment = 'DataTables PercentageBars'
             Header  = @{
-                JsLink  = @(
+                JsLink = @(
                     "https://cdn.datatables.net/plug-ins/1.10.22/dataRender/percentageBars.js"
                 )
-                JS      = @(
+                JS     = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.percentageBars.js"
                 )
             }
@@ -1000,25 +1000,15 @@
         }
         DataTablesSearchBuilder   = @{
             # https://datatables.net/blog/2020-09-01
-            Comment      = 'DataTables SearchBuilder'
-            Header       = @{
-                JsLink  = "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
+            Comment = 'DataTables SearchBuilder'
+            Header  = @{
+                JsLink  = "https://nightly.datatables.net/searchbuilder/js/dataTables.searchBuilder.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
                 JS      = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.min.js"
-                CssLink = 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
+                CssLink = 'https://nightly.datatables.net/searchbuilder/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.min.css"
             }
-            HeaderAlways = @{
-                CssInline = [ordered] @{
-                    # "div.dtsb-logicContainer" = [ordered]@{
-                    #     'width' = 'auto !important'
-                    # }
-                    'div.dtsb-searchBuilder' = @{
-                        'font-size' = '12pt'
-                    }
-                }
-            }
-            Default      = $true
-            Email        = $false
+            Default = $true
+            Email   = $false
         }
         DataTablesSearchFade      = @{
             Comment      = 'DataTables SearchFade'
