@@ -73,8 +73,8 @@ function New-HTMLTable {
         [string] $DataStoreID,
         [switch] $Transpose,
         [string] $OverwriteDOM,
-        [switch] $EnableSearchHighlight,
-        [switch] $EnableSearchAlphabet
+        [switch] $SearchHighlight,
+        [switch] $AlphabetSearch
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -131,6 +131,7 @@ function New-HTMLTable {
     $TableColumnOptions = [System.Collections.Generic.List[PSCustomObject]]::new()
     $TableEvents = [System.Collections.Generic.List[PSCustomObject]]::new()
     $TablePercentageBar = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $TableAlphabetSearch = [ordered]@{}
 
     # This will be used to store the colulmnDef option for the datatable
     $ColumnDefinitionList = [System.Collections.Generic.List[PSCustomObject]]::New()
@@ -188,6 +189,8 @@ function New-HTMLTable {
                     $TableEvents.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TablePercentageBar') {
                     $TablePercentageBar.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableAlphabetSearch') {
+                    $TableAlphabetSearch = $Parameters.Output
                 }
             }
         }
@@ -355,7 +358,7 @@ function New-HTMLTable {
         F - jQueryUI theme "footer" classes (fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix)
         Q - SearchBuilder
     #>
-    if ($EnableSearchAlphabet) {
+    if ($AlphabetSearch -or $TableAlphabetSearch.Count -gt 0) {
         $Script:HTMLSchema.Features.DataTablesSearchAlphabet = $true
     }
     if ($SearchBuilder) {
@@ -369,7 +372,7 @@ function New-HTMLTable {
         $Options['dom'] = $OverwriteDOM
     } else {
         $DOM = 'Bfrtip'
-        if ($EnableSearchAlphabet) {
+        if ($AlphabetSearch) {
             $DOM = "A$($Dom)"
         }
         if ($SearchBuilder -and $SearchPane) {
@@ -415,7 +418,7 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTablesAutoFill = $true
         $Options['autoFill'] = $true
     }
-    if ($EnableSearchHighlight) {
+    if ($SearchHighlight) {
         $Script:HTMLSchema.Features.DataTablesSearchHighlight = $true
         $Options['searchHighlight'] = $true
     }
@@ -482,6 +485,23 @@ function New-HTMLTable {
 
     # This modifies header adding styles, header rows, or doing some fancy stuff
     $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
+
+
+    if ($TableAlphabetSearch.Count -gt 0) {
+        $Options['alphabet'] = @{}
+        if ($TableAlphabetSearch.caseSensitive) {
+            $Options['alphabet']['caseSensitive'] = $true
+        }
+        if ($TableAlphabetSearch.numbers) {
+            $Options['alphabet']['numbers'] = $true
+        }
+        if ($null -ne $TableAlphabetSearch.ColumnName) {
+            $TableAlphabetSearch.ColumnID = ($HeaderNames).ToLower().IndexOf($TableAlphabetSearch.ColumnName.ToLower())
+        }
+        if ($null -ne $TableAlphabetSearch.ColumnID) {
+            $Options['alphabet']['column'] = $TableAlphabetSearch.ColumnID
+        }
+    }
 
     if (-not $Script:HTMLSchema['TableSimplify'] -and -not $HideButtons) {
         $Script:HTMLSchema.Features.DataTablesButtons = $true
