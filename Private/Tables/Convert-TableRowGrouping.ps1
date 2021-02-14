@@ -30,12 +30,14 @@
     } else {
         $TextToReplace = ''
     }
+    <#
     if ($PSEdition -eq 'Desktop') {
         $TextToFind = '"rowGroup":  "",'
     } else {
         $TextToFind = '"rowGroup": "",'
     }
-
+    #>
+    $TextToFind = '"rowGroup":"",'
     $Options = $Options -Replace ($TextToFind, $TextToReplace)
     $Options
 }
