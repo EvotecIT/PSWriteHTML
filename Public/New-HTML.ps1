@@ -212,6 +212,9 @@ Function New-HTML {
                 '<!-- BODY -->'
             }
             New-HTMLTag -Tag 'body' {
+                if ($null -ne $Features) {
+                    Get-Resources -Online:$Online.IsPresent -Location 'Body' -Features $Features -NoScript
+                }
                 if ($HeaderHTML) {
                     if ($AddComment) { '<!-- HEADER -->' }
                     New-HTMLTag -Tag 'header' {
