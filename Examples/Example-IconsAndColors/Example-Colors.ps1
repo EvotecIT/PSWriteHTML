@@ -95,10 +95,16 @@ function Get-VisualIndicator {
 }
 
 $RGBColors = Get-Colors
+$Count = 0
 $Output = foreach ($Color1 in $RGBColors.Keys) {
+    $Count++
+    $CountInside = 0
     foreach ($Color2 in $Script:RGBColors.keys) {
+        $CountInside++
         $RGB1 = ConvertFrom-Color -Color $Color1
         $RGB2 = ConvertFrom-Color -Color $Color2
+
+        Write-Color -Text "[$Count/$($RGBColors.Keys.Count)]", " ", "[$CountInside/$($RGBColors.Keys.Count)]" -Color Yellow, Red, Gray
         Get-VisualIndicator -SkipNewLine -TextHeading "Color Text: $RGB1 ($Color1)" -Text "(ColorBackground $RGB2 ($Color2))" -ColorHeading $Color1 -ColorBackground $Color2
     }
 }
