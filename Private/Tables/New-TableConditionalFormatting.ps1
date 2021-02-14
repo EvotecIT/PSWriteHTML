@@ -122,12 +122,13 @@ function New-TableConditionalFormatting {
                 '}'
             )
         }
-        if ($PSEdition -eq 'Desktop') {
-            $TextToFind = '"createdRow":  ""'
-        } else {
-            $TextToFind = '"createdRow": ""'
-        }
+        #if ($PSEdition -eq 'Desktop') {
+        #    $TextToFind = '"createdRow":  ""'
+        #} else {
+        #    $TextToFind = '"createdRow": ""'
+        #}
+        $TextToFind = '"createdRow":""'
         $Options = $Options -Replace ($TextToFind, $Condition)
     }
-    return $Options
+    $Options
 }
