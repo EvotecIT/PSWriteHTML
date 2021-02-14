@@ -420,6 +420,22 @@
             Default      = $true
             Email        = $false
         }
+        CarouselKineto            = @{
+            Comment      = 'Kineto JS Library'
+            Header       = @{
+                CssLink = 'https://cdn.jsdelivr.net/gh/findawayer/kineto@main/dist/kineto.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\kineto.min.css"
+            }
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\kinetoStyle.css"
+            }
+            Body         = @{
+                JSLink = 'https://cdn.jsdelivr.net/gh/findawayer/kineto@main/dist/kineto.js'
+                JS     = "$PSScriptRoot\..\Resources\JS\kineto.min.js"
+            }
+            Default      = $true
+            Email        = $false
+        }
         CodeBlocks                = @{
             Comment      = 'EnlighterJS CodeBlocks'
             Header       = @{
@@ -1559,9 +1575,10 @@ $Keys = @(
     #'VisData'
     #'FullCalendar'
     #'DataTablesSearchAlphabet'
-    $Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
+    #$Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
     #'FancyTree'
     #'JustGage'
+    'CarouselKineto'
 )
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
