@@ -6,7 +6,7 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example-Carousel01.html" -Show {
             New-HTMLText -Text 'Slide 1'
         }
         New-CarouselSlide {
-            New-HTMLText -Text 'Slide 1'
+            New-HTMLText -Text 'Slide 2'
         }
     }
 
