@@ -499,9 +499,9 @@
         ChartsOrg                 = [ordered] @{
             Comment      = 'OrgChart'
             Header       = @{
-                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.10/css/jquery.orgchart.min.css'
+                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/3.1.0/css/jquery.orgchart.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\jquery.orgchart.min.css"
-                JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.10/js/jquery.orgchart.min.js'
+                JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/3.1.0/js/jquery.orgchart.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\jquery.orgchart.min.js"
             }
             HeaderAlways = [ordered] @{

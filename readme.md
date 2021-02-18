@@ -100,6 +100,7 @@ Please make sure to read changes before updating, as we're undergoing some break
     - [x] Updated JustGage `1.4.0` -> `1.4.1`
     - [x] Updated FullCalendar `5.1.0 -> 5.5.1`
     - [x] Added DataTables Search Alphabet `1.0.0 with personal PR`
+    - [x] Updated `OrgChart` from `2.2.0` to `3.1.0`
   - [x] Added ability `OverwriteDOM` in `New-HTMLTable` to provide granular option how options are visually positioned
   - [x] Added ability `SearchBuilder` in `New-HTMLTable` for multi-condition search
   - [x] Added ability `SearchHighlight` in `New-HTMLTable`
