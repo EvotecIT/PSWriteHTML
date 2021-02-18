@@ -40,7 +40,8 @@ function New-HTMLChartLine {
         [switch] $GradientColors,
         [System.Collections.IDictionary] $GridOptions,
         [System.Collections.IDictionary] $Toolbar,
-        [System.Collections.IDictionary] $Theme
+        [System.Collections.IDictionary] $Theme,
+        [Object] $Events
     )
 
     $Options = [ordered] @{ }
@@ -95,7 +96,7 @@ function New-HTMLChartLine {
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }
-    New-ApexChart -Options $Options
+    New-ApexChart -Options $Options -Events $Events
 }
 
 Register-ArgumentCompleter -CommandName New-HTMLChartLine -ParameterName DataLabelsColor -ScriptBlock $Script:ScriptBlockColors

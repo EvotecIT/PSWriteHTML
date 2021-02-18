@@ -27,7 +27,8 @@
         [System.Collections.IDictionary] $ChartAxisY,
 
         [System.Collections.IDictionary] $ChartToolTip,
-        [System.Collections.IDictionary] $DataLabel
+        [System.Collections.IDictionary] $DataLabel,
+        [Object] $Events
     )
     $Options = [ordered] @{}
 
@@ -60,7 +61,7 @@
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }
-    New-ApexChart -Options $Options
+    New-ApexChart -Options $Options -Events $Events
 }
 
 Register-ArgumentCompleter -CommandName New-HTMLChartSpark -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

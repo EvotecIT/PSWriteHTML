@@ -141,6 +141,8 @@
             $ChartToolTip = $Setting.ChartToolTip
         } elseif ($Setting.ObjectType -eq 'DataLabel') {
             $DataLabel = $Setting.DataLabel
+        } elseif ($Setting.ObjectType -eq 'ChartEvents') {
+            $Events = $Setting.Event
         }
     }
 
@@ -181,7 +183,7 @@
             -Height $Height `
             -Width $Width `
             -Colors $Colors `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
     } elseif ($Type -eq 'Line') {
         if (-not $ChartAxisX) {
             Write-Warning -Message 'Chart Category (Chart Axis X) is missing.'
@@ -202,7 +204,7 @@
             -ChartAxisY $ChartAxisY `
             -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
 
     } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
         New-HTMLChartPie `
@@ -212,7 +214,7 @@
             -Colors $Colors `
             -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
     } elseif ($Type -eq 'Spark') {
         New-HTMLChartSpark `
             -Data $DataSet `
@@ -220,7 +222,7 @@
             -Colors $Colors `
             -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
     } elseif ($Type -eq 'Radial') {
         New-HTMLChartRadial `
             -Data $DataSet `
@@ -228,7 +230,7 @@
             -Colors $Colors `
             -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
     } elseif ($Type -eq 'rangeBar') {
         New-HTMLChartTimeLine `
             -Data $DataSetChartTimeLine `
@@ -240,6 +242,6 @@
             -ChartAxisY $ChartAxisY `
             -ChartToolTip $ChartToolTip `
             -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient `
-            -DataLabel $DataLabel
+            -DataLabel $DataLabel -Events $Events
     }
 }
