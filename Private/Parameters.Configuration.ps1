@@ -1092,6 +1092,17 @@
             Default      = $true
             Email        = $false
         }
+        DataTablesSelect          = @{
+            Comment = 'DataTables Select'
+            Header  = @{
+                JsLink  = "https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"
+                JS      = "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
+                CSSLink = 'https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css'
+                CSS     = "$PSScriptRoot\..\Resources\CSS\select.dataTables.min.css"
+            }
+            Default = $true
+            Email   = $false
+        }
         DataTablesSimplify        = @{
             Comment      = 'DataTables (not really) - Simplified'
             HeaderAlways = @{
