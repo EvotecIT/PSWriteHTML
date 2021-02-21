@@ -100,7 +100,11 @@ Please make sure to read changes before updating, as we're undergoing some break
     - [x] Updated JustGage `1.4.0` -> `1.4.1`
     - [x] Updated FullCalendar `5.1.0 -> 5.5.1`
     - [x] Added DataTables Search Alphabet `1.0.0 with personal PR`
-    - [x] Updated `OrgChart` from `2.2.0` to `3.1.0`
+    - [x] Updated `OrgChart` from `2.2.0` to `3.1.0`, `3.1.1`
+    - [x] Updated `VisData` from `7.1.1` to `7.1.2`
+    - [x] Updated `VisNetwork` from `8.5.5` to `9.0.2`
+    - [x] Updated `VisTimeline` from `7.4.2` to `7.4.6`
+    - [x] Updated `EasyQrCode` from `4.3.0` to `4.3.2`
     - [x] Added `DataTables Select` -> `1.3.1`
   - [x] Added ability `OverwriteDOM` in `New-HTMLTable` to provide granular option how options are visually positioned
   - [x] Added ability `SearchBuilder` in `New-HTMLTable` for multi-condition search
@@ -109,10 +113,11 @@ Please make sure to read changes before updating, as we're undergoing some break
   - [x] Fixes `New-ChartLegend` hex colors but most likely all other cmdlets where more than one HEX based color was used
   - [x] Added `HeaderTextSize` to `New-HTMLSection`
   - [x] Added `New-TablePercentageBar` for `New-HTMLTable`
-  - [ ] Added `New-ChartEvent`
+  - [x] Added `New-ChartEvent`
+  - [x] Fixed `New-HTMLTable -DataStore JavaScript` when dollar ($) is used within column name or content
 - 0.0.132 - 2021.02.02
   - [x] Fixed `Format/Minify` error message when `PSParseHTML` is not installed.
-  - [ ] Fixed Table headers pushed to the left when using ScrollX with Tabs [#191](https://github.com/EvotecIT/PSWriteHTML/issues/191)
+  - [x] Fixed Table headers pushed to the left when using ScrollX with Tabs [#191](https://github.com/EvotecIT/PSWriteHTML/issues/191)
 - 0.0.131 - 2021.01.29
   - [x] New-HTMLTable AjaxJSON fixed - [#189](https://github.com/EvotecIT/PSWriteHTML/issues/189)
 - 0.0.130 - 2021.01.16
