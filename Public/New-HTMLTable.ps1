@@ -785,7 +785,9 @@ function New-HTMLTable {
                     -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
                     -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
                     -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat `
-                    -NewLineFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat -Force
+                    -NewLineFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat -Force `
+                    -ArrayJoin:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin `
+                    -ArrayJoinString $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
                 if ($DataToInsert.StartsWith('[')) {
                     $Script:HTMLSchema.CustomFooterJS[$DataStoreID] = "var $DataStoreID = $DataToInsert;"
                 } else {
@@ -798,7 +800,9 @@ function New-HTMLTable {
                 -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
                 -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
                 -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat `
-                -NewLineFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat -Force
+                -NewLineFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat -Force `
+                -ArrayJoin:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin `
+                -ArrayJoinString $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
             if ($DataToInsert.StartsWith('[')) {
                 $Options = $Options.Replace('"markerForDataReplacement"', $DataToInsert)
             } else {
