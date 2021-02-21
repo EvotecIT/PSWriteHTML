@@ -1399,7 +1399,7 @@
         VisData                   = [ordered]@{
             Header  = @{
                 # https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js
-                JsLink = 'https://unpkg.com/vis-data@7.1.1/peer/umd/vis-data.min.js'
+                JsLink = 'https://unpkg.com/vis-data@7.1.2/peer/umd/vis-data.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
             }
             Default = $true
@@ -1427,7 +1427,7 @@
             Header       = @{
                 # https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js
                 # https://unpkg.com/vis-network/styles/vis-network.min.css
-                JsLink = 'https://unpkg.com/vis-network@8.5.5/peer/umd/vis-network.min.js'
+                JsLink = 'https://unpkg.com/vis-network@9.0.2/peer/umd/vis-network.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
             }
             Default      = $true
@@ -1495,10 +1495,10 @@
             }
             Header       = @{
                 # https://unpkg.com/vis-timeline@latest/peer/umd/vis-timeline-graph2d.min.js
-                JsLink  = 'https://unpkg.com/vis-timeline@7.4.2/peer/umd/vis-timeline-graph2d.min.js'
+                JsLink  = 'https://unpkg.com/vis-timeline@7.4.6/peer/umd/vis-timeline-graph2d.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-timeline-graph2d.min.js"
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
-                CssLink = 'https://unpkg.com/vis-timeline@7.4.2/styles/vis-timeline-graph2d.min.css'
+                CssLink = 'https://unpkg.com/vis-timeline@7.4.6/styles/vis-timeline-graph2d.min.css'
             }
             Default      = $true
             Email        = $false
@@ -1514,7 +1514,7 @@
                 }
             }
             Header       = @{
-                JSLink = 'https://cdn.jsdelivr.net/npm/easyqrcodejs@4.3.0/dist/easy.qrcode.min.js'
+                JSLink = 'https://cdn.jsdelivr.net/npm/easyqrcodejs@4.3.2/dist/easy.qrcode.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\easy.qrcode.min.js"
             }
             Default      = $true
@@ -1578,18 +1578,19 @@ $Keys = @(
     #'Popper'
     #'Moment'
     #'Jquery'
-    #'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
+    'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
     #'ChartsApex'
     #'AccordionFAQ'
-    #'VisNetwork'
-    #'VisTimeline'
-    #'VisData'
+    'VisNetwork'
+    'VisTimeline'
+    'VisData'
     #'FullCalendar'
     #'DataTablesSearchAlphabet'
     #$Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
-    #'FancyTree'
+    'FancyTree'
     #'JustGage'
-    'CarouselKineto'
+    #'CarouselKineto'
+    'QR'
 )
 foreach ($Key in $Keys) {
     if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
