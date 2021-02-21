@@ -115,6 +115,7 @@ Please make sure to read changes before updating, as we're undergoing some break
   - [x] Added `New-TablePercentageBar` for `New-HTMLTable`
   - [x] Added `New-ChartEvent`
   - [x] Fixed `New-HTMLTable -DataStore JavaScript` when dollar ($) is used within column name or content
+  - [x] Improved `New-HTMLTableOption` added `ArrayJoin`,`ArrayJoinString`
 - 0.0.132 - 2021.02.02
   - [x] Fixed `Format/Minify` error message when `PSParseHTML` is not installed.
   - [x] Fixed Table headers pushed to the left when using ScrollX with Tabs [#191](https://github.com/EvotecIT/PSWriteHTML/issues/191)
