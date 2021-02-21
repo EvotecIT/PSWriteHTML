@@ -769,7 +769,7 @@ function New-HTMLTable {
         }
     }
 '@
-    $Options = $Options -replace '"findExportOptions"', $ExportExcelOptions
+    $Options = $Options.Replace('"findExportOptions"', $ExportExcelOptions)
 
     if ($DataStore -eq 'JavaScript') {
         # Since we only want first level of data from DataTable we need to do it via string replacement.
@@ -778,7 +778,7 @@ function New-HTMLTable {
             # We decided we want to separate JS data from the table. This is useful for 2 reason
             # Data is pushed to footer and doesn't take place inside Body
             # Data can be reused in multiple tables for display purposes of same thing but in different table
-            $Options = $Options -replace '"markerForDataReplacement"', $DataStoreID
+            $Options = $Options.Replace('"markerForDataReplacement"', $DataStoreID)
             # We only add data if it isn't added yet
             if (-not $Script:HTMLSchema.CustomFooterJS[$DataStoreID]) {
                 $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 `
@@ -800,9 +800,9 @@ function New-HTMLTable {
                 -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat `
                 -NewLineFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat -Force
             if ($DataToInsert.StartsWith('[')) {
-                $Options = $Options -replace '"markerForDataReplacement"', $DataToInsert
+                $Options = $Options.Replace('"markerForDataReplacement"', $DataToInsert)
             } else {
-                $Options = $Options -replace '"markerForDataReplacement"', "[$DataToInsert]"
+                $Options = $Options.Replace('"markerForDataReplacement"', "[$DataToInsert]")
             }
         }
         # we need to reset table to $Null to make sure it's not added as HTML as well
