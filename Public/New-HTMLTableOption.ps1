@@ -27,6 +27,12 @@
     .PARAMETER Carriage
     When JavaScript or AjaxJSON is used, one can configure Carriage. Default value for Carriage = "\r"
 
+    .PARAMETER ArrayJoin
+    When JavaScript or AjaxJSON is used, forces any array to be a string regardless of depth level
+
+    .PARAMETER ArrayJoinString
+    Uses defined string or char for array join. By default it uses comma with a space when used.
+
     .EXAMPLE
     New-HTML {
         New-HTMLTableOption -DateTimeFormat "yyyy-MM-dd HH:mm:ss" -BoolAsString
@@ -52,7 +58,9 @@
         [string] $DateTimeFormat,
         [string] $NewLineCarriage,
         [string] $NewLine,
-        [string] $Carriage
+        [string] $Carriage,
+        [switch] $ArrayJoin,
+        [string] $ArrayJoinString = ', '
     )
     if ($Script:HTMLSchema) {
         if ($DataStore ) {
@@ -75,6 +83,10 @@
         }
         if ($Carriage) {
             $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat.Carriage = $Carriage
+        }
+        if ($ArrayJoin) {
+            $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin = $true
+            $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString = $ArrayJoinString
         }
     }
 }
