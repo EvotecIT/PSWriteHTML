@@ -6,7 +6,6 @@
     )
     $Options['data'] = "markerForDataReplacement"
     [Array] $Options['columns'] = foreach ($Property in $HeaderNames) {
-        #@{ data = $Property -replace '[.*+?^`${}()|[\]\\]', '\$&' }
         @{ data = $Property.Replace('.', '\.') }
     }
     $Options['deferRender'] = $true
