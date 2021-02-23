@@ -496,6 +496,18 @@
             Default = $true
             Email   = $false
         }
+        ChartsEvents              = [ordered] @{
+            HeaderAlways = @{
+                JsInLine  = "var dataTablesChartsEvents = {};"
+                CssInline = @{
+                    'td.highlight' = @{
+                        'background-color' = 'yellow';
+                    }
+                }
+            }
+            Default      = $true
+            Email        = $false
+        }
         ChartsOrg                 = [ordered] @{
             Comment      = 'OrgChart'
             Header       = @{
