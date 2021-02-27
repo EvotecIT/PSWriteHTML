@@ -31,6 +31,6 @@ New-HTML {
             New-ChartPie -Name $Object.Name -Value $Object.Time
         }
         # Define event
-        New-ChartEvent -DataTableID 'NewIDtoSearchInChart' -ColumnID 0 -ColumnValueID 1
+        New-ChartEvent -DataTableID 'NewIDtoSearchInChart' -ColumnID 0
     }
 } -ShowHTML -FilePath $PSScriptRoot\Example-ChartsWithTablesPie.html -Online #-Format
