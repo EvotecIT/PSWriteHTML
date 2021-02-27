@@ -99,7 +99,8 @@
                 return true;
             }
             //console.log("Data for table: " + settings.nTable.id + ' finding id ' + dataTablesChartsEvents['$DataTableID'] + ' searching for ' + searchData);
-
+            `$('#' + '$DataTableID' + ' td').removeClass('highlight');
+            console.log(count++ + ' ' + rowData + '  ' + index);
             if (searchData.includes(dataTablesChartsEvents['$DataTableID'])) {
 
                 // Get column index of matched value

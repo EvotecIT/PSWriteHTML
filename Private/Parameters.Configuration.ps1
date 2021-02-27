@@ -499,7 +499,7 @@
         ChartsEvents              = [ordered] @{
             HeaderAlways = @{
                 Js        = "$PSScriptRoot\..\Resources\JS\apexchartsEvents.js"
-                JsInLine  = "var dataTablesChartsEvents = {};"
+                JsInLine  = "var dataTablesChartsEvents = {}; var count = 0;"
                 CssInline = @{
                     'td.highlight' = @{
                         'background-color' = 'yellow';
