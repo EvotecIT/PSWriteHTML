@@ -12,7 +12,6 @@ New-HTML {
             New-TableAlphabetSearch -ColumnName Name -AddNumbers
         }
     }
-    <#
     New-HTMLSection -HeaderText 'Standard Table with Alphabet Search' {
         New-HTMLTable -DataTable $ProcessSmaller -AlphabetSearch {
             New-TableAlphabetSearch -ColumnName SID -CaseSensitive
@@ -23,5 +22,4 @@ New-HTML {
 
         }
     }
-    #>
 } -ShowHTML -FilePath $PSScriptRoot\Example7_AlphabetSearch2.html -Format -Online
