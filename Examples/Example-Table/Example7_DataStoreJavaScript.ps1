@@ -3,10 +3,17 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
 $DataTable1 = @(
-    [PSCustomObject] @{ "Name.WithDot" = 'Name1'; Test2 = 'Name2'; Test3 = 'Name3' }
-    [PSCustomObject] @{ "Name.WithDot" = 'Name2'; Test2 = 'Name2'; Test3 = 'Name3' }
-    [PSCustomObject] @{ "Name.WithDot" = 'Name3'; Test2 = 'Name2'; Test3 = 'Name3' }
-    [PSCustomObject] @{ "Name.WithDot" = 'Name4'; Test2 = 'Name2'; Test3 = 'Name3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name1'; Test2 = 'Name2'; Test3 = 'Name3'; Test4 = 'Entry1', 'Entry 2', 'Entry3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name2'; Test2 = 'Name2'; Test3 = 'Name3'; Test4 = 'Entry1', 'Entry 2', 'Entry3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name3'; Test2 = 'Name2'; Test3 = 'Name3'; Test4 = 'Entry1', 'Entry 2', 'Entry3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name4'; Test2 = 'Name2'; Test3 = 'Name3'; Test4 = 'Entry1', 'Entry 2', 'Entry3' }
+)
+
+$DataTable0 = @(
+    [PSCustomObject] @{ "Name.WithDot" = 'Name1'; Test2 = 'Name2'; Test3 = 'Name3'; Test4 = 'Entry1', 'Entry 2', 'Entry3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name2'; Test2 = 'Name2'; Test3 = 'Name3'; Test4 = 'Entry1', 'Entry 2', 'Entry3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name3'; Test2 = 'Name2'; Test3 = 'Name3'; Test4 = 'Entry1', 'Entry 2', 'Entry3' }
+    [PSCustomObject] @{ "Name.WithDot" = 'Name4'; Test2 = 'Name2'; Test3 = 'Name3'; Test4 = 'Entry1', 'Entry 2', 'Entry3' }
 )
 
 $DataTable2 = @(
@@ -37,7 +44,7 @@ $DataTable9 = [PSCustomObject] @{
 }
 
 New-HTML {
-    New-HTMLTableOption -DataStore JavaScript
+    New-HTMLTableOption -DataStore JavaScript -ArrayJoin -ArrayJoinString ', '
 
     New-HTMLSection -Invisible {
         New-HTMLSection -HeaderText 'Standard Table with PSCustomObjects' {

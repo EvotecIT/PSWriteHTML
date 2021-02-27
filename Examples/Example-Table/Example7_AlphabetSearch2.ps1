@@ -5,6 +5,23 @@ $ProcessSmaller = Get-ADUser -Filter * | Select-Object -First 15 # -Property Nam
 
 New-HTML {
     New-HTMLSection -HeaderText 'Standard Table with Alphabet Search' {
-        New-HTMLTable -DataTable $ProcessSmaller -AlphabetSearch
+        New-HTMLTable -DataTable $ProcessSmaller -AlphabetSearch {
+
+        }
+        New-HTMLTable -DataTable $ProcessSmaller -AlphabetSearch {
+            New-TableAlphabetSearch -ColumnName Name -AddNumbers
+        }
     }
+    <#
+    New-HTMLSection -HeaderText 'Standard Table with Alphabet Search' {
+        New-HTMLTable -DataTable $ProcessSmaller -AlphabetSearch {
+            New-TableAlphabetSearch -ColumnName SID -CaseSensitive
+        }
+    }
+    New-HTMLSection -HeaderText 'Standard Table with Alphabet Search' {
+        New-HTMLTable -DataTable $ProcessSmaller -AlphabetSearch {
+
+        }
+    }
+    #>
 } -ShowHTML -FilePath $PSScriptRoot\Example7_AlphabetSearch2.html -Format -Online
