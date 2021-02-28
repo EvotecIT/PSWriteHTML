@@ -7,11 +7,11 @@ New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-ChartRad
             New-HTMLPanel {
                 New-HTMLChart {
                     New-ChartTheme -Palette palette5
-                    New-ChartRadial -Name 'Test' -Value 20
-                    New-ChartRadial -Name 'Test' -Value 50
-                    New-ChartRadial -Name 'Test' -Value 50
-                    New-ChartRadial -Name 'Test' -Value 50
-                    New-ChartRadial -Name 'Test' -Value 50
+                    New-ChartRadial -Name 'Test 1' -Value 20
+                    New-ChartRadial -Name 'Test 2' -Value 50
+                    New-ChartRadial -Name 'Test 3' -Value 50
+                    New-ChartRadial -Name 'Test 4' -Value 50
+                    New-ChartRadial -Name 'Test 5' -Value 50
                 }
             }
             New-HTMLPanel {

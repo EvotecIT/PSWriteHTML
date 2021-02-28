@@ -1,909 +1,873 @@
 ﻿<!-- saved from url=(0014)about:internet -->
- <!DOCTYPE html>
- <html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"><meta content="width=device-width, initial-scale=1" name="viewport"><meta content="2021-01-05 09:33:47" name="revised"><title>Charts - Line</title><link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" as="style" type="text/css" rel="stylesheet preload prefetch"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" as="style" type="text/css" rel="stylesheet preload prefetch"/><script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn@1.0.0/findIndex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/apexcharts@3.23.0/dist/apexcharts.min.js" type="text/javascript"></script><style>body {    font-family: 'Roboto Condensed', sans-serif;    font-size: 8pt;    margin: 0px;}input {    font-size: 8pt;}</style><style>.overflowHidden {    overflow: hidden;    overflow-x: hidden;    overflow-y: hidden;}.flexParent {    display: flex;    justify-content: space-between;}.flexParentInvisible {    display: flex;    justify-content: space-between;}.flexElement {    flex-basis: 100%;}.flexPanel {    flex-basis: 100%;}.flex-grid {    display: flex;}</style><style>.tabsWrapper {    text-align: center;    font-family: 'Roboto', sans-serif !important;    text-transform: uppercase;}[data-tabs] {    display: flex;    margin: 5px 5px 5px 5px;    padding: 0px;    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);    border-radius: 5px;    justify-content: center;    flex-wrap: wrap;}[data-tabs]>* {    cursor: pointer;    padding: 10px 20px;    flex-grow: 1;    flex-shrink: 1;    flex-basis: auto;}[data-tabs] .active {    background: #1e90ff;    color: #fff;    border-radius: 5px;}[data-panes]>* {    display: none;}[data-panes]>.active {    display: block;}.tabsSlimmer {    display: inline-block;}</style><style>@media all and (-ms-high-contrast:active) {.defaultSection {    display: flex;}}.defaultSection {    flex-direction: column;    border: 1px solid #bbbbbb;    padding-bottom: 0px;    margin: 5px;    width: calc(100% - 10px);    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);    transition: 0.3s;    border-radius: 5px;}.defaultSectionHead {    display: flex;    justify-content: center;    padding: 5px;    margin: 0px 0px 0px 0px;    font-weight: bold;    background-color: #00bfff;    color: #ffffff;}</style><style>.sectionHide {    width: auto;    min-width: 1.4rem;}.sectionShow {    width: 100%;}</style><script type="text/javascript">function show(obj) {
-    document.getElementById(obj).style.display = 'block';
-    document.getElementById("hide_" + obj).style.display = '';
-    document.getElementById("show_" + obj).style.display = 'none';
-    // depending on flex-direction hiding is a bit different
-    var topSectionDiv = document.getElementById(obj).parentNode
-    var flexDirection = window.getComputedStyle(topSectionDiv).getPropertyValue("flex-direction");
-    if (flexDirection == 'column') {
-        //console.log('flexDirection 1' + flexDirection)
-    } else{
-        document.getElementById(obj).parentNode.classList.add('sectionShow');
-        document.getElementById(obj).parentNode.classList.remove('sectionHide');
-        //console.log('flexDirection 2' + flexDirection)
-    }
-    // resize tables within section
-    try {
-        var table = document.getElementById(obj).querySelectorAll('table');
-        table.forEach(resizeTable)
-    } catch (e) {
-        console.log('No datatables available.');
-    }
-    // redraw calendars within section
-    try {
-        var calendar = document.getElementById(obj).querySelectorAll('div[id^="Calendar-"]');
-        calendar.forEach(redrawCalendar)
-    } catch (e) {
-        console.log('No calendars available.');
-    }
-}
+<!DOCTYPE html>
+<html>
 
-function hide(obj) {
-    document.getElementById(obj).style.display = 'none';
-    document.getElementById("hide_" + obj).style.display = 'none';
-    document.getElementById("show_" + obj).style.display = '';
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="2021-02-14 23:25:37" name="revised">
+        <title>Charts - Line</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" as="style" type="text/css" rel="stylesheet preload prefetch" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" as="style" type="text/css" rel="stylesheet preload prefetch" />
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn@1.0.0/findIndex.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.22.0/dist/apexcharts.min.js" type="text/javascript"></script>
+        <style>
+            body {
+                font-family: 'Roboto Condensed', sans-serif;
+                font-size: 8pt;
+                margin: 0px;
+            }
+
+            input {
+                font-size: 8pt;
+            }
+        </style>
+        <style>
+            .overflowHidden {
+                overflow: hidden;
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
+
+            .flexParent {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .flexParentInvisible {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .flexElement {
+                flex-basis: 100%;
+            }
+
+            .flexPanel {
+                flex-basis: 100%;
+            }
+
+            .flex-grid {
+                display: flex;
+            }
+        </style>
+        <style>
+            .tabsWrapper {
+                text-align: center;
+                font-family: 'Roboto', sans-serif !important;
+                text-transform: uppercase;
+            }
+
+            [data-tabs] {
+                display: flex;
+                margin: 5px 5px 5px 5px;
+                padding: 0px;
+                box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            [data-tabs]>* {
+                cursor: pointer;
+                padding: 10px 20px;
+                flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: auto;
+            }
+
+            [data-tabs] .active {
+                background: #1e90ff;
+                color: #fff;
+                border-radius: 5px;
+            }
+
+            [data-panes]>* {
+                display: none;
+            }
+
+            [data-panes]>.active {
+                display: block;
+            }
+
+            .tabsSlimmer {
+                display: inline-block;
+            }
+        </style>
+        <style>
+            @media all and (-ms-high-contrast:active) {
+                .defaultSection {
+                    display: flex;
+                }
+            }
+
+            .defaultSection {
+                flex-direction: column;
+                border: 1px solid #bbbbbb;
+                padding-bottom: 0px;
+                margin: 5px;
+                width: calc(100% - 10px);
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+                border-radius: 5px;
+            }
+
+            .defaultSectionHead {
+                display: flex;
+                justify-content: center;
+                padding: 5px;
+                margin: 0px 0px 0px 0px;
+                font-weight: bold;
+                background-color: #00bfff;
+                color: #ffffff;
+            }
+        </style>
+        <style>
+            .sectionHide {
+                width: auto;
+                min-width: 1.4rem;
+            }
+
+            .sectionShow {
+                width: 100%;
+            }
+        </style>
+        <script type="text/javascript">function show(obj) {
+                document.getElementById(obj).style.display = 'block';
+                document.getElementById("hide_" + obj).style.display = '';
+                document.getElementById("show_" + obj).style.display = 'none';
+                // depending on flex-direction hiding is a bit different
+                var topSectionDiv = document.getElementById(obj).parentNode
+                var flexDirection = window.getComputedStyle(topSectionDiv).getPropertyValue("flex-direction");
+                if (flexDirection == 'column') {
+                    //console.log('flexDirection 1' + flexDirection)
+                } else {
+                    document.getElementById(obj).parentNode.classList.add('sectionShow');
+                    document.getElementById(obj).parentNode.classList.remove('sectionHide');
+                    //console.log('flexDirection 2' + flexDirection)
+                }
+                // resize tables within section
+                try {
+                    var table = document.getElementById(obj).querySelectorAll('table');
+                    table.forEach(resizeTable)
+                } catch (e) {
+                    console.log('No datatables available.');
+                }
+                // redraw calendars within section
+                try {
+                    var calendar = document.getElementById(obj).querySelectorAll('div[id^="Calendar-"]');
+                    calendar.forEach(redrawCalendar)
+                } catch (e) {
+                    console.log('No calendars available.');
+                }
+            }
+
+            function hide(obj) {
+                document.getElementById(obj).style.display = 'none';
+                document.getElementById("hide_" + obj).style.display = 'none';
+                document.getElementById("show_" + obj).style.display = '';
 
 
-    var topSectionDiv = document.getElementById(obj).parentNode
-    var flexDirection = window.getComputedStyle(topSectionDiv).getPropertyValue("flex-direction");
-    if (flexDirection == 'column') {
-        //console.log('flexDirection 1' + flexDirection)
-    } else{
-        document.getElementById(obj).parentNode.classList.remove('sectionShow');
-        document.getElementById(obj).parentNode.classList.add('sectionHide');
-        //console.log('flexDirection 2' + flexDirection)
-    }
-}
-</script><style>.defaultPanel {    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);    transition: 0.3s;    border-radius: 5px;    margin: 5px;}</style></head><body><div class="main-section"><div class="tabsWrapper"><div class="tabsSlimmer"><div data-tabs="true"><div id="Tab-2xskovq7" class="active"><span class="far fa-hourglass"></span>&nbsp;<span>Line Charts</span></div></div></div></div><div data-panes="true"><div id="Tab-2xskovq7-Content" class="active"><div class="defaultSection overflowHidden "><div class="defaultSectionHead"><div class="defaultSectionText"><a name="Line Charts - Test">Line Charts - Test </a>&nbsp;<a id="show_anchor-3vbg7fj" href="javascript:void(0)" onclick="show('anchor-3vbg7fj'); " style="display:none">(Show)</a><a id="hide_anchor-3vbg7fj" href="javascript:void(0)" onclick="hide('anchor-3vbg7fj'); ">(Hide)</a></div></div><div name="anchor-3vbg7fj" id="anchor-3vbg7fj" class="flexParent flexElement overflowHidden defaultSectionContent"><div id="anchor-3vbg7fj" class="flexParent flexElement overflowHidden defaultSectionContent collapsable"><div id="anchor-2esfiar" class="flexPanel overflowHidden defaultPanel"><div class="flexElement" id="ChartID-fh8npu36"></div></div><div id="anchor-d0wq9hs" class="flexPanel overflowHidden defaultPanel"><div class="flexElement" id="ChartID-8klievx3"></div></div></div></div></div><div class="defaultSection overflowHidden "><div class="defaultSectionHead"><div class="defaultSectionText"><a name="Line Charts - Test">Line Charts - Test </a>&nbsp;<a id="show_anchor-860bdw2" href="javascript:void(0)" onclick="show('anchor-860bdw2'); " style="display:none">(Show)</a><a id="hide_anchor-860bdw2" href="javascript:void(0)" onclick="hide('anchor-860bdw2'); ">(Hide)</a></div></div><div name="anchor-860bdw2" id="anchor-860bdw2" class="flexParent flexElement overflowHidden defaultSectionContent"><div id="anchor-860bdw2" class="flexParent flexElement overflowHidden defaultSectionContent collapsable"><div id="anchor-oq61j9t" class="flexPanel overflowHidden defaultPanel"><div class="flexElement" id="ChartID-khi9e7zq"></div></div><div id="anchor-wh78syb" class="flexPanel overflowHidden defaultPanel"><div class="flexElement" id="ChartID-3dumj56l"></div></div></div></div></div><div class="defaultSection overflowHidden "><div class="defaultSectionHead"><div class="defaultSectionText"><a name="Line Charts - Test">Line Charts - Test </a>&nbsp;<a id="show_anchor-gkf7dzc" href="javascript:void(0)" onclick="show('anchor-gkf7dzc'); " style="display:none">(Show)</a><a id="hide_anchor-gkf7dzc" href="javascript:void(0)" onclick="hide('anchor-gkf7dzc'); ">(Hide)</a></div></div><div name="anchor-gkf7dzc" id="anchor-gkf7dzc" class="flexParent flexElement overflowHidden defaultSectionContent"><div id="anchor-gkf7dzc" class="flexParent flexElement overflowHidden defaultSectionContent collapsable"><div id="anchor-rx8wltu" class="flexPanel overflowHidden defaultPanel"><div class="flexElement" id="ChartID-zaw7gb9v"></div></div><div id="anchor-3wean14" class="flexPanel overflowHidden defaultPanel"><div class="flexElement" id="ChartID-zy5w0d4j"></div></div></div></div></div><div class="defaultSection overflowHidden "><div class="defaultSectionHead"><div class="defaultSectionText"><a name="Line Charts - Test">Line Charts - Test </a>&nbsp;<a id="show_anchor-sultpj5" href="javascript:void(0)" onclick="show('anchor-sultpj5'); " style="display:none">(Show)</a><a id="hide_anchor-sultpj5" href="javascript:void(0)" onclick="hide('anchor-sultpj5'); ">(Hide)</a></div></div><div name="anchor-sultpj5" id="anchor-sultpj5" class="flexParent flexElement overflowHidden defaultSectionContent"><div id="anchor-sultpj5" class="flexParent flexElement overflowHidden defaultSectionContent collapsable"><div id="anchor-o1ejxfc" class="flexPanel overflowHidden defaultPanel"><div class="flexElement" id="ChartID-hvdn9aqi"></div></div><div id="anchor-dpy9g1s" class="flexPanel overflowHidden defaultPanel"><div class="flexElement" id="ChartID-f8c0eh4a"></div></div></div></div></div></div></div><script>var options = {
-    "chart":  {
-                  "height":  350,
-                  "type":  "line"
-              },
-    "series":  [
-                   {
-                       "name":  "Incidents per month",
-                       "data":  [
-                                    10,
-                                    41,
-                                    35,
-                                    51,
-                                    49,
-                                    62,
-                                    69,
-                                    91,
-                                    148
-                                ]
-                   },
-                   {
-                       "name":  "Incidents per month resolved",
-                       "data":  [
-                                    5,
-                                    10,
-                                    20,
-                                    31,
-                                    49,
-                                    62,
-                                    69,
-                                    91,
-                                    148
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "type":  "category",
-                  "categories":  [
-                                     "Jan",
-                                     "Feb",
-                                     "Mar",
-                                     "Apr",
-                                     "May",
-                                     "Jun",
-                                     "Jul",
-                                     "Aug",
-                                     "Sep"
-                                 ]
-              },
-    "stroke":  {
-                   "show":  true,
-                   "curve":  [
-                                 "straight",
-                                 "straight"
-                             ],
-                   "width":  [
-                                 6,
-                                 6
-                             ],
-                   "lineCap":  [
-                                   "butt",
-                                   "butt"
-                               ]
-               },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "title":  {
-                  "text":  "Incidents Reported vs Solved",
-                  "align":  "center"
-              }
-}
-var chart = new ApexCharts(document.querySelector('#ChartID-fh8npu36'),
-            options
-        );
-chart.render();
-</script><script>var options = {
-    "chart":  {
-                  "height":  350,
-                  "type":  "line"
-              },
-    "series":  [
-                   {
-                       "name":  "Incidents per month",
-                       "data":  [
-                                    10,
-                                    41,
-                                    35,
-                                    51,
-                                    49,
-                                    62,
-                                    69,
-                                    91,
-                                    148
-                                ]
-                   },
-                   {
-                       "name":  "Incidents per month resolved",
-                       "data":  [
-                                    5,
-                                    10,
-                                    20,
-                                    31,
-                                    49,
-                                    62,
-                                    69,
-                                    91,
-                                    148
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "type":  "category",
-                  "categories":  [
-                                     "Jan",
-                                     "Feb",
-                                     "Mar",
-                                     "Apr",
-                                     "May",
-                                     "Jun",
-                                     "Jul",
-                                     "Aug",
-                                     "Sep"
-                                 ]
-              },
-    "stroke":  {
-                   "show":  true,
-                   "curve":  [
-                                 "straight",
-                                 "stepline"
-                             ],
-                   "width":  [
-                                 6,
-                                 10
-                             ],
-                   "colors":  [
-                                  "#ff0000",
-                                  "#008000"
-                              ],
-                   "lineCap":  [
-                                   "square",
-                                   "butt"
-                               ],
-                   "dashArray":  [
-                                     5
-                                 ]
-               },
-    "colors":  [
-                   "#ff0000",
-                   "#008000"
-               ],
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "title":  {
-                  "text":  "Incidents Reported vs Solved",
-                  "align":  "center"
-              }
-}
-var chart = new ApexCharts(document.querySelector('#ChartID-8klievx3'),
-            options
-        );
-chart.render();
-</script><script>var options = {
-    "chart":  {
-                  "height":  350,
-                  "type":  "line"
-              },
-    "series":  [
-                   {
-                       "name":  "Desktop",
-                       "data":  [
-                                    10,
-                                    41,
-                                    35,
-                                    51,
-                                    49,
-                                    62,
-                                    69,
-                                    91,
-                                    148
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "type":  "category",
-                  "categories":  [
-                                     "Jan",
-                                     "Feb",
-                                     "Mar",
-                                     "Apr",
-                                     "May",
-                                     "Jun",
-                                     "Jul",
-                                     "Aug",
-                                     "Sep"
-                                 ]
-              },
-    "stroke":  {
-                   "show":  true,
-                   "curve":  [
-                                 "straight"
-                             ],
-                   "width":  [
-                                 6
-                             ],
-                   "lineCap":  [
-                                   "butt"
-                               ]
-               },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "title":  {
-                  "text":  "Product Trends by Month",
-                  "align":  "center"
-              }
-}
-var chart = new ApexCharts(document.querySelector('#ChartID-khi9e7zq'),
-            options
-        );
-chart.render();
-</script><script>var options = {
-    "chart":  {
-                  "height":  350,
-                  "type":  "line"
-              },
-    "series":  [
-                   {
-                       "name":  "High - 2013",
-                       "data":  [
-                                    28,
-                                    29,
-                                    33,
-                                    36,
-                                    32,
-                                    32,
-                                    33
-                                ]
-                   },
-                   {
-                       "name":  "Low - 2013",
-                       "data":  [
-                                    12,
-                                    11,
-                                    14,
-                                    18,
-                                    17,
-                                    13,
-                                    13
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "type":  "category",
-                  "categories":  [
-                                     "Jan",
-                                     "Feb",
-                                     "Mar",
-                                     "Apr",
-                                     "May",
-                                     "Jun",
-                                     "Jul"
-                                 ]
-              },
-    "stroke":  {
-                   "show":  true,
-                   "curve":  [
-                                 "straight",
-                                 "straight"
-                             ],
-                   "width":  [
-                                 6,
-                                 6
-                             ],
-                   "lineCap":  [
-                                   "butt",
-                                   "butt"
-                               ]
-               },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "title":  {
-                  "text":  "Average High & Low Temperature",
-                  "align":  "left"
-              }
-}
-var chart = new ApexCharts(document.querySelector('#ChartID-3dumj56l'),
-            options
-        );
-chart.render();
-</script><script>var options = {
-    "chart":  {
-                  "height":  350,
-                  "type":  "line"
-              },
-    "series":  [
-                   {
-                       "name":  "Desktop",
-                       "data":  [
-                                    10,
-                                    41,
-                                    35,
-                                    51,
-                                    49,
-                                    62,
-                                    69,
-                                    91,
-                                    148
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "type":  "category",
-                  "categories":  [
-                                     "Jan",
-                                     "Feb",
-                                     "Mar",
-                                     "Apr",
-                                     "May",
-                                     "Jun",
-                                     "Jul",
-                                     "Aug",
-                                     "Sep"
-                                 ]
-              },
-    "stroke":  {
-                   "show":  true,
-                   "curve":  [
-                                 "straight"
-                             ],
-                   "width":  [
-                                 6
-                             ],
-                   "lineCap":  [
-                                   "butt"
-                               ]
-               },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "title":  {
-                  "text":  "Product Trends by Month",
-                  "align":  "center"
-              }
-}
-var chart = new ApexCharts(document.querySelector('#ChartID-zaw7gb9v'),
-            options
-        );
-chart.render();
-</script><script>var options = {
-    "chart":  {
-                  "height":  350,
-                  "type":  "line"
-              },
-    "series":  [
-                   {
-                       "name":  "High - 2013",
-                       "data":  [
-                                    28,
-                                    29,
-                                    33,
-                                    36,
-                                    32,
-                                    32,
-                                    33
-                                ]
-                   },
-                   {
-                       "name":  "Low - 2013",
-                       "data":  [
-                                    12,
-                                    11,
-                                    14,
-                                    18,
-                                    17,
-                                    13,
-                                    13
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "type":  "category",
-                  "categories":  [
-                                     "Jan",
-                                     "Feb",
-                                     "Mar",
-                                     "Apr",
-                                     "May",
-                                     "Jun",
-                                     "Jul"
-                                 ]
-              },
-    "stroke":  {
-                   "show":  true,
-                   "curve":  [
-                                 "straight",
-                                 "straight"
-                             ],
-                   "width":  [
-                                 6,
-                                 6
-                             ],
-                   "colors":  [
-                                  "#ff0000",
-                                  "#8a2be2"
-                              ],
-                   "lineCap":  [
-                                   "square",
-                                   "butt"
-                               ],
-                   "dashArray":  [
-                                     5
-                                 ]
-               },
-    "colors":  [
-                   "#ff0000",
-                   "#8a2be2"
-               ],
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "title":  {
-                  "text":  "Average High & Low Temperature",
-                  "align":  "left"
-              }
-}
-var chart = new ApexCharts(document.querySelector('#ChartID-zy5w0d4j'),
-            options
-        );
-chart.render();
-</script><script>var options = {
-    "chart":  {
-                  "height":  350,
-                  "type":  "line"
-              },
-    "series":  [
-                   {
-                       "name":  "Desktop",
-                       "data":  [
-                                    10,
-                                    41,
-                                    35,
-                                    51,
-                                    49,
-                                    62,
-                                    69,
-                                    91,
-                                    148
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "type":  "category",
-                  "categories":  [
-                                     "Jan",
-                                     "Feb",
-                                     "Mar",
-                                     "Apr",
-                                     "May",
-                                     "Jun",
-                                     "Jul",
-                                     "Aug",
-                                     "Sep"
-                                 ]
-              },
-    "stroke":  {
-                   "show":  true,
-                   "curve":  [
-                                 "stepline"
-                             ],
-                   "width":  [
-                                 10
-                             ],
-                   "lineCap":  [
-                                   "butt"
-                               ]
-               },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "title":  {
-                  "text":  "Product Trends by Month",
-                  "align":  "center"
-              }
-}
-var chart = new ApexCharts(document.querySelector('#ChartID-hvdn9aqi'),
-            options
-        );
-chart.render();
-</script><script>var options = {
-    "chart":  {
-                  "height":  350,
-                  "type":  "line"
-              },
-    "series":  [
-                   {
-                       "name":  "High - 2013",
-                       "data":  [
-                                    28,
-                                    29,
-                                    33,
-                                    36,
-                                    32,
-                                    32,
-                                    33
-                                ]
-                   },
-                   {
-                       "name":  "Low - 2013",
-                       "data":  [
-                                    12,
-                                    11,
-                                    14,
-                                    18,
-                                    17,
-                                    13,
-                                    13
-                                ]
-                   }
-               ],
-    "xaxis":  {
-                  "type":  "category",
-                  "title":  {
-                                "text":  "Month"
+                var topSectionDiv = document.getElementById(obj).parentNode
+                var flexDirection = window.getComputedStyle(topSectionDiv).getPropertyValue("flex-direction");
+                if (flexDirection == 'column') {
+                    //console.log('flexDirection 1' + flexDirection)
+                } else {
+                    document.getElementById(obj).parentNode.classList.remove('sectionShow');
+                    document.getElementById(obj).parentNode.classList.add('sectionHide');
+                    //console.log('flexDirection 2' + flexDirection)
+                }
+            }
+        </script>
+        <style>
+            .defaultPanel {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+                border-radius: 5px;
+                margin: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="main-section">
+            <div class="tabsWrapper">
+                <div class="tabsSlimmer">
+                    <div data-tabs="true">
+                        <div id="Tab-fgan5dpb" class="active"><span class="far fa-hourglass"></span>&nbsp;<span>Line Charts</span></div>
+                    </div>
+                </div>
+            </div>
+            <div data-panes="true">
+                <div id="Tab-fgan5dpb-Content" class="active">
+                    <div class="defaultSection overflowHidden ">
+                        <div class="defaultSectionHead">
+                            <div class="defaultSectionText"><a name="Line Charts - Test">Line Charts - Test </a>&nbsp;<a id="show_anchor-h8crqnm" href="javascript:void(0)" onclick="show('anchor-h8crqnm'); " style="display:none">(Show)</a><a id="hide_anchor-h8crqnm" href="javascript:void(0)" onclick="hide('anchor-h8crqnm'); ">(Hide)</a></div>
+                        </div>
+                        <div name="anchor-h8crqnm" id="anchor-h8crqnm" class="flexParent flexElement overflowHidden defaultSectionContent">
+                            <div id="anchor-h8crqnm" class="flexParent flexElement overflowHidden defaultSectionContent collapsable">
+                                <div id="anchor-qm1fi5n" class="flexPanel overflowHidden defaultPanel">
+                                    <div class="flexElement" id="ChartID-2b3srodq"></div>
+                                </div>
+                                <div id="anchor-zgfmyos" class="flexPanel overflowHidden defaultPanel">
+                                    <div class="flexElement" id="ChartID-8q153twu"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="defaultSection overflowHidden ">
+                        <div class="defaultSectionHead">
+                            <div class="defaultSectionText"><a name="Line Charts - Test">Line Charts - Test </a>&nbsp;<a id="show_anchor-b0pz8f9" href="javascript:void(0)" onclick="show('anchor-b0pz8f9'); " style="display:none">(Show)</a><a id="hide_anchor-b0pz8f9" href="javascript:void(0)" onclick="hide('anchor-b0pz8f9'); ">(Hide)</a></div>
+                        </div>
+                        <div name="anchor-b0pz8f9" id="anchor-b0pz8f9" class="flexParent flexElement overflowHidden defaultSectionContent">
+                            <div id="anchor-b0pz8f9" class="flexParent flexElement overflowHidden defaultSectionContent collapsable">
+                                <div id="anchor-fzymgdv" class="flexPanel overflowHidden defaultPanel">
+                                    <div class="flexElement" id="ChartID-f58rnavi"></div>
+                                </div>
+                                <div id="anchor-bjqewyn" class="flexPanel overflowHidden defaultPanel">
+                                    <div class="flexElement" id="ChartID-mpcdgf7z"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="defaultSection overflowHidden ">
+                        <div class="defaultSectionHead">
+                            <div class="defaultSectionText"><a name="Line Charts - Test">Line Charts - Test </a>&nbsp;<a id="show_anchor-n5kbyuq" href="javascript:void(0)" onclick="show('anchor-n5kbyuq'); " style="display:none">(Show)</a><a id="hide_anchor-n5kbyuq" href="javascript:void(0)" onclick="hide('anchor-n5kbyuq'); ">(Hide)</a></div>
+                        </div>
+                        <div name="anchor-n5kbyuq" id="anchor-n5kbyuq" class="flexParent flexElement overflowHidden defaultSectionContent">
+                            <div id="anchor-n5kbyuq" class="flexParent flexElement overflowHidden defaultSectionContent collapsable">
+                                <div id="anchor-yojlgvs" class="flexPanel overflowHidden defaultPanel">
+                                    <div class="flexElement" id="ChartID-vesx04yl"></div>
+                                </div>
+                                <div id="anchor-hn4sxb2" class="flexPanel overflowHidden defaultPanel">
+                                    <div class="flexElement" id="ChartID-v8ml7k01"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="defaultSection overflowHidden ">
+                        <div class="defaultSectionHead">
+                            <div class="defaultSectionText"><a name="Line Charts - Test">Line Charts - Test </a>&nbsp;<a id="show_anchor-bfoaeh9" href="javascript:void(0)" onclick="show('anchor-bfoaeh9'); " style="display:none">(Show)</a><a id="hide_anchor-bfoaeh9" href="javascript:void(0)" onclick="hide('anchor-bfoaeh9'); ">(Hide)</a></div>
+                        </div>
+                        <div name="anchor-bfoaeh9" id="anchor-bfoaeh9" class="flexParent flexElement overflowHidden defaultSectionContent">
+                            <div id="anchor-bfoaeh9" class="flexParent flexElement overflowHidden defaultSectionContent collapsable">
+                                <div id="anchor-aop1gch" class="flexPanel overflowHidden defaultPanel">
+                                    <div class="flexElement" id="ChartID-xdsgpq4a"></div>
+                                </div>
+                                <div id="anchor-ocrudmh" class="flexPanel overflowHidden defaultPanel">
+                                    <div class="flexElement" id="ChartID-pyewm9go"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>var options = {
+                    "chart": {
+                        "height": 350,
+                        events: {
+                            dataPointSelection: function (event, chartContext, config) {
+                                //console.log('Data point index: ' + config.dataPointIndex + ' Series Index: ' + config.seriesIndex);
+                                if (['donut', 'pie', 'radialBar', 'Mango'].includes(config.w.config.chart.type)) {
+                                    console.log(config.w.config.series[config.dataPointIndex]);
+                                    console.log(config.w.config.labels[config.dataPointIndex]);
+                                } else {
+                                    console.log(config.w.config.series[config.seriesIndex].data[config.dataPointIndex]);
+                                    console.log(config.w.config.series[config.seriesIndex].name);
+                                }
+                                console.log(config);
                             },
-                  "categories":  [
-                                     "Jan",
-                                     "Feb",
-                                     "Mar",
-                                     "Apr",
-                                     "May",
-                                     "Jun",
-                                     "Jul"
-                                 ]
-              },
-    "stroke":  {
-                   "show":  true,
-                   "curve":  [
-                                 "smooth",
-                                 "smooth"
-                             ],
-                   "width":  [
-                                 6,
-                                 6
-                             ],
-                   "lineCap":  [
-                                   "butt",
-                                   "butt"
-                               ]
-               },
-    "dataLabels":  {
-                       "enabled":  true,
-                       "offsetX":  -6,
-                       "style":  {
-                                     "fontSize":  "12px"
-                                 }
-                   },
-    "yaxis":  {
-                  "title":  {
-                                "text":  "Temperature",
-                                "rotate":  90,
-                                "offsetX":  0,
-                                "offsetY":  0,
-                                "style":  {
-                                              "fontSize":  12,
-                                              "fontFamily":  "Helvetica, Arial, sans-serif"
-                                          }
-                            },
-                  "showAlways":  true,
-                  "show":  true
-              },
-    "title":  {
-                  "text":  "Average High & Low Temperature",
-                  "align":  "left"
-              },
-    "grid":  {
-                 "Show":  true,
-                 "strokeDashArray":  5,
-                 "position":  "front",
-                 "xaxis":  {
-                               "lines":  {
-                                             "show":  true
-                                         }
-                           },
-                 "yaxis":  {
-                               "lines":  {
-                                             "show":  false
-                                         }
-                           },
-                 "row":  {
-                             "colors":  [
-                                            "#7fffd4",
-                                            "#008b8b"
-                                        ],
-                             "opacity":  0.5
-                         }
-             }
-}
-var chart = new ApexCharts(document.querySelector('#ChartID-f8c0eh4a'),
-            options
-        );
-chart.render();
-</script></div><footer><script type="text/javascript">var tabbis = (function () {
-    var fn = {};
+                            click: function (event, chartContext, config) {
+                                console.log('Data point index: ' + config.dataPointIndex + ' Series Index: ' + config.seriesIndex);
+                                console.log(config);
+                                // The last parameter config contains additional information like `seriesIndex` and `dataPointIndex` for cartesian charts
+                            }
+                        },
+                        "type": "line"
+                    },
+                    "series": [{
+                        "name": "Incidents per month",
+                        "data": [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                    }, {
+                        "name": "Incidents per month resolved",
+                        "data": [5, 10, 20, 31, 49, 62, 69, 91, 148]
+                    }],
+                    "xaxis": {
+                        "type": "category",
+                        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+                    },
+                    "stroke": {
+                        "show": true,
+                        "curve": ["straight", "straight"],
+                        "width": [6, 6],
+                        "lineCap": ["butt", "butt"]
+                    },
+                    "dataLabels": {
+                        "enabled": true,
+                        "offsetX": -6,
+                        "style": {
+                            "fontSize": "12px"
+                        }
+                    },
+                    "title": {
+                        "text": "Incidents Reported vs Solved",
+                        "align": "center"
+                    }
+                }
+                var chart = new ApexCharts(document.querySelector('#ChartID-2b3srodq'),
+                    options
+                );
+                chart.render();
+            </script>
+            <script>var options = {
+                    "chart": {
+                        "height": 350,
+                        "type": "line"
+                    },
+                    "series": [{
+                        "name": "Incidents per month",
+                        "data": [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                    }, {
+                        "name": "Incidents per month resolved",
+                        "data": [5, 10, 20, 31, 49, 62, 69, 91, 148]
+                    }],
+                    "xaxis": {
+                        "type": "category",
+                        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+                    },
+                    "stroke": {
+                        "show": true,
+                        "curve": ["straight", "stepline"],
+                        "width": [6, 10],
+                        "colors": ["#ff0000", "#008000"],
+                        "lineCap": ["square", "butt"],
+                        "dashArray": [5]
+                    },
+                    "colors": ["#ff0000", "#008000"],
+                    "dataLabels": {
+                        "enabled": true,
+                        "offsetX": -6,
+                        "style": {
+                            "fontSize": "12px"
+                        }
+                    },
+                    "title": {
+                        "text": "Incidents Reported vs Solved",
+                        "align": "center"
+                    }
+                }
+                var chart = new ApexCharts(document.querySelector('#ChartID-8q153twu'),
+                    options
+                );
+                chart.render();
+            </script>
+            <script>var options = {
+                    "chart": {
+                        "height": 350,
+                        "type": "line"
+                    },
+                    "series": [{
+                        "name": "Desktop",
+                        "data": [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                    }],
+                    "xaxis": {
+                        "type": "category",
+                        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+                    },
+                    "stroke": {
+                        "show": true,
+                        "curve": ["straight"],
+                        "width": [6],
+                        "lineCap": ["butt"]
+                    },
+                    "dataLabels": {
+                        "enabled": true,
+                        "offsetX": -6,
+                        "style": {
+                            "fontSize": "12px"
+                        }
+                    },
+                    "title": {
+                        "text": "Product Trends by Month",
+                        "align": "center"
+                    }
+                }
+                var chart = new ApexCharts(document.querySelector('#ChartID-f58rnavi'),
+                    options
+                );
+                chart.render();
+            </script>
+            <script>var options = {
+                    "chart": {
+                        "height": 350,
+                        "type": "line"
+                    },
+                    "series": [{
+                        "name": "High - 2013",
+                        "data": [28, 29, 33, 36, 32, 32, 33]
+                    }, {
+                        "name": "Low - 2013",
+                        "data": [12, 11, 14, 18, 17, 13, 13]
+                    }],
+                    "xaxis": {
+                        "type": "category",
+                        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"]
+                    },
+                    "stroke": {
+                        "show": true,
+                        "curve": ["straight", "straight"],
+                        "width": [6, 6],
+                        "lineCap": ["butt", "butt"]
+                    },
+                    "dataLabels": {
+                        "enabled": true,
+                        "offsetX": -6,
+                        "style": {
+                            "fontSize": "12px"
+                        }
+                    },
+                    "title": {
+                        "text": "Average High & Low Temperature",
+                        "align": "left"
+                    }
+                }
+                var chart = new ApexCharts(document.querySelector('#ChartID-mpcdgf7z'),
+                    options
+                );
+                chart.render();
+            </script>
+            <script>var options = {
+                    "chart": {
+                        "height": 350,
+                        "type": "line"
+                    },
+                    "series": [{
+                        "name": "Desktop",
+                        "data": [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                    }],
+                    "xaxis": {
+                        "type": "category",
+                        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+                    },
+                    "stroke": {
+                        "show": true,
+                        "curve": ["straight"],
+                        "width": [6],
+                        "lineCap": ["butt"]
+                    },
+                    "dataLabels": {
+                        "enabled": true,
+                        "offsetX": -6,
+                        "style": {
+                            "fontSize": "12px"
+                        }
+                    },
+                    "title": {
+                        "text": "Product Trends by Month",
+                        "align": "center"
+                    }
+                }
+                var chart = new ApexCharts(document.querySelector('#ChartID-vesx04yl'),
+                    options
+                );
+                chart.render();
+            </script>
+            <script>var options = {
+                    "chart": {
+                        "height": 350,
+                        "type": "line"
+                    },
+                    "series": [{
+                        "name": "High - 2013",
+                        "data": [28, 29, 33, 36, 32, 32, 33]
+                    }, {
+                        "name": "Low - 2013",
+                        "data": [12, 11, 14, 18, 17, 13, 13]
+                    }],
+                    "xaxis": {
+                        "type": "category",
+                        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"]
+                    },
+                    "stroke": {
+                        "show": true,
+                        "curve": ["straight", "straight"],
+                        "width": [6, 6],
+                        "colors": ["#ff0000", "#8a2be2"],
+                        "lineCap": ["square", "butt"],
+                        "dashArray": [5]
+                    },
+                    "colors": ["#ff0000", "#8a2be2"],
+                    "dataLabels": {
+                        "enabled": true,
+                        "offsetX": -6,
+                        "style": {
+                            "fontSize": "12px"
+                        }
+                    },
+                    "title": {
+                        "text": "Average High & Low Temperature",
+                        "align": "left"
+                    }
+                }
+                var chart = new ApexCharts(document.querySelector('#ChartID-v8ml7k01'),
+                    options
+                );
+                chart.render();
+            </script>
+            <script>var options = {
+                    "chart": {
+                        "height": 350,
+                        "type": "line"
+                    },
+                    "series": [{
+                        "name": "Desktop",
+                        "data": [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                    }],
+                    "xaxis": {
+                        "type": "category",
+                        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+                    },
+                    "stroke": {
+                        "show": true,
+                        "curve": ["stepline"],
+                        "width": [10],
+                        "lineCap": ["butt"]
+                    },
+                    "dataLabels": {
+                        "enabled": true,
+                        "offsetX": -6,
+                        "style": {
+                            "fontSize": "12px"
+                        }
+                    },
+                    "title": {
+                        "text": "Product Trends by Month",
+                        "align": "center"
+                    }
+                }
+                var chart = new ApexCharts(document.querySelector('#ChartID-xdsgpq4a'),
+                    options
+                );
+                chart.render();
+            </script>
+            <script>var options = {
+                    "chart": {
+                        "height": 350,
+                        "type": "line"
+                    },
+                    "series": [{
+                        "name": "High - 2013",
+                        "data": [28, 29, 33, 36, 32, 32, 33]
+                    }, {
+                        "name": "Low - 2013",
+                        "data": [12, 11, 14, 18, 17, 13, 13]
+                    }],
+                    "xaxis": {
+                        "type": "category",
+                        "title": {
+                            "text": "Month"
+                        },
+                        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"]
+                    },
+                    "stroke": {
+                        "show": true,
+                        "curve": ["smooth", "smooth"],
+                        "width": [6, 6],
+                        "lineCap": ["butt", "butt"]
+                    },
+                    "dataLabels": {
+                        "enabled": true,
+                        "offsetX": -6,
+                        "style": {
+                            "fontSize": "12px"
+                        }
+                    },
+                    "yaxis": {
+                        "title": {
+                            "text": "Temperature",
+                            "rotate": 90,
+                            "offsetX": 0,
+                            "offsetY": 0,
+                            "style": {
+                                "fontSize": 12,
+                                "fontFamily": "Helvetica, Arial, sans-serif"
+                            }
+                        },
+                        "showAlways": true,
+                        "show": true
+                    },
+                    "title": {
+                        "text": "Average High & Low Temperature",
+                        "align": "left"
+                    },
+                    "grid": {
+                        "Show": true,
+                        "strokeDashArray": 5,
+                        "position": "front",
+                        "xaxis": {
+                            "lines": {
+                                "show": true
+                            }
+                        },
+                        "yaxis": {
+                            "lines": {
+                                "show": false
+                            }
+                        },
+                        "row": {
+                            "colors": ["#7fffd4", "#008b8b"],
+                            "opacity": 0.5
+                        }
+                    }
+                }
+                var chart = new ApexCharts(document.querySelector('#ChartID-pyewm9go'),
+                    options
+                );
+                chart.render();
+            </script>
+        </div>
+        <footer>
+            <script type="text/javascript">var tabbis = (function () {
+                    var fn = {};
 
-    var data;
-    var types = ['tab', 'pane'];
-    var type;
-    var groups = [];
-    var activeGroups = [];
-    var activeChildren = [];
-    var activeItems = [];
-    var indexGroup;
-    var indexItem;
-    var memory = [];
+                    var data;
+                    var types = ['tab', 'pane'];
+                    var type;
+                    var groups = [];
+                    var activeGroups = [];
+                    var activeChildren = [];
+                    var activeItems = [];
+                    var indexGroup;
+                    var indexItem;
+                    var memory = [];
 
-    fn.init = function (options) {
-        data = options;
-        fn.setDefaults();
-        fn.setMemory();
+                    fn.init = function (options) {
+                        data = options;
+                        fn.setDefaults();
+                        fn.setMemory();
 
-        groups['tab'] = document.querySelectorAll(data.tabGroup);
-        groups['pane'] = document.querySelectorAll(data.paneGroup);
+                        groups['tab'] = document.querySelectorAll(data.tabGroup);
+                        groups['pane'] = document.querySelectorAll(data.paneGroup);
 
-        for (var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++) {
-            var tabItems = groups['tab'][groupIndex].children;
+                        for (var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++) {
+                            var tabItems = groups['tab'][groupIndex].children;
 
-            for (var itemIndex = 0; itemIndex < tabItems.length; itemIndex++) {
-                tabItems[itemIndex].addEventListener('click', fn.onClick.bind(this, groupIndex, itemIndex), false);
+                            for (var itemIndex = 0; itemIndex < tabItems.length; itemIndex++) {
+                                tabItems[itemIndex].addEventListener('click', fn.onClick.bind(this, groupIndex, itemIndex), false);
 
-                indexGroup = groupIndex;
-                indexItem = itemIndex;
+                                indexGroup = groupIndex;
+                                indexItem = itemIndex;
 
-                if (!fn.hasMemory()) continue;
-                fn.setNodes(groupIndex, itemIndex);
-            }
-        }
-    };
+                                if (!fn.hasMemory()) continue;
+                                fn.setNodes(groupIndex, itemIndex);
+                            }
+                        }
+                    };
 
-    fn.onClick = function (groupIndex, itemIndex) {
-        fn.setNodes(groupIndex, itemIndex);
-        fn.setCallback(indexGroup, indexItem);
-    };
+                    fn.onClick = function (groupIndex, itemIndex) {
+                        fn.setNodes(groupIndex, itemIndex);
+                        fn.setCallback(indexGroup, indexItem);
+                    };
 
-    fn.setNodes = function (groupIndex, itemIndex) {
-        indexGroup = groupIndex;
-        indexItem = itemIndex;
+                    fn.setNodes = function (groupIndex, itemIndex) {
+                        indexGroup = groupIndex;
+                        indexItem = itemIndex;
 
-        for (var i = 0; i < types.length; i++) {
-            type = types[i];
+                        for (var i = 0; i < types.length; i++) {
+                            type = types[i];
 
-            fn.setActiveGroup();
-            fn.setActiveChildren();
-            fn.setActiveItems();
-            fn.putActiveClass();
-        }
+                            fn.setActiveGroup();
+                            fn.setActiveChildren();
+                            fn.setActiveItems();
+                            fn.putActiveClass();
+                        }
 
-        memory[groupIndex] = [];
-        memory[groupIndex][itemIndex] = true;
+                        memory[groupIndex] = [];
+                        memory[groupIndex][itemIndex] = true;
 
-        try {
-            localStorage.setItem('tabbis', JSON.stringify(memory));
-        } catch (e) {
-            console.log('Tabs local storage failed. Most likely IE in use.')
-        }
-    };
+                        try {
+                            localStorage.setItem('tabbis', JSON.stringify(memory));
+                        } catch (e) {
+                            console.log('Tabs local storage failed. Most likely IE in use.')
+                        }
+                    };
 
-    //fn.hasMemory = function () {
-    //    if (typeof memory === 'undefined') return;
-    //    if (typeof memory[indexGroup] === 'undefined') return;
-    //    if (typeof memory[indexGroup][indexItem] === 'undefined') return;
-    //    if (memory[indexGroup][indexItem] !== true) return;
-    //    return true;
-    //};
+                    //fn.hasMemory = function () {
+                    //    if (typeof memory === 'undefined') return;
+                    //    if (typeof memory[indexGroup] === 'undefined') return;
+                    //    if (typeof memory[indexGroup][indexItem] === 'undefined') return;
+                    //    if (memory[indexGroup][indexItem] !== true) return;
+                    //    return true;
+                    //};
 
-    fn.hasMemory = function () {
-        // https://stackoverflow.com/questions/41902495/javascript-multidimensional-array-is-valid
+                    fn.hasMemory = function () {
+                        // https://stackoverflow.com/questions/41902495/javascript-multidimensional-array-is-valid
 
-        if (typeof memory === 'undefined') return;
-        if (typeof memory[indexGroup] === 'undefined') return;
-        if (memory[indexGroup] === null) return;
-        if (typeof memory[indexGroup][indexItem] === 'undefined') return;
-        if (memory[indexGroup][indexItem] === null) return;
-        if (memory[indexGroup][indexItem] !== true) return;
-        return true;
-    };
+                        if (typeof memory === 'undefined') return;
+                        if (typeof memory[indexGroup] === 'undefined') return;
+                        if (memory[indexGroup] === null) return;
+                        if (typeof memory[indexGroup][indexItem] === 'undefined') return;
+                        if (memory[indexGroup][indexItem] === null) return;
+                        if (memory[indexGroup][indexItem] !== true) return;
+                        return true;
+                    };
 
-    fn.setMemory = function () {
-        try {
-            if (localStorage.getItem('tabbis') === null) return;
-            if (localStorage.getItem('tabbis').length == 0) return;
+                    fn.setMemory = function () {
+                        try {
+                            if (localStorage.getItem('tabbis') === null) return;
+                            if (localStorage.getItem('tabbis').length == 0) return;
 
-            memory = Object.values(JSON.parse(localStorage.getItem('tabbis')));
-        } catch (e) {
-            console.log('Tabs local storage failed. Most likely IE in use.')
-        }
-    };
+                            memory = Object.values(JSON.parse(localStorage.getItem('tabbis')));
+                        } catch (e) {
+                            console.log('Tabs local storage failed. Most likely IE in use.')
+                        }
+                    };
 
-    fn.putActiveClass = function () {
-        for (var i = 0; i < activeChildren[type].length; i++) {
-            activeChildren[type][i].classList.remove(data[type + 'Active']);
-        }
+                    fn.putActiveClass = function () {
+                        for (var i = 0; i < activeChildren[type].length; i++) {
+                            activeChildren[type][i].classList.remove(data[type + 'Active']);
+                        }
 
-        activeItems[type].classList.add(data[type + 'Active']);
-    };
+                        activeItems[type].classList.add(data[type + 'Active']);
+                    };
 
-    fn.setDefaults = function () {
-        for (var i = 0; i < types.length; i++) {
-            type = types[i];
+                    fn.setDefaults = function () {
+                        for (var i = 0; i < types.length; i++) {
+                            type = types[i];
 
-            fn.setOption(type + 'Group', '[data-' + type + 's]');
-            fn.setOption(type + 'Active', 'active');
-        }
-    };
+                            fn.setOption(type + 'Group', '[data-' + type + 's]');
+                            fn.setOption(type + 'Active', 'active');
+                        }
+                    };
 
-    fn.setOption = function (key, value) {
-        data = data || [];
-        data[key] = data[key] || value;
-    };
+                    fn.setOption = function (key, value) {
+                        data = data || [];
+                        data[key] = data[key] || value;
+                    };
 
-    fn.setActiveGroup = function () {
-        activeGroups[type] = groups[type][indexGroup];
-    };
+                    fn.setActiveGroup = function () {
+                        activeGroups[type] = groups[type][indexGroup];
+                    };
 
-    fn.setActiveChildren = function () {
-        activeChildren[type] = activeGroups[type].children;
-    };
+                    fn.setActiveChildren = function () {
+                        activeChildren[type] = activeGroups[type].children;
+                    };
 
-    fn.setActiveItems = function () {
-        activeItems[type] = activeChildren[type][indexItem];
-    };
+                    fn.setActiveItems = function () {
+                        activeItems[type] = activeChildren[type][indexItem];
+                    };
 
-    fn.setCallback = function () {
-        if (typeof data.callback === "function") {
-            data.callback(activeItems.tab, activeItems.pane);
-        }
-    };
+                    fn.setCallback = function () {
+                        if (typeof data.callback === "function") {
+                            data.callback(activeItems.tab, activeItems.pane);
+                        }
+                    };
 
-    fn.reset = function () {
-        for (var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++) {
-            tabItems = groups['tab'][groupIndex].children;
-            paneItems = groups['pane'][groupIndex].children;
+                    fn.reset = function () {
+                        for (var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++) {
+                            tabItems = groups['tab'][groupIndex].children;
+                            paneItems = groups['pane'][groupIndex].children;
 
-            for (var itemIndex = 0; itemIndex < tabItems.length; itemIndex++) {
-                tabItems[itemIndex].classList.remove(data['tabActive']);
-                paneItems[itemIndex].classList.remove(data['paneActive']);
-            }
-        }
-        localStorage.removeItem('tabbis');
-    };
+                            for (var itemIndex = 0; itemIndex < tabItems.length; itemIndex++) {
+                                tabItems[itemIndex].classList.remove(data['tabActive']);
+                                paneItems[itemIndex].classList.remove(data['paneActive']);
+                            }
+                        }
+                        localStorage.removeItem('tabbis');
+                    };
 
-    return fn;
-})();</script> <script type="text/javascript">var tabs = tabbis.init({
-    tabGroup: "[data-tabs]",
-    paneGroup: "[data-panes]",
-    tabActive: "active",
-    paneActive: "active",
-    callback: function (tab, pane) {
-        // console.log("TAB id:" + tab.id + pane.id + tableid);
-        // this makes sure to refresh tables on given tab change to make sure they have buttons and everything
-        // which tab has which table
-        findObjectsToRedraw(tab.id + "-Content");
-    }
-});
+                    return fn;
+                })();</script>
+            <script type="text/javascript">var tabs = tabbis.init({
+                    tabGroup: "[data-tabs]",
+                    paneGroup: "[data-panes]",
+                    tabActive: "active",
+                    paneActive: "active",
+                    callback: function (tab, pane) {
+                        // console.log("TAB id:" + tab.id + pane.id + tableid);
+                        // this makes sure to refresh tables on given tab change to make sure they have buttons and everything
+                        // which tab has which table
+                        findObjectsToRedraw(tab.id + "-Content");
+                    }
+                });
 
-// in theory should take care of removing local storage for tabbis
-// some errors occurs if the local storage is not cleaned after a while
-window.addEventListener("unload", tabbis.remove, false);
-</script> <script type="text/javascript">function redrawCalendar(calendar) {
-    calendarTracker[calendar.id].changeView(calendarTracker[calendar.id].view.type);
-    console.log('Fitting calendar with id ' + calendar.id);
-}
-function resizeTable(table) {
-    if ($.fn.DataTable.isDataTable("#" + table.id)) {
-        try {
-            $("#" + table.id).DataTable().columns.adjust().responsive.recalc();
-            console.log('Fitting table with id ' + table.id);
-        } catch (e) {
-            console.log('Failed to fit table with id ' + table.id);
-        }
-    } else {
-        console.log('Skipping fitting table id ' + table.id);
-    }
-}
-function redrawDiagram(diagram) {
-    diagramTracker[diagram.id].fit();
-    console.log('Fitting diagram with id ' + diagram.id);
-}
-function redrawFixedHeaderFooter() {
-    if (typeof dataTablesFixedTracker !== 'undefined') {
-        var keys = Object.keys(dataTablesFixedTracker);
-        for (i in keys) {
-            try {
-                console.log('Fitting fixed footer/header for table with id ' + keys[i]);
-                var table = $("#" + keys[i]).DataTable();
-                table.fixedHeader.adjust();
-            } catch (e) {
-                console.log('Fitting fixed footer/header failed.');
-            }
-        }
-    }
-}
-function findObjectsToRedraw(id) {
-    // redrawTables
-    try {
-        var table = document.getElementById(id).querySelectorAll('table.dataTables'); //.querySelectorAll('table[id^="DT-"]');
-        table.forEach(resizeTable);
-    } catch (e) {
-        console.log('No datatables available.');
-    }
-    // redrawCalendar
-    try {
-        var calendar = document.getElementById(id).querySelectorAll('div.calendarFullCalendar');
-        calendar.forEach(redrawCalendar);
-    } catch (e) {
-        console.log('No calendars available.');
-    }
-    // redrawDiagram
-    try {
-        var diagram = document.getElementById(id).querySelectorAll('div.diagramObject');
-        diagram.forEach(redrawDiagram);
-    } catch (e) {
-        console.log('No diagrams available.');
-    }
-    // finds all tables with fixed headers and footers and forces them to check if they are visible or not and hide or show accordingly
-    try {
-        redrawFixedHeaderFooter();
-    } catch (e) {
-        console.log('No datatables fixed header/footer available.');
-    }
-}</script></footer></body></html>
+                // in theory should take care of removing local storage for tabbis
+                // some errors occurs if the local storage is not cleaned after a while
+                window.addEventListener("unload", tabbis.remove, false);
+            </script>
+            <script type="text/javascript">function redrawCalendar(calendar) {
+                    //calendarTracker[calendar.id].changeView(calendarTracker[calendar.id].view.type);
+                    calendarTracker[calendar.id].updateSize();
+                    console.log('Fitting calendar with id ' + calendar.id);
+                }
+                function resizeTable(table) {
+                    if (table.id) {
+                        if ($.fn.DataTable.isDataTable("#" + table.id)) {
+                            try {
+                                $("#" + table.id).DataTable().columns.adjust().responsive.recalc();
+                                console.log('Fitting table with id ' + table.id);
+                            } catch (e) {
+                                try {
+                                    $("#" + table.id).DataTable().columns.adjust();
+                                } catch (e) {
+                                    console.log('Failed to fit table with id ' + table.id);
+                                }
+                            }
+                        } else {
+                            console.log('Skipping fitting table id ' + table.id);
+                        }
+                    }
+                }
+                function redrawDiagram(diagram) {
+                    diagramTracker[diagram.id].fit();
+                    console.log('Fitting diagram with id ' + diagram.id);
+                }
+                function redrawFixedHeaderFooter() {
+                    if (typeof dataTablesFixedTracker !== 'undefined') {
+                        var keys = Object.keys(dataTablesFixedTracker);
+                        for (i in keys) {
+                            try {
+                                console.log('Fitting fixed footer/header for table with id ' + keys[i]);
+                                var table = $("#" + keys[i]).DataTable();
+                                table.fixedHeader.adjust();
+                            } catch (e) {
+                                console.log('Fitting fixed footer/header failed.');
+                            }
+                        }
+                    }
+                }
+                function findObjectsToRedraw(id) {
+                    // redrawTables
+                    try {
+                        var table = document.getElementById(id).querySelectorAll('table.dataTables'); //.querySelectorAll('table[id^="DT-"]');
+                        table.forEach(resizeTable);
+                    } catch (e) {
+                        console.log('No datatables available.');
+                    }
+                    // redrawCalendar
+                    try {
+                        var calendar = document.getElementById(id).querySelectorAll('div.calendarFullCalendar');
+                        calendar.forEach(redrawCalendar);
+                    } catch (e) {
+                        console.log('No calendars available.');
+                    }
+                    // redrawDiagram
+                    try {
+                        var diagram = document.getElementById(id).querySelectorAll('div.diagramObject');
+                        diagram.forEach(redrawDiagram);
+                    } catch (e) {
+                        console.log('No diagrams available.');
+                    }
+                    // finds all tables with fixed headers and footers and forces them to check if they are visible or not and hide or show accordingly
+                    try {
+                        redrawFixedHeaderFooter();
+                    } catch (e) {
+                        console.log('No datatables fixed header/footer available.');
+                    }
+                }</script>
+        </footer>
+    </body>
+
+</html>

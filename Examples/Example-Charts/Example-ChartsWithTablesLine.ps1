@@ -15,16 +15,13 @@ $DataTable = @(
 
 New-HTML -TitleText 'Charts - Line' -Online -FilePath $PSScriptRoot\Example-ChartsWithTablesLine.html {
     New-HTMLTable -DataTable $DataTable -DataTableID 'IDTable'
-    New-HTMLSection -HeaderText 'Line Charts' -CanCollapse {
-        New-HTMLPanel {
-            New-HTMLChart -Title 'Incidents Reported vs Solved' -TitleAlignment center {
-                New-ChartAxisX -Name $DataTable.Year
-                New-ChartLine -Name 'Incidents per month' -Value $DataTable.Incidents
-                New-ChartLine -Name 'Incidents per month resolved' -Value $DataTable.Resolved
-                New-ChartEvent -DataTableID 'IDTable' -ColumnID 3
-            }
-        }
+    New-HTMLChart -Title 'Incidents Reported vs Solved' -TitleAlignment center {
+        New-ChartAxisX -Name $DataTable.Year
+        New-ChartLine -Name 'Incidents per month' -Value $DataTable.Incidents
+        New-ChartLine -Name 'Incidents per month resolved' -Value $DataTable.Resolved
+        New-ChartEvent -DataTableID 'IDTable' -ColumnID 3
     }
+    <#
     New-HTMLPanel {
         New-HTMLChart -Title 'Resolved Incidents' -TitleAlignment left {
             # This controls how the grid looks like
@@ -38,4 +35,5 @@ New-HTML -TitleText 'Charts - Line' -Online -FilePath $PSScriptRoot\Example-Char
             #New-ChartEvent -DataTableID 'IDTable' -ColumnID 0
         }
     }
+    #>
 } -Show
