@@ -9,7 +9,7 @@
         return true;
     }
     if (seriesIndex === -1 || dataPointIndex === -1) {
-        clearTableSearch(tableid, columnid);
+        dataTablesSearchClear(tableid, columnid);
     } else {
         if (['donut', 'pie', 'radialBar'].includes(config.chart.type)) {
             // not used
@@ -37,7 +37,7 @@
                 dataTablesFindMatch(table, tableid, columnid, columnValue, highlightValue)
             }
         } else {
-            clearTableSearch(tableid, columnid);
+            dataTablesSearchClear(tableid, columnid);
         }
         if (table.page.info().recordsDisplay == 0) {
             table.columns(columnid).search('').draw();
@@ -55,7 +55,7 @@ function chartEventDataPointClick(tableid, columnid, config, dataPointIndex, ser
 
         // if value is the same we clicked on before, we clear the search, if not we continue
         if (dataTablesChartsEvents[tableid] === highlightValue) {
-            clearTableSearch(tableid, columnid);
+            dataTablesSearchClear(tableid, columnid);
             return true;
         }
     } else {
@@ -65,14 +65,9 @@ function chartEventDataPointClick(tableid, columnid, config, dataPointIndex, ser
 
     var table = $('#' + tableid).DataTable();
     if (columnValue != '') {
-        //table.columns(columnid).search("^" + columnValue + "$", true, false, true).draw();
-        //$('#' + tableid + ' td').removeClass('highlight');
-        //dataTablesChartsEvents[tableid] = highlightValue;
-        //table.draw(); // Run the search plugin
-
         dataTablesFindMatch(table, tableid, columnid, columnValue, highlightValue)
     } else {
-        clearTableSearch(tableid, columnid);
+        dataTablesSearchClear(tableid, columnid);
     }
     if (table.page.info().recordsDisplay == 0) {
         table.columns(columnid).search('').draw();
@@ -86,14 +81,14 @@ function chartEventMarkerClick(tableid, columnid, config, dataPointIndex, series
 
         // if value is the same we clicked on before, we clear the search, if not we continue
         if (dataTablesChartsEvents[tableid] === highlightValue) {
-            clearTableSearch(tableid, columnid);
+            dataTablesSearchClear(tableid, columnid);
             return true;
         }
         var table = $('#' + tableid).DataTable();
         if (columnValue != '') {
             dataTablesFindMatch(table, tableid, columnid, columnValue, highlightValue)
         } else {
-            clearTableSearch(tableid, columnid);
+            dataTablesSearchClear(tableid, columnid);
         }
         if (table.page.info().recordsDisplay == 0) {
             table.columns(columnid).search('').draw();
@@ -101,22 +96,53 @@ function chartEventMarkerClick(tableid, columnid, config, dataPointIndex, series
     }
 }
 function dataTablesFindMatch(table, tableid, columnid, columnValue, highlightValue) {
-    //console.log('columnValue:' + columnValue + ' highlightValue:' + highlightValue + ' tableid:' + tableid + ' currentValue:' + dataTablesChartsEvents[tableid]);
-    //var table = $('#' + tableid).DataTable();
-    table.column(columnid).search("^" + columnValue + "$", true, false, true).draw();
     $('#' + tableid + ' td').removeClass('highlight');
     if (highlightValue) {
-        dataTablesChartsEvents[tableid] = highlightValue;
+        dataTablesChartsEvents[tableid] = { columnid: columnid, columnValue: columnValue, highlightValue: highlightValue };
     } else {
         dataTablesChartsEvents[tableid] = undefined;
     }
     table.draw(); // Run the search plugin
 }
-function clearTableSearch(tableid, columnid) {
+function dataTablesSearchClear(tableid, columnid) {
     var table = $('#' + tableid).DataTable();
-    table.columns(columnid).search('').draw();
     dataTablesChartsEvents[tableid] = undefined;
-    table.draw();
+    table.columns(columnid).search('').draw();
     $('#' + tableid + ' td').removeClass('highlight');
-    table.draw();
+}
+function dataTablesSearchExtension(tableid, settings, searchData, index, rowData, counter, limitRow) {
+    if (settings.nTable.id !== tableid) {
+        return true;
+    }
+    if (dataTablesChartsEvents[tableid] === undefined) {
+        return true;
+    }
+    // Get Datatable API
+    var table = new $.fn.dataTable.Api(settings);
+    var columnid = dataTablesChartsEvents[tableid].columnid
+
+    if (limitRow) {
+        if (searchData[columnid] === dataTablesChartsEvents[tableid].columnValue && searchData.includes(dataTablesChartsEvents[tableid].highlightValue)) {
+            // Get column index of matched value
+            var colIndexHighlight = searchData.indexOf(dataTablesChartsEvents[tableid].highlightValue);
+            // Get cell().node() for matched value
+            var cell = table.cell(index, colIndexHighlight).node();
+            // highlight the cell
+            $(cell).addClass('highlight');
+            return true;
+        }
+    } else {
+        //console.log("Data for table: " + settings.nTable.id + ' finding id ' + dataTablesChartsEvents['$DataTableID'].highlightValue + ' searching for ' + searchData);
+        //console.log(count++ + ' ' + rowData + '  ' + index + ' ' + dataTablesChartsEvents[tableid].highlightValue);
+        if (searchData[columnid].includes(dataTablesChartsEvents[tableid].highlightValue)) {
+            // Get column index of matched value
+            var colIndex = searchData.indexOf(dataTablesChartsEvents[tableid].highlightValue);
+            // Get cell().node() for matched value
+            var cell = table.cell(index, colIndex).node();
+            // highlight the cell
+            $(cell).addClass('highlight');
+            return true;
+        }
+    }
+    return false;
 }
