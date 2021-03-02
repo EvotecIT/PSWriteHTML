@@ -533,8 +533,8 @@ function New-HTMLTable {
                             extend        = $button
                             title         = $Title
                             exportOptions = @{
-                                columns = ':visible'
-                                format  = "findExportOptions"
+                                #columns = 'visible'
+                                format = "findExportOptions"
                             }
                         }
                     } elseif ($button -eq 'copyHtml5') {
