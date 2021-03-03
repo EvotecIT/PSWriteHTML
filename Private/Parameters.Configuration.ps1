@@ -1,4 +1,4 @@
-﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.4'
+﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.5'
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
         Inject                    = @{
