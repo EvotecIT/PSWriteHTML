@@ -1069,10 +1069,11 @@ $Script:Configuration = [ordered] @{
         DataTablesSearchHighlight = @{
             Comment = 'DataTables SearchHighlight'
             Header  = @{
-                JsLink  = "https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.min.js", 'https://cdn.jsdelivr.net/gh/bartaz/sandbox.js@master/jquery.highlight.min.js'
-                JS      = "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlight.min.js", "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlightRequire.min.js"
-                CSSLink = 'https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.css'
-                CSS     = "$PSScriptRoot\..\Resources\CSS\dataTables.searchHighlight.css"
+                JsLinkOriginal = "https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.min.js", 'https://cdn.jsdelivr.net/gh/bartaz/sandbox.js@master/jquery.highlight.js'
+                JsLink         = "https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.min.js", "$($Script:ConfigurationURL)/JS/dataTables.searchHighlightRequire.min.js"
+                JS             = "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlight.min.js", "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlightRequire.js"
+                CSSLink        = 'https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.css'
+                CSS            = "$PSScriptRoot\..\Resources\CSS\dataTables.searchHighlight.css"
             }
             Default = $true
             Email   = $false
@@ -1634,7 +1635,7 @@ function Save-Resource {
     $Output
 }
 
-#$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
+##$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
 <#
 $Keys = @(
     #'Popper'
@@ -1648,7 +1649,7 @@ $Keys = @(
     #'VisData'
     #'FullCalendar'
     #'DataTablesSearchAlphabet'
-    #$Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
+    $Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
     #'FancyTree'
     #'JustGage'
     #'CarouselKineto'
