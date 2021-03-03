@@ -304,14 +304,6 @@
             Default      = $true
             Email        = $false
         }
-        <#
-        DefaultHeadings         = @{
-            Comment      = 'Always Required Default Headings'
-            HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\headings.css"
-            }
-        }
-        #>
         DefaultHeadings           = @{
             Comment      = 'Heading Style'
             HeaderAlways = @{
