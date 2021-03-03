@@ -1,0 +1,76 @@
+.buttonicalService {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.buttonical {
+    z-index: 0;
+    height: 60px;
+    float: none;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: block;
+    box-shadow: 0 2px 4px -1px rgba(25, 25, 25, 0.2);
+}
+
+.buttonical input {
+    display: none;
+}
+
+.buttonical .label {
+    display: table;
+    float: left;
+    padding: 0;
+    width: calc(100% / 3);
+    height: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+.buttonical .middle {
+    display: table;
+    float: left;
+    padding: 0;
+    width: calc(100% / 3);
+    height: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+.buttonical .status {
+    display: table;
+    float: left;
+    padding: 0;
+    width: calc(100% / 3);
+    height: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+.buttonical .performance {
+    font-size: 19px;
+    cursor: pointer;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: 300;
+}
+
+.buttonical .first {
+    border-radius: 40px 0 0 40px;
+}
+
+.buttonical .last {
+    border-radius: 0 40px 40px 0;
+}
+
+.buttonical .icon {
+    margin-left: 12px;
+    display: inline-block;
+    -webkit-transform: scale(1.35);
+    transform: scale(1.35);
+}
