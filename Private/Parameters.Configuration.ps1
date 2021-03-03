@@ -481,7 +481,7 @@
                     "$PSScriptRoot\..\Resources\JS\polyfill.min.js"
                     "$PSScriptRoot\..\Resources\JS\classList.min.js"
                     "$PSScriptRoot\..\Resources\JS\findIndex.min.js"
-                    #"$PSScriptRoot\..\Resources\JS\umd.js"
+                    #"$PSScriptRoot\..\Resources\JS\umd.min.js"
                     "$PSScriptRoot\..\Resources\JS\apexcharts.min.js"
                 )
             }
@@ -832,7 +832,7 @@
                 )
                 Js     = @(
                     "$PSScriptRoot\..\Resources\JS\pdfmake.min.js"
-                    "$PSScriptRoot\..\Resources\JS\vfs_fonts.js"
+                    "$PSScriptRoot\..\Resources\JS\vfs_fonts.min.js"
                 )
             }
             Default = $true
@@ -1298,8 +1298,8 @@
                     'https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js'
                 )
                 JS     = @(
-                    "$PSScriptRoot\..\Resources\JS\popper.js"
-                    "$PSScriptRoot\..\Resources\JS\tooltip.js"
+                    "$PSScriptRoot\..\Resources\JS\popper.min.js"
+                    "$PSScriptRoot\..\Resources\JS\tooltip.min.js"
                 )
             }
             Default      = $true
