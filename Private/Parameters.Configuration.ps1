@@ -1,4 +1,5 @@
-﻿$Script:Configuration = [ordered] @{
+﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.4'
+$Script:Configuration = [ordered] @{
     Features = [ordered] @{
         Inject                    = @{
             HeaderAlways = @{
@@ -413,20 +414,22 @@
             Email        = $false
         }
         CarouselKineto            = @{
-            Comment      = 'Kineto JS Library'
-            Header       = @{
-                CssLink = 'https://cdn.jsdelivr.net/gh/findawayer/kineto@main/dist/kineto.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\kineto.min.css"
+            Comment = 'Kineto JS Library'
+            Header  = @{
+                CssLinkOriginal = 'https://cdn.jsdelivr.net/gh/findawayer/kineto@main/dist/kineto.css'
+                CssLink         = "$($Script:ConfigurationURL)/CSS/kineto.min.css", "$($Script:ConfigurationURL)/CSS/kinetoStyle.min.css"
+                Css             = "$PSScriptRoot\..\Resources\CSS\kineto.min.css", "$PSScriptRoot\..\Resources\CSS\kinetoStyle.css"
             }
-            HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\kinetoStyle.css"
+            #HeaderAlways = @{
+            #    Css = "$PSScriptRoot\..\Resources\CSS\kinetoStyle.css"
+            #}
+            Body    = @{
+                JSLinkOriginal = "https://cdn.jsdelivr.net/gh/findawayer/kineto@main/dist/kineto.js"
+                JSLink         = "$($Script:ConfigurationURL)/JS/kineto.min.js"
+                JS             = "$PSScriptRoot\..\Resources\JS\kineto.min.js"
             }
-            Body         = @{
-                JSLink = 'https://cdn.jsdelivr.net/gh/findawayer/kineto@main/dist/kineto.js'
-                JS     = "$PSScriptRoot\..\Resources\JS\kineto.min.js"
-            }
-            Default      = $true
-            Email        = $false
+            Default = $true
+            Email   = $false
         }
         CodeBlocks                = @{
             Comment      = 'EnlighterJS CodeBlocks'
@@ -1023,6 +1026,21 @@
             # https://datatables.net/blog/2020-09-01
             Comment = 'DataTables SearchBuilder'
             Header  = @{
+                JSLinkOriginal  = "https://nightly.datatables.net/searchbuilder/js/dataTables.searchBuilder.js"
+                JsLink          = "$($Script:ConfigurationURL)/JS/dataTables.searchBuilder.min.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
+                JS              = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.min.js"
+                CssLinkOriginal = 'https://nightly.datatables.net/searchbuilder/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
+                CssLink         = "$($Script:ConfigurationURL)/CSS/searchBuilder.dataTables.min.css" # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
+                Css             = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.min.css"
+            }
+            Default = $true
+            Email   = $false
+        }
+        <#
+        DataTablesSearchBuilder   = @{
+            # https://datatables.net/blog/2020-09-01
+            Comment = 'DataTables SearchBuilder'
+            Header  = @{
                 JsLink  = "https://nightly.datatables.net/searchbuilder/js/dataTables.searchBuilder.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
                 JS      = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.min.js"
                 CssLink = 'https://nightly.datatables.net/searchbuilder/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
@@ -1031,6 +1049,7 @@
             Default = $true
             Email   = $false
         }
+        #>
         DataTablesSearchFade      = @{
             Comment      = 'DataTables SearchFade'
             HeaderAlways = @{
@@ -1062,11 +1081,13 @@
             Comment = 'DataTables AlphabetSearch'
             Header  = @{
                 #JsLink  = "https://cdn.datatables.net/plug-ins/1.10.22/features/alphabetSearch/dataTables.alphabetSearch.min.js"
-                JsLink  = "https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.js"
-                JS      = "$PSScriptRoot\..\Resources\JS\dataTables.alphabetSearch.min.js"
+                JsLinkOriginal  = "https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.js"
+                JsLink          = "$($Script:ConfigurationURL)/JS/dataTables.alphabetSearch.min.js"
+                JS              = "$PSScriptRoot\..\Resources\JS\dataTables.alphabetSearch.min.js"
                 #CSSLink = 'https://cdn.datatables.net/plug-ins/1.10.22/features/alphabetSearch/dataTables.alphabetSearch.css'
-                CSSLink = 'https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.css'
-                CSS     = "$PSScriptRoot\..\Resources\CSS\dataTables.alphabetSearch.css"
+                CSSLinkOriginal = 'https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.css'
+                CSSLink         = "$($Script:ConfigurationURL)/CSS/dataTables.alphabetSearch.min.css"
+                CSS             = "$PSScriptRoot\..\Resources\CSS\dataTables.alphabetSearch.css"
             }
             Default = $true
             Email   = $false
@@ -1315,6 +1336,7 @@
         }
         Tabbis                    = @{
             Comment      = 'Elastic Tabbis'
+            Internal     = $true
             HeaderAlways = @{
                 #Css       = "$PSScriptRoot\..\Resources\CSS\tabbis.css"
                 CssInline = [ordered] @{
@@ -1356,8 +1378,20 @@
                     }
                 }
             }
+            <#
             FooterAlways = @{
                 JS = @(
+                    "$PSScriptRoot\..\Resources\JS\tabbis.js"
+                    "$PSScriptRoot\..\Resources\JS\tabbisAdditional.js"
+                )
+            }
+            #>
+            Footer       = @{
+                JSLink = @(
+                    "$($Script:ConfigurationURL)/JS/tabbis.min.js"
+                    "$($Script:ConfigurationURL)/JS/tabbisAdditional.min.js"
+                )
+                JS     = @(
                     "$PSScriptRoot\..\Resources\JS\tabbis.js"
                     "$PSScriptRoot\..\Resources\JS\tabbisAdditional.js"
                 )
@@ -1440,28 +1474,47 @@
             SourceCodes  = 'https://github.com/visjs'
         }
         VisNetworkClustering      = [ordered] @{
-            Comment      = 'VIS Network Clustering'
+            Comment  = 'VIS Network Clustering'
+            Internal = $true
+            <#
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
             }
-            Default      = $true
-            Email        = $false
+            #>
+            Footer   = @{
+                JSLink = "$($Script:ConfigurationURL)/JS/vis-networkFunctions.min.js"
+                JS     = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
+            }
+            Default  = $true
+            Email    = $false
         }
         VisNetworkLoadingBar      = [ordered]@{
-            Comment      = 'VIS Network Loading Bar'
+            Comment = 'VIS Network Loading Bar'
+            <#
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\vis-network.loadingbar.css"
             }
-            Default      = $true
-            Email        = $false
+            #>
+            Header  = @{
+                CssLink = "$($Script:ConfigurationURL)/CSS/vis-network.loadingbar.min.js"
+                Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.loadingbar.css"
+            }
+            Default = $true
+            Email   = $false
         }
         VisNetworkLoad            = [ordered] @{
-            Comment      = 'VIS Network Load'
+            Comment = 'VIS Network Load'
+            <#
             HeaderAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\vis-networkLoadDiagram.js"
             }
-            Default      = $true
-            Email        = $false
+            #>
+            Header  = @{
+                JSLink = "$($Script:ConfigurationURL)/JS/networkLoadDiagram.min.js"
+                JS     = "$PSScriptRoot\..\Resources\JS\vis-networkLoadDiagram.js"
+            }
+            Default = $true
+            Email   = $false
         }
         <#
         VisNetworkStandalone   = [ordered]@{
@@ -1556,53 +1609,75 @@ function Save-Resource {
     param(
         [uri[]] $ResourceLinks,
         [string[]] $Target,
-        [ValidateSet('CSS', 'JS')][string] $Type
+        [ValidateSet('CSS', 'JS')][string] $Type,
+        [string] $PathToSave
     )
-
+    $TempProgressPreference = $ProgressPreference
+    $ProgressPreference = 'SilentlyContinue'
     $Output = for ($i = 0; $i -lt $ResourceLinks.Count; $i++) {
         if ($Target) {
             # If target given means we replace something
             Write-Verbose "Downloading $($ResourceLinks[$i].OriginalString) to $($Target[$i])"
-            Invoke-WebRequest -Uri $ResourceLinks[$i] -OutFile $Target[$i]
+            Invoke-WebRequest -Uri $ResourceLinks[$i] -OutFile $Target[$i] -Verbose:$false
             #$Target[$i]
         } else {
             $Splitted = $ResourceLinks[$i].OriginalString -split '/'
             $FileName = $Splitted[ - 1]
-            $FilePath = [IO.Path]::Combine('C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources', $Type, $FileName)
+            $FilePath = [IO.Path]::Combine($PathToSave, $Type, $FileName)
             $FilePathScriptRoot = -Join ('"', '$PSScriptRoot\..\Resources\', "$Type", '\', $FileName, '"')
             $FilePathScriptRoot
-            Invoke-WebRequest -Uri $ResourceLinks[$i] -OutFile $FilePath
+
+            Invoke-WebRequest -Uri $ResourceLinks[$i] -OutFile $FilePath -Verbose:$false
         }
     }
+    $ProgressPreference = $TempProgressPreference
     $Output
 }
 
 #$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
-<# Refreshes libraries
+<#
 $Keys = @(
     #'Popper'
     #'Moment'
     #'Jquery'
-    'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
+    #'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
     #'ChartsApex'
     #'AccordionFAQ'
-    'VisNetwork'
-    'VisTimeline'
-    'VisData'
+    #'VisNetwork'
+    # 'VisTimeline'
+    #'VisData'
     #'FullCalendar'
     #'DataTablesSearchAlphabet'
     #$Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
-    'FancyTree'
+    #'FancyTree'
     #'JustGage'
     #'CarouselKineto'
-    'QR'
+    #'QR'
 )
+$PathToSave = 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources'
 foreach ($Key in $Keys) {
-    if ($($Script:Configuration).Features.$Key.Header.JsLink -and $($Script:Configuration).Features.$Key.Header.Js) {
-        Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.JsLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.Header.Js
+    if ($($Script:Configuration).Features.$Key.Internal -eq $true) {
+        # Do not update, as it's internal code
+        continue
     }
-    if ($($Script:Configuration).Features.$Key.Header.CssLink -and $($Script:Configuration).Features.$Key.Header.Css) {
-        Save-Resource -ResourceLinks $($Script:Configuration).Features.$Key.Header.CssLink -Type 'CSS' -Target $($Script:Configuration).Features.$Key.Header.Css
+    foreach ($Place in @('Header', 'Footer', 'Body')) {
+        if ($($Script:Configuration).Features.$Key.$Place.JsLink -and $($Script:Configuration).Features.$Key.$Place.Js) {
+            if ($($Script:Configuration).Features.$Key.$Place.JSLinkOriginal) {
+                $JSLink = $($Script:Configuration).Features.$Key.$Place.JsLinkOriginal
+            } else {
+                $JSLink = $($Script:Configuration).Features.$Key.$Place.JsLink
+            }
+            Save-Resource -PathToSave $PathToSave -ResourceLinks $JSLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.$Place.Js -Verbose
+
+        }
+        if ($($Script:Configuration).Features.$Key.$Place.CssLink -and $($Script:Configuration).Features.$Key.$Place.Css) {
+            if ($($Script:Configuration).Features.$Key.$Place.CssLinkOriginal) {
+                $CSSLink = $($Script:Configuration).Features.$Key.$Place.CssLinkOriginal
+            } else {
+                $CSSLink = $($Script:Configuration).Features.$Key.$Place.CssLink
+            }
+            Save-Resource -PathToSave $PathToSave -ResourceLinks $CSSLink -Type 'CSS' -Target $($Script:Configuration).Features.$Key.$Place.Css -Verbose
+        }
     }
 }
 #>
