@@ -1028,10 +1028,10 @@ $Script:Configuration = [ordered] @{
             Header  = @{
                 JSLinkOriginal  = "https://nightly.datatables.net/searchbuilder/js/dataTables.searchBuilder.js"
                 JsLink          = "$($Script:ConfigurationURL)/JS/dataTables.searchBuilder.min.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
-                JS              = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.min.js"
+                JS              = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.js"
                 CssLinkOriginal = 'https://nightly.datatables.net/searchbuilder/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
                 CssLink         = "$($Script:ConfigurationURL)/CSS/searchBuilder.dataTables.min.css" # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
-                Css             = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.min.css"
+                Css             = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.css"
             }
             Default = $true
             Email   = $false
