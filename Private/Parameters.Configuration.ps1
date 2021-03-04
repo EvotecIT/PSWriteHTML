@@ -1497,7 +1497,7 @@ $Script:Configuration = [ordered] @{
             }
             #>
             Header  = @{
-                CssLink = "$($Script:ConfigurationURL)/CSS/vis-network.loadingbar.min.js"
+                CssLink = "$($Script:ConfigurationURL)/CSS/vis-network.loadingbar.min.css"
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.loadingbar.css"
             }
             Default = $true
@@ -1511,7 +1511,7 @@ $Script:Configuration = [ordered] @{
             }
             #>
             Header  = @{
-                JSLink = "$($Script:ConfigurationURL)/JS/networkLoadDiagram.min.js"
+                JSLink = "$($Script:ConfigurationURL)/JS/vis-networkLoadDiagram.min.js"
                 JS     = "$PSScriptRoot\..\Resources\JS\vis-networkLoadDiagram.js"
             }
             Default = $true
