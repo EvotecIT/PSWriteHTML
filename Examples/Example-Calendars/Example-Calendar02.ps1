@@ -1,6 +1,6 @@
 Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example28-Calendar02.html" -Show {
+New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example-Calendar02.html" -Show {
     New-HTMLTab -Name 'Test' {
         New-HTMLCalendar {
             New-CalendarEvent -Title 'Active Directory Meeting' -Description 'We will talk about stuff' -StartDate (Get-Date)
