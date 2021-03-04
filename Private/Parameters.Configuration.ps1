@@ -610,7 +610,7 @@ $Script:Configuration = [ordered] @{
         Jquery                    = @{
             Comment = 'Jquery'
             Header  = @{
-                JsLink = 'https://code.jquery.com/jquery-3.5.1.min.js'
+                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' # 'https://code.jquery.com/jquery-3.5.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery.min.js"
             }
             Default = $true
@@ -1180,8 +1180,13 @@ $Script:Configuration = [ordered] @{
         }
         HideSection               = [ordered] @{
             Comment      = 'Hide Section Code'
+            Internal     = $true
+            Header       = @{
+                JSLink = "$($Script:ConfigurationURL)/JS/hideSection.min.js"
+                JS     = "$PSScriptRoot\..\Resources\JS\hideSection.js"
+            }
             HeaderAlways = [ordered] @{
-                JS        = "$PSScriptRoot\..\Resources\JS\hideSection.js"
+                #JS        = "$PSScriptRoot\..\Resources\JS\hideSection.js"
                 CssInline = [ordered] @{
                     '.sectionHide' = @{ # fixes problem with hiding section that are collapsing left/right
                         'width'     = 'auto'
@@ -1264,7 +1269,6 @@ $Script:Configuration = [ordered] @{
             Comment = 'Momment JS Library'
             Header  = @{
                 JSLink = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js'
-                #JSLink = 'https://unpkg.com/moment@2.27.0/moment.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\moment.min.js"
             }
             Default = $true
@@ -1328,12 +1332,19 @@ $Script:Configuration = [ordered] @{
             Email        = $false
         }
         RedrawObjects             = @{
-            Comment      = 'Allows redrawObjects for collapsed sections and changing tabs'
+            Comment  = 'Allows redrawObjects for collapsed sections and changing tabs'
+            Internal = $true
+            Footer   = @{
+                JSLink = "$($Script:ConfigurationURL)/JS/redrawObjects.min.js"
+                JS     = "$PSScriptRoot\..\Resources\JS\redrawObjects.js"
+            }
+            <#
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\redrawObjects.js"
             }
-            Default      = $true
-            Email        = $false
+            #>
+            Default  = $true
+            Email    = $false
         }
         Tabbis                    = @{
             Comment      = 'Elastic Tabbis'
