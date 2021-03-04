@@ -2,7 +2,7 @@
 
 $Table = Get-Process | Select-Object -First 20 -Property Name, Id, PriorityClass, Handle, HandleCount, WorkingSet
 
-New-HTML -TitleText "Testing Search Pane" -FilePath "$PSScriptRoot\Example42-TableSearchPanes.html" {
+New-HTML -TitleText "Testing Search Pane" -FilePath "$PSScriptRoot\Example-TableSearchPanes.html" {
     # Hide Buttons
     New-HTMLSection -HeaderText "Search Pane Button" -Content {
         New-HTMLTable -DataTable $Table -Filtering {
