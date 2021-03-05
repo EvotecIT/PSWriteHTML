@@ -1534,6 +1534,8 @@ $Script:Configuration = [ordered] @{
             }
             Default      = $true
             Email        = $false
+            License      = 'Apache 2.0'
+            LicenseLink  = 'https://github.com/visjs/vis-network/blob/master/LICENSE-APACHE-2.0'
             SourceCodes  = 'https://github.com/visjs'
         }
         VisNetworkClustering        = [ordered] @{
@@ -1621,6 +1623,9 @@ $Script:Configuration = [ordered] @{
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
                 CssLink = 'https://unpkg.com/vis-timeline@7.4.6/styles/vis-timeline-graph2d.min.css'
             }
+            LicenseLink  = 'https://github.com/visjs/vis-timeline/blob/master/LICENSE.md'
+            License      = 'MIT and Apache 2.0'
+            SourceCodes  = 'https://github.com/visjs/vis-timeline'
             Default      = $true
             Email        = $false
         }

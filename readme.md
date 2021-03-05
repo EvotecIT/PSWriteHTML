@@ -758,8 +758,8 @@ Below you can find 3rd party libraries being used.
 - [Accordion](https://github.com/michu2k/Accordion) - [MIT license](https://github.com/michu2k/Accordion/blob/master/LICENSE)
 - [Kineto](https://github.com/findawayer/kineto) - [MIT License](https://github.com/findawayer/kineto/blob/main/LICENSE)
 - [MultiLevelPushMenu jQuery Plugin](https://github.com/adgsm/multi-level-push-menu)
-- VisNetwork
-- VisTimeLine
+- [Vis-Network](https://github.com/visjs/vis-network) - [Apache 2.0](https://github.com/visjs/vis-network/blob/master/LICENSE-APACHE-2.0)
+- [Vis-TimeLine](https://github.com/visjs/vis-timeline) - [MIT and Apache 2.0](https://github.com/visjs/vis-timeline/blob/master/LICENSE.md)
 - [EasyQRCodeJS](https://github.com/ushelp/EasyQRCodeJS) - [MIT license](https://github.com/ushelp/EasyQRCodeJS/blob/master/LICENSE)
 - [JQuery SmartWizard](http://techlaboratory.net/jquery-smartwizard) - [MIT license](https://github.com/techlab/jquery-smartwizard/blob/master/LICENSE)
 - [JQuery SmartTab](http://techlaboratory.net/jquery-smarttab) - [MIT license](https://github.com/techlab/jquery-smarttab/blob/master/LICENSE)
