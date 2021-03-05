@@ -13,7 +13,7 @@ Dashboard -Name 'Dashimo Test' -FilePath $PSScriptRoot\Output\DashboardEasy10.ht
             TableConditionalFormatting -Name 'PriorityClass' -ComparisonType string -Operator eq -Value 'Idle' -Color White -BackgroundColor Green
         }
     }
-    Tab -Name 'Test 1' -IconBrands adobe {
+    Tab -Name 'Test 1' -IconBrands amazon {
         Section -Name 'Test' -Collapsable {
             Table -DataTable $Process -HideFooter {
                 TableConditionalFormatting -Name 'ID' -ComparisonType number -Operator gt -Value 10000 -Color BlueViolet -Row
