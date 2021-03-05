@@ -405,6 +405,7 @@ function New-HTMLTable {
     if ($Buttons -contains 'searchPanes') {
         # it seems DataTablesSearchPanes is conflicting with Diagrams in IE 11, so we only enable it on demand
         $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
+        $Script:HTMLSchema.Features.DataTablesSearchPanesButton = $true
     }
     if ($EnableKeys) {
         $Script:HTMLSchema.Features.DataTablesKeyTable = $true

@@ -1119,6 +1119,23 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
+        DataTablesSearchPanesButton = @{
+            Comment      = 'DataTables Search Panes when using button feature'
+            HeaderAlways = @{
+                CssInline = @{
+                    'div.dt-button-collection' = @{
+                        'position'      = 'relative'
+                        #'position'   = 'fixed'
+                        #'width'      = '900px !important'
+                        'width'         = 'auto !important'
+                        'margin-top'    = '10px !important'
+                        'margin-bottom' = '10px !important'
+                    }
+                }
+            }
+            Default      = $true
+            Email        = $false
+        }
         DataTablesSelect          = @{
             Comment = 'DataTables Select'
             Header  = @{
