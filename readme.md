@@ -33,11 +33,6 @@
   - [Credits](#credits)
   - [Projects using PSWriteHTML (to give you ideas of what you can do)](#projects-using-pswritehtml-to-give-you-ideas-of-what-you-can-do)
   - [3rd Party Libraries](#3rd-party-libraries)
-    - [External JS Framework - DataTables](#external-js-framework---datatables)
-    - [External JS Framework -EnlighterJS (Mozilla Public License Version 2.0 LICENSE)](#external-js-framework--enlighterjs-mozilla-public-license-version-20-license)
-      - [Following languages are supported for New-HTMLCodeBlock](#following-languages-are-supported-for-new-htmlcodeblock)
-      - [Following themes are supported for New-HTMLCodeBlock](#following-themes-are-supported-for-new-htmlcodeblock)
-    - [External JS Framework - VIS Network (MIT LICENSE)](#external-js-framework---vis-network-mit-license)
 
 ## How to install
 
@@ -752,120 +747,30 @@ For colors, you can visit this [online page](https://evotec.xyz/wp-content/uploa
 **PSWriteHTML** uses some 3rd party libraries to deliver its functionality. It requires those. There are two ways to use it
 
 - With links to CSS/JS which makes code cleaner and easy to see what is happening
-- With code inline in HTML which makes HTML much bigger
+- With code inline in HTML which makes HTML much bigger (default, but makes PSWriteHTML usage offline possible)
 
-Below you can find some of the 3rd party libraries being used.
+Below you can find 3rd party libraries being used.
 
-### External JS Framework - DataTables
-
-Following JS Framework is integrated as part of this module. It's responsible for building Tables
-
-- [x] Downloaded from <https://datatables.net/download/>
-
-![DataTables Example](https://evotec.xyz/wp-content/uploads/2019/03/img_5c9fe366e4906.png)
-
-- [x] Styling Framework:
-  - [x] DataTables' default styling.v1.10.18
-- [x] Selected Packages:
-  - [x] jQuery 3 DataTables requires jQuery. Don't select either version if you already have it.v3.3.1
-  - [x] Enhance HTML tables with advanced interaction controls.v1.10.18
-- [x] Extensions:
-  - [x] AutoFill Excel-like click and drag copying and filling of data.v2.3.2
-  - [x] Buttons A common framework for user interaction buttons.v1.5.4
-  - [x] Column visibility End user buttons to control column visibility.v1.5.4
-  - [ ] Flash export Create Excel, PDF, CSV files and copy data from the table. For legacy browsers.v1.5.4
-  - [x] HTML5 export Copy to clipboard and create Excel, PDF and CSV files from the table's data.v1.5.4
-    - [ ] JSZip Required for the Excel HTML5 export button.v2.5.0
-    - [ ] pdfmake Required for the PDF HTML5 export button.v0.1.36
-  - [x] Print view Button that will display a printable view of the table.v1.5.4
-  - [x] ColReorder Click-and-drag column reordering.v1.5.0
-  - [x] FixedColumns Fix one or more columns to the left or right of a scrolling table.v3.2.5
-  - [x] FixedHeader Sticky header and / or footer for the table.v3.1.4
-  - [x] KeyTable Keyboard navigation of cells in a table, just like a spreadsheet.v2.5.0
-  - [x] Responsive Dynamically show and hide columns based on the browser size.v2.2.2
-  - [x] RowGroup Show similar data grouped together by a custom data point.v1.1.0
-  - [x] RowReorder Click-and-drag reordering of rows.v1.2.4
-  - [x] Scroller Virtual rendering of a scrolling table for large data sets.v1.5.0
-  - [x] Select Adds row, column and cell selection abilities to a table.v1.2.6
-
-JSZip and PDFMake are not downloaded as part of this package. They fail to import properly hence they are not bundled as one minified version.
-
-- [x] Extensions:
-  - [x] Downloaded from <https://github.com/Stuk/jszip> (3.1.5)
-    - [x] JSZip Required for the Excel HTML5 export button.v2.5.0
-  - [x] DataTables Package <https://datatables.net/download/> but with separate file
-    - [x] pdfmake Required for the PDF HTML5 export button.v0.1.36
-  - [x] ChartJS Package - <https://github.com/chartjs/Chart.js/releases>
-    - [x] ChartJS - version 2.7.3 (required for charts)
-
-### External JS Framework -EnlighterJS (Mozilla Public License Version 2.0 LICENSE)
-
-**PSWriteHTML** provides built-in EnlighterJS JavaScript. It's responsible for building Code Blocks
-
-![EnlighterJS Example](https://evotec.xyz/wp-content/uploads/2019/03/img_5c9fea1322df8.png)
-
-This allows for **code blocks** support. Currently, it uses Release Candidate version as its the first version to support **PowerShell highlighting** and many additional languages. It will be updated to the new version
-
-- [x] Downloaded from <https://github.com/EnlighterJS/EnlighterJS>
-
-#### Following languages are supported for New-HTMLCodeBlock
-
-- [x] **Assembly** (assembly, asm)
-- [x] **AVR Assembly** (avrassembly, avrasm)
-- [x] **C/C++** (c,cpp, c++)
-- [x] **C#** (csharp)
-- [x] **CSS** (css)
-- [x] **Cython** (cython)
-- [x] **CordPro** (cordpro)
-- [x] **diff** (diff)
-- [x] **Dockerfile** (docker, dockerfile)
-- [x] **Generic** (generic, standard) - default highlighting scheme
-- [x] **Groovy** (groovy)
-- [x] **Go** (go, golang)
-- [x] **HTML** (html)
-- [x] **Ini** (ini, conf)
-- [x] **Java** (java)
-- [x] **Javascript** (js, javascript, jquery, mootools, ext.js)
-- [x] **JSON** (json)
-- [x] **Kotlin** (kotlin)
-- [x] **LESS** (less)
-- [x] **LUA** (lua)
-- [x] **Markdown** (gfm, md, markdown)
-- [x] **Matlab/Octave** (octave, matlab)
-- [x] **NSIS** (nsis)
-- [x] **PHP** (php)
-- [x] **Powerhsell** (powershell)
-- [x] **Prolog** (prolog)
-- [x] **Python** (py, python)
-- [x] **RAW** (raw) - raw code without highlighting with EnlighterJS container styles!
-- [x] **Ruby** (ruby)
-- [x] **Rust** (rust)
-- [x] **SCSS** (scss, sass)
-- [x] **Shellscript** (shell, bash)
-- [x] **SQL** (sql)
-- [x] **Squirrel** (squirrel)
-- [x] **Swift** (swift)
-- [x] **Typescript** (typescript)
-- [x] **VHDL** (vhdl)
-- [x] **VisualBasic** (visualbasic, vb)
-- [x] **XML** (xml)
-- [x] **YAML** (yaml)
-
-#### Following themes are supported for New-HTMLCodeBlock
-
-- [x] **Enlighter** (enlighter, standard) - Enlighter`s default Theme
-- [x] **Classic** (classic) - SyntaxHighlighter inspired
-- [x] **Bootstrap** (bootstrap4) - Bootstrap 4 inpired themes, high contrast
-- [x] **Beyond** (beyond) - BeyondTechnology Theme
-- [x] **Godzilla** (godzilla) - A MDN inspired Theme
-- [x] **Eclipse** (eclipse) - Eclipse inspired
-- [x] **MooTwo** (mootwo) - Inspired by the MooTools Website
-- [x] **Droide** (droide) - Modern, minimalistic
-- [x] **Minimal** (minimal) - Bright, High contrast
-- [x] **Atomic** (atomic) - Dark, Colorful
-- [x] **Dracula** (dracula) - Dark, using official [draculatheme](https://draculatheme.com/) colorscheme
-- [x] **Rowhammer** (rowhammer) - Light, Transparent, divided rows
-
-### External JS Framework - VIS Network (MIT LICENSE)
-
-- [x] Downloaded from <https://github.com/visjs/vis-network>
+- [DataTables.net](https://datatables.net/) - [MIT license](https://datatables.net/license/mit)
+- [ApexCharts](https://github.com/apexcharts/apexcharts.js) - [MIT license](https://github.com/apexcharts/apexcharts.js/blob/master/LICENSE)
+- Google Fonts (Roboto)
+- [Fonts Awesome](https://fontawesome.com/)
+- [Accordion](https://github.com/michu2k/Accordion) - [MIT license](https://github.com/michu2k/Accordion/blob/master/LICENSE)
+- [Kineto](https://github.com/findawayer/kineto) - [MIT License](https://github.com/findawayer/kineto/blob/main/LICENSE)
+- [MultiLevelPushMenu jQuery Plugin](https://github.com/adgsm/multi-level-push-menu)
+- VisNetwork
+- VisTimeLine
+- [EasyQRCodeJS](https://github.com/ushelp/EasyQRCodeJS) - [MIT license](https://github.com/ushelp/EasyQRCodeJS/blob/master/LICENSE)
+- [JQuery SmartWizard](http://techlaboratory.net/jquery-smartwizard) - [MIT license](https://github.com/techlab/jquery-smartwizard/blob/master/LICENSE)
+- [JQuery SmartTab](http://techlaboratory.net/jquery-smarttab) - [MIT license](https://github.com/techlab/jquery-smarttab/blob/master/LICENSE)
+- [PopperJS](https://popper.js.org/) - [MIT license](https://github.com/popperjs/popper-core/blob/master/LICENSE.md)
+- [MomentJS](https://momentjs.com/) - [MIT license](https://github.com/moment/moment/blob/develop/LICENSE)
+- [JustGage](https://github.com/toorshia/justgage) - [MIT license](https://github.com/toorshia/justgage/blob/master/LICENSE)
+- [FrancyTree](https://github.com/mar10/fancytree) - [MIT license](https://github.com/mar10/fancytree/blob/master/LICENSE.txt)
+- [FullCalendar](https://github.com/fullcalendar/fullcalendar) - [MIT license](https://github.com/fullcalendar/fullcalendar/blob/master/LICENSE.txt)
+- [D3 Mitch Tree](https://github.com/deltoss/d3-mitch-tree) - [MIT license](https://github.com/deltoss/d3-mitch-tree/blob/master/LICENSE)
+- [JQuery](https://jquery.com/) - [MIT license](https://github.com/jquery/jquery/blob/main/LICENSE.txt)
+- [Chart.xkcd](https://github.com/timqian/chart.xkcd) - [MIT license](https://github.com/timqian/chart.xkcd/blob/master/LICENSE)
+- [OrgChart](https://github.com/dabeng/OrgChart) - [MIT license](https://github.com/dabeng/OrgChart/blob/master/LICENSE)
+- [HighlightJS](https://highlightjs.org/) - [BSD 3-Clause "New" or "Revised" License](https://github.com/highlightjs/highlight.js/blob/master/LICENSE)
+- [EnlighterJS](https://github.com/EnlighterJS/EnlighterJS) - [Mozilla Public License 2.0](https://github.com/EnlighterJS/EnlighterJS/blob/master/LICENSE.txt)

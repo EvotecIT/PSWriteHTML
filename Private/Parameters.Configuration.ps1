@@ -1,14 +1,14 @@
 ﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.6'
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
-        Inject                    = @{
+        Inject                      = @{
             HeaderAlways = @{
                 CssInline = [ordered] @{}
             }
             Default      = $true
             Email        = $false
         }
-        Fonts                     = @{
+        Fonts                       = @{
             Comment      = 'Default fonts'
             HeaderAlways = @{
                 #CssLink = 'https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald'
@@ -18,7 +18,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        FontsAwesome              = @{
+        FontsAwesome                = @{
             Comment = 'Default fonts icons'
             Header  = @{
                 CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'
@@ -30,7 +30,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        Main                      = [ordered]@{
+        Main                        = [ordered]@{
             HeaderAlways = [ordered]@{
                 CssInline = [ordered]@{
                     'body'  = [ordered]@{
@@ -83,7 +83,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        MainFlex                  = [ordered] @{
+        MainFlex                    = [ordered] @{
             HeaderAlways = [ordered] @{
                 CssInline = [ordered]@{
                     '.overflowHidden'      = [ordered] @{
@@ -143,7 +143,7 @@ $Script:Configuration = [ordered] @{
             }
         }
         #>
-        MainImage                 = [ordered]@{
+        MainImage                   = [ordered]@{
             HeaderAlways = [ordered] @{
                 CssInline = [ordered]@{
                     '.legacyLogo'      = [ordered]@{
@@ -230,7 +230,7 @@ $Script:Configuration = [ordered] @{
             }
         }
         #>
-        DefaultImage              = @{
+        DefaultImage                = @{
             Comment      = 'Image Style'
             HeaderAlways = @{
                 CssInline = [ordered] @{
@@ -248,7 +248,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $true
         }
-        DefaultPanel              = @{
+        DefaultPanel                = @{
             Comment      = 'Panel Style'
             HeaderAlways = @{
                 CssInline = [ordered] @{
@@ -263,7 +263,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        DefaultSection            = @{
+        DefaultSection              = @{
             Comment      = 'Section Style'
             HeaderAlways = @{
                 CssInline = [ordered] @{
@@ -305,7 +305,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        DefaultHeadings           = @{
+        DefaultHeadings             = @{
             Comment      = 'Heading Style'
             HeaderAlways = @{
                 CssInline = [ordered] @{
@@ -353,7 +353,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $true
         }
-        DefaultText               = @{
+        DefaultText                 = @{
             Comment      = 'Text Style'
             HeaderAlways = @{
                 CssInline = [ordered] @{
@@ -372,7 +372,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $true
         }
-        Accordion                 = @{
+        Accordion                   = @{
             Comment      = 'Accordion'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
@@ -380,7 +380,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        AccordionFAQ              = @{
+        AccordionFAQ                = @{
             Comment      = 'Accordion FAQ'
             Header       = @{
                 CssLink = 'https://unpkg.com/accordion-js@3.0.0/dist/accordion.min.css'
@@ -413,9 +413,9 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        CarouselKineto            = @{
-            Comment = 'Kineto JS Library'
-            Header  = @{
+        CarouselKineto              = @{
+            Comment     = 'Kineto JS Library'
+            Header      = @{
                 CssLinkOriginal = 'https://cdn.jsdelivr.net/gh/findawayer/kineto@main/dist/kineto.css'
                 CssLink         = "$($Script:ConfigurationURL)/CSS/kineto.min.css", "$($Script:ConfigurationURL)/CSS/kinetoStyle.min.css"
                 Css             = "$PSScriptRoot\..\Resources\CSS\kineto.min.css", "$PSScriptRoot\..\Resources\CSS\kinetoStyle.css"
@@ -423,15 +423,18 @@ $Script:Configuration = [ordered] @{
             #HeaderAlways = @{
             #    Css = "$PSScriptRoot\..\Resources\CSS\kinetoStyle.css"
             #}
-            Body    = @{
+            Body        = @{
                 JSLinkOriginal = "https://cdn.jsdelivr.net/gh/findawayer/kineto@main/dist/kineto.js"
                 JSLink         = "$($Script:ConfigurationURL)/JS/kineto.min.js"
                 JS             = "$PSScriptRoot\..\Resources\JS\kineto.min.js"
             }
-            Default = $true
-            Email   = $false
+            LicenseLink = 'https://github.com/findawayer/kineto/blob/main/LICENSE'
+            License     = 'MIT'
+            SourceCodes = 'https://github.com/findawayer/kineto'
+            Default     = $true
+            Email       = $false
         }
-        CodeBlocks                = @{
+        CodeBlocks                  = @{
             Comment      = 'EnlighterJS CodeBlocks'
             Header       = @{
                 CssLink = 'https://cdn.jsdelivr.net/npm/enlighterjs@3.4.0/dist/enlighterjs.min.css'
@@ -455,22 +458,28 @@ $Script:Configuration = [ordered] @{
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\enlighterjs-footer.js"
             }
+            LicenseLink  = 'https://github.com/EnlighterJS/EnlighterJS/blob/master/LICENSE.txt'
+            License      = 'Mozilla Public License 2.0'
+            SourceCodes  = 'https://github.com/EnlighterJS/EnlighterJS'
             Default      = $true
             Email        = $false
         }
-        CodeBlocksHighlight       = @{
+        CodeBlocksHighlight         = @{
             # future / possible use case # https://highlightjs.org/static/demo/
-            Comment = 'HighlightJS CodeBlocks'
-            Header  = @{
+            Comment     = 'HighlightJS CodeBlocks'
+            Header      = @{
                 CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\highlight.min.css"
                 JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js'
                 JS      = "$PSScriptRoot\..\Resources\JS\highlight.min.js"
             }
-            Default = $true
-            Email   = $false
+            License     = 'BSD 3-Clause "New" or "Revised" License'
+            LicenseLink = 'https://github.com/highlightjs/highlight.js/blob/master/LICENSE'
+            SourceCodes = 'https://github.com/highlightjs/highlight.js'
+            Default     = $true
+            Email       = $false
         }
-        ChartsApex                = @{
+        ChartsApex                  = @{
             Comment = 'Apex Charts'
             Header  = @{
                 JsLink = @(
@@ -491,7 +500,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        ChartsEvents              = [ordered] @{
+        ChartsEvents                = [ordered] @{
             HeaderAlways = @{
                 Js        = "$PSScriptRoot\..\Resources\JS\apexchartsEvents.js"
                 JsInLine  = "var dataTablesChartsEvents = {}; var count = 0;"
@@ -504,7 +513,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        ChartsOrg                 = [ordered] @{
+        ChartsOrg                   = [ordered] @{
             Comment      = 'OrgChart'
             Header       = @{
                 CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/3.1.0/css/jquery.orgchart.min.css'
@@ -564,10 +573,12 @@ $Script:Configuration = [ordered] @{
             }
             Default      = $true
             Email        = $false
+            License      = 'MIT'
+            LicenseLink  = 'https://github.com/dabeng/OrgChart/blob/master/LICENSE'
             SourceCodes  = 'https://github.com/dabeng/OrgChart'
             Demo         = 'https://codepen.io/collection/AWxGVb/', 'https://dabeng.github.io/OrgChart/'
         }
-        ChartsOrgExportPDF        = @{
+        ChartsOrgExportPDF          = @{
             Comment = 'OrgChartExport'
             Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js'
@@ -576,7 +587,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        ChartsOrgExportPNG        = @{
+        ChartsOrgExportPNG          = @{
             Comment = 'OrgChartExport'
             Header  = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js'
@@ -585,8 +596,8 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        ChartsXkcd                = @{
-            Header  = @{
+        ChartsXkcd                  = @{
+            Header      = @{
                 JsLink = @(
                     'https://cdn.jsdelivr.net/npm/chart.xkcd@1.1.12/dist/chart.xkcd.min.js'
                 )
@@ -594,10 +605,13 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\chart.xkcd.min.js"
                 )
             }
-            Default = $true
-            Email   = $false
+            LicenseLink = 'https://github.com/timqian/chart.xkcd/blob/master/LICENSE'
+            License     = 'MIT'
+            SourceCodes = 'https://github.com/timqian/chart.xkcd'
+            Default     = $true
+            Email       = $false
         }
-        ES6Promise                = @{
+        ES6Promise                  = @{
             Comment = 'ES6Promise'
             Header  = @{
                 JSLink = "https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"
@@ -607,16 +621,19 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        Jquery                    = @{
-            Comment = 'Jquery'
-            Header  = @{
+        Jquery                      = @{
+            Comment     = 'Jquery'
+            Header      = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' # 'https://code.jquery.com/jquery-3.5.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery.min.js"
             }
-            Default = $true
-            Email   = $false
+            LicenseLink = 'https://github.com/jquery/jquery/blob/main/LICENSE.txt'
+            License     = 'MIT'
+            SourceCodes = 'https://github.com/jquery/jquery'
+            Default     = $true
+            Email       = $false
         }
-        DataTables                = @{
+        DataTables                  = @{
             Comment      = 'DataTables'
             HeaderAlways = @{
                 CssInline   = @{
@@ -707,7 +724,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        DataTablesEmail           = @{
+        DataTablesEmail             = @{
             Comment      = 'DataTables for use in Email'
             HeaderAlways = @{
                 #Css = "$PSScriptRoot\..\Resources\CSS\datatables.noscript.css"
@@ -759,7 +776,7 @@ $Script:Configuration = [ordered] @{
             Default      = $false
             Email        = $true
         }
-        DataTablesAutoFill        = @{
+        DataTablesAutoFill          = @{
             Comment = 'DataTables AutoFill Features'
             Header  = @{
                 JsLink  = @(
@@ -778,7 +795,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesButtons         = @{
+        DataTablesButtons           = @{
             Comment = 'DataTables Buttons Features'
             Header  = @{
                 JsLink  = @(
@@ -798,7 +815,7 @@ $Script:Configuration = [ordered] @{
             Email   = $false
         }
 
-        DataTablesButtonsHTML5    = @{
+        DataTablesButtonsHTML5      = @{
             Comment = 'DataTables ButtonsHTML5 Features'
             Header  = @{
                 JsLink = @(
@@ -812,7 +829,7 @@ $Script:Configuration = [ordered] @{
             Email   = $false
         }
 
-        DataTablesButtonsPrint    = @{
+        DataTablesButtonsPrint      = @{
             Comment = 'DataTables ButtonsPrint Features'
             Header  = @{
                 JsLink = @(
@@ -826,7 +843,7 @@ $Script:Configuration = [ordered] @{
             Email   = $false
         }
 
-        DataTablesButtonsPDF      = @{
+        DataTablesButtonsPDF        = @{
             Comment = 'DataTables PDF Features'
             Header  = @{
                 JsLink = @(
@@ -841,7 +858,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesButtonsExcel    = @{
+        DataTablesButtonsExcel      = @{
             Comment = 'DataTables Excel Features'
             Header  = @{
                 JsLink = @(
@@ -854,7 +871,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesColReorder      = @{
+        DataTablesColReorder        = @{
             Comment = 'DataTables ColReorder Features'
             Header  = @{
                 JsLink  = @(
@@ -873,7 +890,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesFixedColumn     = @{
+        DataTablesFixedColumn       = @{
             Comment = 'DataTables Fixed Column Features'
             Header  = @{
                 JsLink  = @(
@@ -892,7 +909,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesFixedHeader     = @{
+        DataTablesFixedHeader       = @{
             Comment      = 'DataTables Fixed Header Features'
             HeaderAlways = @{
                 JsInLine = "var dataTablesFixedTracker = {};"
@@ -914,7 +931,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        DataTablesKeyTable        = @{
+        DataTablesKeyTable          = @{
             Comment = 'DataTables KeyTable Features'
             Header  = @{
                 JsLink  = @(
@@ -933,7 +950,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesPercentageBars  = @{
+        DataTablesPercentageBars    = @{
             Comment = 'DataTables PercentageBars'
             Header  = @{
                 JsLink = @(
@@ -946,7 +963,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesResponsive      = @{
+        DataTablesResponsive        = @{
             Comment = 'DataTables Responsive Features'
             Header  = @{
                 JsLink  = @(
@@ -965,7 +982,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesRowGrouping     = @{
+        DataTablesRowGrouping       = @{
             Comment = 'DataTables RowGrouping Features'
             Header  = @{
                 JsLink  = @(
@@ -984,7 +1001,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesRowReorder      = @{
+        DataTablesRowReorder        = @{
             Comment = 'DataTables RowReorder Features'
             Header  = @{
                 JsLink  = @(
@@ -1003,7 +1020,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesScroller        = @{
+        DataTablesScroller          = @{
             Comment = 'DataTables Scroller Features'
             Header  = @{
                 JsLink  = @(
@@ -1022,7 +1039,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesSearchBuilder   = @{
+        DataTablesSearchBuilder     = @{
             # https://datatables.net/blog/2020-09-01
             Comment = 'DataTables SearchBuilder'
             Header  = @{
@@ -1050,7 +1067,7 @@ $Script:Configuration = [ordered] @{
             Email   = $false
         }
         #>
-        DataTablesSearchFade      = @{
+        DataTablesSearchFade        = @{
             Comment      = 'DataTables SearchFade'
             HeaderAlways = @{
                 CssInline = @{
@@ -1066,7 +1083,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        DataTablesSearchHighlight = @{
+        DataTablesSearchHighlight   = @{
             Comment = 'DataTables SearchHighlight'
             Header  = @{
                 JsLinkOriginal = "https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.min.js", 'https://cdn.jsdelivr.net/gh/bartaz/sandbox.js@master/jquery.highlight.js'
@@ -1078,7 +1095,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesSearchAlphabet  = @{
+        DataTablesSearchAlphabet    = @{
             Comment = 'DataTables AlphabetSearch'
             Header  = @{
                 #JsLink  = "https://cdn.datatables.net/plug-ins/1.10.22/features/alphabetSearch/dataTables.alphabetSearch.min.js"
@@ -1093,7 +1110,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesSearchPanes     = @{
+        DataTablesSearchPanes       = @{
             Comment      = 'DataTables Search Panes Features'
             Header       = @{
                 JsLink  = @(
@@ -1136,7 +1153,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        DataTablesSelect          = @{
+        DataTablesSelect            = @{
             Comment = 'DataTables Select'
             Header  = @{
                 JsLink  = "https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"
@@ -1147,7 +1164,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesSimplify        = @{
+        DataTablesSimplify          = @{
             Comment      = 'DataTables (not really) - Simplified'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\datatables.simplify.css"
@@ -1155,7 +1172,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $true
         }
-        D3Mitch                   = @{
+        D3Mitch                     = @{
             Comment      = 'D3Mitch Feature'
             Header       = @{
                 JsLink  = @(
@@ -1170,10 +1187,13 @@ $Script:Configuration = [ordered] @{
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\hierarchicalTree.css"
             }
+            LicenseLink  = 'https://github.com/deltoss/d3-mitch-tree/blob/master/LICENSE'
+            License      = 'MIT'
+            SourceCodes  = 'https://github.com/deltoss/d3-mitch-tree'
             Default      = $true
             Email        = $false
         }
-        FullCalendar              = @{
+        FullCalendar                = @{
             Comment      = 'FullCalendar Basic'
             HeaderAlways = @{
                 CssInline = @{
@@ -1192,10 +1212,11 @@ $Script:Configuration = [ordered] @{
             }
             Default      = $true
             Email        = $false
+            LicenseLink  = 'https://github.com/fullcalendar/fullcalendar/blob/master/LICENSE.txt'
             License      = 'MIT'
             SourceCodes  = 'https://github.com/fullcalendar/fullcalendar'
         }
-        HideSection               = [ordered] @{
+        HideSection                 = [ordered] @{
             Comment      = 'Hide Section Code'
             Internal     = $true
             Header       = @{
@@ -1217,7 +1238,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        EscapeRegex               = @{
+        EscapeRegex                 = @{
             Comment      = 'Allows EscapeRegex for diagrams and table events'
             FooterAlways = @{
                 JS = "$PSScriptRoot\..\Resources\JS\escapeRegex.js"
@@ -1225,7 +1246,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        FancyTree                 = @{
+        FancyTree                   = @{
             HeaderAlways = @{
                 CssInline = @{
                     '.fancyTree' = @{
@@ -1243,10 +1264,11 @@ $Script:Configuration = [ordered] @{
             }
             Default      = $true
             Email        = $false
+            LicenseLink  = 'https://github.com/mar10/fancytree/blob/master/LICENSE.txt'
             License      = 'MIT'
             SourceCodes  = 'https://github.com/mar10/fancytree'
         }
-        JustGage                  = @{
+        JustGage                    = @{
             Comment     = 'Just Gage Library'
             Demos       = 'https://toorshia.github.io/justgage'
             Header      = @{
@@ -1262,6 +1284,7 @@ $Script:Configuration = [ordered] @{
             Default     = $true
             Email       = $false
             License     = 'MIT'
+            LicenseLink = 'https://github.com/toorshia/justgage/blob/master/LICENSE'
             SourceCodes = 'https://github.com/toorshia/justgage'
         }
         <#
@@ -1282,17 +1305,21 @@ $Script:Configuration = [ordered] @{
             }
         }
         #>
-        Moment                    = @{
-            Comment = 'Momment JS Library'
-            Header  = @{
+        Moment                      = @{
+            Comment     = 'Momment JS Library'
+            Header      = @{
                 JSLink = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\moment.min.js"
             }
-            Default = $true
-            Email   = $false
+            Library     = 'https://momentjs.com/'
+            SourceCodes = 'https://github.com/moment/moment/'
+            License     = 'MIT'
+            LicenseLink = 'https://github.com/moment/moment/blob/develop/LICENSE'
+            Default     = $true
+            Email       = $false
         }
 
-        Navigation                = @{
+        Navigation                  = @{
             Comment      = 'Navigation'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\nav.css"
@@ -1301,7 +1328,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        NavigationMenu            = @{
+        NavigationMenu              = @{
             Comment      = 'Navigation'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\jside-menu.css", "$PSScriptRoot\..\Resources\CSS\jside-skins.css"
@@ -1312,7 +1339,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        NavigationMultilevel      = @{
+        NavigationMultilevel        = @{
             Comment      = 'Navigation Multilevel'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\jquery.multilevelpushmenu_grey.css"
@@ -1326,11 +1353,12 @@ $Script:Configuration = [ordered] @{
                 JSLink = 'https://cdn.jsdelivr.net/gh/adgsm/multi-level-push-menu/jquery.multilevelpushmenu.min.js'
             }
             SourceCodes  = 'https://github.com/adgsm/multi-level-push-menu'
+            LicenseLink  = 'https://opensource.org/licenses/mit-license.php'
             License      = 'MIT'
             Default      = $true
             Email        = $false
         }
-        Popper                    = @{
+        Popper                      = @{
             Comment      = 'Popper and Tooltip for FullCalendar'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\popper.css"
@@ -1345,10 +1373,13 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\tooltip.min.js"
                 )
             }
+            SourceCodes  = 'https://github.com/popperjs/popper-core'
+            LicenseLink  = 'https://github.com/popperjs/popper-core/blob/master/LICENSE.md'
+            License      = 'MIT'
             Default      = $true
             Email        = $false
         }
-        RedrawObjects             = @{
+        RedrawObjects               = @{
             Comment  = 'Allows redrawObjects for collapsed sections and changing tabs'
             Internal = $true
             Footer   = @{
@@ -1363,7 +1394,7 @@ $Script:Configuration = [ordered] @{
             Default  = $true
             Email    = $false
         }
-        Tabbis                    = @{
+        Tabbis                      = @{
             Comment      = 'Elastic Tabbis'
             Internal     = $true
             HeaderAlways = @{
@@ -1428,19 +1459,22 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        TabsInline                = @{
+        TabsInline                  = @{
             # http://techlaboratory.net/jquery-smarttab
-            Comment = 'Tabs Inline'
-            Header  = @{
+            Comment     = 'Tabs Inline'
+            Header      = @{
                 JsLink  = 'https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/js/jquery.smartTab.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\jquery.smartTab.min.js"
                 CssLink = "https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/css/smart_tab_all.min.css"
                 Css     = "$PSScriptRoot\..\Resources\CSS\jquery.smartTab.min.css"
             }
-            Default = $true
-            Email   = $false
+            SourceCodes = 'https://github.com/techlab/jquery-smarttab'
+            LicenseLink = 'https://github.com/techlab/jquery-smarttab/blob/master/LICENSE'
+            License     = 'MIT'
+            Default     = $true
+            Email       = $false
         }
-        TimeLine                  = @{
+        TimeLine                    = @{
             Comment      = 'Timeline Simple'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\timeline-simple.css"
@@ -1448,7 +1482,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        Toasts                    = @{
+        Toasts                      = @{
             Comment      = 'Toasts Looking Messages'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\Toasts.css"
@@ -1456,7 +1490,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        StatusButtonical          = @{
+        StatusButtonical            = @{
             Comment      = 'Status Buttonical'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\status.css"
@@ -1464,7 +1498,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        VisData                   = [ordered]@{
+        VisData                     = [ordered]@{
             Header  = @{
                 # https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js
                 JsLink = 'https://unpkg.com/vis-data@7.1.2/peer/umd/vis-data.min.js'
@@ -1473,7 +1507,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        VisNetwork                = [ordered]@{
+        VisNetwork                  = [ordered]@{
             Comment      = 'VIS Network Dynamic, browser based visualization libraries'
             Demos        = @(
                 'https://visjs.github.io/vis-network/examples/'
@@ -1502,7 +1536,7 @@ $Script:Configuration = [ordered] @{
             Email        = $false
             SourceCodes  = 'https://github.com/visjs'
         }
-        VisNetworkClustering      = [ordered] @{
+        VisNetworkClustering        = [ordered] @{
             Comment  = 'VIS Network Clustering'
             Internal = $true
             <#
@@ -1517,7 +1551,7 @@ $Script:Configuration = [ordered] @{
             Default  = $true
             Email    = $false
         }
-        VisNetworkLoadingBar      = [ordered]@{
+        VisNetworkLoadingBar        = [ordered]@{
             Comment = 'VIS Network Loading Bar'
             <#
             HeaderAlways = @{
@@ -1531,7 +1565,7 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        VisNetworkLoad            = [ordered] @{
+        VisNetworkLoad              = [ordered] @{
             Comment = 'VIS Network Load'
             <#
             HeaderAlways = @{
@@ -1570,7 +1604,7 @@ $Script:Configuration = [ordered] @{
             }
         }
         #>
-        VisTimeline               = [ordered]@{
+        VisTimeline                 = [ordered]@{
             Comment      = 'VIS TimeLine'
             HeaderAlways = [ordered]@{
                 CssInline = [ordered] @{
@@ -1590,7 +1624,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        QR                        = [ordered] @{
+        QR                          = [ordered] @{
             Comment      = 'QR Code'
             Demos        = 'https://www.easyproject.cn/easyqrcodejs/tryit.html'
             HeaderAlways = @{
@@ -1606,10 +1640,11 @@ $Script:Configuration = [ordered] @{
             }
             Default      = $true
             Email        = $false
+            LicenseLink  = 'https://github.com/ushelp/EasyQRCodeJS/blob/master/LICENSE'
             License      = 'MIT'
             SourceCodes  = 'https://github.com/ushelp/EasyQRCodeJS'
         }
-        Wizard                    = [ordered] @{
+        Wizard                      = [ordered] @{
             Comment      = 'Wizard'
             Demos        = 'http://techlaboratory.net/jquery-smartwizard'
             Header       = @{
@@ -1627,6 +1662,7 @@ $Script:Configuration = [ordered] @{
             }
             Default      = $true
             Email        = $false
+            LicenseLink  = 'https://github.com/techlab/jquery-smartwizard/blob/master/LICENSE'
             License      = 'MIT'
             SourceCodes  = 'https://github.com/techlab/jquery-smartwizard'
         }
