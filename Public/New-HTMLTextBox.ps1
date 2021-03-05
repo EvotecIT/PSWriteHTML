@@ -113,5 +113,5 @@ function New-HTMLTextBox {
         $Span
     }
 }
-Register-ArgumentCompleter -CommandName EmailTextBox -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
-Register-ArgumentCompleter -CommandName EmailTextBox -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTextBox -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTextBox -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
