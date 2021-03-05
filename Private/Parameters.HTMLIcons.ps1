@@ -9,7 +9,6 @@ $Global:HTMLIcons = [ordered] @{
         'accusoft'                       = 'f369'
         'acquisitions-incorporated'      = 'f6af'
         'adn'                            = 'f170'
-        'adobe'                          = 'f778'
         'adversal'                       = 'f36a'
         'affiliatetheme'                 = 'f36b'
         'airbnb'                         = 'f834'
