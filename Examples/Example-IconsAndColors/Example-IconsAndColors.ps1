@@ -4,7 +4,6 @@ $FontAwesomeBrands = @(
     'accusoft'
     'acquisitions-incorporated'
     'adn'
-    'adobe'
     'adversal'
     'affiliatetheme'
     'airbnb'
