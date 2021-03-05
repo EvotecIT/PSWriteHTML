@@ -11,7 +11,7 @@ New-HTML -TitleText "Server Based Solution" -FilePath "$PSScriptRoot\Example43-H
     New-HTMLSectionStyle -BorderRadius 0px -RemoveShadow -HeaderBackGroundColor Grey
     New-HTMLTabStyle -BorderRadius 0px -BackgroundColorActive Grey
 
-    New-HTMLTab -Name 'Tab 1' -IconBrands adobe {
+    New-HTMLTab -Name 'Tab 1' -IconBrands amazon {
         New-HTMLTable -DataTableID 'TableContent0' -DataTable $Table3 {
             New-TableHeader -Color Red -Title 'This shows Ordered Dictionary'
         }
