@@ -105,5 +105,42 @@ New-HTML {
                 New-HTMLText -Text "Follow the steps below table to get Active Directory Group Policies in healthy state." -FontSize 10pt
             }
         }
+        New-HTMLSection -HeaderText 'Containers Test 70/30' {
+            New-HTMLContainer {
+                New-HTMLPanel {
+                    New-HTMLText -Text 'Test'
+                }
+            }
+            New-HTMLContainer {
+                New-HTMLPanel {
+                    New-HTMLText -Text 'Test'
+                }
+            } -Width 30%
+        }
+
+        New-HTMLSection -HeaderText 'Section Test 70/30' {
+            New-HTMLSection {
+                New-HTMLPanel {
+                    New-HTMLText -Text 'Test'
+                }
+            }
+            New-HTMLSection -Width 30% {
+                New-HTMLPanel {
+                    New-HTMLText -Text 'Test'
+                }
+            }
+        }
+        New-HTMLSection -HeaderText 'Section Test 100' {
+            New-HTMLSection {
+                New-HTMLPanel {
+                    New-HTMLText -Text 'Test'
+                }
+            }
+            New-HTMLSection {
+                New-HTMLPanel {
+                    New-HTMLText -Text 'Test'
+                }
+            }
+        }
     }
 } -Online -FilePath $PSScriptRoot\ContainerPanelSection01.html -TitleText 'Container Panel Section 01' -ShowHTML

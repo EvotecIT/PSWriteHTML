@@ -3,7 +3,7 @@
     [CmdletBinding()]
     param(
         [alias('Content')][Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $HTML,
-        [string] $Width,
+        [object] $Width = '100%',
         [string] $Margin,
         [string] $AnchorName
     )
@@ -14,7 +14,7 @@
     if ($Width -or $Margin) {
         [string] $ClassName = "flexElement$(Get-RandomStringName -Size 8 -LettersOnly)"
         $Attributes = @{
-            'flex-basis' = if ($Width) { $Width } else { '100%' }
+            'flex-basis' = ConvertFrom-Size -Size $Width
             'margin'     = if ($Margin) { $Margin }
         }
         $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes

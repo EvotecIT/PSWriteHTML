@@ -13,6 +13,7 @@ Function New-HTMLSection {
         [switch] $IsHidden,
         [switch] $Collapsed,
         [object] $Height,
+        [object] $Width = '100%',
         [switch] $Invisible,
         # Following are based on https://css-tricks.com/snippets/css/a-guide-to-flexbox/
         [string][ValidateSet('wrap', 'nowrap', 'wrap-reverse')] $Wrap,
@@ -121,6 +122,7 @@ Function New-HTMLSection {
     $AttributesTop['style'] = [ordered] @{
         "background-color" = ConvertFrom-Color -Color $BackgroundColor
         'border-radius'    = $BorderRadius
+        'flex-basis'       = $Width
     }
     if ($IsHidden) {
         $AttributesTop['style']["display"] = 'none'
