@@ -1691,38 +1691,7 @@ $Script:Configuration = [ordered] @{
     }
 }
 
-function Save-Resource {
-    [cmdletBinding()]
-    param(
-        [uri[]] $ResourceLinks,
-        [string[]] $Target,
-        [ValidateSet('CSS', 'JS')][string] $Type,
-        [string] $PathToSave
-    )
-    $TempProgressPreference = $ProgressPreference
-    $ProgressPreference = 'SilentlyContinue'
-    $Output = for ($i = 0; $i -lt $ResourceLinks.Count; $i++) {
-        if ($Target) {
-            # If target given means we replace something
-            Write-Verbose "Downloading $($ResourceLinks[$i].OriginalString) to $($Target[$i])"
-            Invoke-WebRequest -Uri $ResourceLinks[$i] -OutFile $Target[$i] -Verbose:$false
-            #$Target[$i]
-        } else {
-            $Splitted = $ResourceLinks[$i].OriginalString -split '/'
-            $FileName = $Splitted[ - 1]
-            $FilePath = [IO.Path]::Combine($PathToSave, $Type, $FileName)
-            $FilePathScriptRoot = -Join ('"', '$PSScriptRoot\..\Resources\', "$Type", '\', $FileName, '"')
-            $FilePathScriptRoot
-
-            Invoke-WebRequest -Uri $ResourceLinks[$i] -OutFile $FilePath -Verbose:$false
-        }
-    }
-    $ProgressPreference = $TempProgressPreference
-    $Output
-}
-
-##$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
-
+<#
 $Keys = @(
     #'Popper'
     #'Moment'
@@ -1735,71 +1704,12 @@ $Keys = @(
     #'VisData'
     #'FullCalendar'
     #'DataTablesSearchAlphabet'
-    #$Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
+    #'DataTable*'
     #'FancyTree'
     #'JustGage'
     #'CarouselKineto'
     #'QR'
 )
-$PathToSave = 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources'
-foreach ($Key in $Keys) {
-    if ($($Script:Configuration).Features.$Key.Internal -eq $true) {
-        # Do not update, as it's internal code
-        continue
-    }
-    foreach ($Place in @('Header', 'Footer', 'Body')) {
-        if ($($Script:Configuration).Features.$Key.$Place.JsLink -and $($Script:Configuration).Features.$Key.$Place.Js) {
-            if ($($Script:Configuration).Features.$Key.$Place.JSLinkOriginal) {
-                $JSLink = $($Script:Configuration).Features.$Key.$Place.JsLinkOriginal
-            } else {
-                $JSLink = $($Script:Configuration).Features.$Key.$Place.JsLink
-            }
-            Save-Resource -PathToSave $PathToSave -ResourceLinks $JSLink -Type 'JS' -Target $($Script:Configuration).Features.$Key.$Place.Js -Verbose
 
-        }
-        if ($($Script:Configuration).Features.$Key.$Place.CssLink -and $($Script:Configuration).Features.$Key.$Place.Css) {
-            if ($($Script:Configuration).Features.$Key.$Place.CssLinkOriginal) {
-                $CSSLink = $($Script:Configuration).Features.$Key.$Place.CssLinkOriginal
-            } else {
-                $CSSLink = $($Script:Configuration).Features.$Key.$Place.CssLink
-            }
-            Save-Resource -PathToSave $PathToSave -ResourceLinks $CSSLink -Type 'CSS' -Target $($Script:Configuration).Features.$Key.$Place.Css -Verbose
-        }
-    }
-}
-#>
-
-
-
-<# read https://css-tricks.com/understanding-web-fonts-getting/ to undderstand
-# Builds Fonts Awasome for Offline Use
-# remeber to remove types from original file
-# ttf / svg / eot / eot
-$FontReplacePath = 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\webfonts'
-$FontPath = 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.min.css'
-#$FontPath = 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.css'
-$TargetPath = "$PSScriptRoot\..\Resources\CSS\fontsAwesome.css"
-
-Optimize-CSS -File 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.css' -OutputFile 'C:\Support\GitHub\PSWriteHTML\Ignore\fontawesome-free-5.15.1-web\css\all-modified.min.css'
-Copy-Item -Path $FontPath -Destination $TargetPath
-
-$Content = Get-Content -Raw -Path $PSScriptRoot\..\Resources\CSS\fontsAwesome.css
-#$Content = Convert-FontToBinary -FileType 'font-eot' -Search '../webfonts/fa-solid-900.eot' -ReplacePath "$FontReplacePath\fa-solid-900.eot" -Content $Content
-$Content = Convert-FontToBinary -FileType 'font-woff2' -Search '../webfonts/fa-solid-900.woff2' -ReplacePath "$FontReplacePath\fa-solid-900.woff2" -Content $Content
-$Content = Convert-FontToBinary -FileType 'font-woff' -Search '../webfonts/fa-solid-900.woff' -ReplacePath "$FontReplacePath\fa-solid-900.woff" -Content $Content
-#$Content = Convert-FontToBinary -FileType 'font-ttf' -Search '../webfonts/fa-solid-900.ttf' -ReplacePath "$FontReplacePath\fa-solid-900.ttf" -Content $Content
-#$Content = Convert-FontToBinary -FileType 'font-svg' -Search '../webfonts/fa-solid-900.svg' -ReplacePath "$FontReplacePath\fa-solid-900.svg" -Content $Content
-#
-#$Content = Convert-FontToBinary -FileType 'font-eot' -Search '../webfonts/fa-brands-400.eot' -ReplacePath "$FontReplacePath\fa-brands-400.eot" -Content $Content
-$Content = Convert-FontToBinary -FileType 'font-woff2' -Search '../webfonts/fa-brands-400.woff2' -ReplacePath "$FontReplacePath\fa-brands-400.woff2" -Content $Content
-$Content = Convert-FontToBinary -FileType 'font-woff' -Search '../webfonts/fa-brands-400.woff' -ReplacePath "$FontReplacePath\fa-brands-400.woff" -Content $Content
-#$Content = Convert-FontToBinary -FileType 'font-ttf' -Search '../webfonts/fa-brands-400.ttf' -ReplacePath "$FontReplacePath\fa-brands-400.ttf" -Content $Content
-#$Content = Convert-FontToBinary -FileType 'font-svg' -Search '../webfonts/fa-brands-400.svg' -ReplacePath "$FontReplacePath\fa-brands-400.svg" -Content $Content
-#
-#$Content = Convert-FontToBinary -FileType 'font-eot' -Search '../webfonts/fa-regular-400.eot' -ReplacePath "$FontReplacePath\fa-regular-400.eot" -Content $Content
-$Content = Convert-FontToBinary -FileType 'font-woff2' -Search '../webfonts/fa-regular-400.woff2' -ReplacePath "$FontReplacePath\fa-regular-400.woff2" -Content $Content
-$Content = Convert-FontToBinary -FileType 'font-woff' -Search '../webfonts/fa-regular-400.woff' -ReplacePath "$FontReplacePath\fa-regular-400.woff" -Content $Content
-#$Content = Convert-FontToBinary -FileType 'font-ttf' -Search '../webfonts/fa-regular-400.ttf' -ReplacePath "$FontReplacePath\fa-regular-400.ttf" -Content $Content
-#$Content = Convert-FontToBinary -FileType 'font-svg' -Search '../webfonts/fa-regular-400.svg' -ReplacePath "$FontReplacePath\fa-regular-400.svg" -Content $Content
-Out-File -Encoding utf8 -FilePath $PSScriptRoot\..\Resources\CSS\fontsAwesome.css -InputObject $Content
+Save-HTMLResource -Configuration $Script:Configuration -Keys $Keys -PathToSave 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources' -Verbose
 #>
