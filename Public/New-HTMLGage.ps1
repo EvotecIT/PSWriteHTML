@@ -43,6 +43,7 @@
     )
     # Make sure JustGage JS is added to source
     $Script:HTMLSchema.Features.MainFlex = $true
+    $Script:HTMLSchema.Features.Raphael = $true
     $Script:HTMLSchema.Features.JustGage = $true
 
     # Build Options
