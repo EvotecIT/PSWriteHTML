@@ -21,6 +21,11 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
+        [parameter(ParameterSetName = "Shape")] [string] $Title,
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "Image")]
         [parameter(ParameterSetName = "Shape")][string[]] $To,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
@@ -333,6 +338,7 @@ function New-DiagramNode {
     $Object.Settings = [ordered] @{
         id                  = $Id
         label               = $Label
+        title               = $Title
         shape               = $NodeShape
 
         image               = $Image
