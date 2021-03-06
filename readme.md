@@ -84,6 +84,8 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 - 0.0.135
   - [x] Removed Adobe icon from FontsAwesome (Brands)
+  - [x] Library
+    - [x] Updated `VisNetwork` from `9.0.2` to `9.0.3`
 - 0.0.134 - 2021.03.05
   - [x] Fixes wrong register argument completer for `New-HTMLTextBox`
   - [x] Fixes SearchPane not completly visible [#193](https://github.com/EvotecIT/PSWriteHTML/issues/193)
