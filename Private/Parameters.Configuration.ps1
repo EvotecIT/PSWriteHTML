@@ -1268,16 +1268,31 @@ $Script:Configuration = [ordered] @{
             License      = 'MIT'
             SourceCodes  = 'https://github.com/mar10/fancytree'
         }
+        Raphael                     = @{
+            Comment     = 'Raphaël: Cross-browser vector graphics the easy way'
+            Demos       = 'https://dmitrybaranovskiy.github.io/raphael/'
+            Header      = @{
+                JSLink = @(
+                    'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js'
+                )
+                JS     = @(
+                    "$PSScriptRoot\..\Resources\JS\raphael.min.js"
+                )
+            }
+            License     = 'MIT'
+            LicenseLink = 'https://dmitrybaranovskiy.github.io/raphael/license.html'
+            SourceCodes = 'https://github.com/DmitryBaranovskiy/raphael/'
+            Default     = $true
+            Email       = $false
+        }
         JustGage                    = @{
             Comment     = 'Just Gage Library'
             Demos       = 'https://toorshia.github.io/justgage'
             Header      = @{
                 JSLink = @(
-                    'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js'
                     'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.1/justgage.min.js'
                 )
                 JS     = @(
-                    "$PSScriptRoot\..\Resources\JS\raphael.min.js"
                     "$PSScriptRoot\..\Resources\JS\justgage.min.js"
                 )
             }
@@ -1501,7 +1516,7 @@ $Script:Configuration = [ordered] @{
         VisData                     = [ordered]@{
             Header  = @{
                 # https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js
-                JsLink = 'https://unpkg.com/vis-data@7.1.2/peer/umd/vis-data.min.js'
+                JsLink = 'https://cdn.jsdelivr.net/npm/vis-data@7.1.2/peer/umd/vis-data.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
             }
             Default = $true
@@ -1529,8 +1544,10 @@ $Script:Configuration = [ordered] @{
             Header       = @{
                 # https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js
                 # https://unpkg.com/vis-network/styles/vis-network.min.css
-                JsLink = 'https://unpkg.com/vis-network@9.0.2/peer/umd/vis-network.min.js'
-                Js     = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
+                JsLink  = 'https://cdn.jsdelivr.net/npm/vis-network@9.0.3/peer/umd/vis-network.min.js'
+                Js      = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
+                CssLink = 'https://cdn.jsdelivr.net/npm/vis-network@9.0.3/styles/vis-network.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
             }
             Default      = $true
             Email        = $false
@@ -1618,10 +1635,10 @@ $Script:Configuration = [ordered] @{
             }
             Header       = @{
                 # https://unpkg.com/vis-timeline@latest/peer/umd/vis-timeline-graph2d.min.js
-                JsLink  = 'https://unpkg.com/vis-timeline@7.4.6/peer/umd/vis-timeline-graph2d.min.js'
+                JsLink  = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.4.6/peer/umd/vis-timeline-graph2d.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-timeline-graph2d.min.js"
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
-                CssLink = 'https://unpkg.com/vis-timeline@7.4.6/styles/vis-timeline-graph2d.min.css'
+                CssLink = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.4.6/styles/vis-timeline-graph2d.min.css'
             }
             LicenseLink  = 'https://github.com/visjs/vis-timeline/blob/master/LICENSE.md'
             License      = 'MIT and Apache 2.0'
@@ -1705,7 +1722,7 @@ function Save-Resource {
 }
 
 ##$Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
-<#
+
 $Keys = @(
     #'Popper'
     #'Moment'
@@ -1714,11 +1731,11 @@ $Keys = @(
     #'ChartsApex'
     #'AccordionFAQ'
     #'VisNetwork'
-    # 'VisTimeline'
+    #'VisTimeline'
     #'VisData'
     #'FullCalendar'
     #'DataTablesSearchAlphabet'
-    $Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
+    #$Script:Configuration.Features.Keys | Where-Object { $_ -like 'DataTable*' }
     #'FancyTree'
     #'JustGage'
     #'CarouselKineto'
