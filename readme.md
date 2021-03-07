@@ -82,7 +82,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-- 0.0.135
+- 0.0.135 - 2021.03.07
   - [x] Added ability to create plugins for `PSWriteHTML` -> Example: [PSWriteHTML.Maps](https://github.com/EvotecIT/PSWriteHTML.Maps)
   - [x] Removed `Adobe` icon from `FontsAwesome (Brands)`
   - [x] Library
