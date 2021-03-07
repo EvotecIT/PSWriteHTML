@@ -1,4 +1,159 @@
 function New-DiagramNode {
+    <#
+    .SYNOPSIS
+    Creates nodes on a diagram
+
+    .DESCRIPTION
+    Creates nodes on a diagram
+
+    .PARAMETER HtmlTextBox
+    Experimental TextBox to put HTML instead of Image using SVG
+
+    .PARAMETER Id
+    Id of a node. If not set, label will be used as Id.
+
+    .PARAMETER Label
+    Label for a diagram
+
+    .PARAMETER Title
+    Label that shows up when hovering over node
+
+    .PARAMETER To
+    Parameter description
+
+    .PARAMETER ArrowsToEnabled
+    Parameter description
+
+    .PARAMETER ArrowsMiddleEnabled
+    Parameter description
+
+    .PARAMETER ArrowsFromEnabled
+    Parameter description
+
+    .PARAMETER LinkColor
+    Parameter description
+
+    .PARAMETER Shape
+    Parameter description
+
+    .PARAMETER ImageType
+    Parameter description
+
+    .PARAMETER Image
+    Parameter description
+
+    .PARAMETER BorderWidth
+    Parameter description
+
+    .PARAMETER BorderWidthSelected
+    Parameter description
+
+    .PARAMETER BrokenImages
+    Parameter description
+
+    .PARAMETER Chosen
+    Parameter description
+
+    .PARAMETER ColorBorder
+    Parameter description
+
+    .PARAMETER ColorBackground
+    Parameter description
+
+    .PARAMETER ColorHighlightBorder
+    Parameter description
+
+    .PARAMETER ColorHighlightBackground
+    Parameter description
+
+    .PARAMETER ColorHoverBorder
+    Parameter description
+
+    .PARAMETER ColorHoverBackground
+    Parameter description
+
+    .PARAMETER FixedX
+    Parameter description
+
+    .PARAMETER FixedY
+    Parameter description
+
+    .PARAMETER FontColor
+    Color of the label text.
+
+    .PARAMETER FontSize
+    Size of the label text.
+
+    .PARAMETER FontName
+    Font face (or font family) of the label text.
+
+    .PARAMETER FontBackground
+    When not undefined but a color string, a background rectangle will be drawn behind the label in the supplied color.
+
+    .PARAMETER FontStrokeWidth
+    As an alternative to the background rectangle, a stroke can be drawn around the text. When a value higher than 0 is supplied, the stroke will be draw
+
+    .PARAMETER FontStrokeColor
+    This is the color of the stroke assuming the value for stroke is higher than 0.
+
+    .PARAMETER FontAlign
+    This can be set to 'left' to make the label left-aligned. Otherwise, defaults to 'center'.
+
+    .PARAMETER FontMulti
+    If false, the label is treated as pure text drawn with the base font.
+    If true or 'html' the label may be multifonted, with bold, italic and code markup, interpreted as html.
+    If the value is 'markdown' or 'md' the label may be multifonted, with bold, italic and code markup, interpreted as markdown.
+    The bold, italic, bold-italic and monospaced fonts may be set up under in the font.bold, font.ital, font.boldital and font.mono properties, respectively.
+
+    .PARAMETER FontVAdjust
+    Parameter description
+
+    .PARAMETER Size
+    The size is used to determine the size of node shapes that do not have the label inside of them.
+    These shapes are: image, circularImage, diamond, dot, star, triangle, triangleDown, hexagon, square and icon
+
+    .PARAMETER X
+    Parameter description
+
+    .PARAMETER Y
+    Parameter description
+
+    .PARAMETER IconAsImage
+    Parameter description
+
+    .PARAMETER IconColor
+    Parameter description
+
+    .PARAMETER IconBrands
+    Parameter description
+
+    .PARAMETER IconRegular
+    Parameter description
+
+    .PARAMETER IconSolid
+    Parameter description
+
+    .PARAMETER Level
+    Parameter description
+
+    .PARAMETER HeightConstraintMinimum
+    Parameter description
+
+    .PARAMETER HeightConstraintVAlign
+    Parameter description
+
+    .PARAMETER WidthConstraintMinimum
+    Parameter description
+
+    .PARAMETER WidthConstraintMaximum
+    Parameter description
+
+    .EXAMPLE
+    An example
+
+    .NOTES
+    General notes
+    #>
     [alias('DiagramNode')]
     [CmdLetBinding(DefaultParameterSetName = 'Shape')]
     param(
@@ -6,7 +161,7 @@ function New-DiagramNode {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "Image")]
-        [parameter(ParameterSetName = "Shape")][ScriptBlock] $TextBox,
+        [parameter(ParameterSetName = "Shape")][ScriptBlock] $HtmlTextBox,
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
@@ -311,6 +466,17 @@ function New-DiagramNode {
         } else {
             $NodeShape = 'circularImage'
         }
+    } elseif ($HtmlTextBox) {
+        $OutputSVG = New-HTMLTag -Tag 'svg' -Attributes @{ xmlns = 'http://www.w3.org/2000/svg'; width = '390' ; height = '70' } {
+            #New-HTMLTag -Tag 'rect' -Attributes @{ x = "0"; y = "0"; width = "100%"; height = "100%"; fill = "#7890A7"; 'stroke-width' = "20"; stroke = "#ffffff"; }
+            New-HTMLTag -Tag 'foreignObject' -Attributes @{x = "15"; y = "10"; width = "100%"; height = "100%"; } {
+                New-HTMLTag -Tag 'div' -Attributes @{ xmlns = 'http://www.w3.org/1999/xhtml' } {
+                    & $HtmlTextBox
+                }
+            }
+        }
+        $Image = ConvertTo-SVG -FileType 'svg+xml' -Content $OutputSVG
+        $NodeShape = 'image'
     } else {
         $NodeShape = $Shape
     }

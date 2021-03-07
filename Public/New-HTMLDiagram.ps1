@@ -90,7 +90,7 @@ function New-HTMLDiagram {
                 $DataNodes[$_]['image'] = Convert-Image -Image $DataNodes[$_]['image']
             }
         }
-        $NodeJson = $DataNodes[$_] | ConvertTo-Json -Depth 5 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
+        $NodeJson = $DataNodes[$_] | ConvertTo-JsonLiteral -Depth 5 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
         if ($DataNodes[$_].icon) {
             $IconsAvailable = $true
         }
@@ -111,7 +111,7 @@ function New-HTMLDiagram {
         $NodeJson
     }
     [Array] $Edges = foreach ($_ in $DataEdges) {
-        $_ | ConvertTo-Json -Depth 5 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
+        $_ | ConvertTo-JsonLiteral -Depth 5 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
     }
 
     $Options = @{
