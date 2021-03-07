@@ -83,10 +83,13 @@ Unfortunetly some code is very old, some code doesn't serve it's purpose anymore
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 - 0.0.135
-  - [x] Removed Adobe icon from FontsAwesome (Brands)
+  - [x] Added ability to create plugins for `PSWriteHTML` -> Example: [PSWriteHTML.Maps](https://github.com/EvotecIT/PSWriteHTML.Maps)
+  - [x] Removed `Adobe` icon from `FontsAwesome (Brands)`
   - [x] Library
     - [x] Updated `VisNetwork` from `9.0.2` to `9.0.3`
-  - [ ] Added `Width` parameter to `New-HTMLSection` which allows `New-HTMLSection -Width 30%` or similar
+  - [x] Added `Width` parameter to `New-HTMLSection` which allows `New-HTMLSection -Width 30%` or similar
+  - [x] Added `Title` field in New-DiagramNode
+  - [x] Improves ability to provide basic HTML in Label/Title in `New-DiagramNode`
 - 0.0.134 - 2021.03.05
   - [x] Fixes wrong register argument completer for `New-HTMLTextBox`
   - [x] Fixes SearchPane not completly visible [#193](https://github.com/EvotecIT/PSWriteHTML/issues/193)
