@@ -82,8 +82,12 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.136
+  - [x] Added `New-HTMLMap` experimental cmdlet
+    - [x] Due to that cmdlet size have become larger
 - 0.0.135 - 2021.03.07
   - [x] Added ability to create plugins for `PSWriteHTML` -> Example: [PSWriteHTML.Maps](https://github.com/EvotecIT/PSWriteHTML.Maps)
+    - [x] Keep in mind that module is not required as the functionality is part of the PSWriteHTML module anyways - it's just an example on how to do it yourself
   - [x] Removed `Adobe` icon from `FontsAwesome (Brands)`
   - [x] Library
     - [x] Updated `VisNetwork` from `9.0.2` to `9.0.3`
