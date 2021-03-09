@@ -871,6 +871,19 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
+        DataTablesConditions = @{
+            Comment = 'DataTables Conditions'
+            FooterAlways  = @{
+                #JsLink = @(
+                #    'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'
+                #)
+                JS     = @(
+                    "$PSScriptRoot\..\Resources\JS\dataTables.conditions.js"
+                )
+            }
+            Default = $true
+            Email   = $false
+        }
         DataTablesColReorder        = @{
             Comment = 'DataTables ColReorder Features'
             Header  = @{

@@ -21,6 +21,9 @@ function New-TableCondition {
         [switch] $Inline
 
     )
+
+    $Script:HTMLSchema.Features.DataTablesConditions = $true
+
     $Style = @{
         Color           = $Color
         BackGroundColor = $BackGroundColor
