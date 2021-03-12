@@ -703,7 +703,7 @@ $Script:Configuration = [ordered] @{
             }
             Header       = @{
                 CssLink = @(
-                    "https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"
+                    "https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"
                     "https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css"
                 )
                 Css     = @(
@@ -711,14 +711,14 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\CSS\dataTables.select.min.css"
                 )
                 JsLink  = @(
-                    "https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"
+                    "https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"
                     "https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"
-                    "https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js"
+                    "https://cdn.datatables.net/plug-ins/1.10.24/sorting/datetime-moment.js"
                 )
                 JS      = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.jquery.min.js"
                     "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
-                    "$PSScriptRoot\..\Resources\JS\datetime-moment.js"
+                    "$PSScriptRoot\..\Resources\JS\dataTables.datetimeMoment.js"
                 )
             }
             Default      = $true
@@ -871,18 +871,18 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-        DataTablesConditions = @{
-            Comment = 'DataTables Conditions'
-            FooterAlways  = @{
+        DataTablesConditions        = @{
+            Comment      = 'DataTables Conditions'
+            FooterAlways = @{
                 #JsLink = @(
                 #    'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'
                 #)
-                JS     = @(
+                JS = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.conditions.js"
                 )
             }
-            Default = $true
-            Email   = $false
+            Default      = $true
+            Email        = $false
         }
         DataTablesColReorder        = @{
             Comment = 'DataTables ColReorder Features'
@@ -1099,10 +1099,10 @@ $Script:Configuration = [ordered] @{
         DataTablesSearchHighlight   = @{
             Comment = 'DataTables SearchHighlight'
             Header  = @{
-                JsLinkOriginal = "https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.min.js", 'https://cdn.jsdelivr.net/gh/bartaz/sandbox.js@master/jquery.highlight.js'
-                JsLink         = "https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.min.js", "$($Script:ConfigurationURL)/JS/dataTables.searchHighlightRequire.min.js"
+                JsLinkOriginal = "https://cdn.datatables.net/plug-ins/1.10.24/features/searchHighlight/dataTables.searchHighlight.min.js", 'https://cdn.jsdelivr.net/gh/bartaz/sandbox.js@master/jquery.highlight.js'
+                JsLink         = "https://cdn.datatables.net/plug-ins/1.10.24/features/searchHighlight/dataTables.searchHighlight.min.js", "$($Script:ConfigurationURL)/JS/dataTables.searchHighlightRequire.min.js"
                 JS             = "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlight.min.js", "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlightRequire.js"
-                CSSLink        = 'https://cdn.datatables.net/plug-ins/1.10.21/features/searchHighlight/dataTables.searchHighlight.css'
+                CSSLink        = 'https://cdn.datatables.net/plug-ins/1.10.24/features/searchHighlight/dataTables.searchHighlight.css'
                 CSS            = "$PSScriptRoot\..\Resources\CSS\dataTables.searchHighlight.css"
             }
             Default = $true
@@ -1336,7 +1336,7 @@ $Script:Configuration = [ordered] @{
         Moment                      = @{
             Comment     = 'Momment JS Library'
             Header      = @{
-                JSLink = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js'
+                JSLink = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\moment.min.js"
             }
             Library     = 'https://momentjs.com/'
@@ -1701,7 +1701,7 @@ $Script:Configuration = [ordered] @{
             License      = 'MIT'
             SourceCodes  = 'https://github.com/techlab/jquery-smartwizard'
         }
-        JQueryMouseWheel           = @{
+        JQueryMouseWheel            = @{
             Header      = @{
                 JSLink = 'https://cdn.jsdelivr.net/npm/jquery-mousewheel@3.1.13/jquery.mousewheel.min.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\jquery.mousewheel.min.js"
@@ -1712,7 +1712,7 @@ $Script:Configuration = [ordered] @{
             Default     = $true
             Email       = $false
         }
-        Mapael                     = @{
+        Mapael                      = @{
             Comment     = 'Mapael JQuery'
             Header      = @{
                 JSLink = 'https://cdn.jsdelivr.net/npm/jquery-mapael@2.2.0/js/jquery.mapael.min.js'
@@ -1725,7 +1725,7 @@ $Script:Configuration = [ordered] @{
             Default     = $true
             Email       = $false
         }
-        MapaelMaps_Poland          = @{
+        MapaelMaps_Poland           = @{
             Internal = $true
             Header   = @{
                 JSLink = "$($Script:ConfigurationURL)/Maps/poland/poland.min.js"
@@ -1734,7 +1734,7 @@ $Script:Configuration = [ordered] @{
             Default  = $true
             Email    = $false
         }
-        MapaelMaps_usa_states      = @{
+        MapaelMaps_usa_states       = @{
             Internal = $true
             Header   = @{
                 JSLink = "$($Script:ConfigurationURL)/Maps/usa/usa_states.min.js"
@@ -1743,7 +1743,7 @@ $Script:Configuration = [ordered] @{
             Default  = $true
             Email    = $false
         }
-        MapaelMaps_world_countries = @{
+        MapaelMaps_world_countries  = @{
             Internal = $true
             Header   = @{
                 JSLink = "$($Script:ConfigurationURL)/Maps/world/world_countries.min.js"
@@ -1758,7 +1758,7 @@ $Script:Configuration = [ordered] @{
 <#
 $Keys = @(
     #'Popper'
-    #'Moment'
+    'Moment'
     #'Jquery'
     #'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
     #'ChartsApex'
@@ -1768,7 +1768,7 @@ $Keys = @(
     #'VisData'
     #'FullCalendar'
     #'DataTablesSearchAlphabet'
-    #'DataTable*'
+    'DataTable*'
     #'FancyTree'
     #'JustGage'
     #'CarouselKineto'
