@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-$Process = Get-Process | Select-Object -First 70
+$Process = Get-Process | Select-Object -First 10
 
 New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example20.html -Show {
     New-HTMLSection -HeaderText 'Test' -BackgroundColor Azure {
