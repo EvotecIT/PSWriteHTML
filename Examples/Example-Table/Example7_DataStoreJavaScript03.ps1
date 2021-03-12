@@ -20,10 +20,10 @@ New-HTML {
     # This is a bit special - when you use DataStoreID it uses single store in footer. However you need to make sure saved data is consistent between tables
     New-HTMLSection -Invisible {
         New-HTMLSection -HeaderText 'Standard Table with PSCustomObjects' {
-           # New-HTMLTable -DataTable $DataTable1 -AllProperties
+            New-HTMLTable -DataTable $DataTable1
         }
         New-HTMLSection -HeaderText 'Standard Table with PSCustomObjects' {
-            New-HTMLTable -DataTable $DataTable2 -AllProperties
+            New-HTMLTable -DataTable $DataTable2
         }
     }
 } -ShowHTML -FilePath $PSScriptRoot\Example7_DataStoreJavaScript03.html -Online
