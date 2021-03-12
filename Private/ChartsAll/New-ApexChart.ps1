@@ -15,7 +15,7 @@ function New-ApexChart {
         # Convert Dictionary to JSON and return chart within SCRIPT tag
         # Make sure to return with additional empty string
         Remove-EmptyValue -Hashtable $Options -Recursive -Rerun 2
-        $JSON = $Options | ConvertTo-JsonLiteral -Depth 5
+        $JSON = $Options | ConvertTo-JsonLiteral -Depth 5 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
         # replaces stuff for TImeLineCharts
         $JSON = $JSON.Replace('"new Date(', 'new Date(').Replace(')\.getTime()"', ')\.getTime()')
 

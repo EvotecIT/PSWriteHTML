@@ -753,7 +753,7 @@ function New-HTMLTable {
         $Options.autoWidth = $false
     }
 
-    $Options = $Options | ConvertTo-JsonLiteral -Depth 6
+    $Options = $Options | ConvertTo-JsonLiteral -Depth 6 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
 
     # cleans up $Options for ImmediatelyShowHiddenDetails
     # Since it's JavaScript inside we're basically removing double quotes from JSON in favor of no quotes at all
@@ -782,7 +782,7 @@ function New-HTMLTable {
             $Options = $Options.Replace('"markerForDataReplacement"', $DataStoreID)
             # We only add data if it isn't added yet
             if (-not $Script:HTMLSchema.CustomFooterJS[$DataStoreID]) {
-                $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 `
+                $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' } `
                     -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
                     -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
                     -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat `
@@ -797,7 +797,7 @@ function New-HTMLTable {
             }
 
         } else {
-            $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 `
+            $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }`
                 -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
                 -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
                 -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat `

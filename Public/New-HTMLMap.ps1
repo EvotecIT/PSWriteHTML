@@ -13,7 +13,7 @@
             name = $Map.ToLower()
         }
     }
-    $OptionsJSON = $Options | ConvertTo-JsonLiteral -Depth 2
+    $OptionsJSON = $Options | ConvertTo-JsonLiteral -Depth 2 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
 
     New-HTMLTag -Tag 'script' {
         "`$(function () { `$(`".$AnchorName`").mapael($OptionsJSON); });"

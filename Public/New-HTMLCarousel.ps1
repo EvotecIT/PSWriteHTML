@@ -14,7 +14,7 @@
         pagination = $true
         mode       = 'horizontal'
     }
-    $Carousel = $Options | ConvertTo-JsonLiteral -Depth 0
+    $Carousel = $Options | ConvertTo-JsonLiteral -Depth 0 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
 
     New-HTMLTag -Tag 'div' -Attributes @{ ID = $CarouselID; class = "carousel" } {
         if ($Slide) {
