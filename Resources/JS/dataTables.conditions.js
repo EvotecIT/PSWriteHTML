@@ -12,7 +12,7 @@ function dataTablesCheckCondition(condition, data) {
     }
     var conditionValue = condition['value'];
 
-    console.log('before: ' + conditionValue + ' ' + columnValue);
+    console.log('before: ' + conditionValue + ' || ' + columnValue);
     if (condition['type'] == 'bool') {
         columnValue = columnValue.toString().toLowerCase();
         conditionValue = conditionValue.toString().toLowerCase();
@@ -52,8 +52,17 @@ function dataTablesCheckCondition(condition, data) {
                 columnValue = undefined;
             }
         }
+    } else if (condition['type'] == 'date') {
+        // bring conditionValue to proper date
+        var valueDate = condition['valueDate'];
+        conditionValue = new Date(valueDate.year, valueDate.month - 1, valueDate.day, valueDate.hours, valueDate.minutes, valueDate.seconds);
+
+        // bring columnValue based on dateTimeFormat provided
+        var momentConversion = moment(columnValue, condition['dateTimeFormat']);
+        columnValue = new Date(momentConversion);
+        //console.log(valueDate.year + ' ' + valueDate.month);
     }
-    console.log('after: ' + conditionValue + ' ' + columnValue);
+    console.log('after: ' + conditionValue + ' || ' + columnValue);
     if (operator == 'eq') {
         if (columnValue == conditionValue) {
             return true;
@@ -76,13 +85,15 @@ function dataTablesCheckCondition(condition, data) {
             return true;
         }
     } else if (operator == 'contains' || operator == 'like') {
-        var compareValue = columnValue.Replace('*', '.*')
-        if (/conditionValue/i.test(compareValue)) {
+        //var compareValue = conditionValue.replace('*', '.*')
+        var regex = new RegExp(conditionValue);
+        if (regex.test(columnValue)) {
             return true;
         }
     } else if (operator == 'notcontains' || operator == 'notlike') {
-        var compareValue = columnValue.Replace('*', '.*')
-        if (!/conditionValue/i.test(compareValue)) {
+        //var compareValue = conditionValue.replace('*', '.*')
+        var regex = new RegExp(conditionValue)
+        if (!regex.test(columnValue)) {
             return true;
         }
     } else if (operator == 'betweeninclusive') {
