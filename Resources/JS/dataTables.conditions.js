@@ -12,7 +12,7 @@ function dataTablesCheckCondition(condition, data) {
     }
     var conditionValue = condition['value'];
 
-    console.log('before: ' + conditionValue + ' || ' + columnValue);
+    //console.log('before: ' + conditionValue + ' || ' + columnValue);
     if (condition['type'] == 'bool') {
         columnValue = columnValue.toString().toLowerCase();
         conditionValue = conditionValue.toString().toLowerCase();
@@ -60,9 +60,8 @@ function dataTablesCheckCondition(condition, data) {
         // bring columnValue based on dateTimeFormat provided
         var momentConversion = moment(columnValue, condition['dateTimeFormat']);
         columnValue = new Date(momentConversion);
-        //console.log(valueDate.year + ' ' + valueDate.month);
     }
-    console.log('after: ' + conditionValue + ' || ' + columnValue);
+    //console.log('after: ' + conditionValue + ' || ' + columnValue);
     if (operator == 'eq') {
         if (columnValue == conditionValue) {
             return true;
@@ -132,14 +131,14 @@ function dataTablesConditionalFormatting(row, data, conditionsContainer, highlig
         } else {
             for (let column of highlightColumn) {
                 $("td:eq(" + column + ")", row).css(css);
+
+                //if (data.Type == "group") {
+                //    $('td:eq(6)', row).html('<b>A</b>');
+                //}
             }
         }
     }
 }
-// var css = {
-//     "color": "#008000",
-//     "background-color": "#ffff00"
-// }
 
 // var conditionsContainer = [
 //     {
@@ -158,5 +157,3 @@ function dataTablesConditionalFormatting(row, data, conditionsContainer, highlig
 //         ]
 //     },
 // ];
-// //dataTablesConditionalFormatting(row, data, conditions, 2, [2, 3], css);
-// dataTablesConditionalFormatting(row, data, conditionsContainer, [2, 3], css);

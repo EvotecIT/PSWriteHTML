@@ -7,128 +7,73 @@ function New-TableConditionalFormatting {
         [string] $DataStore
     )
     if ($ConditionalFormatting.Count -gt 0) {
-        # Conditional - changes PowerShellOperator into JS operator
-        foreach ($Formatting in $ConditionalFormatting) {
-            if ($Formatting.Operator -eq 'gt') {
-                $Formatting.Operator = '>'
-            } elseif ($Formatting.Operator -eq 'lt') {
-                $Formatting.Operator = '<'
-            } elseif ($Formatting.Operator -eq 'eq') {
-                $Formatting.Operator = '=='
-            } elseif ($Formatting.Operator -eq 'le') {
-                $Formatting.Operator = '<='
-            } elseif ($Formatting.Operator -eq 'ge') {
-                $Formatting.Operator = '>='
-            } elseif ($Formatting.Operator -eq 'ne') {
-                $Formatting.Operator = '!='
+        $ConditionsReplacement = @(
+            '"rowCallback": function (row, data) {'
+            $Style = $null
+            [Array] $ConditionHeaderNr = $null
+            foreach ($Condition in $ConditionalFormatting) {
+                $Style = $null
+                [Array] $ConditionHeaderNr = $null
+                [Array] $ConditionsContainer = @(
+                    [ordered]@{
+                        logic      = 'AND'
+                        conditions = @(
+
+                            $Style = $Condition.Style
+                            if ($Condition.HighlightHeaders) {
+                                # if highlight headers is defined we use that
+                                $ConditionHeaderNr = foreach ($HeaderName in $Condition.HighlightHeaders) {
+                                    $ColumnID = $Header.ToLower().IndexOf($($HeaderName.ToLower()))
+                                    if ($ColumnID -ne -1) {
+                                        $ColumnID
+                                    }
+                                }
+                            } else {
+                                # if not we use same column that we highlight
+                                $ConditionHeaderNr = foreach ($HeaderName in $Condition.Name) {
+                                    $ColumnID = $Header.ToLower().IndexOf($($HeaderName.ToLower()))
+                                    if ($ColumnID -ne -1) {
+                                        $ColumnID
+                                    }
+                                }
+                            }
+                            $Cond = [ordered] @{
+                                columnName      = $Condition.Name
+                                columnId        = $Header.ToLower().IndexOf($($Condition.Name.ToLower()))
+                                operator        = $Condition.Operator
+                                type            = $Condition.Type.ToLower()
+                                value           = $Condition.Value
+                                valueDate       = $null
+                                dataStore       = $DataStore
+                                caseInsensitive = $Condition.CaseInsensitive
+                                dateTimeFormat  = $Condition.DateTimeFormat
+                            }
+                            if ($Value -is [datetime]) {
+                                $Cond['valueDate'] = @{
+                                    year        = $Value.Year
+                                    month       = $Value.Month
+                                    day         = $Value.Day
+                                    hours       = $Value.Hour
+                                    minutes     = $Value.Minute
+                                    seconds     = $Value.Second
+                                    miliseconds = $Value.Millisecond
+                                }
+                            }
+                            $Cond
+
+                        )
+                    }
+                )
+
+                $HighlightHeaders = $ConditionHeaderNr | ConvertTo-JsonLiteral -AsArray -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
+                "    var css = $($Style | ConvertTo-Json);"
+                "    var conditionsContainer = $($ConditionsContainer | ConvertTo-JsonLiteral -Depth 5 -AsArray -AdvancedReplace @{ '.' = '\.'; '$' = '\$' });"
+                "    dataTablesConditionalFormatting(row, data, conditionsContainer, $HighlightHeaders, css);"
             }
-            # Operator like/contains are taken care of below
-        }
-        if ($DataStore -eq 'HTML') {
-            $Condition = @(
-                '"createdRow": function (row, data, dataIndex, column) {'
-
-                foreach ($Condition in $ConditionalFormatting) {
-                    $ConditionHeaderNr = $Header.ToLower().IndexOf($($Condition.Name.ToLower()))
-                    $Style = $Condition.Style | ConvertTo-Json
-                    [string] $StyleDefinition = ".css($Style)"
-                    if ($null -eq $Condition.Type -or $Condition.Type -eq 'number' -or $Condition.Type -eq 'int' -or $Condition.Type -eq 'decimal') {
-                        "if (data[$ConditionHeaderNr] $($Condition.Operator) $($Condition.Value)) {"
-                    } elseif ($Condition.Value -is [bool]) {
-                        if ($Condition.Value -is [bool]) {
-                            "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
-                        } else {
-                            continue
-                        }
-                    } elseif ($Condition.Type -eq 'string') {
-                        switch -Regex ($Condition.Operator) {
-                            "contains|like" {
-                                "if (/$($Condition.Value.Replace('*','.*'))/i.test(data[$($ConditionHeaderNr)])) {"
-                                break
-                            }
-                            "notcontains|notlike" {
-                                "if (!/$($Condition.Value.Replace('*','.*'))/i.test(data[$($ConditionHeaderNr)])) {"
-                                break
-                            }
-                            default {
-                                "if (data[$ConditionHeaderNr] $($Condition.Operator) '$($Condition.Value)') {"
-                            }
-                        }
-                    } elseif ($Condition.Type -eq 'date') {
-                        "if (new Date(data[$ConditionHeaderNr]) $($Condition.Operator) new Date('$($Condition.Value)')) {"
-                    }
-                    if ($null -ne $Condition.Row -and $Condition.Row -eq $true) {
-                        "`$(column)$($StyleDefinition);"
-                    } else {
-                        "`$(column[$ConditionHeaderNr])$($StyleDefinition);"
-                    }
-                    "}"
-                }
-
-                '}'
-            )
-        } else {
-            <#
-            "rowCallback": function (row, data) {
-                if (data.Type == "group") {
-                    $('td:eq(6)', row).html('<b>A</b>');
-                }
-            },
-            #>
-            $Condition = @(
-                '"rowCallback": function (row, data) {'
-
-                foreach ($Condition in $ConditionalFormatting) {
-                    $ColumnName = $Condition.Name
-                    $ConditionHeaderNr = $Header.ToLower().IndexOf($($Condition.Name.ToLower()))
-                    $Style = $Condition.Style | ConvertTo-Json
-                    [string] $StyleDefinition = ".css($Style)"
-                    if ($null -eq $Condition.Type -or $Condition.Type -eq 'number' -or $Condition.Type -eq 'int' -or $Condition.Type -eq 'decimal') {
-                        "if (data.$ColumnName $($Condition.Operator) $($Condition.Value)) {"
-                    } elseif ($Condition.Type -eq 'bool') {
-                        if ($Condition.Value -is [bool]) {
-                            $Condition.Value = "$($Condition.Value)".ToLower()
-                            "if (data.$ColumnName $($Condition.Operator) $($Condition.Value)) {"
-                        } else {
-                            continue
-                        }
-                    } elseif ($Condition.Type -eq 'string') {
-                        switch -Regex ($Condition.Operator) {
-                            "notcontains|notlike" {
-                                "if (!/$($Condition.Value.Replace('*','.*'))/i.test(data.$ColumnName)) {"
-                                break
-                            }
-                            "contains|like" {
-                                "if (/$($Condition.Value.Replace('*','.*'))/i.test(data.$ColumnName)) {"
-                                break
-                            }
-                            default {
-                                "if (data.$ColumnName $($Condition.Operator) '$($Condition.Value)') {"
-                            }
-                        }
-                    } elseif ($Condition.Type -eq 'date') {
-                        "if (new Date(data.$ColumnName) $($Condition.Operator) new Date('$($Condition.Value)')) {"
-                    }
-                    if ($null -ne $Condition.Row -and $Condition.Row -eq $true) {
-                        #"`$('td')$($StyleDefinition);"
-                        "`$('td', row)$($StyleDefinition)"
-                    } else {
-                        "`$('td:eq($ConditionHeaderNr)', row)$($StyleDefinition)"
-                        #"`$(column[$ConditionHeaderNr])$($StyleDefinition);"
-                    }
-                    "}"
-                }
-
-                '}'
-            )
-        }
-        #if ($PSEdition -eq 'Desktop') {
-        #    $TextToFind = '"createdRow":  ""'
-        #} else {
-        #    $TextToFind = '"createdRow": ""'
-        #}
+            "}"
+        )
         $TextToFind = '"createdRow":""'
-        $Options = $Options -Replace ($TextToFind, $Condition)
+        $Options = $Options -Replace ($TextToFind, $ConditionsReplacement)
     }
     $Options
 }

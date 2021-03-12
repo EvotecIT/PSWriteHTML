@@ -3,8 +3,9 @@ function New-TableCondition {
     [CmdletBinding()]
     param(
         [alias('ColumnName')][string] $Name,
-        [alias('Type')][ValidateSet('number', 'string', 'bool')][string] $ComparisonType,
-        [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'ne', 'contains', 'like', 'notlike', 'notcontains')][string] $Operator,
+        [string[]] $HighlightHeaders,
+        [alias('Type')][ValidateSet('number', 'string', 'bool', 'date')][string] $ComparisonType = 'string',
+        [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'ne', 'contains', 'like', 'notlike', 'notcontains', 'between', 'betweenInclusive')][string] $Operator = 'eq',
         [Object] $Value,
         [switch] $Row,
         [string]$Color,
@@ -18,8 +19,9 @@ function New-TableCondition {
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl')][string] $Direction,
-        [switch] $Inline
-
+        [switch] $Inline,
+        [switch] $CaseInsensitive,
+        [string] $DateTimeFormat
     )
 
     $Script:HTMLSchema.Features.DataTablesConditions = $true
@@ -40,14 +42,17 @@ function New-TableCondition {
     Remove-EmptyValue -Hashtable $Style
 
     $TableCondition = [PSCustomObject] @{
-        Row             = $Row
-        Type            = if (-not $ComparisonType) { 'string' } else { $ComparisonType }
-        Name            = $Name
-        Operator        = if (-not $Operator) { 'eq' } else { $Operator }
-        Value           = $Value
-        Color           = $Color
-        BackgroundColor = $BackgroundColor
-        Style           = ConvertTo-HTMLStyle @Style
+        Row              = $Row
+        Type             = $ComparisonType
+        Name             = $Name
+        Operator         = $Operator
+        Value            = $Value
+        Color            = $Color
+        BackgroundColor  = $BackgroundColor
+        Style            = ConvertTo-HTMLStyle @Style
+        HighlightHeaders = $HighlightHeaders
+        CaseInsensitive  = $CaseInsensitive.IsPresent
+        DateTimeFormat   = $DateTimeFormat
     }
     [PSCustomObject] @{
         Type   = if ($Inline) { 'TableConditionInline' } else { 'TableCondition' }
