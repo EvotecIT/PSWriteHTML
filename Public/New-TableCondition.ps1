@@ -42,6 +42,7 @@ function New-TableCondition {
     Remove-EmptyValue -Hashtable $Style
 
     $TableCondition = [PSCustomObject] @{
+        ConditionType    = 'Condition'
         Row              = $Row
         Type             = $ComparisonType
         Name             = $Name

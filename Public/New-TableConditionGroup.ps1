@@ -40,6 +40,7 @@
         Remove-EmptyValue -Hashtable $Style
 
         $TableConditionGroup = [PSCustomObject] @{
+            ConditionType    = 'ConditionGroup'
             Style            = ConvertTo-HTMLStyle @Style
             Conditions       = & $Conditions
             Row              = $Row
