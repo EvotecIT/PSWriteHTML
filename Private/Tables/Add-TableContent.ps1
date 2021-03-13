@@ -16,105 +16,53 @@
             [string[]] $RowData = $Table[$RowCount] -replace '</td></tr>' -replace '<tr><td>' -split '</td><td>'
             for ($ColumnCount = 0; $ColumnCount -lt $RowData.Count; $ColumnCount++) {
                 foreach ($ConditionalFormatting in $ContentFormattingInline) {
-                    $ColumnIndexHeader = [array]::indexof($HeaderNames.ToUpper(), $($ConditionalFormatting.Name).ToUpper())
-                    if ($ColumnIndexHeader -eq $ColumnCount) {
-                        if ($ConditionalFormatting.Type -eq 'number') {
-                            if ($ConditionalFormatting.operator -in 'between', 'betweenInclusive') {
-                                [decimal] $returnedValueLeft = 0
-                                [bool] $resultLeft = [decimal]::TryParse($RowData[$ColumnCount], [ref]$returnedValueLeft)
-                                [bool] $resultRight = $false
-                                [Array] $returnedValueRight = foreach ($Value in $ConditionalFormatting.Value) {
-                                    [decimal]$returnedValue = 0
-                                    $resultRight = [decimal]::TryParse($Value, [ref]$returnedValue)
-                                    if ($resultRight) {
-                                        $returnedValue
-                                    } else {
-                                        break
-                                    }
-                                }
-                            } else {
-                                [decimal] $returnedValueLeft = 0
-                                [bool]$resultLeft = [decimal]::TryParse($RowData[$ColumnCount], [ref]$returnedValueLeft)
-
-                                [decimal]$returnedValueRight = 0
-                                [bool]$resultRight = [decimal]::TryParse($ConditionalFormatting.Value, [ref]$returnedValueRight)
+                    $Pass = $false
+                    if ($ConditionalFormatting.ConditionType -eq 'Condition') {
+                        $ColumnIndexHeader = [array]::indexof($HeaderNames.ToUpper(), $($ConditionalFormatting.Name).ToUpper())
+                        if ($ColumnIndexHeader -eq $ColumnCount) {
+                            $Pass = New-TableConditionalFormattingInline -HeaderNames $HeaderNames -ColumnIndexHeader $ColumnIndexHeader -RowCount $RowCount -ColumnCount $ColumnCount -RowData $RowData -ConditionalFormatting $ConditionalFormatting
+                        }
+                    } else {
+                        $IsConditionTrue = foreach ($SubCondition in $ConditionalFormatting.Conditions.Output) {
+                            $ColumnIndexHeader = [array]::indexof($HeaderNames.ToUpper(), $($SubCondition.Name).ToUpper())
+                            if ($ColumnIndexHeader -eq $ColumnCount) {
+                                New-TableConditionalFormattingInline -HeaderNames $HeaderNames -ColumnIndexHeader $ColumnIndexHeader -RowCount $RowCount -ColumnCount $ColumnCount -RowData $RowData -ConditionalFormatting $SubCondition
                             }
-                            if ($resultLeft -and $resultRight) {
-                                $SideLeft = $returnedValueLeft
-                                $SideRight = $returnedValueRight
-                            } else {
-                                $SideLeft = $RowData[$ColumnCount]
-                                $SideRight = $ConditionalFormatting.Value
+                        }
+                        if ($ConditionalFormatting.Logic -eq 'AND') {
+                            if ($IsConditionTrue -contains $true -and $IsConditionTrue -notcontains $false) {
+                                $Pass = $true
                             }
-                        } elseif ($ConditionalFormatting.Type -eq 'date') {
-                            try {
-                                if ($ConditionalFormatting.DateTimeFormat) {
-                                    $SideLeft = [DateTime]::ParseExact($RowData[$ColumnCount], $ConditionalFormatting.DateTimeFormat, $null)
-                                } else {
-                                    $SideLeft = [DateTime]::Parse($RowData[$ColumnCount])
-                                }
-                            } catch {
-                                $SideLeft = $null
-                                #Write-Warning "Table Condition $($RowData[$ColumnCount]) couldn't be converted to DateTime. Skipping."
-                            }
-                            $SideRight = $ConditionalFormatting.Value
                         } else {
-                            $SideLeft = $RowData[$ColumnCount]
-                            $SideRight = $ConditionalFormatting.Value
+                            if ($IsConditionTrue -contains $true) {
+                                $Pass = $true
+                            }
                         }
-                        if ($ConditionalFormatting.Operator -eq 'gt') {
-                            $Pass = $SideLeft -gt $SideRight
-                        } elseif ($ConditionalFormatting.Operator -eq 'lt') {
-                            $Pass = $SideLeft -lt $SideRight
-                        } elseif ($ConditionalFormatting.Operator -eq 'eq') {
-                            $Pass = $SideLeft -eq $SideRight
-                        } elseif ($ConditionalFormatting.Operator -eq 'le') {
-                            $Pass = $SideLeft -le $SideRight
-                        } elseif ($ConditionalFormatting.Operator -eq 'ge') {
-                            $Pass = $SideLeft -ge $SideRight
-                        } elseif ($ConditionalFormatting.Operator -eq 'ne') {
-                            $Pass = $SideLeft -ne $SideRight
-                        } elseif ($ConditionalFormatting.Operator -eq 'like') {
-                            $Pass = $SideLeft -like $SideRight
-                        } elseif ($ConditionalFormatting.Operator -eq 'contains') {
-                            $Pass = $SideLeft -contains $SideRight
-                        } elseif ($ConditionalFormatting.Operator -eq 'betweenInclusive') {
-                            $Pass = $SideLeft -ge $SideRight[0] -and $SideLeft -le $SideRight[1]
-                        } elseif ($ConditionalFormatting.Operator -eq 'between') {
-                            $Pass = $SideLeft -gt $SideRight[0] -and $SideLeft -lt $SideRight[1]
-                        }
-                        # This is generally risky, alternative way to do it, so doing above instead
-                        # if (Invoke-Expression -Command "`"$($RowData[$ColumnCount])`" -$($ConditionalFormatting.Operator) `"$($ConditionalFormatting.Value)`"") {
-
-                        if ($Pass) {
-                            # if ($RowData[$ColumnCount] -eq $ConditionalFormatting.Value) {
-                            # If we want to make conditional formatting for for row it requires a bit diff approach
-                            if ($ConditionalFormatting.Row) {
-                                for ($i = 0; $i -lt $RowData.Count; $i++) {
-                                    [PSCustomObject]@{
-                                        RowIndex    = $RowCount
-                                        ColumnIndex = ($i + 1)
-                                        # Since it's 0 based index and we count from 1 we need to add 1
-                                        Style       = $ConditionalFormatting.Style
-                                    }
-                                }
-                            } elseif ($ConditionalFormatting.HighlightHeaders) {
-                                foreach ($Name in $ConditionalFormatting.HighlightHeaders) {
-                                    $ColumnIndexHighlight = [array]::indexof($HeaderNames.ToUpper(), $($Name).ToUpper())
-                                    [PSCustomObject]@{
-                                        RowIndex    = $RowCount
-                                        ColumnIndex = ($ColumnIndexHighlight + 1)
-                                        # Since it's 0 based index and we count from 1 we need to add 1
-                                        Style       = $ConditionalFormatting.Style
-                                    }
-                                }
-                            } else {
+                    }
+                    if ($Pass) {
+                        # If we want to make conditional formatting for row it requires a bit diff approach
+                        if ($ConditionalFormatting.Row) {
+                            for ($i = 0; $i -lt $RowData.Count; $i++) {
                                 [PSCustomObject]@{
                                     RowIndex    = $RowCount
-                                    ColumnIndex = ($ColumnIndexHeader + 1)
-                                    # Since it's 0 based index and we count from 1 we need to add 1
+                                    ColumnIndex = ($i + 1)  # Since it's 0 based index and we count from 1 we need to add 1
                                     Style       = $ConditionalFormatting.Style
                                 }
+                            }
+                        } elseif ($ConditionalFormatting.HighlightHeaders) {
+                            foreach ($Name in $ConditionalFormatting.HighlightHeaders) {
+                                $ColumnIndexHighlight = [array]::indexof($HeaderNames.ToUpper(), $($Name).ToUpper())
+                                [PSCustomObject]@{
+                                    RowIndex    = $RowCount
+                                    ColumnIndex = ($ColumnIndexHighlight + 1) # Since it's 0 based index and we count from 1 we need to add 1
+                                    Style       = $ConditionalFormatting.Style
+                                }
+                            }
+                        } else {
+                            [PSCustomObject]@{
+                                RowIndex    = $RowCount
+                                ColumnIndex = ($ColumnIndexHeader + 1)  # Since it's 0 based index and we count from 1 we need to add 1
+                                Style       = $ConditionalFormatting.Style
                             }
                         }
                     }
