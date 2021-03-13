@@ -102,6 +102,7 @@
     if ($ExportExtension -eq 'pdf' -and $AllowExport) {
         $Script:HTMLSchema.Features.ES6Promise = $true
         $Script:HTMLSchema.Features.ChartsOrgExportPDF = $true
+        $Script:HTMLSchema.Features.ChartsOrgExportPNG = $true
     }
 
     if (-not $ChartID) {
