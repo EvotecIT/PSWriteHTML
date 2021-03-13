@@ -444,6 +444,17 @@ function New-HTMLTable {
 
     if ($DataStore -eq 'HTML') {
         #  Standard way to build inline table
+
+        # Since converting object with array inside with ConvertTo-HTML is useless we let the user ability to tell and fix that by joining it
+        if ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin) {
+            foreach ($Row in $Table) {
+                foreach ($Name in $Row.PSObject.Properties.Name) {
+                    if ($Row.$Name -is [Array]) {
+                        $Row.$Name = $Row.$Name -join $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
+                    }
+                }
+            }
+        }
         $Table = $Table | ConvertTo-Html -Fragment | Select-Object -SkipLast 1 | Select-Object -Skip 2 # This removes table tags (open/closing)
         [string] $Header = $Table | Select-Object -First 1 # this gets header
         [string[]] $HeaderNames = $Header -replace '</th></tr>' -replace '<tr><th>' -split '</th><th>'
