@@ -19,12 +19,26 @@
                     $ColumnIndexHeader = [array]::indexof($HeaderNames.ToUpper(), $($ConditionalFormatting.Name).ToUpper())
                     if ($ColumnIndexHeader -eq $ColumnCount) {
                         if ($ConditionalFormatting.Type -eq 'number') {
-                            [decimal] $returnedValueLeft = 0
-                            [bool]$resultLeft = [decimal]::TryParse($RowData[$ColumnCount], [ref]$returnedValueLeft)
+                            if ($ConditionalFormatting.operator -in 'between', 'betweenInclusive') {
+                                [decimal] $returnedValueLeft = 0
+                                [bool] $resultLeft = [decimal]::TryParse($RowData[$ColumnCount], [ref]$returnedValueLeft)
+                                [bool] $resultRight = $false
+                                [Array] $returnedValueRight = foreach ($Value in $ConditionalFormatting.Value) {
+                                    [decimal]$returnedValue = 0
+                                    $resultRight = [decimal]::TryParse($Value, [ref]$returnedValue)
+                                    if ($resultRight) {
+                                        $returnedValue
+                                    } else {
+                                        break
+                                    }
+                                }
+                            } else {
+                                [decimal] $returnedValueLeft = 0
+                                [bool]$resultLeft = [decimal]::TryParse($RowData[$ColumnCount], [ref]$returnedValueLeft)
 
-                            [decimal]$returnedValueRight = 0
-                            [bool]$resultRight = [decimal]::TryParse($ConditionalFormatting.Value, [ref]$returnedValueRight)
-
+                                [decimal]$returnedValueRight = 0
+                                [bool]$resultRight = [decimal]::TryParse($ConditionalFormatting.Value, [ref]$returnedValueRight)
+                            }
                             if ($resultLeft -and $resultRight) {
                                 $SideLeft = $returnedValueLeft
                                 $SideRight = $returnedValueRight
@@ -64,6 +78,10 @@
                             $Pass = $SideLeft -like $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'contains') {
                             $Pass = $SideLeft -contains $SideRight
+                        } elseif ($ConditionalFormatting.Operator -eq 'betweenInclusive') {
+                            $Pass = $SideLeft -ge $SideRight[0] -and $SideLeft -le $SideRight[1]
+                        } elseif ($ConditionalFormatting.Operator -eq 'between') {
+                            $Pass = $SideLeft -gt $SideRight[0] -and $SideLeft -lt $SideRight[1]
                         }
                         # This is generally risky, alternative way to do it, so doing above instead
                         # if (Invoke-Expression -Command "`"$($RowData[$ColumnCount])`" -$($ConditionalFormatting.Operator) `"$($ConditionalFormatting.Value)`"") {
