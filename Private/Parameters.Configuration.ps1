@@ -581,7 +581,7 @@ $Script:Configuration = [ordered] @{
         ChartsOrgExportPDF          = @{
             Comment = 'OrgChartExport'
             Header  = @{
-                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js'
+                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jspdf.min.js"
             }
             Default = $true
@@ -1758,7 +1758,7 @@ $Script:Configuration = [ordered] @{
 <#
 $Keys = @(
     #'Popper'
-    'Moment'
+    #'Moment'
     #'Jquery'
     #'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
     #'ChartsApex'
@@ -1768,7 +1768,7 @@ $Keys = @(
     #'VisData'
     #'FullCalendar'
     #'DataTablesSearchAlphabet'
-    'DataTable*'
+    #'DataTable*'
     #'FancyTree'
     #'JustGage'
     #'CarouselKineto'
