@@ -3,40 +3,38 @@ function New-TableConditionalFormatting {
     param(
         [string] $Options,
         [Array] $ConditionalFormatting,
+        [Array] $ConditionalFormattingGroup,
         [string[]] $Header,
         [string] $DataStore
     )
-    if ($ConditionalFormatting.Count -gt 0) {
+    if ($ConditionalFormatting.Count -gt 0 -or $ConditionalFormattingGroup.Count -gt 0) {
         $ConditionsReplacement = @(
             '"rowCallback": function (row, data) {'
-            $Style = $null
-            [Array] $ConditionHeaderNr = $null
             foreach ($Condition in $ConditionalFormatting) {
-                $Style = $null
-                [Array] $ConditionHeaderNr = $null
+                $Style = $Condition.Style
+                [Array] $ConditionHeaderNr = @(
+                    if ($Condition.HighlightHeaders) {
+                        # if highlight headers is defined we use that
+                        foreach ($HeaderName in $Condition.HighlightHeaders) {
+                            $ColumnID = $Header.ToLower().IndexOf($($HeaderName.ToLower()))
+                            if ($ColumnID -ne -1) {
+                                $ColumnID
+                            }
+                        }
+                    } else {
+                        # if not we use same column that we highlight
+                        foreach ($HeaderName in $Condition.Name) {
+                            $ColumnID = $Header.ToLower().IndexOf($($HeaderName.ToLower()))
+                            if ($ColumnID -ne -1) {
+                                $ColumnID
+                            }
+                        }
+                    }
+                )
                 [Array] $ConditionsContainer = @(
                     [ordered]@{
                         logic      = 'AND'
                         conditions = @(
-
-                            $Style = $Condition.Style
-                            if ($Condition.HighlightHeaders) {
-                                # if highlight headers is defined we use that
-                                $ConditionHeaderNr = foreach ($HeaderName in $Condition.HighlightHeaders) {
-                                    $ColumnID = $Header.ToLower().IndexOf($($HeaderName.ToLower()))
-                                    if ($ColumnID -ne -1) {
-                                        $ColumnID
-                                    }
-                                }
-                            } else {
-                                # if not we use same column that we highlight
-                                $ConditionHeaderNr = foreach ($HeaderName in $Condition.Name) {
-                                    $ColumnID = $Header.ToLower().IndexOf($($HeaderName.ToLower()))
-                                    if ($ColumnID -ne -1) {
-                                        $ColumnID
-                                    }
-                                }
-                            }
                             $Cond = [ordered] @{
                                 columnName      = $Condition.Name
                                 columnId        = $Header.ToLower().IndexOf($($Condition.Name.ToLower()))
@@ -60,7 +58,6 @@ function New-TableConditionalFormatting {
                                 }
                             }
                             $Cond
-
                         )
                     }
                 )

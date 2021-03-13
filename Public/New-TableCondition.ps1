@@ -47,8 +47,8 @@ function New-TableCondition {
         Name             = $Name
         Operator         = $Operator
         Value            = $Value
-        Color            = $Color
-        BackgroundColor  = $BackgroundColor
+        #Color            = $Color
+        #BackgroundColor  = $BackgroundColor
         Style            = ConvertTo-HTMLStyle @Style
         HighlightHeaders = $HighlightHeaders
         CaseInsensitive  = $CaseInsensitive.IsPresent
