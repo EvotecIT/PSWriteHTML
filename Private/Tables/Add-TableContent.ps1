@@ -14,18 +14,16 @@
     if ($ContentFormattingInline.Count -gt 0) {
         [Array] $AddStyles = for ($RowCount = 1; $RowCount -lt $Table.Count; $RowCount++) {
             [string[]] $RowData = $Table[$RowCount] -replace '</td></tr>' -replace '<tr><td>' -split '</td><td>'
-
             for ($ColumnCount = 0; $ColumnCount -lt $RowData.Count; $ColumnCount++) {
                 foreach ($ConditionalFormatting in $ContentFormattingInline) {
                     $ColumnIndexHeader = [array]::indexof($HeaderNames.ToUpper(), $($ConditionalFormatting.Name).ToUpper())
                     if ($ColumnIndexHeader -eq $ColumnCount) {
-
-                        if ($ConditionalFormatting.Type -eq 'number' -or $ConditionalFormatting.Type -eq 'decimal') {
+                        if ($ConditionalFormatting.Type -eq 'number') {
                             [decimal] $returnedValueLeft = 0
-                            [bool]$resultLeft = [int]::TryParse($RowData[$ColumnCount], [ref]$returnedValueLeft)
+                            [bool]$resultLeft = [decimal]::TryParse($RowData[$ColumnCount], [ref]$returnedValueLeft)
 
                             [decimal]$returnedValueRight = 0
-                            [bool]$resultRight = [int]::TryParse($ConditionalFormatting.Value, [ref]$returnedValueRight)
+                            [bool]$resultRight = [decimal]::TryParse($ConditionalFormatting.Value, [ref]$returnedValueRight)
 
                             if ($resultLeft -and $resultRight) {
                                 $SideLeft = $returnedValueLeft
@@ -34,27 +32,22 @@
                                 $SideLeft = $RowData[$ColumnCount]
                                 $SideRight = $ConditionalFormatting.Value
                             }
-
-                        } elseif ($ConditionalFormatting.Type -eq 'int') {
-                            # Leaving this in althought only NUMBER is used.
-                            [int] $returnedValueLeft = 0
-                            [bool]$resultLeft = [int]::TryParse($RowData[$ColumnCount], [ref]$returnedValueLeft)
-
-                            [int]$returnedValueRight = 0
-                            [bool]$resultRight = [int]::TryParse($ConditionalFormatting.Value, [ref]$returnedValueRight)
-
-                            if ($resultLeft -and $resultRight) {
-                                $SideLeft = $returnedValueLeft
-                                $SideRight = $returnedValueRight
-                            } else {
-                                $SideLeft = $RowData[$ColumnCount]
-                                $SideRight = $ConditionalFormatting.Value
+                        } elseif ($ConditionalFormatting.Type -eq 'date') {
+                            try {
+                                if ($ConditionalFormatting.DateTimeFormat) {
+                                    $SideLeft = [DateTime]::ParseExact($RowData[$ColumnCount], $ConditionalFormatting.DateTimeFormat, $null)
+                                } else {
+                                    $SideLeft = [DateTime]::Parse($RowData[$ColumnCount])
+                                }
+                            } catch {
+                                $SideLeft = $null
+                                #Write-Warning "Table Condition $($RowData[$ColumnCount]) couldn't be converted to DateTime. Skipping."
                             }
+                            $SideRight = $ConditionalFormatting.Value
                         } else {
                             $SideLeft = $RowData[$ColumnCount]
                             $SideRight = $ConditionalFormatting.Value
                         }
-
                         if ($ConditionalFormatting.Operator -eq 'gt') {
                             $Pass = $SideLeft -gt $SideRight
                         } elseif ($ConditionalFormatting.Operator -eq 'lt') {
@@ -83,6 +76,16 @@
                                     [PSCustomObject]@{
                                         RowIndex    = $RowCount
                                         ColumnIndex = ($i + 1)
+                                        # Since it's 0 based index and we count from 1 we need to add 1
+                                        Style       = $ConditionalFormatting.Style
+                                    }
+                                }
+                            } elseif ($ConditionalFormatting.HighlightHeaders) {
+                                foreach ($Name in $ConditionalFormatting.HighlightHeaders) {
+                                    $ColumnIndexHighlight = [array]::indexof($HeaderNames.ToUpper(), $($Name).ToUpper())
+                                    [PSCustomObject]@{
+                                        RowIndex    = $RowCount
+                                        ColumnIndex = ($ColumnIndexHighlight + 1)
                                         # Since it's 0 based index and we count from 1 we need to add 1
                                         Style       = $ConditionalFormatting.Style
                                     }

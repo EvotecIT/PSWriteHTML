@@ -119,8 +119,6 @@ function New-HTMLTable {
     # Theme creator  https://datatables.net/manual/styling/theme-creator
     $ConditionalFormatting = [System.Collections.Generic.List[PSCustomObject]]::new()
     $ConditionalFormattingInline = [System.Collections.Generic.List[PSCustomObject]]::new()
-    $ConditionalFormattingGroup = [System.Collections.Generic.List[PSCustomObject]]::new()
-    $ConditionalFormattingGroupInline = [System.Collections.Generic.List[PSCustomObject]]::new()
     $CustomButtons = [System.Collections.Generic.List[PSCustomObject]]::new()
     $HeaderRows = [System.Collections.Generic.List[PSCustomObject]]::new()
     $HeaderStyle = [System.Collections.Generic.List[PSCustomObject]]::new()
@@ -166,7 +164,7 @@ function New-HTMLTable {
                 } elseif ($Parameters.Type -eq 'TableCondition') {
                     $ConditionalFormatting.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableConditionGroup') {
-                    $ConditionalFormattingGroup.Add($Parameters.Output)
+                    $ConditionalFormatting.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableHeaderMerge') {
                     $HeaderRows.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableHeaderStyle') {
@@ -182,7 +180,7 @@ function New-HTMLTable {
                 } elseif ($Parameters.Type -eq 'TableConditionInline') {
                     $ConditionalFormattingInline.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableConditionGroupInline') {
-                    $ConditionalFormattingGroupInline.Add($Parameters.Output)
+                    $ConditionalFormattingInline.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableHeaderResponsiveOperations') {
                     $HeaderResponsiveOperations.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableReplaceCompare') {
@@ -459,7 +457,7 @@ function New-HTMLTable {
         # It basically goes thru every single row and checks if values to add styles or inline conditional formatting
         # It's heavier then JS, so use when nessecary
         if ($ContentRows.Capacity -gt 0 -or $ContentStyle.Count -gt 0 -or $ContentTop.Count -gt 0 -or $ConditionalFormattingInline.Count -gt 0) {
-            $Table = Add-TableContent -ContentRows $ContentRows -ContentStyle $ContentStyle -ContentTop $ContentTop -ContentFormattingInline $ConditionalFormattingInline -ConditionalFormattingGroupInline $ConditionalFormattingGroupInline -Table $Table -HeaderNames $HeaderNames
+            $Table = Add-TableContent -ContentRows $ContentRows -ContentStyle $ContentStyle -ContentTop $ContentTop -ContentFormattingInline $ConditionalFormattingInline -Table $Table -HeaderNames $HeaderNames
         }
         $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
     } elseif ($DataStore -eq 'AjaxJSON') {
@@ -821,7 +819,7 @@ function New-HTMLTable {
     }
 
     # Process Conditional Formatting. Ugly JS building
-    $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -ConditionalFormattingGroup $ConditionalFormattingGroup -Header $HeaderNames -DataStore $DataStore
+    $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames -DataStore $DataStore
     # Process Row Grouping. Ugly JS building
     if ($RowGroupingColumnID -ne -1) {
         $Options = Convert-TableRowGrouping -Options $Options -RowGroupingColumnID $RowGroupingColumnID
