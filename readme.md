@@ -87,6 +87,7 @@ Please make sure to read changes before updating, as we're undergoing some break
   - [x] Table Conditioning - highly improved table conditions. This requires some documentation/blog post
     - [x] Added `New-TableCondtionGroup`
     - [x] Improved `New-TableCondition`
+    - [x] **Let's hope I didn't break anything**
   - [x] Added ability to configure ArrayJoin/ArrayJoinString for DataStore HTML using `New-HTMLTableOption`
   - [x] Added `New-HTMLMap` experimental cmdlet
     - [x] Due to that cmdlet size have become larger
