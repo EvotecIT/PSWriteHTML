@@ -1,4 +1,4 @@
-﻿function chartEventClick(tableid, columnid, config, dataPointIndex, seriesIndex) {
+﻿function chartEventClick(tableid, columnid, config, dataPointIndex, seriesIndex, escapeSpecialChars) {
     var table = $('#' + tableid).DataTable();
     if (['donut', 'pie', 'radialBar'].includes(config.chart.type)) {
         // temporary disabled until fixed in ApexCharts, uses dataPointEvent instead
@@ -13,21 +13,25 @@
     } else {
         if (['donut', 'pie', 'radialBar'].includes(config.chart.type)) {
             // not used
-            var columnValue = escapeRegExp(config.labels[dataPointIndex]);
-            var highlightValue = escapeRegExp(config.series[dataPointIndex]);
+            var columnValue = config.labels[dataPointIndex];
+            var highlightValue = config.series[dataPointIndex];
         } else if (config.chart.type === 'rangeBar') {
-            var columnValue = escapeRegExp(config.series[0].data[dataPointIndex].x) // name
-            var highlightValue = escapeRegExp(config.series[0].data[dataPointIndex].y[0]) // date from
+            var columnValue = config.series[0].data[dataPointIndex].x; // name
+            var highlightValue = config.series[0].data[dataPointIndex].y[0]; // date from
             //var columnValue2 = escapeRegExp(config.config.series[0].data[config.dataPointIndex].y[1]) // date to
         } else {
             //console.log(config.config.series[config.seriesIndex].data[config.dataPointIndex]); // Value
             //console.log(config.config.series[config.seriesIndex].name);  // Name of ChartLegend
             //console.log(config.config.xaxis.categories[config.dataPointIndex]); // Name of Object on X axis
-            var columnValue = escapeRegExp(config.xaxis.categories[dataPointIndex]);
-            var highlightValue = escapeRegExp(config.series[seriesIndex].data[dataPointIndex]);
+            var columnValue = config.xaxis.categories[dataPointIndex];
+            var highlightValue = config.series[seriesIndex].data[dataPointIndex];
             //var columnValue2 = escapeRegExp(config.config.series[config.seriesIndex].name);
         }
-        //console.log('type ' + config.config.chart.type + ' columnValue ' + columnValue + ' highlightValue ' + highlightValue);
+
+        if (escapeSpecialChars) {
+            columnValue = escapeRegExp(columnValue);
+            highlightValue = escapeRegExp(highlightValue);
+        }
 
         if (columnValue != '') {
             if (config.chart.type === 'rangeBar') {
@@ -44,14 +48,21 @@
         }
     }
 }
-function chartEventDataPointClick(tableid, columnid, config, dataPointIndex, seriesIndex) {
+function chartEventDataPointClick(tableid, columnid, config, dataPointIndex, seriesIndex, escapeSpecialChars) {
     if (['line'].includes(config.chart.type)) {
         // line charts are supported in markerClick
         return true;
     }
     if (['donut', 'pie', 'radialBar'].includes(config.chart.type)) {
-        var columnValue = escapeRegExp(config.labels[dataPointIndex])
-        var highlightValue = escapeRegExp(config.series[dataPointIndex])
+        //var columnValue = escapeRegExp(config.labels[dataPointIndex]);
+        //var highlightValue = escapeRegExp(config.series[dataPointIndex]);
+        var columnValue = config.labels[dataPointIndex];
+        var highlightValue = config.series[dataPointIndex];
+
+        if (escapeSpecialChars) {
+            columnValue = escapeRegExp(columnValue);
+            highlightValue = escapeRegExp(highlightValue);
+        }
 
         // if value is the same we clicked on before, we clear the search, if not we continue
         if (dataTablesChartsEvents[tableid] === highlightValue) {
@@ -76,8 +87,13 @@ function chartEventDataPointClick(tableid, columnid, config, dataPointIndex, ser
 function chartEventMarkerClick(tableid, columnid, config, dataPointIndex, seriesIndex) {
     if (['line'].includes(config.chart.type)) {
         // line charts are supported in markerClick
-        var highlightValue = escapeRegExp(config.series[seriesIndex].data[dataPointIndex])
-        var columnValue = escapeRegExp(config.xaxis.categories[dataPointIndex])
+        var highlightValue = config.series[seriesIndex].data[dataPointIndex];
+        var columnValue = config.xaxis.categories[dataPointIndex];
+
+        if (escapeSpecialChars) {
+            columnValue = escapeRegExp(columnValue);
+            highlightValue = escapeRegExp(highlightValue);
+        }
 
         // if value is the same we clicked on before, we clear the search, if not we continue
         if (dataTablesChartsEvents[tableid] === highlightValue) {
@@ -122,7 +138,7 @@ function dataTablesSearchExtension(tableid, settings, searchData, index, rowData
     var columnid = dataTablesChartsEvents[tableid].columnid
 
     if (limitRow) {
-        if (searchData[columnid] === dataTablesChartsEvents[tableid].columnValue && searchData.includes(dataTablesChartsEvents[tableid].highlightValue)) {
+        if (searchData[columnid] === dataTablesChartsEvents[tableid].columnValue && (searchData.includes(dataTablesChartsEvents[tableid].highlightValue) || searchData.includes(dataTablesChartsEvents[tableid].highlightValue.toString()))) {
             // Get column index of matched value
             var colIndexHighlight = searchData.indexOf(dataTablesChartsEvents[tableid].highlightValue);
             // Get cell().node() for matched value
@@ -134,7 +150,7 @@ function dataTablesSearchExtension(tableid, settings, searchData, index, rowData
     } else {
         //console.log("Data for table: " + settings.nTable.id + ' finding id ' + dataTablesChartsEvents['$DataTableID'].highlightValue + ' searching for ' + searchData);
         //console.log(count++ + ' ' + rowData + '  ' + index + ' ' + dataTablesChartsEvents[tableid].highlightValue);
-        if (searchData[columnid].includes(dataTablesChartsEvents[tableid].highlightValue)) {
+        if (searchData[columnid].includes(dataTablesChartsEvents[tableid].highlightValue) || searchData[columnid].includes(dataTablesChartsEvents[tableid].highlightValue.toString())) {
             // Get column index of matched value
             var colIndex = searchData.indexOf(dataTablesChartsEvents[tableid].highlightValue);
             // Get cell().node() for matched value
