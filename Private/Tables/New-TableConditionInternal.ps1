@@ -26,6 +26,18 @@
             seconds     = $Cond['value'].Second
             miliseconds = $Cond['value'].Millisecond
         }
+    } elseif ($Cond['value'] -is [Array] -and $Cond['value'][0] -is [datetime]) {
+        [Array] $Cond['valueDate'] = foreach ($Date in $Cond['value']) {
+            @{
+                year        = $Date.Year
+                month       = $Date.Month
+                day         = $Date.Day
+                hours       = $Date.Hour
+                minutes     = $Date.Minute
+                seconds     = $Date.Second
+                miliseconds = $Date.Millisecond
+            }
+        }
     }
     $Cond
 }
