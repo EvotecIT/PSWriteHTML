@@ -82,7 +82,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-- 0.0.136
+- 0.0.136 - 2021.03.14
   - [x] Fixed - Values with decimals do not auto-find within html table when clicking on charts/pies [#209](https://github.com/EvotecIT/PSWriteHTML/issues/209)
   - [x] Table Conditioning - highly improved table conditions. This requires some documentation/blog post
     - [x] Added `New-TableCondtionGroup`
@@ -91,9 +91,9 @@ Please make sure to read changes before updating, as we're undergoing some break
   - [x] Added ability to configure ArrayJoin/ArrayJoinString for DataStore HTML using `New-HTMLTableOption`
   - [x] Added `New-HTMLMap` experimental cmdlet
     - [x] Due to that cmdlet size have become larger
-  - [ ] Library
-    - [ ] Updated DataTables `1.10.21` to `1.10.24`
-    - [ ] Updated MomentJS to `2.29.1`
+  - [x] Library
+    - [x] Updated DataTables `1.10.21` to `1.10.24`
+    - [x] Updated MomentJS to `2.29.1`
 - 0.0.135 - 2021.03.07
   - [x] Added ability to create plugins for `PSWriteHTML` -> Example: [PSWriteHTML.Maps](https://github.com/EvotecIT/PSWriteHTML.Maps)
     - [x] Keep in mind that module is not required as the functionality is part of the PSWriteHTML module anyways - it's just an example on how to do it yourself
