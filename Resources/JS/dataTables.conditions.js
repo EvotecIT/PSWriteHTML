@@ -12,7 +12,7 @@ function dataTablesCheckCondition(condition, data) {
     }
     var conditionValue = condition['value'];
 
-    //console.log('before: ' + conditionValue + ' || ' + columnValue);
+    //console.log('before: ' + conditionValue + ' || ' + columnValue + ' type: ' + condition['type']);
     if (condition['type'] == 'bool') {
         columnValue = columnValue.toString().toLowerCase();
         conditionValue = conditionValue.toString().toLowerCase();
@@ -53,10 +53,18 @@ function dataTablesCheckCondition(condition, data) {
             }
         }
     } else if (condition['type'] == 'date') {
-        // bring conditionValue to proper date
-        var valueDate = condition['valueDate'];
-        conditionValue = new Date(valueDate.year, valueDate.month - 1, valueDate.day, valueDate.hours, valueDate.minutes, valueDate.seconds);
-
+        if (Array.isArray(condition['valueDate'])) {
+            var conditionValueTemporary = [];
+            for (let value of condition['valueDate']) {
+                var valueDate = value;
+                conditionValueTemporary.push(new Date(valueDate.year, valueDate.month - 1, valueDate.day, valueDate.hours, valueDate.minutes, valueDate.seconds));
+            }
+            conditionValue = conditionValueTemporary;
+        } else {
+            // bring conditionValue to proper date
+            var valueDate = condition['valueDate'];
+            conditionValue = new Date(valueDate.year, valueDate.month - 1, valueDate.day, valueDate.hours, valueDate.minutes, valueDate.seconds);
+        }
         // bring columnValue based on dateTimeFormat provided
         var momentConversion = moment(columnValue, condition['dateTimeFormat']);
         columnValue = new Date(momentConversion);
