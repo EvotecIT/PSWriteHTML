@@ -83,6 +83,7 @@ Unfortunetly some code is very old, some code doesn't serve it's purpose anymore
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 - 0.0.136
+  - [x] Fixed - Values with decimals do not auto-find within html table when clicking on charts/pies [#209](https://github.com/EvotecIT/PSWriteHTML/issues/209)
   - [x] Table Conditioning - highly improved table conditions. This requires some documentation/blog post
     - [x] Added `New-TableCondtionGroup`
     - [x] Improved `New-TableCondition`
