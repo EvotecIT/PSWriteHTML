@@ -58,7 +58,7 @@ Function New-HTML {
             DataStoreOptions = [ordered] @{
                 BoolAsString   = $false
                 NumberAsString = $false
-                DateTimeFormat = "yyyy-MM-dd HH:mm:ss"
+                DateTimeFormat = '' #"yyyy-MM-dd HH:mm:ss"
                 NewLineFormat  = @{
                     NewLineCarriage = '<br>'
                     NewLine         = "\n"

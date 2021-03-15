@@ -446,11 +446,14 @@ function New-HTMLTable {
         #  Standard way to build inline table
 
         # Since converting object with array inside with ConvertTo-HTML is useless we let the user ability to tell and fix that by joining it
-        if ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin) {
+        # it also deals with dates conversion
+        if ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin -or $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat) {
             foreach ($Row in $Table) {
                 foreach ($Name in $Row.PSObject.Properties.Name) {
-                    if ($Row.$Name -is [Array]) {
+                    if ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin -and $Row.$Name -is [Array]) {
                         $Row.$Name = $Row.$Name -join $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
+                    } elseif ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat -and $Row.$Name -is [DateTime]) {
+                        $Row.$Name = $($Row.$Name).ToString($Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat)
                     }
                 }
             }
