@@ -17,7 +17,7 @@ function New-ApexChart {
         Remove-EmptyValue -Hashtable $Options -Recursive -Rerun 2
         $JSON = $Options | ConvertTo-JsonLiteral -Depth 5 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
         # replaces stuff for TImeLineCharts
-        $JSON = $JSON.Replace('"new Date(', 'new Date(').Replace(')\.getTime()"', ')\.getTime()')
+        $JSON = $JSON.Replace('"new Date(', 'new Date(').Replace(').getTime()"', ').getTime()')
 
         # We replace Events on JSON because there's no other way that I can think of
         if ($Options.chart.events) {
