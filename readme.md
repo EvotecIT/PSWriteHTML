@@ -85,8 +85,9 @@ Please make sure to read changes before updating, as we're undergoing some break
 - 0.0.137
   - [x] Fix for timeline charts not working due to date conversion
   - [x] Fix for chart events (I don't know how i test things)
-  - [ ] Library
-    - [ ] Upgrade ApexCharts from `3.22` to `3.26`
+  - [x] Library
+    - [x] Upgrade ApexCharts from `3.22` to `3.26`
+    - [x] Upgrade VisNetwork from `9.0.3` to `9.0.4`
 - 0.0.136 - 2021.03.14
   - [x] Fixed - Values with decimals do not auto-find within html table when clicking on charts/pies [#209](https://github.com/EvotecIT/PSWriteHTML/issues/209)
   - [x] Table Conditioning - highly improved table conditions. This requires some documentation/blog post
