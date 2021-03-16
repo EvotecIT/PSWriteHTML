@@ -20,40 +20,55 @@ function EmailBody {
     )
 
     $newHTMLSplat = @{}
+    $newTableSplat = @{}
     if ($Alignment) {
         $newHTMLSplat.Alignment = $Alignment
+        $newTableSplat.'text-align' = $Alignment
     }
     if ($FontSize) {
         $newHTMLSplat.FontSize = $FontSize
+        $newTableSplat.'font-size' = ConvertFrom-Size -FontSize $FontSize
     }
     if ($TextTransform) {
         $newHTMLSplat.TextTransform = $TextTransform
+        $newTableSplat.'text-transform' = $TextTransform
     }
     if ($Color) {
         $newHTMLSplat.Color = $Color
+        $newTableSplat.'text-color' = ConvertFrom-Color -Color $Color
     }
     if ($FontFamily) {
         $newHTMLSplat.FontFamily = $FontFamily
+        $newTableSplat.'font-family' = $FontFamily
     }
     if ($Direction) {
         $newHTMLSplat.Direction = $Direction
+        $newTableSplat.'direction' = $Direction
     }
     if ($FontStyle) {
         $newHTMLSplat.FontStyle = $FontStyle
+        $newTableSplat.'font-style' = $FontStyle
     }
     if ($TextDecoration) {
         $newHTMLSplat.TextDecoration = $TextDecoration
+        $newTableSplat.'text-decoration' = $TextDecoration
     }
     if ($BackGroundColor) {
         $newHTMLSplat.BackGroundColor = $BackGroundColor
+        $newTableSplat.'background-color' = ConvertFrom-Color -Color $BackGroundColor
     }
     if ($FontVariant) {
         $newHTMLSplat.FontVariant = $FontVariant
+        $newTableSplat.'font-variant' = $FontVariant
     }
     if ($FontWeight) {
         $newHTMLSplat.FontWeight = $FontWeight
+        $newTableSplat.'font-weight' = $FontWeight
     }
-    $newHTMLSplat.LineHeight = $LineHeight
+    if ($LineHeight) {
+        $newHTMLSplat.LineHeight = $LineHeight
+        $newTableSplat.'line-height' = $LineHeight
+    }
     if ($newHTMLSplat.Count -gt 0) {
         $SpanRequired = $true
     } else {
@@ -86,6 +101,13 @@ function EmailBody {
         $Script:CurrentConfiguration['Features']['DefaultText']['HeaderAlways']['CssInLine']['.defaultText']['margin'] = '0px'
         $Script:CurrentConfiguration['Features']['DataTables']['HeaderAlways']['CssInLine']['div.dataTables_wrapper']['margin'] = '0px'
         $Script:CurrentConfiguration['Features']['DataTables']['HeaderAlways']['CssInLine']['div.dataTables_wrapper']['margin'] = '0px'
+
+        # Since settings for table via span doesn't apply to tables we need to use direct method of changing CSS
+        if ($newTableSplat) {
+            foreach ($Key in $newTableSplat.Keys) {
+                $Script:CurrentConfiguration['Features']['DataTablesEmail']['HeaderAlways']['CssInLine']['table'][$Key] = $newTableSplat[$Key]
+            }
+        }
         if ($SpanRequired) {
             New-HTMLSpanStyle @newHTMLSplat {
                 Invoke-Command -ScriptBlock $EmailBody

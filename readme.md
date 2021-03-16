@@ -84,7 +84,7 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 - 0.0.138 - 2021.03.16
   - [x] Added alias for `New-HTMLTableOption`
-  - [ ]
+  - [x] Forces `Table` within `EmailBody` to respect `font-size` and other style options given to EmailBody
 - 0.0.137 - 2021.03.16
   - [x] Fix for timeline charts not working due to date conversion
   - [x] Fix for chart events (I don't know how i test things)
