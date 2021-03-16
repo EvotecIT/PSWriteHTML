@@ -93,10 +93,15 @@ function Out-HtmlView {
         [switch] $DisableAutoWidthOptimization,
         [switch] $SearchPane,
         [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top',
+        [switch] $SearchBuilder,
+        [ValidateSet('top', 'bottom')][string] $SearchBuilderLocation = 'top',
         [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore,
         [switch] $Transpose,
         [switch] $PreventShowHTML,
-        [switch] $Online
+        [switch] $Online,
+        [string] $OverwriteDOM,
+        [switch] $SearchHighlight,
+        [switch] $AlphabetSearch
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -183,6 +188,10 @@ function Out-HtmlView {
                     PagingLength                 = $PagingLength
                     DataStore                    = $DataStore
                     DisableColumnReorder         = $DisableColumnReorder
+                    AlphabetSearch               = $AlphabetSearch
+                    SearchBuilder                = $SearchBuilder
+                    SearchBuilderLocation        = $SearchBuilderLocation
+                    OverwriteDOM                 = $OverwriteDOM
                 }
                 Remove-EmptyValue -Hashtable $newHTMLTableSplat
                 New-HTMLTable @newHTMLTableSplat
