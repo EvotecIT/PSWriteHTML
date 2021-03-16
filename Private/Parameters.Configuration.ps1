@@ -1557,9 +1557,9 @@ $Script:Configuration = [ordered] @{
             Header       = @{
                 # https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js
                 # https://unpkg.com/vis-network/styles/vis-network.min.css
-                JsLink  = 'https://cdn.jsdelivr.net/npm/vis-network@9.0.3/peer/umd/vis-network.min.js'
+                JsLink  = 'https://cdn.jsdelivr.net/npm/vis-network@9.0.4/peer/umd/vis-network.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
-                CssLink = 'https://cdn.jsdelivr.net/npm/vis-network@9.0.3/styles/vis-network.min.css'
+                CssLink = 'https://cdn.jsdelivr.net/npm/vis-network@9.0.4/styles/vis-network.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
             }
             Default      = $true
