@@ -82,6 +82,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.139 - 2021.03.16
+  - [x] Improved `Out-HTMLView`
 - 0.0.138 - 2021.03.16
   - [x] Added alias for `New-HTMLTableOption`
   - [x] Forces `Table` within `EmailBody` to respect `font-size` and other style options given to EmailBody
