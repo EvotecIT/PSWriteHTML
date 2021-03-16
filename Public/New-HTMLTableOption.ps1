@@ -49,7 +49,7 @@
     .NOTES
     General notes
     #>
-    [alias('New-TableOption', 'TableOption')]
+    [alias('New-TableOption', 'TableOption', 'EmailTableOption')]
     [cmdletBinding()]
     param(
         [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore,

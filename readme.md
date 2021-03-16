@@ -82,6 +82,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.138 - 2021.03.16
+  - [x] Added alias for `New-HTMLTableOption`
+  - [ ]
 - 0.0.137 - 2021.03.16
   - [x] Fix for timeline charts not working due to date conversion
   - [x] Fix for chart events (I don't know how i test things)
