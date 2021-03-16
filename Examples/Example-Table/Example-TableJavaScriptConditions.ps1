@@ -1,9 +1,7 @@
-﻿# This shows how AllProperties switch behaves for different types
-Import-Module .\PSWriteHTML.psd1 -Force
-#Import-Module 'C:\Support\GitHub\PSSharedGoods\PSSharedGoods.psd1' -Force
+﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 $DataTable1 = @(
-    [PscustomObject] @{ DateTest = '2027-09-12'; DateUS = '3/31/2020'; Dates = (Get-Date).AddDays(2); BoolAsString = 'true'; BoolTest = $true; Test = 'ABC'; Test2 = 'Name1'; Test3 = 'Name3'; 'Test4' = 1 }
+    [PscustomObject] @{ DateTest = '2027-09-12'; DateUS = '3/31/2020'; Dates = (Get-Date).AddDays(2); BoolAsString = 'true'; BoolTest = $true; Test = 'ABC', 'DEF'; Test2 = 'Name1'; Test3 = 'Name3'; 'Test4' = 1 }
     [PscustomObject] @{ DateTest = '2021-01-12'; DateUS = '3/23/2020'; Dates = (Get-Date).AddDays(0); BoolAsString = 'false'; BoolTest = $false; Test = 'Opps'; Test2 = 'Name2'; Test3 = 'Name2'; 'Test4' = 2 }
     [PscustomObject] @{ DateTest = '1982-08-15'; DateUS = '3/5/2020'; Dates = (Get-Date).AddDays(-7); BoolAsString = 'false'; BoolTest = $null; Test = 'Oh No'; Test2 = 'Name3'; Test3 = 'KitKat'; 'Test4' = 3 }
     [PscustomObject] @{ DateTest = '2021-03-12'; DateUS = '4/5/2020'; Dates = (Get-Date).AddDays(13); BoolAsString = 'null'; BoolTest = $true; Test = 'Name'; Test2 = 'Name4'; Test3 = 'Name3'; 'Test4' = 0 }
@@ -14,18 +12,27 @@ $DataTable1 = @(
 )
 
 New-HTML {
-    New-HTMLTableOption -DataStore HTML -ArrayJoin -BoolAsString
+    #New-HTMLTableOption -DataStore HTML -ArrayJoin -BoolAsString
+    New-HTMLTableOption -DataStore HTML -ArrayJoin -ArrayJoinString ' + '
     New-HTMLTable -DataTable $DataTable1 {
         # New-HTMLTableCondition -Name 'Test2' -Value 'Name1' -BackgroundColor Green -Operator eq -ComparisonType string
         #New-HTMLTableCondition -Name 'Test2' -Value 'name1' -BackgroundColor Yellow -Operator eq -ComparisonType string -CaseInsensitive
         #New-HTMLTableCondition -Name 'Test4' -Value '' -BackgroundColor White -Operator eq -ComparisonType string
         #New-HTMLTableCondition -Name 'Test' -Value 'Name' -BackgroundColor Blue -Operator like -ComparisonType string
         #New-HTMLTableCondition -Name 'Test4' -Value 5 -BackgroundColor Blue -Operator ge -ComparisonType number -HighlightHeader Test2, Test4
-        New-HTMLTableCondition -Name 'Test4' -Value 2 -BackgroundColor Yellow -Operator gt -ComparisonType number -HighlightHeader Test2, Test
-        New-HTMLTableCondition -Name 'Test4' -Value 2, 5 -BackgroundColor Red -Operator betweenInclusive -ComparisonType number -HighlightHeader Test, Test2
-        New-HTMLTableCondition -Name 'Dates' -Value (Get-Date -Second 1).AddDays(0) -BackgroundColor Red -Operator gt -ComparisonType date -HighlightHeader Test4, BoolTest -DateTimeFormat 'DD.MM.YYYY HH:mm:ss'
-        #New-HTMLTableCondition -Name 'BoolTest' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool
-        #New-HTMLTableCondition -Name 'BoolAsString' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool
+
+        #New-TableConditionGroup {
+        #    New-HTMLTableCondition -Name 'Test4' -Value 3 -Operator gt -ComparisonType number
+        #    New-HTMLTableCondition -Name 'Test3' -Value 'Bounty' -Operator eq -ComparisonType string
+        #} -HighlightHeader DateTest, DateUS -Logic AND -BackgroundColor Blue -Inline
+        #New-HTMLTableCondition -Name 'Test4' -Value 2 -BackgroundColor Yellow -Operator gt -ComparisonType number -HighlightHeader Test2, Test -Inline
+        #New-HTMLTableCondition -Name 'Test4' -Value 2, 5 -BackgroundColor Red -Operator betweenInclusive -ComparisonType number -HighlightHeader Test, Test2
+        #New-HTMLTableCondition -Name 'Test4' -Value 2, 5 -BackgroundColor Red -Operator betweenInclusive -ComparisonType number -HighlightHeader Test, Test2 -Inline
+        # New-HTMLTableCondition -Name 'Dates' -Value (Get-Date -Second 1).AddDays(0) -BackgroundColor Red -Operator gt -ComparisonType date -HighlightHeader Test4, BoolTest -DateTimeFormat 'DD.MM.YYYY HH:mm:ss'
+        New-HTMLTableCondition -Name 'Dates' -Value (Get-Date -Second 1).AddDays(-1), (Get-Date -Second 1).AddDays(5) -BackgroundColor Red -Operator between -ComparisonType date -HighlightHeader Test4, BoolTest -DateTimeFormat 'DD.MM.YYYY HH:mm:ss'
+        #New-HTMLTableCondition -Name 'Dates' -Value (Get-Date -Second 1).AddDays(0) -BackgroundColor Red -Operator gt -ComparisonType date -HighlightHeader Test4, BoolTest -DateTimeFormat 'dd.MM.yyyy HH:mm:ss' -Inline
+        #New-HTMLTableCondition -Name 'BoolTest' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool -Inline
+        #New-HTMLTableCondition -Name 'BoolAsString' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool -Inline
         #New-HTMLTableCondition -Name 'Test4' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool -Row
 
     } -DateTimeSortingFormat 'DD.MM.YYYY HH:mm:ss', 'M/D/YYYY', 'YYYY-MM-DD'

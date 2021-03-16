@@ -39,15 +39,15 @@ New-HTML {
             New-ChartEvent -DataTableID 'NewIDtoSearchInChart' -ColumnID 0
         }
         <#
-            New-HTMLTable -DataTable $DataTable -DataTableID 'Opps' -Filtering
-            New-HTMLChart {
-                New-ChartToolbar -Download
-                New-ChartLegend -Name 'Time', 'Money', 'Taxes'
-                foreach ($Object in $DataTable) {
-                    New-ChartBar -Name $Object.Name -Value $Object.Time, $Object.Money, $Object.Taxes
-                }
-                New-ChartEvent -DataTableID 'Opps' -ColumnID 0
+        New-HTMLTable -DataTable $DataTable -DataTableID 'Opps' -Filtering
+        New-HTMLChart {
+            New-ChartToolbar -Download
+            New-ChartLegend -Name 'Time', 'Money', 'Taxes'
+            foreach ($Object in $DataTable) {
+                New-ChartBar -Name $Object.Name -Value $Object.Time, $Object.Money, $Object.Taxes
             }
-            #>
+            New-ChartEvent -DataTableID 'Opps' -ColumnID 0
+        }
+        #>
     }
 } -ShowHTML -FilePath $PSScriptRoot\Example-ChartsWithTablesBar.html -Online

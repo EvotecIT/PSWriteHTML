@@ -23,6 +23,7 @@ $DataTable = @(
 )
 
 New-HTML {
+    New-HTMLTableOption -DataStore JavaScript
     New-HTMLTable -DataTable $DataTable -DataTableID 'Ooopsa'
     New-HTMLChart -Gradient {
         foreach ($Object in $DataTable) {

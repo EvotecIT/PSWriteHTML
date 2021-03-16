@@ -24,13 +24,16 @@ $DataTable = @(
 
 # Define HTML
 New-HTML {
-    New-HTMLTable -DataTable $DataTable -DataTableID 'NewIDtoSearchInChart'
-    New-HTMLChart {
-        New-ChartToolbar -Download
-        foreach ($Object in $DataTable) {
-            New-ChartPie -Name $Object.Name -Value $Object.Time
+    New-HTMLSection {
+        for ($i = 0; $i -le 5; $i++) {
+            New-HTMLContainer {
+                New-HTMLChart {
+                    New-ChartToolbar -Download
+                    foreach ($Object in $DataTable) {
+                        New-ChartPie -Name $Object.Name -Value $Object.Time
+                    }
+                }
+            }
         }
-        # Define event
-        New-ChartEvent -DataTableID 'NewIDtoSearchInChart' -ColumnID 0
-    }
+    } -Direction column
 } -ShowHTML -FilePath $PSScriptRoot\Example-ChartsWithTablesPie.html -Online #-Format
