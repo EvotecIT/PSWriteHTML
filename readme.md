@@ -83,6 +83,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.142 - 2021.03.17
+  - [x] Improves `New-HTMLText` URL Link markdown parsing [#216](https://github.com/EvotecIT/PSWriteHTML/pull/216) - thank you **Alan Longstaff**
 - 0.0.141 - 2021.03.17
   - [x] Added `IncludeProperty`/`ExcludeProperty` to `New-HTMLTable`/`Out-HTMLView` for easy excluding properties we don't need
     - [x] Example `Get-Process | Out-HtmlView -ExcludeProperty Name -First 3`
