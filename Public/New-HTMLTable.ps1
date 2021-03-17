@@ -51,6 +51,8 @@ function New-HTMLTable {
         [string[]] $ResponsivePriorityOrder,
         [int[]] $ResponsivePriorityOrderIndex,
         [string[]] $PriorityProperties,
+        [string[]] $IncludeProperty,
+        [string[]] $ExcludeProperty,
         [switch] $ImmediatelyShowHiddenDetails,
         [alias('RemoveShowButton')][switch] $HideShowButton,
         [switch] $AllProperties,
@@ -268,31 +270,32 @@ function New-HTMLTable {
         [Array] $DataTable = $TextWhenNoData
     }
 
-    if ($AllProperties) {
-        if ($DataTable[0] -is [System.Collections.IDictionary]) {
-            # we don't do anything, as dictionaries are displayed in two columns approach
+    # we don't do anything for dictionaries, as dictionaries are displayed in two columns approach
+    if ($DataTable[0] -isnot [System.Collections.IDictionary]) {
+        if ($AllProperties) {
+            $Properties = Select-Properties -Objects $DataTable -AllProperties:$AllProperties -Property $IncludeProperty -ExcludeProperty $ExcludeProperty
+            if ($Properties -ne '*') {
+                $DataTable = $DataTable | Select-Object -Property $Properties
+            }
         } else {
-            $Properties = Select-Properties -Objects $DataTable -AllProperties:$AllProperties
-        }
-        if ($Properties -ne '*') {
-            $DataTable = $DataTable | Select-Object -Property $Properties
-        }
-    } else {
-        # JavaScript datastore is very picky for the inserted data so columns need to match for each object in array
-        # SO if 1st object has 3 columns called X,Y,Z and 2nd object has X,Y,G we need to make sure we force 2nd object to have X,Y,Z (Z will be empty) and skip G
-        # If you need need G as well you need to use AllProperties switch
-        if ($DataStore -in 'JavaScript', 'AjaxJSON') {
-            if ($DataTable[0] -is [System.Collections.IDictionary]) {
-                # we don't do anything, as dictionaries are displayed in two columns approach
-            } else {
-                $Properties = Select-Properties -Objects $DataTable
+            # JavaScript datastore is very picky for the inserted data so columns need to match for each object in array
+            # SO if 1st object has 3 columns called X,Y,Z and 2nd object has X,Y,G we need to make sure we force 2nd object to have X,Y,Z (Z will be empty) and skip G
+            # If you need need G as well you need to use AllProperties switch
+            if ($DataStore -in 'JavaScript', 'AjaxJSON') {
+                $Properties = Select-Properties -Objects $DataTable -Property $IncludeProperty -ExcludeProperty $ExcludeProperty
                 if ($Properties -ne '*') {
                     $DataTable = $DataTable | Select-Object -Property $Properties
+                }
+            } else {
+                if ($IncludeProperty -or $ExcludeProperty) {
+                    $Properties = Select-Properties -Objects $DataTable -Property $IncludeProperty -ExcludeProperty $ExcludeProperty
+                    if ($Properties -ne '*') {
+                        $DataTable = $DataTable | Select-Object -Property $Properties
+                    }
                 }
             }
         }
     }
-
     # This is more direct way of PriorityProperties that will work also on Scroll and in other circumstances
     if ($PriorityProperties) {
         if ($DataTable.Count -gt 0) {

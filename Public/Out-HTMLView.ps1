@@ -78,6 +78,8 @@ function Out-HtmlView {
         [string[]] $ResponsivePriorityOrder,
         [int[]] $ResponsivePriorityOrderIndex,
         [string[]] $PriorityProperties,
+        [string[]] $IncludeProperty,
+        [string[]] $ExcludeProperty,
         [switch] $ImmediatelyShowHiddenDetails,
         [alias('RemoveShowButton')][switch] $HideShowButton,
         [switch] $AllProperties,
@@ -192,6 +194,8 @@ function Out-HtmlView {
                     SearchBuilder                = $SearchBuilder
                     SearchBuilderLocation        = $SearchBuilderLocation
                     OverwriteDOM                 = $OverwriteDOM
+                    IncludeProperty              = $IncludeProperty
+                    ExcludeProperty              = $ExcludeProperty
                 }
                 Remove-EmptyValue -Hashtable $newHTMLTableSplat
                 New-HTMLTable @newHTMLTableSplat
