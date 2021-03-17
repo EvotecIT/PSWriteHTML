@@ -1,9 +1,5 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-if ($null -eq $Process) {
-    $Process = Get-Process | Select-Object -First 70
-}
-
 $Test1 = [PSCustomobject] @{
     'First column' = 'Test'
     'Second column' = '<br>MyIdol<br><strong>Test</strong>'
