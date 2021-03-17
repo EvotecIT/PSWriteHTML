@@ -83,6 +83,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.141 - 2021.03.17
+  - [x] Added `IncludeProperty`/`ExcludeProperty` to `New-HTMLTable`/`Out-HTMLView` for easy excluding properties we don't need
+    - [x] Example `Get-Process | Out-HtmlView -ExcludeProperty Name -First 3`
 - 0.0.140 - 2021.03.17
   - [x] Changed `New-TableCondition` parameter name from `CaseInsensitive` to `CaseSensitive`
     - [x] This means by default conditions of strings are not case sensitive
