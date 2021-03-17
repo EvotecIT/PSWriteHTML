@@ -13,27 +13,30 @@ $DataTable1 = @(
 
 New-HTML {
     #New-HTMLTableOption -DataStore HTML -ArrayJoin -BoolAsString
-    New-HTMLTableOption -DataStore HTML -ArrayJoin -ArrayJoinString ' + '
+    New-HTMLTableOption -DataStore HTML -BoolAsString -ArrayJoin -ArrayJoinString ', ' -DateTimeFormat 'dd.MM.yyyy HH:mm:ss'
+    #New-HTMLTableOption -DataStore HTML -ArrayJoin -ArrayJoinString ' + '
     New-HTMLTable -DataTable $DataTable1 {
-        # New-HTMLTableCondition -Name 'Test2' -Value 'Name1' -BackgroundColor Green -Operator eq -ComparisonType string
-        #New-HTMLTableCondition -Name 'Test2' -Value 'name1' -BackgroundColor Yellow -Operator eq -ComparisonType string -CaseInsensitive
-        #New-HTMLTableCondition -Name 'Test4' -Value '' -BackgroundColor White -Operator eq -ComparisonType string
-        #New-HTMLTableCondition -Name 'Test' -Value 'Name' -BackgroundColor Blue -Operator like -ComparisonType string
-        #New-HTMLTableCondition -Name 'Test4' -Value 5 -BackgroundColor Blue -Operator ge -ComparisonType number -HighlightHeader Test2, Test4
+        # New-TableCondition -Name 'Test2' -Value 'Name1' -BackgroundColor Green -Operator eq -ComparisonType string
+        #New-TableCondition -Name 'Test2' -Value 'name1' -BackgroundColor Yellow -Operator eq -ComparisonType string -CaseSensitive
+        #New-TableCondition -Name 'Test4' -Value '' -BackgroundColor White -Operator eq -ComparisonType string
+        #New-TableCondition -Name 'Test' -Value 'Name' -BackgroundColor Blue -Operator like -ComparisonType string
+        #New-TableCondition -Name 'Test4' -Value 5 -BackgroundColor Blue -Operator ge -ComparisonType number -HighlightHeader Test2, Test4
 
         #New-TableConditionGroup {
-        #    New-HTMLTableCondition -Name 'Test4' -Value 3 -Operator gt -ComparisonType number
-        #    New-HTMLTableCondition -Name 'Test3' -Value 'Bounty' -Operator eq -ComparisonType string
+        #    New-TableCondition -Name 'Test4' -Value 3 -Operator gt -ComparisonType number
+        #    New-TableCondition -Name 'Test3' -Value 'Bounty' -Operator eq -ComparisonType string
         #} -HighlightHeader DateTest, DateUS -Logic AND -BackgroundColor Blue -Inline
-        #New-HTMLTableCondition -Name 'Test4' -Value 2 -BackgroundColor Yellow -Operator gt -ComparisonType number -HighlightHeader Test2, Test -Inline
-        #New-HTMLTableCondition -Name 'Test4' -Value 2, 5 -BackgroundColor Red -Operator betweenInclusive -ComparisonType number -HighlightHeader Test, Test2
-        #New-HTMLTableCondition -Name 'Test4' -Value 2, 5 -BackgroundColor Red -Operator betweenInclusive -ComparisonType number -HighlightHeader Test, Test2 -Inline
-        # New-HTMLTableCondition -Name 'Dates' -Value (Get-Date -Second 1).AddDays(0) -BackgroundColor Red -Operator gt -ComparisonType date -HighlightHeader Test4, BoolTest -DateTimeFormat 'DD.MM.YYYY HH:mm:ss'
-        New-HTMLTableCondition -Name 'Dates' -Value (Get-Date -Second 1).AddDays(-1), (Get-Date -Second 1).AddDays(5) -BackgroundColor Red -Operator between -ComparisonType date -HighlightHeader Test4, BoolTest -DateTimeFormat 'DD.MM.YYYY HH:mm:ss'
-        #New-HTMLTableCondition -Name 'Dates' -Value (Get-Date -Second 1).AddDays(0) -BackgroundColor Red -Operator gt -ComparisonType date -HighlightHeader Test4, BoolTest -DateTimeFormat 'dd.MM.yyyy HH:mm:ss' -Inline
-        #New-HTMLTableCondition -Name 'BoolTest' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool -Inline
-        #New-HTMLTableCondition -Name 'BoolAsString' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool -Inline
-        #New-HTMLTableCondition -Name 'Test4' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool -Row
+        #New-TableCondition -Name 'Test4' -Value 2 -BackgroundColor Yellow -Operator gt -ComparisonType number -HighlightHeader Test2, Test -Inline
+        #New-TableCondition -Name 'Test4' -Value 2, 5 -BackgroundColor Red -Operator betweenInclusive -ComparisonType number -HighlightHeader Test, Test2
+        #New-TableCondition -Name 'Test4' -Value 2, 5 -BackgroundColor Red -Operator betweenInclusive -ComparisonType number -HighlightHeader Test, Test2 -Inline
+        # New-TableCondition -Name 'Dates' -Value (Get-Date -Second 1).AddDays(0) -BackgroundColor Red -Operator gt -ComparisonType date -HighlightHeader Test4, BoolTest -DateTimeFormat 'DD.MM.YYYY HH:mm:ss'
+        #New-TableCondition -Name 'Dates' -Value (Get-Date -Second 1).AddDays(-1), (Get-Date -Second 1).AddDays(5) -BackgroundColor Red -Operator between -ComparisonType date -HighlightHeader Test4, BoolTest -DateTimeFormat 'DD.MM.YYYY HH:mm:ss'
+        #New-TableCondition -Name 'Dates' -Value (Get-Date -Second 1).AddDays(0) -BackgroundColor Red -Operator gt -ComparisonType date -HighlightHeader Test4, BoolTest -DateTimeFormat 'dd.MM.yyyy HH:mm:ss' -Inline
+        #New-TableCondition -Name 'BoolTest' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool #-Inline
+        #New-TableCondition -Name 'BoolAsString' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool #-Inline
+        New-TableCondition -Name 'BoolTest' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType string -Inline
+        New-TableCondition -Name 'BoolAsString' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType string -Inline
+        #New-TableCondition -Name 'Test4' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType bool -Row
 
     } -DateTimeSortingFormat 'DD.MM.YYYY HH:mm:ss', 'M/D/YYYY', 'YYYY-MM-DD'
 } -ShowHTML -FilePath $PSScriptRoot\Example-TableJavaScriptConditions.html -Online
