@@ -20,7 +20,7 @@ function New-TableCondition {
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl')][string] $Direction,
         [switch] $Inline,
-        [switch] $CaseInsensitive,
+        [switch] $CaseSensitive,
         [string] $DateTimeFormat
     )
 
@@ -52,7 +52,7 @@ function New-TableCondition {
         #BackgroundColor  = $BackgroundColor
         Style            = ConvertTo-HTMLStyle @Style
         HighlightHeaders = $HighlightHeaders
-        CaseInsensitive  = $CaseInsensitive.IsPresent
+        CaseSensitive    = $CaseSensitive.IsPresent
         DateTimeFormat   = $DateTimeFormat
     }
     [PSCustomObject] @{

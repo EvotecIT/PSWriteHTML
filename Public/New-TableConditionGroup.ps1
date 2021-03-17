@@ -19,7 +19,7 @@
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl')][string] $Direction,
         [switch] $Inline,
-        [switch] $CaseInsensitive
+        [switch] $CaseSensitive
     )
     if ($Conditions) {
         $Script:HTMLSchema.Features.DataTablesConditions = $true
@@ -48,7 +48,7 @@
             #Color            = $Color
             #BackgroundColor  = $BackgroundColor
             HighlightHeaders = $HighlightHeaders
-            CaseInsensitive  = $CaseInsensitive.IsPresent
+            caseSensitive    = $caseSensitive.IsPresent
             DateTimeFormat   = $DateTimeFormat
         }
         [PSCustomObject] @{

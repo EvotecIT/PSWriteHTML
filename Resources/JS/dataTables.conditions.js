@@ -17,7 +17,7 @@ function dataTablesCheckCondition(condition, data) {
         columnValue = columnValue.toString().toLowerCase();
         conditionValue = conditionValue.toString().toLowerCase();
     } else if (condition['type'] == 'string') {
-        if (condition['caseInsensitive']) {
+        if (!condition['caseSensitive']) {
             columnValue = columnValue.toString().toLowerCase();
             conditionValue = conditionValue.toString().toLowerCase();
         }
