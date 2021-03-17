@@ -137,11 +137,11 @@ function New-HTMLText {
 
         $newSpanTextSplat.LineBreak = $LineBreak
         New-HTMLSpanStyle @newSpanTextSplat {
-            $FindMe = [regex]::Matches($Text[$i], "\[[^\]]+\]\([^)]+\)")
+            $FindMe = [regex]::Matches($Text[$i], "\[[^\]]+\]\(\S+\)")
             if ($FindMe) {
                 foreach ($find in $FindMe) {
                     $LinkName = ([regex]::Match($Find.value, "[^\[]+(?=\])")).Value
-                    $LinkURL = ([regex]::Match($Find.value, "(?<=\().+?(?=\))")).Value
+                    $LinkURL = ([regex]::Match($Find.value, "(?<=\().+(?=\))")).Value
                     $Link = New-HTMLAnchor -HrefLink $LinkURL -Text $LinkName
                     $Text[$i] = $Text[$i].Replace($find.value, $Link)
                 }
