@@ -23,5 +23,17 @@
             }
         }
     )
-    $ConditionHeaderNr | ConvertTo-JsonLiteral -AsArray -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
+    if ($ConditionHeaderNr.Count -gt 0) {
+        $ConditionHeaderNr | ConvertTo-JsonLiteral -AsArray -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
+    } else {
+        $ColumnNames = @(
+            if ($Condition.HighlightHeaders) {
+                $Condition.HighlightHeaders
+            }
+            if ($Condition.Name) {
+                $Condition.Name
+            }
+        )
+        Write-Warning "New-TableCondition - None of the column names exists $ColumnNames in condition. Skipping."
+    }
 }
