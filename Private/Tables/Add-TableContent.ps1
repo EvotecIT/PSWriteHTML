@@ -14,56 +14,65 @@
     if ($ContentFormattingInline.Count -gt 0) {
         [Array] $AddStyles = for ($RowCount = 1; $RowCount -lt $Table.Count; $RowCount++) {
             [string[]] $RowData = $Table[$RowCount] -replace '</td></tr>' -replace '<tr><td>' -split '</td><td>'
-            for ($ColumnCount = 0; $ColumnCount -lt $RowData.Count; $ColumnCount++) {
-                foreach ($ConditionalFormatting in $ContentFormattingInline) {
-                    $Pass = $false
-                    if ($ConditionalFormatting.ConditionType -eq 'Condition') {
-                        $ColumnIndexHeader = [array]::indexof($HeaderNames.ToUpper(), $($ConditionalFormatting.Name).ToUpper())
+            foreach ($ConditionalFormatting in $ContentFormattingInline) {
+                $Pass = $false
+                if ($ConditionalFormatting.ConditionType -eq 'Condition') {
+                    $ColumnIndexHeader = [array]::indexof($HeaderNames.ToUpper(), $($ConditionalFormatting.Name).ToUpper())
+                    for ($ColumnCount = 0; $ColumnCount -lt $RowData.Count; $ColumnCount++) {
+                        #Write-Color "1ColumnCount $ColumnCount / $RowCount"
                         if ($ColumnIndexHeader -eq $ColumnCount) {
                             $Pass = New-TableConditionalFormattingInline -HeaderNames $HeaderNames -ColumnIndexHeader $ColumnIndexHeader -RowCount $RowCount -ColumnCount $ColumnCount -RowData $RowData -ConditionalFormatting $ConditionalFormatting
+                            break
                         }
-                    } else {
-                        $IsConditionTrue = foreach ($SubCondition in $ConditionalFormatting.Conditions.Output) {
-                            $ColumnIndexHeader = [array]::indexof($HeaderNames.ToUpper(), $($SubCondition.Name).ToUpper())
+                    }
+                } else {
+                    [Array] $IsConditionTrue = foreach ($SubCondition in $ConditionalFormatting.Conditions.Output) {
+                        $ColumnIndexHeader = [array]::indexof($HeaderNames.ToUpper(), $($SubCondition.Name).ToUpper())
+                        for ($ColumnCount = 0; $ColumnCount -lt $RowData.Count; $ColumnCount++) {
+                            #Write-Color "2ColumnCount $ColumnCount / $RowCount"
                             if ($ColumnIndexHeader -eq $ColumnCount) {
                                 New-TableConditionalFormattingInline -HeaderNames $HeaderNames -ColumnIndexHeader $ColumnIndexHeader -RowCount $RowCount -ColumnCount $ColumnCount -RowData $RowData -ConditionalFormatting $SubCondition
                             }
                         }
-                        if ($ConditionalFormatting.Logic -eq 'AND') {
-                            if ($IsConditionTrue -contains $true -and $IsConditionTrue -notcontains $false) {
-                                $Pass = $true
-                            }
-                        } else {
-                            if ($IsConditionTrue -contains $true) {
-                                $Pass = $true
-                            }
+                    }
+                    if ($ConditionalFormatting.Logic -eq 'AND') {
+                        if ($IsConditionTrue -contains $true -and $IsConditionTrue -notcontains $false) {
+                            $Pass = $true
+                        }
+                    } elseif ($ConditionalFormatting.Logic -eq 'OR') {
+                        if ($IsConditionTrue -contains $true) {
+                            $Pass = $true
+                        }
+                    } elseif ($ConditionalFormatting.Logic -eq 'NONE') {
+                        if ($IsConditionTrue -contains $false -and $IsConditionTrue -notcontains $true) {
+                            $Pass = $true
                         }
                     }
-                    if ($Pass) {
-                        # If we want to make conditional formatting for row it requires a bit diff approach
-                        if ($ConditionalFormatting.Row) {
-                            for ($i = 0; $i -lt $RowData.Count; $i++) {
-                                [PSCustomObject]@{
-                                    RowIndex    = $RowCount
-                                    ColumnIndex = ($i + 1)  # Since it's 0 based index and we count from 1 we need to add 1
-                                    Style       = $ConditionalFormatting.Style
-                                }
-                            }
-                        } elseif ($ConditionalFormatting.HighlightHeaders) {
-                            foreach ($Name in $ConditionalFormatting.HighlightHeaders) {
-                                $ColumnIndexHighlight = [array]::indexof($HeaderNames.ToUpper(), $($Name).ToUpper())
-                                [PSCustomObject]@{
-                                    RowIndex    = $RowCount
-                                    ColumnIndex = ($ColumnIndexHighlight + 1) # Since it's 0 based index and we count from 1 we need to add 1
-                                    Style       = $ConditionalFormatting.Style
-                                }
-                            }
-                        } else {
+                }
+                if ($Pass) {
+                    # If we want to make conditional formatting for row it requires a bit diff approach
+                    if ($ConditionalFormatting.Row) {
+                        for ($i = 0; $i -lt $RowData.Count; $i++) {
                             [PSCustomObject]@{
                                 RowIndex    = $RowCount
-                                ColumnIndex = ($ColumnIndexHeader + 1)  # Since it's 0 based index and we count from 1 we need to add 1
+                                ColumnIndex = ($i + 1)  # Since it's 0 based index and we count from 1 we need to add 1
                                 Style       = $ConditionalFormatting.Style
                             }
+                        }
+                    } elseif ($ConditionalFormatting.HighlightHeaders) {
+                        foreach ($Name in $ConditionalFormatting.HighlightHeaders) {
+                            $ColumnIndexHighlight = [array]::indexof($HeaderNames.ToUpper(), $($Name).ToUpper())
+                            [PSCustomObject]@{
+                                RowIndex    = $RowCount
+                                ColumnIndex = ($ColumnIndexHighlight + 1) # Since it's 0 based index and we count from 1 we need to add 1
+                                Style       = $ConditionalFormatting.Style
+                            }
+                        }
+                    } else {
+                        [PSCustomObject]@{
+                            RowIndex    = $RowCount
+                            ColumnIndex = ($ColumnIndexHeader + 1)  # Since it's 0 based index and we count from 1 we need to add 1
+                            Style       = $ConditionalFormatting.Style
                         }
                     }
                 }
