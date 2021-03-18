@@ -131,6 +131,10 @@ function dataTablesConditionalFormatting(row, data, conditionsContainer, highlig
             if (conditionsMatch.some(value => value === true)) {
                 found = true;
             }
+        } else if (container['logic'] == 'NONE') {
+            if (conditionsMatch.every(value => value != true)) {
+                found = true;
+            }
         }
     }
     if (found) {

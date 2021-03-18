@@ -3,10 +3,11 @@
     [CmdletBinding()]
     param(
         [scriptblock] $Conditions,
-        [ValidateSet('AND', 'OR')][string] $Logic = 'AND',
+        [ValidateSet('AND', 'OR', 'NONE')][string] $Logic = 'AND',
         [string[]] $HighlightHeaders,
-
         [switch] $Row,
+
+
         [string]$Color,
         [string]$BackgroundColor,
         [int] $FontSize,
@@ -18,8 +19,7 @@
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl')][string] $Direction,
-        [switch] $Inline,
-        [switch] $CaseSensitive
+        [switch] $Inline
     )
     if ($Conditions) {
         $Script:HTMLSchema.Features.DataTablesConditions = $true
@@ -45,10 +45,7 @@
             Conditions       = & $Conditions
             Row              = $Row
             Logic            = $Logic
-            #Color            = $Color
-            #BackgroundColor  = $BackgroundColor
             HighlightHeaders = $HighlightHeaders
-            caseSensitive    = $caseSensitive.IsPresent
             DateTimeFormat   = $DateTimeFormat
         }
         [PSCustomObject] @{
