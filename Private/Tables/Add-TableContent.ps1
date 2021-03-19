@@ -75,6 +75,33 @@
                             Style       = $ConditionalFormatting.Style
                         }
                     }
+                } else {
+                    if ($ConditionalFormatting.FailStyle.Keys.Count -gt 0) {
+                        if ($ConditionalFormatting.Row) {
+                            for ($i = 0; $i -lt $RowData.Count; $i++) {
+                                [PSCustomObject]@{
+                                    RowIndex    = $RowCount
+                                    ColumnIndex = ($i + 1)  # Since it's 0 based index and we count from 1 we need to add 1
+                                    Style       = $ConditionalFormatting.FailStyle
+                                }
+                            }
+                        } elseif ($ConditionalFormatting.HighlightHeaders) {
+                            foreach ($Name in $ConditionalFormatting.HighlightHeaders) {
+                                $ColumnIndexHighlight = [array]::indexof($HeaderNames.ToUpper(), $($Name).ToUpper())
+                                [PSCustomObject]@{
+                                    RowIndex    = $RowCount
+                                    ColumnIndex = ($ColumnIndexHighlight + 1) # Since it's 0 based index and we count from 1 we need to add 1
+                                    Style       = $ConditionalFormatting.FailStyle
+                                }
+                            }
+                        } else {
+                            [PSCustomObject]@{
+                                RowIndex    = $RowCount
+                                ColumnIndex = ($ColumnIndexHeader + 1)  # Since it's 0 based index and we count from 1 we need to add 1
+                                Style       = $ConditionalFormatting.FailStyle
+                            }
+                        }
+                    }
                 }
             }
         }
