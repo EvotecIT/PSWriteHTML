@@ -8,9 +8,13 @@ function New-TableCondition {
         [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'ne', 'contains', 'like', 'notlike', 'notcontains', 'between', 'betweenInclusive')][string] $Operator = 'eq',
         [Object] $Value,
         [switch] $Row,
+        [switch] $Inline,
+        [switch] $CaseSensitive,
+        [string] $DateTimeFormat,
+        # Style for PASS
         [string]$Color,
         [string]$BackgroundColor,
-        [int] $FontSize,
+        [object] $FontSize,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,
         [ValidateSet('normal', 'small-caps')][string] $FontVariant,
@@ -19,9 +23,18 @@ function New-TableCondition {
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl')][string] $Direction,
-        [switch] $Inline,
-        [switch] $CaseSensitive,
-        [string] $DateTimeFormat
+        # Style for FAIL
+        [string]$FailColor,
+        [string]$FailBackgroundColor,
+        [object] $FailFontSize,
+        [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FailFontWeight,
+        [ValidateSet('normal', 'italic', 'oblique')][string] $FailFontStyle,
+        [ValidateSet('normal', 'small-caps')][string] $FailFontVariant,
+        [string] $FailFontFamily,
+        [ValidateSet('left', 'center', 'right', 'justify')][string] $FailAlignment,
+        [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $FailTextDecoration,
+        [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $FailTextTransform,
+        [ValidateSet('rtl')][string] $FailDirection
     )
 
     $Script:HTMLSchema.Features.DataTablesConditions = $true
@@ -41,6 +54,21 @@ function New-TableCondition {
     }
     Remove-EmptyValue -Hashtable $Style
 
+    $FailStyle = @{
+        Color           = $FailColor
+        BackGroundColor = $FailBackGroundColor
+        FontSize        = $FailFontSize
+        FontWeight      = $FailFontWeight
+        FontStyle       = $FailFontStyle
+        FontVariant     = $FailFontVariant
+        FontFamily      = $FailFontFamily
+        Alignment       = $FailAlignment
+        TextDecoration  = $FailTextDecoration
+        TextTransform   = $FailTextTransform
+        Direction       = $FailDirection
+    }
+    Remove-EmptyValue -Hashtable $FailStyle
+
     $TableCondition = [PSCustomObject] @{
         ConditionType    = 'Condition'
         Row              = $Row
@@ -49,6 +77,7 @@ function New-TableCondition {
         Operator         = $Operator
         Value            = $Value
         Style            = ConvertTo-HTMLStyle @Style
+        FailStyle        = ConvertTo-HTMLStyle @FailStyle
         HighlightHeaders = $HighlightHeaders
         CaseSensitive    = $CaseSensitive.IsPresent
         DateTimeFormat   = $DateTimeFormat

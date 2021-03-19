@@ -21,8 +21,13 @@ function New-TableConditionalFormatting {
                             }
                         )
                         "    var css = $($Condition.Style | ConvertTo-Json);"
+                        if ($Condition.FailStyle.Keys.Count -gt 0) {
+                            "    var failCss = $($Condition.FailStyle | ConvertTo-Json);"
+                        } else {
+                            "    var failCss = undefined;"
+                        }
                         "    var conditionsContainer = $($ConditionsContainer | ConvertTo-JsonLiteral -Depth 5 -AsArray -AdvancedReplace @{ '.' = '\.'; '$' = '\$' });"
-                        "    dataTablesConditionalFormatting(row, data, conditionsContainer, $HighlightHeaders, css);"
+                        "    dataTablesConditionalFormatting(row, data, conditionsContainer, $HighlightHeaders, css, failCss);"
                     }
                 } else {
                     [Array] $HighlightHeaders = New-TableConditionHeaderHighligher -Condition $Condition -Header $Header
@@ -40,8 +45,13 @@ function New-TableConditionalFormatting {
                             }
                         )
                         "    var css = $($Condition.Style | ConvertTo-Json);"
+                        if ($Condition.FailStyle.Keys.Count -gt 0) {
+                            "    var failCss = $($Condition.FailStyle | ConvertTo-Json);"
+                        } else {
+                            "    var failCss = undefined;"
+                        }
                         "    var conditionsContainer = $($ConditionsContainer | ConvertTo-JsonLiteral -Depth 5 -AsArray -AdvancedReplace @{ '.' = '\.'; '$' = '\$' });"
-                        "    dataTablesConditionalFormatting(row, data, conditionsContainer, $HighlightHeaders, css);"
+                        "    dataTablesConditionalFormatting(row, data, conditionsContainer, $HighlightHeaders, css, failCss);"
                     }
                 }
             }

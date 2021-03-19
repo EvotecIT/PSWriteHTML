@@ -114,7 +114,7 @@ function dataTablesCheckCondition(condition, data) {
     }
     return false;
 }
-function dataTablesConditionalFormatting(row, data, conditionsContainer, highlightColumn, css) {
+function dataTablesConditionalFormatting(row, data, conditionsContainer, highlightColumn, css, failCss) {
     var conditionsMatch = [];
     var found = false;
     for (let container of conditionsContainer) {
@@ -149,23 +149,11 @@ function dataTablesConditionalFormatting(row, data, conditionsContainer, highlig
                 //}
             }
         }
+    } else {
+        if (failCss) {
+            for (let column of highlightColumn) {
+                $("td:eq(" + column + ")", row).css(failCss);
+            }
+        }
     }
 }
-
-// var conditionsContainer = [
-//     {
-//         logic: 'AND',
-//         conditions: [
-//             {
-//                 columnName: 'Test4',
-//                 operator: 'gt',
-//                 value: 2,
-//             },
-//             {
-//                 columnName: 'Test3',
-//                 operator: 'eq',
-//                 value: 'KitKat',
-//             }
-//         ]
-//     },
-// ];
