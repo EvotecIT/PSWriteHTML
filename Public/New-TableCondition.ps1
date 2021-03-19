@@ -90,3 +90,5 @@ function New-TableCondition {
 
 Register-ArgumentCompleter -CommandName New-TableCondition -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-TableCondition -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-TableCondition -ParameterName FailColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-TableCondition -ParameterName FailBackgroundColor -ScriptBlock $Script:ScriptBlockColors

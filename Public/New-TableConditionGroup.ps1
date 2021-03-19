@@ -84,3 +84,5 @@
 
 Register-ArgumentCompleter -CommandName New-TableConditionGroup -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-TableConditionGroup -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-TableConditionGroup -ParameterName FailColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-TableConditionGroup -ParameterName FailBackgroundColor -ScriptBlock $Script:ScriptBlockColors
