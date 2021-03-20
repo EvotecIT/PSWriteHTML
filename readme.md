@@ -83,6 +83,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.144 - 2021.03.20
+  - [x] Improves `New-TableCondition` and `New-TableConditionGroup` with styles when condition FAILS
+    - [x] This allows for example `New-TableCondition -Name 'BoolAsString' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType string -Inline -FailBackgroundColor Green`
 - 0.0.143 - 2021.03.18
   - [x] Improves `New-TableCondition` by detecting non-existing column names
   - [x] Improves `New-TableConditionGroup` by adding logic operator NONE
