@@ -103,6 +103,14 @@ function dataTablesCheckCondition(condition, data) {
         if (sideLeft >= sideRight) {
             return true;
         }
+    } else if (operator == 'in') {
+        if (sideRight.indexOf(sideLeft) != -1) {
+            return true;
+        }
+    } else if (operator == 'notin') {
+        if (sideRight.indexOf(sideLeft) == -1) {
+            return true;
+        }
     } else if (operator == 'contains' || operator == 'like') {
         //var compareValue = conditionValue.replace('*', '.*')
         var regex = new RegExp(sideRight);
@@ -116,11 +124,11 @@ function dataTablesCheckCondition(condition, data) {
             return true;
         }
     } else if (operator == 'betweeninclusive') {
-        if (Array.isArray(conditionValue) && sideLeft >= sideRight[0] && sideLeft <= sideRight[1]) {
+        if (Array.isArray(sideRight) && sideLeft >= sideRight[0] && sideLeft <= sideRight[1]) {
             return true;
         }
     } else if (operator == 'between') {
-        if (Array.isArray(conditionValue) && sideLeft > sideRight[0] && sideLeft < sideRight[1]) {
+        if (Array.isArray(sideRight) && sideLeft > sideRight[0] && sideLeft < sideRight[1]) {
             return true;
         }
     }

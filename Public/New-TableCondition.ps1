@@ -114,7 +114,7 @@ function New-TableCondition {
         [alias('ColumnName')][string] $Name,
         [string[]] $HighlightHeaders,
         [alias('Type')][ValidateSet('number', 'string', 'bool', 'date')][string] $ComparisonType = 'string',
-        [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'ne', 'contains', 'like', 'notlike', 'notcontains', 'between', 'betweenInclusive')][string] $Operator = 'eq',
+        [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'ne', 'contains', 'like', 'notlike', 'notcontains', 'between', 'betweenInclusive', 'in', 'notin')][string] $Operator = 'eq',
         [Object] $Value,
         [switch] $Row,
         [switch] $Inline,

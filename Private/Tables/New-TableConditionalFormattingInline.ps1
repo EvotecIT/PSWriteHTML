@@ -70,6 +70,10 @@
         $Pass = $SideLeft -ge $SideRight
     } elseif ($ConditionalFormatting.Operator -eq 'ne') {
         $Pass = $SideLeft -ne $SideRight
+    } elseif ($ConditionalFormatting.Operator -eq 'in') {
+        $Pass = $SideLeft -in $SideRight
+    } elseif ($ConditionalFormatting.Operator -eq 'notin') {
+        $Pass = $SideLeft -notin $SideRight
     } elseif ($ConditionalFormatting.Operator -eq 'like') {
         $Pass = $SideLeft -like $SideRight
     } elseif ($ConditionalFormatting.Operator -eq 'contains') {
