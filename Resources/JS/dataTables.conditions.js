@@ -74,9 +74,12 @@ function dataTablesCheckCondition(condition, data) {
         if (columnValue == conditionValue) {
             return true;
         }
+    } else if (operator == 'ne') {
+        if (columnValue != conditionValue) {
+            return true;
+        }
     } else if (operator == 'gt') {
         if (columnValue > conditionValue) {
-
             return true;
         }
     } else if (operator == 'lt') {
