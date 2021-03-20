@@ -1,4 +1,113 @@
 function New-TableCondition {
+    <#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Name
+    Parameter description
+
+    .PARAMETER HighlightHeaders
+    By default Name parameter is used as column to be highlighted. In case you want to specify different header(s) to be highlighted you can use this parameter.
+
+    .PARAMETER ComparisonType
+    Parameter description
+
+    .PARAMETER Operator
+    Parameter description
+
+    .PARAMETER Value
+    Parameter description
+
+    .PARAMETER Row
+    Parameter description
+
+    .PARAMETER Inline
+    Parameter description
+
+    .PARAMETER CaseSensitive
+    Parameter description
+
+    .PARAMETER DateTimeFormat
+    Parameter description
+
+    .PARAMETER ReverseCondition
+    By default ColumnValue (left side) is being compared to Condition Value (right side). This switch reverses the comparison
+
+    .PARAMETER Color
+    Parameter description
+
+    .PARAMETER BackgroundColor
+    Parameter description
+
+    .PARAMETER FontSize
+    Parameter description
+
+    .PARAMETER FontWeight
+    Parameter description
+
+    .PARAMETER FontStyle
+    Parameter description
+
+    .PARAMETER FontVariant
+    Parameter description
+
+    .PARAMETER FontFamily
+    Parameter description
+
+    .PARAMETER Alignment
+    Parameter description
+
+    .PARAMETER TextDecoration
+    Parameter description
+
+    .PARAMETER TextTransform
+    Parameter description
+
+    .PARAMETER Direction
+    Parameter description
+
+    .PARAMETER FailColor
+    Parameter description
+
+    .PARAMETER FailBackgroundColor
+    Parameter description
+
+    .PARAMETER FailFontSize
+    Parameter description
+
+    .PARAMETER FailFontWeight
+    Parameter description
+
+    .PARAMETER FailFontStyle
+    Parameter description
+
+    .PARAMETER FailFontVariant
+    Parameter description
+
+    .PARAMETER FailFontFamily
+    Parameter description
+
+    .PARAMETER FailAlignment
+    Parameter description
+
+    .PARAMETER FailTextDecoration
+    Parameter description
+
+    .PARAMETER FailTextTransform
+    Parameter description
+
+    .PARAMETER FailDirection
+    Parameter description
+
+    .EXAMPLE
+    An example
+
+    .NOTES
+    General notes
+    #>
     [alias('EmailTableCondition', 'TableConditionalFormatting', 'New-HTMLTableCondition', 'TableCondition')]
     [CmdletBinding()]
     param(
@@ -11,6 +120,7 @@ function New-TableCondition {
         [switch] $Inline,
         [switch] $CaseSensitive,
         [string] $DateTimeFormat,
+        [switch] $ReverseCondition,
         # Style for PASS
         [string]$Color,
         [string]$BackgroundColor,
@@ -81,6 +191,7 @@ function New-TableCondition {
         HighlightHeaders = $HighlightHeaders
         CaseSensitive    = $CaseSensitive.IsPresent
         DateTimeFormat   = $DateTimeFormat
+        ReverseCondition = $ReverseCondition.IsPresent
     }
     [PSCustomObject] @{
         Type   = if ($Inline) { 'TableConditionInline' } else { 'TableCondition' }

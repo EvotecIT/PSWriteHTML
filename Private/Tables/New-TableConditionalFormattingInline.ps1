@@ -2,11 +2,11 @@
     [CmdletBinding()]
     param(
         [string[]] $HeaderNames,
-        $ConditionalFormatting,
-        $RowData,
-        $ColumnCount,
-        $RowCount,
-        $ColumnIndexHeader
+        [PSCustomObject] $ConditionalFormatting,
+        [Array] $RowData,
+        [int] $ColumnCount,
+        [int] $RowCount,
+        [int] $ColumnIndexHeader
     )
     [bool] $Pass = $false
     if ($ConditionalFormatting.Type -eq 'number') {
@@ -52,6 +52,11 @@
     } else {
         $SideLeft = $RowData[$ColumnCount]
         $SideRight = $ConditionalFormatting.Value
+    }
+    if ($ConditionalFormatting.ReverseCondition) {
+        $TempSide = $SideLeft
+        $SideLeft = $SideRight
+        $SideRight = $TempSide
     }
     if ($ConditionalFormatting.Operator -eq 'gt') {
         $Pass = $SideLeft -gt $SideRight

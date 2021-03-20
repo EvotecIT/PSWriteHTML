@@ -3,6 +3,7 @@
 }
 function dataTablesCheckCondition(condition, data) {
     var columnName = condition['columnName'];
+    var reverseCondition = condition['reverseCondition'];
     var columnId = condition['columnId'];
     var operator = condition['operator'].toLowerCase();
     if (condition['dataStore'].toLowerCase() != 'html') {
@@ -69,49 +70,57 @@ function dataTablesCheckCondition(condition, data) {
         var momentConversion = moment(columnValue, condition['dateTimeFormat']);
         columnValue = new Date(momentConversion);
     }
+
+    if (reverseCondition) {
+        var sideLeft = conditionValue;
+        var sideRight = columnValue;
+    } else {
+        var sideLeft = columnValue;
+        var sideRight = conditionValue;
+    }
     //console.log('after: ' + conditionValue + ' || ' + columnValue);
     if (operator == 'eq') {
-        if (columnValue == conditionValue) {
+        if (sideLeft == sideRight) {
             return true;
         }
     } else if (operator == 'ne') {
-        if (columnValue != conditionValue) {
+        if (sideLeft != sideRight) {
             return true;
         }
     } else if (operator == 'gt') {
-        if (columnValue > conditionValue) {
+        if (sideLeft > sideRight) {
             return true;
         }
     } else if (operator == 'lt') {
-        if (columnValue < conditionValue) {
+        if (sideLeft < sideRight) {
             return true;
         }
     } else if (operator == 'le') {
-        if (columnValue <= conditionValue) {
+        if (sideLeft <= sideRight) {
             return true;
         }
     } else if (operator == 'ge') {
-        if (columnValue >= conditionValue) {
+        if (sideLeft >= sideRight) {
             return true;
         }
     } else if (operator == 'contains' || operator == 'like') {
         //var compareValue = conditionValue.replace('*', '.*')
-        var regex = new RegExp(conditionValue);
-        if (regex.test(columnValue)) {
+        var regex = new RegExp(sideRight);
+        if (regex.test(sideLeft)) {
             return true;
         }
     } else if (operator == 'notcontains' || operator == 'notlike') {
         //var compareValue = conditionValue.replace('*', '.*')
-        var regex = new RegExp(conditionValue)
-        if (!regex.test(columnValue)) {
+        var regex = new RegExp(sideRight)
+        if (!regex.test(sideLeft)) {
             return true;
         }
     } else if (operator == 'betweeninclusive') {
-        if (Array.isArray(conditionValue) && columnValue >= conditionValue[0] && columnValue <= conditionValue[1]) {
+        if (Array.isArray(conditionValue) && sideLeft >= sideRight[0] && sideLeft <= sideRight[1]) {
             return true;
         }
     } else if (operator == 'between') {
-        if (Array.isArray(conditionValue) && columnValue > conditionValue[0] && columnValue < conditionValue[1]) {
+        if (Array.isArray(conditionValue) && sideLeft > sideRight[0] && sideLeft < sideRight[1]) {
             return true;
         }
     }
