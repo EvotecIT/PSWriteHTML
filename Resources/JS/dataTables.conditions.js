@@ -171,8 +171,12 @@ function dataTablesConditionalFormatting(row, data, conditionsContainer, highlig
         }
     } else {
         if (failCss) {
-            for (let column of highlightColumn) {
-                $("td:eq(" + column + ")", row).css(failCss);
+            if (highlightColumn == null) {
+                $('td', row).css(failCss);
+            } else {
+                for (let column of highlightColumn) {
+                    $("td:eq(" + column + ")", row).css(failCss);
+                }
             }
         }
     }

@@ -34,6 +34,10 @@
                 $Condition.Name
             }
         )
-        Write-Warning "New-TableCondition - None of the column names exists $ColumnNames in condition. Skipping."
+        if ($ColumnNames.Count -gt 0) {
+            Write-Warning "New-TableCondition - None of the column names exists $ColumnNames in condition. Skipping."
+        } else {
+            Write-Warning "New-TableCondition - None of the column names found to process. Please use HighlightHeaders or Row switch when using New-TableConditionGroup."
+        }
     }
 }
