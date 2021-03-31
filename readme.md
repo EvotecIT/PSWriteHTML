@@ -84,8 +84,11 @@ Unfortunetly some code is very old, some code doesn't serve it's purpose anymore
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 - 0.0.147
+  - **Potentially breaking change**: due to changes in some defaults things could move around - for example legend may not always start at the bottom, it shouldn't affect crucial parts tho
   - [x] Improved `New-ChartPie`,`New-ChartRadial`,`New-ChartLine`, `New-ChartBar` to convert $null or empty string as 0
   - [x] Improved `New-ChartAxisY` with more parameters and now works within `Bar Charts`
+  - [x] Added back `New-ChartSpark` (I've removed it before for some reason)
+  - [x] Improved `New-ChartLegend` with more parameters
 - 0.0.146 - 2021.03.23
   - [x] Improves `New-TableConditionGroup`
     - [x] Added `Row` switch
