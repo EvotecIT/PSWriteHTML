@@ -45,6 +45,12 @@ function New-HTMLChartLine {
     )
 
     $Options = [ordered] @{ }
+    if ($ChartAxisX) {
+        New-ChartInternalAxisX -Options $Options @ChartAxisX
+    }
+    if ($ChartAxisY) {
+        $Options.yaxis = $ChartAxisY
+    }
 
     New-ChartInternalLine -Options $Options -Data $Data -DataNames $DataNames
 
@@ -77,16 +83,8 @@ function New-HTMLChartLine {
         -DataLabelsOffsetX $DataLabelsOffsetX `
         -DataLabelsFontSize $DataLabelsFontSize `
         -DataLabelsColor $DataLabelsColor
-    if ($ChartAxisX) {
-        New-ChartInternalAxisX -Options $Options @ChartAxisX
-    }
-    if ($ChartAxisY) {
-        New-ChartInternalAxisY -Options $Options @ChartAxisY
-    }
     New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
     New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
-
-
 
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }

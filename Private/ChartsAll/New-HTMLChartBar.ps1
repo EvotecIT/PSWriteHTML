@@ -20,7 +20,8 @@ function New-HTMLChartBar {
         [Array] $DataNames,
         [Array] $DataLegend,
 
-
+        [System.Collections.IDictionary] $ChartAxisX,
+        [System.Collections.IDictionary] $ChartAxisY,
 
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
@@ -33,6 +34,12 @@ function New-HTMLChartBar {
     )
 
     $Options = [ordered] @{ }
+    if ($ChartAxisX) {
+        New-ChartInternalAxisX -Options $Options @ChartAxisX
+    }
+    if ($ChartAxisY) {
+        $Options.yaxis = $ChartAxisY
+    }
     New-ChartInternalBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX -DataLabelsFontSize $DataLabelsFontSize -DataLabelsColor $DataLabelsColor `
         -Data $Data -DataNames $DataNames -DataLegend $DataLegend `

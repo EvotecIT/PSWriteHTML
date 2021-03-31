@@ -42,7 +42,7 @@
         New-ChartInternalAxisX -Options $Options @ChartAxisX
     }
     if ($ChartAxisY) {
-        New-ChartInternalAxisY -Options $Options @ChartAxisY
+        $Options.yaxis = $ChartAxisY
     }
     if ($ChartToolTip) {
         New-ChartInternalToolTip -Options $Options @ChartToolTip
