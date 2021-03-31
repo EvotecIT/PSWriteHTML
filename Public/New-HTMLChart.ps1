@@ -147,9 +147,9 @@
     }
 
     if ($Type -in @('bar', 'barStacked', 'barStacked100Percent')) {
-        if ($DataLegend.Count -lt $DataSet[0].Count) {
-            Write-Warning -Message "Chart Legend count doesn't match values count. Skipping."
-        }
+        #if ($DataLegend.Count -lt $DataSet[0].Count) {
+        #    Write-Warning -Message "Chart Legend count doesn't match values count. Skipping."
+        #}
         # Fixes dataset/dataname to format expected by New-HTMLChartBar
         $HashTable = [ordered] @{ }
         $ArrayCount = $DataSet[0].Count
@@ -183,11 +183,13 @@
             -Height $Height `
             -Width $Width `
             -Colors $Colors `
+            -ChartAxisX $ChartAxisX `
+            -ChartAxisY $ChartAxisY `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
     } elseif ($Type -eq 'Line') {
         if (-not $ChartAxisX) {
             Write-Warning -Message 'Chart Category (Chart Axis X) is missing.'
-            Exit
+            return
         }
         New-HTMLChartLine -Data $DataSet `
             -DataNames $DataName `
