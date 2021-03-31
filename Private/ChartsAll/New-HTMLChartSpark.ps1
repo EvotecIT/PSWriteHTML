@@ -7,14 +7,16 @@ function New-HTMLChartSpark {
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
 
+        [System.Collections.IDictionary] $Legend,
+
         # Data to display in Spark
         [Array] $Data,
         [Array] $DataNames,
         [string] $TitleText,
         [string] $SubTitleText,
-        [int] $FontSizeTitle = 24,
-        [int] $FontSizeSubtitle = 14,
-        [string] $Color,
+        [int] $FontSizeTitle,
+        [int] $FontSizeSubtitle,
+        [string[]] $Colors,
 
         [switch] $PatternedColors,
         [switch] $GradientColors,
@@ -25,8 +27,11 @@ function New-HTMLChartSpark {
     )
 
     $Options = [ordered] @{ }
+    if ($Legend) {
+        $Options.legend = $Legend
+    }
 
-    New-ChartInternalSpark -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Values $Data
+    New-ChartInternalSpark -Options $Options -Color $Colors -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Values $Data
 
 
     # Default for all charts

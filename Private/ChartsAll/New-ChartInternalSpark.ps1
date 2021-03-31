@@ -2,11 +2,11 @@ function New-ChartInternalSpark {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
-        [string] $Color,
+        [string[]] $Color,
         [string] $Title,
         [string] $SubTitle,
-        [int] $FontSizeTitle = 24,
-        [int] $FontSizeSubtitle = 14,
+        [int] $FontSizeTitle,
+        [int] $FontSizeSubtitle,
         [Array] $Values
     )
     if ($Values.Count -eq 0) {
@@ -26,24 +26,23 @@ function New-ChartInternalSpark {
     $Options.stroke = @{
         curve = 'straight'
     }
-    $Options.title = [ordered] @{
-        text    = $Title
-        offsetX = 0
-        style   = @{
-            fontSize = "$($FontSizeTitle)px"
-            cssClass = 'apexcharts-yaxis-title'
+    if ($Title) {
+        $Options.title = [ordered] @{
+            text = $Title
+        }
+    }
+    if ($FontSizeTitle) {
+        $Options.title.style = @{
+            fontSize = ConvertTo-Size -Size $FontSizeTitle
         }
     }
     $Options.subtitle = [ordered] @{
-        text    = $SubTitle
-        offsetX = 0
-        style   = @{
-            fontSize = "$($FontSizeSubtitle)px"
-            cssClass = 'apexcharts-yaxis-title'
-        }
+        text = $SubTitle
     }
-    $Options.yaxis = @{
-        min = 0
+    if ($FontSizeSubtitle) {
+        $Options.title.style = @{
+            fontSize = ConvertTo-Size -Size $FontSizeSubtitle
+        }
     }
     $Options.fill = @{
         opacity = 0.3
