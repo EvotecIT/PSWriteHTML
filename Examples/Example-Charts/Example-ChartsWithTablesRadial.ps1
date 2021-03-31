@@ -26,6 +26,7 @@ New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-ChartsWi
     New-HTMLPanel {
         New-HTMLTable -DataTable $DataTable -DataTableID 'NewIDtoSearchInChart'
         New-HTMLChart {
+            New-ChartLegend -LegendPosition bottom -HorizontalAlign center -Color Red, Blue, Yellow
             New-ChartTheme -Palette palette5
             foreach ($Object in $DataTable) {
                 New-ChartRadial -Name $Object.Name -Value $Object.Money

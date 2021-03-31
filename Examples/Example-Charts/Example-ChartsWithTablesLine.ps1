@@ -17,8 +17,8 @@ New-HTML -TitleText 'Charts - Line' -Online -FilePath $PSScriptRoot\Example-Char
     New-HTMLTable -DataTable $DataTable -DataTableID 'IDTable'
     New-HTMLChart -Title 'Incidents Reported vs Solved' -TitleAlignment center {
         New-ChartAxisX -Name $DataTable.Year
-        New-ChartLine -Name 'Incidents per month' -Value $DataTable.Incidents
-        New-ChartLine -Name 'Incidents per month resolved' -Value $DataTable.Resolved
+        New-ChartLine -Name 'Incidents per month' -Value $DataTable.Incidents -Color Yellow
+        New-ChartLine -Name 'Incidents per month resolved' -Value $DataTable.Resolved -Color Green
         New-ChartEvent -DataTableID 'IDTable' -ColumnID 3
     }
     <#

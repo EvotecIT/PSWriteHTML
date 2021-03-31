@@ -24,7 +24,7 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsBar
                 New-HTMLChart {
                     New-ChartToolbar -Download
                     New-ChartBarOptions -Gradient
-                    New-ChartLegend -Name 'Time', 'Money', 'Taxes'
+                    New-ChartLegend -Name 'Time', 'Money', 'Taxes' -LegendPosition bottom -HorizontalAlign right -Color Red, Blue, Yellow -DisableOnItemHoverHighlightDataSeries -DisableOnItemClickToggleDataSeries
                     New-ChartBar -Name 'Test' -Value 1, 2, 3
                     New-ChartBar -Name 'Test1' -Value 2, 5, 7
                     New-ChartBar -Name 'Test2' -Value 3, 1, 2
