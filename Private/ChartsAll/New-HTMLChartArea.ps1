@@ -55,12 +55,14 @@ function New-HTMLChartArea {
         -DataLabelsFontSize $DataLabelsFontSize `
         -DataLabelsColor $DataLabelsColor
 
+    <# This needs rebuilding to new methods
     New-ChartInternalAxisX -Options $Options `
         -Title $TitleX `
         -DataCategoriesType $DataCategoriesType `
         -DataCategories $DataLegend
 
     New-ChartInternalAxisY -Options $Options -Title $TitleY
+    #>
     New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
     New-ChartInternalZoom -Options $Options -Enabled:$Zoom
     New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
