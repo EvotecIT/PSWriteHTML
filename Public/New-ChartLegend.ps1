@@ -6,11 +6,6 @@
         [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
         [string[]] $Color
     )
-
-    #$Colors = "Red","Blue","orange"
-    #foreach ($_ in $Color) {
-    #    $Colors.Add($Color)
-    #}
     [PSCustomObject] @{
         ObjectType     = 'Legend'
         Names          = $Names
