@@ -37,8 +37,6 @@
     [string] $BarDataLabelsFontSize = '12px'
     [bool] $BarDistributed = $false
 
-    [string] $LegendPosition = 'default'
-    #
     [string] $Type = ''
 
     [Array] $Settings = & $ChartSettings
@@ -81,10 +79,10 @@
         } elseif ($Setting.ObjectType -eq 'Legend') {
             # For Bar Charts
             $DataLegend = $Setting.Names
-            $LegendPosition = $Setting.LegendPosition
             if ($null -ne $Setting.Color) {
                 $Colors = $Setting.Color
             }
+            $Legend = $Setting.Legend
         } elseif ($Setting.ObjectType -eq 'BarOptions') {
             # For Bar Charts
             $Type = $Setting.Type
@@ -170,7 +168,7 @@
             -Data $($HashTable.Values) `
             -DataNames $DataName `
             -DataLegend $DataLegend `
-            -LegendPosition $LegendPosition `
+            -Legend $Legend `
             -Type $Type `
             -Title $Title `
             -TitleAlignment $TitleAlignment `
@@ -192,6 +190,7 @@
             return
         }
         New-HTMLChartLine -Data $DataSet `
+            -Legend $Legend `
             -DataNames $DataName `
             -DataLabelsEnabled $BarDataLabelsEnabled `
             -DataLabelsOffsetX $BarDataLabelsOffsetX `
@@ -210,6 +209,7 @@
 
     } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
         New-HTMLChartPie `
+            -Legend $Legend `
             -Type $Type `
             -Data $DataSet `
             -DataNames $DataName `
@@ -219,6 +219,7 @@
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
     } elseif ($Type -eq 'Spark') {
         New-HTMLChartSpark `
+            -Legend $Legend `
             -Data $DataSet `
             -DataNames $DataName `
             -Colors $Colors `
@@ -227,6 +228,7 @@
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
     } elseif ($Type -eq 'Radial') {
         New-HTMLChartRadial `
+            -Legend $Legend `
             -Data $DataSet `
             -DataNames $DataName `
             -Colors $Colors `
@@ -235,6 +237,7 @@
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
     } elseif ($Type -eq 'rangeBar') {
         New-HTMLChartTimeLine `
+            -Legend $Legend `
             -Data $DataSetChartTimeLine `
             -Title $Title `
             -TitleAlignment $TitleAlignment `
