@@ -59,7 +59,9 @@ Function New-ChartInternalBar {
     $Options.series = @(New-ChartInternalDataSet -Data $Data -DataNames $DataLegend)
 
     # X AXIS - CATEGORIES
-    $Options.xaxis = [ordered] @{ }
+    if (-not $Options.Contains('xaxis')) {
+        $Options.xaxis = [ordered] @{ }
+    }
     # if ($DataCategoriesType -ne '') {
     #    $Options.xaxis.type = $DataCategoriesType
     #}
