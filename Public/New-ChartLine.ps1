@@ -10,6 +10,9 @@
         [ValidateSet('butt', 'square', 'round')][string] $Cap = 'butt',
         [int] $Dash = 0
     )
+    if ($null -eq $Value -or $Value -eq '') {
+        $Value = 0
+    }
     [PSCustomObject] @{
         ObjectType = 'Line'
         Name       = $Name

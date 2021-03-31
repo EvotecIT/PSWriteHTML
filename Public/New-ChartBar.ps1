@@ -5,6 +5,9 @@
         [string] $Name,
         [object] $Value
     )
+    if ($null -eq $Value -or $Value -eq '') {
+        $Value = 0
+    }
     [PSCustomObject] @{
         ObjectType = 'Bar'
         Name       = $Name
