@@ -6,10 +6,10 @@ New-HTML {
             New-HTMLChart {
                 New-ChartToolbar -Download
                 #New-ChartBarOptions -Gradient
-                New-ChartLegend -Name 'Time', 'Money', 'Taxes'
-                New-ChartBar -Name 'Test' -Value 1, 2, 3
-                New-ChartBar -Name 'Test1' -Value 2, 5, 7
-                New-ChartBar -Name 'Test2' -Value 3, 1, 50
+                New-ChartLegend -Name 'Time', 'Money', 'Taxes', 'test'
+                New-ChartBar -Name 'Test' -Value 1, 2, 3, 0
+                New-ChartBar -Name 'Test1' -Value 2, 5, 7, 0
+                New-ChartBar -Name 'Test2' -Value 3, 1, 50, 5
             }
         }
         New-HTMLPanel {

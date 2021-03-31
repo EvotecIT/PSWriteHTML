@@ -48,6 +48,34 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsBar
                 }
             }
         }
+        New-HTMLSection -HeaderText 'Bar Charts - Test' -CanCollapse {
+            New-HTMLPanel {
+                New-HTMLChart {
+                    New-ChartBarOptions -Distributed
+                    New-ChartBar -Name 'Test' -Value 1
+                    New-ChartBar -Name 'Test1' -Value 2
+                    New-ChartBar -Name 'Test2' -Value 3
+                } -Title 'Testing Title' -TitleAlignment center
+            }
+            New-HTMLPanel {
+                New-HTMLChart {
+                    New-ChartBarOptions -Distributed
+                    New-ChartLegend -Name 'Time'
+                    for ($i = 0; $i -le 5; $i++) {
+                        New-ChartBar -Name "Test $i" -Value $i
+                    }
+                }
+            }
+            New-HTMLPanel {
+                New-HTMLChart {
+                    New-ChartBarOptions -Vertical -Distributed
+                    New-ChartLegend -Name 'Time'
+                    for ($i = 0; $i -le 10; $i++) {
+                        New-ChartBar -Name "Test $i" -Value $i
+                    }
+                }
+            }
+        }
         New-HTMLSection -HeaderText 'Bar Charts - Test Colors' -CanCollapse {
             New-HTMLPanel -Invisible {
                 New-HTMLChart {

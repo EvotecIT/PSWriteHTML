@@ -6,7 +6,7 @@ New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-ChartPie
         New-HTMLSection -HeaderText 'Pie Charts - Defaults' -CanCollapse {
             New-HTMLPanel {
                 New-HTMLChart -Gradient {
-                    New-ChartPie -Name 'Test' -Value 20
+                    New-ChartPie -Name 'Test' -Value $null
                     New-ChartPie -Name 'Test1' -Value 30
                     New-ChartPie -Name 'Test2' -Value 40
                     New-ChartPie -Name 'Test1' -Value 30
