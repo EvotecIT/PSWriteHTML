@@ -10,7 +10,7 @@ function New-HTMLChartRadial {
         [ValidateSet('FullCircleTop', 'FullCircleBottom', 'FullCircleBottomLeft', 'FullCircleLeft', 'Speedometer', 'SemiCircleGauge')] $CircleType = 'FullCircleTop',
         [string] $LabelAverage,
 
-
+        [System.Collections.IDictionary] $Legend,
 
         [string[]] $Colors,
         [string] $Title,
@@ -24,6 +24,9 @@ function New-HTMLChartRadial {
     )
 
     $Options = [ordered] @{ }
+    if ($Legend) {
+        $Options.legend = $Legend
+    }
 
     New-ChartInternalRadial -Options $Options -Names $DataNames -Values $Data -Type $Type
     # This controls how the circle starts / left , right and so on

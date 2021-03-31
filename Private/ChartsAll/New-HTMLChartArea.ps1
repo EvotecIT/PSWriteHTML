@@ -29,7 +29,8 @@ function New-HTMLChartArea {
 
         [switch] $Zoom,
 
-
+        [System.Collections.IDictionary] $ChartAxisY,
+        [System.Collections.IDictionary] $Legend,
 
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
@@ -41,6 +42,12 @@ function New-HTMLChartArea {
     )
 
     $Options = [ordered] @{ }
+    if ($ChartAxisY) {
+        $Options.yaxis = $ChartAxisY
+    }
+    if ($Legend) {
+        $Options.legend = $Legend
+    }
     New-ChartInternalArea -Options $Options -Data $Data -DataNames $DataNames
 
     New-ChartInternalStrokeDefinition -Options $Options `
@@ -55,18 +62,16 @@ function New-HTMLChartArea {
         -DataLabelsFontSize $DataLabelsFontSize `
         -DataLabelsColor $DataLabelsColor
 
-    <# This needs rebuilding to new methods
+
     New-ChartInternalAxisX -Options $Options `
         -Title $TitleX `
         -DataCategoriesType $DataCategoriesType `
         -DataCategories $DataLegend
-
+    <# This needs rebuilding to new method - set above - remember to remove TitleY
     New-ChartInternalAxisY -Options $Options -Title $TitleY
     #>
     New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
     New-ChartInternalZoom -Options $Options -Enabled:$Zoom
-    New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
-
 
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }

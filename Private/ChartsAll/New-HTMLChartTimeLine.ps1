@@ -7,6 +7,8 @@
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
 
+        [System.Collections.IDictionary] $Legend,
+
         [Array] $Data,
         <#
         [Array] $DataNames,
@@ -31,7 +33,6 @@
         [Object] $Events
     )
     $Options = [ordered] @{}
-
     if ($ChartAxisX) {
         $ChartAxisX.type = "datetime"
         New-ChartInternalAxisX -Options $Options @ChartAxisX
@@ -43,6 +44,9 @@
     }
     if ($ChartAxisY) {
         $Options.yaxis = $ChartAxisY
+    }
+    if ($Legend) {
+        $Options.legend = $Legend
     }
     if ($ChartToolTip) {
         New-ChartInternalToolTip -Options $Options @ChartToolTip

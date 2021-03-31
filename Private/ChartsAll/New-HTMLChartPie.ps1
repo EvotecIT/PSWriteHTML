@@ -5,7 +5,6 @@
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
 
-
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
         [string] $DataLabelsFontSize = '12px',
@@ -13,9 +12,7 @@
         [Array] $Data,
         [Array] $DataNames,
 
-
-        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
-
+        [System.Collections.IDictionary] $Legend,
 
         [string[]] $Colors,
         [string] $Title,
@@ -28,11 +25,11 @@
         [Object] $Events
 
     )
-
     $Options = [ordered] @{ }
+    if ($Legend) {
+        $Options.legend = $Legend
+    }
     New-ChartInternalPie -Options $Options -Names $DataNames -Values $Data -Type $Type
-
-
     New-ChartInternalColors -Options $Options -Colors $Colors
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }

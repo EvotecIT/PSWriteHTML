@@ -16,14 +16,6 @@ function New-HTMLChartLine {
         [int[]] $LineDash,
         [ValidateSet('butt', 'square', 'round')][string[]] $LineCap,
 
-        #[string[]] $GridColors,
-        #[double] $GridOpacity,
-
-        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
-
-        #[string] $TitleX,
-        #[string] $TitleY,
-
         [int] $MarkerSize,
 
         [Array] $Data,
@@ -31,7 +23,7 @@ function New-HTMLChartLine {
         #[Array] $DataLegend,
         [System.Collections.IDictionary] $ChartAxisX,
         [System.Collections.IDictionary] $ChartAxisY,
-
+        [System.Collections.IDictionary] $Legend,
 
 
         [string] $Title,
@@ -50,6 +42,9 @@ function New-HTMLChartLine {
     }
     if ($ChartAxisY) {
         $Options.yaxis = $ChartAxisY
+    }
+    if ($Legend) {
+        $Options.legend = $Legend
     }
 
     New-ChartInternalLine -Options $Options -Data $Data -DataNames $DataNames
@@ -84,7 +79,6 @@ function New-HTMLChartLine {
         -DataLabelsFontSize $DataLabelsFontSize `
         -DataLabelsColor $DataLabelsColor
     New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
-    New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
 
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }

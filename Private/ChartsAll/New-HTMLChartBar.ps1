@@ -14,7 +14,7 @@ function New-HTMLChartBar {
 
         [switch] $Distributed,
 
-        [ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
+        #[ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
 
         [Array] $Data,
         [Array] $DataNames,
@@ -22,6 +22,7 @@ function New-HTMLChartBar {
 
         [System.Collections.IDictionary] $ChartAxisX,
         [System.Collections.IDictionary] $ChartAxisY,
+        [System.Collections.IDictionary] $Legend,
 
         [string] $Title,
         [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
@@ -40,14 +41,15 @@ function New-HTMLChartBar {
     if ($ChartAxisY) {
         $Options.yaxis = $ChartAxisY
     }
+    if ($Legend) {
+        $Options.legend = $Legend
+    }
     New-ChartInternalBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX -DataLabelsFontSize $DataLabelsFontSize -DataLabelsColor $DataLabelsColor `
         -Data $Data -DataNames $DataNames -DataLegend $DataLegend `
         -Type $Type -Distributed:$Distributed
 
     New-ChartInternalColors -Options $Options -Colors $Colors
-    New-ChartInternalLegend -Options $Options -LegendPosition $LegendPosition
-
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
