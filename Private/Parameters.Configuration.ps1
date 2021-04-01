@@ -873,7 +873,7 @@ $Script:Configuration = [ordered] @{
         }
         DataTablesConditions        = @{
             Comment      = 'DataTables Conditions'
-            FooterAlways = @{
+            HeaderAlways = @{
                 #JsLink = @(
                 #    'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'
                 #)
