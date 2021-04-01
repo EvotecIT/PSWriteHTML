@@ -27,9 +27,11 @@ function dataTablesCheckCondition(condition, data) {
             // this will be used for between, betweenInclusive
             // if its an array we need to make sure to convert conditionValue within an array
             var conditionValueTemporary = [];
-            for (let value of conditionValue) {
-                if (!isEmptyOrSpaces(value.toString())) {
-                    conditionValueTemporary.push(Number(value));
+
+            for (var i = 0; i < conditionValue.length; i++) {
+                //for (let value of conditionValue) {
+                if (!isEmptyOrSpaces(conditionValue[i].toString())) {
+                    conditionValueTemporary.push(Number(conditionValue[i]));
                 } else {
                     conditionValueTemporary.push(undefined);
                 }
@@ -56,8 +58,9 @@ function dataTablesCheckCondition(condition, data) {
     } else if (condition['type'] == 'date') {
         if (Array.isArray(condition['valueDate'])) {
             var conditionValueTemporary = [];
-            for (let value of condition['valueDate']) {
-                var valueDate = value;
+            for (var i = 0; i < condition['valueDate'].length; i++) {
+                //for (let value of condition['valueDate']) {
+                var valueDate = condition['valueDate'][i];
                 conditionValueTemporary.push(new Date(valueDate.year, valueDate.month - 1, valueDate.day, valueDate.hours, valueDate.minutes, valueDate.seconds));
             }
             conditionValue = conditionValueTemporary;
@@ -137,23 +140,53 @@ function dataTablesCheckCondition(condition, data) {
 function dataTablesConditionalFormatting(row, data, conditionsContainer, highlightColumn, css, failCss) {
     var conditionsMatch = [];
     var found = false;
-    for (let container of conditionsContainer) {
-        for (let condition of container['conditions']) {
+    for (var i = 0; i < conditionsContainer.length; i++) {
+        var container = conditionsContainer[i];
+        for (var k = 0; k < container['conditions'].length; k++) {
+            var condition = container['conditions'][k];
             conditionsMatch.push(
                 dataTablesCheckCondition(condition, data)
             );
         }
         if (container['logic'] == 'AND') {
-            if (conditionsMatch.every(value => value === true)) {
-                found = true;
+            // if (conditionsMatch.every(value => value === true)) {
+            //     found = true;
+            // }
+
+            for (var a = 0; a < conditionsMatch.length; a++) {
+                if (conditionsMatch[a] !== true) {
+                    found = false;
+                    break;
+                } else {
+                    found = true;
+                }
             }
+
+
         } else if (container['logic'] == 'OR') {
-            if (conditionsMatch.some(value => value === true)) {
-                found = true;
+            //if (conditionsMatch.some(value => value === true)) {
+            //    found = true;
+            //}
+
+            for (var a = 0; a < conditionsMatch.length; a++) {
+                if (conditionsMatch[a] === true) {
+                    found = true;
+                    break;
+                }
             }
+
         } else if (container['logic'] == 'NONE') {
-            if (conditionsMatch.every(value => value != true)) {
-                found = true;
+            // if (conditionsMatch.every(value => value != true)) {
+            //    found = true;
+            //}
+
+            for (var a = 0; a < conditionsMatch.length; a++) {
+                if (conditionsMatch[a] !== false) {
+                    found = false;
+                    break;
+                } else {
+                    found = true;
+                }
             }
         }
     }
@@ -161,7 +194,9 @@ function dataTablesConditionalFormatting(row, data, conditionsContainer, highlig
         if (highlightColumn == null) {
             $('td', row).css(css);
         } else {
-            for (let column of highlightColumn) {
+            for (var a = 0; a < highlightColumn.length; a++) {
+                var column = highlightColumn[a];
+                //for (let column of highlightColumn) {
                 $("td:eq(" + column + ")", row).css(css);
 
                 //if (data.Type == "group") {
@@ -174,7 +209,9 @@ function dataTablesConditionalFormatting(row, data, conditionsContainer, highlig
             if (highlightColumn == null) {
                 $('td', row).css(failCss);
             } else {
-                for (let column of highlightColumn) {
+                for (var a = 0; a < highlightColumn.length; a++) {
+                    var column = highlightColumn[a];
+                    //for (let column of highlightColumn) {
                     $("td:eq(" + column + ")", row).css(failCss);
                 }
             }
