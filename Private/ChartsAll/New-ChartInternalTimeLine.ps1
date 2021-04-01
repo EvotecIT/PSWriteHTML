@@ -3,10 +3,6 @@
     param(
         [System.Collections.IDictionary] $Options,
         [string] $Color,
-        [string] $Title,
-        [string] $SubTitle,
-        [int] $FontSizeTitle = 24,
-        [int] $FontSizeSubtitle = 14,
         [Array] $Data,
         [Int64] $Min,
         [Int64] $Max
@@ -23,31 +19,6 @@
     $Options.chart = [ordered] @{
         type = 'rangeBar'
     }
-    #$Options.stroke = @{
-    #    curve = 'straight'
-    #}
-    $Options.title = [ordered] @{
-        text    = $Title
-        offsetX = 0
-        style   = @{
-            fontSize = "$($FontSizeTitle)px"
-            cssClass = 'apexcharts-yaxis-title'
-        }
-    }
-    $Options.subtitle = [ordered] @{
-        text    = $SubTitle
-        offsetX = 0
-        style   = @{
-            fontSize = "$($FontSizeSubtitle)px"
-            cssClass = 'apexcharts-yaxis-title'
-        }
-    }
-    #$Options.yaxis = @{
-    #    min = 0
-    #}
-    #$Options.fill = @{
-    #    opacity = 0.3
-    #}
     $Options.plotOptions = @{
         bar = @{
             horizontal  = $true
@@ -57,7 +28,6 @@
             }
         }
     }
-
     $Options.series = @(
         @{
             data = @(

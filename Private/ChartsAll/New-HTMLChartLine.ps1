@@ -23,11 +23,10 @@ function New-HTMLChartLine {
         #[Array] $DataLegend,
         [System.Collections.IDictionary] $ChartAxisX,
         [System.Collections.IDictionary] $ChartAxisY,
+        [System.Collections.IDictionary] $Title,
+        [System.Collections.IDictionary] $SubTitle,
         [System.Collections.IDictionary] $Legend,
 
-
-        [string] $Title,
-        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
         [switch] $PatternedColors,
         [switch] $GradientColors,
         [System.Collections.IDictionary] $GridOptions,
@@ -37,14 +36,20 @@ function New-HTMLChartLine {
     )
 
     $Options = [ordered] @{ }
+    if ($Title) {
+        $Options.title = $Title
+    }
+    if ($SubTitle) {
+        $Options.subtitle = $SubTitle
+    }
+    if ($Legend) {
+        $Options.legend = $Legend
+    }
     if ($ChartAxisX) {
         New-ChartInternalAxisX -Options $Options @ChartAxisX
     }
     if ($ChartAxisY) {
         $Options.yaxis = $ChartAxisY
-    }
-    if ($Legend) {
-        $Options.legend = $Legend
     }
 
     New-ChartInternalLine -Options $Options -Data $Data -DataNames $DataNames
@@ -83,7 +88,7 @@ function New-HTMLChartLine {
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
-    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
+
     New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }

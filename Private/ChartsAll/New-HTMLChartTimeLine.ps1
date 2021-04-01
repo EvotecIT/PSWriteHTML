@@ -4,9 +4,9 @@
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
 
-        [string] $Title,
-        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
 
+        [System.Collections.IDictionary] $Title,
+        [System.Collections.IDictionary] $SubTitle,
         [System.Collections.IDictionary] $Legend,
 
         [Array] $Data,
@@ -33,6 +33,12 @@
         [Object] $Events
     )
     $Options = [ordered] @{}
+    if ($Title) {
+        $Options.title = $Title
+    }
+    if ($SubTitle) {
+        $Options.subtitle = $SubTitle
+    }
     if ($ChartAxisX) {
         $ChartAxisX.type = "datetime"
         New-ChartInternalAxisX -Options $Options @ChartAxisX
@@ -55,12 +61,11 @@
         $Options.dataLabels = $DataLabel
     }
 
-    New-ChartInternalTimeLine -Options $Options -Color $Color -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Data $Data
+    New-ChartInternalTimeLine -Options $Options -Color $Color -Data $Data
 
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
-    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
     New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }

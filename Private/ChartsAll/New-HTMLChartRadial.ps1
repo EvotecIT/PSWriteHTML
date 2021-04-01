@@ -10,11 +10,11 @@ function New-HTMLChartRadial {
         [ValidateSet('FullCircleTop', 'FullCircleBottom', 'FullCircleBottomLeft', 'FullCircleLeft', 'Speedometer', 'SemiCircleGauge')] $CircleType = 'FullCircleTop',
         [string] $LabelAverage,
 
+        [System.Collections.IDictionary] $Title,
+        [System.Collections.IDictionary] $SubTitle,
         [System.Collections.IDictionary] $Legend,
 
         [string[]] $Colors,
-        [string] $Title,
-        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
         [switch] $PatternedColors,
         [switch] $GradientColors,
         [System.Collections.IDictionary] $GridOptions,
@@ -24,6 +24,12 @@ function New-HTMLChartRadial {
     )
 
     $Options = [ordered] @{ }
+    if ($Title) {
+        $Options.title = $Title
+    }
+    if ($SubTitle) {
+        $Options.subtitle = $SubTitle
+    }
     if ($Legend) {
         $Options.legend = $Legend
     }
@@ -39,7 +45,6 @@ function New-HTMLChartRadial {
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
-    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
     New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }

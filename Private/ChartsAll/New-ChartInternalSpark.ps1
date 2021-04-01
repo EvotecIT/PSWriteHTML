@@ -3,10 +3,6 @@ function New-ChartInternalSpark {
     param(
         [System.Collections.IDictionary] $Options,
         [string[]] $Color,
-        [string] $Title,
-        [string] $SubTitle,
-        [int] $FontSizeTitle,
-        [int] $FontSizeSubtitle,
         [Array] $Values
     )
     if ($Values.Count -eq 0) {
@@ -25,24 +21,6 @@ function New-ChartInternalSpark {
     }
     $Options.stroke = @{
         curve = 'straight'
-    }
-    if ($Title) {
-        $Options.title = [ordered] @{
-            text = $Title
-        }
-    }
-    if ($FontSizeTitle) {
-        $Options.title.style = @{
-            fontSize = ConvertTo-Size -Size $FontSizeTitle
-        }
-    }
-    $Options.subtitle = [ordered] @{
-        text = $SubTitle
-    }
-    if ($FontSizeSubtitle) {
-        $Options.title.style = @{
-            fontSize = ConvertTo-Size -Size $FontSizeSubtitle
-        }
     }
     $Options.fill = @{
         opacity = 0.3

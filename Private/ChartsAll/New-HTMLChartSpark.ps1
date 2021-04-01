@@ -4,18 +4,14 @@ function New-HTMLChartSpark {
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
 
-        [string] $Title,
-        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
-
+        [System.Collections.IDictionary] $Title,
+        [System.Collections.IDictionary] $SubTitle,
         [System.Collections.IDictionary] $Legend,
 
         # Data to display in Spark
         [Array] $Data,
         [Array] $DataNames,
-        [string] $TitleText,
-        [string] $SubTitleText,
-        [int] $FontSizeTitle,
-        [int] $FontSizeSubtitle,
+
         [string[]] $Colors,
 
         [switch] $PatternedColors,
@@ -27,17 +23,22 @@ function New-HTMLChartSpark {
     )
 
     $Options = [ordered] @{ }
+    if ($Title) {
+        $Options.title = $Title
+    }
+    if ($SubTitle) {
+        $Options.subtitle = $SubTitle
+    }
     if ($Legend) {
         $Options.legend = $Legend
     }
 
-    New-ChartInternalSpark -Options $Options -Color $Colors -Title $TitleText -SubTitle $SubTitleText -FontSizeTitle $FontSizeTitle -FontSizeSubtitle $FontSizeSubtitle -Values $Data
+    New-ChartInternalSpark -Options $Options -Color $Colors -Values $Data
 
 
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
-    New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
     New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
