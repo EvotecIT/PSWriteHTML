@@ -4,13 +4,68 @@
     param(
         [ScriptBlock] $ChartSettings,
         [string] $Title,
-        [ValidateSet('center', 'left', 'right', 'default')][string] $TitleAlignment = 'default',
+        [ValidateSet('center', 'left', 'right')][string] $TitleAlignment,
+        [nullable[int]] $TitleMargin,
+        [nullable[int]] $TitleOffsetX,
+        [nullable[int]] $TitleOffsetY,
+        [nullable[int]] $TitleFloating,
+        [object] $TitleFontSize,
+        [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $TitleFontWeight,
+        [string] $TitleFontFamily,
+        [string] $TitleColor,
+
+        [string] $SubTitle,
+        [ValidateSet('center', 'left', 'right')][string] $SubTitleAlignment,
+        [nullable[int]] $SubTitleMargin,
+        [nullable[int]] $SubTitleOffsetX,
+        [nullable[int]] $SubTitleOffsetY,
+        [nullable[int]] $SubTitleFloating,
+        [object] $SubTitleFontSize,
+        [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $SubTitleFontWeight,
+        [string] $SubTitleFontFamily,
+        [string] $SubTitleColor,
+
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
         [alias('GradientColors')][switch] $Gradient,
         [alias('PatternedColors')][switch] $Patterned
     )
     $Script:HTMLSchema.Features.MainFlex = $true
+
+    # Lets build Title Block
+    $TitleBlock = @{
+        text     = $Title
+        align    = $TitleAlignment
+        margin   = $TitleMargin
+        offsetX  = $TitleOffsetX
+        offsetY  = $TitleOffsetY
+        floating = $TitleFloating
+        style    = @{
+            fontSize   = ConvertFrom-Size -Size $TitleFontSize
+            fontWeight = $TitleFontWeight
+            fontFamily = $TitleFontFamily
+            color      = ConvertFrom-Color -Color $TitleColor
+        }
+    }
+    Remove-EmptyValue -Hashtable $TitleBlock -Recursive -Rerun 2
+
+    # Lets build SubTitle Block
+    $SubTitleBlock = @{
+        text     = $SubTitle
+        align    = $SubTitleAlignment
+        margin   = $SubTitleMargin
+        offsetX  = $SubTitleOffsetX
+        offsetY  = $SubTitleOffsetY
+        floating = $SubTitleFloating
+        style    = @{
+            fontSize   = ConvertFrom-Size -Size $SubTitleFontSize
+            fontWeight = $SubTitleFontWeight
+            fontFamily = $SubTitleFontFamily
+            color      = ConvertFrom-Color -Color $SubTitleColor
+        }
+    }
+    Remove-EmptyValue -Hashtable $SubTitleBlock -Recursive -Rerun 2
+
     # Datasets Bar/Line
     $DataSet = [System.Collections.Generic.List[object]]::new()
     $DataName = [System.Collections.Generic.List[object]]::new()
@@ -39,6 +94,7 @@
 
     [string] $Type = ''
 
+    # Reading all charts definitions and converting them to proper entries
     [Array] $Settings = & $ChartSettings
     foreach ($Setting in $Settings) {
         if ($Setting.ObjectType -eq 'Bar') {
@@ -170,8 +226,6 @@
             -DataLegend $DataLegend `
             -Legend $Legend `
             -Type $Type `
-            -Title $Title `
-            -TitleAlignment $TitleAlignment `
             -Horizontal:$BarHorizontal `
             -DataLabelsEnabled $BarDataLabelsEnabled `
             -DataLabelsOffsetX $BarDataLabelsOffsetX `
@@ -183,7 +237,7 @@
             -Colors $Colors `
             -ChartAxisX $ChartAxisX `
             -ChartAxisY $ChartAxisY `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     } elseif ($Type -eq 'Line') {
         if (-not $ChartAxisX) {
             Write-Warning -Message 'Chart Category (Chart Axis X) is missing.'
@@ -203,9 +257,8 @@
             -LineCap $LineCaps `
             -ChartAxisX $ChartAxisX `
             -ChartAxisY $ChartAxisY `
-            -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
 
     } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
         New-HTMLChartPie `
@@ -214,39 +267,37 @@
             -Data $DataSet `
             -DataNames $DataName `
             -Colors $Colors `
-            -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     } elseif ($Type -eq 'Spark') {
         New-HTMLChartSpark `
             -Legend $Legend `
             -Data $DataSet `
             -DataNames $DataName `
             -Colors $Colors `
-            -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     } elseif ($Type -eq 'Radial') {
         New-HTMLChartRadial `
             -Legend $Legend `
             -Data $DataSet `
             -DataNames $DataName `
             -Colors $Colors `
-            -Title $Title -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events
+            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     } elseif ($Type -eq 'rangeBar') {
         New-HTMLChartTimeLine `
             -Legend $Legend `
             -Data $DataSetChartTimeLine `
-            -Title $Title `
-            -TitleAlignment $TitleAlignment `
             -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar `
             -ChartAxisX $ChartAxisX `
             -ChartAxisY $ChartAxisY `
             -ChartToolTip $ChartToolTip `
             -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient `
-            -DataLabel $DataLabel -Events $Events
+            -DataLabel $DataLabel -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     }
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLChart -ParameterName TitleColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLChart -ParameterName SubTitleColor -ScriptBlock $Script:ScriptBlockColors
