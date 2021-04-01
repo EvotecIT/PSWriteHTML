@@ -83,7 +83,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-- 0.0.147
+- 0.0.147 - 2021.04.01
   - **Potentially breaking change**: due to changes in some defaults things could move around - for example legend may not always start at the bottom, it shouldn't affect crucial parts tho
   - [x] Improved `New-ChartPie`,`New-ChartRadial`,`New-ChartLine`, `New-ChartBar` to convert $null or empty string as 0
   - [x] Improved `New-ChartAxisY` with more parameters and now works within `Bar Charts`
