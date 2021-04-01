@@ -89,6 +89,8 @@ Please make sure to read changes before updating, as we're undergoing some break
   - [x] Improved `New-ChartAxisY` with more parameters and now works within `Bar Charts`
   - [x] Added back `New-ChartSpark` (I've removed it before for some reason)
   - [x] Improved `New-ChartLegend` with more parameters
+  - [x] Improved `Title*` options in `New-HTMLChart`
+  - [x] Added `Subtitle*` options in `New-HTMLChart`
 - 0.0.146 - 2021.03.23
   - [x] Improves `New-TableConditionGroup`
     - [x] Added `Row` switch
