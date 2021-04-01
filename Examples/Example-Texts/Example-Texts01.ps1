@@ -18,4 +18,10 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Texts01.h
         "This is more complicated [URL](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn535495(v=ws.11)) with double () and it doesn't work properly "
         "More URLs in one line  [SomeURL](https://evotec.xyz) and and [SomeURL](https://evotec.xyz)."
     )
+    # This doesn't work properly
+    New-HTMLText -Text @(
+        "This is a string with [SomeURL](https://evotec.xyz) and this isn't. "
+        "This is more complicated [URL](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn535495(v=ws.11)) with double () and it doesn't work properly "
+        "More URLs in one line  [SomeURL](https://evotec.xyz) and and [SomeURL](https://evotec.xyz)."
+    )
 }
