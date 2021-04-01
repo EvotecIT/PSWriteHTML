@@ -3,7 +3,7 @@ function Get-Resources {
     param(
         [switch] $Online,
         [switch] $NoScript,
-        [ValidateSet('Header', 'Footer', 'HeaderAlways', 'FooterAlways', 'Body')][string] $Location,
+        [ValidateSet('Header', 'Footer', 'HeaderAlways', 'FooterAlways', 'Body', 'BodyAlways')][string] $Location,
         [string[]] $Features,
         [switch] $AddComment
     )
