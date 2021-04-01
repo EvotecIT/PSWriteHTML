@@ -11,10 +11,10 @@
         [ValidateSet('left', 'center', 'right')][string] $HorizontalAlign,
         [switch] $Floating,
         [switch] $InverseOrder,
-        [int] $OffsetX = -1,
-        [int] $OffsetY = -1,
-        [int] $ItemMarginHorizontal = -1,
-        [int] $ItemMarginVertical = -1,
+        [nullable[int]] $OffsetX,
+        [nullable[int]] $OffsetY,
+        [nullable[int]] $ItemMarginHorizontal,
+        [nullable[int]] $ItemMarginVertical,
         [object] $FontSize,
         [string] $FontFamily,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
@@ -38,18 +38,18 @@
     if ($InverseOrder) {
         $Object.legend.inverseOrder = $true
     }
-    if ($OffsetX -ne -1) {
+    if ($OffsetX -ne $null) {
         $Object.legend.offsetX = $OffsetX
     }
-    if ($OffsetY -ne -1) {
+    if ($OffsetY -ne $null) {
         $Object.legend.offsetY = $OffsetY
     }
-    if ($ItemMarginHorizontal -ne -1 -or $ItemMarginHorizontal -ne -1) {
+    if ($ItemMarginHorizontal -ne $null -or $ItemMarginHorizontal -ne $null) {
         $Object.legend.itemMargin = @{}
-        if ($ItemMarginHorizontal -ne -1) {
+        if ($ItemMarginHorizontal -ne $null) {
             $Object.legend.itemMargin.horizontal = $ItemMarginHorizontal
         }
-        if ($ItemMarginVertical -ne -1) {
+        if ($ItemMarginVertical -ne $null) {
             $Object.legend.itemMargin.vertical = $ItemMarginVertical
         }
     }
