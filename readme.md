@@ -83,7 +83,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-- 0.0.148
+- 0.0.148 - 2021.04.02
   - [x] Conditional formatting/groups should now work correctly in Internet Explorer - had to downgrade some JS capabilities
 - 0.0.147 - 2021.04.01
   - **Potentially breaking change**: due to changes in some defaults things could move around - for example legend may not always start at the bottom, it shouldn't affect crucial parts tho
