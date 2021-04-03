@@ -23,17 +23,6 @@
 
 `PSWriteHTML` is PowerShell Module to generate beautiful HTML reports, pages, emails without any knowledge of HTML, CSS or JavaScript. To get started basics PowerShell knowledge is required. `PSWriteHTML` is a fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not maintained. I also wanted to address some problems it had and add more features. As it stands `PSWriteHTML` is a complete rewrite. Make sure to read blog posts provided to understand the concepts and how you can use `PSWriteHTML` for your own needs.
 
-- [PSWriteHTML - PowerShell Module](#pswritehtml---powershell-module)
-  - [How to install](#how-to-install)
-    - [Installing](#installing)
-    - [Updating](#updating)
-  - [Articles worth reading to understand use cases](#articles-worth-reading-to-understand-use-cases)
-  - [Changelog](#changelog)
-  - [Advantages over ReportHTML](#advantages-over-reporthtml)
-  - [Credits](#credits)
-  - [Projects using PSWriteHTML (to give you ideas of what you can do)](#projects-using-pswritehtml-to-give-you-ideas-of-what-you-can-do)
-  - [3rd Party Libraries](#3rd-party-libraries)
-
 ## How to install
 
 While you can take sources and use it from here, **PSWriteHTML** actually is composed of multiple other of my modules. To get it up and running you will need ***PSSharedGoods**, and **PSSharedGoods** will need **Connectimo** and **PSWriteColor**. While **Connectimo** or **PSWriteColor** aren't needed for **PSWriteHTML**, **PSSharedGoods** uses them for some of the commands and it will fail without them. You can get all that from sources but if you **just want** to use my modules you should use the `Install-Module` command. It's available in PowerShell 5.1. As an added bonus when I publish modules to **PowerShellGallery** I remove any junk, minimize modules to a single file which makes them faster to load and use. I really encourage you to use the module from PowerShellGallery and treat **GitHub** as a highly development version. Since version 0.0.61 when **PSWriteHTML** is published every dependency is baked into **PSWriteHTML**. That means you don't need to download any other modules unless you want to contribute to this project.
