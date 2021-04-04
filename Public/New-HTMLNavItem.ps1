@@ -4,12 +4,18 @@ function New-HTMLNavItem {
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
-        [parameter(ParameterSetName = "FontMaterial")][string] $Text,
+        [parameter(ParameterSetName = "FontMaterial")]
+        [alias('Text')][string] $Name,
+
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "FontMaterial")][string] $Href,
 
         [parameter(ParameterSetName = "FontAwesomeBrands", Mandatory)]
         [parameter(ParameterSetName = "FontAwesomeRegular", Mandatory)]
         [parameter(ParameterSetName = "FontAwesomeSolid", Mandatory)]
-        [parameter(ParameterSetName = "FontMaterial", Mandatory)][ValidateSet('Grid', 'NavLinks')][string] $Type,
+        [parameter(ParameterSetName = "FontMaterial", Mandatory)][ValidateSet('Grid', 'Menu')][string] $Type,
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
@@ -84,7 +90,7 @@ function New-HTMLNavItem {
 
     if ($Type -eq 'Grid') {
         $GridItem = New-HTMLTag -Tag 'li' -Attributes @{ class = 'grid' } {
-
+            <#
             if ($IconRegular -or $IconBrands -or $IconSolid -or $IconMaterial) {
                 $newHTMLFontIconSplat = @{
                     IconColor    = $IconColor
@@ -127,13 +133,30 @@ function New-HTMLNavItem {
             if ($Text) {
                 $Text
             }
-
+            #>
+            New-HTMLTag -Tag 'a' -Attributes @{ href = $Href } {
+                New-InternalNavIcon -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
+                if ($Name) {
+                    $Name
+                }
+            }
         }
         [PSCustomObject] @{
             Type  = 'NavGridItem'
             Value = $GridItem
         }
-    } elseif ($Type -eq 'NavLinks') {
-
+    } elseif ($Type -eq 'Menu') {
+        $GridItem = New-HTMLTag -Tag 'li' {
+            New-HTMLTag -Tag 'a' -Attributes @{ href = $Href } {
+                New-InternalNavIcon -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
+                if ($Name) {
+                    $Name
+                }
+            }
+        }
+        [PSCustomObject] @{
+            Type  = 'NavGridMenu'
+            Value = $GridItem
+        }
     }
 }

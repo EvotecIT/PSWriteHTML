@@ -37,11 +37,14 @@
         $Output = & $NavigationLinks
         $NavGridItems = [System.Collections.Generic.List[string]]::new()
         $NavLinks = [System.Collections.Generic.List[string]]::new()
+        $NavGridMenu = [System.Collections.Generic.List[string]]::new()
         foreach ($Link in $Output) {
             if ($Link.Type -eq 'NavGridItem') {
                 $NavGridItems.Add($Link.Value)
             } elseIf ($Link.Type -eq 'NavLinkItem') {
                 $NavLinks.Add($Link.Value)
+            } elseif ($Link.Type -eq 'NavGridMenu') {
+                $NavGridMenu.Add($Link.Value)
             }
         }
     }
@@ -52,7 +55,7 @@
             # Brand logo
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'brand-logo' } {
                 New-HTMLTag -Tag 'a' -Attributes @{ href = $LogoLink } {
-                    New-HTMLTag -Tag 'img' -Attributes @{ src = $Logo; title = 'Your logo will be here'; alt = 'hs Mega Menu' }
+                    New-HTMLTag -Tag 'img' -Attributes @{ src = $Logo; title = 'PSWriteHTML Logo'; alt = 'PSWriteHTML Logo' }
                 }
             }
             # Menu Trigger
@@ -74,7 +77,7 @@
                 }
             }
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'hs-user toggle'; 'data-reveal' = '.user-info' } {
-                New-HTMLTag -Tag 'img' -Attributes @{ src = 'image/asif-mughal.jpg'; alt = 'Evotec' } -NoClosing
+                New-HTMLTag -Tag 'img' -Attributes @{ src = 'https://evotec.xyz/wp-content/uploads/2021/04/PrzemyslawKlysAndKulkozaurr.jpg'; alt = 'Evotec' } -NoClosing
             }
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'grid-trigger toggle'; 'data-reveal' = '.grid-items' } {
                 New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-view-module' }
@@ -86,30 +89,34 @@
 
         New-HTMLTag -Tag 'section' -Attributes @{ class = 'box-model' } {
             New-HTMLTag -Tag 'ul' -Attributes @{ class = 'user-penal' } {
+
+                $NavGridMenu
+                <#
                 New-HTMLTag -Tag 'li' {
                     New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } {
-                        New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-inbox' }
+                        New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-inbox zmdi-hc-fw' }
                         'Inbox'
                     }
                 }
                 New-HTMLTag -Tag 'li' {
                     New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } {
-                        New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-delete' }
+                        New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-delete zmdi-hc-fw' }
                         'Trash'
                     }
                 }
                 New-HTMLTag -Tag 'li' {
                     New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } {
-                        New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-star' }
+                        New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-star zmdi-hc-fw' }
                         'Started'
                     }
                 }
                 New-HTMLTag -Tag 'li' {
                     New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } {
-                        New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-run' }
+                        New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-run zmdi-hc-fw' }
                         'Logout'
                     }
                 }
+                #>
             }
             <#
             New-HTMLTag -Tag 'ul' -Attributes @{ class = 'user-info' } {
@@ -170,10 +177,10 @@
         # Navigation
         New-HTMLTag -Tag 'nav' -Attributes @{ class = 'hs-navigation' } {
             New-HTMLTag -Tag 'ul' -Attributes @{ class = 'nav-links' } {
-
                 if ($NavLinks) {
                     $NavLinks
                 }
+                <#
                 # Entry one
                 New-HTMLTag -Tag 'li' {
                     New-HTMLTag -Tag 'a' -Attributes @{ href = '#4' } {
@@ -218,6 +225,20 @@
                         }
                     }
                 }
+
+                # Entry test
+                New-HTMLTag -Tag 'li' -Attributes @{ class = 'has-child' } {
+                    New-HTMLTag -Tag 'span' -Attributes @{ class = 'its-parent' } {
+                        New-HTMLTag -Tag 'span' -Attributes @{ class = 'icon' } {
+                            New-HTMLFontIcon -IconMaterial device-hub -FixedWidth
+                        }
+                        'Multilevel one level'
+                    }
+                    New-HTMLTag -Tag 'ul' -Attributes @{ class = 'its-children' } {
+                        New-HTMLTag -Tag 'li' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'Sub Item 1.1' } }
+                        New-HTMLTag -Tag 'li' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'Sub Item 1.2' } }
+                    }
+                }
                 # Entry Three
                 New-HTMLTag -Tag 'li' {
                     New-HTMLTag -Tag 'a' -Attributes @{ href = '#4' } {
@@ -251,7 +272,7 @@
                         'List Item Four'
                     }
                 }
-
+                #>
             }
         }
     )
