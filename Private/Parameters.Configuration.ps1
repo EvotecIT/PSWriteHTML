@@ -29,11 +29,33 @@ $Script:Configuration = [ordered] @{
             }
             Default = $true
             Email   = $false
+            License = 'SIL OFL 1.1 License'
+        }
+        FontsMaterialIcon       = @{
+            Comment = 'Material Design Iconic Font and CSS toolkit'
+            Demos   = 'http://zavoloklom.github.io/material-design-iconic-font/examples.html'
+            Header  = @{
+                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\material-design-iconic-font.min.css"
+            }
+            Default = $true
+            Email   = $false
+            License = 'SIL OFL 1.1'
+        }
+        FontsAnimate            = @{
+            Comment = 'Animation Toolkit'
+            Header  = @{
+                CssLink = "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\animate.min.css"
+            }
+            Default = $true
+            Email   = $false
+            License = ''
         }
         Main                        = [ordered]@{
             HeaderAlways = [ordered]@{
                 CssInline = [ordered]@{
-                    'body'  = [ordered]@{
+                    'body'          = [ordered]@{
                         # https://fonts.google.com/analytics
                         # https://web3canvas.com/best-fonts-for-web-designers/
                         #   font-family: "Raleway", sans-serif;
@@ -42,8 +64,11 @@ $Script:Configuration = [ordered] @{
                         'font-size'   = '8pt'
                         'margin'      = '0px'
                     }
-                    'input' = @{
+                    'input'         = @{
                         'font-size' = '8pt'
+                    }
+                    '.main-section' = @{
+                        'margin-top' = '0px'
                     }
                     #'table'          = @{
                     #'font-size' = '8pt'
@@ -1367,7 +1392,23 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        NavigationMultilevel        = @{
+        NavigationMenuHS        = @{
+            Comment      = 'Navigation HS'
+            HeaderAlways = @{
+                Css      = "$PSScriptRoot\..\Resources\CSS\hs-menu.css"
+                JsInLine = @"
+                    `$(document).ready(function () {
+                        `$(".hs-menubar").hsMenu();
+                    });
+"@
+            }
+            FooterAlways = @{
+                Js = "$PSScriptRoot\..\Resources\JS\jquery.hsmenu.js"
+            }
+            Default      = $true
+            Email        = $false
+        }
+        NavigationMultilevel    = @{
             Comment      = 'Navigation Multilevel'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\jquery.multilevelpushmenu_grey.css"
