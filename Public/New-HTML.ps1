@@ -110,6 +110,15 @@ Function New-HTML {
                     # it's added here to track nested tabs
                     if ($_ -isnot [System.Collections.IDictionary]) { $_ }
                 }
+            } elseif ($ObjectTemp.Type -eq 'Page') {
+                $Pages = [ordered]@{}
+                foreach ($_ in $ObjectTemp) {
+                    # this gets rid of any non-strings
+                    # it's added here to track nested tabs
+                    if ($_.Output -isnot [System.Collections.IDictionary]) {
+                        $Pages[$_.Name] = $_.Output
+                    }
+                }
             } else {
                 if ($ObjectTemp.Output) {
                     # this gets rid of any non-strings

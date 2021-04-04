@@ -41,8 +41,14 @@ New-HTML {
             New-HTMLNavLink -Name 'One Level 2' -Href '#2'
         }
     }
-
-    New-HTMLSection {
-        New-HTMLTable -DataTable $DataTable1 -Title 'Test1' -PagingLength 2
+    New-HTMLPage -Name 'Page1' {
+        New-HTMLSection {
+            New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
+        }
+    }
+    New-HTMLPage -Name 'Page2' {
+        New-HTMLSection {
+            New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
+        }
     }
 } -ShowHTML -Online -FilePath $PSScriptRoot\Example41-Navigation01.html

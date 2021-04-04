@@ -31,15 +31,15 @@
     # Header
     $Navigation = @(
         New-HTMLTag -Tag 'header' -Attributes @{ class = 'hs-menubar' } {
+            # Menu Trigger
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'menu-trigger' } {
+                New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-menu' }
+            }
             # Brand logo
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'brand-logo' } {
                 New-HTMLTag -Tag 'a' -Attributes @{ href = $LogoLink } {
                     New-HTMLTag -Tag 'img' -Attributes @{ src = $Logo; title = 'PSWriteHTML Logo'; alt = 'PSWriteHTML Logo' }
                 }
-            }
-            # Menu Trigger
-            New-HTMLTag -Tag 'div' -Attributes @{ class = 'menu-trigger' } {
-                New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-menu' }
             }
             <#
             # Search Trigger
@@ -58,11 +58,11 @@
                 }
             }
             #>
-            New-HTMLTag -Tag 'div' -Attributes @{ class = 'hs-user toggle'; 'data-reveal' = '.user-info' } {
-                New-HTMLTag -Tag 'img' -Attributes @{ src = 'https://evotec.xyz/wp-content/uploads/2021/04/PrzemyslawKlysAndKulkozaurr.jpg'; alt = 'Evotec' } -NoClosing
-            }
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'grid-trigger toggle'; 'data-reveal' = '.grid-items' } {
                 New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-view-module' }
+            }
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'hs-user toggle'; 'data-reveal' = '.user-info' } {
+                New-HTMLTag -Tag 'img' -Attributes @{ src = 'https://evotec.xyz/wp-content/uploads/2021/04/PrzemyslawKlysAndKulkozaurr.jpg'; alt = 'Evotec' } -NoClosing
             }
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'more-trigger toggle'; 'data-reveal' = '.user-penal' } {
                 New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-more-vert' }
