@@ -7,8 +7,7 @@
  *   Copyright (c) 2018 - Asif Mughal
  */
 
-/* File: hs-menu.css */
-* {
+.has-child, .nav-controls, .its-children, .nav-links {
     margin: 0;
     padding: 0
 }
@@ -106,7 +105,18 @@
 }
 
 .user-penal li .zmdi {
-    font-size: 14px;
+    padding-right: 10px;
+}
+
+.user-penal li .fas {
+    padding-right: 10px;
+}
+
+.user-penal li .fab {
+    padding-right: 10px;
+}
+
+.user-penal li .far {
     padding-right: 10px;
 }
 
@@ -116,7 +126,6 @@
 }
 
 /* More trigger for user penal*/
-
 .search-trigger:hover, .menu-trigger:hover, .grid-trigger:hover, .more-trigger:hover {
     background: rgba(255, 255, 255, 0.3);
     transition: .3s;
@@ -183,6 +192,11 @@
     margin: 2px;
     border-radius: 50%;
     font-size: 11px;
+}
+
+.grid-items a {
+    text-decoration: none;
+    color: #666;
 }
 
 /* View More Button for grid items */
@@ -486,6 +500,7 @@ button.search-submit:disabled {
     content: "\f2f9";
     font-family: Material-Design-Iconic-Font;
     float: right;
+    margin-top: 2px;
     margin-right: 20px;
     transition: .4s;
     font-size: 16px;
