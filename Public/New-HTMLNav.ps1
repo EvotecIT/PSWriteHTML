@@ -5,27 +5,6 @@
         [string] $Logo,
         [string] $LogoLink = "#home_link"
     )
-    <#
-    $Script:HTMLSchema.Features.Navigation = $true
-    New-HTMLTag -Tag 'div' -Attributes @{ class = 'primary-nav' } {
-        New-HTMLTag -Tag 'button' -Attributes @{ href = '#'; class = 'hamburger open-panel nav-toggle' } {
-            New-HTMLTag -Tag 'span' -Attributes @{ class = 'screen-reader-text' } { 'Menu' }
-        }
-        New-HTMLTag -Tag 'nav' -Attributes @{ role = 'navigation'; class = 'menu' } {
-            New-HTMLTag -Tag 'a' -Attributes @{ href = '#'; class = 'logotype' } {
-                New-HTMLText -Text 'LOGO TYPE'
-            }
-            New-HTMLTag -Tag 'div' -Attributes @{ class = 'overflow-container' } {
-                New-HTMLTag -Tag 'ul' -Attributes @{ class = 'menu-dropdown' } {
-                    if ($NavigationLinks) {
-                        & $NavigationLinks
-                    }
-                }
-            }
-        }
-    }
-    #>
-
     $Script:HTMLSchema.Features.NavigationMenuHS = $true
     $Script:HTMLSchema.Features.JQuery = $true
     $Script:HTMLSchema.Features.FontsMaterialIcon = $true
@@ -62,11 +41,13 @@
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'menu-trigger' } {
                 New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-menu' }
             }
+            <#
             # Search Trigger
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'search-trigger' } {
                 New-HTMLTag -Tag 'i' -Attributes @{ class = 'zmdi zmdi-search' }
             }
             # Search Box
+
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'search-box' } {
                 # Form to enter
                 New-HTMLTag -Tag 'form' -Attributes @{ action = '#' } {
@@ -76,6 +57,7 @@
                     }
                 }
             }
+            #>
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'hs-user toggle'; 'data-reveal' = '.user-info' } {
                 New-HTMLTag -Tag 'img' -Attributes @{ src = 'https://evotec.xyz/wp-content/uploads/2021/04/PrzemyslawKlysAndKulkozaurr.jpg'; alt = 'Evotec' } -NoClosing
             }

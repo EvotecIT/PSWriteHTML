@@ -160,3 +160,4 @@ function New-HTMLNavItem {
         }
     }
 }
+Register-ArgumentCompleter -CommandName New-HTMLNavItem -ParameterName IconColor -ScriptBlock $Script:ScriptBlockColors

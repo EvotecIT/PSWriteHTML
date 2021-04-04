@@ -183,3 +183,4 @@
     }
 
 }
+Register-ArgumentCompleter -CommandName New-HTMLNavLink -ParameterName IconColor -ScriptBlock $Script:ScriptBlockColors
