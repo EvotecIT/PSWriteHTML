@@ -1,13 +1,14 @@
-/*  Plugin: hs Menu (Modern Mega Menu)
- *   Frameworks: jQuery 3.3.1 & Material Design Iconic Font 2.0
- *   Author: Asif Mughal
- *   GitHub: https://github.com/CodeHimBlog
- *   URL: https://www.codehim.com
- *   License: MIT License
- *   Copyright (c) 2018 - Asif Mughal
- */
+/*
+    Plugin: hs Menu (Modern Mega Menu)
+    Frameworks: jQuery 3.3.1 & Material Design Iconic Font 2.0
+    Author: Asif Mughal
+    GitHub: https://github.com/CodeHimBlog
+    URL: https://www.codehim.com
+    License: MIT License
+    Copyright (c) 2018 - Asif Mughal
+*/
 
-.has-child, .nav-controls, .its-children, .nav-links {
+.has-child, .nav-controls, .its-children, .user-penal, .grid-items, .nav-links {
     margin: 0;
     padding: 0
 }
@@ -126,6 +127,7 @@
 }
 
 /* More trigger for user penal*/
+
 .search-trigger:hover, .menu-trigger:hover, .grid-trigger:hover, .more-trigger:hover {
     background: rgba(255, 255, 255, 0.3);
     transition: .3s;
