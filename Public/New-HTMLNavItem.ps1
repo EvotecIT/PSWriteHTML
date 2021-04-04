@@ -133,5 +133,7 @@ function New-HTMLNavItem {
             Type  = 'NavGridItem'
             Value = $GridItem
         }
+    } elseif ($Type -eq 'NavLinks') {
+
     }
 }

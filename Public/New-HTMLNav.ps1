@@ -1,7 +1,9 @@
 ﻿function New-HTMLNav {
     [cmdletBinding()]
     param(
-        [ScriptBlock] $NavigationLinks
+        [ScriptBlock] $NavigationLinks,
+        [string] $Logo,
+        [string] $LogoLink = "#home_link"
     )
     <#
     $Script:HTMLSchema.Features.Navigation = $true
@@ -34,9 +36,12 @@
     if ($NavigationLinks) {
         $Output = & $NavigationLinks
         $NavGridItems = [System.Collections.Generic.List[string]]::new()
+        $NavLinks = [System.Collections.Generic.List[string]]::new()
         foreach ($Link in $Output) {
             if ($Link.Type -eq 'NavGridItem') {
                 $NavGridItems.Add($Link.Value)
+            } elseIf ($Link.Type -eq 'NavLinkItem') {
+                $NavLinks.Add($Link.Value)
             }
         }
     }
@@ -46,8 +51,8 @@
         New-HTMLTag -Tag 'header' -Attributes @{ class = 'hs-menubar' } {
             # Brand logo
             New-HTMLTag -Tag 'div' -Attributes @{ class = 'brand-logo' } {
-                New-HTMLTag -Tag 'a' -Attributes @{ href = "#home_link" } {
-                    New-HTMLTag -Tag 'img' -Attributes @{ src = "image/hs-menu.png"; title = 'Your logo will be here'; alt = 'hs Mega Menu' }
+                New-HTMLTag -Tag 'a' -Attributes @{ href = $LogoLink } {
+                    New-HTMLTag -Tag 'img' -Attributes @{ src = $Logo; title = 'Your logo will be here'; alt = 'hs Mega Menu' }
                 }
             }
             # Menu Trigger
@@ -165,6 +170,10 @@
         # Navigation
         New-HTMLTag -Tag 'nav' -Attributes @{ class = 'hs-navigation' } {
             New-HTMLTag -Tag 'ul' -Attributes @{ class = 'nav-links' } {
+
+                if ($NavLinks) {
+                    $NavLinks
+                }
                 # Entry one
                 New-HTMLTag -Tag 'li' {
                     New-HTMLTag -Tag 'a' -Attributes @{ href = '#4' } {
