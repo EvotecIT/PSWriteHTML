@@ -49,22 +49,22 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Articles worth reading to understand use cases
 
-- [x] [Meet Statusimo – PowerShell generated Status Page](https://evotec.xyz/meet-statusimo-powershell-generated-status-page/)
-- [x] [Meet Dashimo – PowerShell Generated Dashboard](https://evotec.xyz/meet-dashimo-powershell-generated-dashboard/)
-- [x] [Dashimo – Easy Table Conditional Formatting and more](https://evotec.xyz/dashimo-easy-table-conditional-formatting-and-more/)
-- [x] [Out-HtmlView – HTML alternative to Out-GridView](https://evotec.xyz/out-htmlview-html-alternative-to-out-gridview/)
-- [x] [Meet Emailimo – New way to send pretty emails with PowerShell](https://evotec.xyz/meet-emailimo-new-way-to-send-pretty-emails-with-powershell/)
-- [x] [All your HTML Tables are belong to us](https://evotec.xyz/all-your-html-tables-are-belong-to-us/)
-- [x] [Sending HTML emails with PowerShell and zero HTML knowledge required](https://evotec.xyz/sending-html-emails-with-powershell-and-zero-html-knowledge-required/)
-- [x] [Dashimo (PSWriteHTML) – Charting, Icons and few other changes](https://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes/)
-- [x] [Working with HTML in PowerShell just got better](https://evotec.xyz/working-with-html-in-powershell-just-got-better/)
-- [x] [Comparing two or more objects visually in PowerShell (cross-platform)](https://evotec.xyz/comparing-two-or-more-objects-visually-in-powershell-cross-platform/)
-- [x] [Easy way to create diagrams using PowerShell and PSWriteHTML](https://evotec.xyz/easy-way-to-create-diagrams-using-powershell-and-pswritehtml/)
-- [x] [Nested Tabs, Diagram Updates, Diagram Events, Calendar Object and more in PSWriteHTML](https://evotec.xyz/nested-tabs-diagram-updates-diagram-events-calendar-object-and-more-in-pswritehtml/)
-- [x] [Emailimo merged into PSWriteHTML, IE support and no dependencies](https://evotec.xyz/emailimo-merged-into-pswritehtml-ie-support-and-no-dependencies/)
-- [x] [Active Directory DHCP Report to HTML or EMAIL with zero HTML knowledge](https://evotec.xyz/active-directory-dhcp-report-to-html-or-email-with-zero-html-knowledge/)
-- [x] [Creating Office 365 Migration Diagram with PowerShell](https://evotec.xyz/creating-office-365-migration-diagram-with-powershell/)
-- [x] [Advanced HTML reporting using PowerShell](https://evotec.xyz/advanced-html-reporting-using-powershell/)
+- 🔗 [Meet Statusimo – PowerShell generated Status Page](https://evotec.xyz/meet-statusimo-powershell-generated-status-page/)
+- 🔗 [Meet Dashimo – PowerShell Generated Dashboard](https://evotec.xyz/meet-dashimo-powershell-generated-dashboard/)
+- 🔗 [Dashimo – Easy Table Conditional Formatting and more](https://evotec.xyz/dashimo-easy-table-conditional-formatting-and-more/)
+- 🔗 [Out-HtmlView – HTML alternative to Out-GridView](https://evotec.xyz/out-htmlview-html-alternative-to-out-gridview/)
+- 🔗 [Meet Emailimo – New way to send pretty emails with PowerShell](https://evotec.xyz/meet-emailimo-new-way-to-send-pretty-emails-with-powershell/)
+- 🔗 [All your HTML Tables are belong to us](https://evotec.xyz/all-your-html-tables-are-belong-to-us/)
+- 🔗 [Sending HTML emails with PowerShell and zero HTML knowledge required](https://evotec.xyz/sending-html-emails-with-powershell-and-zero-html-knowledge-required/)
+- 🔗 [Dashimo (PSWriteHTML) – Charting, Icons and few other changes](https://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes/)
+- 🔗 [Working with HTML in PowerShell just got better](https://evotec.xyz/working-with-html-in-powershell-just-got-better/)
+- 🔗 [Comparing two or more objects visually in PowerShell (cross-platform)](https://evotec.xyz/comparing-two-or-more-objects-visually-in-powershell-cross-platform/)
+- 🔗 [Easy way to create diagrams using PowerShell and PSWriteHTML](https://evotec.xyz/easy-way-to-create-diagrams-using-powershell-and-pswritehtml/)
+- 🔗 [Nested Tabs, Diagram Updates, Diagram Events, Calendar Object and more in PSWriteHTML](https://evotec.xyz/nested-tabs-diagram-updates-diagram-events-calendar-object-and-more-in-pswritehtml/)
+- 🔗 [Emailimo merged into PSWriteHTML, IE support and no dependencies](https://evotec.xyz/emailimo-merged-into-pswritehtml-ie-support-and-no-dependencies/)
+- 🔗 [Active Directory DHCP Report to HTML or EMAIL with zero HTML knowledge](https://evotec.xyz/active-directory-dhcp-report-to-html-or-email-with-zero-html-knowledge/)
+- 🔗 [Creating Office 365 Migration Diagram with PowerShell](https://evotec.xyz/creating-office-365-migration-diagram-with-powershell/)
+- 🔗 [Advanced HTML reporting using PowerShell](https://evotec.xyz/advanced-html-reporting-using-powershell/)
 
 ## Changelog
 
@@ -73,15 +73,15 @@ Unfortunetly some code is very old, some code doesn't serve it's purpose anymore
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 - 0.0.148 - 2021.04.02
-  - [x] Conditional formatting/groups should now work correctly in Internet Explorer - had to downgrade some JS capabilities
+  - 🐛 Conditional formatting/groups should now work correctly in Internet Explorer - had to downgrade some JS capabilities
 - 0.0.147 - 2021.04.01
-  - **Potentially breaking change**: due to changes in some defaults things could move around - for example legend may not always start at the bottom, it shouldn't affect crucial parts tho
-  - [x] Improved `New-ChartPie`,`New-ChartRadial`,`New-ChartLine`, `New-ChartBar` to convert $null or empty string as 0
-  - [x] Improved `New-ChartAxisY` with more parameters and now works within `Bar Charts`
-  - [x] Added back `New-ChartSpark` (I've removed it before for some reason)
-  - [x] Improved `New-ChartLegend` with more parameters
-  - [x] Improved `Title*` options in `New-HTMLChart`
-  - [x] Added `Subtitle*` options in `New-HTMLChart`
+  - 💥 **Potentially breaking change**: due to changes in some defaults things could move around - for example legend may not always start at the bottom, it shouldn't affect crucial parts tho
+  - 💡 Improved `New-ChartPie`,`New-ChartRadial`,`New-ChartLine`, `New-ChartBar` to convert $null or empty string as 0
+  - 💡 Improved `New-ChartAxisY` with more parameters and now works within `Bar Charts`
+  - 📦 Added back `New-ChartSpark` (I've removed it before for some reason)
+  - 💡 Improved `New-ChartLegend` with more parameters
+  - 💡 Improved `Title*` options in `New-HTMLChart`
+  - 📦 Added `Subtitle*` options in `New-HTMLChart`
 - 0.0.146 - 2021.03.23
   - [x] Improves `New-TableConditionGroup`
     - [x] Added `Row` switch
