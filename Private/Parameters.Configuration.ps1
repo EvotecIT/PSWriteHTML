@@ -31,7 +31,7 @@ $Script:Configuration = [ordered] @{
             Email   = $false
             License = 'SIL OFL 1.1 License'
         }
-        FontsMaterialIcon       = @{
+        FontsMaterialIcon           = @{
             Comment = 'Material Design Iconic Font and CSS toolkit'
             Demos   = 'http://zavoloklom.github.io/material-design-iconic-font/examples.html'
             Header  = @{
@@ -42,7 +42,7 @@ $Script:Configuration = [ordered] @{
             Email   = $false
             License = 'SIL OFL 1.1'
         }
-        FontsAnimate            = @{
+        FontsAnimate                = @{
             Comment = 'Animation Toolkit'
             Header  = @{
                 CssLink = "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -396,14 +396,6 @@ $Script:Configuration = [ordered] @{
             }
             Default      = $true
             Email        = $true
-        }
-        Accordion                   = @{
-            Comment      = 'Accordion'
-            HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\accordion-1.css"
-            }
-            Default      = $true
-            Email        = $false
         }
         AccordionFAQ                = @{
             Comment      = 'Accordion FAQ'
@@ -1223,7 +1215,12 @@ $Script:Configuration = [ordered] @{
                 )
             }
             HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\hierarchicalTree.css"
+                CssInLine = @{
+                    ' .hierarchicalTree' = @{
+                        width  = '100%'
+                        height = '100%'
+                    }
+                }
             }
             LicenseLink  = 'https://github.com/deltoss/d3-mitch-tree/blob/master/LICENSE'
             License      = 'MIT'
@@ -1371,28 +1368,7 @@ $Script:Configuration = [ordered] @{
             Default     = $true
             Email       = $false
         }
-
-        Navigation                  = @{
-            Comment      = 'Navigation'
-            HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\nav.css"
-                Js  = "$PSScriptRoot\..\Resources\JS\nav.js"
-            }
-            Default      = $true
-            Email        = $false
-        }
-        NavigationMenu              = @{
-            Comment      = 'Navigation'
-            HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\jside-menu.css", "$PSScriptRoot\..\Resources\CSS\jside-skins.css"
-            }
-            FooterAlways = @{
-                Js = "$PSScriptRoot\..\Resources\JS\jquery.jside.menu.js"
-            }
-            Default      = $true
-            Email        = $false
-        }
-        NavigationMenuHS        = @{
+        NavigationMenuHS            = @{
             Comment      = 'Navigation HS'
             HeaderAlways = @{
                 Css      = "$PSScriptRoot\..\Resources\CSS\hs-menu.css"
@@ -1408,7 +1384,7 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        NavigationMultilevel    = @{
+        NavigationMultilevel        = @{
             Comment      = 'Navigation Multilevel'
             HeaderAlways = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\jquery.multilevelpushmenu_grey.css"
