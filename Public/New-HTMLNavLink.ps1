@@ -20,6 +20,11 @@
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "FontMaterial")][string] $InternalPageID,
+
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "FontMaterial")][string] $IconColor,
 
         # ICON BRANDS
@@ -87,6 +92,10 @@
         [parameter(ParameterSetName = "FontMaterial")][switch] $FlipVertical,
         [parameter(ParameterSetName = "FontMaterial")][switch] $FlipHorizontal
     )
+
+    if ($InternalPageID) {
+        $Href = "$($Script:HTMLSchema.StorageInformation.FileName)_$InternalPageID.html"
+    }
 
     if ($NestedLinks) {
         [Array] $OutputLinks = & $NestedLinks

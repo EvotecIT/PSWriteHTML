@@ -12,6 +12,11 @@ function New-HTMLNavItem {
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "FontMaterial")][string] $Href,
 
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "FontMaterial")][string] $InternalPageID,
+
         [parameter(ParameterSetName = "FontAwesomeBrands", Mandatory)]
         [parameter(ParameterSetName = "FontAwesomeRegular", Mandatory)]
         [parameter(ParameterSetName = "FontAwesomeSolid", Mandatory)]
@@ -87,6 +92,11 @@ function New-HTMLNavItem {
         [parameter(ParameterSetName = "FontMaterial")][switch] $FlipVertical,
         [parameter(ParameterSetName = "FontMaterial")][switch] $FlipHorizontal
     )
+
+    if ($InternalPageID) {
+        $Href = "$($Script:HTMLSchema.StorageInformation.FileName)_$InternalPageID.html"
+    }
+
 
     if ($Type -eq 'Grid') {
         $GridItem = New-HTMLTag -Tag 'li' -Attributes @{ class = 'grid' } {

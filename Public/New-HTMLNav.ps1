@@ -3,7 +3,8 @@
     param(
         [ScriptBlock] $NavigationLinks,
         [string] $Logo,
-        [string] $LogoLink = "#home_link"
+        [string] $LogoLink,
+        [switch] $LogoLinkHome
     )
     $Script:HTMLSchema.Features.NavigationMenuHS = $true
     $Script:HTMLSchema.Features.JQuery = $true
@@ -11,6 +12,9 @@
     $Script:HTMLSchema.Features.FontsAwesome = $true
     $Script:CurrentConfiguration['Features']['Main']['HeaderAlways']['CssInLine']['.main-section']['margin-top'] = '55px'
 
+    if ($LogoLinkHome) {
+        $LogoLink = "$($Script:HTMLSchema.StorageInformation.FileName).html"
+    }
 
     if ($NavigationLinks) {
         $Output = & $NavigationLinks
