@@ -28,31 +28,54 @@ Function New-HTML {
 
     [string] $CurrentDate = (Get-Date).ToString($DateFormat)
 
+    if (-not $FilePath -and ($Temporary -or $ShowHTML)) {
+        # if we have not chosen filepath but we used ShowHTML user wants to show it right? Or we have chosen temporary
+        # We want to make sure we don't return useless HTML to the user
+        $FilePath = Get-FileName -Extension 'html' -Temporary
+    }
+    if ($FilePath) {
+        $DirectoryPath = [System.IO.Path]::GetDirectoryName($FilePath)
+        #$PagesPath = [io.path]::Combine($DirectoryPath, "Pages")
+        $PagesPath = $DirectoryPath
+        $FileName = [System.IO.Path]::GetFileNameWithoutExtension($FilePath)
+    } else {
+        # it actually won't be used, as it returns HTML, but we need it for tracking
+        $FileName = 'Temporary.html'
+        $DirectoryPath = $null
+        $PagesPath = $null
+    }
+
     # This makes sure we use always fresh copy
     $Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
 
     $Script:HTMLSchema = @{
-        Email             = $false
-        Features          = [ordered] @{ } # tracks features for CSS/JS implementation
-        Charts            = [System.Collections.Generic.List[string]]::new()
-        Diagrams          = [System.Collections.Generic.List[string]]::new()
+        Email              = $false
+        Features           = [ordered] @{ } # tracks features for CSS/JS implementation
+        Charts             = [System.Collections.Generic.List[string]]::new()
+        Diagrams           = [System.Collections.Generic.List[string]]::new()
 
-        Logos             = ""
+        StorageInformation = @{
+            FileName  = $FileName
+            Directory = $DirectoryPath
+            PagesPath = $PagesPath
+        }
+
+        Logos              = ""
 
         # Tabs Tracking/Options (Top Level Ones)
-        TabsHeaders       = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
-        TabsHeadersNested = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
-        TabOptions        = @{
+        TabsHeaders        = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
+        TabsHeadersNested  = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
+        TabOptions         = @{
             SlimTabs = $false
         }
 
         # TabPanels Tracking
-        TabPanelsList     = [System.Collections.Generic.List[string]]::new()
+        TabPanelsList      = [System.Collections.Generic.List[string]]::new()
 
         # Table Related Tracking
-        Table             = [ordered] @{}
-        TableSimplify     = $false # Tracks current table only
-        TableOptions      = [ordered] @{
+        Table              = [ordered] @{}
+        TableSimplify      = $false # Tracks current table only
+        TableOptions       = [ordered] @{
             DataStore        = ''
             # Applies to only JavaScript and AjaxJSON store
             DataStoreOptions = [ordered] @{
@@ -68,13 +91,13 @@ Function New-HTML {
             Type             = 'Structured'
             Folder           = if ($FilePath) { Split-Path -Path $FilePath } else { '' }
         }
-        CustomHeaderCSS   = [ordered] @{}
-        CustomFooterCSS   = [ordered] @{}
-        CustomHeaderJS    = [ordered] @{}
-        CustomFooterJS    = [ordered] @{}
+        CustomHeaderCSS    = [ordered] @{}
+        CustomFooterCSS    = [ordered] @{}
+        CustomHeaderJS     = [ordered] @{}
+        CustomFooterJS     = [ordered] @{}
 
         # WizardList Tracking
-        WizardList        = [System.Collections.Generic.List[string]]::new()
+        WizardList         = [System.Collections.Generic.List[string]]::new()
     }
 
     # If hosted is chosen that means we will be running things server side
@@ -86,10 +109,9 @@ Function New-HTML {
     [Array] $TempOutputHTML = Invoke-Command -ScriptBlock $HtmlData
 
     $HeaderHTML = @()
-    #$MainHTML = @()
     $FooterHTML = @()
 
-
+    $Pages = [ordered]@{}
     $MainHTML = foreach ($ObjectTemp in $TempOutputHTML) {
         if ($ObjectTemp -is [PSCustomObject]) {
             if ($ObjectTemp.Type -eq 'Footer') {
@@ -111,12 +133,18 @@ Function New-HTML {
                     if ($_ -isnot [System.Collections.IDictionary]) { $_ }
                 }
             } elseif ($ObjectTemp.Type -eq 'Page') {
-                $Pages = [ordered]@{}
                 foreach ($_ in $ObjectTemp) {
                     # this gets rid of any non-strings
                     # it's added here to track nested tabs
                     if ($_.Output -isnot [System.Collections.IDictionary]) {
-                        $Pages[$_.Name] = $_.Output
+                        $Pages[$_.Name] = [ordered] @{
+                            Name     = " $($FileName)_$($_.Name)"
+                            Output   = $_.Output
+                            Primary  = if ($Pages.Keys.Count -eq 0) { $true } else { $false }
+                            Header   = $null
+                            Footer   = $null
+                            SavePath = [io.path]::Combine($PagesPath, "$($FileName)_$($_.Name).html")
+                        }
                     }
                 }
             } else {
@@ -147,173 +175,211 @@ Function New-HTML {
     foreach ($_ in $Script:HTMLSchema.TabsHeadersNested) {
         $null = $Script:HTMLSchema.TabsHeaders.Remove($_)
     }
-    [string] $HTML = @(
-        #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
-        '<!-- saved from url=(0014)about:internet -->' + [System.Environment]::NewLine
-        '<!DOCTYPE html>' + [System.Environment]::NewLine
-        New-HTMLTag -Tag 'html' {
-            if ($AddComment) { '<!-- HEAD -->' }
-            New-HTMLTag -Tag 'head' {
-                New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = "Content-Type"; content = "text/html; charset=utf-8" } -NoClosing
-                #New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -NoClosing
-                #New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'X-UA-Compatible'; content = 'IE=8' } -SelfClosing
-                New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -NoClosing
-                if ($Author) {
-                    New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -NoClosing
-                }
-                New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -NoClosing
-                New-HTMLTag -Tag 'title' { $TitleText }
 
-                if ($null -ne $FavIcon) {
-                    $Extension = [System.IO.Path]::GetExtension($FavIcon)
-                    if ($Extension -in @('.png', '.jpg', 'jpeg', '.svg', '.ico')) {
-                        switch ($FavIcon.Scheme) {
-                            "file" {
-                                if (Test-Path -Path $FavIcon.OriginalString) {
-                                    $FavIcon = Get-Item -Path $FavIcon.OriginalString
-                                    $FavIconImageBinary = Convert-ImageToBinary -ImageFile $FavIcon
-                                    New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIconImageBinary"; type = 'image/x-icon' }
-                                } else {
+    #if ($MainHTML) {
+    $Pages[$FileName] = [ordered] @{
+        Name     = $FileName
+        Output   = $MainHTML
+        Primary  = if ($Pages.Keys.Count -eq 0) { $true } else { $false }
+        Header   = $null
+        Footer   = $null
+        SavePath = $FilePath
+    }
+    #}
+    foreach ($Page in $Pages.Keys) {
+        $MainHTML = $Pages[$Page].Output
+        [string] $HTML = @(
+            #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
+            '<!-- saved from url=(0014)about:internet -->' + [System.Environment]::NewLine
+            '<!DOCTYPE html>' + [System.Environment]::NewLine
+            New-HTMLTag -Tag 'html' {
+                if ($AddComment) { '<!-- HEAD -->' }
+                New-HTMLTag -Tag 'head' {
+                    New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = "Content-Type"; content = "text/html; charset=utf-8" } -NoClosing
+                    #New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -NoClosing
+                    #New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'X-UA-Compatible'; content = 'IE=8' } -SelfClosing
+                    New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -NoClosing
+                    if ($Author) {
+                        New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -NoClosing
+                    }
+                    New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -NoClosing
+                    New-HTMLTag -Tag 'title' { $TitleText }
+
+                    if ($null -ne $FavIcon) {
+                        $Extension = [System.IO.Path]::GetExtension($FavIcon)
+                        if ($Extension -in @('.png', '.jpg', 'jpeg', '.svg', '.ico')) {
+                            switch ($FavIcon.Scheme) {
+                                "file" {
+                                    if (Test-Path -Path $FavIcon.OriginalString) {
+                                        $FavIcon = Get-Item -Path $FavIcon.OriginalString
+                                        $FavIconImageBinary = Convert-ImageToBinary -ImageFile $FavIcon
+                                        New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIconImageBinary"; type = 'image/x-icon' }
+                                    } else {
+                                        Write-Warning -Message "The path to the FavIcon image could not be resolved."
+                                    }
+                                }
+                                "https" {
+                                    $FavIcon = $FavIcon.OriginalString
+                                    New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIcon"; type = 'image/x-icon' }
+                                }
+                                default {
                                     Write-Warning -Message "The path to the FavIcon image could not be resolved."
                                 }
                             }
-                            "https" {
-                                $FavIcon = $FavIcon.OriginalString
-                                New-HTMLTag -Tag 'link' -Attributes @{rel = 'icon'; href = "$FavIcon"; type = 'image/x-icon' }
-                            }
-                            default {
-                                Write-Warning -Message "The path to the FavIcon image could not be resolved."
-                            }
+                        } else {
+                            Write-Warning -Message "File extension `'$Extension`' is not supported as a FavIcon image.`nPlease use images with these extensions: '.png', '.jpg', 'jpeg', '.svg', '.ico'"
                         }
-                    } else {
-                        Write-Warning -Message "File extension `'$Extension`' is not supported as a FavIcon image.`nPlease use images with these extensions: '.png', '.jpg', 'jpeg', '.svg', '.ico'"
                     }
-                }
 
-                if ($Autorefresh -gt 0) {
-                    New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = $Autorefresh } -SelfClosing
-                }
-                # Those are CSS we always add
-                #Get-Resources -Online:$true -Location 'HeaderAlways' -Features Fonts, FontsAwesome -NoScript
-                #Get-Resources -Online:$false -Location 'HeaderAlways' -Features DefaultHeadings -NoScript
-                Get-Resources -Online:$Online.IsPresent -Location 'HeaderAlways' -Features Fonts #-NoScript
+                    if ($Autorefresh -gt 0) {
+                        New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = $Autorefresh } -SelfClosing
+                    }
+                    # Those are CSS we always add
+                    #Get-Resources -Online:$true -Location 'HeaderAlways' -Features Fonts, FontsAwesome -NoScript
+                    #Get-Resources -Online:$false -Location 'HeaderAlways' -Features DefaultHeadings -NoScript
+                    Get-Resources -Online:$Online.IsPresent -Location 'HeaderAlways' -Features Fonts #-NoScript
 
-                # we dont need all the scripts/styles in emails, we limit it to approved few
-                #if ($Script:HTMLSchema['Email'] -eq $true) {
-                #  $EmailFeatures = 'DefaultHeadings', 'DefaultText', 'DefaultImage', 'Main' #, 'Fonts', 'FontsAwesome'
-                #[string[]] $Features = foreach ($Feature in $Features) {
-                #    if ($Feature -in $EmailFeatures) {
-                #        $Feature
-                #    }
-                #}
-                #}
+                    # we dont need all the scripts/styles in emails, we limit it to approved few
+                    #if ($Script:HTMLSchema['Email'] -eq $true) {
+                    #  $EmailFeatures = 'DefaultHeadings', 'DefaultText', 'DefaultImage', 'Main' #, 'Fonts', 'FontsAwesome'
+                    #[string[]] $Features = foreach ($Feature in $Features) {
+                    #    if ($Feature -in $EmailFeatures) {
+                    #        $Feature
+                    #    }
+                    #}
+                    #}
 
-                # Those are CSS we only add if user selected proper data
-                if ($null -ne $Features) {
-                    # additionally we want to have different rules when Email is being built and not
-                    Get-Resources -Online:$Online.IsPresent -Location 'Header' -Features $Features -NoScript
-                    Get-Resources -Online:$true -Location 'HeaderAlways' -Features $Features -NoScript
-                    Get-Resources -Online:$false -Location 'HeaderAlways' -Features $Features -NoScript
-                }
-                if ($Script:HTMLSchema['Email'] -ne $true -and $Script:HTMLSchema.CustomHeaderJS) {
-                    New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
-                }
-                if ($Script:HTMLSchema.CustomHeaderCSS) {
-                    New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS -AddComment:$AddComment
-                }
-            }
-            if ($AddComment) {
-                '<!-- END HEAD -->'
-                '<!-- BODY -->'
-            }
-            New-HTMLTag -Tag 'body' {
-                if ($null -ne $Features) {
-                    Get-Resources -Online:$Online.IsPresent -Location 'Body' -Features $Features -NoScript
-                    Get-Resources -Online:$true -Location 'BodyAlways' -Features $Features -NoScript
-                    Get-Resources -Online:$false -Location 'BodyAlways' -Features $Features -NoScript
-                }
-                if ($HeaderHTML) {
-                    if ($AddComment) { '<!-- HEADER -->' }
-                    New-HTMLTag -Tag 'header' {
-                        $HeaderHTML
-                    }
-                    if ($AddComment) { '<!-- END HEADER -->' }
-                }
-                if ($Navigation) {
-                    if ($AddComment) { '<!-- NAVIGATION -->' }
-                    $Navigation
-                    if ($AddComment) { '<!-- END NAVIGATION -->' }
-                }
-                New-HTMLTag -Tag 'div' -Attributes @{ class = 'main-section' } {
-                    # Add logo if there is one
-                    $Script:HTMLSchema.Logos
-                    # Add tabs header if there is one
-                    if ($Script:HTMLSchema.TabsHeaders) {
-                        New-HTMLTabHead
-                        New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
-                            # Add remaining data
-                            #$OutputHTML
-                            $MainHTML
-                        }
-                    } else {
-                        # Add remaining data
-                        $MainHTML
-                        #$OutputHTML
-                    }
-                    # Add charts scripts if those are there
-                    foreach ($Chart in $Script:HTMLSchema.Charts) {
-                        $Chart
-                    }
-                    foreach ($Diagram in $Script:HTMLSchema.Diagrams) {
-                        $Diagram
-                    }
-                }
-                if ($AddComment) { '<!-- FOOTER -->' }
-
-                [string] $Footer = @(
-                    if ($FooterHTML) {
-                        $FooterHTML
-                    }
-                    #New-HTMLTag -Tag 'footer' {
+                    # Those are CSS we only add if user selected proper data
                     if ($null -ne $Features) {
-                        # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included
-                        # either as links or from file per required features
-                        Get-Resources -Online:$true -Location 'FooterAlways' -Features $Features -NoScript
-                        Get-Resources -Online:$false -Location 'FooterAlways' -Features $Features -NoScript
-                        # standard footer features
-                        Get-Resources -Online:$Online.IsPresent -Location 'Footer' -Features $Features -NoScript
-
+                        # additionally we want to have different rules when Email is being built and not
+                        Get-Resources -Online:$Online.IsPresent -Location 'Header' -Features $Features -NoScript
+                        Get-Resources -Online:$true -Location 'HeaderAlways' -Features $Features -NoScript
+                        Get-Resources -Online:$false -Location 'HeaderAlways' -Features $Features -NoScript
                     }
-                    if ($Script:HTMLSchema.CustomFooterCSS) {
-                        New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS -AddComment:$AddComment
+                    if ($Script:HTMLSchema['Email'] -ne $true -and $Script:HTMLSchema.CustomHeaderJS) {
+                        New-HTMLCustomJS -JS $Script:HTMLSchema.CustomHeaderJS
                     }
-                    if ($Script:HTMLSchema['Email'] -ne $true -and $Script:HTMLSchema.CustomFooterJS) {
-                        New-HTMLCustomJS -JS $Script:HTMLSchema.CustomFooterJS
-                    }
-                )
-                if ($Footer) {
-                    New-HTMLTag -Tag 'footer' {
-                        $Footer
+                    if ($Script:HTMLSchema.CustomHeaderCSS) {
+                        New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomHeaderCSS -AddComment:$AddComment
                     }
                 }
                 if ($AddComment) {
-                    '<!-- END FOOTER -->'
-                    '<!-- END BODY -->'
+                    '<!-- END HEAD -->'
+                    '<!-- BODY -->'
+                }
+                New-HTMLTag -Tag 'body' {
+                    if ($null -ne $Features) {
+                        Get-Resources -Online:$Online.IsPresent -Location 'Body' -Features $Features -NoScript
+                        Get-Resources -Online:$true -Location 'BodyAlways' -Features $Features -NoScript
+                        Get-Resources -Online:$false -Location 'BodyAlways' -Features $Features -NoScript
+                    }
+                    if ($HeaderHTML) {
+                        if ($AddComment) { '<!-- HEADER -->' }
+                        New-HTMLTag -Tag 'header' {
+                            $HeaderHTML
+                        }
+                        if ($AddComment) { '<!-- END HEADER -->' }
+                    }
+                    if ($Navigation) {
+                        if ($AddComment) { '<!-- NAVIGATION -->' }
+                        $Navigation
+                        if ($AddComment) { '<!-- END NAVIGATION -->' }
+                    }
+                    New-HTMLTag -Tag 'div' -Attributes @{ class = 'main-section' } {
+                        # Add logo if there is one
+                        if ($Script:HTMLSchema.Logos) {
+                            $Script:HTMLSchema.Logos
+                        }
+                        # Add tabs header if there is one
+                        if ($Script:HTMLSchema.TabsHeaders) {
+                            New-HTMLTabHead
+                            New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
+                                # Add remaining data
+                                if ($MainHTML) {
+                                    $MainHTML
+                                }
+                            }
+                        } else {
+                            # Add remaining data
+                            if ($MainHTML) {
+                                $MainHTML
+                            }
+                        }
+                        # Add charts scripts if those are there
+                        foreach ($Chart in $Script:HTMLSchema.Charts) {
+                            $Chart
+                        }
+                        foreach ($Diagram in $Script:HTMLSchema.Diagrams) {
+                            $Diagram
+                        }
+                    }
+                    if ($AddComment) { '<!-- FOOTER -->' }
+
+                    [string] $Footer = @(
+                        if ($FooterHTML) {
+                            $FooterHTML
+                        }
+                        #New-HTMLTag -Tag 'footer' {
+                        if ($null -ne $Features) {
+                            # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included
+                            # either as links or from file per required features
+                            Get-Resources -Online:$true -Location 'FooterAlways' -Features $Features -NoScript
+                            Get-Resources -Online:$false -Location 'FooterAlways' -Features $Features -NoScript
+                            # standard footer features
+                            Get-Resources -Online:$Online.IsPresent -Location 'Footer' -Features $Features -NoScript
+
+                        }
+                        if ($Script:HTMLSchema.CustomFooterCSS) {
+                            New-HTMLCustomCSS -Css $Script:HTMLSchema.CustomFooterCSS -AddComment:$AddComment
+                        }
+                        if ($Script:HTMLSchema['Email'] -ne $true -and $Script:HTMLSchema.CustomFooterJS) {
+                            New-HTMLCustomJS -JS $Script:HTMLSchema.CustomFooterJS
+                        }
+                    )
+                    if ($Footer) {
+                        New-HTMLTag -Tag 'footer' {
+                            $Footer
+                        }
+                    }
+                    if ($AddComment) {
+                        '<!-- END FOOTER -->'
+                        '<!-- END BODY -->'
+                    }
                 }
             }
-        }
-    )
-    if ($FilePath -ne '') {
-        Save-HTML -HTML $HTML -FilePath $FilePath -ShowHTML:$ShowHTML -Encoding $Encoding -Format:$Format -Minify:$Minify
-    } else {
-        if ($ShowHTML -or $Temporary) {
-            # if we have not chosen filepath but we used ShowHTML user wants to show it right? Or we have chosen temporary
-            # We want to make sure we don't return useless HTML to the user
-            $FilePath = Get-FileName -Extension 'html' -Temporary
-            Save-HTML -HTML $HTML -FilePath $FilePath -ShowHTML:$ShowHTML -Encoding $Encoding -Format:$Format -Minify:$Minify
+        )
+        #if (-not (Test-Path -LiteralPath $PagesPath) -and $Pages.Keys.Count -gt 1) {
+        #    $null = New-Item -Path $PagesPath -ItemType Directory -Force
+        #}
+        if ($FilePath) {
+            Save-HTML -HTML $HTML -FilePath $Pages[$Page].SavePath -Encoding $Encoding -Format:$Format -Minify:$Minify
         } else {
             # User opted to return all data in form of html
             $HTML
+        }
+        <#
+        if ($FilePath -ne '') {
+            Save-HTML -HTML $HTML -FilePath $Pages[$Page].SavePath -Encoding $Encoding -Format:$Format -Minify:$Minify
+        } else {
+            if ($ShowHTML -or $Temporary) {
+                # if we have not chosen filepath but we used ShowHTML user wants to show it right? Or we have chosen temporary
+                # We want to make sure we don't return useless HTML to the user
+                $FilePath = Get-FileName -Extension 'html' -Temporary
+                Save-HTML -HTML $HTML -FilePath $FilePath -Encoding $Encoding -Format:$Format -Minify:$Minify
+            } else {
+                # User opted to return all data in form of html
+                $HTML
+            }
+        }
+        #>
+
+    }
+    if ($ShowHTML) {
+        try {
+            Invoke-Item -LiteralPath $FilePath -ErrorAction Stop
+        } catch {
+            $ErrorMessage = $_.Exception.Message -replace "`n", " " -replace "`r", " "
+            Write-Verbose "New-HTML - couldn't open file $FilePath in a browser. Error: $ErrorMessage"
         }
     }
 }
