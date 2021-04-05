@@ -9,5 +9,4 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example-Carousel01.html" -Show {
             New-HTMLText -Text 'Slide 2'
         }
     }
-
 } -Online -Format
