@@ -4,7 +4,17 @@
         [ScriptBlock] $NavigationLinks,
         [string] $Logo,
         [string] $LogoLink,
-        [switch] $LogoLinkHome
+        [switch] $LogoLinkHome,
+        [switch] $DisableBackgroundFading,
+        [switch] $DisableClickToClose,
+        [switch] $DisableNavControls,
+        [switch] $DisableStickyMenubar,
+        [switch] $StartMenuOpen,
+        [switch] $FixedMenu,
+        [switch] $DisableHamburger,
+        [switch] $ResizeContent,
+        [int] $MenuWidth = 270,
+        [int] $MenuWidthExtended = 320
     )
     $Script:HTMLSchema.Features.NavigationMenuHS = $true
     $Script:HTMLSchema.Features.JQuery = $true
@@ -31,6 +41,20 @@
             }
         }
     }
+
+    $Options = @{
+        bgFading          = -not $DisableBackgroundFading.IsPresent #//(false to disable) background dim overlay when side navigation drawer open
+        outClickToClose   = -not $DisableClickToClose.IsPresent #// (false to disable) close opened items if user click outside of them
+        navControls       = -not $DisableNavControls.IsPresent #// (false to disable) provide buttons to allow visitors to increase some width and height of drawer
+        fixedMenubar      = -not $DisableStickyMenubar.IsPresent #//false to static
+        startMenuOpen     = $StartMenuOpen.IsPresent
+        fixedMenu         = $FixedMenu.IsPresent
+        disableHamburger  = $DisableHamburger.IsPresent
+        resizeContent     = $ResizeContent.IsPresent
+        menuWidth         = $MenuWidth
+        menuWidthExtended = $menuWidthExtended
+    }
+    $OptionsJSON = $Options | ConvertTo-Json
 
     # Header
     $Navigation = @(
@@ -260,6 +284,12 @@
                 }
                 #>
             }
+        }
+
+        New-HTMLTag -Tag 'script' {
+            "`$(document).ready(function () {"
+            "    `$('.hs-menubar').hsMenu($OptionsJSON);"
+            "});"
         }
     )
     [PSCustomObject] @{

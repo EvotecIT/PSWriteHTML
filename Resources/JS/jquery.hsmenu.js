@@ -1,12 +1,13 @@
-/*  Plugin: hs Menu (Modern Mega Menu)
- *   Frameworks: jQuery 3.3.1 & Material Design Iconic Font 2.0
- *   Author: Asif Mughal
- *   GitHub: https://github.com/CodeHimBlog
- *   URL: https://www.codehim.com
- *   License: MIT License
- *   Copyright (c) 2019 - Asif Mughal
- */
-/* File: jquery.hsmenu.js */
+
+/*
+    Plugin: hs Menu (Modern Mega Menu)
+    Frameworks: jQuery 3.3.1 & Material Design Iconic Font 2.0
+    Author: Asif Mughal
+    GitHub: https://github.com/CodeHimBlog
+    URL: https://www.codehim.com
+    License: MIT License
+    Copyright (c) 2019 - Asif Mughal
+*/
 (function ($) {
     $.fn.hsMenu = function (options) {
         var setting = $.extend({
@@ -14,19 +15,35 @@
             outClickToClose: true, // (false to disable) close opened items if user click outside of them
             navControls: true, // (false to disable) provide buttons to allow visitors to increase some width and height of drawer
             fixedMenubar: true, //false to static
-
+            fixedMenu: false,
+            disableHamburger: false,
+            startMenuOpen: false,
+            resizeContent: false,
+            menuWidth: 270,
+            menuWidthExtended: 320,
         }, options);
 
         return this.each(function () {
 
-            var $hsNav,
-                navControlBoard,
-                setFullHeight,
-                setSomeWidth,
-                dimBG;
-
+            var $hsNav, navControlBoard, setFullHeight, setSomeWidth, dimBG;
 
             $hsNav = $(".hs-navigation");
+
+            if (setting.fixedMenu) {
+                // lets overwrite some settings to provide this functionality
+                setting.startMenuOpen = true;
+                setting.resizeContent = true;
+                setting.outClickToClose = false;
+                setting.disableHamburger = true;
+            }
+
+            if (setting.startMenuOpen) {
+                $(this).toggleClass("ripple-out");
+                $($hsNav).toggleClass("open");
+                if (setting.resizeContent) {
+                    $(".main-section").css("margin-left", setting.menuWidth + "px");
+                }
+            }
 
             if (setting.bgFading == true) {
 
@@ -63,16 +80,18 @@
 
             });
 
-            $(".menu-trigger").click(function () {
+            if (setting.disableHamburger !== true) {
+                $(".menu-trigger").click(function () {
 
-                $(this).toggleClass("ripple-out");
+                    $(this).toggleClass("ripple-out");
 
-                $($hsNav).toggleClass("open");
+                    $($hsNav).toggleClass("open");
 
-                $(dimBG).toggle(500);
+                    $(dimBG).toggle(500);
 
 
-            });
+                });
+            }
 
             // Search Form Functionality
 
@@ -213,10 +232,19 @@
 
                         x.removeClass("zmdi-crop-free").addClass("zmdi-aspect-ratio-alt");
 
-                        $(".hs-navigation").width("320");
+                        $(".hs-navigation").width(setting.menuWidthExtended + "px");
+
+                        if (setting.resizeContent) {
+                            $(".main-section").css("margin-left", setting.menuWidthExtended + "px");
+                        }
 
                     } else {
-                        $(".hs-navigation").width("270px");
+                        $(".hs-navigation").width(setting.menuWidth + "px");
+
+                        if (setting.resizeContent) {
+                            $(".main-section").css("margin-left", setting.menuWidth + "px");
+                        }
+
                         x.addClass("zmdi-crop-free").removeClass("zmdi-aspect-ratio-alt");
                     }
 
@@ -259,10 +287,3 @@
     };
 
 })(jQuery);
-/*   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
