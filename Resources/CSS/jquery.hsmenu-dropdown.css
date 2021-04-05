@@ -1,19 +1,20 @@
-/*  Plugin: Codehim Dropdown (Multilevel Dropdowns to Off Canvas)
- *   Requires: jQuery 1.7 or higher
- *   Author: Asif Mughal
- *   GitHub: https://github.com/CodeHimBlog
- *   URL: https://www.codehim.com
- *   License: MIT License
- *   Copyright (c) 2018 - Asif Mughal
- */
+/*
+   Plugin: Codehim Dropdown (Multilevel Dropdowns to Off Canvas)
+   Requires: jQuery 1.7 or higher
+   Author: Asif Mughal
+   GitHub: https://github.com/CodeHimBlog
+   URL: https://www.codehim.com
+   License: MIT License
+   Copyright (c) 2018 - Asif Mughal
+*/
 
-* {
+.dropdown-items, .dropdown-heading, .menu-items {
 	margin: 0;
-	padding: 0;
+	padding: 0
 }
 
 .codehim-dropdown {
-	font-family: 'Nunito', sans-serif;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 300;
 	font-smooth: antialiased;
@@ -133,8 +134,8 @@
 }
 
 .dropdown-heading:after {
-	font-family: FontAwesome;
-	font-weight: 300;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
 	display: inline-block;
 	content: "\f107";
 }
@@ -203,7 +204,7 @@ li.home-link a {
 }
 
 .has-child span.parent:after {
-	font-family: FontAwesome;
+	font-family: "Font Awesome 5 Free";
 	float: right;
 }
 
@@ -263,9 +264,9 @@ li.home-link a {
 		background: rgba(0, 0, 0, 0.15);
 	}
 	.hamburger:after {
-		font-family: FontAwesome;
+		font-family: "Font Awesome 5 Free";
 		content: "\f0c9";
-		font-weight: 200;
+		font-weight: 900;
 	}
 	.hamburger.left {
 		left: 10px;
@@ -294,11 +295,10 @@ li.home-link a {
 		color: #fff;
 	}
 	.dropdown-heading:after {
-		font-family: FontAwesome;
-		font-weight: 300;
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
 		display: inline-block;
 		content: "\f107";
-		float: right;
 	}
 	/* Sub Dropdowns heading */
 	.has-child span.parent {

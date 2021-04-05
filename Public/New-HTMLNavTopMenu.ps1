@@ -1,11 +1,11 @@
-﻿function New-HTMLNavLink {
+﻿function New-HTMLNavTopMenu {
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(
         [parameter(Position = 0, ParameterSetName = "FontAwesomeBrands")]
         [parameter(Position = 0, ParameterSetName = "FontAwesomeRegular")]
         [parameter(Position = 0, ParameterSetName = "FontAwesomeSolid")]
         [parameter(Position = 0, ParameterSetName = "FontMaterial")]
-        [ScriptBlock] $NestedLinks,
+        [ScriptBlock] $MenuItem,
 
         [parameter(Mandatory, ParameterSetName = "FontAwesomeBrands")]
         [parameter(Mandatory, ParameterSetName = "FontAwesomeRegular")]
@@ -42,17 +42,11 @@
         [parameter(ParameterSetName = "FontAwesomeBrands")][string] $IconBrands,
 
         # ICON REGULAR
-        [ArgumentCompleter(
-            {
+        [ArgumentCompleter( {
                 param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
-                ($Global:HTMLIcons.FontAwesomeRegular.Keys)
-            }
+                ($Global:HTMLIcons.FontAwesomeRegular.Keys) }
         )]
-        [ValidateScript(
-            {
-                $_ -in (($Global:HTMLIcons.FontAwesomeRegular.Keys))
-            }
-        )]
+        [ValidateScript( { $_ -in (($Global:HTMLIcons.FontAwesomeRegular.Keys)) }        )]
         [parameter(ParameterSetName = "FontAwesomeRegular")][string] $IconRegular,
 
         # ICON SOLID
@@ -93,46 +87,20 @@
         [parameter(ParameterSetName = "FontMaterial")][switch] $FlipHorizontal
     )
 
-    if ($InternalPageID) {
-        $Href = "$($Script:GlobalSchema.StorageInformation.FileName)_$InternalPageID.html"
-    }
-    if ($NestedLinks) {
-        [Array] $OutputLinks = & $NestedLinks
-    }
-    if (-not $Test) {
-        $NavLink = @(
-            if ($OutputLinks) {
-                New-HTMLTag -Tag 'li' -Attributes @{ class = 'has-child' } {
-                    New-InternalNavLink -Nested -Name $Name -Href $Href -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
-                    New-HTMLTag -Tag 'ul' -Attributes @{ class = 'its-children' } {
-                        $OutputLinks.Value
-                    }
-                }
-            } else {
-                New-InternalNavLink -Name $Name -Href $Href -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
+    if ($MenuItem) {
+        $MenuExecuted = & $MenuItem
+        $Menu = New-HTMLTag -Tag 'li' {
+            New-HTMLTag -Tag 'span' -Attributes @{class = 'dropdown-heading' } {
+                New-HTMLFontIcon -IconSolid address-book
+                $Name
             }
-        )
-        [PSCustomObject] @{
-            Type  = 'NavLinkItem'
-            Value = $NavLink
+            New-HTMLTag -Tag 'ul' -Attributes @{ class = 'menu-items' } {
+                $MenuExecuted.Value
+            }
         }
-    } else {
-        $NavLink = @(
-            if ($OutputLinks) {
-                New-HTMLTag -Tag 'li' -Attributes @{ class = 'has-child' } {
-                    New-InternalNavLink -MenuItems -Nested -Name $Name -Href $Href -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
-                    New-HTMLTag -Tag 'ul' -Attributes @{ class = 'its-children' } {
-                        $OutputLinks.Value
-                    }
-                }
-            } else {
-                New-InternalNavLink -MenuItems -Name $Name -Href $Href -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
-            }
-        )
         [PSCustomObject] @{
-            Type  = 'NavLinkItem'
-            Value = $NavLink
+            Type  = 'TopMenu'
+            Value = $Menu
         }
     }
 }
-Register-ArgumentCompleter -CommandName New-HTMLNavLink -ParameterName IconColor -ScriptBlock $Script:ScriptBlockColors
