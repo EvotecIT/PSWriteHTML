@@ -1371,13 +1371,30 @@ $Script:Configuration = [ordered] @{
         NavigationMenuHS            = @{
             Comment      = 'Navigation HS'
             HeaderAlways = @{
-                Css      = "$PSScriptRoot\..\Resources\CSS\hs-menu.css"
-#                JsInLine = @"
-#                    `$(document).ready(function () { `$(".hs-menubar").hsMenu(); });
-#"@
+                Css = "$PSScriptRoot\..\Resources\CSS\jquery.hsmenu.css"
             }
             FooterAlways = @{
                 Js = "$PSScriptRoot\..\Resources\JS\jquery.hsmenu.js"
+            }
+            Default      = $true
+            Email        = $false
+        }
+        Animate                     = @{
+            Comment = 'Animate'
+            Header  = @{
+                CssLink = 'https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\animate.min.css"
+            }
+            Default = $true
+            Email   = $false
+        }
+        NavigationMenuDropdown      = @{
+            Comment      = 'Navigation Dropdown'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\jquery.hsmenu-dropdown.css"
+            }
+            FooterAlways = @{
+                Js = "$PSScriptRoot\..\Resources\JS\jquery.hsmenu-dropdown.js"
             }
             Default      = $true
             Email        = $false

@@ -1,0 +1,385 @@
+/*  Plugin: Codehim Dropdown (Multilevel Dropdowns to Off Canvas)
+ *   Requires: jQuery 1.7 or higher
+ *   Author: Asif Mughal
+ *   GitHub: https://github.com/CodeHimBlog
+ *   URL: https://www.codehim.com
+ *   License: MIT License
+ *   Copyright (c) 2018 - Asif Mughal
+ */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.codehim-dropdown {
+	font-family: 'Nunito', sans-serif;
+	font-style: normal;
+	font-weight: 300;
+	font-smooth: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.codehim-dropdown {
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	transition: 0s;
+}
+
+.codehim-dropdown.sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Skins */
+
+.red {
+	background: #e00032;
+}
+
+.yellow {
+	background: #fdd835;
+}
+
+.green {
+	background: #0a8f08;
+}
+
+.blue {
+	background: #4d73ff;
+}
+
+.orange {
+	background: #ff3d00;
+}
+
+.brown {
+	background: #6d4c41;
+}
+
+.teal {
+	background: #00897b;
+}
+
+.purple {
+	background: #9c27b0;
+}
+
+.indigo {
+	background: #3f51b5;
+}
+
+.cyan {
+	background: #00acc1;
+}
+
+.light-green {
+	background: #7cb342;
+}
+
+.amber {
+	background: #ffc107;
+}
+
+.gray {
+	background: #424242;
+}
+
+.black {
+	background: #000;
+}
+
+.blue-gray {
+	background: #546e7a;
+}
+
+.lime {
+	background: #aeea00;
+}
+
+.light-blue {
+	background: #03a9f4;
+}
+
+.deep-purple {
+	background: #512da8;
+}
+
+.deep-pink {
+	background: #ad1457;
+}
+
+.deep-brown {
+	background: #4e342e;
+}
+
+/* Global Style for Codehim Dropdowns */
+
+.codehim-dropdown a {
+	outline: 0;
+}
+
+.has-child span.parent+ul, .menu-items {
+	background: #fff;
+	list-style: none;
+	display: none;
+}
+
+.dropdown-heading:after {
+	font-family: FontAwesome;
+	font-weight: 300;
+	display: inline-block;
+	content: "\f107";
+}
+
+.dropdown-heading.active:after {
+	transform: rotateZ(180deg);
+	-webkit-transform: rotateZ(180deg);
+	-moz-transform: rotateZ(180deg);
+}
+
+.dropdown-heading, .dropdown-heading.active, .dropdown-heading:hover, .dropdown-heading:after, .dropdown-heading.active:after {
+	transition: all .3s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+}
+
+/* Home Link Style */
+
+li.home-link a {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.7);
+	text-align: center;
+	font-size: 20px;
+	display: inline-block;
+	width: 45px;
+	height: 50px;
+	background: rgba(0, 0, 0, 0.3);
+	line-height: 50px;
+}
+
+/* Dim background effect */
+
+.dim-overlay {
+	display: none;
+}
+
+.dim-overlay:before {
+	content: "";
+	background-color: rgba(0, 0, 0, .5);
+	height: 100%;
+	/* for zombies browsers */
+	height: 100vh;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	overflow: hidden;
+	z-index: 2;
+}
+
+.menu-items li a {
+	display: block;
+	padding: 10px;
+	color: #444;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 13px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.has-child span.parent:hover, .menu-items li a:hover {
+	background: #e0e0e0;
+}
+
+.has-child span.parent:after {
+	font-family: FontAwesome;
+	float: right;
+}
+
+.main-links {
+	text-decoration: none;
+}
+
+/* Codehim Dropdowns Mobile View */
+
+@media only screen and (max-width: 480px) {
+	.codehim-dropdown {
+		position: relative;
+		font-size: 14px;
+	}
+	.codehim-dropdown .icon {
+		margin: 0 10px 0 5px;
+		font-size: 16px;
+	}
+	/* The Off Canvas Menu */
+	.dropdown-items {
+		height: 100%;
+		/* for zombies browsers */
+		height: 100vh;
+		display: none;
+		overflow: scroll;
+		box-sizing: border-box;
+		position: fixed;
+		top: 0;
+		z-index: 999;
+	}
+	.menu-items {
+		background: #fff;
+	}
+	.menu-items li a {
+		padding-left: 15px;
+		background: transparent;
+	}
+	.dropdown-items li {
+		border-bottom: 1px dotted rgba(255, 255, 255, 0.16);
+		overflow: hidden;
+	}
+	/* hamburger menu icon to reveal off canvas menu on mobile devices */
+	.hamburger {
+		position: absolute;
+		width: 32px;
+		height: 32px;
+		top: 8px;
+		border-radius: 50%;
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		text-align: center;
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 20px;
+		line-height: 32px;
+	}
+	.hamburger:hover {
+		background: rgba(0, 0, 0, 0.15);
+	}
+	.hamburger:after {
+		font-family: FontAwesome;
+		content: "\f0c9";
+		font-weight: 200;
+	}
+	.hamburger.left {
+		left: 10px;
+	}
+	.hamburger.right {
+		right: 10px;
+	}
+	.dropdown-items .parent+ul {
+		background: #fff;
+		margin: 0;
+		box-sizing: border-box;
+		display: none;
+	}
+	/* Sub Menu list item */
+	.dropdown-items .parent+ul li a {
+		padding-left: 30px;
+	}
+	.main-links, .dropdown-heading {
+		display: block;
+		padding: 15px;
+		color: rgba(255, 255, 255, 0.8);
+		cursor: pointer;
+	}
+	.main-links:hover, .dropdown-heading:hover {
+		background: rgba(0, 0, 0, 0.15);
+		color: #fff;
+	}
+	.dropdown-heading:after {
+		font-family: FontAwesome;
+		font-weight: 300;
+		display: inline-block;
+		content: "\f107";
+		float: right;
+	}
+	/* Sub Dropdowns heading */
+	.has-child span.parent {
+		padding: 15px;
+		font-weight: 700;
+		border-bottom: 1px solid #e0e0e0;
+		display: block;
+		background: transparent;
+	}
+	.has-child span.parent:after {
+		content: "\f107";
+		margin-right: 15px;
+	}
+}
+
+/* Codehim Dropdown Tab and ipad View */
+
+@media screen and (max-width: 719px) and (min-width: 480px) {
+	.codehim-dropdown {
+		/* Working on it */
+		/*The tab view is coming soon */
+	}
+}
+
+/* Codehim Dropdowns PC View */
+
+@media only screen and (min-width: 480px) {
+	.menu-items {
+		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+		width: 150px;
+		position: absolute;
+		left: 2px;
+	}
+	.menu-items li {}
+	.dropdown-items {
+		list-style: none;
+	}
+	/* A list of main items */
+	.dropdown-items li {
+		display: inline;
+		position: relative;
+	}
+	a.main-links, .dropdown-heading {
+		cursor: pointer;
+		color: rgba(255, 255, 255, 0.7);
+		display: inline-block;
+		padding: 6px;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		font-weight: 400;
+		text-decoration: none;
+	}
+	.main-links:hover, .dropdown-heading.active, .dropdown-heading:hover {
+		color: #fff;
+	}
+	.dropdown-heading:after {
+		margin-left: 8px;
+	}
+	.has-child span.parent:after {
+		content: "\f105";
+	}
+	/* Multilevel Dropdown */
+	.has-child {
+		position: relative;
+	}
+	/* The visible heading (parent) for multilevel dropdown items */
+	.has-child span.parent {
+		display: inline-block;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 10px;
+		font-size: 13px;
+		font-weight: 400;
+	}
+	.has-child ul {
+		position: absolute;
+		display: block;
+		width: 140px;
+		left: 100%;
+		z-index: 3;
+		top: 0;
+		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+		display: none;
+	}
+}
