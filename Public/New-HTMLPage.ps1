@@ -9,7 +9,7 @@
         [PSCustomObject] @{
             Type   = 'Page'
             Output = & $PageContent
-            Name   = "$Name.html"
+            Name   = $Name
         }
     }
 }
