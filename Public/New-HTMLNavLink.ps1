@@ -103,89 +103,15 @@
     $NavLink = @(
         if ($OutputLinks) {
             New-HTMLTag -Tag 'li' -Attributes @{ class = 'has-child' } {
-                <#
-                New-HTMLTag -Tag 'span' -Attributes @{ class = 'its-parent' } {
-                    New-HTMLTag -Tag 'span' -Attributes @{ class = 'icon' } {
-                        New-HTMLFontIcon -IconMaterial device-hub -FixedWidth
-                    }
-                    'Multilevel one level'
-                }
-                #>
-
                 New-InternalNavLink -Nested -Name $Name -Href $Href -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
-
                 New-HTMLTag -Tag 'ul' -Attributes @{ class = 'its-children' } {
                     $OutputLinks.Value
                 }
             }
         } else {
             New-InternalNavLink -Name $Name -Href $Href -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
-            <#
-        if ($Href) {
-            $NavLink = New-HTMLTag -Tag 'li' {
-                New-HTMLTag -Tag 'a' -Attributes @{ href = $Href } {
-                    New-InternalNavIcon -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
-                    $Name
-                }
-            }
-        } else {
-            $NavLink = New-HTMLTag -Tag 'li' {
-                New-InternalNavIcon -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
-                $Name
-            }
-        }
-        #>
         }
     )
-
-    <#
-    $NavLink = New-HTMLTag -Tag 'li' -Attributes $Attributes {
-        New-HTMLTag -Tag 'a' -Attributes @{ href = $Href } {
-            New-HTMLTag -Tag 'span' -Attributes @{ class = 'icon' } {
-                if ($IconRegular -or $IconBrands -or $IconSolid -or $IconMaterial) {
-                    $newHTMLFontIconSplat = @{
-                        IconColor    = $IconColor
-                        IconBrands   = $IconBrands
-                        IconRegular  = $IconRegular
-                        IconSolid    = $IconSolid
-                        IconMaterial = $IconMaterial
-                        FixedWidth   = $true
-                    }
-                    if ($Spinning) {
-                        $newHTMLFontIconSplat['Spinning'] = $Spinning
-                    }
-                    if ($SpinningReverse) {
-                        $newHTMLFontIconSplat['SpinningReverse'] = $SpinningReverse
-                    }
-                    if ($Bordered) {
-                        $newHTMLFontIconSplat['Bordered'] = $Bordered
-                    }
-                    if ($BorderedCircle) {
-                        $newHTMLFontIconSplat['BorderedCircle'] = $BorderedCircle
-                    }
-                    if ($PullLeft) {
-                        $newHTMLFontIconSplat['PullLeft'] = $PullLeft
-                    }
-                    if ($PullRight) {
-                        $newHTMLFontIconSplat['PullRight'] = $PullRight
-                    }
-                    if ($Rotate) {
-                        $newHTMLFontIconSplat['Rotate'] = $Rotate
-                    }
-                    if ($FlipVertical) {
-                        $newHTMLFontIconSplat['FlipVertical'] = $FlipVertical
-                    }
-                    if ($FlipHorizontal) {
-                        $newHTMLFontIconSplat['FlipHorizontal'] = $FlipHorizontal
-                    }
-                    Remove-EmptyValue -Hashtable $newHTMLFontIconSplat -Recursive
-                    New-HTMLFontIcon @newHTMLFontIconSplat
-                }
-            }
-            $Name
-        }
-    }
-    #>
     [PSCustomObject] @{
         Type  = 'NavLinkItem'
         Value = $NavLink
