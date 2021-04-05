@@ -47,12 +47,11 @@ Function New-HTML {
 
     # This makes sure we use always fresh copy
     $Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
-
-    $Script:HTMLSchema = @{
-        Email              = $false
+    $Script:GlobalSchema = @{
+        #Email              = $false
         Features           = [ordered] @{ } # tracks features for CSS/JS implementation
-        Charts             = [System.Collections.Generic.List[string]]::new()
-        Diagrams           = [System.Collections.Generic.List[string]]::new()
+        #Charts             = [System.Collections.Generic.List[string]]::new()
+        #Diagrams           = [System.Collections.Generic.List[string]]::new()
 
         StorageInformation = @{
             FileName  = $FileName
@@ -60,33 +59,13 @@ Function New-HTML {
             PagesPath = $PagesPath
         }
 
-        Logos              = ""
+        #Logos              = ""
 
         # We need to track tabs per page, rather then globally
         PagesCurrent       = $FileName
         Pages              = [ordered] @{
             # Tracking different features across pages
-            $FileName = [ordered]@{
-                # Tabs Tracking/Options (Top Level Ones)
-                TabsHeaders       = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
-                TabsHeadersNested = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
-                TableOptions      = [ordered] @{
-                    DataStore        = ''
-                    # Applies to only JavaScript and AjaxJSON store
-                    DataStoreOptions = [ordered] @{
-                        BoolAsString   = $false
-                        NumberAsString = $false
-                        DateTimeFormat = '' #"yyyy-MM-dd HH:mm:ss"
-                        NewLineFormat  = @{
-                            NewLineCarriage = '<br>'
-                            NewLine         = "\n"
-                            Carriage        = "\r"
-                        }
-                    }
-                    Type             = 'Structured'
-                    Folder           = if ($FilePath) { Split-Path -Path $FilePath } else { '' }
-                }
-            }
+            $FileName = New-DefaultSettings
         }
         # Tabs Tracking/Options (Top Level Ones)
         #TabsHeaders        = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
@@ -94,12 +73,12 @@ Function New-HTML {
         #TabOptions         = @{
         #    SlimTabs = $false
         # }
-
+        <#
         # TabPanels Tracking
         TabPanelsList      = [System.Collections.Generic.List[string]]::new()
 
         # Table Related Tracking
-        #Table              = [ordered] @{}
+        Table              = [ordered] @{}
         TableSimplify      = $false # Tracks current table only
 
         TableOptions       = [ordered] @{
@@ -126,9 +105,10 @@ Function New-HTML {
 
         # WizardList Tracking
         WizardList         = [System.Collections.Generic.List[string]]::new()
+        #>
     }
 
-    $Script:CurrentPageSchema = $Script:HTMLSchema['Pages'][$FileName]
+    $Script:HTMLSchema = $Script:GlobalSchema['Pages'][$FileName]
 
     [Array] $TempOutputHTML = Invoke-Command -ScriptBlock $HtmlData
 
@@ -191,16 +171,16 @@ Function New-HTML {
         }
     }
 
-    $Script:HTMLSchema.Features.Main = $true
+    #$Script:GlobalSchema.Features.Main = $true
 
-    $Features = Get-FeaturesInUse -PriorityFeatures 'Main', 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs' -Email:$Script:HTMLSchema['Email']
+    #$Features = Get-FeaturesInUse -PriorityFeatures 'Main', 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs' -Email:$Script:GlobalSchema['Email']
 
     # This removes Nested Tabs from primary Tabs
-    foreach ($Page in $Script:HTMLSchema['Pages'].Keys) {
-        foreach ($_ in $Script:HTMLSchema['Pages'][$Page].TabsHeadersNested) {
-            $null = $Script:HTMLSchema['Pages'][$Page].TabsHeaders.Remove($_)
-        }
-    }
+    #  foreach ($Page in $Script:GlobalSchema['Pages'].Keys) {
+    #     foreach ($_ in $Script:HTMLSchema.TabsHeadersNested) {
+    #          $null = $Script:HTMLSchema.TabsHeaders.Remove($_)
+    #     }
+    # }
 
     # Lets add primary page to the mix, either as the only page, or one of many pages
     $Pages[$FileName] = [ordered] @{
@@ -213,6 +193,19 @@ Function New-HTML {
     }
     foreach ($Page in $Pages.Keys) {
         $MainHTML = $Pages[$Page].Output
+
+        # set current page
+        $Script:HTMLSchema = $Script:GlobalSchema['Pages'][$Page]
+        $Script:HTMLSchema.Features.Main = $true
+
+        # This removes Nested Tabs from primary Tabs
+        foreach ($_ in $Script:HTMLSchema.TabsHeadersNested) {
+            $null = $Script:HTMLSchema.TabsHeaders.Remove($_)
+        }
+
+        # Find features in use
+        $Features = Get-FeaturesInUse -PriorityFeatures 'Main', 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs' -Email:$Script:HTMLSchema['Email']
+
         [string] $HTML = @(
             #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
             '<!-- saved from url=(0014)about:internet -->' + [System.Environment]::NewLine
@@ -316,7 +309,7 @@ Function New-HTML {
                             $Script:HTMLSchema.Logos
                         }
                         # Add tabs header if there is one
-                        if ($Script:HTMLSchema['Pages'][$Pages[$Page]['Name']].TabsHeaders) {
+                        if ($Script:HTMLSchema.TabsHeaders) {
                             New-HTMLTabHead -PageName $Pages[$Page]['Name']
                             New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
                                 # Add remaining data

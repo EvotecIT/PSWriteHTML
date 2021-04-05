@@ -7,7 +7,7 @@ function New-HTMLTabHead {
     if ($TabsCollection.Count -gt 0) {
         $Tabs = $TabsCollection
     } else {
-        $Tabs = $Script:HTMLSchema['Pages'][$PageName].TabsHeaders
+        $Tabs = $Script:GlobalSchema['Pages'][$PageName].TabsHeaders
     }
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsWrapper' } {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsSlimmer' } {

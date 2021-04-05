@@ -20,10 +20,17 @@
     $Script:HTMLSchema.Features.JQuery = $true
     $Script:HTMLSchema.Features.FontsMaterialIcon = $true
     $Script:HTMLSchema.Features.FontsAwesome = $true
+
+    # We also need to make sure we add this to all pages, not just the primary one
+    $Script:GlobalSchema.Features.NavigationMenuHS = $true
+    $Script:GlobalSchema.Features.JQuery = $true
+    $Script:GlobalSchema.Features.FontsMaterialIcon = $true
+    $Script:GlobalSchema.Features.FontsAwesome = $true
+
     $Script:CurrentConfiguration['Features']['Main']['HeaderAlways']['CssInLine']['.main-section']['margin-top'] = '55px'
 
     if ($LogoLinkHome) {
-        $LogoLink = "$($Script:HTMLSchema.StorageInformation.FileName).html"
+        $LogoLink = "$($Script:GlobalSchema.StorageInformation.FileName).html"
     }
 
     if ($NavigationLinks) {

@@ -6,13 +6,10 @@
     )
 
     if ($PageContent) {
-        $Script:HTMLSchema['Pages'][$Name] = [ordered]@{
-            TabsHeaders       = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
-            TabsHeadersNested = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
-        }
+        $Script:GlobalSchema['Pages'][$Name] = New-DefaultSettings
 
         $Script:HTMLSchema['PagesCurrent'] = $Name
-        $Script:CurrentPageSchema = $Script:HTMLSchema['Pages'][$Name]
+        $Script:HTMLSchema = $Script:GlobalSchema['Pages'][$Name]
 
         [PSCustomObject] @{
             Type   = 'Page'

@@ -94,7 +94,7 @@
     )
 
     if ($InternalPageID) {
-        $Href = "$($Script:HTMLSchema.StorageInformation.FileName)_$InternalPageID.html"
+        $Href = "$($Script:GlobalSchema.StorageInformation.FileName)_$InternalPageID.html"
     }
 
     if ($NestedLinks) {

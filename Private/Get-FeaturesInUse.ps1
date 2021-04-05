@@ -24,11 +24,10 @@ function Get-FeaturesInUse {
         [string[]] $PriorityFeatures,
         [switch] $Email
     )
-    [Array] $Features = foreach ($Key in $Script:HTMLSchema.Features.Keys) {
-        if ($Script:HTMLSchema.Features[$Key]) {
-            $Key
-        }
-    }
+    [Array] $Features = @(
+        $Script:HTMLSchema.Features.Keys
+        $Script:GlobalSchema.Features.Keys
+    )
     # This checks whether the features are for email or for normal HTML and allows or dissalows further processing
     [Array] $Features = foreach ($Key in $Features) {
         if ($Script:CurrentConfiguration['Features'][$Key]) {
