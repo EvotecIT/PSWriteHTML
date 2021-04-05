@@ -111,7 +111,8 @@ function New-HTMLTab {
         #if ($Script:HTMLSchema.TabPanel -eq $false) {
         # Reset all Tabs Headers to make sure there are no Current Tab Set
         # This is required for New-HTMLTable
-        foreach ($Tab in $Script:HTMLSchema.TabsHeaders) {
+
+        foreach ($Tab in $Script:CurrentPageSchema.TabsHeaders) {
             $Tab.Current = $false
         }
         # Start Tab Tracking
@@ -122,7 +123,7 @@ function New-HTMLTab {
         $Tab.StyleText = $StyleText
         $Tab.Current = $true
 
-        if ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
+        if ($Script:CurrentPageSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
             $Tab.Active = $false
         } else {
             $Tab.Active = $true
@@ -152,7 +153,7 @@ function New-HTMLTab {
             [Array] $TabsCollection = foreach ($_ in $OutputHTML) {
                 if ($_ -is [System.Collections.IDictionary]) {
                     $_
-                    $Script:HTMLSchema.TabsHeadersNested.Add($_)
+                    $Script:CurrentPageSchema.TabsHeadersNested.Add($_)
                 }
             }
             [Array] $HTML = foreach ($_ in $OutputHTML) {
@@ -171,7 +172,7 @@ function New-HTMLTab {
                 $HTML
             }
         }
-        $Script:HTMLSchema.TabsHeaders.Add($Tab)
+        $Script:CurrentPageSchema.TabsHeaders.Add($Tab)
         $Tab
     } else {
         # Tabs related to tab panel (New-HTMLTabPanel)

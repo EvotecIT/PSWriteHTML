@@ -1,12 +1,13 @@
 function New-HTMLTabHead {
     [CmdletBinding()]
     Param (
-        [Array] $TabsCollection
+        [Array] $TabsCollection,
+        [string] $PageName
     )
     if ($TabsCollection.Count -gt 0) {
         $Tabs = $TabsCollection
     } else {
-        $Tabs = $Script:HTMLSchema.TabsHeaders
+        $Tabs = $Script:HTMLSchema['Pages'][$PageName].TabsHeaders
     }
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsWrapper' } {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'tabsSlimmer' } {

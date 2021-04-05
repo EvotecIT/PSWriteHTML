@@ -844,7 +844,7 @@ function New-HTMLTable {
         $RowGroupingBottom = Add-TableRowGrouping -DataTableName $DataTableID -Bottom -Settings $RowGrouping
     }
 
-    [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })
+    [Array] $Tabs = ($Script:CurrentPageSchema.TabsHeaders | Where-Object { $_.Current -eq $true })
     if ($Tabs.Count -eq 0) {
         # There are no tabs in use, pretend there is only one Active Tab
         $Tab = @{ Active = $true }

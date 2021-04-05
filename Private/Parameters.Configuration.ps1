@@ -1372,11 +1372,9 @@ $Script:Configuration = [ordered] @{
             Comment      = 'Navigation HS'
             HeaderAlways = @{
                 Css      = "$PSScriptRoot\..\Resources\CSS\hs-menu.css"
-                JsInLine = @"
-                    `$(document).ready(function () {
-                        `$(".hs-menubar").hsMenu();
-                    });
-"@
+#                JsInLine = @"
+#                    `$(document).ready(function () { `$(".hs-menubar").hsMenu(); });
+#"@
             }
             FooterAlways = @{
                 Js = "$PSScriptRoot\..\Resources\JS\jquery.hsmenu.js"
