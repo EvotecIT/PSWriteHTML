@@ -9,19 +9,15 @@ $DataTable1 = @(
 
 New-HTML {
     New-HTMLNav -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' -LogoLinkHome { #-FixedMenu {
-        New-HTMLNavItem -Type Grid -Text 'Item one' -InternalPageID 'Page1'
-        New-HTMLNavItem -Type Grid -Text 'Item two' -InternalPageID 'Page2'
-        New-HTMLNavItem -Type Grid -Text 'Item three'
-        New-HTMLNavItem -Type Grid -IconSolid address-card -IconColor Green -Text 'test' -Href 'https://evotec.xyz'
+        New-HTMLNavItem -Type Grid -Text 'Page One' -InternalPageID 'Page1'
+        New-HTMLNavItem -Type Grid -Text 'Page Two' -InternalPageID 'Page2'
+        New-HTMLNavItem -Type Grid -Text 'Place Holder'
+        New-HTMLNavItem -Type Grid -IconBrands codepen -IconColor Blue -InternalPageID 'Page1'
 
-        New-HTMLNavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test' -Href 'https://evotec.xyz'
-        New-HTMLNavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test 1'
-        New-HTMLNavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test 2 '
-        New-HTMLNavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test 3'
+        New-HTMLNavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'Link to Page 1' -InternalPageID 'Page1'
+        New-HTMLNavItem -Type Menu -IconSolid atlas -IconColor Green -Text 'Link to Page 2' -InternalPageID 'Page2'
         New-HTMLNavItem -Type Menu -IconMaterial star -IconColor Green -Text 'Star'
-        New-HTMLNavItem -Type Menu -IconMaterial inbox -IconColor Green -Text 'Inbox'
-        New-HTMLNavItem -Type Menu -IconMaterial delete -IconColor Green -Text 'Delete'
-        New-HTMLNavItem -Type Menu -IconMaterial run -IconColor Green -Text 'Run'
+        New-HTMLNavItem -Type Menu -IconBrands edge -IconColor Green -Text 'Visit Evotec!' -Href 'https://evotec.xyz'
 
         New-HTMLNavLink -IconMaterial airplane -Href 'https://evotec.xyz' -Name 'This is link Icon Material'
         New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with FA' {

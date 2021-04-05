@@ -29,7 +29,7 @@ function Get-FeaturesInUse {
         $Script:GlobalSchema.Features.Keys
     )
     # This checks whether the features are for email or for normal HTML and allows or dissalows further processing
-    [Array] $Features = foreach ($Key in $Features) {
+    [Array] $Features = foreach ($Key in $Features | Sort-Object -Unique) {
         if ($Script:CurrentConfiguration['Features'][$Key]) {
             if ($Email) {
                 if ($Script:CurrentConfiguration['Features'][$Key]['Email'] -ne $true) {
