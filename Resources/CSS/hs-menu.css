@@ -14,7 +14,7 @@
 }
 
 .hs-menubar {
-    background: #555;
+    background: #161B22;
     width: 100%;
     height: 50px;
     line-height: 50px;
@@ -33,7 +33,7 @@
 .hs-navigation {
     width: 270px;
     height: 100vh;
-    background: #666;
+    background: #0D1117;
     position: fixed;
     top: 50px;
     left: -320px;
