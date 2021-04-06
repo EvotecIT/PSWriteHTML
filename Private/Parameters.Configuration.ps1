@@ -1399,6 +1399,17 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
+        NavigationMenuHamburger     = @{
+            Comment      = 'Navigation Hamburger'
+            HeaderAlways = @{
+                Css = "$PSScriptRoot\..\Resources\CSS\jquery.sidepenal.css"
+            }
+            FooterAlways = @{
+                Js = "$PSScriptRoot\..\Resources\JS\jquery.sidepenal.js"
+            }
+            Default      = $true
+            Email        = $false
+        }
         NavigationMultilevel        = @{
             Comment      = 'Navigation Multilevel'
             HeaderAlways = @{

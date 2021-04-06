@@ -9,7 +9,7 @@
 
 /* File: side-penal.css */
 
-* {
+menu.top-links, ul.penal-list, ul.toggle-buttons {
    margin: 0;
    padding: 0
 }
@@ -119,7 +119,8 @@
 }
 
 .toggle-buttons li:after, .toggle-buttons li.active:after {
-   font-family: FontAwesome;
+   font-family: "Font Awesome 5 Free";
+   font-weight: 900;
    float: right;
    font-size: 16px;
 }
@@ -157,7 +158,8 @@
 .top-links-trigger, .penal-trigger, .penal-close {
    -webkit-tap-highlight-color: transparent;
    outline: 0;
-   font-family: FontAwesome;
+   font-family: "Font Awesome 5 Free";
+   font-weight: 900;
    font-size: 18px;
    text-align: center;
    cursor: pointer;
@@ -187,7 +189,7 @@
 }
 
 .penal-close:before {
-   content: "\f177";
+   content: "\f30a";
 }
 
 .top-links-trigger:before {
