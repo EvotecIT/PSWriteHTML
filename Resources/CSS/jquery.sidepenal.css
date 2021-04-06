@@ -1,0 +1,254 @@
+/*  Project: Side Penal (Responsive Side Navigation)
+ *   Frameworks: jQuery 3.3.1 & Font Awesome 4.7.0
+ *   Author: Asif Mughal
+ *   GitHub: https://github.com/CodeHimBlog
+ *   URL: https://www.codehim.com
+ *   License: MIT License
+ *   Copyright (c) 2018 - Asif Mughal
+ */
+
+/* File: side-penal.css */
+
+* {
+   margin: 0;
+   padding: 0
+}
+
+.side-penal {
+   height: 100%;
+   background: #fff;
+   color: #666;
+   font-weight: 300;
+   box-shadow: 1px 1px 3px #888;
+   position: fixed;
+   overflow: hidden;
+   width: 280px;
+   top: 0;
+   left: -280px;
+   z-index: 999;
+}
+
+.side-penal.open {
+   left: 0;
+   overflow: auto;
+}
+
+.side-penal, .side-penal.open {
+   transition: .4s;
+   -webkit-transition: .4s;
+   -moz-transition: .4s;
+}
+
+.penal-select {
+   width: 100%;
+   padding: 10px;
+   margin: 10px 0;
+   border: 1px solid #ddd;
+   background: #bcbcbc;
+}
+
+.penal-list {
+   list-style: none;
+}
+
+.penal-list li a {
+   display: block;
+   padding: 10px;
+   text-decoration: none;
+   color: #444;
+   border-bottom: 1px dotted #ddd;
+   text-indent: 10px;
+   font-size: 13px;
+}
+
+.penal-list li a:hover {
+   background: #eee;
+   transition: .3s;
+}
+
+.penal-widget {
+   padding: 10px;
+}
+
+.penal-widget.top-header {
+   margin-top: 30px;
+}
+
+.penal-widget.top-header h2 {
+   color: #e41b17;
+   font-size: 20px;
+}
+
+.top-header .tagline {
+   display: block;
+   font-size: 12px;
+   color: #777;
+}
+
+.penal-widget.about {
+   line-height: 1.5;
+   font-size: 13px;
+}
+
+.penal-widget h3 {
+   color: #444;
+   padding: 10px 0 0;
+   font-size: 16px;
+   font-weight: 700;
+}
+
+/* Toggle Buttons */
+
+.toggle-buttons {
+   list-style: none;
+   font-size: 13px;
+}
+
+.toggle-buttons li {
+   padding: 10px;
+   cursor: pointer;
+   -webkit-tap-highlight-color: transparent;
+   margin: 10px;
+   position: relative;
+   background: #eee;
+   border-radius: 20px;
+}
+
+.toggle-buttons li:hover {
+   background: #ccc;
+}
+
+.toggle-buttons li:after, .toggle-buttons li.active:after {
+   font-family: FontAwesome;
+   float: right;
+   font-size: 16px;
+}
+
+.toggle-buttons li:after {
+   content: "\f204";
+}
+
+.toggle-buttons li.active:after {
+   content: "\f205";
+   color: #16a085;
+}
+
+/* Penal Open Button */
+
+.penal-trigger {
+   -webkit-appearance: none;
+   position: fixed;
+   top: 20px;
+   left: 20px;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   box-shadow: 1px 2px 4px #777;
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   line-height: 40px;
+   color: #fff;
+   background: #e41b17;
+}
+
+.penal-trigger:hover {
+   background: #666;
+}
+
+.top-links-trigger, .penal-trigger, .penal-close {
+   -webkit-tap-highlight-color: transparent;
+   outline: 0;
+   font-family: FontAwesome;
+   font-size: 18px;
+   text-align: center;
+   cursor: pointer;
+}
+
+.penal-trigger:before {
+   content: "\f036";
+}
+
+/* Penal Close Button  and Links Trigger*/
+
+.top-links-trigger, .penal-close {
+   width: 32px;
+   position: absolute;
+   border-radius: 4px;
+   height: 32px;
+   line-height: 32px;
+   top: 10px;
+}
+
+.penal-close {
+   left: 10px;
+}
+
+.top-links-trigger {
+   right: 20px;
+}
+
+.penal-close:before {
+   content: "\f177";
+}
+
+.top-links-trigger:before {
+   content: "\f142";
+}
+
+.top-links-trigger:hover, .penal-close:hover {
+   background: rgba(0, 0, 0, 0.2);
+}
+
+/* Top Menu Links */
+
+.top-links {
+   display: block;
+   position: absolute;
+   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+   background: #fff;
+   top: 20px;
+   right: 20px;
+   width: 120px;
+   overflow: hidden;
+   display: none;
+}
+
+.top-links menuitem a {
+   display: block;
+   padding: 10px;
+   text-decoration: none;
+   font-size: 12px;
+   color: #666;
+}
+
+.top-links menuitem a:hover {
+   background: rgba(0, 0, 0, 0.13);
+}
+
+/* Dim background effect */
+
+.dim-overlay {
+   display: none;
+}
+
+.dim-overlay:before {
+   content: "";
+   background-color: rgba(0, 0, 10, .4);
+   height: 100vh;
+   left: 0;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   overflow: hidden;
+   z-index: 2;
+}
+
+/* Side Penal For Desktop and Large Screen */
+
+@media only screen and (min-width: 480px) {
+   .side-penal {
+      width: 320px;
+      box-sizing: border-box;
+      padding: 40px;
+      left: -320px;
+   }
+}
