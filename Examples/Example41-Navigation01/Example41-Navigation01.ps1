@@ -9,31 +9,30 @@ $DataTable1 = @(
 
 New-HTML {
     New-HTMLNav -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' -LogoLinkHome { #-FixedMenu {
-        New-HTMLNavItem -Type Grid -Text 'Page One' -InternalPageID 'Page1'
-        New-HTMLNavItem -Type Grid -Text 'Page Two' -InternalPageID 'Page2'
-        New-HTMLNavItem -Type Grid -Text 'Place Holder'
-        New-HTMLNavItem -Type Grid -IconBrands codepen -IconColor Blue -InternalPageID 'Page1'
+        New-NavItem -Type Grid -Text 'Page One' -InternalPageID 'Page1'
+        New-NavItem -Type Grid -Text 'Page Two' -InternalPageID 'Page2'
+        New-NavItem -Type Grid -Text 'Place Holder'
+        New-NavItem -Type Grid -IconBrands codepen -IconColor Blue -InternalPageID 'Page1'
+        New-NavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'Link to Page 1' -InternalPageID 'Page1'
+        New-NavItem -Type Menu -IconSolid atlas -IconColor Green -Text 'Link to Page 2' -InternalPageID 'Page2'
+        New-NavItem -Type Menu -IconMaterial star -IconColor Green -Text 'Star'
+        New-NavItem -Type Menu -IconBrands edge -IconColor Green -Text 'Visit Evotec!' -Href 'https://evotec.xyz'
 
-        New-HTMLNavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'Link to Page 1' -InternalPageID 'Page1'
-        New-HTMLNavItem -Type Menu -IconSolid atlas -IconColor Green -Text 'Link to Page 2' -InternalPageID 'Page2'
-        New-HTMLNavItem -Type Menu -IconMaterial star -IconColor Green -Text 'Star'
-        New-HTMLNavItem -Type Menu -IconBrands edge -IconColor Green -Text 'Visit Evotec!' -Href 'https://evotec.xyz'
-
-        New-HTMLNavLink -IconMaterial airplane -Href 'https://evotec.xyz' -Name 'This is link Icon Material'
-        New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with FA' {
-            New-HTMLNavLink -Name 'This is link with 1'
-            New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 2' {
-                New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.1'
-                New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.2'
-                New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.3'
-                New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.4' -Href 'https://evotec.xyz'
+        New-NavLink -IconMaterial airplane -Href 'https://evotec.xyz' -Name 'This is link Icon Material'
+        New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with FA' {
+            New-NavLink -Name 'This is link with 1'
+            New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 2' {
+                New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.1'
+                New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.2'
+                New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.3'
+                New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.4' -Href 'https://evotec.xyz'
             }
-            New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3'
-            New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 4'
+            New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3'
+            New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 4'
         }
-        New-HTMLNavLink -IconBrands app-store -Name 'One Level' -IconColor Blue {
-            New-HTMLNavLink -Name 'One Level 1' -Href '#1'
-            New-HTMLNavLink -Name 'One Level 2' -Href '#2'
+        New-NavLink -IconBrands app-store -Name 'One Level' -IconColor Blue {
+            New-NavLink -Name 'One Level 1' -Href '#1'
+            New-NavLink -Name 'One Level 2' -Href '#2'
         }
     }
     New-HTMLTabStyle -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue #-FontSize 15
