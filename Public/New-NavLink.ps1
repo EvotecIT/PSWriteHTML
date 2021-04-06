@@ -1,4 +1,5 @@
-﻿function New-HTMLNavLink {
+﻿function New-NavLink {
+    [alias('New-HTMLNavLink')]
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(
         [parameter(Position = 0, ParameterSetName = "FontAwesomeBrands")]
@@ -99,7 +100,9 @@
     if ($NestedLinks) {
         [Array] $OutputLinks = & $NestedLinks
     }
-    if (-not $Test) {
+
+    if (-not $Script:GlobalSchema['TopMenu']) {
+        # Links for Left Side Menu
         $NavLink = @(
             if ($OutputLinks) {
                 New-HTMLTag -Tag 'li' -Attributes @{ class = 'has-child' } {
@@ -117,11 +120,12 @@
             Value = $NavLink
         }
     } else {
+        # Links for Top Menu Only
         $NavLink = @(
             if ($OutputLinks) {
                 New-HTMLTag -Tag 'li' -Attributes @{ class = 'has-child' } {
                     New-InternalNavLink -MenuItems -Nested -Name $Name -Href $Href -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
-                    New-HTMLTag -Tag 'ul' -Attributes @{ class = 'its-children' } {
+                    New-HTMLTag -Tag 'ul' -Attributes @{ class = 'menu-subitems' } {
                         $OutputLinks.Value
                     }
                 }

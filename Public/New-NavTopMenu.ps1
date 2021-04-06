@@ -1,4 +1,5 @@
-﻿function New-HTMLNavTopMenu {
+﻿function New-NavTopMenu {
+    [alias('New-HTMLNavTopMenu')]
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(
         [parameter(Position = 0, ParameterSetName = "FontAwesomeBrands")]
@@ -88,10 +89,15 @@
     )
 
     if ($MenuItem) {
+        # tracking for New-HTMLNavLink to know when it's being executed as part of TopMenu
+        $Script:GlobalSchema['TopMenu'] = $true
         $MenuExecuted = & $MenuItem
         $Menu = New-HTMLTag -Tag 'li' {
             New-HTMLTag -Tag 'span' -Attributes @{class = 'dropdown-heading' } {
-                New-HTMLFontIcon -IconSolid address-book
+                New-HTMLTag -Tag 'span' -Attributes @{ style = @{ "padding-right" = "5px" } } {
+                    #New-HTMLFontIcon -IconSolid address-book
+                    New-InternalNavIcon -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
+                }
                 $Name
             }
             New-HTMLTag -Tag 'ul' -Attributes @{ class = 'menu-items' } {
@@ -102,5 +108,8 @@
             Type  = 'TopMenu'
             Value = $Menu
         }
+        $Script:GlobalSchema['TopMenu'] = $false
     }
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLNavTopMenu -ParameterName IconColor -ScriptBlock $Script:ScriptBlockColors

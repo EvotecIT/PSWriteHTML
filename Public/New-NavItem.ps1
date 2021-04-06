@@ -1,4 +1,5 @@
-function New-HTMLNavItem {
+function New-NavItem {
+    [alias('New-HTMLNavItem')]
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(
         [parameter(ParameterSetName = "FontAwesomeBrands")]
