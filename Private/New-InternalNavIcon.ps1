@@ -14,10 +14,11 @@
         [switch] $PullRight,
         [string] $Rotate,
         [switch] $FlipVertical,
-        [switch] $FlipHorizontal
+        [switch] $FlipHorizontal,
+        [string] $ClassIcon = 'icon'
     )
     if ($IconRegular -or $IconBrands -or $IconSolid -or $IconMaterial) {
-        New-HTMLTag -Tag 'span' -Attributes @{ class = 'icon' } {
+        New-HTMLTag -Tag 'span' -Attributes @{ class = $ClassIcon } {
             $newHTMLFontIconSplat = @{
                 IconColor    = $IconColor
                 IconBrands   = $IconBrands

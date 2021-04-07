@@ -1,4 +1,4 @@
-﻿function New-HTMLNavHam {
+﻿function New-HTMLNavFloat {
     [cmdletBinding()]
     param(
         [ScriptBlock] $NavigationLinks,
@@ -63,6 +63,11 @@
                 New-HTMLTag -Tag 'i' -Attributes @{ class = 'tagline' } {
                     $Tagline
                 }
+
+                if ($Output) {
+                    $Output
+                }
+                <#
                 # 3 dots menu
                 New-HTMLTag -Tag 'menu' -Attributes @{ class = 'top-links' } {
                     New-HTMLTag -Tag 'menuitem' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'Menu 1' } }
@@ -70,15 +75,21 @@
                     New-HTMLTag -Tag 'menuitem' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'Menu 3' } }
                 }
                 # select box
-                New-HTMLTag -Tag 'select' -Attributes @{ class = 'penal-select' } {
-                    New-HTMLTag -Tag 'option' { 'Option 1' }
-                    New-HTMLTag -Tag 'option' { 'Option 2' }
-                    New-HTMLTag -Tag 'option' { 'Option 3' }
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'penal-widget' } {
+                    New-HTMLTag -Tag 'h3' { 'Tezt' }
+                    New-HTMLTag -Tag 'select' -Attributes @{ class = 'penal-select' } {
+                        New-HTMLTag -Tag 'option' { 'Option 1' }
+                        New-HTMLTag -Tag 'option' { 'Option 2' }
+                        New-HTMLTag -Tag 'option' { 'Option 3' }
+                    }
                 }
                 # list of options
-                New-HTMLTag -Tag 'ul' -Attributes @{ class = "penal-list" } {
-                    New-HTMLTag -Tag 'li' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'List 1' } }
-                    New-HTMLTag -Tag 'li' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'List 2' } }
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'penal-widget' } {
+                    New-HTMLTag -Tag 'h3' { 'Tezt' }
+                    New-HTMLTag -Tag 'ul' -Attributes @{ class = "penal-list" } {
+                        New-HTMLTag -Tag 'li' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'List 1' } }
+                        New-HTMLTag -Tag 'li' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'List 2' } }
+                    }
                 }
                 # switch widget options
                 New-HTMLTag -Tag 'div' -Attributes @{ class = "penal-widget toggle-switch" } {
@@ -99,6 +110,7 @@
                     New-HTMLTag -Tag 'h3' { 'About' }
                     New-HTMLText -Text 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
                 }
+                #>
             }
         }
     )
