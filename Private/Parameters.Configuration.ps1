@@ -1399,10 +1399,26 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $false
         }
-        NavigationMenuHamburger     = @{
+        NavigationFloat             = @{
             Comment      = 'Navigation Hamburger'
             HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\jquery.sidepenal.css"
+                Css       = "$PSScriptRoot\..\Resources\CSS\jquery.sidepenal.css"
+                CssInLine = @{
+                    '.penal-trigger'              = @{
+                        #'top'        = '20px'
+                        #'left'       = '20px'
+                        #'background' = '#e41b17'
+                    }
+                    ".penal-widget.top-header h2" = @{
+                        #'color' = '#e41b17'
+                    }
+                    '.top-header .tagline'        = @{
+                        #'color' = '#777';
+                    }
+                    '.penal-trigger:hover'        = @{
+                        #'background' = '#666'
+                    }
+                }
             }
             FooterAlways = @{
                 Js = "$PSScriptRoot\..\Resources\JS\jquery.sidepenal.js"

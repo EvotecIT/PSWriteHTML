@@ -1,5 +1,5 @@
 ﻿function New-NavFloatWidgetItem {
-    [cmdletBinding()]
+    [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(
         <#
         [parameter(Position = 0, ParameterSetName = "FontAwesomeBrands")]
@@ -23,6 +23,11 @@
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
         [parameter(ParameterSetName = "FontMaterial")][string] $InternalPageID,
+
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")]
+        [parameter(ParameterSetName = "FontMaterial")][switch] $LinkHome,
 
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
@@ -96,6 +101,9 @@
     )
     if ($InternalPageID) {
         $Href = "$($Script:GlobalSchema.StorageInformation.FileName)_$InternalPageID.html"
+    }
+    if ($LinkHome) {
+        $Href = "$($Script:GlobalSchema.StorageInformation.FileName).html"
     }
     if ($Script:GlobalSchema['NavFloatWidget'] -eq 'dots') {
         New-HTMLTag -Tag 'menuitem' {

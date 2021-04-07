@@ -1,11 +1,12 @@
-/*  Project: Side Penal (Responsive Side Navigation)
- *   Frameworks: jQuery 3.3.1 & Font Awesome 4.7.0
- *   Author: Asif Mughal
- *   GitHub: https://github.com/CodeHimBlog
- *   URL: https://www.codehim.com
- *   License: MIT License
- *   Copyright (c) 2018 - Asif Mughal
- */
+/*
+   Project: Side Penal (Responsive Side Navigation)
+   Frameworks: jQuery 3.3.1 & Font Awesome 4.7.0
+   Author: Asif Mughal
+   GitHub: https://github.com/CodeHimBlog
+   URL: https://www.codehim.com
+   License: MIT License
+   Copyright (c) 2018 - Asif Mughal
+*/
 
 menu.top-links, .penal-list, ul.toggle-buttons {
    margin: 0;
@@ -78,7 +79,9 @@ menu.top-links, .penal-list, ul.toggle-buttons {
 }
 
 .penal-widget.top-header h2 {
+   /* controlled from script
    color: #e41b17;
+   */
    font-size: 20px;
    margin-bottom: 10px;
 }
@@ -86,7 +89,9 @@ menu.top-links, .penal-list, ul.toggle-buttons {
 .top-header .tagline {
    display: block;
    font-size: 12px;
+   /* controlled from script
    color: #777;
+   */
 }
 
 .penal-widget.about {
@@ -144,20 +149,24 @@ menu.top-links, .penal-list, ul.toggle-buttons {
 .penal-trigger {
    -webkit-appearance: none;
    position: fixed;
+   /* This is being set in the script
    top: 20px;
    left: 20px;
+   color: #fff;
+   background: #e41b17;
+   */
    border: 1px solid rgba(0, 0, 0, 0.1);
    box-shadow: 1px 2px 4px #777;
    border-radius: 50%;
    width: 40px;
    height: 40px;
    line-height: 40px;
-   color: #fff;
-   background: #e41b17;
 }
 
 .penal-trigger:hover {
+   /* controlled from script
    background: #666;
+   */
 }
 
 .top-links-trigger, .penal-trigger, .penal-close {
@@ -214,7 +223,7 @@ menu.top-links, .penal-list, ul.toggle-buttons {
    background: #fff;
    top: 20px;
    right: 20px;
-   width: 120px;
+   width: 200px;
    overflow: hidden;
    display: none;
 }

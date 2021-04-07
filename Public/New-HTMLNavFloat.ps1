@@ -4,23 +4,43 @@
         [ScriptBlock] $NavigationLinks,
         [string] $Title,
         [alias('SubTitle')][string] $Tagline,
-        [string] $Logo,
-        [string] $LogoLink,
-        [switch] $LogoLinkHome
+        [string] $TitleColor,
+        [string] $TaglineColor,
+        [object] $ButtonLocationTop,
+        [object] $ButtonLocationLeft,
+        [object] $ButtonLocationRight,
+        [object] $ButtonLocationBottom,
+        [string] $ButtonColor,
+        [string] $ButtonColorBackground,
+        [string] $ButtonBackgroundColorOnHover
     )
 
-    $Script:HTMLSchema.Features.NavigationMenuHamburger = $true
+    $Script:HTMLSchema.Features.NavigationFloat = $true
     $Script:HTMLSchema.Features.JQuery = $true
     $Script:HTMLSchema.Features.FontsMaterialIcon = $true
     $Script:HTMLSchema.Features.FontsAwesome = $true
 
     # We also need to make sure we add this to all pages, not just the primary one
-    $Script:GlobalSchema.Features.NavigationMenuHamburger = $true
+    $Script:GlobalSchema.Features.NavigationFloat = $true
     $Script:GlobalSchema.Features.JQuery = $true
     $Script:GlobalSchema.Features.FontsMaterialIcon = $true
     $Script:GlobalSchema.Features.FontsAwesome = $true
 
     #$Script:CurrentConfiguration['Features']['Main']['HeaderAlways']['CssInLine']['.main-section']['margin-top'] = '55px'
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['top'] = $ButtonLocationTop
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['left'] = $ButtonLocationLeft
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['right'] = $ButtonLocationRight
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['bottom'] = $ButtonLocationBottom
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['background-color'] = ConvertFrom-Color -Color $ButtonColorBackground
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['color'] = ConvertFrom-Color -Color $ButtonColor
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['color'] = ConvertFrom-Color -Color $ButtonColor
+
+    # title color
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-widget.top-header h2']['color'] = ConvertFrom-Color -Color $TitleColor
+    # tagline color
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.top-header .tagline']['color'] = ConvertFrom-Color -Color $TaglineColor
+    # trigger hover
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger:hover']['color'] = ConvertFrom-Color -Color $ButtonBackgroundColorOnHover
 
     if ($LogoLinkHome) {
         $LogoLink = "$($Script:GlobalSchema.StorageInformation.FileName).html"
@@ -121,3 +141,8 @@
     }
 
 }
+Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName ButtonColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName ButtonColorBackground -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName ButtonBackgroundColorOnHover -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName TitleColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName TaglineColor -ScriptBlock $Script:ScriptBlockColors
