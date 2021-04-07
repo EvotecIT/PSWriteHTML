@@ -7,11 +7,14 @@
  *   Copyright (c) 2018 - Asif Mughal
  */
 
-/* File: side-penal.css */
-
-menu.top-links, ul.penal-list, ul.toggle-buttons {
+menu.top-links, .penal-list, ul.toggle-buttons {
    margin: 0;
    padding: 0
+}
+
+.side-penal-list-icon {
+   padding-right: 10px;
+   margin-left: -10px;
 }
 
 .side-penal {
@@ -77,6 +80,7 @@ menu.top-links, ul.penal-list, ul.toggle-buttons {
 .penal-widget.top-header h2 {
    color: #e41b17;
    font-size: 20px;
+   margin-bottom: 10px;
 }
 
 .top-header .tagline {
@@ -95,6 +99,7 @@ menu.top-links, ul.penal-list, ul.toggle-buttons {
    padding: 10px 0 0;
    font-size: 16px;
    font-weight: 700;
+   margin: 10px;
 }
 
 /* Toggle Buttons */
