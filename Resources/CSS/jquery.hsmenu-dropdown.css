@@ -8,7 +8,7 @@
    Copyright (c) 2018 - Asif Mughal
 */
 
-.dropdown-items, .dropdown-heading, .menu-items {
+.dropdown-items, .dropdown-heading, .menu-items, .menu-subitems {
 	margin: 0;
 	padding: 0
 }
@@ -206,6 +206,9 @@ li.home-link a {
 .has-child span.parent:after {
 	font-family: "Font Awesome 5 Free";
 	float: right;
+	font-weight: 900;
+	content: "\f107";
+	padding-top: 2px;
 }
 
 .main-links {
