@@ -9,35 +9,34 @@ $DataTable1 = @(
 
 New-HTML {
     New-HTMLNav -Logo 'https://evotec.pl/wp-content/uploads/2015/05/Logo-evotec-012.png' -LogoLinkHome { #-FixedMenu {
-        New-HTMLNavItem -Type Grid -Text 'Item one' -InternalPageID 'Page1'
-        New-HTMLNavItem -Type Grid -Text 'Item two' -InternalPageID 'Page2'
-        New-HTMLNavItem -Type Grid -Text 'Item three'
-        New-HTMLNavItem -Type Grid -IconSolid address-card -IconColor Green -Text 'test' -Href 'https://evotec.xyz'
+        New-NavItem -Type Grid -Text 'Item one' -InternalPageID 'Page1'
+        New-NavItem -Type Grid -Text 'Item two' -InternalPageID 'Page2'
+        New-NavItem -Type Grid -Text 'Item three'
+        New-NavItem -Type Grid -IconSolid address-card -IconColor Green -Text 'test' -Href 'https://evotec.xyz'
+        New-NavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test' -Href 'https://evotec.xyz'
+        New-NavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test 1'
+        New-NavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test 2 '
+        New-NavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test 3'
+        New-NavItem -Type Menu -IconMaterial star -IconColor Green -Text 'Star'
+        New-NavItem -Type Menu -IconMaterial inbox -IconColor Green -Text 'Inbox'
+        New-NavItem -Type Menu -IconMaterial delete -IconColor Green -Text 'Delete'
+        New-NavItem -Type Menu -IconMaterial run -IconColor Green -Text 'Run'
 
-        New-HTMLNavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test' -Href 'https://evotec.xyz'
-        New-HTMLNavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test 1'
-        New-HTMLNavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test 2 '
-        New-HTMLNavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'test 3'
-        New-HTMLNavItem -Type Menu -IconMaterial star -IconColor Green -Text 'Star'
-        New-HTMLNavItem -Type Menu -IconMaterial inbox -IconColor Green -Text 'Inbox'
-        New-HTMLNavItem -Type Menu -IconMaterial delete -IconColor Green -Text 'Delete'
-        New-HTMLNavItem -Type Menu -IconMaterial run -IconColor Green -Text 'Run'
-
-        New-HTMLNavLink -IconMaterial airplane -Href 'https://evotec.xyz' -Name 'This is link Icon Material'
-        New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with FA' {
-            New-HTMLNavLink -Name 'This is link with 1'
-            New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 2' {
-                New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.1'
-                New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.2'
-                New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.3'
-                New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.4' -Href 'https://evotec.xyz'
+        New-NavLink -IconMaterial airplane -Href 'https://evotec.xyz' -Name 'This is link Icon Material'
+        New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with FA' {
+            New-NavLink -Name 'This is link with 1'
+            New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 2' {
+                New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.1'
+                New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.2'
+                New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.3'
+                New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3.4' -Href 'https://evotec.xyz'
             }
-            New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3'
-            New-HTMLNavLink -IconBrands acquisitions-incorporated -Name 'This is link with 4'
+            New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 3'
+            New-NavLink -IconBrands acquisitions-incorporated -Name 'This is link with 4'
         }
-        New-HTMLNavLink -IconBrands app-store -Name 'One Level' -IconColor Blue {
-            New-HTMLNavLink -Name 'One Level 1' -Href '#1'
-            New-HTMLNavLink -Name 'One Level 2' -Href '#2'
+        New-NavLink -IconBrands app-store -Name 'One Level' -IconColor Blue {
+            New-NavLink -Name 'One Level 1' -Href '#1'
+            New-NavLink -Name 'One Level 2' -Href '#2'
         }
     }
     New-HTMLTabStyle -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue #-FontSize 15
