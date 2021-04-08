@@ -8,14 +8,14 @@ $DataTable1 = @(
 )
 
 New-HTML {
-    New-HTMLNavTop -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' {
+    New-HTMLNavTop -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' -LogoLinkHome {
         New-NavTopMenu -Name 'Domains' -IconRegular address-book -IconColor Green {
-            New-NavLink -IconMaterial airplane -Href 'https://evotec.xyz' -Name 'This is link 1'
-            New-NavLink -IconSolid address-book -Href 'https://evotec.xyz' -Name 'This is link 2'
-            New-NavLink -Href 'https://evotec.xyz' -Name 'This is link 3' -IconBrands apple-pay {
+            New-NavLink -IconMaterial airplane -Name 'This is internal link 1' -InternalPageID 'Page 1'
+            New-NavLink -IconSolid address-book -Href 'https://evotec.xyz' -Name 'This is link to evotec'
+            New-NavLink -Name 'This is link 3' -IconBrands apple-pay {
                 New-NavLink -IconMaterial airplane -Href 'https://evotec.xyz' -Name 'This is link 5'
-                New-NavLink -IconSolid address-book -Href 'https://evotec.xyz' -Name 'This is link 6' {
-                    New-NavLink -Href 'https://evotec.xyz' -Name 'This is link 3' -IconBrands confluence {
+                New-NavLink -IconSolid address-book -Name 'This is link 6' {
+                    New-NavLink -Name 'This is link 3' -IconBrands confluence {
                         New-NavLink -IconMaterial airplane -Href 'https://evotec.xyz' -Name 'This is link 5'
                         New-NavLink -IconSolid address-book -Href 'https://evotec.xyz' -Name 'This is link 6'
                     }
@@ -23,7 +23,7 @@ New-HTML {
             }
         }
         New-NavTopMenu -Name 'Domain Controllers' -IconSolid ambulance {
-            New-NavLink -IconMaterial airplane -Href 'https://evotec.xyz' -Name 'This is link 1'
+            New-NavLink -IconMaterial airplane -Name 'This is link 1' -InternalPageID 'Page 2'
             New-NavLink -IconSolid address-book -Href 'https://evotec.xyz' -Name 'This is link 2'
             New-NavLink -IconBrands codiepie -Href 'https://evotec.xyz' -Name 'This is link 3'
         }
@@ -33,7 +33,10 @@ New-HTML {
             New-NavLink -IconBrands codiepie -Href 'https://evotec.xyz' -Name 'This is link 4'
         }
     }
-    New-HTMLPage -Name 'Page1' {
+
+    New-HTMLText -Text "This is first page" -Color Red -FontSize 40px -Alignment center
+
+    New-HTMLPage -Name 'Page 1' {
         New-HTMLSection -HeaderText 'Test 0' {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
         }
@@ -41,7 +44,7 @@ New-HTML {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
         }
     }
-    New-HTMLPage -Name 'Page2' {
+    New-HTMLPage -Name 'Page 2' {
         New-HTMLSection -HeaderText 'Test2' {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
         }

@@ -8,7 +8,7 @@ $DataTable1 = @(
 )
 
 New-HTML {
-    New-HTMLNav -Logo 'https://evotec.pl/wp-content/uploads/2015/05/Logo-evotec-012.png' -LogoLinkHome { #-FixedMenu {
+    New-HTMLNav -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' -LogoLinkHome { #-FixedMenu {
         New-NavItem -Type Grid -Text 'Item one' -InternalPageID 'Page1'
         New-NavItem -Type Grid -Text 'Item two' -InternalPageID 'Page2'
         New-NavItem -Type Grid -Text 'Item three'
