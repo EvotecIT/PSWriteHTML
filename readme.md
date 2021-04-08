@@ -77,6 +77,7 @@ Please make sure to read changes before updating, as we're undergoing some break
   -
   - Libraries
     - 🔨 Upgraded `FontsAwesome` from 5.15.1 to 5.15.3
+    - 🔨 Upgraded `JustGate` from 1.4.1 to 1.4.2
     - 📦 Added `Material Design Iconic Font` 2.2.0 required by some features until replaced later on
 - 0.0.148 - 2021.04.02
   - 🐛 Conditional formatting/groups should now work correctly in Internet Explorer - had to downgrade some JS capabilities
