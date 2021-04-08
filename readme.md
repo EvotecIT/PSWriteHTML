@@ -74,7 +74,6 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 - 0.0.149
   - ➕ Added multiple new icons for `Fonts Awesome`
-  -
   - Libraries
     - 🔨 Upgraded `FontsAwesome` from 5.15.1 to 5.15.3
     - 🔨 Upgraded `JustGate` from 1.4.1 to 1.4.2
