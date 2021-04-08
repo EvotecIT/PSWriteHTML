@@ -21,11 +21,11 @@ $Script:Configuration = [ordered] @{
         FontsAwesome                = @{
             Comment = 'Default fonts icons'
             Header  = @{
-                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\fontsAwesome.css"
+                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\fontsAwesome.min.css"
             }
             Other   = @{
-                Link = 'https://use.fontawesome.com/releases/v5.15.1/svgs/'
+                Link = 'https://use.fontawesome.com/releases/v5.15.3/svgs/'
             }
             Default = $true
             Email   = $false
@@ -36,7 +36,7 @@ $Script:Configuration = [ordered] @{
             Demos   = 'http://zavoloklom.github.io/material-design-iconic-font/examples.html'
             Header  = @{
                 CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\material-design-iconic-font.min.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\fontsMaterialDesignIconic.min.css"
             }
             Default = $true
             Email   = $false
@@ -1832,6 +1832,7 @@ $Keys = @(
     #'JustGage'
     #'CarouselKineto'
     #'QR'
+    #'Fonts*'
 )
 
 Save-HTMLResource -Configuration $Script:Configuration -Keys $Keys -PathToSave 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources' -Verbose
