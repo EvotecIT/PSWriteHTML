@@ -15,7 +15,6 @@
         [switch] $Reverse,
         [int] $DecimalNumbers,
         [decimal] $GaugageWidth,
-        [string] $Title,
         [string] $Label,
         [string] $LabelColor,
         [switch] $Counter,
@@ -60,9 +59,6 @@
 
     if ($DecimalNumbers) {
         $Gage.decimals = $DecimalNumbers
-    }
-    if ($Title) {
-        $Gage.title = $Title
     }
     if ($ValueColor) {
         $Gage.valueFontColor = $ValueColor
