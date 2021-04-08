@@ -3,6 +3,11 @@
 New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example32-01.html" {
     New-HTMLSection -Invisible {
         New-HTMLPanel {
+            New-HTMLText -Text 'Title' -Color Red -Alignment center -FontSize 20px
+            New-HTMLGage -Label 'Fixes' -MinValue 0 -MaxValue 100 -Value 50 -Counter
+        }
+        New-HTMLPanel -Invisible {
+            New-HTMLText -Text 'Title' -Color Red -Alignment center -FontSize 20px
             New-HTMLGage -Label 'Fixes' -MinValue 0 -MaxValue 100 -Value 50 -Counter
         }
         New-HTMLPanel {
