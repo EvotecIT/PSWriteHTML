@@ -1325,7 +1325,7 @@ $Script:Configuration = [ordered] @{
             Demos       = 'https://toorshia.github.io/justgage'
             Header      = @{
                 JSLink = @(
-                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.1/justgage.min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.2/justgage.min.js'
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\justgage.min.js"
