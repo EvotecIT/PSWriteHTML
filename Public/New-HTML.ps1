@@ -204,7 +204,7 @@ Function New-HTML {
         }
 
         # Find features in use
-        $Features = Get-FeaturesInUse -PriorityFeatures 'Main', 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs' -Email:$Script:HTMLSchema['Email']
+        $Features = Get-FeaturesInUse -PriorityFeatures 'Main', 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs','Raphael' -Email:$Script:HTMLSchema['Email']
 
         [string] $HTML = @(
             #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
