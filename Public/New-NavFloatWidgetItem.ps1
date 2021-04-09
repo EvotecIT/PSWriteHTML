@@ -1,14 +1,6 @@
 ﻿function New-NavFloatWidgetItem {
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(
-        <#
-        [parameter(Position = 0, ParameterSetName = "FontAwesomeBrands")]
-        [parameter(Position = 0, ParameterSetName = "FontAwesomeRegular")]
-        [parameter(Position = 0, ParameterSetName = "FontAwesomeSolid")]
-        [parameter(Position = 0, ParameterSetName = "FontMaterial")]
-        [ScriptBlock] $NestedLinks,
-        #>
-
         [parameter(Mandatory, ParameterSetName = "FontAwesomeBrands")]
         [parameter(Mandatory, ParameterSetName = "FontAwesomeRegular")]
         [parameter(Mandatory, ParameterSetName = "FontAwesomeSolid")]
