@@ -163,11 +163,11 @@ menu.top-links, .penal-list, ul.toggle-buttons {
    line-height: 40px;
 }
 
+/* controlled from script
 .penal-trigger:hover {
-   /* controlled from script
    background: #666;
-   */
 }
+*/
 
 .top-links-trigger, .penal-trigger, .penal-close {
    -webkit-tap-highlight-color: transparent;
