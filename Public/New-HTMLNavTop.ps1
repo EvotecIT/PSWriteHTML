@@ -25,21 +25,15 @@
     if ($LogoLinkHome) {
         $LogoLink = "$($Script:GlobalSchema.StorageInformation.FileName).html"
     }
+    #if ($LinkHome) {
+    $HomeHref = "$($Script:GlobalSchema.StorageInformation.FileName).html"
+    # }
 
     if ($NavigationLinks) {
         $Output = & $NavigationLinks
-        $NavGridItems = [System.Collections.Generic.List[string]]::new()
-        $NavLinks = [System.Collections.Generic.List[string]]::new()
-        $NavGridMenu = [System.Collections.Generic.List[string]]::new()
         $TopMenu = [System.Collections.Generic.List[string]]::new()
         foreach ($Link in $Output) {
-            if ($Link.Type -eq 'NavGridItem') {
-                $NavGridItems.Add($Link.Value)
-            } elseIf ($Link.Type -eq 'NavLinkItem') {
-                $NavLinks.Add($Link.Value)
-            } elseif ($Link.Type -eq 'NavGridMenu') {
-                $NavGridMenu.Add($Link.Value)
-            } elseif ($Link.Type -eq 'TopMenu') {
+            if ($Link.Type -eq 'TopMenu') {
                 $TopMenu.Add($Link.Value)
             }
         }
@@ -50,17 +44,44 @@
     }
     $OptionsJSON = $Options | ConvertTo-Json
 
+    $IconSolid = 'home'
     $Navigation = @(
         # Navigation
         New-HTMLTag -Tag 'nav' -Attributes @{ class = 'codehim-dropdown' } {
             New-HTMLTag -Tag 'ul' -Attributes @{ class = 'dropdown-items' } {
                 New-HTMLTag -Tag 'li' -Attributes @{ class = 'home-link' } {
-                    New-HTMLTag -Tag 'a' -Attributes @{ href = '#home_link' } {
-                        New-HTMLFontIcon -IconSolid home
+                    New-HTMLTag -Tag 'a' -Attributes @{ href = $HomeHref } {
+                        New-InternalNavIcon -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent
                     }
                 }
+                <#
+                New-HTMLTag -Tag 'li' -Attributes @{ class = 'home-logo' } {
+                    # Brand logo
+                    #New-HTMLTag -Tag 'div' -Attributes @{ class = 'brand-logo' } {
+                    New-HTMLTag -Tag 'a' -Attributes @{ href = $LogoLink } {
+                        New-HTMLTag -Tag 'img' -Attributes @{ src = $Logo; title = 'PSWriteHTML Logo'; alt = 'PSWriteHTML Logo' }
+                    }
+                    #}
+                }
+                #>
                 if ($TopMenu) {
                     $TopMenu
+                }
+            }
+            if ($Logo) {
+                <#
+                New-HTMLTag -Tag 'ul' -Attributes @{ class = 'dropdown-logo' } {
+                    New-HTMLTag -Tag 'li' -Attributes @{ class = 'home-logo' } {
+                        New-HTMLTag -Tag 'a' -Attributes @{ href = $LogoLink } {
+                            New-HTMLTag -Tag 'img' -Attributes @{ src = $Logo; title = 'PSWriteHTML Logo'; alt = 'PSWriteHTML Logo' }
+                        }
+                    }
+                }
+                #>
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'home-logo' } {
+                    New-HTMLTag -Tag 'a' -Attributes @{ href = $LogoLink } {
+                        New-HTMLTag -Tag 'img' -Attributes @{ src = $Logo; title = 'PSWriteHTML Logo'; alt = 'PSWriteHTML Logo' }
+                    }
                 }
             }
         }

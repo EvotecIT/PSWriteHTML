@@ -12,7 +12,8 @@
         [object] $ButtonLocationBottom,
         [string] $ButtonColor,
         [string] $ButtonColorBackground,
-        [string] $ButtonBackgroundColorOnHover
+        [string] $ButtonColorOnHover,
+        [string] $ButtonColorBackgroundOnHover
     )
 
     $Script:HTMLSchema.Features.NavigationFloat = $true
@@ -33,42 +34,17 @@
     $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['bottom'] = $ButtonLocationBottom
     $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['background-color'] = ConvertFrom-Color -Color $ButtonColorBackground
     $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['color'] = ConvertFrom-Color -Color $ButtonColor
-    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger']['color'] = ConvertFrom-Color -Color $ButtonColor
-
     # title color
     $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-widget.top-header h2']['color'] = ConvertFrom-Color -Color $TitleColor
     # tagline color
     $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.top-header .tagline']['color'] = ConvertFrom-Color -Color $TaglineColor
     # trigger hover
-    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger:hover']['color'] = ConvertFrom-Color -Color $ButtonBackgroundColorOnHover
-
-    if ($LogoLinkHome) {
-        $LogoLink = "$($Script:GlobalSchema.StorageInformation.FileName).html"
-    }
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger:hover']['background-color'] = ConvertFrom-Color -Color $ButtonColorBackgroundOnHover
+    $Script:CurrentConfiguration['Features']['NavigationFloat']['HeaderAlways']['CssInLine']['.penal-trigger:hover']['color'] = ConvertFrom-Color -Color $ButtonColorOnHover
 
     if ($NavigationLinks) {
         $Output = & $NavigationLinks
-        $NavGridItems = [System.Collections.Generic.List[string]]::new()
-        $NavLinks = [System.Collections.Generic.List[string]]::new()
-        $NavGridMenu = [System.Collections.Generic.List[string]]::new()
-        $TopMenu = [System.Collections.Generic.List[string]]::new()
-        foreach ($Link in $Output) {
-            if ($Link.Type -eq 'NavGridItem') {
-                $NavGridItems.Add($Link.Value)
-            } elseIf ($Link.Type -eq 'NavLinkItem') {
-                $NavLinks.Add($Link.Value)
-            } elseif ($Link.Type -eq 'NavGridMenu') {
-                $NavGridMenu.Add($Link.Value)
-            } elseif ($Link.Type -eq 'TopMenu') {
-                $TopMenu.Add($Link.Value)
-            }
-        }
     }
-
-    $Options = @{
-
-    }
-    $OptionsJSON = $Options | ConvertTo-Json
 
     # Header
     $Navigation = @(
@@ -87,50 +63,6 @@
                 if ($Output) {
                     $Output
                 }
-                <#
-                # 3 dots menu
-                New-HTMLTag -Tag 'menu' -Attributes @{ class = 'top-links' } {
-                    New-HTMLTag -Tag 'menuitem' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'Menu 1' } }
-                    New-HTMLTag -Tag 'menuitem' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'Menu 2' } }
-                    New-HTMLTag -Tag 'menuitem' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'Menu 3' } }
-                }
-                # select box
-                New-HTMLTag -Tag 'div' -Attributes @{ class = 'penal-widget' } {
-                    New-HTMLTag -Tag 'h3' { 'Tezt' }
-                    New-HTMLTag -Tag 'select' -Attributes @{ class = 'penal-select' } {
-                        New-HTMLTag -Tag 'option' { 'Option 1' }
-                        New-HTMLTag -Tag 'option' { 'Option 2' }
-                        New-HTMLTag -Tag 'option' { 'Option 3' }
-                    }
-                }
-                # list of options
-                New-HTMLTag -Tag 'div' -Attributes @{ class = 'penal-widget' } {
-                    New-HTMLTag -Tag 'h3' { 'Tezt' }
-                    New-HTMLTag -Tag 'ul' -Attributes @{ class = "penal-list" } {
-                        New-HTMLTag -Tag 'li' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'List 1' } }
-                        New-HTMLTag -Tag 'li' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'List 2' } }
-                    }
-                }
-                # switch widget options
-                New-HTMLTag -Tag 'div' -Attributes @{ class = "penal-widget toggle-switch" } {
-                    New-HTMLTag -Tag 'h3' { 'Toggle options' }
-                    New-HTMLTag -Tag 'ul' -Attributes @{ class = "toggle-buttons" } {
-                        New-HTMLTag -Tag 'li' { 'Switch 1' }
-                        New-HTMLTag -Tag 'li' { 'Switch 1' }
-                        New-HTMLTag -Tag 'li' { 'Switch 2' }
-                    }
-                }
-                # list of options
-                New-HTMLTag -Tag 'ul' -Attributes @{ class = "penal-list" } {
-                    New-HTMLTag -Tag 'li' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'List 1' } }
-                    New-HTMLTag -Tag 'li' { New-HTMLTag -Tag 'a' -Attributes @{ href = '#1' } { 'List 2' } }
-                }
-                # About
-                New-HTMLTag -Tag 'div' -Attributes @{ class = "penal-widget about" } {
-                    New-HTMLTag -Tag 'h3' { 'About' }
-                    New-HTMLText -Text 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
-                }
-                #>
             }
         }
     )
@@ -143,6 +75,7 @@
 }
 Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName ButtonColor -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName ButtonColorBackground -ScriptBlock $Script:ScriptBlockColors
-Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName ButtonBackgroundColorOnHover -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName ButtonColorBackgroundOnHover -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName ButtonColorOnHover -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName TitleColor -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLNavFloat -ParameterName TaglineColor -ScriptBlock $Script:ScriptBlockColors
