@@ -32,4 +32,9 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-Texts01.h
         New-HTMLListItem -Text '[Link2](https://evotec.xyz) SomeText (TestingText in brackets) and more [more test in brackets] (and more)'
         New-HTMLListItem -Text 'Using standard link <a href="http://example.com/" target="_blank">Hello, world!</a>'
     }
+
+    New-HTMLList {
+        New-HTMLListItem -Text '[Link2](https://evotec.xyz) SomeText (TestingText in brackets) and more [more test in brackets] (and more)'
+        New-HTMLListItem -Text 'Using standard link ', (New-HTMLLink -Text 'Hello World' -Target "_blank" -HrefLink 'https://evotec.xyz')
+    }
 }
