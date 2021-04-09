@@ -1402,7 +1402,7 @@ $Script:Configuration = [ordered] @{
         NavigationFloat             = @{
             Comment      = 'Navigation Hamburger'
             HeaderAlways = @{
-                Css       = "$PSScriptRoot\..\Resources\CSS\jquery.sidepenal.css"
+                Css       = "$PSScriptRoot\..\Resources\CSS\jquery.hsmenu-sidepenal.css"
                 CssInLine = @{
                     '.penal-trigger'              = @{
                         #'top'        = '20px'
@@ -1421,7 +1421,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
             FooterAlways = @{
-                Js = "$PSScriptRoot\..\Resources\JS\jquery.sidepenal.js"
+                Js = "$PSScriptRoot\..\Resources\JS\jquery.hsmenu-sidepenal.js"
             }
             Default      = $true
             Email        = $false
