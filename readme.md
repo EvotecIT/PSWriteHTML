@@ -12,7 +12,7 @@
   <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/languages/top/evotecit/PSWriteHTML.svg?style=flat-square"></a>
   <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/languages/code-size/evotecit/PSWriteHTML.svg?style=flat-square"></a>
   <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/dt/PSWriteHTML.svg?style=flat-square"></a>
-  <a href="https://www.jsdelivr.com/package/gh/evotecit/cdn"><img src="https://img.shields.io/jsdelivr/gh/hy/evotecit/cdn?style=flat-square"></a>
+  <a href="https://www.jsdelivr.com/package/gh/evotecit/cdn"><img src="https://img.shields.io/jsdelivr/gh/hm/evotecit/cdn?style=flat-square"></a>
 </p>
 
 <p align="center">
