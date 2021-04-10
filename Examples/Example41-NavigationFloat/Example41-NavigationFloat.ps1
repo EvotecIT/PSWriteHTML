@@ -35,7 +35,7 @@ New-HTML {
         New-NavFloatWidget -Type Text -Title 'About' {
             New-HTMLText -Text 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
         }
-    } -ButtonColor White -ButtonColorBackground Pink -ButtonLocationLeft 50% -ButtonLocationTop 10px
+    } -ButtonColor White -ButtonColorBackground Pink -ButtonLocationLeft 50% -ButtonLocationTop 10px -ButtonColorBackgroundOnHover Red -ButtonColorOnHover White
     New-HTMLLogo
 
     New-HTMLSection -HeaderText 'Test 0' {
@@ -46,6 +46,7 @@ New-HTML {
     }
 
     New-HTMLPage -Name 'Page1' {
+        New-HTMLLogo
         New-HTMLSection -HeaderText 'Test 0' {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
         }
@@ -54,6 +55,7 @@ New-HTML {
         }
     }
     New-HTMLPage -Name 'Page2' {
+        New-HTMLLogo
         New-HTMLSection -HeaderText 'Test2' {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
         }
