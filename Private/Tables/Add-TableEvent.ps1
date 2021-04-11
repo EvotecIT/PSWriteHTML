@@ -41,9 +41,11 @@
             } else {
                 table1.columns($TargetColumnID).search('').draw();
             }
+            /* Disabled due to rare cases where the search wouldn't show that there are no matches - TO DO: Remove this later
             if (table1.page.info().recordsDisplay == 0) {
                 table1.columns($TargetColumnID).search('').draw();
             }
+            */
         }
     });
 "@
