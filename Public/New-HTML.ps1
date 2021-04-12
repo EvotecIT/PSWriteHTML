@@ -148,6 +148,7 @@ Function New-HTML {
                             Header   = $null
                             Footer   = $null
                             SavePath = [io.path]::Combine($PagesPath, "$($FileName)_$($_.Name).html")
+                            ShowHTML = $false
                         }
                     }
                 }
@@ -190,6 +191,7 @@ Function New-HTML {
         Header   = $null
         Footer   = $null
         SavePath = $FilePath
+        ShowHTML = $ShowHTML.IsPresent
     }
     foreach ($Page in $Pages.Keys) {
         $MainHTML = $Pages[$Page].Output
@@ -204,7 +206,7 @@ Function New-HTML {
         }
 
         # Find features in use
-        $Features = Get-FeaturesInUse -PriorityFeatures 'Main', 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs','Raphael' -Email:$Script:HTMLSchema['Email']
+        $Features = Get-FeaturesInUse -PriorityFeatures 'Main', 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs', 'Raphael' -Email:$Script:HTMLSchema['Email']
 
         [string] $HTML = @(
             #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
@@ -366,38 +368,11 @@ Function New-HTML {
                 }
             }
         )
-        #if (-not (Test-Path -LiteralPath $PagesPath) -and $Pages.Keys.Count -gt 1) {
-        #    $null = New-Item -Path $PagesPath -ItemType Directory -Force
-        #}
         if ($FilePath) {
-            Save-HTML -HTML $HTML -FilePath $Pages[$Page].SavePath -Encoding $Encoding -Format:$Format -Minify:$Minify
+            Save-HTML -HTML $HTML -FilePath $Pages[$Page].SavePath -Encoding $Encoding -Format:$Format -Minify:$Minify -ShowHTML:$Pages[$Page].ShowHTML
         } else {
             # User opted to return all data in form of html
             $HTML
-        }
-        <#
-        if ($FilePath -ne '') {
-            Save-HTML -HTML $HTML -FilePath $Pages[$Page].SavePath -Encoding $Encoding -Format:$Format -Minify:$Minify
-        } else {
-            if ($ShowHTML -or $Temporary) {
-                # if we have not chosen filepath but we used ShowHTML user wants to show it right? Or we have chosen temporary
-                # We want to make sure we don't return useless HTML to the user
-                $FilePath = Get-FileName -Extension 'html' -Temporary
-                Save-HTML -HTML $HTML -FilePath $FilePath -Encoding $Encoding -Format:$Format -Minify:$Minify
-            } else {
-                # User opted to return all data in form of html
-                $HTML
-            }
-        }
-        #>
-
-    }
-    if ($ShowHTML) {
-        try {
-            Invoke-Item -LiteralPath $FilePath -ErrorAction Stop
-        } catch {
-            $ErrorMessage = $_.Exception.Message -replace "`n", " " -replace "`r", " "
-            Write-Verbose "New-HTML - couldn't open file $FilePath in a browser. Error: $ErrorMessage"
         }
     }
 }
