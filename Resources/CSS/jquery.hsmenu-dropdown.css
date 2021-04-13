@@ -39,88 +39,6 @@
 	-webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Skins */
-
-.red {
-	background: #e00032;
-}
-
-.yellow {
-	background: #fdd835;
-}
-
-.green {
-	background: #0a8f08;
-}
-
-.blue {
-	background: #4d73ff;
-}
-
-.orange {
-	background: #ff3d00;
-}
-
-.brown {
-	background: #6d4c41;
-}
-
-.teal {
-	background: #00897b;
-}
-
-.purple {
-	background: #9c27b0;
-}
-
-.indigo {
-	background: #3f51b5;
-}
-
-.cyan {
-	background: #00acc1;
-}
-
-.light-green {
-	background: #7cb342;
-}
-
-.amber {
-	background: #ffc107;
-}
-
-.gray {
-	background: #424242;
-}
-
-.black {
-	background: #000;
-}
-
-.blue-gray {
-	background: #546e7a;
-}
-
-.lime {
-	background: #aeea00;
-}
-
-.light-blue {
-	background: #03a9f4;
-}
-
-.deep-purple {
-	background: #512da8;
-}
-
-.deep-pink {
-	background: #ad1457;
-}
-
-.deep-brown {
-	background: #4e342e;
-}
-
 /* Global Style for Codehim Dropdowns */
 
 .codehim-dropdown a {
@@ -129,6 +47,7 @@
 
 .has-child span.parent+ul, .menu-items {
 	background: #fff;
+	color: black;
 	list-style: none;
 	display: none;
 }
@@ -156,7 +75,7 @@
 
 li.home-link a {
 	text-decoration: none;
-	color: rgba(255, 255, 255, 0.7);
+	/* color: rgba(255, 255, 255, 0.7); */
 	text-align: center;
 	font-size: 20px;
 	display: inline-block;
@@ -232,7 +151,7 @@ li.home-link a {
 		/* for zombies browsers */
 		height: 100vh;
 		display: none;
-		overflow: scroll;
+		overflow: auto;
 		box-sizing: border-box;
 		position: fixed;
 		top: 0;
@@ -290,7 +209,7 @@ li.home-link a {
 	.main-links, .dropdown-heading {
 		display: block;
 		padding: 15px;
-		color: rgba(255, 255, 255, 0.8);
+		/* color: rgba(255, 255, 255, 0.8); */
 		cursor: pointer;
 	}
 	.main-links:hover, .dropdown-heading:hover {
@@ -298,6 +217,7 @@ li.home-link a {
 		color: #fff;
 	}
 	.dropdown-heading:after {
+		margin-left: 8px;
 		font-family: "Font Awesome 5 Free";
 		font-weight: 900;
 		display: inline-block;
@@ -306,7 +226,6 @@ li.home-link a {
 	/* Sub Dropdowns heading */
 	.has-child span.parent {
 		padding: 15px;
-		font-weight: 700;
 		border-bottom: 1px solid #e0e0e0;
 		display: block;
 		background: transparent;
@@ -314,15 +233,7 @@ li.home-link a {
 	.has-child span.parent:after {
 		content: "\f107";
 		margin-right: 15px;
-	}
-}
-
-/* Codehim Dropdown Tab and ipad View */
-
-@media screen and (max-width: 719px) and (min-width: 480px) {
-	.codehim-dropdown {
-		/* Working on it */
-		/*The tab view is coming soon */
+		font-weight: 700;
 	}
 }
 
@@ -346,7 +257,7 @@ li.home-link a {
 	}
 	a.main-links, .dropdown-heading {
 		cursor: pointer;
-		color: rgba(255, 255, 255, 0.7);
+		/* color: rgba(255, 255, 255, 0.7); */
 		display: inline-block;
 		padding: 6px;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -385,4 +296,18 @@ li.home-link a {
 		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 		display: none;
 	}
+}
+
+/* Logo functionality, may need different placement */
+
+.dropdown-logo {
+	list-style: none;
+}
+
+.home-logo img {
+	width: auto;
+	height: 50px;
+	position: fixed;
+	top: 0px;
+	right: 0px;
 }

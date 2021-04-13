@@ -4,7 +4,14 @@
         [ScriptBlock] $NavigationLinks,
         [string] $Logo,
         [string] $LogoLink,
-        [switch] $LogoLinkHome
+        [switch] $LogoLinkHome,
+
+        [string] $MenuColor = 'PacificBlue',
+        [string] $MenuColorBackground = 'Black',
+        [string] $HomeColor = 'PacificBlue',
+        [string] $HomeColorBackground = 'Black',
+        [string] $HomeLink,
+        [switch] $HomeLinkHome
     )
 
     $Script:HTMLSchema.Features.NavigationMenuDropdown = $true
@@ -40,7 +47,14 @@
     }
 
     $Options = @{
-
+        skin     = @{
+            'color'            = ConvertFrom-Color -Color $MenuColor
+            'background-color' = ConvertFrom-Color -Color $MenuColorBackground
+        }
+        skinHome = @{
+            'color'            = ConvertFrom-Color -Color $HomeColor
+            'background-color' = ConvertFrom-Color -Color $HomeColorBackground
+        }
     }
     $OptionsJSON = $Options | ConvertTo-Json
 
@@ -90,13 +104,14 @@
                 "});"
             }
         }
-
-
     )
-
     [PSCustomObject] @{
         Type   = 'Navigation'
         Output = $Navigation
     }
-
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLNavTop -ParameterName HomeColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLNavTop -ParameterName HomeColorBackground -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLNavTop -ParameterName MenuColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLNavTop -ParameterName MenuColorBackground -ScriptBlock $Script:ScriptBlockColors

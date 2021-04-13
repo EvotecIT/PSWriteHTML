@@ -9,9 +9,9 @@ $DataTable1 = @(
 
 New-HTML {
     New-HTMLNavTop -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' -LogoLinkHome {
-        New-NavTopMenu -Name 'Domains' -IconRegular address-book -IconColor Green {
+        New-NavTopMenu -Name 'Domains' -IconRegular address-book {
             New-NavLink -IconMaterial airplane -Name 'This is internal link 1' -InternalPageID 'Page 1'
-            New-NavLink -IconSolid address-book -Href 'https://evotec.xyz' -Name 'This is link to evotec'
+            New-NavLink -IconSolid address-book -Href 'https://evotec.xyz' -Name 'This is link to evotec' -IconColor Pink -NameColor Red
             New-NavLink -Name 'This is link 3' -IconBrands apple-pay {
                 New-NavLink -IconMaterial airplane -Href 'https://evotec.xyz' -Name 'This is link 5'
                 New-NavLink -IconSolid address-book -Name 'This is link 6' {
@@ -32,7 +32,7 @@ New-HTML {
             New-NavLink -IconSolid address-book -Href 'https://evotec.xyz' -Name 'This is link 2'
             New-NavLink -IconBrands codiepie -Href 'https://evotec.xyz' -Name 'This is link 4'
         }
-    }
+    } #-MenuColor Black -MenuColorBackground Pink -HomeColorBackground Black -HomeColor Red
 
     New-HTMLText -Text "This is first page" -Color Red -FontSize 40px -Alignment center
 

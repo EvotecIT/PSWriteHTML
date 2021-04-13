@@ -1,4 +1,4 @@
-/*  Plugin: Codehim Dropdown (Multilevel Dropdowns to Off Canvas) 
+/*  Plugin: Codehim Dropdown (Multilevel Dropdowns to Off Canvas)
  *   Requires: jQuery 1.7 or higher
  *   Author: Asif Mughal
  *   GitHub: https://github.com/CodeHimBlog
@@ -9,19 +9,26 @@
 (function ($) {
 	$.fn.CodehimDropdown = function (options) {
 		var setting = $.extend({
-			skin: "red", //skin color for menubar and drawer
-			slideUpOther: true, //close other opened dropdowns if user trigger new one 
+			skin: {
+				"background-color": "#161B22",
+				"color": 'green'
+			}, //skin color for menubar and drawer
+			skinHome: {
+				"background-color": "#161B22",
+				"color": 'red'
+			}, //skin color for home icon and background
+			slideUpOther: true, //close other opened dropdowns if user trigger new one
 			sticky: true, //fixed menubar on top, false to static
 			/* Some settings for mobile devices (small screen) when horizontal menubar converted into offcanvas menu */
-			listAnimation: "fadeInUp", //Animate list items when revealed 
-			subListAnimation: "fadeInUp", //Animate sub items when revealed 
+			listAnimation: "fadeInUp", //Animate list items when revealed
+			subListAnimation: "fadeInUp", //Animate sub items when revealed
 			//@info: any animation can be used, put the name of animation class name from animate.css in the above options
-			dimOverlay: true, //possible options true or false 
+			dimOverlay: true, //possible options true or false
 			offCanvasSpeed: "default", //possible options are default, fast, faster, slow and slower
-			offCanvasDirection: "left", //possible options are left and right 
+			offCanvasDirection: "left", //possible options are left and right
 			offCanvasWidth: 290, //the width of drawer on mobile devices in pixels
-			onOffCanvasOpen: function () {}, //your custom function to execute when menu open on mobile devices
-			onOffCanvasClose: function () {}, //your custom function to execute when menu closed
+			onOffCanvasOpen: function () { }, //your custom function to execute when menu open on mobile devices
+			onOffCanvasClose: function () { }, //your custom function to execute when menu closed
 
 		}, options);
 
@@ -31,11 +38,12 @@
 			var devWidth = $(window).width(); //available width of the device
 			var devHeight = $(window).height(); //available height of the device
 			var dimOverlay = $div(); //creates div element for dim overlay
-			var hamburger = $div(); //creates div element for hamburger menu icon 
+			var hamburger = $div(); //creates div element for hamburger menu icon
 			var offCanvas = $(target).find(".dropdown-items"); //looks on (small screen) mobile devices
+			var homeLogo = $(target).find("li.home-link a"); // logo
 
 
-			//Applying Customization 
+			//Applying Customization
 
 			if (setting.offCanvasDirection == "right") {
 				$(offCanvas).css({
@@ -57,14 +65,16 @@
 
 			}
 
-			$(target).addClass(setting.skin).prepend(hamburger);
+			//$(target).addClass(setting.skin).prepend(hamburger);
+			$(target).css(setting.skin).prepend(hamburger);
+			$(offCanvas).css(setting.skin);
+			$(homeLogo).css(setting.skinHome);
+			//$(offCanvas).addClass(setting.skin);
 
-			$(offCanvas).addClass(setting.skin);
 
-
-			//OffCanvas Speed 
+			//OffCanvas Speed
 			var speed = setting.offCanvasSpeed;
-			//assign values (in milliseconds) to speed 
+			//assign values (in milliseconds) to speed
 			switch (speed) {
 				case "slow":
 					speed = 1000;
@@ -269,7 +279,7 @@
 			});
 
 
-			// To get everything responsive 
+			// To get everything responsive
 
 			responsive(); //responsive on document ready
 
@@ -331,10 +341,3 @@
 	};
 
 })(jQuery);
-/*   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
