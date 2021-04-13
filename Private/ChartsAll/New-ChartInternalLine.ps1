@@ -23,7 +23,9 @@ function New-ChartInternalLine {
     $Options.series = @( New-ChartInternalDataSet -Data $Data -DataNames $DataNames )
 
     # X AXIS - CATEGORIES
-    $Options.xaxis = [ordered] @{}
+    if (-not $Options.xaxis) {
+        $Options.xaxis = [ordered] @{}
+    }
     if ($DataCategoriesType -ne '') {
         $Options.xaxis.type = $DataCategoriesType
     }
