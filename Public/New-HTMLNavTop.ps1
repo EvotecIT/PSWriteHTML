@@ -47,7 +47,7 @@
     $IconSolid = 'home'
     $Navigation = @(
         # Navigation
-        New-HTMLTag -Tag 'nav' -Attributes @{ class = 'codehim-dropdown' } {
+        New-HTMLTag -Tag 'nav' -Attributes @{ class = 'codehim-dropdown evotec-navigation' } {
             New-HTMLTag -Tag 'ul' -Attributes @{ class = 'dropdown-items' } {
                 New-HTMLTag -Tag 'li' -Attributes @{ class = 'home-link' } {
                     New-HTMLTag -Tag 'a' -Attributes @{ href = $HomeHref } {
@@ -84,13 +84,14 @@
                     }
                 }
             }
+            New-HTMLTag -Tag 'script' {
+                "`$(document).ready(function () {"
+                "    `$('.codehim-dropdown').CodehimDropdown($OptionsJSON);"
+                "});"
+            }
         }
 
-        New-HTMLTag -Tag 'script' {
-            "`$(document).ready(function () {"
-            "    `$('.codehim-dropdown').CodehimDropdown($OptionsJSON);"
-            "});"
-        }
+
     )
 
     [PSCustomObject] @{

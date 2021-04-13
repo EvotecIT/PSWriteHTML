@@ -48,20 +48,22 @@
 
     # Header
     $Navigation = @(
-        # button to open side penal
-        New-HTMLTag -Tag 'button' -Attributes @{ class = 'penal-trigger' }
+        New-HTMLTag -Tag 'nav' -Attributes @{ class = 'evotec-navigation' } {
+            # button to open side penal
+            New-HTMLTag -Tag 'button' -Attributes @{ class = 'penal-trigger' }
 
-        New-HTMLTag -Tag 'section' -Attributes @{ class = 'side-penal' } {
-            New-HTMLTag -Tag 'div' -Attributes @{class = 'penal-widget top-header' } {
-                New-HTMLTag -Tag 'h2' {
-                    $Title
-                }
-                New-HTMLTag -Tag 'i' -Attributes @{ class = 'tagline' } {
-                    $Tagline
-                }
+            New-HTMLTag -Tag 'section' -Attributes @{ class = 'side-penal' } {
+                New-HTMLTag -Tag 'div' -Attributes @{class = 'penal-widget top-header' } {
+                    New-HTMLTag -Tag 'h2' {
+                        $Title
+                    }
+                    New-HTMLTag -Tag 'i' -Attributes @{ class = 'tagline' } {
+                        $Tagline
+                    }
 
-                if ($Output) {
-                    $Output
+                    if ($Output) {
+                        $Output
+                    }
                 }
             }
         }
