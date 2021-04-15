@@ -72,7 +72,17 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-- 0.0.149
+- 0.0.149 (prerelease)
+  - Added **Navigation** - this is highly experimental and requires a lot more work. Please don't use it in production because it can change daily.
+    - `New-HTMLNav` - navigation option 1 can be used with:
+      - `New-NavItem`
+      - `New-NavLink` with nesting
+    - `New-HTMLNavFloat` - navigation option 2 can be used with:
+      - `New-NavFloatWidget`
+      - `New-NavFloatWidgetItem`
+    - `New-HTMLNavTop` - navigation option 3 can be used with:
+      - `New-NavTopMenu`
+      - `New-NavLink`
   - ➕ Added multiple new icons for `Fonts Awesome`
   - 🐛 Fixed `New-TableEvent`. It would not display 0 records if there are no matching records
   - 🐛 Fixed `New-ChartAxisX` usage in `New-HTMLChart` [#225](https://github.com/EvotecIT/PSWriteHTML/issues/225)
