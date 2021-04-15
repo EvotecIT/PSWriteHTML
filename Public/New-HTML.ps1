@@ -312,7 +312,7 @@ Function New-HTML {
                         }
                         # Add tabs header if there is one
                         if ($Script:HTMLSchema.TabsHeaders) {
-                            New-HTMLTabHead -PageName $Pages[$Page]['Name']
+                            New-HTMLTabHead -PageName $Page
                             New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
                                 # Add remaining data
                                 if ($MainHTML) {
