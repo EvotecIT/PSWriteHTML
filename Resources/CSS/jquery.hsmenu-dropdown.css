@@ -1,3 +1,4 @@
+/* navigation-menu-start */
 /*
    Plugin: Codehim Dropdown (Multilevel Dropdowns to Off Canvas)
    Requires: jQuery 1.7 or higher
@@ -311,3 +312,5 @@ li.home-link a {
 	top: 0px;
 	right: 0px;
 }
+
+/* navigation-menu-end */

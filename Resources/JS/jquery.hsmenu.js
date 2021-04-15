@@ -1,3 +1,4 @@
+/* navigation-menu-start */
 
 /*
     Plugin: hs Menu (Modern Mega Menu)
@@ -287,3 +288,5 @@
     };
 
 })(jQuery);
+
+/* navigation-menu-end */

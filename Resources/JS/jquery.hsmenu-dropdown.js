@@ -1,3 +1,5 @@
+/* navigation-menu-start */
+
 /*  Plugin: Codehim Dropdown (Multilevel Dropdowns to Off Canvas)
  *   Requires: jQuery 1.7 or higher
  *   Author: Asif Mughal
@@ -341,3 +343,5 @@
 	};
 
 })(jQuery);
+
+/* navigation-menu-end */

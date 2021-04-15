@@ -1,3 +1,4 @@
+/* navigation-menu-start */
 /*
    Project: Side Penal (Responsive Side Navigation)
    Frameworks: jQuery 3.3.1 & Font Awesome 4.7.0
@@ -268,3 +269,5 @@ menu.top-links, .penal-list, ul.toggle-buttons {
       left: -320px;
    }
 }
+
+/* navigation-menu-end */
