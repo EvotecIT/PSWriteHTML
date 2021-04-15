@@ -48,89 +48,39 @@ Function New-HTML {
     # This makes sure we use always fresh copy
     $Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
     $Script:GlobalSchema = @{
-        #Email              = $false
         Features           = [ordered] @{ } # tracks features for CSS/JS implementation
-        #Charts             = [System.Collections.Generic.List[string]]::new()
-        #Diagrams           = [System.Collections.Generic.List[string]]::new()
-
         StorageInformation = @{
             FileName  = $FileName
             Directory = $DirectoryPath
             PagesPath = $PagesPath
         }
-
-        #Logos              = ""
-
         # We need to track tabs per page, rather then globally
         PagesCurrent       = $FileName
         Pages              = [ordered] @{
             # Tracking different features across pages
             $FileName = New-DefaultSettings
         }
-        # Tabs Tracking/Options (Top Level Ones)
-        #TabsHeaders        = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
-        #TabsHeadersNested  = [System.Collections.Generic.List[System.Collections.IDictionary]]::new() # tracks / stores headers
-        #TabOptions         = @{
-        #    SlimTabs = $false
-        # }
-        <#
-        # TabPanels Tracking
-        TabPanelsList      = [System.Collections.Generic.List[string]]::new()
-
-        # Table Related Tracking
-        Table              = [ordered] @{}
-        TableSimplify      = $false # Tracks current table only
-
-        TableOptions       = [ordered] @{
-            DataStore        = ''
-            # Applies to only JavaScript and AjaxJSON store
-            DataStoreOptions = [ordered] @{
-                BoolAsString   = $false
-                NumberAsString = $false
-                DateTimeFormat = '' #"yyyy-MM-dd HH:mm:ss"
-                NewLineFormat  = @{
-                    NewLineCarriage = '<br>'
-                    NewLine         = "\n"
-                    Carriage        = "\r"
-                }
-            }
-            Type             = 'Structured'
-            Folder           = if ($FilePath) { Split-Path -Path $FilePath } else { '' }
-        }
-
-        CustomHeaderCSS    = [ordered] @{}
-        CustomFooterCSS    = [ordered] @{}
-        CustomHeaderJS     = [ordered] @{}
-        CustomFooterJS     = [ordered] @{}
-
-        # WizardList Tracking
-        WizardList         = [System.Collections.Generic.List[string]]::new()
-        #>
     }
 
+    # lets set primary page as $HTMLSchema
     $Script:HTMLSchema = $Script:GlobalSchema['Pages'][$FileName]
 
     [Array] $TempOutputHTML = Invoke-Command -ScriptBlock $HtmlData
 
-    $HeaderHTML = @()
-    $FooterHTML = @()
-
     $Pages = [ordered]@{}
-    $MainHTML = foreach ($ObjectTemp in $TempOutputHTML) {
+    # Lets add primary page to the mix, either as the only page, or one of many pages
+    $Pages[$FileName] = [ordered] @{
+        Name     = $FileName
+        Main     = $null
+        Primary  = $true
+        Header   = $null
+        Footer   = $null
+        SavePath = $FilePath
+        ShowHTML = $ShowHTML.IsPresent
+    }
+    $Pages[$FileName].Main = foreach ($ObjectTemp in $TempOutputHTML) {
         if ($ObjectTemp -is [PSCustomObject]) {
-            if ($ObjectTemp.Type -eq 'Footer') {
-                $FooterHTML = foreach ($_ in $ObjectTemp.Output) {
-                    # this gets rid of any non-strings
-                    # it's added here to track nested tabs
-                    if ($_ -isnot [System.Collections.IDictionary]) { $_ }
-                }
-            } elseif ($ObjectTemp.Type -eq 'Header') {
-                $HeaderHTML = foreach ($_ in $ObjectTemp.Output) {
-                    # this gets rid of any non-strings
-                    # it's added here to track nested tabs
-                    if ($_ -isnot [System.Collections.IDictionary]) { $_ }
-                }
-            } elseif ($ObjectTemp.Type -eq 'Navigation') {
+            if ($ObjectTemp.Type -eq 'Navigation') {
                 $Navigation = foreach ($_ in $ObjectTemp.Output) {
                     # this gets rid of any non-strings
                     # it's added here to track nested tabs
@@ -143,14 +93,45 @@ Function New-HTML {
                     if ($_.Output -isnot [System.Collections.IDictionary]) {
                         $Pages[$_.Name] = [ordered] @{
                             Name     = " $($FileName)_$($_.Name)"
-                            Output   = $_.Output
+                            #Output   = $null
+                            Main     = $null
                             Primary  = if ($Pages.Keys.Count -eq 0) { $true } else { $false }
                             Header   = $null
                             Footer   = $null
                             SavePath = [io.path]::Combine($PagesPath, "$($FileName)_$($_.Name).html")
                             ShowHTML = $false
                         }
+                        $Pages[$_.Name].Main = foreach ($Object in $_.Output) {
+                            if ($Object.Type -eq 'Footer') {
+                                $Pages[$_.Name].Footer = foreach ($Sub in $Object.Output) {
+                                    # this gets rid of any non-strings
+                                    # it's added here to track nested tabs
+                                    if ($Sub -isnot [System.Collections.IDictionary]) { $Sub }
+                                }
+                            } elseif ($Object.Type -eq 'Header') {
+                                $Pages[$_.Name].Header = foreach ($Sub in $Object.Output) {
+                                    # this gets rid of any non-strings
+                                    # it's added here to track nested tabs
+                                    if ($Sub -isnot [System.Collections.IDictionary]) { $Sub }
+                                }
+                            } else {
+                                if ($Object -isnot [System.Collections.IDictionary]) { $Object }
+                            }
+                        }
+
                     }
+                }
+            } elseif ($ObjectTemp.Type -eq 'Footer') {
+                $Pages[$FileName].Footer = foreach ($Sub in $ObjectTemp.Output) {
+                    # this gets rid of any non-strings
+                    # it's added here to track nested tabs
+                    if ($Sub -isnot [System.Collections.IDictionary]) { $Sub }
+                }
+            } elseif ($ObjectTemp.Type -eq 'Header') {
+                $Pages[$FileName].Header = foreach ($Sub in $ObjectTemp.Output) {
+                    # this gets rid of any non-strings
+                    # it's added here to track nested tabs
+                    if ($Sub -isnot [System.Collections.IDictionary]) { $Sub }
                 }
             } else {
                 if ($ObjectTemp.Output) {
@@ -171,31 +152,7 @@ Function New-HTML {
             }
         }
     }
-
-    #$Script:GlobalSchema.Features.Main = $true
-
-    #$Features = Get-FeaturesInUse -PriorityFeatures 'Main', 'FontsAwesome', 'JQuery', 'Moment', 'DataTables', 'Tabs' -Email:$Script:GlobalSchema['Email']
-
-    # This removes Nested Tabs from primary Tabs
-    #  foreach ($Page in $Script:GlobalSchema['Pages'].Keys) {
-    #     foreach ($_ in $Script:HTMLSchema.TabsHeadersNested) {
-    #          $null = $Script:HTMLSchema.TabsHeaders.Remove($_)
-    #     }
-    # }
-
-    # Lets add primary page to the mix, either as the only page, or one of many pages
-    $Pages[$FileName] = [ordered] @{
-        Name     = $FileName
-        Output   = $MainHTML
-        Primary  = if ($Pages.Keys.Count -eq 0) { $true } else { $false }
-        Header   = $null
-        Footer   = $null
-        SavePath = $FilePath
-        ShowHTML = $ShowHTML.IsPresent
-    }
     foreach ($Page in $Pages.Keys) {
-        $MainHTML = $Pages[$Page].Output
-
         # set current page
         $Script:HTMLSchema = $Script:GlobalSchema['Pages'][$Page]
         $Script:HTMLSchema.Features.Main = $true
@@ -255,19 +212,7 @@ Function New-HTML {
                         New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = $Autorefresh } -SelfClosing
                     }
                     # Those are CSS we always add
-                    #Get-Resources -Online:$true -Location 'HeaderAlways' -Features Fonts, FontsAwesome -NoScript
-                    #Get-Resources -Online:$false -Location 'HeaderAlways' -Features DefaultHeadings -NoScript
                     Get-Resources -Online:$Online.IsPresent -Location 'HeaderAlways' -Features Fonts #-NoScript
-
-                    # we dont need all the scripts/styles in emails, we limit it to approved few
-                    #if ($Script:HTMLSchema['Email'] -eq $true) {
-                    #  $EmailFeatures = 'DefaultHeadings', 'DefaultText', 'DefaultImage', 'Main' #, 'Fonts', 'FontsAwesome'
-                    #[string[]] $Features = foreach ($Feature in $Features) {
-                    #    if ($Feature -in $EmailFeatures) {
-                    #        $Feature
-                    #    }
-                    #}
-                    #}
 
                     # Those are CSS we only add if user selected proper data
                     if ($null -ne $Features) {
@@ -293,19 +238,19 @@ Function New-HTML {
                         Get-Resources -Online:$true -Location 'BodyAlways' -Features $Features -NoScript
                         Get-Resources -Online:$false -Location 'BodyAlways' -Features $Features -NoScript
                     }
-                    if ($HeaderHTML) {
-                        if ($AddComment) { '<!-- HEADER -->' }
-                        New-HTMLTag -Tag 'header' {
-                            $HeaderHTML
-                        }
-                        if ($AddComment) { '<!-- END HEADER -->' }
-                    }
                     if ($Navigation) {
                         if ($AddComment) { '<!-- NAVIGATION -->' }
                         $Navigation
                         if ($AddComment) { '<!-- END NAVIGATION -->' }
                     }
                     New-HTMLTag -Tag 'div' -Attributes @{ class = 'main-section' } {
+                        if ($Pages[$Page].Header) {
+                            if ($AddComment) { '<!-- HEADER -->' }
+                            New-HTMLTag -Tag 'header' {
+                                $Pages[$Page].Header
+                            }
+                            if ($AddComment) { '<!-- END HEADER -->' }
+                        }
                         # Add logo if there is one
                         if ($Script:HTMLSchema.Logos) {
                             $Script:HTMLSchema.Logos
@@ -315,14 +260,14 @@ Function New-HTML {
                             New-HTMLTabHead -PageName $Page
                             New-HTMLTag -Tag 'div' -Attributes @{ 'data-panes' = 'true' } {
                                 # Add remaining data
-                                if ($MainHTML) {
-                                    $MainHTML
+                                if ($Pages[$Page].Main) {
+                                    $Pages[$Page].Main
                                 }
                             }
                         } else {
                             # Add remaining data
-                            if ($MainHTML) {
-                                $MainHTML
+                            if ($Pages[$Page].Main) {
+                                $Pages[$Page].Main
                             }
                         }
                         # Add charts scripts if those are there
@@ -336,10 +281,9 @@ Function New-HTML {
                     if ($AddComment) { '<!-- FOOTER -->' }
 
                     [string] $Footer = @(
-                        if ($FooterHTML) {
-                            $FooterHTML
+                        if ($Pages[$Page].Footer) {
+                            $Pages[$Page].Footer
                         }
-                        #New-HTMLTag -Tag 'footer' {
                         if ($null -ne $Features) {
                             # FooterAlways means we're not able to provide consistent output with and without links and we prefer those to be included
                             # either as links or from file per required features
