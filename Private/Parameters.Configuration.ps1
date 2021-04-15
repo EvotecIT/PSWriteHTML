@@ -19,38 +19,41 @@ $Script:Configuration = [ordered] @{
             Email        = $false
         }
         FontsAwesome                = @{
-            Comment = 'Default fonts icons'
-            Header  = @{
+            Comment         = 'Default fonts icons'
+            InternalComment = 'font-awesome'
+            Header          = @{
                 CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\fontsAwesome.min.css"
             }
-            Other   = @{
+            Other           = @{
                 Link = 'https://use.fontawesome.com/releases/v5.15.3/svgs/'
             }
-            Default = $true
-            Email   = $false
-            License = 'SIL OFL 1.1 License'
+            Default         = $true
+            Email           = $false
+            License         = 'SIL OFL 1.1 License'
         }
         FontsMaterialIcon           = @{
-            Comment = 'Material Design Iconic Font and CSS toolkit'
-            Demos   = 'http://zavoloklom.github.io/material-design-iconic-font/examples.html'
-            Header  = @{
+            Comment         = 'Material Design Iconic Font and CSS toolkit'
+            InternalComment = 'font-materialicon'
+            Demos           = 'http://zavoloklom.github.io/material-design-iconic-font/examples.html'
+            Header          = @{
                 CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\fontsMaterialDesignIconic.min.css"
             }
-            Default = $true
-            Email   = $false
-            License = 'SIL OFL 1.1'
+            Default         = $true
+            Email           = $false
+            License         = 'SIL OFL 1.1'
         }
         AnimateToolkit              = @{
-            Comment = 'Animation Toolkit'
-            Header  = @{
+            Comment         = 'Animation Toolkit'
+            InternalComment = 'animation-toolkit'
+            Header          = @{
                 CssLink = "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
                 Css     = "$PSScriptRoot\..\Resources\CSS\animate.min.css"
             }
-            Default = $true
-            Email   = $false
-            License = ''
+            Default         = $true
+            Email           = $false
+            License         = 'MIT'
         }
         Main                        = [ordered]@{
             HeaderAlways = [ordered]@{
@@ -639,16 +642,17 @@ $Script:Configuration = [ordered] @{
             Email   = $false
         }
         Jquery                      = @{
-            Comment     = 'Jquery'
-            Header      = @{
+            Comment         = 'Jquery'
+            InternalComment = 'jquery'
+            Header          = @{
                 JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' # 'https://code.jquery.com/jquery-3.5.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery.min.js"
             }
-            LicenseLink = 'https://github.com/jquery/jquery/blob/main/LICENSE.txt'
-            License     = 'MIT'
-            SourceCodes = 'https://github.com/jquery/jquery'
-            Default     = $true
-            Email       = $false
+            LicenseLink     = 'https://github.com/jquery/jquery/blob/main/LICENSE.txt'
+            License         = 'MIT'
+            SourceCodes     = 'https://github.com/jquery/jquery'
+            Default         = $true
+            Email           = $false
         }
         DataTables                  = @{
             Comment      = 'DataTables'
@@ -1369,8 +1373,9 @@ $Script:Configuration = [ordered] @{
             Email       = $false
         }
         NavigationMenuHS            = @{
-            Comment      = 'Navigation HS'
-            HeaderAlways = @{
+            Comment         = 'Navigation HS'
+            InternalComment = 'navigation-menu'
+            HeaderAlways    = @{
                 Css       = "$PSScriptRoot\..\Resources\CSS\jquery.hsmenu.css"
                 CssInLine = @{
                     '.hs-menubar'    = @{
@@ -1381,35 +1386,28 @@ $Script:Configuration = [ordered] @{
                     }
                 }
             }
-            FooterAlways = @{
+            FooterAlways    = @{
                 Js = "$PSScriptRoot\..\Resources\JS\jquery.hsmenu.js"
             }
-            Default      = $true
-            Email        = $false
-        }
-        Animate                     = @{
-            Comment = 'Animate'
-            Header  = @{
-                CssLink = 'https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\animate.min.css"
-            }
-            Default = $true
-            Email   = $false
+            Default         = $true
+            Email           = $false
         }
         NavigationMenuDropdown      = @{
-            Comment      = 'Navigation Dropdown'
-            HeaderAlways = @{
+            Comment         = 'Navigation Dropdown'
+            InternalComment = 'navigation-menu'
+            HeaderAlways    = @{
                 Css = "$PSScriptRoot\..\Resources\CSS\jquery.hsmenu-dropdown.css"
             }
-            FooterAlways = @{
+            FooterAlways    = @{
                 Js = "$PSScriptRoot\..\Resources\JS\jquery.hsmenu-dropdown.js"
             }
-            Default      = $true
-            Email        = $false
+            Default         = $true
+            Email           = $false
         }
         NavigationFloat             = @{
-            Comment      = 'Navigation Hamburger'
-            HeaderAlways = @{
+            Comment         = 'Navigation Hamburger'
+            InternalComment = 'navigation-menu'
+            HeaderAlways    = @{
                 Css       = "$PSScriptRoot\..\Resources\CSS\jquery.hsmenu-sidepenal.css"
                 CssInLine = @{
                     '.penal-trigger'              = @{
@@ -1428,11 +1426,11 @@ $Script:Configuration = [ordered] @{
                     }
                 }
             }
-            FooterAlways = @{
+            FooterAlways    = @{
                 Js = "$PSScriptRoot\..\Resources\JS\jquery.hsmenu-sidepenal.js"
             }
-            Default      = $true
-            Email        = $false
+            Default         = $true
+            Email           = $false
         }
         NavigationMultilevel        = @{
             Comment      = 'Navigation Multilevel'

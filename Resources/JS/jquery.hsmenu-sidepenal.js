@@ -1,5 +1,3 @@
-/* navigation-menu-start */
-
 /*  Project: Side Penal (Responsive Side Navigation)
  *   Frameworks: jQuery 3.3.1 & Font Awesome 4.7.0
  *   Author: Asif Mughal
@@ -107,5 +105,3 @@ $(function () {
     }
 
 });
-
-/* navigation-menu-end */

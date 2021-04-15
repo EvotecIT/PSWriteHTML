@@ -3,6 +3,7 @@ function Add-HTMLStyle {
     [CmdletBinding()]
     param(
         [ValidateSet('Inline', 'Header', 'Footer')][string] $Placement = 'Header',
+        [System.Collections.IDictionary] $Resource,
         [string] $ResourceComment,
         [string[]] $Link,
         [string[]] $Content,
@@ -32,10 +33,14 @@ function Add-HTMLStyle {
                     $FileContent = $FileContent -replace '@charset "UTF-8";'
                     # Put with tags or without them
                     if ($SkipTags) {
+                        if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-start */" }
                         $FileContent
+                        if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-end */" }
                     } else {
-                        New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
+                        New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css'; comment = $Resource.InternalComment } {
+                            if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-start */" }
                             $FileContent
+                            if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-end */" }
                         } -NewLine
                     }
                 }
@@ -45,10 +50,14 @@ function Add-HTMLStyle {
         if ($Content) {
             Write-Verbose "Add-HTMLStyle - Adding style from Content"
             if ($SkipTags) {
+                if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-start */" }
                 $Content
+                if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-end */" }
             } else {
-                New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } {
+                New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css'; comment = $Resource.InternalComment } {
+                    if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-start */" }
                     $Content
+                    if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-end */" }
                 } -NewLine
             }
         }
@@ -56,7 +65,7 @@ function Add-HTMLStyle {
         foreach ($L in $Link) {
             if ($L -ne '') {
                 Write-Verbose "Add-HTMLStyle - Adding link $L"
-                New-HTMLTag -Tag 'link' -Attributes @{ rel = "stylesheet preload prefetch"; type = "text/css"; href = $L; as = 'style' } -SelfClosing -NewLine
+                New-HTMLTag -Tag 'link' -Attributes @{ rel = "stylesheet preload prefetch"; type = "text/css"; href = $L; as = 'style'; comment = $Resource.InternalComment } -SelfClosing -NewLine
             }
         }
         # Content from Hashtable

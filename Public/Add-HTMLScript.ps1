@@ -3,6 +3,7 @@ function Add-HTMLScript {
     [CmdletBinding()]
     param(
         [ValidateSet('Inline', 'Header', 'Footer')][string] $Placement = 'Header',
+        [System.Collections.IDictionary] $Resource,
         [string] $ResourceComment,
         [string[]] $Link,
         [string[]] $Content,
@@ -28,10 +29,14 @@ function Add-HTMLScript {
                         }
                     }
                     if ($SkipTags) {
+                        if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-start */" }
                         $FileContent
+                        if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-end */" }
                     } else {
-                        New-HTMLTag -Tag 'script' -Attributes @{ type = 'text/javascript' } {
+                        New-HTMLTag -Tag 'script' -Attributes @{ type = 'text/javascript'; comment = $Resource.InternalComment } {
+                            if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-start */" }
                             $FileContent
+                            if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-end */" }
                         } -NewLine
                     }
                 }
@@ -40,17 +45,21 @@ function Add-HTMLScript {
         # Content from string
         if ($Content) {
             if ($SkipTags) {
+                if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-start */" }
                 $Content
+                if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-end */" }
             } else {
                 New-HTMLTag -Tag 'script' -Attributes @{ type = 'text/javascript' } {
+                    if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-start */" }
                     $Content
+                    if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-end */" }
                 } -NewLine
             }
         }
         # Content from link
         foreach ($L in $Link) {
             if ($L -ne '') {
-                New-HTMLTag -Tag 'script' -Attributes @{ type = "text/javascript"; src = $L } -NewLine
+                New-HTMLTag -Tag 'script' -Attributes @{ type = "text/javascript"; src = $L; comment = $Resource.InternalComment } -NewLine
             } else {
                 return
             }

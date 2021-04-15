@@ -1,5 +1,3 @@
-/* navigation-menu-start */
-
 /*
     Plugin: hs Menu (Modern Mega Menu)
     Frameworks: jQuery 3.3.1 & Material Design Iconic Font 2.0
@@ -288,5 +286,3 @@
     };
 
 })(jQuery);
-
-/* navigation-menu-end */
