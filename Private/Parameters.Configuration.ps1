@@ -1244,8 +1244,8 @@ $Script:Configuration = [ordered] @{
                 JsInLine  = "var calendarTracker = {};"
             }
             Header       = @{
-                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js'
-                CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css'
+                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js'
+                CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendar.css"
                 JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
             }
