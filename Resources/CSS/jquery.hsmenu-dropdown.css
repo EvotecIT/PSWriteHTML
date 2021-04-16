@@ -242,7 +242,9 @@ li.home-link a {
 @media only screen and (min-width: 480px) {
 	.menu-items {
 		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+		/* Setting thru PowerShell
 		width: 150px;
+		*/
 		position: absolute;
 		left: 2px;
 	}
@@ -289,7 +291,9 @@ li.home-link a {
 	.has-child ul {
 		position: absolute;
 		display: block;
+		/* Setting thru PowerShell
 		width: 140px;
+		*/
 		left: 100%;
 		z-index: 3;
 		top: 0;

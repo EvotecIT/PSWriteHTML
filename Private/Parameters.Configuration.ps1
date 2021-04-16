@@ -1396,7 +1396,22 @@ $Script:Configuration = [ordered] @{
             Comment         = 'Navigation Dropdown'
             InternalComment = 'navigation-menu'
             HeaderAlways    = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\jquery.hsmenu-dropdown.css"
+                Css       = "$PSScriptRoot\..\Resources\CSS\jquery.hsmenu-dropdown.css"
+                CssInline = @{
+                    # PC View
+                    "@media only screen and (min-width: 480px)" = @{
+                        ".menu-items"   = @{
+                            width = '200px'
+                        }
+                        ".has-child ul" = @{
+                            width = '200px'
+                        }
+                    }
+                    # Mobile View
+                    "@media only screen and (max-width: 480px)" = @{
+
+                    }
+                }
             }
             FooterAlways    = @{
                 Js = "$PSScriptRoot\..\Resources\JS\jquery.hsmenu-dropdown.js"

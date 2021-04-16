@@ -6,6 +6,8 @@
         [string] $LogoLink,
         [switch] $LogoLinkHome,
 
+        [object] $MenuItemsWidth = '200px',
+
         [string] $MenuColor = 'PacificBlue',
         [string] $MenuColorBackground = 'Black',
         [string] $HomeColor = 'PacificBlue',
@@ -29,6 +31,10 @@
         $Script:GlobalSchema.Features.FontsAwesome = $true
 
         $Script:CurrentConfiguration['Features']['Main']['HeaderAlways']['CssInLine']['.main-section']['margin-top'] = '55px'
+
+
+        $Script:CurrentConfiguration['Features']['NavigationMenuDropdown']['HeaderAlways']['CssInLine']['@media only screen and (min-width: 480px)']['.menu-items']['width'] = $MenuItemsWidth
+        $Script:CurrentConfiguration['Features']['NavigationMenuDropdown']['HeaderAlways']['CssInLine']['@media only screen and (min-width: 480px)']['.has-child ul']['width'] = $MenuItemsWidth
 
         if ($LogoLinkHome) {
             $LogoLink = "$($Script:GlobalSchema.StorageInformation.FileName).html"

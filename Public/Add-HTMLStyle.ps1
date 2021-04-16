@@ -70,7 +70,7 @@ function Add-HTMLStyle {
         }
         # Content from Hashtable
         if ($Css) {
-            ConvertTo-CascadingStyleSheets -Css $Css -WithTags:(-not $SkipTags.IsPresent) #:$false
+            ConvertTo-CascadingStyleSheets -Css $Css -WithTags:(-not $SkipTags.IsPresent) -Comment $Resource.InternalComment #:$false
         }
     )
     if ($Output) {

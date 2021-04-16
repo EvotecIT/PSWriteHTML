@@ -2,6 +2,7 @@
     [cmdletBinding()]
     param(
         [Parameter(ValueFromPipeline, ValueFromPipelineByPropertyName)][System.Collections.IDictionary] $Css,
+        [string] $Comment,
         [switch] $WithTags
     )
     Process {
@@ -43,11 +44,15 @@
 
         }
         if ($WithTags) {
-            New-HTMLTag -Tag 'style' {
+            New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css'; comment = $Comment } {
+                if ($Comment) { "/* $($Comment)-start */" }
                 $Output
+                if ($Comment) { "/* $($Comment)-end */" }
             }
         } else {
+            if ($Comment) { "/* $($Comment)-start */" }
             $Output
+            if ($Comment) { "/* $($Comment)-end */" }
         }
     }
 }

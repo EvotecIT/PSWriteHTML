@@ -72,6 +72,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.149-Alpha3 (prerelease) - 2021.04.16
+  - Added ability to control menu items width in top navigation
 - 0.0.149-Alpha2 (prerelease) - 2021.04.15
   - Padding for logo in navigation changed
 - 0.0.149-Alpha1 (prerelease) - 2021.04.15
