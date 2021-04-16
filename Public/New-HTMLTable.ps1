@@ -529,7 +529,12 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTablesButtons = $true
         $Options['buttons'] = @(
             if ($CustomButtons) {
-                $CustomButtons
+                foreach ($Button in $CustomButtons) {
+                    if (-not $Button.Title -and $Title) {
+                        $Button.title = $Title
+                    }
+                    $Button
+                }
             } else {
                 foreach ($button in $Buttons) {
                     if ($button -eq 'pdfHtml5') {
