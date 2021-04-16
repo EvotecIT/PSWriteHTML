@@ -73,6 +73,10 @@ Unfortunetly some code is very old, some code doesn't serve it's purpose anymore
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 - 0.0.149-Alpha3 (prerelease) - 2021.04.16
+  - Added more properties for `New-CalendarEvent` and some help content
+  - Libraries
+    - 🔨 Upgraded `FullCalendar` from 5.5.1 to 5.6.0
+- 0.0.149-Alpha3 (prerelease) - 2021.04.16
   - Added ability to control menu items width in top navigation
 - 0.0.149-Alpha2 (prerelease) - 2021.04.15
   - Padding for logo in navigation changed
