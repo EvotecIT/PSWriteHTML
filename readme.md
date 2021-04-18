@@ -72,6 +72,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.149-Alpha6 (prerelease)
+  - Added two or more separate y-axis to a line charts [#153](https://github.com/EvotecIT/PSWriteHTML/issues/153)
 - 0.0.149-Alpha5 (prerelease) - 2021.04.18
   - Libraries
     - 🔨 Upgraded `Apex Charts` from 3.26.0 to 3.26.1
