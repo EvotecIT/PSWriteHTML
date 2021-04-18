@@ -6,6 +6,7 @@ New-HTML -TitleText 'Charts - TimeLine' -Online -FilePath $PSScriptRoot\Example-
     New-HTMLSection -Invisible {
         New-HTMLPanel {
             New-HTMLChart -Title 'Incidents Reported vs Solved' -TitleAlignment center {
+                New-ChartAxisY -TitleText 'Some Testing Title 1' -Show
                 #New-ChartAxisX -Name 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
                 #New-ChartLine -Name 'Incidents per month' -Value 10, 41, 35, 51, 49, 62, 69, 91, 148
                 #New-ChartLine -Name 'Incidents per month resolved' -Value 5, 10, 20, 31, 49, 62, 69, 91, 148
