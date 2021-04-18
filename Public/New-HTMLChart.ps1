@@ -81,6 +81,7 @@
     $LineWidths = [System.Collections.Generic.List[int]]::new()
     $LineDashes = [System.Collections.Generic.List[int]]::new()
     $LineCaps = [System.Collections.Generic.List[string]]::new()
+    $ChartAxisY = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
 
     #$RadialColors = [System.Collections.Generic.List[string]]::new()
     #$SparkColors = [System.Collections.Generic.List[string]]::new()
@@ -187,7 +188,7 @@
         } elseif ($Setting.ObjectType -eq 'ChartGrid') {
             $GridOptions = $Setting.Grid
         } elseif ($Setting.ObjectType -eq 'ChartAxisY') {
-            $ChartAxisY = $Setting.ChartAxisY
+            $ChartAxisY.Add($Setting.ChartAxisY)
         } elseif ($Setting.ObjectType -eq 'TimeLine') {
             $Type = 'rangeBar'
             $DataSetChartTimeLine.Add($Setting.TimeLine)

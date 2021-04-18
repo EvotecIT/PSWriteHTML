@@ -21,7 +21,7 @@ function New-HTMLChartBar {
         [Array] $DataLegend,
 
         [System.Collections.IDictionary] $ChartAxisX,
-        [System.Collections.IDictionary] $ChartAxisY,
+        [Array] $ChartAxisY,
         [System.Collections.IDictionary] $Title,
         [System.Collections.IDictionary] $SubTitle,
         [System.Collections.IDictionary] $Legend,
@@ -48,7 +48,9 @@ function New-HTMLChartBar {
         New-ChartInternalAxisX -Options $Options @ChartAxisX
     }
     if ($ChartAxisY) {
-        $Options.yaxis = $ChartAxisY
+        # ChartAxisY in Bar charts doesn't support multiple AxisY
+        # So we force it to use first one
+        $Options.yaxis = $ChartAxisY[0]
     }
 
     New-ChartInternalBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `

@@ -25,13 +25,15 @@
         [switch] $Opposite,
         [switch] $Logarithmic,
         [switch] $ForceNiceScale,
-        [switch] $Floating
+        [switch] $Floating,
+        [string] $SeriesName
     )
     $Object = [PSCustomObject] @{
         ObjectType = 'ChartAxisY'
         ChartAxisY = @{
             show       = $Show.IsPresent
             showAlways = $ShowAlways.IsPresent
+            seriesName = $SeriesName
         }
     }
     if ($Reversed) {

@@ -22,7 +22,7 @@ function New-HTMLChartLine {
         [Array] $DataNames,
         #[Array] $DataLegend,
         [System.Collections.IDictionary] $ChartAxisX,
-        [System.Collections.IDictionary] $ChartAxisY,
+        [Array] $ChartAxisY,
         [System.Collections.IDictionary] $Title,
         [System.Collections.IDictionary] $SubTitle,
         [System.Collections.IDictionary] $Legend,

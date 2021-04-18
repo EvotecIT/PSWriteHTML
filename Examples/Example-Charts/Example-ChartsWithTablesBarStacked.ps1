@@ -34,6 +34,8 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsWit
                 New-ChartBar -Name $Object.Year -Value $Object.Money, $Object.Taxes, $Object.Time
             }
             New-ChartEvent -DataTableID 'NewIDtoSearchInChart' -ColumnID 4
+
+            New-ChartAxisY -TitleText 'Years' -Show -TitleColor Gold
         }
     }
 

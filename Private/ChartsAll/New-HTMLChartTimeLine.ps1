@@ -26,7 +26,7 @@
         [System.Collections.IDictionary] $Theme,
 
         [System.Collections.IDictionary] $ChartAxisX,
-        [System.Collections.IDictionary] $ChartAxisY,
+        [Array] $ChartAxisY,
 
         [System.Collections.IDictionary] $ChartToolTip,
         [System.Collections.IDictionary] $DataLabel,
@@ -49,7 +49,9 @@
         New-ChartInternalAxisX -Options $Options @ChartAxisX
     }
     if ($ChartAxisY) {
-        $Options.yaxis = $ChartAxisY
+        # ChartAxisY in TimeLine charts doesn't support multiple AxisY
+        # So we force it to use first one
+        $Options.yaxis = $ChartAxisY[0]
     }
     if ($Legend) {
         $Options.legend = $Legend
