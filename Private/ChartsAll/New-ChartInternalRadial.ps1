@@ -7,9 +7,8 @@ function New-ChartInternalRadial {
         $Type
     )
     # Chart defintion type, size
-    $Options.chart = @{
-        type = 'radialBar'
-    }
+    $Options.chart.type = 'radialBar'
+
 
     if ($Type -eq '1') {
         New-ChartInternalRadialType1 -Options $Options

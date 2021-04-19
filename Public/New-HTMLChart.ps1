@@ -25,12 +25,25 @@
         [string] $SubTitleFontFamily,
         [string] $SubTitleColor,
 
-        [nullable[int]] $Height = 350,
-        [nullable[int]] $Width,
+        [Object] $Height = 350,
+        [Object] $Width,
         [alias('GradientColors')][switch] $Gradient,
-        [alias('PatternedColors')][switch] $Patterned
+        [alias('PatternedColors')][switch] $Patterned,
+        [string] $Id,
+        [string] $Group
     )
     $Script:HTMLSchema.Features.MainFlex = $true
+
+    if (-not $Id) {
+        $Id = "ChartID-" + (Get-RandomStringName -Size 8)
+    }
+
+    $Chart = [ordered] @{
+        id     = $Id
+        group  = $Group
+        height = ConvertFrom-Size -Size $Height
+        width  = ConvertFrom-Size -Size $Width
+    }
 
     # Lets build Title Block
     $TitleBlock = @{
@@ -246,7 +259,7 @@
             }
         }
 
-        New-HTMLChartBar `
+        New-HTMLChartBar -Chart $Chart `
             -Data $($HashTable.Values) `
             -DataNames $DataName `
             -DataLegend $DataLegend `
@@ -258,8 +271,6 @@
             -DataLabelsFontSize $BarDataLabelsFontSize `
             -Distributed:$BarDistributed `
             -DataLabelsColor $BarDataLabelsColor `
-            -Height $Height `
-            -Width $Width `
             -Colors $Colors `
             -ChartAxisX $ChartAxisX `
             -ChartAxisY $ChartAxisY `
@@ -270,6 +281,7 @@
             return
         }
         $SplatChartLine = @{
+            Chart           = $Chart
             Series          = $DataSeries
             Stroke          = $LineStroke
             DataLabel       = $DataLabel
@@ -281,8 +293,8 @@
             #DataLabelsColor    = $BarDataLabelsColor
             ChartAxisX      = $ChartAxisX
             ChartAxisY      = $ChartAxisY
-            Height          = $Height
-            Width           = $Width
+            #Height          = $Height
+            #Width           = $Width
             Theme           = $Theme
             Toolbar         = $Toolbar
             GridOptions     = $GridOptions
@@ -306,35 +318,31 @@
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
         #>
     } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
-        New-HTMLChartPie `
+        New-HTMLChartPie -Chart $Chart `
             -Legend $Legend `
             -Type $Type `
             -Data $DataSet `
             -DataNames $DataName `
             -Colors $Colors `
-            -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     } elseif ($Type -eq 'Spark') {
-        New-HTMLChartSpark `
+        New-HTMLChartSpark -Chart $Chart `
             -Legend $Legend `
             -Data $DataSet `
             -DataNames $DataName `
             -Colors $Colors `
-            -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     } elseif ($Type -eq 'Radial') {
-        New-HTMLChartRadial `
+        New-HTMLChartRadial -Chart $Chart `
             -Legend $Legend `
             -Data $DataSet `
             -DataNames $DataName `
             -Colors $Colors `
-            -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     } elseif ($Type -eq 'rangeBar') {
-        New-HTMLChartTimeLine `
+        New-HTMLChartTimeLine -Chart $Chart `
             -Legend $Legend `
             -Data $DataSetChartTimeLine `
-            -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar `
             -ChartAxisX $ChartAxisX `
             -ChartAxisY $ChartAxisY `

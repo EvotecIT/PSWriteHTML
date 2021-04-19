@@ -1,8 +1,8 @@
 function New-HTMLChartLine {
     [CmdletBinding()]
     param(
-        [nullable[int]] $Height = 350,
-        [nullable[int]] $Width,
+        #[nullable[int]] $Height = 350,
+        #[nullable[int]] $Width,
 
         #[bool] $DataLabelsEnabled = $true,
         #[int] $DataLabelsOffsetX = -6,
@@ -11,9 +11,10 @@ function New-HTMLChartLine {
         # [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category',
 
         #[int] $MarkerSize,
-
+        [System.Collections.IDictionary] $Chart,
         [Array] $Stroke,
         [Array] $Series,
+
         [System.Collections.IDictionary] $DataLabel,
         [System.Collections.IDictionary] $Markers,
         #[Array] $DataLegend,
@@ -32,9 +33,9 @@ function New-HTMLChartLine {
     )
 
     $Options = [ordered] @{ }
-    $Options.chart = @{
-        type = 'line'
-    }
+    $Options.chart = $Chart
+    $Options['chart']['type'] = 'line'
+
     if ($Title) {
         $Options.title = $Title
     }
@@ -97,7 +98,7 @@ function New-HTMLChartLine {
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
 
-    New-ChartInternalSize -Options $Options -Height $Height -Width $Width
+    #New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }

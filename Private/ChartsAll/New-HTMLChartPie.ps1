@@ -1,9 +1,10 @@
 ﻿function New-HTMLChartPie {
     [CmdletBinding()]
     param(
+        [System.Collections.IDictionary] $Chart,
         [string] $Type,
-        [nullable[int]] $Height = 350,
-        [nullable[int]] $Width,
+        #[nullable[int]] $Height = 350,
+        #[nullable[int]] $Width,
 
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
@@ -27,6 +28,7 @@
 
     )
     $Options = [ordered] @{ }
+    $Options.chart = $Chart
     if ($Title) {
         $Options.title = $Title
     }

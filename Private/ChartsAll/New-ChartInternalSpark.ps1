@@ -13,11 +13,9 @@ function New-ChartInternalSpark {
         $ColorRGB = ConvertFrom-Color -Color $Color
         $Options.colors = @($ColorRGB)
     }
-    $Options.chart = [ordered] @{
-        type      = 'area'
-        sparkline = @{
-            enabled = $true
-        }
+    $Options.chart.type = 'area'
+    $Options.chart.sparkline = @{
+        enabled = $true
     }
     $Options.stroke = @{
         curve = 'straight'

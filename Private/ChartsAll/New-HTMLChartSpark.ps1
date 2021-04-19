@@ -1,8 +1,9 @@
 function New-HTMLChartSpark {
     [CmdletBinding()]
     param(
-        [nullable[int]] $Height = 350,
-        [nullable[int]] $Width,
+        [System.Collections.IDictionary] $Chart,
+        #[nullable[int]] $Height = 350,
+        #[nullable[int]] $Width,
 
         [System.Collections.IDictionary] $Title,
         [System.Collections.IDictionary] $SubTitle,
@@ -23,6 +24,7 @@ function New-HTMLChartSpark {
     )
 
     $Options = [ordered] @{ }
+    $Options.chart = $Chart
     if ($Title) {
         $Options.title = $Title
     }
@@ -39,7 +41,7 @@ function New-HTMLChartSpark {
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
-    New-ChartInternalSize -Options $Options -Height $Height -Width $Width
+    #New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }

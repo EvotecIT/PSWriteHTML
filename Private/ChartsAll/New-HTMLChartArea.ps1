@@ -1,7 +1,8 @@
 function New-HTMLChartArea {
     [CmdletBinding()]
     param(
-        [nullable[int]] $Height = 350,
+        [System.Collections.IDictionary] $Chart,
+        #[nullable[int]] $Height = 350,
 
         [bool] $DataLabelsEnabled = $true,
         [int] $DataLabelsOffsetX = -6,
@@ -42,6 +43,7 @@ function New-HTMLChartArea {
     )
 
     $Options = [ordered] @{ }
+    $Options.chart = $Chart
     if ($ChartAxisY) {
         $Options.yaxis = $ChartAxisY
     }

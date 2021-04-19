@@ -16,10 +16,7 @@ function New-ChartInternalArea {
         #$Type
     )
     # Chart defintion type, size
-    $Options.chart = @{
-        type = 'area'
-    }
-
+    $Options.chart.type = 'area'
     $Options.series = @( New-ChartInternalDataSet -Data $Data -DataNames $DataNames )
 
     # X AXIS - CATEGORIES

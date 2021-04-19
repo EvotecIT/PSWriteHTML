@@ -21,20 +21,14 @@ Function New-ChartInternalBar {
     )
 
     if ($Type -eq 'bar') {
-        $Options.chart = [ordered] @{
-            type = 'bar'
-        }
+        $Options.chart.type = 'bar'
     } elseif ($Type -eq 'barStacked') {
-        $Options.chart = [ordered] @{
-            type    = 'bar'
-            stacked = $true
-        }
+        $Options.chart.type = 'bar'
+        $Options.chart.stacked = $true
     } else {
-        $Options.chart = [ordered] @{
-            type      = 'bar'
-            stacked   = $true
-            stackType = '100%'
-        }
+        $Options.chart.type = 'bar'
+        $Options.chart.stacked = $true
+        $Options.chart.stackType = '100%'
     }
 
     $Options.plotOptions = @{

@@ -1,8 +1,9 @@
 function New-HTMLChartRadial {
     [CmdletBinding()]
     param(
-        [nullable[int]] $Height = 350,
-        [nullable[int]] $Width,
+        [System.Collections.IDictionary] $Chart,
+        #[nullable[int]] $Height = 350,
+        #[nullable[int]] $Width,
 
         [Array] $DataNames,
         [Array] $Data,
@@ -24,6 +25,7 @@ function New-HTMLChartRadial {
     )
 
     $Options = [ordered] @{ }
+    $Options.chart = $Chart
     if ($Title) {
         $Options.title = $Title
     }
@@ -45,7 +47,7 @@ function New-HTMLChartRadial {
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
-    New-ChartInternalSize -Options $Options -Height $Height -Width $Width
+    #New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }

@@ -1,8 +1,9 @@
 function New-HTMLChartBar {
     [CmdletBinding()]
     param(
-        [nullable[int]] $Height = 350,
-        [nullable[int]] $Width,
+        [System.Collections.IDictionary] $Chart,
+        #[nullable[int]] $Height = 350,
+        #[nullable[int]] $Width,
         [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',
         [string[]] $Colors,
 
@@ -35,6 +36,7 @@ function New-HTMLChartBar {
     )
 
     $Options = [ordered] @{ }
+    $Options.chart = $Chart
     if ($Title) {
         $Options.title = $Title
     }
@@ -63,7 +65,7 @@ function New-HTMLChartBar {
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
 
-    New-ChartInternalSize -Options $Options -Height $Height -Width $Width
+    #New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }

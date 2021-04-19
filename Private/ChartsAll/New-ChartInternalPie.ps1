@@ -7,9 +7,7 @@
         [string] $Type
     )
     # Chart defintion type, size
-    $Options.chart = @{
-        type = $Type.ToLower()
-    }
+    $Options.chart.type = $Type.ToLower()
     $Options.series = @($Values)
     $Options.labels = @($Names)
 }
