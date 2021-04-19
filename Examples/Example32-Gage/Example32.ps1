@@ -90,7 +90,7 @@ New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example32-01.html"
     }
     New-HTMLSection -Invisible {
         New-HTMLPanel {
-            New-HTMLGage -Label 'Fixes' -MinValue 0 -MaxValue 100 -Value 50 -Counter -Title 'This is my title' -LabelColor Blue -BackgroundGaugageColor Almond
+            New-HTMLGage -Label 'Fixes' -MinValue 0 -MaxValue 100 -Value 50 -Counter -LabelColor Blue -BackgroundGaugageColor Almond
         }
         New-HTMLPanel {
             # Notice how counter forces the number goes up from 0 to 5000
