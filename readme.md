@@ -72,12 +72,14 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-- 0.0.149-Alpha6 (prerelease)
-  - Added two or more separate y-axis to a line charts [#153](https://github.com/EvotecIT/PSWriteHTML/issues/153)
-  - Added ability to mix line charts and bar charts
-  - Improved `New-ChartDataLabel`
-  - Added `New-ChartMarker`
-  - Improved `New-ChartLine`
+- 0.0.149-Alpha7 (prerelease) - 2021.04.19
+  - 💡 Improved `New-HTMLChart`
+- 0.0.149-Alpha6 (prerelease) - 2021.04.19
+  - ☑ Added two or more separate y-axis to a line charts [#153](https://github.com/EvotecIT/PSWriteHTML/issues/153)
+  - ☑ Added ability to mix line charts and bar charts
+  - 💡 Improved `New-ChartDataLabel`
+  - ☑ Added `New-ChartMarker`
+  - 💡 Improved `New-ChartLine`
 - 0.0.149-Alpha5 (prerelease) - 2021.04.18
   - Libraries
     - 🔨 Upgraded `Apex Charts` from 3.26.0 to 3.26.1
@@ -120,225 +122,225 @@ Please make sure to read changes before updating, as we're undergoing some break
   - 💡 Improved `Title*` options in `New-HTMLChart`
   - 📦 Added `Subtitle*` options in `New-HTMLChart`
 - 0.0.146 - 2021.03.23
-  - [x] Improves `New-TableConditionGroup`
-    - [x] Added `Row` switch
+  - ☑ Improves `New-TableConditionGroup`
+    - ☑ Added `Row` switch
 - 0.0.145 - 2021.03.20
-  - [x] Improves `New-TableCondition`
-    - [x] Added missing `ne` condtion (not equals)
-    - [x] Added `ReverseCondition` parameter which allows `ConditionValue` compared to `ColumnValue`, rather then default `ColumnValue` to `ConditionValue`.
-    - [x] Added condition `in` and `notin`
+  - ☑ Improves `New-TableCondition`
+    - ☑ Added missing `ne` condtion (not equals)
+    - ☑ Added `ReverseCondition` parameter which allows `ConditionValue` compared to `ColumnValue`, rather then default `ColumnValue` to `ConditionValue`.
+    - ☑ Added condition `in` and `notin`
 - 0.0.144 - 2021.03.20
-  - [x] Improves `New-TableCondition` and `New-TableConditionGroup` with styles when condition FAILS
-    - [x] This allows for example `New-TableCondition -Name 'BoolAsString' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType string -Inline -FailBackgroundColor Green`
+  - ☑ Improves `New-TableCondition` and `New-TableConditionGroup` with styles when condition FAILS
+    - ☑ This allows for example `New-TableCondition -Name 'BoolAsString' -Value $true -BackgroundColor Yellow -Color Green -Operator eq -ComparisonType string -Inline -FailBackgroundColor Green`
 - 0.0.143 - 2021.03.18
-  - [x] Improves `New-TableCondition` by detecting non-existing column names
-  - [x] Improves `New-TableConditionGroup` by adding logic operator NONE
-  - [x] Fixes `New-TableConditionGroup` with `Inline` switch
+  - ☑ Improves `New-TableCondition` by detecting non-existing column names
+  - ☑ Improves `New-TableConditionGroup` by adding logic operator NONE
+  - ☑ Fixes `New-TableConditionGroup` with `Inline` switch
 - 0.0.142 - 2021.03.17
-  - [x] Improves `New-HTMLText` URL Link markdown parsing [#216](https://github.com/EvotecIT/PSWriteHTML/pull/216) - thank you **Alan Longstaff**
+  - ☑ Improves `New-HTMLText` URL Link markdown parsing [#216](https://github.com/EvotecIT/PSWriteHTML/pull/216) - thank you **Alan Longstaff**
 - 0.0.141 - 2021.03.17
-  - [x] Added `IncludeProperty`/`ExcludeProperty` to `New-HTMLTable`/`Out-HTMLView` for easy excluding properties we don't need
-    - [x] Example `Get-Process | Out-HtmlView -ExcludeProperty Name -First 3`
+  - ☑ Added `IncludeProperty`/`ExcludeProperty` to `New-HTMLTable`/`Out-HTMLView` for easy excluding properties we don't need
+    - ☑ Example `Get-Process | Out-HtmlView -ExcludeProperty Name -First 3`
 - 0.0.140 - 2021.03.17
-  - [x] Changed `New-TableCondition` parameter name from `CaseInsensitive` to `CaseSensitive`
-    - [x] This means by default conditions of strings are not case sensitive
+  - ☑ Changed `New-TableCondition` parameter name from `CaseInsensitive` to `CaseSensitive`
+    - ☑ This means by default conditions of strings are not case sensitive
 - 0.0.139 - 2021.03.16
-  - [x] Improved `Out-HTMLView`
+  - ☑ Improved `Out-HTMLView`
 - 0.0.138 - 2021.03.16
-  - [x] Added alias for `New-HTMLTableOption`
-  - [x] Forces `Table` within `EmailBody` to respect `font-size` and other style options given to EmailBody
+  - ☑ Added alias for `New-HTMLTableOption`
+  - ☑ Forces `Table` within `EmailBody` to respect `font-size` and other style options given to EmailBody
 - 0.0.137 - 2021.03.16
-  - [x] Fix for timeline charts not working due to date conversion
-  - [x] Fix for chart events (I don't know how i test things)
-  - [x] Library
-    - [x] Upgrade ApexCharts from `3.22` to `3.26`
-    - [x] Upgrade VisNetwork from `9.0.3` to `9.0.4`
+  - ☑ Fix for timeline charts not working due to date conversion
+  - ☑ Fix for chart events (I don't know how i test things)
+  - ☑ Library
+    - ☑ Upgrade ApexCharts from `3.22` to `3.26`
+    - ☑ Upgrade VisNetwork from `9.0.3` to `9.0.4`
 - 0.0.136 - 2021.03.14
-  - [x] Fixed - Values with decimals do not auto-find within html table when clicking on charts/pies [#209](https://github.com/EvotecIT/PSWriteHTML/issues/209)
-  - [x] Table Conditioning - highly improved table conditions. This requires some documentation/blog post
-    - [x] Added `New-TableCondtionGroup`
-    - [x] Improved `New-TableCondition`
-    - [x] **Let's hope I didn't break anything**
-  - [x] Added ability to configure ArrayJoin/ArrayJoinString for DataStore HTML using `New-HTMLTableOption`
-  - [x] Added `New-HTMLMap` experimental cmdlet
-    - [x] Due to that cmdlet size have become larger
-  - [x] Library
-    - [x] Updated DataTables `1.10.21` to `1.10.24`
-    - [x] Updated MomentJS to `2.29.1`
+  - ☑ Fixed - Values with decimals do not auto-find within html table when clicking on charts/pies [#209](https://github.com/EvotecIT/PSWriteHTML/issues/209)
+  - ☑ Table Conditioning - highly improved table conditions. This requires some documentation/blog post
+    - ☑ Added `New-TableCondtionGroup`
+    - ☑ Improved `New-TableCondition`
+    - ☑ **Let's hope I didn't break anything**
+  - ☑ Added ability to configure ArrayJoin/ArrayJoinString for DataStore HTML using `New-HTMLTableOption`
+  - ☑ Added `New-HTMLMap` experimental cmdlet
+    - ☑ Due to that cmdlet size have become larger
+  - ☑ Library
+    - ☑ Updated DataTables `1.10.21` to `1.10.24`
+    - ☑ Updated MomentJS to `2.29.1`
 - 0.0.135 - 2021.03.07
-  - [x] Added ability to create plugins for `PSWriteHTML` -> Example: [PSWriteHTML.Maps](https://github.com/EvotecIT/PSWriteHTML.Maps)
-    - [x] Keep in mind that module is not required as the functionality is part of the PSWriteHTML module anyways - it's just an example on how to do it yourself
-  - [x] Removed `Adobe` icon from `FontsAwesome (Brands)`
-  - [x] Library
-    - [x] Updated `VisNetwork` from `9.0.2` to `9.0.3`
-  - [x] Added `Width` parameter to `New-HTMLSection` which allows `New-HTMLSection -Width 30%` or similar
-  - [x] Added `Title` field in New-DiagramNode
-  - [x] Improves ability to provide basic HTML in Label/Title in `New-DiagramNode`
+  - ☑ Added ability to create plugins for `PSWriteHTML` -> Example: [PSWriteHTML.Maps](https://github.com/EvotecIT/PSWriteHTML.Maps)
+    - ☑ Keep in mind that module is not required as the functionality is part of the PSWriteHTML module anyways - it's just an example on how to do it yourself
+  - ☑ Removed `Adobe` icon from `FontsAwesome (Brands)`
+  - ☑ Library
+    - ☑ Updated `VisNetwork` from `9.0.2` to `9.0.3`
+  - ☑ Added `Width` parameter to `New-HTMLSection` which allows `New-HTMLSection -Width 30%` or similar
+  - ☑ Added `Title` field in New-DiagramNode
+  - ☑ Improves ability to provide basic HTML in Label/Title in `New-DiagramNode`
 - 0.0.134 - 2021.03.05
-  - [x] Fixes wrong register argument completer for `New-HTMLTextBox`
-  - [x] Fixes SearchPane not completly visible [#193](https://github.com/EvotecIT/PSWriteHTML/issues/193)
+  - ☑ Fixes wrong register argument completer for `New-HTMLTextBox`
+  - ☑ Fixes SearchPane not completly visible [#193](https://github.com/EvotecIT/PSWriteHTML/issues/193)
 - 0.0.133 - 2021.03.04
-  - [x] Library
-    - [x] Updated DataTables ColReorder 1.5.2 -> 1.5.3
-    - [x] Updated DataTables FixedColumns 3.3.1 -> 3.3.2
-    - [x] Updated DataTables FixedHeader 3.1.7 -> 3.1.8
-    - [x] Updated DataTables 1.10.22 -> 1.10.23
-    - [x] Updated DataTables KeyTable 2.5.3 -> 2.6.0
-    - [x] Updated DataTables Responsive 2.2.6 -> 2.2.7
-    - [x] Added `DataTables SearchBuilder` 1.0.1
-    - [x] Updated DataTables SearchPanes 1.2.1 -> 1.2.2
-    - [x] Updated FancyTree `2.33` -> `2.38`
-    - [x] Updated JustGage `1.4.0` -> `1.4.1`
-    - [x] Updated FullCalendar `5.1.0 -> 5.5.1`
-    - [x] Added DataTables Search Alphabet `1.0.0 with personal PR`
-    - [x] Updated `OrgChart` from `2.2.0` to `3.1.0`, `3.1.1`
-    - [x] Updated `VisData` from `7.1.1` to `7.1.2`
-    - [x] Updated `VisNetwork` from `8.5.5` to `9.0.2`
-    - [x] Updated `VisTimeline` from `7.4.2` to `7.4.6`
-    - [x] Updated `EasyQrCode` from `4.3.0` to `4.3.2`
-    - [x] Added `DataTables Select` -> `1.3.1`
-  - [x] Added ability `OverwriteDOM` in `New-HTMLTable` to provide granular option how options are visually positioned
-  - [x] Added ability `SearchBuilder` in `New-HTMLTable` for multi-condition search
-  - [x] Added ability `SearchHighlight` in `New-HTMLTable`
-  - [x] Added ability `AlphabetSearch` in `New-HTMLTable`
-  - [x] Fixes `New-ChartLegend` hex colors but most likely all other cmdlets where more than one HEX based color was used
-  - [x] Added `HeaderTextSize` to `New-HTMLSection`
-  - [x] Added `New-TablePercentageBar` for `New-HTMLTable`
-  - [x] Added `New-ChartEvent`
-  - [x] Fixed `New-HTMLTable -DataStore JavaScript` when dollar ($) is used within column name or content
-  - [x] Improved `New-HTMLTableOption` added `ArrayJoin`,`ArrayJoinString`
-  - [x] Fixed `New-HTMLTable` export to excel would only export visible columns. Exports all again
-  - [x] Improved some CDN handling
+  - ☑ Library
+    - ☑ Updated DataTables ColReorder 1.5.2 -> 1.5.3
+    - ☑ Updated DataTables FixedColumns 3.3.1 -> 3.3.2
+    - ☑ Updated DataTables FixedHeader 3.1.7 -> 3.1.8
+    - ☑ Updated DataTables 1.10.22 -> 1.10.23
+    - ☑ Updated DataTables KeyTable 2.5.3 -> 2.6.0
+    - ☑ Updated DataTables Responsive 2.2.6 -> 2.2.7
+    - ☑ Added `DataTables SearchBuilder` 1.0.1
+    - ☑ Updated DataTables SearchPanes 1.2.1 -> 1.2.2
+    - ☑ Updated FancyTree `2.33` -> `2.38`
+    - ☑ Updated JustGage `1.4.0` -> `1.4.1`
+    - ☑ Updated FullCalendar `5.1.0 -> 5.5.1`
+    - ☑ Added DataTables Search Alphabet `1.0.0 with personal PR`
+    - ☑ Updated `OrgChart` from `2.2.0` to `3.1.0`, `3.1.1`
+    - ☑ Updated `VisData` from `7.1.1` to `7.1.2`
+    - ☑ Updated `VisNetwork` from `8.5.5` to `9.0.2`
+    - ☑ Updated `VisTimeline` from `7.4.2` to `7.4.6`
+    - ☑ Updated `EasyQrCode` from `4.3.0` to `4.3.2`
+    - ☑ Added `DataTables Select` -> `1.3.1`
+  - ☑ Added ability `OverwriteDOM` in `New-HTMLTable` to provide granular option how options are visually positioned
+  - ☑ Added ability `SearchBuilder` in `New-HTMLTable` for multi-condition search
+  - ☑ Added ability `SearchHighlight` in `New-HTMLTable`
+  - ☑ Added ability `AlphabetSearch` in `New-HTMLTable`
+  - ☑ Fixes `New-ChartLegend` hex colors but most likely all other cmdlets where more than one HEX based color was used
+  - ☑ Added `HeaderTextSize` to `New-HTMLSection`
+  - ☑ Added `New-TablePercentageBar` for `New-HTMLTable`
+  - ☑ Added `New-ChartEvent`
+  - ☑ Fixed `New-HTMLTable -DataStore JavaScript` when dollar ($) is used within column name or content
+  - ☑ Improved `New-HTMLTableOption` added `ArrayJoin`,`ArrayJoinString`
+  - ☑ Fixed `New-HTMLTable` export to excel would only export visible columns. Exports all again
+  - ☑ Improved some CDN handling
 - 0.0.132 - 2021.02.02
-  - [x] Fixed `Format/Minify` error message when `PSParseHTML` is not installed.
-  - [x] Fixed Table headers pushed to the left when using ScrollX with Tabs [#191](https://github.com/EvotecIT/PSWriteHTML/issues/191)
+  - ☑ Fixed `Format/Minify` error message when `PSParseHTML` is not installed.
+  - ☑ Fixed Table headers pushed to the left when using ScrollX with Tabs [#191](https://github.com/EvotecIT/PSWriteHTML/issues/191)
 - 0.0.131 - 2021.01.29
-  - [x] New-HTMLTable AjaxJSON fixed - [#189](https://github.com/EvotecIT/PSWriteHTML/issues/189)
+  - ☑ New-HTMLTable AjaxJSON fixed - [#189](https://github.com/EvotecIT/PSWriteHTML/issues/189)
 - 0.0.130 - 2021.01.16
-  - [x] Update `New-HTMLTableStyle` with more options and functionality
+  - ☑ Update `New-HTMLTableStyle` with more options and functionality
 - 0.0.129 - 2021.01.11
-  - [x] Update `New-HTMLText` regex for urls - tnx chrisdent!
+  - ☑ Update `New-HTMLText` regex for urls - tnx chrisdent!
 - 0.0.128 - 2021.01.09
-  - [x] Fixed Export to Excel deletes all commas [#182](https://github.com/EvotecIT/PSWriteHTML/issues/182)
+  - ☑ Fixed Export to Excel deletes all commas [#182](https://github.com/EvotecIT/PSWriteHTML/issues/182)
 - 0.0.127 - 2021.01.06
-  - [x] Reverted ApexCharts to 3.22 from 3.23 (offline version)
+  - ☑ Reverted ApexCharts to 3.22 from 3.23 (offline version)
 - 0.0.126 - 2021.01.06
-  - [x] Reverted ApexCharts to 3.22 from 3.23
-    - [x] During tab switch it would sometimes fail to display charts properly - reported to apex [#2137](https://github.com/apexcharts/apexcharts.js/issues/2137)
+  - ☑ Reverted ApexCharts to 3.22 from 3.23
+    - ☑ During tab switch it would sometimes fail to display charts properly - reported to apex [#2137](https://github.com/apexcharts/apexcharts.js/issues/2137)
 - 0.0.125 - 2021.01.02
-  - [x] Easy QR Code update `4.2.1` to `4.3.0`
+  - ☑ Easy QR Code update `4.2.1` to `4.3.0`
 - 0.0.124 - 2021.01.02
-  - [x] Added `New-HTMLQRCode` to provide HTML based QR codes
+  - ☑ Added `New-HTMLQRCode` to provide HTML based QR codes
 - 0.0.123 - 2020.12.23
-  - [x] **Potentially Breaking Changes**
-    - [x] Removed custom Headings (H1,H2,H3,H4,H5,H6) -> `New-HTMLHeading` still works just using defaults
-      - [x] It was totally inconsistent between H1-H6, probably needs new CSS for those later on that will be consistent and inline with other code
-    - [x] Removed H7 heading totally - it got there by some copy paste from internet
-    - [x] Removed custom Horizontal Line (HR) -> `New-HTMLHorizonalLine` still works just using defaults
-      - [x] Not looking good, the default one looks better, more consitent but may need some work in the future
-    - [x] `New-HTMLLogo` is now marked as obsolete. It was there from day one but it's not really customizable. New way will be given sometime in the future
-      - [x] It still works, CSS code is only added when it's used
-    - [x] Removed custom link highlights CSS. Not sure if it was ever used, hopefully not. May come back in future in better form
-    - [x] When `EmailBody` is used it will no longer put `JavaScript` or `CSS` inside HTML for advanced features such as DataTables, or anything that used to be there
-      - [x] This is to make sure EMAIL HTML is as small as possbile
-      - [x] JavaScript in emails won't work in 90% of cases and it would just add to the junk in HTML
-      - [x] However if EmailBody is used within `Email` and `AttachSelf` is used it will generate same HTML using full JS/CSS code
-      - [x] This ensures that self attach should work as it used to, at the same time providing small HTML in email
-    - [x] JavaScript/CSS is now marked as safe for email or normal HTML reports/pages. What that means some CSS/JS is marked only as being added to Email or vice versa.
-  - [x] **Improvements to CSS**
-    - [x] The goal of PSWriteHTML is to get into state where only really nessecary code is added. Less CSS is now included by default
-    - [x] Hopefully there are no major problems from those changes
-    - [x] The default margin for all elements should be `5px`, however when used within email it will be set to `0px`
+  - ☑ **Potentially Breaking Changes**
+    - ☑ Removed custom Headings (H1,H2,H3,H4,H5,H6) -> `New-HTMLHeading` still works just using defaults
+      - ☑ It was totally inconsistent between H1-H6, probably needs new CSS for those later on that will be consistent and inline with other code
+    - ☑ Removed H7 heading totally - it got there by some copy paste from internet
+    - ☑ Removed custom Horizontal Line (HR) -> `New-HTMLHorizonalLine` still works just using defaults
+      - ☑ Not looking good, the default one looks better, more consitent but may need some work in the future
+    - ☑ `New-HTMLLogo` is now marked as obsolete. It was there from day one but it's not really customizable. New way will be given sometime in the future
+      - ☑ It still works, CSS code is only added when it's used
+    - ☑ Removed custom link highlights CSS. Not sure if it was ever used, hopefully not. May come back in future in better form
+    - ☑ When `EmailBody` is used it will no longer put `JavaScript` or `CSS` inside HTML for advanced features such as DataTables, or anything that used to be there
+      - ☑ This is to make sure EMAIL HTML is as small as possbile
+      - ☑ JavaScript in emails won't work in 90% of cases and it would just add to the junk in HTML
+      - ☑ However if EmailBody is used within `Email` and `AttachSelf` is used it will generate same HTML using full JS/CSS code
+      - ☑ This ensures that self attach should work as it used to, at the same time providing small HTML in email
+    - ☑ JavaScript/CSS is now marked as safe for email or normal HTML reports/pages. What that means some CSS/JS is marked only as being added to Email or vice versa.
+  - ☑ **Improvements to CSS**
+    - ☑ The goal of PSWriteHTML is to get into state where only really nessecary code is added. Less CSS is now included by default
+    - ☑ Hopefully there are no major problems from those changes
+    - ☑ The default margin for all elements should be `5px`, however when used within email it will be set to `0px`
       - [ ] This mainly is important for Images/Text/Headings but all other html objects such as tables and so on, also are supposed to have `5px` margin
-    - [x] It would seem `Roboto Condensed` or other fonts defined in font-family across code were never used and defaults were kicking in
-      - [x] I've now fixed it so `Roboto Condensed` is used when `Online` mode
-      - [x] In `Offline` mode it will still go back to `Sans-Serif` (usually `Arial`)
-      - [x] I've removed other `font-families` from multiple CSS files to make it visually consistent
+    - ☑ It would seem `Roboto Condensed` or other fonts defined in font-family across code were never used and defaults were kicking in
+      - ☑ I've now fixed it so `Roboto Condensed` is used when `Online` mode
+      - ☑ In `Offline` mode it will still go back to `Sans-Serif` (usually `Arial`)
+      - ☑ I've removed other `font-families` from multiple CSS files to make it visually consistent
       - [ ] May need to be revisited if `Roboto Condensed` is best choice
-    - [x] Update to `FontsAwesome` from 5.14 to 5.15.1
-    - [x] Update to `FontsAwesome` to work offline
-      - [x] Unfortunetly this means 500KB file size in CSS module size and output HTML file is 500KB bigger
-      - [x] I'm skipping including of TTF/SVG/EOT types as WOFF and WOFF2 should be enough for modern browsers
-  - [x] **Other changes**
-    - [x] Changed Tables `row height` to fit more data
-    - [x] Changed Tables `noscript` version (email + no javascript) to fit more how DataTables looks like
-    - [x] Improved HTMLTable with `Simplify` switch positioning
-    - [x] `New-HTML` added parameter `AddComment` - by default comments are not added to code now
-    - [x] Added `link` preloading for styles - not sure if it will help but why not
-    - [x] Fix for `New-DiagramOptionsLinks` setting lenght which would have resultant html error
-    - [x] `EmailTextBox` renamed to `New-HTMLTextBox`. `EmailTextBox` added as alias to that command
-    - [x] Added `Format` and `Minify` switches to `New-HTML` and `EmailBody`. Those will only be working if [PSParseHTML](https://github.com/EvotecIT/PSParseHTML) is installed.
+    - ☑ Update to `FontsAwesome` from 5.14 to 5.15.1
+    - ☑ Update to `FontsAwesome` to work offline
+      - ☑ Unfortunetly this means 500KB file size in CSS module size and output HTML file is 500KB bigger
+      - ☑ I'm skipping including of TTF/SVG/EOT types as WOFF and WOFF2 should be enough for modern browsers
+  - ☑ **Other changes**
+    - ☑ Changed Tables `row height` to fit more data
+    - ☑ Changed Tables `noscript` version (email + no javascript) to fit more how DataTables looks like
+    - ☑ Improved HTMLTable with `Simplify` switch positioning
+    - ☑ `New-HTML` added parameter `AddComment` - by default comments are not added to code now
+    - ☑ Added `link` preloading for styles - not sure if it will help but why not
+    - ☑ Fix for `New-DiagramOptionsLinks` setting lenght which would have resultant html error
+    - ☑ `EmailTextBox` renamed to `New-HTMLTextBox`. `EmailTextBox` added as alias to that command
+    - ☑ Added `Format` and `Minify` switches to `New-HTML` and `EmailBody`. Those will only be working if [PSParseHTML](https://github.com/EvotecIT/PSParseHTML) is installed.
       - [ ] `PSParseHTML` is not installed by default and you need to install it separatly `Install-Module PSParseHTML`. There is no intention of bundling it at this moment.
       - [ ] **Known issue**: Removes comment required for `Internet Explorer` javascript to not prompt when using as local file
-    - [x] Improved `New-HTMLTimelineItem` generated HTML when no color is used
-    - [x] Added `Enable-HTMLFeature` to bring JS/CSS even if it's not used
-    - [x] `Calendars` & `DataTables` & `Diagrams` should now resize/fit properly on Global Tab change
-    - [x] `Calendars` & `DataTables` & `Diagrams` are now resize/fit properly on Wizard Step Change
-    - [x] `Calendars` & `DataTables` & `Diagrams` are now resize/fit properly on Tab Panel Tab Change
-    - [x] Tracks all `tables` with `Fixed Headers`/`Footers` and `disables`/`enables` them on `tab switch`/`wizard step` switch / `tab panel` switch
-  - [x] **Diagram Changes**
-    - [x] `New-DiagramLink` - added `SmoothType`, `SmoothForceDirection` and `SmoothRoundness`
-    - [x] `New-DiagramLink` - fixed `FontAlign` which was using wrong `validateset`.
-    - [x] `Diagrams` should now fit properly upon changing tabs. It used to hide outside of screen.
-  - [x] **Library updates**
-    - [x] Update of `Apex Charts` to 3.23.0
-    - [x] Update of `VisJS` to 8.5.5
+    - ☑ Improved `New-HTMLTimelineItem` generated HTML when no color is used
+    - ☑ Added `Enable-HTMLFeature` to bring JS/CSS even if it's not used
+    - ☑ `Calendars` & `DataTables` & `Diagrams` should now resize/fit properly on Global Tab change
+    - ☑ `Calendars` & `DataTables` & `Diagrams` are now resize/fit properly on Wizard Step Change
+    - ☑ `Calendars` & `DataTables` & `Diagrams` are now resize/fit properly on Tab Panel Tab Change
+    - ☑ Tracks all `tables` with `Fixed Headers`/`Footers` and `disables`/`enables` them on `tab switch`/`wizard step` switch / `tab panel` switch
+  - ☑ **Diagram Changes**
+    - ☑ `New-DiagramLink` - added `SmoothType`, `SmoothForceDirection` and `SmoothRoundness`
+    - ☑ `New-DiagramLink` - fixed `FontAlign` which was using wrong `validateset`.
+    - ☑ `Diagrams` should now fit properly upon changing tabs. It used to hide outside of screen.
+  - ☑ **Library updates**
+    - ☑ Update of `Apex Charts` to 3.23.0
+    - ☑ Update of `VisJS` to 8.5.5
 - 0.0.122 - 2020.11.18
-  - [x] Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
-  - [x] Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
-  - [x] Added `New-ChartToolTip` currently supported in `New-ChartTimeLine` only - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
-  - [x] Improvements `New-ChartAxisY`
-  - [x] Added parameter for `EmailBody`,`New-HTMLText`, `New-HTMLSpanStyle` - `LineHeight`. This allows for controling line height.
+  - ☑ Added `New-ChartDataLabel` currently supported in `New-ChartTimeLine` only
+  - ☑ Improvements `New-ChartTimeLine` - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
+  - ☑ Added `New-ChartToolTip` currently supported in `New-ChartTimeLine` only - added by Splaxi [#170](https://github.com/EvotecIT/PSWriteHTML/pull/170) - Thank you (WIP)
+  - ☑ Improvements `New-ChartAxisY`
+  - ☑ Added parameter for `EmailBody`,`New-HTMLText`, `New-HTMLSpanStyle` - `LineHeight`. This allows for controling line height.
 - 0.0.121 - 2020.11.15
-  - [x] Added `Accordion` (alpha)
-    - [x] `New-HTMLAccordion`
-    - [x] `New-AccordionItem`
-  - [x] Fix for `New-HTMLDiagram` to disable loader if physics is disabled, as diagram wouldn't load, and loader is not nessecary
-  - [x] Fix for `New-HTMLDiagram` to load icons properly in Chrome, IE still requires press
+  - ☑ Added `Accordion` (alpha)
+    - ☑ `New-HTMLAccordion`
+    - ☑ `New-AccordionItem`
+  - ☑ Fix for `New-HTMLDiagram` to disable loader if physics is disabled, as diagram wouldn't load, and loader is not nessecary
+  - ☑ Fix for `New-HTMLDiagram` to load icons properly in Chrome, IE still requires press
   - [ ] VisNetwork update from `8.5.2` to `8.5.3`
 - 0.0.120 - 2020.11.07
-  - [x] Fixes partially `New-HTMLTable -FixedFooter` issue [#166](https://github.com/EvotecIT/PSWriteHTML/issues/166)
-  - [x] ApexChart update 3.20 to 3.20.1
-  - [x] VisNetwork update 8.4.1 to 8.5.2
-  - [x] VisTimeLine update 7.3.7 to 7.4.2
+  - ☑ Fixes partially `New-HTMLTable -FixedFooter` issue [#166](https://github.com/EvotecIT/PSWriteHTML/issues/166)
+  - ☑ ApexChart update 3.20 to 3.20.1
+  - ☑ VisNetwork update 8.4.1 to 8.5.2
+  - ☑ VisTimeLine update 7.3.7 to 7.4.2
 - 0.0.119 - 2020.10.28
-  - [x] Added ability to use nested lists in `New-HTMLList`,`EmailList`
+  - ☑ Added ability to use nested lists in `New-HTMLList`,`EmailList`
 - 0.0.118 - 2020.10.27
-  - [x] Improvements to tab switching very fast which could cause an error [#126 DATATABLE warning - Cannot reinitialize DataTable](https://github.com/EvotecIT/PSWriteHTML/issues/126)
+  - ☑ Improvements to tab switching very fast which could cause an error [#126 DATATABLE warning - Cannot reinitialize DataTable](https://github.com/EvotecIT/PSWriteHTML/issues/126)
   - [ ] Added UseDefaultCredential for `EmailServer`
 - 0.0.117 - 2020.10.25
-  - [x] Fix for issue when Charts are used with Diagrams
-  - [x] `ApexCharts` update to 3.22 from 3.20.2
-  - [x] `Vis.js` update to 8.4.1 from 8.3.2
-  - [x] Small update to `New-HTMLList` with `Reversed` parameter
-  - [x] Fix for missing responsive button for `New-HTMLTable`
-  - [x] Updates to offline `DataTables` library
+  - ☑ Fix for issue when Charts are used with Diagrams
+  - ☑ `ApexCharts` update to 3.22 from 3.20.2
+  - ☑ `Vis.js` update to 8.4.1 from 8.3.2
+  - ☑ Small update to `New-HTMLList` with `Reversed` parameter
+  - ☑ Fix for missing responsive button for `New-HTMLTable`
+  - ☑ Updates to offline `DataTables` library
 - 0.0.116 - 2020.10.21
-  - [x] Charts improvement for `Flex` usage (doesn't require `Panel` anymore for positioning)
+  - ☑ Charts improvement for `Flex` usage (doesn't require `Panel` anymore for positioning)
 - 0.0.115 - 2020.10.21
-  - [x] Updates to DataStore Javascript
+  - ☑ Updates to DataStore Javascript
 - 0.0.114 - 2020.10.20
-  - [x] Small fix to `New-HTMLTable` with DataStore `JavaScript`
+  - ☑ Small fix to `New-HTMLTable` with DataStore `JavaScript`
 - 0.0.113 - 2020.10.19
-  - [x] `New-HTMLTable` - changes/improvements/adds
-    - [x] Reworked JS/CSS loading for DataTables. It should now load less JS/CSS code by default making HTML smaller and more readable especially if not using all features
+  - ☑ `New-HTMLTable` - changes/improvements/adds
+    - ☑ Reworked JS/CSS loading for DataTables. It should now load less JS/CSS code by default making HTML smaller and more readable especially if not using all features
       - [ ] Some more work in this area is required. Small breaking change was introduced
-    - [x] **Breaking Change** - Renamed `DisableColumnReorder` to `EnableColumnReorder`
+    - ☑ **Breaking Change** - Renamed `DisableColumnReorder` to `EnableColumnReorder`
       - [ ] The reason for this is that the functionality is most likely used by very few people if at all
       - [ ] This, in turn, allows me to load JS/CSS for ColumnReordering only when someone requests for this functionality
-    - [x] Added `EnableRowReorder`
-    - [x] Added `EnableKeys` (excel like movement) to `New-HTMLTable`. Probably could add more options for this via nested `New-TableXXX`
-    - [x] Added `PagingLength` to `New-HTMLTable`. This improves `PagingOptions` / `DisablePaging`.
+    - ☑ Added `EnableRowReorder`
+    - ☑ Added `EnableKeys` (excel like movement) to `New-HTMLTable`. Probably could add more options for this via nested `New-TableXXX`
+    - ☑ Added `PagingLength` to `New-HTMLTable`. This improves `PagingOptions` / `DisablePaging`.
       - If user doesn't set Paging Length it will use defaults
       - If user doesn't set Paging Options it will use default `@(15, 25, 50, 100)`
       - If user doesn't set Paging Length, but sets different Paging Options such as `@(5,10,15)`, initial paging length will be set to lowest value `5`
       - If user sets paging options and sets paging length it will set as requested
-    - [x] Added `EnableScroller` to `New-HTMLTable`. This improves `ScrollY`. It allows to load data as it appears rather than loading everything. Should be plenty useful in JavaScript DataStore for large datasets
+    - ☑ Added `EnableScroller` to `New-HTMLTable`. This improves `ScrollY`. It allows to load data as it appears rather than loading everything. Should be plenty useful in JavaScript DataStore for large datasets
     - [ ] Enabling Scroller doesn't require ScrollY enablement, but it will use ScrollSizeY default 500px. You can change it tho.
-    - [x] Added `EnableAutoFill` to `New-HTMLTable`
-    - [x] Improved `New-HTMLTable` to load only required CSS/JS (hopefully nothing will be broken)
-    - [x] Updated `Out-HTMLView` with all new and old parameters to keep it synced with same the features as `New-HTMLTable` - hopefully, I didn't break anything
-    - [x] Updated some `DataTables` JS/CSS versions
+    - ☑ Added `EnableAutoFill` to `New-HTMLTable`
+    - ☑ Improved `New-HTMLTable` to load only required CSS/JS (hopefully nothing will be broken)
+    - ☑ Updated `Out-HTMLView` with all new and old parameters to keep it synced with same the features as `New-HTMLTable` - hopefully, I didn't break anything
+    - ☑ Updated some `DataTables` JS/CSS versions
     - [ ] `New-HTMLTableOption` allows now to define `BoolAsString`, `NumberAsString` and `DateTimeFormat`
       - [ ] This only works in `JavaScript` and `AjaxJSON` datastore.
       - [ ] This allows one to better control how they want their bools, numbers, and DateTime displayed
@@ -346,20 +348,20 @@ Please make sure to read changes before updating, as we're undergoing some break
       - [ ] It will make sure all dates are converted to their string representation as requested
       - [ ] Default DateTime is `yyyy-MM-dd HH:mm:ss`
       - [ ] This is possible thanks to `ConvertTo-JsonLiteral` which is my own implementation of `ConvertTo-JSON`
-  - [x] Navigation Functionality (WIP)
-    - [x] Added `New-HTMLNav` command (WIP)
-    - [x] Added `New-HTMLNavLink` command (WIP)
-  - [x] Wizard Functionality
-    - [x] Added `New-HTMLWizard`
-    - [x] Added `New-HTMLWizardStep`
-  - [x] Other
-    - [x] Changed `New-HTMLText` to add `5px` margin. Hopefully things are not affected.
-    - [x] Added `New-HTMLTabPanel` - additional way to define tabs
-    - [x] Updated `JustGate` from 1.3.5 to 1.4.0
-    - [x] Updated `EnlighterJs` from 3.0 to 3.4.0
-    - [x] Small updates to `New-HTMLCodeBlock`
-    - [x] Fix for `New-HTMLChart` broken `Title` parameter
-    - [x] `New-HTMLList` and `New-HTMLListItem` updated with `FontSize`
+  - ☑ Navigation Functionality (WIP)
+    - ☑ Added `New-HTMLNav` command (WIP)
+    - ☑ Added `New-HTMLNavLink` command (WIP)
+  - ☑ Wizard Functionality
+    - ☑ Added `New-HTMLWizard`
+    - ☑ Added `New-HTMLWizardStep`
+  - ☑ Other
+    - ☑ Changed `New-HTMLText` to add `5px` margin. Hopefully things are not affected.
+    - ☑ Added `New-HTMLTabPanel` - additional way to define tabs
+    - ☑ Updated `JustGate` from 1.3.5 to 1.4.0
+    - ☑ Updated `EnlighterJs` from 3.0 to 3.4.0
+    - ☑ Small updates to `New-HTMLCodeBlock`
+    - ☑ Fix for `New-HTMLChart` broken `Title` parameter
+    - ☑ `New-HTMLList` and `New-HTMLListItem` updated with `FontSize`
 - 0.0.112 - 2020.10.06
   - Fixed issue with x2 PDF Export button - [If ScrollY is selected the pdf button is doubled then #154](https://github.com/EvotecIT/PSWriteHTML/issues/154) - tnx Jekastr
   - Better handling of empty data in `New-HTMLTable`
@@ -400,41 +402,41 @@ Please make sure to read changes before updating, as we're undergoing some break
   - Added Loading Bar to `New-HTMLDiagram`. You can disable it using the `DisableLoader` switch.
 - 0.0.101 - 2020.09.12
   - **Updates**
-    - [x] Added `Transpose` to `New-HTMLTable`/`Out-HtmlView`
+    - ☑ Added `Transpose` to `New-HTMLTable`/`Out-HtmlView`
 - 0.0.100 - 2020.09.12
   - **Library updates**
     - Update to `Apex Charts` from 3.20.0 to 3.20.1
   - **Updates**
-    - [x] Fix long-lasting issue with loading `FontIcons` in diagrams. Should be visible now.
-    - [x] Support for nested hashtables `ConvertTo-CascadingStyleSheets`
-    - [x] Fix/workaround for IE11 issue with section not showing any data, broken in 0.0.99
+    - ☑ Fix long-lasting issue with loading `FontIcons` in diagrams. Should be visible now.
+    - ☑ Support for nested hashtables `ConvertTo-CascadingStyleSheets`
+    - ☑ Fix/workaround for IE11 issue with section not showing any data, broken in 0.0.99
 - 0.0.99 - 2020.09.07
   - **Notes**
-    - [x] `UTF8` will be set by default for `HTML`. `Email` will pick content encoding from `HTML`
-      - [x] It was already set for `HTML` for `charset` so just making sure it's all the same
-    - [x] Encoding parameter for `EmailOption` and `Email` are DEPRECATED
-      - [x] Whatever you set there doesn't matter - it will always be set to `UTF8`. From my tests setting it to anything else messes up display in some clients
-      - [x] While not really breaking change, just thought I would make sure people are aware
-      - [x] The reason is HTML was always `UTF8` and setting it up on transport level to `Unicode` or other encodings would break things
-      - [x] In outlook it wouldn't matter as it would fix it, but in other clients such as Thunderbird it would go nuts
+    - ☑ `UTF8` will be set by default for `HTML`. `Email` will pick content encoding from `HTML`
+      - ☑ It was already set for `HTML` for `charset` so just making sure it's all the same
+    - ☑ Encoding parameter for `EmailOption` and `Email` are DEPRECATED
+      - ☑ Whatever you set there doesn't matter - it will always be set to `UTF8`. From my tests setting it to anything else messes up display in some clients
+      - ☑ While not really breaking change, just thought I would make sure people are aware
+      - ☑ The reason is HTML was always `UTF8` and setting it up on transport level to `Unicode` or other encodings would break things
+      - ☑ In outlook it wouldn't matter as it would fix it, but in other clients such as Thunderbird it would go nuts
   - **Library updates**
     - Update to `vis-network` from 8.2.1 to 8.3.2
   - **New/Non-Breaking**
-    - [x] Added aliases for `New-HTMLTableOption`
-    - [x] Fixes for Request Configuration for Sections and Panels
-    - [x] Fixes meta tags for HTML4/HTML5
-    - [x] Addeed **NoClosing** parameter to `New-HTMLTag`
-    - [x] Improvements to `Section` Hiding horizontally and vertically
-    - [x] Improvements to diagram resizing when section resizes - should be no need to resize diagram anymore
+    - ☑ Added aliases for `New-HTMLTableOption`
+    - ☑ Fixes for Request Configuration for Sections and Panels
+    - ☑ Fixes meta tags for HTML4/HTML5
+    - ☑ Addeed **NoClosing** parameter to `New-HTMLTag`
+    - ☑ Improvements to `Section` Hiding horizontally and vertically
+    - ☑ Improvements to diagram resizing when section resizes - should be no need to resize diagram anymore
 - 0.0.98 - 2020.08.30
   - **New/Non-Breaking**
-    - [x] Added `DataStoreID` to `New-HTMLTable` for use with `DataStore = JavaScript`
-      - [x] This allows multiple tables to use the same data. Useful if you want to present the same data in different tables across a single HTML file.
-    - [x] Fixes for JavaScript datastore and conditional formatting
+    - ☑ Added `DataStoreID` to `New-HTMLTable` for use with `DataStore = JavaScript`
+      - ☑ This allows multiple tables to use the same data. Useful if you want to present the same data in different tables across a single HTML file.
+    - ☑ Fixes for JavaScript datastore and conditional formatting
 - 0.0.97 - 2020.08.29
   - **Breaking changes**
-    - [x] Diagrams
-      - [x] New-DiagramLink
+    - ☑ Diagrams
+      - ☑ New-DiagramLink
         - [ ] `ArrowsToEnabled` -> `nullable bool` replaced with `switch`
         - [ ] `ArrowsMiddleEnabled` -> `nullable bool` replaced with `switch`
         - [ ] `ArrowsFromEnabled` -> `nullable bool` replaced with `switch`
@@ -443,18 +445,18 @@ Please make sure to read changes before updating, as we're undergoing some break
         - [ ] `FontSize` -> `int` replaced with `object` - check notes in `0.95`
         - [ ] `FontStrokeWidth` -> `int` replaced with `object` - check notes in `0.95`
   - **New/Non-Breaking**
-    - [x] New-DiagramNode
+    - ☑ New-DiagramNode
       - [ ] Exposed `ArrowsToEnabled`, `ArrowsMiddleEnabled`, `ArrowsFromEnabled`
-    - [x] Update to Diagram Height accepting multiple size values
-      - [x] This allows for `New-HTMLDiagram -Height 'calc(100vh - 50px)'` which fills whole screen (within section)
-      - [x] Or this `New-HTMLDiagram -Height 'calc(100vh - 50px)' -Width '50vw'` although not that useful, as flex fixes most of it
-    - [x] Updates `New-DiagramOptionsPhysics` - exposed a bunch of new options plus help
-    - [x] Updates `New-DiagramOptionsLayout` - added some help and new options
+    - ☑ Update to Diagram Height accepting multiple size values
+      - ☑ This allows for `New-HTMLDiagram -Height 'calc(100vh - 50px)'` which fills whole screen (within section)
+      - ☑ Or this `New-HTMLDiagram -Height 'calc(100vh - 50px)' -Width '50vw'` although not that useful, as flex fixes most of it
+    - ☑ Updates `New-DiagramOptionsPhysics` - exposed a bunch of new options plus help
+    - ☑ Updates `New-DiagramOptionsLayout` - added some help and new options
   - **Updated library**
-    - [x] `Vis-network` to 8.2.1
+    - ☑ `Vis-network` to 8.2.1
 - 0.0.96 - 2020.08.28
-  - [x] It seems SearchPanes from DataTables conflict with `New-HTMLDiagram`
-    - [x] Separated that library to be added only on demand
+  - ☑ It seems SearchPanes from DataTables conflict with `New-HTMLDiagram`
+    - ☑ Separated that library to be added only on demand
 - 0.0.95 - 2020.08.27
   - **Notes**
     - I'm reworking CSS model in which PSWriteHTML works allowing for more consistent design and more customization options. This means some breaking changes will happen soon enough.
@@ -466,34 +468,34 @@ Please make sure to read changes before updating, as we're undergoing some break
         - If `'15'` this means `15px` as it will convert to `[int]` first
         - Anything else will be treated as is meaning you know what you are doing
   - **Breaking changes**
-    - [x] Default Font Size for everything is `8pt`. This includes:
-      - [x] Tabs used to have `15px`. Now by default `8pt`. You will need `New-HTMLTabOption -FontSize '15px'` or `New-HTMLTabOption -FontSize 15` to set default fontsize for Tabs to it's old value (along with other customizations if needed)
-      - [x] Inputs for Tables (Filtering) having static `8pt`
+    - ☑ Default Font Size for everything is `8pt`. This includes:
+      - ☑ Tabs used to have `15px`. Now by default `8pt`. You will need `New-HTMLTabOption -FontSize '15px'` or `New-HTMLTabOption -FontSize 15` to set default fontsize for Tabs to it's old value (along with other customizations if needed)
+      - ☑ Inputs for Tables (Filtering) having static `8pt`
   - **Improvements**
-    - [x] `New-HTMLMain` - allows customizing font size, font type, background color, and text color globally - this will overwrite defaults as described above
-    - [x] Fix TempFilePath for `Email` to work correctly on MacOS/Linux - tnx roberttoups [#146](https://github.com/EvotecIT/PSWriteHTML/pull/146)
-    - [x] Auto-wrapping of Tabs is enabled - can be disabled via `New-HTMLTabOption`
-    - [x] Bunch of options to control wrapping/direction of tabs via `New-HTMLTabOption`
-    - [x] Ability to define `RowElements` in `New-HTMLTabOption` to force number of tabs per row
-    - [x] Fixed BackgroundColor for `New-HTMLTabOption`
-    - [x] Removed `default.css` in favor of native powershell css
-    - [x] `New-HTMLTable` warning - `Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both`
-    - [x] Fixed broken `Tab` switching in **Internet Explorer 11**
-    - [x] Added basic support for `SearchPane` within `New-HTMLTable`
-    - [x] Fixed broken `Tables` refresh on `Tabs` when using named `Tables`
-    - [x] Fixed `New-HTMLTable`/`Out-HTMLView` with `-AllProperties` displaying wrong properties for IDictionary objects
-    - [x] Fixed `New-HTMLTable` properly displaying string/int and other data if passed as a single value
-    - [x] Fixed `New-HTMLTable` properly display ordered dictionary, array of strings, array of singular objects, PSCustomObject with 1 column
-    - [x] Fixed `New-HTMLTable` properly displaying column name as `Name` in PowerShell 5.1 when used with int/string
-    - [x] Fixed `New-HTMLText` font size was ignored. Also now supports 15, 15px, 15pt as described in notes.
-    - [x] Resolves peformance issues by adding new parameter `DataStore` for `New-HTMLTable` to use with large tables
+    - ☑ `New-HTMLMain` - allows customizing font size, font type, background color, and text color globally - this will overwrite defaults as described above
+    - ☑ Fix TempFilePath for `Email` to work correctly on MacOS/Linux - tnx roberttoups [#146](https://github.com/EvotecIT/PSWriteHTML/pull/146)
+    - ☑ Auto-wrapping of Tabs is enabled - can be disabled via `New-HTMLTabOption`
+    - ☑ Bunch of options to control wrapping/direction of tabs via `New-HTMLTabOption`
+    - ☑ Ability to define `RowElements` in `New-HTMLTabOption` to force number of tabs per row
+    - ☑ Fixed BackgroundColor for `New-HTMLTabOption`
+    - ☑ Removed `default.css` in favor of native powershell css
+    - ☑ `New-HTMLTable` warning - `Hiding footer while filtering is requested without specifying FilteringLocation to Top or Both`
+    - ☑ Fixed broken `Tab` switching in **Internet Explorer 11**
+    - ☑ Added basic support for `SearchPane` within `New-HTMLTable`
+    - ☑ Fixed broken `Tables` refresh on `Tabs` when using named `Tables`
+    - ☑ Fixed `New-HTMLTable`/`Out-HTMLView` with `-AllProperties` displaying wrong properties for IDictionary objects
+    - ☑ Fixed `New-HTMLTable` properly displaying string/int and other data if passed as a single value
+    - ☑ Fixed `New-HTMLTable` properly display ordered dictionary, array of strings, array of singular objects, PSCustomObject with 1 column
+    - ☑ Fixed `New-HTMLTable` properly displaying column name as `Name` in PowerShell 5.1 when used with int/string
+    - ☑ Fixed `New-HTMLText` font size was ignored. Also now supports 15, 15px, 15pt as described in notes.
+    - ☑ Resolves peformance issues by adding new parameter `DataStore` for `New-HTMLTable` to use with large tables
   - **Added cmdlets**
-    - [x] `New-HTMLTableStyle`
-    - [x] `New-HTMLTableOption` - added to provide `DataStore` parameter which globally sets required store, may be used for other things in future
-    - [x] `New-ChartTimeLine` - added basic support for TimeLine Charts
+    - ☑ `New-HTMLTableStyle`
+    - ☑ `New-HTMLTableOption` - added to provide `DataStore` parameter which globally sets required store, may be used for other things in future
+    - ☑ `New-ChartTimeLine` - added basic support for TimeLine Charts
   - **Renamed cmdlets** (non-breaking change via aliases)
-    - [x] `New-HTMLTabOption` -> `New-HTMLTabStyle`
-    - [x] `New-HTMLSectionOption` -> `New-HTMLSectionStyle`
+    - ☑ `New-HTMLTabOption` -> `New-HTMLTabStyle`
+    - ☑ `New-HTMLSectionOption` -> `New-HTMLSectionStyle`
   - **Library updates**
     - `DataTables` and all related libraries
     - `JQuery` to 3.5.1
@@ -501,25 +503,25 @@ Please make sure to read changes before updating, as we're undergoing some break
     - `FontAwesome` updated from 5.13 to 5.14
 - 0.0.94 - 2020.08.18
   - Public
-    - [x] Added `New-TableEvent` for `New-HTMLTable` **experimental**
+    - ☑ Added `New-TableEvent` for `New-HTMLTable` **experimental**
 - 0.0.93 - 2020.08.16
   - Public
     - Fixes
-      - [x] Fix for `New-HTMLTabOption` switch "-SelectorColor" sets the color permanently [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
-      - [x] Fix for `InvokeHTMLTags` in `New-HTMLTable` - replacement of (`&amp;` to `&`) and (`&nbsp;` to `<space>`)
-        - [x] Before it would try to change from `'&amp;nbsp;` to `<space>` which is wrong. Hopefully, nothing will be broken after that
+      - ☑ Fix for `New-HTMLTabOption` switch "-SelectorColor" sets the color permanently [#128](https://github.com/EvotecIT/PSWriteHTML/issues/128)
+      - ☑ Fix for `InvokeHTMLTags` in `New-HTMLTable` - replacement of (`&amp;` to `&`) and (`&nbsp;` to `<space>`)
+        - ☑ Before it would try to change from `'&amp;nbsp;` to `<space>` which is wrong. Hopefully, nothing will be broken after that
     - Improvements
-      - [x] Choosing colors should be easier (wildcard added before and after)
-      - [x] Make it optional for `New-HTMLTab` to force TextTransform (uses global)
-      - [x] `New-HTMLSection`/`New-HTMLPanel` were updated to support additional options
+      - ☑ Choosing colors should be easier (wildcard added before and after)
+      - ☑ Make it optional for `New-HTMLTab` to force TextTransform (uses global)
+      - ☑ `New-HTMLSection`/`New-HTMLPanel` were updated to support additional options
     - New
-      - [x] Added `ConvertTo-CascadingStyleSheets` - converts hashtable into CSS
-      - [x] Added `New-HTMLSectionOption` - **experimental**
-      - [x] Added `New-HTMLPanelOption` - **experimental**
-      - [x] Added `AnchorName` for sections and panels
-      - [x] Added `New-HTMLAnchor/New-HTMLLink`
+      - ☑ Added `ConvertTo-CascadingStyleSheets` - converts hashtable into CSS
+      - ☑ Added `New-HTMLSectionOption` - **experimental**
+      - ☑ Added `New-HTMLPanelOption` - **experimental**
+      - ☑ Added `AnchorName` for sections and panels
+      - ☑ Added `New-HTMLAnchor/New-HTMLLink`
   - Internal
-    - [x] Support internally for `Custom Header CSS`, `Custom Footer CSS`
+    - ☑ Support internally for `Custom Header CSS`, `Custom Footer CSS`
 - 0.0.92 - 2020.08.08
   - Fixes `New-HierarchicalTreeNode` not recognized in latest modules [#141](https://github.com/EvotecIT/PSWriteHTML/issues/141)
 - 0.0.91 - 2020.08.03
@@ -623,7 +625,7 @@ Please make sure to read changes before updating, as we're undergoing some break
     - Vis-Network to 6.4.6
   - Diagrams now work in Internet Explorer (yay!)
   - Add Tab border customization and Tab header background color (tnx xlrod!) [#87](https://github.com/EvotecIT/PSWriteHTML/pull/87)
-    - [x] New-HTMLTabOption -SlimTabs -SelectorColor Blue **-BorderRadius 25px** **-BorderBackgroundColor LightBlue**
+    - ☑ New-HTMLTabOption -SlimTabs -SelectorColor Blue **-BorderRadius 25px** **-BorderBackgroundColor LightBlue**
   - Added Tests so basic stuff is tested for regression (it's very basic)
   - Added alias for New-TableConditon (TableCondition)
 
@@ -709,26 +711,26 @@ Please make sure to read changes before updating, as we're undergoing some break
 - 0.0.52 - 2019.09.07
   - Library updates:
     - ApexCharts update 3.8.5
-  - [x] New-HTMLChart
-    - [x] Removed Positioning parameter
-    - [x] Added New-ChartPie
-    - [x] Added New-ChartRadial
-    - [x] Added New-ChartDonut
-    - [x] Added few parameters to New-HTMLChart
+  - ☑ New-HTMLChart
+    - ☑ Removed Positioning parameter
+    - ☑ Added New-ChartPie
+    - ☑ Added New-ChartRadial
+    - ☑ Added New-ChartDonut
+    - ☑ Added few parameters to New-HTMLChart
 
 - 0.0.51 - 2019.09.05
-  - [x] New-HTMLCode
-    - [x] Added some formatting of whitespaces for code
+  - ☑ New-HTMLCode
+    - ☑ Added some formatting of whitespaces for code
 
 - 0.0.50 - 2019.08.30
-  - [x] Add-TableContent
+  - ☑ Add-TableContent
     - [ ] Fix for a typo on LE (tnx gregwold)
 
 - 0.0.49 - 2019.08.25 - [Blog post about release](https://evotec.xyz/comparing-two-or-more-objects-visually-in-powershell-cross-platform/)
-  - [x] Save-HTML
+  - ☑ Save-HTML
     - [ ] Moved some warnings to Verbose
     - [ ] Fixed weird message
-  - [x] New-HTMLTable, Out-HTMLView
+  - ☑ New-HTMLTable, Out-HTMLView
     - [ ] Added AllProperties switch
     - [ ] Added Compare/Replacements
 
@@ -736,59 +738,59 @@ Please make sure to read changes before updating, as we're undergoing some break
   - I don't know. Got confused about what was changed :-p
 
 - 0.0.47 - 2019.08.04
-  - [x] Fix for LOGO in PowerShell Core
-  - [x] New-HTMLTable
-    - [x] Added ImmediatelyShowHiddenDetails switch - Responsive has the ability to display the details that it has hidden in a variety of different ways. Its default is to allow the end-user to toggle the display by clicking on a row and showing the information in a DataTables child row. At times it can be useful not to require end-user interaction to display the hidden data in a responsive manner, which can be done with the childRowImmediate display type.
-  - [x] Fix for New-HTML wrong positioning in certain conditions - bug introduced in 0.0.46
-  - [x] Fix for Table Simplify with margins
+  - ☑ Fix for LOGO in PowerShell Core
+  - ☑ New-HTMLTable
+    - ☑ Added ImmediatelyShowHiddenDetails switch - Responsive has the ability to display the details that it has hidden in a variety of different ways. Its default is to allow the end-user to toggle the display by clicking on a row and showing the information in a DataTables child row. At times it can be useful not to require end-user interaction to display the hidden data in a responsive manner, which can be done with the childRowImmediate display type.
+  - ☑ Fix for New-HTML wrong positioning in certain conditions - bug introduced in 0.0.46
+  - ☑ Fix for Table Simplify with margins
 
 - 0.0.46 - 2019.08.04 - [Blog post about release](https://evotec.xyz/working-with-html-in-powershell-just-got-better/)
-  - [x] New-HTMLMessage - Removed as not ready, useless
-  - [x] New-HTMLTable
+  - ☑ New-HTMLMessage - Removed as not ready, useless
+  - ☑ New-HTMLTable
     - [ ] Disable Paging when amount of objects to display is lower then PagingOptions
     - [ ] Added DataTableID for special use cases
-  - [x] New-HTMLTableContent - Added with plenty of new features
+  - ☑ New-HTMLTableContent - Added with plenty of new features
   - [ ] New HTMLTableConditionalFormatting - Added inline parameter
 
 - 0.0.45 - 2019.07.09
-  - [x] New-HTMLTable
+  - ☑ New-HTMLTable
     - [ ] Added $PriorityProperties parameter - it works also on ScrollX and other types of places contrary to ResponsivePriorityProperties which only works on Responsive Table
     - [ ] It was moved from Out-HtmlView
-  - [X] Out-HTMLView
+  - ☑ Out-HTMLView
     - [ ] Updated with all features from New-HTMLTable as it's useful to use it for fast output
 
 - 0.0.44 - 2019.07.08
-  - [x] New-HTMLTable
+  - ☑ New-HTMLTable
     - [ ] Small improvement when no data provided
-  - [x] New-HTMLTableCondition
+  - ☑ New-HTMLTableCondition
     - [ ] Supports contains now - PR by Adam Cook (codamok)
   - [ ] Removed ColorSchemes - removal of ReportHTML old code
 
 - 0.0.43 - 2019.07.01
-  - [x] New-HTMLTable
+  - ☑ New-HTMLTable
     - [ ] Fix for ScrollX with low amount of columns
 
 - 0.0.42 - 2019.07.01
-  - [x] New-HTMLTableConditionalFormatting
+  - ☑ New-HTMLTableConditionalFormatting
     - [ ] Fix for Powershell Core, where conditional formatting wouldn't show up
 
 - 0.0.41 - 2019.06.30
-  - [x] New-HTMLTableHeader - removing need for AddRow switch
+  - ☑ New-HTMLTableHeader - removing need for AddRow switch
     - [ ] If used with only Title it will assume AddRow
     - [ ] If used with Names it will assume merging
     - [ ] If used with Names without Title it will assume styling
     - [ ] Left AddRow for compatibility reasons, may remove it in future
 
 - 0.0.40 - 2019.06.29 - [Blog post about release](https://evotec.xyz/all-your-html-tables-are-belong-to-us/)
-  - [x] New-HTMLTable features
-    - [x] FixedHeader/FixedFooter options
-    - [x] Scrolling
+  - ☑ New-HTMLTable features
+    - ☑ FixedHeader/FixedFooter options
+    - ☑ Scrolling
       - ScrollX,
       - ScrollY, ScrollSizeY
       - FreezeColumnsLeft, FreezeColumnsRight
-    - [x] ResponsivePriorityOrder, ResponsivePriorityOrderIndex
-  - [x] New-HTMLTableHeader - **new command**
-    - [x] Merging header, styling header, adding header row
+    - ☑ ResponsivePriorityOrder, ResponsivePriorityOrderIndex
+  - ☑ New-HTMLTableHeader - **new command**
+    - ☑ Merging header, styling header, adding header row
 
 - 0.0.39 - 2019.06.20
   - Fix for DefaultSortColumn
