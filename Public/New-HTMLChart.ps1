@@ -66,10 +66,18 @@
     }
     Remove-EmptyValue -Hashtable $SubTitleBlock -Recursive -Rerun 2
 
+    # defaults
+    $DataLabel = [ordered] @{
+        enabled = $true
+    }
+    $Markers = [ordered] @{}
+
     # Datasets Bar/Line
     $DataSet = [System.Collections.Generic.List[object]]::new()
     $DataName = [System.Collections.Generic.List[object]]::new()
 
+    $DataSeries = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
+    $LineStroke = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
     $DataSetChartTimeLine = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     # Legend Variables
@@ -77,10 +85,10 @@
 
     # Line Variables
     # $LineColors = [System.Collections.Generic.List[string]]::new()
-    $LineCurves = [System.Collections.Generic.List[string]]::new()
-    $LineWidths = [System.Collections.Generic.List[int]]::new()
-    $LineDashes = [System.Collections.Generic.List[int]]::new()
-    $LineCaps = [System.Collections.Generic.List[string]]::new()
+    #$LineCurves = [System.Collections.Generic.List[string]]::new()
+    #$LineWidths = [System.Collections.Generic.List[int]]::new()
+    #$LineDashes = [System.Collections.Generic.List[int]]::new()
+    #$LineCaps = [System.Collections.Generic.List[string]]::new()
     $ChartAxisY = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
 
     #$RadialColors = [System.Collections.Generic.List[string]]::new()
@@ -106,6 +114,9 @@
             }
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
+
+
+            $DataSeries.Add($Setting.series)
 
         } elseif ($Setting.ObjectType -eq 'Pie' -or $Setting.ObjectType -eq 'Donut') {
             # For Pie Charts
@@ -163,11 +174,16 @@
         } elseif ($Setting.ObjectType -eq 'Theme') {
             # For All Charts
             $Theme = $Setting.Theme
+        } elseif ($Setting.ObjectType -eq 'Marker') {
+            # For All Charts
+            $Markers = $Setting.markers
         } elseif ($Setting.ObjectType -eq 'Line') {
             # For Line Charts
             $Type = $Setting.ObjectType
-            $DataSet.Add($Setting.Value)
-            $DataName.Add($Setting.Name)
+
+            #$DataSet.Add($Setting.Value)
+            #$DataName.Add($Setting.Name)
+            <#
             if ($Setting.LineColor) {
                 $Colors.Add($Setting.LineColor)
             }
@@ -183,6 +199,15 @@
             if ($Setting.LineCap) {
                 $LineCaps.Add($Setting.LineCap)
             }
+            #>
+
+            if ($Setting.series) {
+                $DataSeries.Add($Setting.series)
+            }
+            if ($Setting.stroke.count -gt 0) {
+                $LineStroke.Add($setting.stroke)
+            }
+
         } elseif ($Setting.ObjectType -eq 'ChartAxisX') {
             $ChartAxisX = $Setting.ChartAxisX
         } elseif ($Setting.ObjectType -eq 'ChartGrid') {
@@ -244,23 +269,42 @@
             Write-Warning -Message 'Chart Category (Chart Axis X) is missing.'
             return
         }
-        New-HTMLChartLine -Data $DataSet `
+        $SplatChartLine = @{
+            Series          = $DataSeries
+            Stroke          = $LineStroke
+            DataLabel       = $DataLabel
+            Legend          = $Legend
+            Markers         = $Markers
+            #DataLabelsEnabled  = $BarDataLabelsEnabled
+            #DataLabelsOffsetX  = $BarDataLabelsOffsetX
+            #DataLabelsFontSize = $BarDataLabelsFontSize
+            #DataLabelsColor    = $BarDataLabelsColor
+            ChartAxisX      = $ChartAxisX
+            ChartAxisY      = $ChartAxisY
+            Height          = $Height
+            Width           = $Width
+            Theme           = $Theme
+            Toolbar         = $Toolbar
+            GridOptions     = $GridOptions
+            PatternedColors = $Patterned
+            GradientColors  = $Gradient
+            Events          = $Events
+            Title           = $TitleBlock
+            SubTitle        = $SubTitleBlock
+        }
+        New-HTMLChartLine @SplatChartLine
+        <#
+        New-HTMLChartLine -Series $DataSeries -Stroke $LineStroke `
             -Legend $Legend `
-            -DataNames $DataName `
             -DataLabelsEnabled $BarDataLabelsEnabled `
             -DataLabelsOffsetX $BarDataLabelsOffsetX `
             -DataLabelsFontSize $BarDataLabelsFontSize `
             -DataLabelsColor $BarDataLabelsColor `
-            -LineColor $Colors `
-            -LineCurve $LineCurves `
-            -LineWidth $LineWidths `
-            -LineDash $LineDashes `
-            -LineCap $LineCaps `
             -ChartAxisX $ChartAxisX `
             -ChartAxisY $ChartAxisY `
             -Height $Height -Width $Width `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
-
+        #>
     } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
         New-HTMLChartPie `
             -Legend $Legend `

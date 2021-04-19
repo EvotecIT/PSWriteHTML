@@ -4,22 +4,18 @@ function New-HTMLChartLine {
         [nullable[int]] $Height = 350,
         [nullable[int]] $Width,
 
-        [bool] $DataLabelsEnabled = $true,
-        [int] $DataLabelsOffsetX = -6,
-        [string] $DataLabelsFontSize = '12px',
-        [string[]] $DataLabelsColor,
+        #[bool] $DataLabelsEnabled = $true,
+        #[int] $DataLabelsOffsetX = -6,
+        #[string] $DataLabelsFontSize = '12px',
+        #[string[]] $DataLabelsColor,
         # [ValidateSet('datetime', 'category', 'numeric')][string] $DataCategoriesType = 'category',
 
-        [ValidateSet('straight', 'smooth', 'stepline')][string[]] $LineCurve,
-        [int[]] $LineWidth,
-        [string[]] $LineColor,
-        [int[]] $LineDash,
-        [ValidateSet('butt', 'square', 'round')][string[]] $LineCap,
+        #[int] $MarkerSize,
 
-        [int] $MarkerSize,
-
-        [Array] $Data,
-        [Array] $DataNames,
+        [Array] $Stroke,
+        [Array] $Series,
+        [System.Collections.IDictionary] $DataLabel,
+        [System.Collections.IDictionary] $Markers,
         #[Array] $DataLegend,
         [System.Collections.IDictionary] $ChartAxisX,
         [Array] $ChartAxisY,
@@ -36,6 +32,9 @@ function New-HTMLChartLine {
     )
 
     $Options = [ordered] @{ }
+    $Options.chart = @{
+        type = 'line'
+    }
     if ($Title) {
         $Options.title = $Title
     }
@@ -52,8 +51,13 @@ function New-HTMLChartLine {
         $Options.yaxis = $ChartAxisY
     }
 
-    New-ChartInternalLine -Options $Options -Data $Data -DataNames $DataNames
+    #New-ChartInternalLine -Options $Options -Data $Data -DataNames $DataNames
 
+    $Options.series = $DataSeries
+    $Options.stroke = New-ChartInternalStroke -Stroke $Stroke
+    $Options.dataLabels = $DataLabel
+    $Options.markers = $Markers
+    <#
     if ($LineCurve.Count -eq 0 -or ($LineCurve.Count -ne $DataNames.Count)) {
         $LineCurve = for ($i = $LineCurve.Count; $i -le $DataNames.Count; $i++) {
             'straight'
@@ -76,14 +80,18 @@ function New-HTMLChartLine {
         -LineColor $LineColor `
         -LineCap $LineCap `
         -LineDash $LineDash
+        #>
     # line colors (stroke colors ) doesn't cover legend - we need to make sure it's the same even thou lines are already colored
-    New-ChartInternalColors -Options $Options -Colors $LineColor
+    #New-ChartInternalColors -Options $Options -Colors $LineColor
+    <#
     New-ChartInternalDataLabels -Options $Options `
         -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX `
         -DataLabelsFontSize $DataLabelsFontSize `
         -DataLabelsColor $DataLabelsColor
-    New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
+
+        #>
+    #New-ChartInternalMarker -Options $Options -MarkerSize $MarkerSize
 
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }

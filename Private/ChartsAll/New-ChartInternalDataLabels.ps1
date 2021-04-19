@@ -2,9 +2,9 @@ function New-ChartInternalDataLabels {
     [cmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,
-        [bool] $DataLabelsEnabled = $true,
-        [int] $DataLabelsOffsetX = -6,
-        [string] $DataLabelsFontSize = '12px',
+        [bool] $DataLabelsEnabled,
+        [int] $DataLabelsOffsetX,
+        [string] $DataLabelsFontSize,
         [string[]] $DataLabelsColor
     )
 

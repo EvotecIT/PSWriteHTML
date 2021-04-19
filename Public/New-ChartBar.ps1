@@ -12,5 +12,10 @@
         ObjectType = 'Bar'
         Name       = $Name
         Value      = $Value
+        series     = [ordered]@{
+            name = $Name
+            type = 'column'
+            data = $Value
+        }
     }
 }

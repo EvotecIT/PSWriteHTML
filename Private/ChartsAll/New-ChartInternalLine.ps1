@@ -20,7 +20,7 @@ function New-ChartInternalLine {
         type = 'line'
     }
 
-    $Options.series = @( New-ChartInternalDataSet -Data $Data -DataNames $DataNames )
+   # $Options.series = @( New-ChartInternalDataSet -Data $Data -DataNames $DataNames )
 
     # X AXIS - CATEGORIES
     if (-not $Options.xaxis) {
@@ -29,8 +29,8 @@ function New-ChartInternalLine {
     if ($DataCategoriesType -ne '') {
         $Options.xaxis.type = $DataCategoriesType
     }
-    if ($DataCategories.Count -gt 0) {
-        $Options.xaxis.categories = $DataCategories
-    }
+    #if ($DataCategories.Count -gt 0) {
+    #   $Options.xaxis.categories = $DataCategories
+    #}
 
 }

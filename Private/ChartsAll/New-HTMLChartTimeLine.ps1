@@ -10,14 +10,6 @@
         [System.Collections.IDictionary] $Legend,
 
         [Array] $Data,
-        <#
-        [Array] $DataNames,
-        [string] $TitleText,
-        [string] $SubTitleText,
-        [int] $FontSizeTitle = 24,
-        [int] $FontSizeSubtitle = 14,
-        [string] $Color,
-        #>
         [switch] $PatternedColors,
         [switch] $GradientColors,
 
