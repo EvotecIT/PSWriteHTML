@@ -74,6 +74,10 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 - 0.0.149-Alpha6 (prerelease)
   - Added two or more separate y-axis to a line charts [#153](https://github.com/EvotecIT/PSWriteHTML/issues/153)
+  - Added ability to mix line charts and bar charts
+  - Improved `New-ChartDataLabel`
+  - Added `New-ChartMarker`
+  - Improved `New-ChartLine`
 - 0.0.149-Alpha5 (prerelease) - 2021.04.18
   - Libraries
     - 🔨 Upgraded `Apex Charts` from 3.26.0 to 3.26.1
