@@ -326,7 +326,7 @@
             -Colors $Colors `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     } elseif ($Type -eq 'Spark') {
-        New-HTMLChartSpark -Chart $Chart `
+        New-HTMLChartSpark -Chart $Chart -ChartAxisX $ChartAxisX `
             -Legend $Legend `
             -Data $DataSet `
             -DataNames $DataName `

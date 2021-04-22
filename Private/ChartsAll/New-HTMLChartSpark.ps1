@@ -2,6 +2,7 @@ function New-HTMLChartSpark {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Chart,
+        [System.Collections.IDictionary] $ChartAxisX,
         #[nullable[int]] $Height = 350,
         #[nullable[int]] $Width,
 
@@ -34,7 +35,9 @@ function New-HTMLChartSpark {
     if ($Legend) {
         $Options.legend = $Legend
     }
-
+    if ($ChartAxisX) {
+        New-ChartInternalAxisX -Options $Options @ChartAxisX
+    }
     New-ChartInternalSpark -Options $Options -Color $Colors -Values $Data
 
 
