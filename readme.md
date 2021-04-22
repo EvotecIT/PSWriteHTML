@@ -72,6 +72,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.149-Alpha8 (prerelease) - 2021.04.22
+  - 🐛 Fixes issue with `FontsAwesome` in offline mode after recent upgrade
+  - 💡 Improved spark charts
 - 0.0.149-Alpha7 (prerelease) - 2021.04.19
   - 💡 Improved `New-HTMLChart`
 - 0.0.149-Alpha6 (prerelease) - 2021.04.19
