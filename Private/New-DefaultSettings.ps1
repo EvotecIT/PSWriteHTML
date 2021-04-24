@@ -5,6 +5,7 @@
         Email             = $false
         Features          = [ordered] @{ } # tracks features for CSS/JS implementation
         Charts            = [System.Collections.Generic.List[string]]::new()
+        Carousel          = [System.Collections.Generic.List[string]]::new()
         Diagrams          = [System.Collections.Generic.List[string]]::new()
         Logos             = ""
         # Tabs Tracking/Options (Top Level Ones)
