@@ -434,23 +434,42 @@ $Script:Configuration = [ordered] @{
             Email        = $false
         }
         CarouselKineto              = @{
-            Comment     = 'Kineto JS Library'
-            Header      = @{
+            Comment      = 'Kineto JS Library'
+            Header       = @{
                 CssLinkOriginal = 'https://cdn.jsdelivr.net/gh/findawayer/kineto@main/dist/kineto.css'
-                CssLink         = "$($Script:ConfigurationURL)/CSS/kineto.min.css", "$($Script:ConfigurationURL)/CSS/kinetoStyle.min.css"
-                Css             = "$PSScriptRoot\..\Resources\CSS\kineto.min.css", "$PSScriptRoot\..\Resources\CSS\kinetoStyle.css"
+                CssLink         = "$($Script:ConfigurationURL)/CSS/kineto.min.css" #, "$($Script:ConfigurationURL)/CSS/kinetoStyle.min.css"
+                Css             = "$PSScriptRoot\..\Resources\CSS\kineto.min.css" #, "$PSScriptRoot\..\Resources\CSS\kinetoStyle.css"
             }
-            #HeaderAlways = @{
-            #    Css = "$PSScriptRoot\..\Resources\CSS\kinetoStyle.css"
-            #}
-            Body        = @{
+            HeaderAlways = @{
+                Css       = "$PSScriptRoot\..\Resources\CSS\kinetoStyle.css"
+                CssInLine = [ordered]@{
+                    '.slide' = [ordered] @{
+                        # height = '300px'
+                    }
+                }
+            }
+            Body         = @{
                 JSLinkOriginal = "https://cdn.jsdelivr.net/gh/findawayer/kineto@main/dist/kineto.js"
                 JSLink         = "$($Script:ConfigurationURL)/JS/kineto.min.js"
                 JS             = "$PSScriptRoot\..\Resources\JS\kineto.min.js"
             }
-            LicenseLink = 'https://github.com/findawayer/kineto/blob/main/LICENSE'
+            LicenseLink  = 'https://github.com/findawayer/kineto/blob/main/LICENSE'
+            License      = 'MIT'
+            SourceCodes  = 'https://github.com/findawayer/kineto'
+            Default      = $true
+            Email        = $false
+        }
+        CarouselSlick               = @{
+            Comment     = 'Slick JS'
+            Header      = @{
+                CssLink = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css','https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\slick.min.css"
+                JSLink  = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'
+                JS      = "$PSScriptRoot\..\Resources\JS\slick.min.css"
+            }
+            LicenseLink = 'https://github.com/kenwheeler/slick/blob/main/LICENSE'
             License     = 'MIT'
-            SourceCodes = 'https://github.com/findawayer/kineto'
+            SourceCodes = 'https://github.com/kenwheeler/slick/'
             Default     = $true
             Email       = $false
         }
