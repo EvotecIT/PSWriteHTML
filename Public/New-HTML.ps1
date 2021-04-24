@@ -277,6 +277,9 @@ Function New-HTML {
                         foreach ($Diagram in $Script:HTMLSchema.Diagrams) {
                             $Diagram
                         }
+                        foreach ($Carousel in $Script:HTMLSchema.Carousel) {
+                            $Carousel
+                        }
                     }
                     if ($AddComment) { '<!-- FOOTER -->' }
 

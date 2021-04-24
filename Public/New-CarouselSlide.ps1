@@ -1,11 +1,20 @@
 ﻿function New-CarouselSlide {
     [cmdletBinding()]
     param(
-        [scriptblock] $SlideContent
+        [scriptblock] $SlideContent,
+        [string] $BackgroundColor,
+        $Height
     )
-    New-HTMLTag -Tag 'div' -Attributes @{ class = 'slide' } {
-        if ($SlideContent) {
-            & $SlideContent
+    $Style = @{
+        'background-color' = ConvertFrom-Color -Color $BackgroundColor
+        height             = $Height
+    }
+    Remove-EmptyValue -Hashtable $Style
+    New-HTMLTag -Tag 'div' -Attributes @{ class = 'slide'; style = $Style } {
+        New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexElement' } {
+            if ($SlideContent) {
+                & $SlideContent
+            }
         }
     }
 }
