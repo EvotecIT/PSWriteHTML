@@ -177,4 +177,5 @@
         # otherwise this overwrites global section settings
         return $StyleSheetsConfiguration
     }
+
 }
