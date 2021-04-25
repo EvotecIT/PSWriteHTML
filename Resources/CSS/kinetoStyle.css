@@ -1,14 +1,18 @@
 ﻿.carousel {
     position: relative;
     width: 100%;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .slide {
     width: 100%;
+    /*
     height: 300px;
-    box-sizing: border-box;
+    */
+    box-sizing: -box;
+    /*
     background-color: rgb(52, 73, 85);
+    */
     line-height: 1.15em;
     font-size: 3rem;
     text-align: center;
@@ -49,13 +53,17 @@
 }
 
 .kineto .kineto__frame, .kineto .kineto-frame {
+    /*
     color: rgb(249, 170, 51);
     background-color: rgb(74, 101, 114);
+    */
     transition: height 0.25s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .kineto .kineto__slide--active, .kineto .kineto-slide.kineto-active {
+    /*
     background-color: rgb(35, 47, 52);
+    */
 }
 
 .kineto .kineto__arrow__button, .kineto .kineto-arrow-button {
