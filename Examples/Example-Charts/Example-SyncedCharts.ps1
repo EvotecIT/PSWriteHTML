@@ -28,7 +28,7 @@ New-HTML -TitleText 'Charts - Line' -Online -FilePath $PSScriptRoot\Example-Sync
         New-ChartAxisX -Name $DataTable.Year
         New-ChartAxisY -TitleText 'Series A' -Show
         New-ChartAxisY -TitleText 'Series B' -Show -Opposite
-
+        New-ChartDataLabel
         New-ChartLine -Name 'Incidents per month' -Value $DataTable.Incidents -Curve smooth -Width 2 -Dash 12 -Cap round
 
         New-ChartEvent -DataTableID 'IDTable' -ColumnID 3
