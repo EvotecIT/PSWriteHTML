@@ -35,7 +35,7 @@ $FoundErrors = @(
         }
     }
     #Dot source the files
-    Foreach ($Import in @($Public + $Private)) {
+    Foreach ($Import in @($Private + $Public)) {
         Try {
             . $Import.Fullname
         } Catch {
