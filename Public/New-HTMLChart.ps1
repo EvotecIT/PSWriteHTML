@@ -236,6 +236,8 @@
             $DataLabel = $Setting.DataLabel
         } elseif ($Setting.ObjectType -eq 'ChartEvents') {
             $Events = $Setting.Event
+        } elseif ($Setting.ObjectType -eq 'RadialOptions') {
+            $PlotOptions = $Setting.plotOptions
         }
     }
 
@@ -333,12 +335,26 @@
             -Colors $Colors `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     } elseif ($Type -eq 'Radial') {
-        New-HTMLChartRadial -Chart $Chart `
-            -Legend $Legend `
+
+        $SplatChart = @{
+
+            PlotOptions     = $PlotOptions
+            # Every the same
+            Legend          = $Legend
+            Chart           = $Chart
+            Theme           = $Theme
+            Toolbar         = $Toolbar
+            GridOptions     = $GridOptions
+            PatternedColors = $Patterned
+            GradientColors  = $Gradient
+            Events          = $Events
+            Title           = $TitleBlock
+            SubTitle        = $SubTitleBlock
+        }
+        New-HTMLChartRadial `
             -Data $DataSet `
             -DataNames $DataName `
-            -Colors $Colors `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
+            -Colors $Colors @SplatChart
     } elseif ($Type -eq 'rangeBar') {
         New-HTMLChartTimeLine -Chart $Chart `
             -Legend $Legend `

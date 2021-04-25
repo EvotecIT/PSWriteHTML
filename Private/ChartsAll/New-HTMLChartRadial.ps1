@@ -8,8 +8,13 @@ function New-HTMLChartRadial {
         [Array] $DataNames,
         [Array] $Data,
         [string] $Type,
-        [ValidateSet('FullCircleTop', 'FullCircleBottom', 'FullCircleBottomLeft', 'FullCircleLeft', 'Speedometer', 'SemiCircleGauge')] $CircleType = 'FullCircleTop',
+
+        #[ValidateSet('FullCircleTop', 'FullCircleBottom', 'FullCircleBottomLeft', 'FullCircleLeft', 'Speedometer', 'SemiCircleGauge')] $CircleType = 'FullCircleTop',
         [string] $LabelAverage,
+
+
+        [System.Collections.IDictionary] $PlotOptions,
+
 
         [System.Collections.IDictionary] $Title,
         [System.Collections.IDictionary] $SubTitle,
@@ -38,7 +43,10 @@ function New-HTMLChartRadial {
 
     New-ChartInternalRadial -Options $Options -Names $DataNames -Values $Data -Type $Type
     # This controls how the circle starts / left , right and so on
-    New-ChartInternalRadialCircleType -Options $Options -CircleType $CircleType
+    #New-ChartInternalRadialCircleType -Options $Options -CircleType $CircleType
+    if ($PlotOptions) {
+        $Options.plotOptions = $PlotOptions
+    }
     # This added label. It's useful if there's more then one data
     New-ChartInternalRadialDataLabels -Options $Options -Label $LabelAverage
 
@@ -54,4 +62,4 @@ function New-HTMLChartRadial {
     New-ApexChart -Options $Options -Events $Events
 }
 
-Register-ArgumentCompleter -CommandName New-HTMLChartRadial -ParameterName Colors -ScriptBlock $Script:ScriptBlockColors
+#Register-ArgumentCompleter -CommandName New-HTMLChartRadial -ParameterName Colors -ScriptBlock $Script:ScriptBlockColors
