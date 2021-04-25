@@ -74,7 +74,9 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 - 0.0.149-Alpha9 (prerelease)
   - 🐛 Fixes to `ChartLegend`
-  - ☑ Added `New-ChartRadialOptons`
+  - ☑ Added `New-ChartRadialOptons` - work in progress/not functional
+  - ☑ Added `New-ChartDesign` - work in progress/not functional
+  - ☑ Added `New-CarouselStyle` - place holder/not functional
 - 0.0.149-Alpha8 (prerelease) - 2021.04.22
   - 🐛 Fixes issue with `FontsAwesome` in offline mode after recent upgrade
   - 💡 Improved spark charts
