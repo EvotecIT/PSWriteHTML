@@ -19,7 +19,8 @@
         [string] $FontFamily,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [switch] $DisableOnItemClickToggleDataSeries,
-        [switch] $DisableOnItemHoverHighlightDataSeries
+        [switch] $DisableOnItemHoverHighlightDataSeries,
+        [switch] $UseSeriesColors
     )
     $Object = [PSCustomObject] @{
         ObjectType = 'Legend'
@@ -30,7 +31,11 @@
             show            = -not $HideLegend.IsPresent
             position        = $LegendPosition
             horizontalAlign = $HorizontalAlign
+            labels = @{}
         }
+    }
+    if ($UseSeriesColors) {
+        $Object.legend.labels.useSeriesColors = $true
     }
     if ($Floating) {
         $Object.legend.floating = $true
@@ -64,13 +69,13 @@
         }
     }
 
-    if ($LabelFontSize) {
+    if ($FontSize) {
         $Object.legend.fontSize = ConvertFrom-Size -Size $FontSize
     }
-    if ($LabelFontFamily) {
+    if ($FontFamily) {
         $Object.legend.fontFamily = $FontFamily
     }
-    if ($LabelFontWeight) {
+    if ($FontWeight) {
         $Object.legend.fontWeight = $FontWeight
     }
 
