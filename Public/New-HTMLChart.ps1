@@ -307,18 +307,6 @@
             SubTitle        = $SubTitleBlock
         }
         New-HTMLChartLine @SplatChartLine
-        <#
-        New-HTMLChartLine -Series $DataSeries -Stroke $LineStroke `
-            -Legend $Legend `
-            -DataLabelsEnabled $BarDataLabelsEnabled `
-            -DataLabelsOffsetX $BarDataLabelsOffsetX `
-            -DataLabelsFontSize $BarDataLabelsFontSize `
-            -DataLabelsColor $BarDataLabelsColor `
-            -ChartAxisX $ChartAxisX `
-            -ChartAxisY $ChartAxisY `
-            -Height $Height -Width $Width `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
-        #>
     } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
         New-HTMLChartPie -Chart $Chart `
             -Legend $Legend `
@@ -328,15 +316,31 @@
             -Colors $Colors `
             -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
     } elseif ($Type -eq 'Spark') {
-        New-HTMLChartSpark -Chart $Chart -ChartAxisX $ChartAxisX `
-            -Legend $Legend `
-            -Data $DataSet `
-            -DataNames $DataName `
-            -Colors $Colors `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
-    } elseif ($Type -eq 'Radial') {
-
         $SplatChart = @{
+            Data            = $DataSet
+            DataNames       = $DataName
+            Colors          = $Colors
+
+            ChartAxisX = $ChartAxisX
+
+            # Every the same
+            Legend          = $Legend
+            Chart           = $Chart
+            Theme           = $Theme
+            Toolbar         = $Toolbar
+            GridOptions     = $GridOptions
+            PatternedColors = $Patterned
+            GradientColors  = $Gradient
+            Events          = $Events
+            Title           = $TitleBlock
+            SubTitle        = $SubTitleBlock
+        }
+        New-HTMLChartSpark @SplatChart
+    } elseif ($Type -eq 'Radial') {
+        $SplatChart = @{
+            Data            = $DataSet
+            DataNames       = $DataName
+            Colors          = $Colors
 
             PlotOptions     = $PlotOptions
             # Every the same
@@ -351,20 +355,28 @@
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
         }
-        New-HTMLChartRadial `
-            -Data $DataSet `
-            -DataNames $DataName `
-            -Colors $Colors @SplatChart
+        New-HTMLChartRadial @SplatChart
     } elseif ($Type -eq 'rangeBar') {
-        New-HTMLChartTimeLine -Chart $Chart `
-            -Legend $Legend `
+        $SplatChart = @{
+
+            # Every the same
+            Legend          = $Legend
+            Chart           = $Chart
+            Theme           = $Theme
+            Toolbar         = $Toolbar
+            GridOptions     = $GridOptions
+            PatternedColors = $Patterned
+            GradientColors  = $Gradient
+            Events          = $Events
+            Title           = $TitleBlock
+            SubTitle        = $SubTitleBlock
+        }
+        New-HTMLChartTimeLine `
             -Data $DataSetChartTimeLine `
-            -Theme $Theme -Toolbar $Toolbar `
             -ChartAxisX $ChartAxisX `
             -ChartAxisY $ChartAxisY `
-            -ChartToolTip $ChartToolTip `
-            -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient `
-            -DataLabel $DataLabel -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
+            -ChartToolTip $ChartToolTip @SplatChart
+
     }
 }
 
