@@ -1896,6 +1896,7 @@ $Keys = @(
     #'CarouselKineto'
     #'QR'
     #'Fonts*'
+    #'WinBox'
 )
 
 Save-HTMLResource -Configuration $Script:Configuration -Keys $Keys -PathToSave 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources' -Verbose
