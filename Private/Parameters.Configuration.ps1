@@ -462,7 +462,7 @@ $Script:Configuration = [ordered] @{
         CarouselSlick               = @{
             Comment     = 'Slick JS'
             Header      = @{
-                CssLink = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css','https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css'
+                CssLink = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\slick.min.css"
                 JSLink  = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'
                 JS      = "$PSScriptRoot\..\Resources\JS\slick.min.css"
@@ -1799,6 +1799,29 @@ $Script:Configuration = [ordered] @{
             LicenseLink  = 'https://github.com/techlab/jquery-smartwizard/blob/master/LICENSE'
             License      = 'MIT'
             SourceCodes  = 'https://github.com/techlab/jquery-smartwizard'
+        }
+        WinBox                      = [ordered] @{
+            Comment      = 'WinBox'
+            Demos        = 'http://techlaboratory.net/jquery-smartwizard'
+            Header       = @{
+                JsLink  = 'https://cdn.jsdelivr.net/npm/winbox@0.1.8/dist/js/winbox.min.js'
+                Js      = "$PSScriptRoot\..\Resources\JS\winbox.min.js"
+                CssLink = "https://cdn.jsdelivr.net/npm/winbox@0.1.8/dist/css/winbox.min.css", 'https://cdn.jsdelivr.net/npm/winbox@0.1.8/dist/css/themes/modern.min.css', 'https://cdn.jsdelivr.net/npm/winbox@0.1.8/dist/css/themes/white.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\winbox.min.css", "$PSScriptRoot\..\Resources\CSS\winbox.modern.min.css", "$PSScriptRoot\..\Resources\CSS\winbox.white.min.css"
+            }
+            HeaderAlways = @{
+                JS = "$PSScriptRoot\..\Resources\JS\winbox.support.js"
+                # CssInline = @{
+                # '.defaultWizard' = [ordered] @{
+                # 'margin' = '5px'
+                # }
+                # }
+            }
+            Default      = $true
+            Email        = $false
+            LicenseLink  = 'https://github.com/nextapps-de/winbox/blob/master/LICENSE'
+            License      = 'Apache-2.0 License'
+            SourceCodes  = 'https://github.com/nextapps-de/winbox'
         }
         JQueryMouseWheel            = @{
             Header      = @{
