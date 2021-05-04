@@ -201,7 +201,7 @@
 
     # We cheat and replace the string with proper element id
     if ($HTML) {
-        $OptionsJSON = $OptionsJSON.Replace('"replaceHTMLme"', "document.getElementById('$WinBoxHidden').cloneNode(true)")
+        $OptionsJSON = $OptionsJSON.Replace('"replaceHTMLme"', "document.getElementById('$WinBoxHidden')")
     }
 
     New-HTMLTag -Tag 'script' {
