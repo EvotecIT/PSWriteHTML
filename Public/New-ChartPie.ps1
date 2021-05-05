@@ -6,10 +6,6 @@
         [object] $Value,
         [string] $Color
     )
-
-    if ($null -eq $Value -or $Value -eq '') {
-        $Value = 0
-    }
     [PSCustomObject] @{
         ObjectType = 'Pie'
         Name       = $Name
