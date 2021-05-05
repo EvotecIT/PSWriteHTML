@@ -44,9 +44,9 @@
         [ValidateSet('butt', 'square', 'round')][string] $Cap,
         [System.Nullable[int]] $Dash
     )
-    if ($null -eq $Value -or $Value -eq '') {
-        $Value = 0
-    }
+  #  if ($null -eq $Value -or $Value -eq '') {
+   #     $Value = 0
+   # }
     $Object = [PSCustomObject] @{
         ObjectType = 'Line'
 
