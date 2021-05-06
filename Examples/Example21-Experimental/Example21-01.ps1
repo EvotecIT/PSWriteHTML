@@ -9,11 +9,8 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example21-01.html
     New-HTMLTab -IconBrands aws -Name 'Test 1' -IconColor DarkGoldenrod {
         New-HTMLTable -DataTable $Test -PagingOptions @(50, 100, 150, 200) {
             New-HTMLTableButtonPDF -PageSize TABLOID -Orientation portrait
-            New-HTMLTableButtonExcel
-            New-HTMLTableCondition -Name 'HandleCount' -Type number -Operator gt -Value 300 -BackgroundColor Yellow
-            New-HTMLTableCondition -Name 'ID' -Type number -Operator gt -Value 16000 -BackgroundColor Green
-            New-HTMLTableCondition -Name 'Name' -Type string -Operator eq -Value 'browser_broker' -BackgroundColor Gold -Row
-        }
+            New-HTMLTableButtonExcel -Title 'Custom'
+        } -Title 'Test'
     }
     New-HTMLTab -Name 'Test 2' -IconSolid address-card {
 
