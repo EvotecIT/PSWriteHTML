@@ -26,14 +26,14 @@ $DataTable = @(
 New-HTML {
     New-HTMLSection {
         for ($i = 0; $i -le 5; $i++) {
-            New-HTMLContainer {
-                New-HTMLChart {
-                    New-ChartToolbar -Download
-                    foreach ($Object in $DataTable) {
-                        New-ChartPie -Name $Object.Name -Value $Object.Time
-                    }
+            #New-HTMLContainer {
+            New-HTMLChart {
+                New-ChartToolbar -Download
+                foreach ($Object in $DataTable) {
+                    New-ChartPie -Name $Object.Name -Value $Object.Time
                 }
             }
+            #}
         }
     } -Direction column
 } -ShowHTML -FilePath $PSScriptRoot\Example-ChartsWithTablesPie.html -Online #-Format

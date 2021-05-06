@@ -1,3 +1,6 @@
+Import-Module .\PSWriteHTML.psd1 -Force
+
+
 New-HTML -TitleText 'Database-Reports' -Temporary -Online -ShowHTML {
     New-HTMLSection -HeaderText 'Database-Report' -BorderRadius 15px -Wrap wrap {
         New-HTMLSection -HeaderText 'Database-Summary' -HeaderTextColor black -HeaderBackGroundColor limegreen -BorderRadius 15px -CanCollapse {
