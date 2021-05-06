@@ -147,8 +147,10 @@ Function New-HTMLSection {
     } else {
         if ($Invisible) {
             [string] $ClassName = "flexParentInvisible flexElement overflowHidden $($StyleSheetsConfiguration.SectionContentInvisible)"
+            [string] $ClassNameNested = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContentInvisible)"
         } else {
             [string] $ClassName = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
+            [string] $ClassNameNested = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
         }
     }
 
@@ -165,7 +167,7 @@ Function New-HTMLSection {
     $HeaderStyle = @{ "color" = $TextHeaderColorFromRGB }
     if ($Invisible) {
         New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; style = $AttributesTop['style'] } -Value {
-            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; Style = $ContentStyle } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassNameNested; Style = $ContentStyle } -Value {
                 $Object = Invoke-Command -ScriptBlock $Content
                 if ($null -ne $Object) {
                     $Object
@@ -183,7 +185,7 @@ Function New-HTMLSection {
                 }
             }
             New-HTMLTag -Tag 'div' -Attributes @{ name = $AnchorName; class = $ClassName; id = $AnchorName; style = $HiddenDivStyle } -Value {
-                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassName collapsable"; id = $AnchorName; style = $ContentStyle } -Value {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassNameNested collapsable"; id = $AnchorName; style = $ContentStyle } -Value {
                     $Object = Invoke-Command -ScriptBlock $Content
                     if ($null -ne $Object) {
                         $Object

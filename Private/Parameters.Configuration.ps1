@@ -130,9 +130,11 @@ $Script:Configuration = [ordered] @{
                     }
                     '.flexElement'         = [ordered]@{
                         'flex-basis' = '100%'
+                        'max-width'  = '100%'
                     }
                     '.flexPanel'           = [ordered]@{
                         'flex-basis' = '100%'
+                        'max-width'  = '100%'
                     }
                     '.flex-grid'           = [ordered]@{
                         'display' = 'flex'
