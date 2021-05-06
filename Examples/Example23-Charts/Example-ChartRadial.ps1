@@ -129,11 +129,23 @@ New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-ChartRad
                 New-HTMLChart {
                     New-ChartLegend -LegendPosition bottom
                     New-ChartTheme -Monochrome
-                    New-ChartRadialOptions -CircleType
+                    New-ChartRadialOptions -CircleType SemiCircleGauge
                     New-ChartRadial -Name 'Vimeo' -Value 76
                     New-ChartRadial -Name 'Messenger' -Value 67
                     New-ChartRadial -Name 'Facebook' -Value 61
                     New-ChartRadial -Name 'LinkedIn' -Value 90
+                }
+            }
+        }
+        New-HTMLSection -Invisible {
+            New-HTMLPanel {
+                New-HTMLChart {
+                    #New-ChartLegend -Floating -FontSize 16px -LegendPosition left -
+                    #New-ChartRadialOptions -CircleType SemiCircleGauge
+                    New-ChartRadial -Name 'Vimeo' -Value 76 -Color '#1ab7ea'
+                    New-ChartRadial -Name 'Messenger' -Value 67 -Color '#0084ff'
+                    New-ChartRadial -Name 'Facebook' -Value 61 -Color '#39539E'
+                    New-ChartRadial -Name 'LinkedIn' -Value 90 -Color '#0077B5'
                 }
             }
         }

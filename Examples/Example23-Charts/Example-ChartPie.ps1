@@ -18,11 +18,11 @@ New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-ChartPie
             New-HTMLPanel {
                 New-HTMLChart {
                     New-ChartTheme -Monochrome -Color Green
-                    New-ChartPie -Name 'Test' -Value 20
-                    New-ChartPie -Name 'Test1' -Value 30
-                    New-ChartPie -Name 'Test2' -Value 40
-                    New-ChartPie -Name 'Test1' -Value 30
-                    New-ChartPie -Name 'Test2' -Value 40
+                    New-ChartPie -Name 'Test' -Value 20.4
+                    New-ChartPie -Name 'Test1' -Value 30.51
+                    New-ChartPie -Name 'Test2' -Value 4.40
+                    New-ChartPie -Name 'Test1' -Value 30.30
+                    New-ChartPie -Name 'Test2' -Value 40.50
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿
+﻿Import-Module .\PSWriteHTML.psd1 -Force
+
 New-HTML {
 
     New-HTMLSection -HeaderText 'Donut Charts - Defaults' -CanCollapse -Wrap wrap {
