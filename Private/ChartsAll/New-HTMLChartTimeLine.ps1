@@ -2,9 +2,6 @@
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Chart,
-        #[nullable[int]] $Height = 350,
-        #[nullable[int]] $Width,
-
 
         [System.Collections.IDictionary] $Title,
         [System.Collections.IDictionary] $SubTitle,
@@ -25,31 +22,33 @@
         [System.Collections.IDictionary] $DataLabel,
         [Object] $Events
     )
+    # Defaults
     $Options = [ordered] @{}
     $Options.chart = $Chart
+    $Options['chart']['type'] = 'rangeBar'
+
     if ($Title) {
         $Options.title = $Title
     }
     if ($SubTitle) {
         $Options.subtitle = $SubTitle
     }
-    if ($ChartAxisX) {
-        $ChartAxisX.type = "datetime"
-        New-ChartInternalAxisX -Options $Options @ChartAxisX
-    } else {
-        $ChartAxisX = @{
-            Type = "datetime"
-        }
-        New-ChartInternalAxisX -Options $Options @ChartAxisX
+    if ($Legend) {
+        $Options.legend = $Legend
     }
+
+    if (-not $ChartAxisX) {
+        $ChartAxisX = [ordered] @{}
+    }
+    $ChartAxisX.type = "datetime"
+    New-ChartInternalAxisX -Options $Options @ChartAxisX
+
     if ($ChartAxisY) {
         # ChartAxisY in TimeLine charts doesn't support multiple AxisY
         # So we force it to use first one
         $Options.yaxis = $ChartAxisY[0]
     }
-    if ($Legend) {
-        $Options.legend = $Legend
-    }
+
     if ($ChartToolTip) {
         New-ChartInternalToolTip -Options $Options @ChartToolTip
     }
@@ -62,7 +61,6 @@
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
-    #New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }

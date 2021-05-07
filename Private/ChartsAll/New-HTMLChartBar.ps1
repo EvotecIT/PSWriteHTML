@@ -2,8 +2,6 @@ function New-HTMLChartBar {
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Chart,
-        #[nullable[int]] $Height = 350,
-        #[nullable[int]] $Width,
         [ValidateSet('bar', 'barStacked', 'barStacked100Percent')] $Type = 'bar',
         [string[]] $Colors,
 
@@ -14,9 +12,6 @@ function New-HTMLChartBar {
         [string] $DataLabelsColor,
 
         [switch] $Distributed,
-
-        #[ValidateSet('top', 'topRight', 'left', 'right', 'bottom', 'default')][string] $LegendPosition = 'default',
-
         [Array] $Data,
         [Array] $DataNames,
         [Array] $DataLegend,
@@ -34,7 +29,7 @@ function New-HTMLChartBar {
         [System.Collections.IDictionary] $Theme,
         [Object] $Events
     )
-
+    # Defaults
     $Options = [ordered] @{ }
     $Options.chart = $Chart
     if ($Title) {
@@ -46,6 +41,8 @@ function New-HTMLChartBar {
     if ($Legend) {
         $Options.legend = $Legend
     }
+
+
     if ($ChartAxisX) {
         New-ChartInternalAxisX -Options $Options @ChartAxisX
     }
@@ -64,8 +61,6 @@ function New-HTMLChartBar {
     # Default for all charts
     if ($PatternedColors) { New-ChartInternalPattern }
     if ($GradientColors) { New-ChartInternalGradient }
-
-    #New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }

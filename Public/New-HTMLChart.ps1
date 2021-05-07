@@ -261,22 +261,37 @@
             }
         }
 
-        New-HTMLChartBar -Chart $Chart `
-            -Data $($HashTable.Values) `
-            -DataNames $DataName `
-            -DataLegend $DataLegend `
-            -Legend $Legend `
-            -Type $Type `
-            -Horizontal:$BarHorizontal `
-            -DataLabelsEnabled $BarDataLabelsEnabled `
-            -DataLabelsOffsetX $BarDataLabelsOffsetX `
-            -DataLabelsFontSize $BarDataLabelsFontSize `
-            -Distributed:$BarDistributed `
-            -DataLabelsColor $BarDataLabelsColor `
-            -Colors $Colors `
-            -ChartAxisX $ChartAxisX `
-            -ChartAxisY $ChartAxisY `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
+        $SplatChart = @{
+            Data               = $($HashTable.Values)
+            DataNames          = $DataName
+            Colors             = $Colors
+            DataLegend         = $DataLegend
+
+            Type               = $Type
+            Horizontal         = $BarHorizontal
+            DataLabelsEnabled  = $BarDataLabelsEnabled
+            DataLabelsOffsetX  = $BarDataLabelsOffsetX
+            DataLabelsFontSize = $BarDataLabelsFontSize
+            Distributed        = $BarDistributed
+            DataLabelsColor    = $BarDataLabelsColor
+            ChartAxisX         = $ChartAxisX
+            ChartAxisY         = $ChartAxisY
+
+            # Every the same
+            Legend             = $Legend
+            Chart              = $Chart
+            Theme              = $Theme
+            Toolbar            = $Toolbar
+            GridOptions        = $GridOptions
+            PatternedColors    = $Patterned
+            GradientColors     = $Gradient
+            Events             = $Events
+            Title              = $TitleBlock
+            SubTitle           = $SubTitleBlock
+        }
+
+        New-HTMLChartBar @SplatChart
+
     } elseif ($Type -eq 'Line') {
         if (-not $ChartAxisX) {
             Write-Warning -Message 'Chart Category (Chart Axis X) is missing.'
@@ -308,20 +323,32 @@
         }
         New-HTMLChartLine @SplatChartLine
     } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
-        New-HTMLChartPie -Chart $Chart `
-            -Legend $Legend `
-            -Type $Type `
-            -Data $DataSet `
-            -DataNames $DataName `
-            -Colors $Colors `
-            -Theme $Theme -Toolbar $Toolbar -GridOptions $GridOptions -PatternedColors:$Patterned -GradientColors:$Gradient -Events $Events -Title $TitleBlock -SubTitle $SubTitleBlock
+        $SplatChart = @{
+            Data            = $DataSet
+            DataNames       = $DataName
+            Colors          = $Colors
+
+            # Every the same
+            Legend          = $Legend
+            Chart           = $Chart
+            Theme           = $Theme
+            Toolbar         = $Toolbar
+            GridOptions     = $GridOptions
+            PatternedColors = $Patterned
+            GradientColors  = $Gradient
+            Events          = $Events
+            Title           = $TitleBlock
+            SubTitle        = $SubTitleBlock
+        }
+
+        New-HTMLChartPie @SplatChart -Type $Type
     } elseif ($Type -eq 'Spark') {
         $SplatChart = @{
             Data            = $DataSet
             DataNames       = $DataName
             Colors          = $Colors
 
-            ChartAxisX = $ChartAxisX
+            ChartAxisX      = $ChartAxisX
 
             # Every the same
             Legend          = $Legend
@@ -358,6 +385,10 @@
         New-HTMLChartRadial @SplatChart
     } elseif ($Type -eq 'rangeBar') {
         $SplatChart = @{
+            Data            = $DataSetChartTimeLine
+            ChartAxisX      = $ChartAxisX
+            ChartAxisY      = $ChartAxisY
+            ChartToolTip    = $ChartToolTip
 
             # Every the same
             Legend          = $Legend
@@ -371,12 +402,7 @@
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
         }
-        New-HTMLChartTimeLine `
-            -Data $DataSetChartTimeLine `
-            -ChartAxisX $ChartAxisX `
-            -ChartAxisY $ChartAxisY `
-            -ChartToolTip $ChartToolTip @SplatChart
-
+        New-HTMLChartTimeLine @SplatChart
     }
 }
 

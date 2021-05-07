@@ -16,9 +16,6 @@
         $ColorRGB = ConvertFrom-Color -Color $Color
         $Options.colors = @($ColorRGB)
     }
-    $Options.chart = [ordered] @{
-        type = 'rangeBar'
-    }
     $Options.plotOptions = @{
         bar = @{
             horizontal  = $true
