@@ -72,6 +72,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.150-Alpha01 (prerelease) - 2021.05.07
+  - 🐛 Fixes timeline charts (broken earlier in the preview)
+  - 🐛 Decimals in `New-ChartPie` should now work correctly
 - 0.0.150-Alpha01 (prerelease) - 2021.05.05
   - 🐛 Fixes for charts when using multiple 0 next to each other
 - 0.0.149-Alpha9 (prerelease) - 2021.05.04
