@@ -36,5 +36,13 @@ New-HTML {
                 }
             }
         }
+        New-HTMLTabPanel {
+            New-HTMLTab -Name 'This Tab Is Almost At The End 1' -IconBrands cc-amazon-pay {
+                New-HTMLTable -DataTable 'Last Table Under Tab 1'
+            }
+            New-HTMLTab -Name 'This Tab Is Almost At The End 2' -IconBrands 500px {
+                New-HTMLTable -DataTable 'test 4'
+            }
+        }
     }
 } -Online -ShowHTML -FilePath $PSScriptRoot\Example-TabsInLine05.html
