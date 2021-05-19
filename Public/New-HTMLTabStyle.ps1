@@ -20,7 +20,7 @@
         [Parameter(ParameterSetName = 'Manual')][alias('SelectorColor')][string] $BackgroundColorActive,
         [Parameter(ParameterSetName = 'Manual')][alias('SelectorColorTarget')][string] $BackgroundColorActiveTarget,
         [Parameter(ParameterSetName = 'Manual')][ValidateSet('0px', '5px', '10px', '15px', '20px', '25px')][string] $BorderRadius,
-        [Parameter(ParameterSetName = 'Manual')][string] $BorderBackgroundColor,
+
         [Parameter(ParameterSetName = 'Manual')][ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [Parameter(ParameterSetName = 'Manual')][ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransformActive,
 
@@ -28,6 +28,9 @@
         [Parameter(ParameterSetName = 'Manual')][switch] $Transition,
         [Parameter(ParameterSetName = 'Manual')][switch] $LinearGradient,
         [Parameter(ParameterSetName = 'Manual')][switch] $RemoveShadow,
+
+        [Parameter(ParameterSetName = 'Manual')][ValidateSet('none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset')][string] $BorderStyle,
+        [Parameter(ParameterSetName = 'Manual')][string] $BorderColor,
 
         [Parameter(ParameterSetName = 'Manual')][ValidateSet('medium', 'thin', 'thick')][string] $BorderBottomWidth,
         [Parameter(ParameterSetName = 'Manual')][ValidateSet('none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset')][string] $BorderBottomStyle,
@@ -86,16 +89,16 @@
 
     # This controls All Tabs
     $CssTabsWrapper = [ordered] @{
-        'text-align'       = $Align
-        'text-transform'   = $TextTransform
-        'font-size'        = ConvertFrom-Size -TextSize $FontSize
-        'color'            = ConvertFrom-Color -Color $TextColor
-        'background-color' = ConvertFrom-Color -Color $BackgroundColor
-        'font-weight'      = $FontWeight
-        'font-style'       = $FontStyle
-        'font-variant'     = $FontVariant
-        'font-family'      = $FontFamily
-        'text-decoration'  = $TextDecoration
+        'text-align'      = $Align
+        'text-transform'  = $TextTransform
+        'font-size'       = ConvertFrom-Size -TextSize $FontSize
+        'color'           = ConvertFrom-Color -Color $TextColor
+        #'background-color' = ConvertFrom-Color -Color $BackgroundColor
+        'font-weight'     = $FontWeight
+        'font-style'      = $FontStyle
+        'font-variant'    = $FontVariant
+        'font-family'     = $FontFamily
+        'text-decoration' = $TextDecoration
     }
 
     # this will add configuration for tabsWrapper as it already exists
@@ -106,7 +109,9 @@
     # This controls All Tabs in [Data-Tabs] class
     $CssTabsData = @{
         'border-radius'    = $BorderRadius
-        'background-color' = ConvertFrom-Color -Color $BorderBackgroundColor
+        'border-style'     = $BorderStyle
+        'border-color'     = ConvertFrom-Color -Color $BorderColor
+        'background-color' = ConvertFrom-Color -Color $BackgroundColor
         'justify-content'  = $JustifyContent
         'flex-wrap'        = $Wrap
         'flex-direction'   = $Direction
@@ -208,6 +213,6 @@ Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName TextColo
 Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BackgroundColorActive -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BackgroundColorActiveTarget -ScriptBlock $Script:ScriptBlockColors
-Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BorderBackgroundColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BorderColor -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BorderBottomColor -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLTabStyle -ParameterName BorderBottomColorActive -ScriptBlock $Script:ScriptBlockColors
