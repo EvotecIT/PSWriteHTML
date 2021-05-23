@@ -49,7 +49,7 @@ $Script:Configuration = [ordered] @{
             InternalComment = 'font-simple-icons'
             Header          = @{
                 CssLink = 'https://cdn.jsdelivr.net/npm/simple-icons-font@4.24.0/font/simple-icons.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\simple-icons.min.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\fontsSimpleIcons.min.css"
             }
             Default         = $true
             Email           = $false
