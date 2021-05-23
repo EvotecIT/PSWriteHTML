@@ -1911,7 +1911,7 @@ $Keys = @(
     #'QR'
     #'Fonts*'
     #'WinBox'
-    #'FontsSimple'
+    'FontsSimpleIcons'
 )
 
 Save-HTMLResource -Configuration $Script:Configuration -Keys $Keys -PathToSave 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources' -Verbose
