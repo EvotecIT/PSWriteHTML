@@ -19,7 +19,7 @@ $Script:Configuration = [ordered] @{
             Email        = $false
         }
         FontsAwesome                = @{
-            Comment         = 'Default fonts icons'
+            Comment         = 'Fonts Awesome icons'
             InternalComment = 'font-awesome'
             Header          = @{
                 CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
@@ -43,6 +43,17 @@ $Script:Configuration = [ordered] @{
             Default         = $true
             Email           = $false
             License         = 'SIL OFL 1.1'
+        }
+        FontsSimpleIcons            = @{
+            Comment         = 'Font Simple Icons'
+            InternalComment = 'font-simple-icons'
+            Header          = @{
+                CssLink = 'https://cdn.jsdelivr.net/npm/simple-icons-font@4.24.0/font/simple-icons.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\simple-icons.min.css"
+            }
+            Default         = $true
+            Email           = $false
+            License         = 'CC0-1.0 License'
         }
         AnimateToolkit              = @{
             Comment         = 'Animation Toolkit'
@@ -1567,14 +1578,14 @@ $Script:Configuration = [ordered] @{
                     }
                 }
             }
-            <#
+
             FooterAlways = @{
                 JS = @(
                     "$PSScriptRoot\..\Resources\JS\tabbis.js"
                     "$PSScriptRoot\..\Resources\JS\tabbisAdditional.js"
                 )
             }
-            #>
+            <#
             Footer       = @{
                 JSLink = @(
                     "$($Script:ConfigurationURL)/JS/tabbis.min.js"
@@ -1585,6 +1596,7 @@ $Script:Configuration = [ordered] @{
                     "$PSScriptRoot\..\Resources\JS\tabbisAdditional.js"
                 )
             }
+            #>
             Default      = $true
             Email        = $false
         }
@@ -1899,6 +1911,7 @@ $Keys = @(
     #'QR'
     #'Fonts*'
     #'WinBox'
+    #'FontsSimple'
 )
 
 Save-HTMLResource -Configuration $Script:Configuration -Keys $Keys -PathToSave 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources' -Verbose
