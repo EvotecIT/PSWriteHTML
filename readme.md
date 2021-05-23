@@ -72,6 +72,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.150-Alpha04 (prerelease)
+  - ☑ Added `SimpleFontIcons` library
 - 0.0.150-Alpha03 (prerelease) - 2021.05.19
   - 🐛 Fixed `New-HTMLTabStyle`
     - ☑ BackgroundColor doesn't go out of borders anymore
