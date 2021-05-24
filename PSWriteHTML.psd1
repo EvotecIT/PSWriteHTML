@@ -15,11 +15,11 @@
             Tags       = @('HTML', 'WWW', 'JavaScript', 'CSS', 'Reports', 'Reporting', 'Windows', 'MacOS', 'Linux')
             ProjectUri = 'https://github.com/EvotecIT/PSWriteHTML'
             IconUri    = 'https://evotec.xyz/wp-content/uploads/2018/12/PSWriteHTML.png'
-            Prerelease = 'Alpha03'
+            Prerelease = 'Alpha04'
         }
     }
     RequiredModules      = @(@{
-            ModuleVersion = '0.0.200'
+            ModuleVersion = '0.0.202'
             ModuleName    = 'PSSharedGoods'
             Guid          = 'ee272aa8-baaa-4edf-9f45-b6d6f7d844fe'
         })
