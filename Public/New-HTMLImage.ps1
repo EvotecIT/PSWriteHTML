@@ -75,15 +75,15 @@ function New-HTMLImage {
                 $ImgAttributes = [ordered]@{
                     'src'    = "$BinaryImage"
                     'alt'    = "$AlternativeText"
-                    'width'  = ConvertFrom-Size -Size $Width
-                    'height' = ConvertFrom-Size -Size $Height
+                    'width'  = $Width #ConvertFrom-Size -Size $Width
+                    'height' = $Height # ConvertFrom-Size -Size $Height
                 }
             } else {
                 $ImgAttributes = [ordered]@{
                     'src'    = "$Source"
                     'alt'    = "$AlternativeText"
-                    'width'  = ConvertFrom-Size -Size $Width
-                    'height' = ConvertFrom-Size -Size $Height
+                    'width'  = $Width #ConvertFrom-Size -Size $Width
+                    'height' = $Height  #ConvertFrom-Size -Size $Height
                 }
             }
             New-HTMLTag -Tag 'img' -Attributes $ImgAttributes
