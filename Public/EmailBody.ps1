@@ -16,7 +16,8 @@ function EmailBody {
         [ValidateSet('rtl')][string] $Direction,
         [switch] $Online,
         [switch] $Format,
-        [switch] $Minify
+        [switch] $Minify,
+        [System.Collections.IDictionary] $Parameter
     )
 
     $newHTMLSplat = @{}
@@ -108,12 +109,27 @@ function EmailBody {
                 $Script:CurrentConfiguration['Features']['DataTablesEmail']['HeaderAlways']['CssInLine']['table'][$Key] = $newTableSplat[$Key]
             }
         }
-        if ($SpanRequired) {
-            New-HTMLSpanStyle @newHTMLSplat {
-                Invoke-Command -ScriptBlock $EmailBody
+        if ($Parameter) {
+            # This is to support special case of executing external scriptblocks
+            [Array] $ArrayParamerers = foreach ($Key in $Parameter.Keys) {
+                $Parameter[$Key]
+            }
+            $Template = Add-ParametersToScriptBlock -ScriptBlock $EmailBody -Parameter $Parameter
+            if ($SpanRequired) {
+                New-HTMLSpanStyle @newHTMLSplat {
+                    Invoke-Command -ScriptBlock $Template -ArgumentList $ArrayParamerers
+                }
+            } else {
+                Invoke-Command -ScriptBlock $Template -ArgumentList $ArrayParamerers
             }
         } else {
-            Invoke-Command -ScriptBlock $EmailBody
+            if ($SpanRequired) {
+                New-HTMLSpanStyle @newHTMLSplat {
+                    Invoke-Command -ScriptBlock $EmailBody
+                }
+            } else {
+                Invoke-Command -ScriptBlock $EmailBody
+            }
         }
     } -Format:$Format -Minify:$Minify
     # This section makes sure that if any script is present in HTML it will be removed.
@@ -128,12 +144,27 @@ function EmailBody {
     if ($Script:EmailSchema -and $Script:EmailSchema['AttachSelf']) {
         # if attach self is used we will generate better version with JS present, proper margins and so on
         $AttachSelfBody = New-HTML -Online:$HTMLOnline {
-            if ($SpanRequired) {
-                New-HTMLSpanStyle @newHTMLSplat {
-                    Invoke-Command -ScriptBlock $EmailBody
+            if ($Parameter) {
+                # This is to support special case of executing external scriptblocks
+                [Array] $ArrayParamerers = foreach ($Key in $Parameter.Keys) {
+                    $Parameter[$Key]
+                }
+                $Template = Add-ParametersToScriptBlock -ScriptBlock $EmailBody -Parameter $Parameter
+                if ($SpanRequired) {
+                    New-HTMLSpanStyle @newHTMLSplat {
+                        Invoke-Command -ScriptBlock $Template -ArgumentList $ArrayParamerers
+                    }
+                } else {
+                    Invoke-Command -ScriptBlock $Template -ArgumentList $ArrayParamerers
                 }
             } else {
-                Invoke-Command -ScriptBlock $EmailBody
+                if ($SpanRequired) {
+                    New-HTMLSpanStyle @newHTMLSplat {
+                        Invoke-Command -ScriptBlock $EmailBody
+                    }
+                } else {
+                    Invoke-Command -ScriptBlock $EmailBody
+                }
             }
         } -Format:$Format -Minify:$Minify
 
