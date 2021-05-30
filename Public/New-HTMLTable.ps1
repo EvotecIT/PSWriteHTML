@@ -7,7 +7,7 @@ function New-HTMLTable {
         [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
         [string] $Title,
-        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'print', 'searchPanes')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength'),
+        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'print', 'searchPanes', 'searchBuilder')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchBuilder'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
         [int] $PagingLength,
@@ -162,6 +162,8 @@ function New-HTMLTable {
                 } elseif ($Parameters.Type -eq 'TableButtonPrint') {
                     $CustomButtons.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableButtonCopy') {
+                    $CustomButtons.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableButtonSearchBuilder') {
                     $CustomButtons.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableCondition') {
                     $ConditionalFormatting.Add($Parameters.Output)
@@ -587,6 +589,15 @@ function New-HTMLTable {
                         $ButtonOutput = [ordered] @{
                             extend = $button
                             title  = $Title
+                        }
+                    } elseif ($button -eq 'searchBuilder') {
+                        $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
+                        $ButtonOutput = [ordered] @{
+                            extend = $button
+                            title  = $Title
+                            config = @{
+                                #depthLimit = 2
+                            }
                         }
                     } else {
                         $ButtonOutput = [ordered] @{

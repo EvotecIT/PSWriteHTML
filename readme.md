@@ -75,6 +75,8 @@ Please make sure to read changes before updating, as we're undergoing some break
 - 0.0.150-Alpha04 (prerelease)
   - ☑ Added `SimpleFontIcons` library
   - 🐛 Fixed `New-HTMLImage/EmailImage` height/width to work correctly in outlook when defining size
+  - ☑ Added `New-TableButtonSearchBuilder`
+  - ℹ `New-HTMLTable` by default uses button `SearchBuilder` which should be better fit, location wise, then using `SearchBuilder` switch
 - 0.0.150-Alpha03 (prerelease) - 2021.05.19
   - 🐛 Fixed `New-HTMLTabStyle`
     - ☑ BackgroundColor doesn't go out of borders anymore
