@@ -72,7 +72,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-- 0.0.150-Alpha04 (prerelease)
+- 0.0.150-Alpha04 (prerelease) - 2021.05.30
   - ☑ Added `SimpleFontIcons` library
   - 🐛 Fixed `New-HTMLImage/EmailImage` height/width to work correctly in outlook when defining size
   - ☑ Added `New-TableButtonSearchBuilder`
