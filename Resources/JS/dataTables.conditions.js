@@ -7,8 +7,26 @@ function dataTablesCheckCondition(condition, data) {
     var columnId = condition['columnId'];
     var operator = condition['operator'].toLowerCase();
     if (condition['dataStore'].toLowerCase() != 'html') {
+        var columnExists = false;
+        // we need to find whether the column name exists or not, and to make sure we know the column name exact case (it's case sensitive) just in case user provided it wrong
+        Object.getOwnPropertyNames(data).forEach(
+            function (val) {
+                if (val.toLowerCase() == columnName.toLowerCase()) {
+                    columnName = val;
+                    columnExists = true;
+                    return
+                }
+            }
+        );
+        if (!columnExists) {
+            return false;
+        }
         var columnValue = data[columnName];
     } else {
+        // check if columnid is set - if it's not set it means the column doesn't exists so we dont' proceed
+        if (columnId == -1) {
+            return false;
+        }
         var columnValue = data[columnId];
     }
     var conditionValue = condition['value'];
