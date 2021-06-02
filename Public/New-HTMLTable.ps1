@@ -30,7 +30,7 @@ function New-HTMLTable {
         [int] $ScreenSizePercent = 0,
         [string[]] $DefaultSortColumn,
         [int[]] $DefaultSortIndex,
-        [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending',
+        [ValidateSet('Ascending', 'Descending')][string[]] $DefaultSortOrder = 'Ascending',
         [string[]] $DateTimeSortingFormat,
         [alias('Search')][string]$Find,
         [switch] $InvokeHTMLTags,
@@ -703,7 +703,7 @@ function New-HTMLTable {
         }
     } else {
         # Sorting
-        if ($DefaultSortOrder -eq 'Ascending') {
+        if ( (($DefaultSortOrder | Measure-Object).count -eq 1) -and ($DefaultSortOrder -eq 'Ascending') ) {
             $Sort = 'asc'
         } else {
             $Sort = 'desc'
@@ -711,16 +711,28 @@ function New-HTMLTable {
         if ($DefaultSortColumn.Count -gt 0) {
             $ColumnsOrder = foreach ($Column in $DefaultSortColumn) {
                 $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($Column.ToLower())
-                if ($DefaultSortingNumber -ne - 1) {
-                    , @($DefaultSortingNumber, $Sort)
+                $ColumnSort = $Sort
+                $ColumnSortIndex = $DefaultSortColumn.IndexOf( $Column )
+                $DefaultSortOrderCount = ($DefaultSortOrder | Measure-Object).count
+                if( $DefaultSortOrderCount -ge 1+$ColumnSortIndex ){
+                    $ColumnSort = $DefaultSortOrder[ $ColumnSortIndex ]
+                }
+                if ($DefaultSortingNumber -ne -1) {
+                    , @($DefaultSortingNumber, $ColumnSort)
                 }
             }
 
         }
         if ($DefaultSortIndex.Count -gt 0 -and $DefaultSortColumn.Count -eq 0) {
             $ColumnsOrder = foreach ($Column in $DefaultSortIndex) {
-                if ($Column -ne - 1) {
-                    , @($Column, $Sort)
+                $ColumnSort = $Sort
+                $ColumnSortIndex = $DefaultSortIndex.IndexOf( $Column )
+                $DefaultSortOrderCount = ($DefaultSortOrder | Measure-Object).count
+                if( $DefaultSortOrderCount -ge 1+$ColumnSortIndex ){
+                    $ColumnSort = $DefaultSortOrder[ $ColumnSortIndex ]
+                }
+                if ($Column -ne -1) {
+                    , @($Column, $ColumnSort)
                 }
             }
         }
