@@ -30,7 +30,7 @@ function New-HTMLTable {
         [int] $ScreenSizePercent = 0,
         [string[]] $DefaultSortColumn,
         [int[]] $DefaultSortIndex,
-        [ValidateSet('Ascending', 'Descending')][string] $DefaultSortOrder = 'Ascending',
+        [ValidateSet('Ascending', 'Descending')][string[]] $DefaultSortOrder = 'Ascending',
         [string[]] $DateTimeSortingFormat,
         [alias('Search')][string]$Find,
         [switch] $InvokeHTMLTags,
@@ -702,25 +702,39 @@ function New-HTMLTable {
             Write-Warning 'New-HTMLTable - Row grouping disabled. Column name/id not found.'
         }
     } else {
-        # Sorting
-        if ($DefaultSortOrder -eq 'Ascending') {
-            $Sort = 'asc'
-        } else {
-            $Sort = 'desc'
+        $SortingTranslate = [ordered] @{
+            'Ascending'  = 'asc'
+            'Descending' = 'dsc'
         }
+        [Array] $TranslatedDefaultSortOrder = foreach ($Order in $DefaultSortOrder) {
+            $SortingTranslate[$Order]
+        }
+        # Default Sorting
+        $Sort = $TranslatedDefaultSortOrder[0]
         if ($DefaultSortColumn.Count -gt 0) {
+            # Sorting by column name has priority, even if sort index is defined
             $ColumnsOrder = foreach ($Column in $DefaultSortColumn) {
                 $DefaultSortingNumber = ($HeaderNames).ToLower().IndexOf($Column.ToLower())
-                if ($DefaultSortingNumber -ne - 1) {
-                    , @($DefaultSortingNumber, $Sort)
+                $ColumnSort = $Sort
+                $ColumnSortIndex = $DefaultSortColumn.IndexOf( $Column )
+                if ( $TranslatedDefaultSortOrder.count -ge 1 + $ColumnSortIndex ) {
+                    $ColumnSort = $TranslatedDefaultSortOrder[ $ColumnSortIndex ]
+                }
+                if ($DefaultSortingNumber -ne -1) {
+                    , @($DefaultSortingNumber, $ColumnSort)
                 }
             }
 
-        }
-        if ($DefaultSortIndex.Count -gt 0 -and $DefaultSortColumn.Count -eq 0) {
+        } elseif ($DefaultSortIndex.Count -gt 0) {
+            # This will only happen if DefaultSortColumn is not filled
             $ColumnsOrder = foreach ($Column in $DefaultSortIndex) {
-                if ($Column -ne - 1) {
-                    , @($Column, $Sort)
+                $ColumnSort = $Sort
+                $ColumnSortIndex = $DefaultSortIndex.IndexOf( $Column )
+                if ( $TranslatedDefaultSortOrder.Count -ge 1 + $ColumnSortIndex ) {
+                    $ColumnSort = $TranslatedDefaultSortOrder[ $ColumnSortIndex ]
+                }
+                if ($Column -ne -1) {
+                    , @($Column, $ColumnSort)
                 }
             }
         }
