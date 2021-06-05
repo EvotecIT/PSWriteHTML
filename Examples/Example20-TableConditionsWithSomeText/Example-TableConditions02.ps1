@@ -19,7 +19,7 @@ $Process = @(
     }
 )
 
-New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example16.html {
+New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-TableConditions02.html {
     New-HTMLTable -DataTable $Process -PagingOptions @(50, 100, 150, 200) {
         New-HTMLTableCondition -Name 'Name' -Type string -Operator gt -Value 'Test' -BackgroundColor Yellow
     }
