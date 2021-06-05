@@ -72,6 +72,9 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.152 - 2021.06.05
+  - 🐛 Fixes `New-HTMLTable` when using `DefaultSortOrder` [#241](https://github.com/EvotecIT/PSWriteHTML/issues/241) - tnx Jason Rush
+  - ☑ Improved `New-HTMLTable` to be able to multi-sort [#241](https://github.com/EvotecIT/PSWriteHTML/issues/241) - tnx Jason Rush
 - 0.0.151 - 2021.05.31
   - 🐛 Fixes `New-HTMLTableCondition` when using `ROW` switch and when the column doesn't exists
   - 🐛 Fixes `New-HTMLTableCondition` when given column name is different case when datastore is `JavaScript`
