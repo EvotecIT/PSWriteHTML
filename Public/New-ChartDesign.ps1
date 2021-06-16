@@ -94,7 +94,7 @@
         [string[]] $ImageSource,
         [string[]] $ImageWidth,
         [string[]] $ImageHeight,
-        [string][ValidaetSet('verticalLines', 'horizontalLines', 'slantedLines', 'squares', 'circles')] $PatternStyle,
+        [string][ValidateSet('verticalLines', 'horizontalLines', 'slantedLines', 'squares', 'circles')] $PatternStyle,
         [string] $PatternWidth,
         [string] $PatternHeight,
         [string] $PatternStrokeWidth,
