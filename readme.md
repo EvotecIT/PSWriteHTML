@@ -72,7 +72,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-- 0.0.153
+- 0.0.153 - 2021.06.20
   - 🐛 Fixes `New-ChartDesign` (typo) [#244](https://github.com/EvotecIT/PSWriteHTML/pull/244) - tnnx JSwanson-HoB
   - ↗ Updated `ApexCharts` to 3.27.0
   - ↗ Updated `DataTables` to 1.10.25 along with plugins/extensions
