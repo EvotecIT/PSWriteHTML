@@ -74,6 +74,8 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 - 0.0.153
   - 🐛 Fixes `New-ChartDesign` (typo) [#244](https://github.com/EvotecIT/PSWriteHTML/pull/244) - tnnx JSwanson-HoB
+  - ↗ Updated `ApexCharts` to 3.27.0
+  - ↗ Updated `DataTables` to 1.10.25 along with plugins/extensions
 - 0.0.152 - 2021.06.05
   - 🐛 Fixes `New-HTMLTable` when using `DefaultSortOrder` [#241](https://github.com/EvotecIT/PSWriteHTML/issues/241) - tnx Jason Rush
   - ☑ Improved `New-HTMLTable` to be able to multi-sort [#241](https://github.com/EvotecIT/PSWriteHTML/issues/241) - tnx Jason Rush
