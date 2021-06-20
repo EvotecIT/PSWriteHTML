@@ -10,7 +10,7 @@ function New-ChartInternalAxisX {
     )
 
     if (-not $Options.Contains('xaxis')) {
-        $Options.xaxis = @{ }
+        $Options.xaxis = [ordered] @{ }
     }
     if ($TitleText -ne '') {
         $Options.xaxis.title = @{ }

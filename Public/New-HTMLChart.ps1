@@ -88,6 +88,8 @@
     # Datasets Bar/Line
     $DataSet = [System.Collections.Generic.List[object]]::new()
     $DataName = [System.Collections.Generic.List[object]]::new()
+    $Categories = [System.Collections.Generic.List[string]]::new()
+    #$ChartBars = [System.Collections.Generic.List[object]]::new()
 
     $DataSeries = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
     $LineStroke = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
@@ -125,11 +127,11 @@
                 # this makes sure type is not set if BarOptions is used which already set type to BarStacked or similar
                 $Type = $Setting.ObjectType
             }
-            $DataSet.Add($Setting.Value)
-            $DataName.Add($Setting.Name)
+            #$DataSet.Add($Setting.Value)
+            $Categories.Add($Setting.series.name)
+            $DataSeries.Add($Setting.series.data)
 
-
-            $DataSeries.Add($Setting.series)
+            #$ChartBars.Add($Setting.series)
 
         } elseif ($Setting.ObjectType -eq 'Pie' -or $Setting.ObjectType -eq 'Donut') {
             # For Pie Charts
@@ -215,7 +217,7 @@
             #>
 
             if ($Setting.series) {
-                $DataSeries.Add($Setting.series)
+                $DataSeries.Add($Setting.series.data)
             }
             if ($Setting.stroke.count -gt 0) {
                 $LineStroke.Add($setting.stroke)
@@ -242,28 +244,12 @@
     }
 
     if ($Type -in @('bar', 'barStacked', 'barStacked100Percent')) {
-        #if ($DataLegend.Count -lt $DataSet[0].Count) {
-        #    Write-Warning -Message "Chart Legend count doesn't match values count. Skipping."
-        #}
-        # Fixes dataset/dataname to format expected by New-HTMLChartBar
-        $HashTable = [ordered] @{ }
-        $ArrayCount = $DataSet[0].Count
-        if ($ArrayCount -eq 1) {
-            $HashTable.1 = $DataSet
-        } else {
-            for ($i = 0; $i -lt $ArrayCount; $i++) {
-                $HashTable.$i = [System.Collections.Generic.List[object]]::new()
-            }
-            foreach ($Value in $DataSet) {
-                for ($h = 0; $h -lt $Value.Count; $h++) {
-                    $HashTable[$h].Add($Value[$h])
-                }
-            }
-        }
-
         $SplatChart = @{
-            Data               = $($HashTable.Values)
-            DataNames          = $DataName
+            #Data               = $($HashTable.Values)
+            #DataNames          = $DataName
+            DataSeries         = $DataSeries
+            Categories         = $Categories
+
             Colors             = $Colors
             DataLegend         = $DataLegend
 

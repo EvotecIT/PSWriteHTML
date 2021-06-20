@@ -19,7 +19,7 @@ Function New-ChartInternalBar {
         [Array] $DataNames,
         [Array] $DataLegend
     )
-
+    <#
     if ($Type -eq 'bar') {
         $Options.chart.type = 'bar'
     } elseif ($Type -eq 'barStacked') {
@@ -30,6 +30,7 @@ Function New-ChartInternalBar {
         $Options.chart.stacked = $true
         $Options.chart.stackType = '100%'
     }
+    #>
 
     $Options.plotOptions = @{
         bar = @{
@@ -50,7 +51,7 @@ Function New-ChartInternalBar {
         $RGBColorLabel = ConvertFrom-Color -Color $DataLabelsColor
         $Options.dataLabels.style.colors = @($RGBColorLabel)
     }
-    $Options.series = @(New-ChartInternalDataSet -Data $Data -DataNames $DataLegend)
+    #$Options.series = @(New-ChartInternalDataSet -Data $Data -DataNames $DataLegend)
 
     # X AXIS - CATEGORIES
     if (-not $Options.Contains('xaxis')) {
@@ -60,7 +61,7 @@ Function New-ChartInternalBar {
     #    $Options.xaxis.type = $DataCategoriesType
     #}
     if ($DataNames.Count -gt 0) {
-        $Options.xaxis.categories = $DataNames
+        #$Options.xaxis.categories = $DataNames
         # Need to figure out how to conver to json and leave function without ""
         #if ($Formatter -ne '') {
         #$Options.xaxis.labels = @{

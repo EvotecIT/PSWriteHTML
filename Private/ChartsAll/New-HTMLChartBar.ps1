@@ -15,7 +15,10 @@ function New-HTMLChartBar {
         [Array] $Data,
         [Array] $DataNames,
         [Array] $DataLegend,
+        [Array] $DataSeries,
 
+        [Array] $Categories,
+        [System.Collections.IDictionary] $ChartToolTip,
         [System.Collections.IDictionary] $ChartAxisX,
         [Array] $ChartAxisY,
         [System.Collections.IDictionary] $Title,
@@ -42,20 +45,76 @@ function New-HTMLChartBar {
         $Options.legend = $Legend
     }
 
-
-    if ($ChartAxisX) {
-        New-ChartInternalAxisX -Options $Options @ChartAxisX
+    # Set bar
+    if ($Type -eq 'bar') {
+        $Options.chart.type = 'bar'
+    } elseif ($Type -eq 'barStacked') {
+        $Options.chart.type = 'bar'
+        $Options.chart.stacked = $true
+    } else {
+        $Options.chart.type = 'bar'
+        $Options.chart.stacked = $true
+        $Options.chart.stackType = '100%'
     }
+
+    $Options.plotOptions = @{
+        bar = @{
+            horizontal = $Horizontal
+        }
+    }
+    if ($Distributed) {
+        $Options.plotOptions.bar.distributed = $Distributed.IsPresent
+    }
+    $Options.dataLabels = [ordered] @{
+        enabled = $DataLabelsEnabled
+        offsetX = $DataLabelsOffsetX
+        style   = @{
+            fontSize = $DataLabelsFontSize
+        }
+    }
+    if ($null -ne $DataLabelsColor) {
+        $RGBColorLabel = ConvertFrom-Color -Color $DataLabelsColor
+        $Options.dataLabels.style.colors = @($RGBColorLabel)
+    }
+
+    if (-not $Options.Contains('xaxis')) {
+        $Options.xaxis = [ordered] @{ }
+    }
+
+    #if ($ChartAxisX) {
+    New-ChartInternalAxisX -Options $Options @ChartAxisX -Names $Categories
+    #}
+
+
+
     if ($ChartAxisY) {
         # ChartAxisY in Bar charts doesn't support multiple AxisY
         # So we force it to use first one
         $Options.yaxis = $ChartAxisY[0]
     }
 
+    if ($DataSeries) {
+        $Options.series = @(
+            @{
+                #name = 'test', 'test2','test3'
+                data = $DataSeries
+            }
+        )
+
+    }
+
+
+
+    <#
     New-ChartInternalBar -Options $Options -Horizontal $Horizontal -DataLabelsEnabled $DataLabelsEnabled `
         -DataLabelsOffsetX $DataLabelsOffsetX -DataLabelsFontSize $DataLabelsFontSize -DataLabelsColor $DataLabelsColor `
         -Data $Data -DataNames $DataNames -DataLegend $DataLegend `
         -Type $Type -Distributed:$Distributed
+    #>
+
+    #if ($ChartToolTip) {
+       # New-ChartInternalToolTip -Options $Options @ChartToolTip
+    #}
 
     New-ChartInternalColors -Options $Options -Colors $Colors
     # Default for all charts
