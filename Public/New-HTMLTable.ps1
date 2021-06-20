@@ -371,7 +371,19 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTablesSearchAlphabet = $true
     }
     if ($SearchBuilder) {
+        $SearchBuilderEnabled = $true
         $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
+    } else {
+        $SearchBuilderEnabled = $false
+    }
+    if ($Buttons -contains 'searchBuilder') {
+        # We make sure created storage is expanding
+        $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
+        $Script:HTMLSchema.Features.DataTablesSearchPanesButton = $true
+        if ($SearchBuilderEnabled) {
+            Write-Warning -Message "New-HTMLTable - Using SearchBuilder option and SearchBuilder button won't work properly. Only one will work. Disabling SearchBuiler."
+            $SearchBuilderEnabled = $false
+        }
     }
     if ($SearchPane) {
         $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
@@ -384,7 +396,7 @@ function New-HTMLTable {
         if ($AlphabetSearch) {
             $DOM = "A$($Dom)"
         }
-        if ($SearchBuilder -and $SearchPane) {
+        if ($SearchBuilderEnabled -and $SearchPane) {
             if ($SearchPaneLocation -eq 'top' -and $SearchBuilderLocation -eq 'top') {
                 $Options['dom'] = "QP$($DOM)"
             } elseif ($SearchPaneLocation -eq 'top' -and $SearchBuilderLocation -eq 'bottom') {
@@ -394,7 +406,7 @@ function New-HTMLTable {
             } elseif ($SearchPaneLocation -eq 'bottom' -and $SearchBuilderLocation -eq 'bottom') {
                 $Options['dom'] = "$($DOM)QP"
             }
-        } elseif ($SearchBuilder) {
+        } elseif ($SearchBuilderEnabled) {
             if ($SearchBuilderLocation -eq 'top') {
                 $Options['dom'] = "Q$($DOM)"
             } else {
@@ -414,10 +426,6 @@ function New-HTMLTable {
     if ($Buttons -contains 'searchPanes') {
         # it seems DataTablesSearchPanes is conflicting with Diagrams in IE 11, so we only enable it on demand
         $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
-        $Script:HTMLSchema.Features.DataTablesSearchPanesButton = $true
-    }
-    if ($Buttons -contains 'searchBuilder') {
-        # We make sure created storage is expanding
         $Script:HTMLSchema.Features.DataTablesSearchPanesButton = $true
     }
     if ($EnableKeys) {
