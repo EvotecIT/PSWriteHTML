@@ -416,6 +416,10 @@ function New-HTMLTable {
         $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
         $Script:HTMLSchema.Features.DataTablesSearchPanesButton = $true
     }
+    if ($Buttons -contains 'searchBuilder') {
+        # We make sure created storage is expanding
+        $Script:HTMLSchema.Features.DataTablesSearchPanesButton = $true
+    }
     if ($EnableKeys) {
         $Script:HTMLSchema.Features.DataTablesKeyTable = $true
         $Options['keys'] = $true
