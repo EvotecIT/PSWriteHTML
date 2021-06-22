@@ -72,6 +72,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.154 - 2021.06.22
+  - 🐛 Fixes `New-HTMLTable` search builder when using offline mode. [#246](https://github.com/EvotecIT/PSWriteHTML/issues/246)
 - 0.0.153 - 2021.06.20
   - 🐛 Fixes `New-ChartDesign` (typo) [#244](https://github.com/EvotecIT/PSWriteHTML/pull/244) - tnnx JSwanson-HoB
   - ↗ Updated `ApexCharts` to 3.27.0
