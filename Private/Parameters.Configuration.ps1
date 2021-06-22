@@ -1110,13 +1110,14 @@ $Script:Configuration = [ordered] @{
         DataTablesSearchBuilder     = @{
             # https://datatables.net/blog/2020-09-01
             Comment = 'DataTables SearchBuilder'
+            Update  = $false
             Header  = @{
-                JSLinkOriginal  = "https://nightly.datatables.net/searchbuilder/js/dataTables.searchBuilder.js"
-                JsLink          = "$($Script:ConfigurationURL)/JS/dataTables.searchBuilder.min.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
-                JS              = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.js"
-                CssLinkOriginal = 'https://nightly.datatables.net/searchbuilder/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
-                CssLink         = "$($Script:ConfigurationURL)/CSS/dataTables.searchBuilder.min.css" # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
-                Css             = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.css"
+                #JSLinkOriginal  = "https://nightly.datatables.net/searchbuilder/js/dataTables.searchBuilder.js"
+                JsLink  = "$($Script:ConfigurationURL)/JS/dataTables.searchBuilder.min.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
+                JS      = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.js"
+                #CssLinkOriginal = 'https://nightly.datatables.net/searchbuilder/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
+                CssLink = "$($Script:ConfigurationURL)/CSS/dataTables.searchBuilder.min.css" # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.css"
             }
             Default = $true
             Email   = $false
@@ -1224,9 +1225,9 @@ $Script:Configuration = [ordered] @{
         DataTablesSelect            = @{
             Comment = 'DataTables Select'
             Header  = @{
-                JsLink  = "https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"
+                JsLink  = "https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"
                 JS      = "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
-                CSSLink = 'https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css'
+                CSSLink = 'https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css'
                 CSS     = "$PSScriptRoot\..\Resources\CSS\select.dataTables.min.css"
             }
             Default = $true
