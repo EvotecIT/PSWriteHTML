@@ -413,6 +413,56 @@ $Script:Configuration = [ordered] @{
             Default      = $true
             Email        = $true
         }
+        EmailLayout                 = @{
+            Comment      = 'EmailLayout'
+            HeaderAlways = @{
+                CssInLine = @{
+                    '.layoutTable'                              = @{
+                        'border'          = 'none'
+                        'border-collapse' = 'collapse'
+                        'vertical-align'  = 'top'
+                        'padding'         = 0
+                        'margin'          = 0
+                        'border-spacing'  = '0px'
+                    }
+                    '.layoutTableRow'                           = @{
+                        'border'          = 'none'
+                        'border-collapse' = 'collapse'
+                        'vertical-align'  = 'top'
+                        'padding'         = 0
+                        'margin'          = 0
+                        'border-spacing'  = '0px'
+                    }
+                    '.layoutTableColumn'                        = @{
+                        'border'          = 'none'
+                        'border-collapse' = 'collapse'
+                        'vertical-align'  = 'top'
+                        'padding'         = 0
+                        'margin'          = 0
+                        'border-spacing'  = '0px'
+                    }
+                    'img'                                       = @{
+                        'width'   = '100%';
+                        'display' = 'block';
+                    }
+                    '.wrapper'                                  = @{
+                        'padding-left'  = '10px';
+                        'padding-right' = '10px';
+                    }
+                    '@media only screen and (max-width: 620px)' = @{
+                        '.wrapper .section' = @{
+                            'width' = '100%'
+                        }
+                        '.wrapper .column'  = @{
+                            'width'   = '100%'
+                            'display' = 'block'
+                        }
+                    }
+                }
+            }
+            Default      = $false
+            Email        = $true
+        }
         AccordionFAQ                = @{
             Comment      = 'Accordion FAQ'
             Header       = @{
