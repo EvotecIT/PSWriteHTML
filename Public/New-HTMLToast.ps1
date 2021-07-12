@@ -78,11 +78,11 @@
 
     [string] $Icon = ''
     if ($IconBrands) {
-        $Icon = "fab fa-$IconBrands" # fa-$($FontSize)x"
+        $Icon = "fab fa-$IconBrands".ToLower() # fa-$($FontSize)x"
     } elseif ($IconRegular) {
-        $Icon = "far fa-$IconRegular" # fa-$($FontSize)x"
+        $Icon = "far fa-$IconRegular".ToLower() # fa-$($FontSize)x"
     } elseif ($IconSolid) {
-        $Icon = "fas fa-$IconSolid" # fa-$($FontSize)x"
+        $Icon = "fas fa-$IconSolid".ToLower() # fa-$($FontSize)x"
     }
     $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.Toasts = $true

@@ -97,11 +97,11 @@ function New-HTMLStatusItem {
         $BackgroundColor = ConvertFrom-Color -Color $BackgroundColor
 
         if ($IconBrands) {
-            $IconClass = "fab fa-$IconBrands"
+            $IconClass = "fab fa-$IconBrands".ToLower()
         } elseif ($IconRegular) {
-            $IconClass = "far fa-$IconRegular"
+            $IconClass = "far fa-$IconRegular".ToLower()
         } elseif ($IconSolid) {
-            $IconClass = "fas fa-$IconSolid"
+            $IconClass = "fas fa-$IconSolid".ToLower()
         }
     } elseif ($PSCmdlet.ParameterSetName -eq 'Hex') {
         $IconType = $IconHex

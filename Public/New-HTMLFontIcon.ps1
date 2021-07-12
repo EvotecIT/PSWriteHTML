@@ -102,11 +102,11 @@ function New-HTMLFontIcon {
         $Script:HTMLSchema.Features.FontsAwesome = $true
         $Class = @(
             if ($IconBrands) {
-                "fab fa-$IconBrands" # fa-$($FontSize)x"
+                "fab fa-$IconBrands".ToLower() # fa-$($FontSize)x"
             } elseif ($IconRegular) {
-                "far fa-$IconRegular" # fa-$($FontSize)x"
+                "far fa-$IconRegular".ToLower() # fa-$($FontSize)x"
             } elseif ($IconSolid) {
-                "fas fa-$IconSolid" # fa-$($FontSize)x"
+                "fas fa-$IconSolid".ToLower() # fa-$($FontSize)x"
             }
             if ($FixedWidth) {
                 'fa-fw'
