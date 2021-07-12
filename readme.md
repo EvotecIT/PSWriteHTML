@@ -72,6 +72,8 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+- 0.0.156 - 2021.07.12
+  - 💡 Forced `FontAwesome` icons to be lowercase just in case user (aka me) decides to use uppercase for tabs/wizard/toasts and wonder why it doesn't work
 - 0.0.155 - 2021.06.27
   - ☑ Added basic Email Templating (experimental). `EmailLayout`, `EmailLayoutRow`, `EmailLayoutColumn`
 - 0.0.154 - 2021.06.22
