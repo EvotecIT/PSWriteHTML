@@ -273,10 +273,15 @@ function New-HTMLTable {
 
     # this handles no data in Table - we want table to be minimalistic then with just 1 element
     # this also handles situation if first element is null, if that happens it assumes whole array is null and sets no data
-    if ($null -eq $DataTable -or $DataTable.Count -eq 0 -or $null -eq $DataTable[0]) {
-        if ($DataTable.Count -gt 0) {
-            Write-Warning "New-HTMLTable - First element of array is null, but there are more elements in array that were ignored. Please verify your DataTable input."
+    if ($null -eq $DataTable[0] -and $DataTable.Count -gt 0) {
+        Write-Warning "New-HTMLTable - First element of array is null, but there are more elements in array. Reprocessing DataTable to remove null values."
+        [Array] $DataTable = foreach ($D in $DataTable) {
+            if ($null -ne $D) {
+                $D
+            }
         }
+    }
+    if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
         $Filtering = $false # setting it to false because it's not nessecary
         $HideFooter = $true
         [Array] $DataTable = $TextWhenNoData
