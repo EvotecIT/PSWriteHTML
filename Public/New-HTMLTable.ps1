@@ -273,7 +273,7 @@ function New-HTMLTable {
 
     # this handles no data in Table - we want table to be minimalistic then with just 1 element
     # this also handles situation if first element is null, if that happens it assumes whole array is null and sets no data
-    if ($null -eq $DataTable[0] -and $DataTable.Count -gt 0) {
+    if ($null -ne $DataTable -and $null -eq $DataTable[0] -and $DataTable.Count -gt 0) {
         Write-Warning "New-HTMLTable - First element of array is null, but there are more elements in array. Reprocessing DataTable to remove null values."
         [Array] $DataTable = foreach ($D in $DataTable) {
             if ($null -ne $D) {
