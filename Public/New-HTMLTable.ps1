@@ -139,6 +139,16 @@ function New-HTMLTable {
     $ColumnDefinitionList = [System.Collections.Generic.List[PSCustomObject]]::New()
     $RowGrouping = @{ }
 
+    # This adds support for table of data provided as an array of arrays
+    # Useful if you have Hashtable with nested arrays and you do $Hashtable.Values
+    if ($DataTable.Count -gt 0) {
+        if ($DataTable[0] -is [System.Collections.ICollection]) {
+            $DataTable = foreach ($D in $DataTable) {
+                $D
+            }
+        }
+    }
+
     if ($Transpose) {
         # Allows easy conversion from PSCustomObject to Hashtable and vice versa
         $DataTable = Format-TransposeTable -Object $DataTable
