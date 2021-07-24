@@ -119,7 +119,7 @@ function Out-HtmlView {
         }
     }
     End {
-        if ($null -ne $Table) {
+        if ($null -ne $DataTable) {
             # HTML generation part
             New-HTML -FilePath $FilePath -Online:($Online.IsPresent) -TitleText $Title -ShowHTML:(-not $PreventShowHTML) {
                 $newHTMLTableSplat = @{
