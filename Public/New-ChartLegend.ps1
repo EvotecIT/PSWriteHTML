@@ -29,9 +29,9 @@
 
         legend     = [ordered] @{
             show            = -not $HideLegend.IsPresent
-            position        = $LegendPosition
-            horizontalAlign = $HorizontalAlign
-            labels = @{}
+            position        = if ($LegendPosition) { $LegendPosition.ToLower() } else { $null }
+            horizontalAlign = if ($HorizontalAlign) { $HorizontalAlign.ToLower() } else { $null }
+            labels          = @{}
         }
     }
     if ($UseSeriesColors) {
