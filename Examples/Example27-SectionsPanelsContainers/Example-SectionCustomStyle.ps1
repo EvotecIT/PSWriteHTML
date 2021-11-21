@@ -18,6 +18,10 @@ New-HTML {
             'background-color' = 'yellow'
             'font-size'        = '50px'
         }
+        "$($SectionStyle1.Section)"     = @{
+            'margin' = '10px'
+            'width'  = 'calc(100% - 20px)'
+        }
     } -SkipTags
     New-HTMLSection -HeaderText 'Test' {
         for ($i = 0; $i -le 5; $i++) {
