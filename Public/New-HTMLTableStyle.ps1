@@ -4,96 +4,99 @@
     Apply new style for HTML Table
 
     .DESCRIPTION
-    Apply new style for HTML Table. Currently only works with DataTables.
+    Apply new style for HTML Table. Currently only works with DataTables (javascript). It doesn't affect CSS only tables (emails, etc). Keep in mind this affects all tables, not just one.
 
     .PARAMETER Type
     Choose type to apply style on. You can choose from: 'Content', 'Table', 'Header', 'Row', 'Footer', 'RowOdd', 'RowEven', 'RowSelected', 'RowSelectedEven', 'RowSelectedOdd', 'RowHover', 'RowHoverSelected', 'Button'. Content is duplicate to Row.
 
     .PARAMETER FontSize
-    Choose FontSize
+    Set font size for the text.
 
     .PARAMETER FontWeight
-    Parameter description
+    Set font weight for the text. Allowed options: 'normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900'
 
     .PARAMETER FontStyle
-    Parameter description
+    Set different font styles to be used for text. Allowed styles: 'normal', 'italic', 'oblique'
 
     .PARAMETER FontVariant
-    Parameter description
+    Set different font variant to be used for text. Allowed variants: 'normal', 'small-caps'. In a small-caps font, all lowercase letters are converted to uppercase letters. However, the converted uppercase letters appears in a smaller font size than the original uppercase letters in the text.
 
     .PARAMETER FontFamily
-    Parameter description
+    Specify the font to be used for text.
 
     .PARAMETER BackgroundColor
-    Parameter description
+    Set the background color. Choose one of the 800 colors or provide a hex value.
 
     .PARAMETER TextColor
-    Parameter description
+    Set the text color. Choose one of the 800 colors or provide a hex value.
 
     .PARAMETER TextDecoration
-    Parameter description
+    Set different font decoration. Allowed options are: 'none', 'line-through', 'overline', 'underline'
 
     .PARAMETER TextTransform
-    Parameter description
+    Set different text transform. Allowed options are: 'uppercase', 'lowercase', 'capitalize'
 
     .PARAMETER TextAlign
-    Parameter description
+    Set the text alignment. Allowed options are: 'left', 'right', 'center', 'justify'
 
     .PARAMETER BorderTopStyle
-    Parameter description
+    Set the border style for the top border. Allowed options are: 'none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset'
 
     .PARAMETER BorderTopColor
-    Parameter description
+    Set the border color for the top border
 
     .PARAMETER BorderTopWidthSize
-    Parameter description
+    Set the border width for the top border
 
     .PARAMETER BorderBottomStyle
-    Parameter description
+    Set the border style for the bottom border. Allowed options are: 'none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset'
 
     .PARAMETER BorderBottomColor
-    Parameter description
+    Set the border color for the bottom border
 
     .PARAMETER BorderBottomWidthSize
-    Parameter description
+    Set the border width for the bottom border
 
     .PARAMETER BorderLeftStyle
-    Parameter description
+    Set the border style for the left border. Allowed options are: 'none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset'
 
     .PARAMETER BorderLeftColor
-    Parameter description
+    Set the border color for the left border
 
     .PARAMETER BorderLeftWidthSize
-    Parameter description
+    Set the border width for the left border
 
     .PARAMETER BorderRightStyle
-    Parameter description
+    Set the border style for the right border. Allowed options are: 'none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset'
 
     .PARAMETER BorderRightColor
-    Parameter description
+    Set the border color for the right border
 
     .PARAMETER BorderRightWidthSize
-    Parameter description
+    Set the border width for the right border
 
     .EXAMPLE
     $Table = Get-Process | Select-Object -First 3
+
+    New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Yellow -TextColor Aquamarine -TextAlign center -Type RowOdd
+    New-HTMLTableStyle -BackgroundColor Red -TextColor Aquamarine -Type Button
+    New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor DarkSlateGray -TextColor Aquamarine -TextAlign center -Type RowEven
+    New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor DarkSlateGray -TextColor Aquamarine -TextAlign center -Type Row
+    New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor DarkSlateGray -TextColor Aquamarine -TextAlign center -Type Header
+    New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Orange -TextColor Aquamarine -TextAlign center -Type Footer
+    New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Orange -TextColor Aquamarine -TextAlign center -Type RowSelectedEven
+    New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Green -TextColor Aquamarine -TextAlign center -Type RowSelectedOdd
+    New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Yellow -TextColor Aquamarine -TextAlign center -Type RowHover
+    New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Red -TextColor Aquamarine -TextAlign center -Type RowHoverSelected
+    New-HTMLTableStyle -Type Header -BorderLeftStyle dashed -BorderLeftColor Red -BorderLeftWidthSize 1px
+    New-HTMLTableStyle -Type Footer -BorderLeftStyle dotted -BorderLeftColor Red -BorderleftWidthSize 1px
+    New-HTMLTableStyle -Type Footer -BorderTopStyle none -BorderTopColor Red -BorderTopWidthSize 5px -BorderBottomColor Yellow -BorderBottomStyle solid
+    New-HTMLTableStyle -Type Footer -BorderTopStyle none -BorderTopColor Red -BorderTopWidthSize 5px -BorderBottomColor Yellow -BorderBottomStyle solid
+    New-HTMLTableStyle -Type Footer -BorderTopStyle none -BorderTopColor Red -BorderTopWidthSize 5px -BorderBottomColor Yellow -BorderBottomStyle none
+
     New-HTML -ShowHTML -HtmlData {
         New-HTMLTable -DataTable $table -HideButtons {
-            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Yellow -TextColor Aquamarine -TextAlign center -Type RowOdd
-            New-HTMLTableStyle -BackgroundColor Red -TextColor Aquamarine -Type Button
-            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor DarkSlateGray -TextColor Aquamarine -TextAlign center -Type RowEven
-            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor DarkSlateGray -TextColor Aquamarine -TextAlign center -Type Row
-            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor DarkSlateGray -TextColor Aquamarine -TextAlign center -Type Header
-            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Orange -TextColor Aquamarine -TextAlign center -Type Footer
-            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Orange -TextColor Aquamarine -TextAlign center -Type RowSelectedEven
-            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Green -TextColor Aquamarine -TextAlign center -Type RowSelectedOdd
-            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Yellow -TextColor Aquamarine -TextAlign center -Type RowHover
-            New-HTMLTableStyle -FontFamily 'Calibri' -BackgroundColor Red -TextColor Aquamarine -TextAlign center -Type RowHoverSelected
-            New-HTMLTableStyle -Type Header -BorderLeftStyle dashed -BorderLeftColor Red -BorderLeftWidthSize 1px
-            New-HTMLTableStyle -Type Footer -BorderLeftStyle dotted -BorderLeftColor Red -BorderleftWidthSize 1px
-            New-HTMLTableStyle -Type Footer -BorderTopStyle none -BorderTopColor Red -BorderTopWidthSize 5px -BorderBottomColor Yellow -BorderBottomStyle solid
-            New-HTMLTableStyle -Type Footer -BorderTopStyle none -BorderTopColor Red -BorderTopWidthSize 5px -BorderBottomColor Yellow -BorderBottomStyle solid
-            New-HTMLTableStyle -Type Footer -BorderTopStyle none -BorderTopColor Red -BorderTopWidthSize 5px -BorderBottomColor Yellow -BorderBottomStyle none
+
         } -DisablePaging
     } -FilePath $PSScriptRoot\Example7_TableStyle.html -Online
 
