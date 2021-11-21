@@ -16,13 +16,13 @@ schema: 2.0.0
 New-HTMLGage [[-GageContent] <ScriptBlock>] [[-Type] <String>] [[-BackgroundGaugageColor] <String>]
  [-Value] <Decimal> [[-ValueSymbol] <String>] [[-ValueColor] <String>] [[-ValueFont] <String>]
  [[-MinValue] <Int32>] [[-MinText] <String>] [[-MaxValue] <Int32>] [[-MaxText] <String>] [-Reverse]
- [[-DecimalNumbers] <Int32>] [[-GaugageWidth] <Decimal>] [[-Title] <String>] [[-Label] <String>]
- [[-LabelColor] <String>] [-Counter] [-ShowInnerShadow] [-NoGradient] [[-ShadowOpacity] <Decimal>]
- [[-ShadowSize] <Int32>] [[-ShadowVerticalOffset] <Int32>] [-Pointer] [[-PointerTopLength] <Int32>]
- [[-PointerBottomLength] <Int32>] [[-PointerBottomWidth] <Int32>] [[-StrokeColor] <String>]
- [[-PointerStrokeWidth] <Int32>] [[-PointerStrokeLinecap] <Object>] [[-PointerColor] <String>] [-HideValue]
- [-HideMinMax] [-FormatNumber] [-DisplayRemaining] [-HumanFriendly] [[-HumanFriendlyDecimal] <Int32>]
- [[-SectorColors] <String[]>] [<CommonParameters>]
+ [[-DecimalNumbers] <Int32>] [[-GaugageWidth] <Decimal>] [[-Label] <String>] [[-LabelColor] <String>]
+ [-Counter] [-ShowInnerShadow] [-NoGradient] [[-ShadowOpacity] <Decimal>] [[-ShadowSize] <Int32>]
+ [[-ShadowVerticalOffset] <Int32>] [-Pointer] [[-PointerTopLength] <Int32>] [[-PointerBottomLength] <Int32>]
+ [[-PointerBottomWidth] <Int32>] [[-StrokeColor] <String>] [[-PointerStrokeWidth] <Int32>]
+ [[-PointerStrokeLinecap] <Object>] [[-PointerColor] <String>] [-HideValue] [-HideMinMax] [-FormatNumber]
+ [-DisplayRemaining] [-HumanFriendly] [[-HumanFriendlyDecimal] <Int32>] [[-SectorColors] <String[]>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -198,7 +198,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 26
+Position: 25
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -213,7 +213,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 14
+Position: 13
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -228,7 +228,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 15
+Position: 14
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -333,7 +333,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 20
+Position: 19
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -348,7 +348,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 21
+Position: 20
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -363,7 +363,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 25
+Position: 24
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -379,7 +379,7 @@ Aliases:
 Accepted values: none, square, round
 
 Required: False
-Position: 24
+Position: 23
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -394,7 +394,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 23
+Position: 22
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -409,7 +409,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 19
+Position: 18
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -439,7 +439,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 27
+Position: 26
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -454,7 +454,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 16
+Position: 15
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -469,7 +469,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 17
+Position: 16
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -484,7 +484,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 18
+Position: 17
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -514,22 +514,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 22
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Title
-{{ Fill Title Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 13
+Position: 21
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

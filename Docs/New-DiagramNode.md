@@ -14,23 +14,9 @@ schema: 2.0.0
 
 ### Shape (Default)
 ```
-New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-ArrowsToEnabled]
- [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>] [-Shape <String>] [-BorderWidth <Int32>]
- [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-ColorBorder <String>] [-ColorBackground <String>]
- [-ColorHighlightBorder <String>] [-ColorHighlightBackground <String>] [-ColorHoverBorder <String>]
- [-ColorHoverBackground <String>] [-FixedX <Boolean>] [-FixedY <Boolean>] [-FontColor <String>]
- [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>] [-FontStrokeWidth <Int32>]
- [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>] [-FontVAdjust <Int32>] [-Size <Int32>]
- [-X <Int32>] [-Y <Int32>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>]
- [-HeightConstraintVAlign <String>] [-WidthConstraintMinimum <Int32>] [-WidthConstraintMaximum <Int32>]
- [<CommonParameters>]
-```
-
-### Image
-```
-New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-ArrowsToEnabled]
- [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>] [-ImageType <String>] [-Image <Uri>]
- [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-BrokenImages <String>] [-Chosen <Boolean>]
+New-DiagramNode [-HtmlTextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-Title <String>]
+ [-To <String[]>] [-ArrowsToEnabled] [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>]
+ [-Shape <String>] [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>]
  [-ColorBorder <String>] [-ColorBackground <String>] [-ColorHighlightBorder <String>]
  [-ColorHighlightBackground <String>] [-ColorHoverBorder <String>] [-ColorHoverBackground <String>]
  [-FixedX <Boolean>] [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>]
@@ -40,12 +26,27 @@ New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <
  [-WidthConstraintMaximum <Int32>] [<CommonParameters>]
 ```
 
+### Image
+```
+New-DiagramNode [-HtmlTextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-Title <String>]
+ [-To <String[]>] [-ArrowsToEnabled] [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>]
+ [-ImageType <String>] [-Image <Uri>] [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>]
+ [-BrokenImages <String>] [-Chosen <Boolean>] [-ColorBorder <String>] [-ColorBackground <String>]
+ [-ColorHighlightBorder <String>] [-ColorHighlightBackground <String>] [-ColorHoverBorder <String>]
+ [-ColorHoverBackground <String>] [-FixedX <Boolean>] [-FixedY <Boolean>] [-FontColor <String>]
+ [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>] [-FontStrokeWidth <Int32>]
+ [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>] [-FontVAdjust <Int32>] [-Size <Int32>]
+ [-X <Int32>] [-Y <Int32>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>]
+ [-HeightConstraintVAlign <String>] [-WidthConstraintMinimum <Int32>] [-WidthConstraintMaximum <Int32>]
+ [<CommonParameters>]
+```
+
 ### FontAwesomeSolid
 ```
-New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-ArrowsToEnabled]
- [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>] [-BorderWidth <Int32>]
- [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>] [-FixedY <Boolean>]
- [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
+New-DiagramNode [-HtmlTextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-Title <String>]
+ [-To <String[]>] [-ArrowsToEnabled] [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>]
+ [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>]
+ [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
  [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
  [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-IconAsImage] [-IconColor <String>]
  [-IconSolid <String>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>]
@@ -54,10 +55,10 @@ New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <
 
 ### FontAwesomeRegular
 ```
-New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-ArrowsToEnabled]
- [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>] [-BorderWidth <Int32>]
- [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>] [-FixedY <Boolean>]
- [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
+New-DiagramNode [-HtmlTextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-Title <String>]
+ [-To <String[]>] [-ArrowsToEnabled] [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>]
+ [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>]
+ [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
  [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
  [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-IconAsImage] [-IconColor <String>]
  [-IconRegular <String>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>]
@@ -66,10 +67,10 @@ New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <
 
 ### FontAwesomeBrands
 ```
-New-DiagramNode [-TextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-To <String[]>] [-ArrowsToEnabled]
- [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>] [-BorderWidth <Int32>]
- [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>] [-FixedY <Boolean>]
- [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
+New-DiagramNode [-HtmlTextBox <ScriptBlock>] [-Id <String>] [-Label <String>] [-Title <String>]
+ [-To <String[]>] [-ArrowsToEnabled] [-ArrowsMiddleEnabled] [-ArrowsFromEnabled] [-LinkColor <String>]
+ [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-Chosen <Boolean>] [-FixedX <Boolean>]
+ [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>] [-FontBackground <String>]
  [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>] [-FontMulti <String>]
  [-FontVAdjust <Int32>] [-Size <Int32>] [-X <Int32>] [-Y <Int32>] [-IconAsImage] [-IconColor <String>]
  [-IconBrands <String>] [-Level <Int32>] [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>]
@@ -90,8 +91,83 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -ArrowsFromEnabled
-{{ Fill ArrowsFromEnabled Description }}
+### -HtmlTextBox
+Experimental TextBox to put HTML instead of Image using SVG
+
+```yaml
+Type: ScriptBlock
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Id
+{{ Fill Id Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Label
+{{ Fill Label Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Title
+Label that shows up when hovering over node
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -To
+{{ Fill To Description }}
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ArrowsToEnabled
+{{ Fill ArrowsToEnabled Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -120,12 +196,72 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ArrowsToEnabled
-{{ Fill ArrowsToEnabled Description }}
+### -ArrowsFromEnabled
+{{ Fill ArrowsFromEnabled Description }}
 
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LinkColor
+{{ Fill LinkColor Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: EdgeColor
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Shape
+{{ Fill Shape Description }}
+
+```yaml
+Type: String
+Parameter Sets: Shape
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ImageType
+{{ Fill ImageType Description }}
+
+```yaml
+Type: String
+Parameter Sets: Image
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Image
+{{ Fill Image Description }}
+
+```yaml
+Type: Uri
+Parameter Sets: Image
 Aliases:
 
 Required: False
@@ -195,21 +331,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ColorBackground
-{{ Fill ColorBackground Description }}
-
-```yaml
-Type: String
-Parameter Sets: Shape, Image
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -ColorBorder
 {{ Fill ColorBorder Description }}
 
@@ -225,8 +346,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ColorHighlightBackground
-{{ Fill ColorHighlightBackground Description }}
+### -ColorBackground
+{{ Fill ColorBackground Description }}
 
 ```yaml
 Type: String
@@ -255,8 +376,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ColorHoverBackground
-{{ Fill ColorHoverBackground Description }}
+### -ColorHighlightBackground
+{{ Fill ColorHighlightBackground Description }}
 
 ```yaml
 Type: String
@@ -272,6 +393,21 @@ Accept wildcard characters: False
 
 ### -ColorHoverBorder
 {{ Fill ColorHoverBorder Description }}
+
+```yaml
+Type: String
+Parameter Sets: Shape, Image
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ColorHoverBackground
+{{ Fill ColorHoverBackground Description }}
 
 ```yaml
 Type: String
@@ -315,70 +451,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -FontAlign
-{{ Fill FontAlign Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: center, left
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -FontBackground
-{{ Fill FontBackground Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -FontColor
 {{ Fill FontColor Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -FontMulti
-{{ Fill FontMulti Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: false, true, markdown, html
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -FontName
-{{ Fill FontName Description }}
 
 ```yaml
 Type: String
@@ -407,8 +481,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -FontStrokeColor
-{{ Fill FontStrokeColor Description }}
+### -FontName
+{{ Fill FontName Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontBackground
+{{ Fill FontBackground Description }}
 
 ```yaml
 Type: String
@@ -437,6 +526,51 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -FontStrokeColor
+{{ Fill FontStrokeColor Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontAlign
+{{ Fill FontAlign Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontMulti
+{{ Fill FontMulti Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -FontVAdjust
 {{ Fill FontVAdjust Description }}
 
@@ -452,8 +586,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -HeightConstraintMinimum
-{{ Fill HeightConstraintMinimum Description }}
+### -Size
+{{ Fill Size Description }}
 
 ```yaml
 Type: Int32
@@ -467,14 +601,28 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -HeightConstraintVAlign
-{{ Fill HeightConstraintVAlign Description }}
+### -X
+{{ Fill X Description }}
 
 ```yaml
-Type: String
+Type: Int32
 Parameter Sets: (All)
 Aliases:
-Accepted values: top, middle, bottom
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Y
+{{ Fill Y Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named
@@ -498,12 +646,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -IconBrands
-{{ Fill IconBrands Description }}
+### -IconColor
+{{ Fill IconColor Description }}
 
 ```yaml
 Type: String
-Parameter Sets: FontAwesomeBrands
+Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
 Aliases:
 
 Required: False
@@ -513,12 +661,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -IconColor
-{{ Fill IconColor Description }}
+### -IconBrands
+{{ Fill IconBrands Description }}
 
 ```yaml
 Type: String
-Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
+Parameter Sets: FontAwesomeBrands
 Aliases:
 
 Required: False
@@ -558,67 +706,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Id
-{{ Fill Id Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Image
-{{ Fill Image Description }}
-
-```yaml
-Type: Uri
-Parameter Sets: Image
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ImageType
-{{ Fill ImageType Description }}
-
-```yaml
-Type: String
-Parameter Sets: Image
-Aliases:
-Accepted values: squareImage, circularImage
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Label
-{{ Fill Label Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Level
 {{ Fill Level Description }}
 
@@ -634,39 +721,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -LinkColor
-{{ Fill LinkColor Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: EdgeColor
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Shape
-{{ Fill Shape Description }}
-
-```yaml
-Type: String
-Parameter Sets: Shape
-Aliases:
-Accepted values: circle, dot, diamond, ellipse, database, box, square, triangle, triangleDown, text, star, hexagon
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Size
-{{ Fill Size Description }}
+### -HeightConstraintMinimum
+{{ Fill HeightConstraintMinimum Description }}
 
 ```yaml
 Type: Int32
@@ -680,41 +736,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TextBox
-{{ Fill TextBox Description }}
+### -HeightConstraintVAlign
+{{ Fill HeightConstraintVAlign Description }}
 
 ```yaml
-Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -To
-{{ Fill To Description }}
-
-```yaml
-Type: String[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -WidthConstraintMaximum
-{{ Fill WidthConstraintMaximum Description }}
-
-```yaml
-Type: Int32
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -740,23 +766,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -X
-{{ Fill X Description }}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Y
-{{ Fill Y Description }}
+### -WidthConstraintMaximum
+{{ Fill WidthConstraintMaximum Description }}
 
 ```yaml
 Type: Int32

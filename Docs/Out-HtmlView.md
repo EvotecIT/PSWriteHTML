@@ -24,11 +24,12 @@ Out-HtmlView [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostConten
  [-EnableColumnReorder] [-EnableRowReorder] [-EnableAutoFill] [-EnableScroller] [-ScrollX] [-ScrollY]
  [-ScrollSizeY <Int32>] [-ScrollCollapse] [-FreezeColumnsLeft <Int32>] [-FreezeColumnsRight <Int32>]
  [-FixedHeader] [-FixedFooter] [-ResponsivePriorityOrder <String[]>] [-ResponsivePriorityOrderIndex <Int32[]>]
- [-PriorityProperties <String[]>] [-ImmediatelyShowHiddenDetails] [-HideShowButton] [-AllProperties]
- [-SkipProperties] [-Compare] [-HighlightDifferences] [-First <Int32>] [-Last <Int32>]
- [-CompareReplace <Array>] [-SearchRegularExpression] [-WordBreak <String>] [-AutoSize]
- [-DisableAutoWidthOptimization] [-SearchPane] [-SearchPaneLocation <String>] [-DataStore <String>]
- [-Transpose] [-PreventShowHTML] [-Online] [<CommonParameters>]
+ [-PriorityProperties <String[]>] [-IncludeProperty <String[]>] [-ExcludeProperty <String[]>]
+ [-ImmediatelyShowHiddenDetails] [-HideShowButton] [-AllProperties] [-SkipProperties] [-Compare]
+ [-HighlightDifferences] [-First <Int32>] [-Last <Int32>] [-CompareReplace <Array>] [-SearchRegularExpression]
+ [-WordBreak <String>] [-AutoSize] [-DisableAutoWidthOptimization] [-SearchPane] [-SearchPaneLocation <String>]
+ [-SearchBuilder] [-SearchBuilderLocation <String>] [-DataStore <String>] [-Transpose] [-PreventShowHTML]
+ [-Online] [-OverwriteDOM <String>] [-SearchHighlight] [-AlphabetSearch] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -810,6 +811,36 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -IncludeProperty
+{{ Fill IncludeProperty Description }}
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ExcludeProperty
+{{ Fill ExcludeProperty Description }}
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -ImmediatelyShowHiddenDetails
 {{ Fill ImmediatelyShowHiddenDetails Description }}
 
@@ -1035,6 +1066,36 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -SearchBuilder
+{{ Fill SearchBuilder Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SearchBuilderLocation
+{{ Fill SearchBuilderLocation Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: Top
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -DataStore
 {{ Fill DataStore Description }}
 
@@ -1082,6 +1143,51 @@ Accept wildcard characters: False
 
 ### -Online
 {{ Fill Online Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -OverwriteDOM
+{{ Fill OverwriteDOM Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SearchHighlight
+{{ Fill SearchHighlight Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AlphabetSearch
+{{ Fill AlphabetSearch Description }}
 
 ```yaml
 Type: SwitchParameter

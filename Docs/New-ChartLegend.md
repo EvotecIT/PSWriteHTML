@@ -13,7 +13,11 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-ChartLegend [[-Names] <Array>] [[-LegendPosition] <String>] [[-Color] <String[]>] [<CommonParameters>]
+New-ChartLegend [[-Names] <Array>] [[-Color] <String[]>] [-HideLegend] [[-LegendPosition] <String>]
+ [[-HorizontalAlign] <String>] [-Floating] [-InverseOrder] [[-OffsetX] <Int32>] [[-OffsetY] <Int32>]
+ [[-ItemMarginHorizontal] <Int32>] [[-ItemMarginVertical] <Int32>] [[-FontSize] <Object>]
+ [[-FontFamily] <String>] [[-FontWeight] <String>] [-DisableOnItemClickToggleDataSeries]
+ [-DisableOnItemHoverHighlightDataSeries] [-UseSeriesColors] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -39,7 +43,174 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DisableOnItemClickToggleDataSeries
+{{ Fill DisableOnItemClickToggleDataSeries Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DisableOnItemHoverHighlightDataSeries
+{{ Fill DisableOnItemHoverHighlightDataSeries Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Floating
+{{ Fill Floating Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontFamily
+{{ Fill FontFamily Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 9
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontSize
+{{ Fill FontSize Description }}
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 8
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontWeight
+{{ Fill FontWeight Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+
+Required: False
+Position: 10
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HideLegend
+{{ Fill HideLegend Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HorizontalAlign
+{{ Fill HorizontalAlign Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: left, center, right
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -InverseOrder
+{{ Fill InverseOrder Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ItemMarginHorizontal
+{{ Fill ItemMarginHorizontal Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 6
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ItemMarginVertical
+{{ Fill ItemMarginVertical Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -52,10 +223,10 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: top, topRight, left, right, bottom, default
+Accepted values: top, left, right, bottom
 
 Required: False
-Position: 1
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -71,6 +242,51 @@ Aliases:
 
 Required: False
 Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -OffsetX
+{{ Fill OffsetX Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -OffsetY
+{{ Fill OffsetY Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -UseSeriesColors
+{{ Fill UseSeriesColors Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

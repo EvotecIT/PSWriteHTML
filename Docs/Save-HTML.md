@@ -14,7 +14,7 @@ Short description
 
 ```
 Save-HTML [[-FilePath] <String>] [-HTML] <String> [-ShowHTML] [[-Encoding] <Object>] [[-Suppress] <Boolean>]
- [<CommonParameters>]
+ [-Format] [-Minify] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -100,6 +100,36 @@ Aliases: Supress
 Required: False
 Position: 4
 Default value: True
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Format
+Formats HTML output (including CSS/JS). Requires PSParseHTML to be installed and available.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Minify
+Minifies HTML output (including CSS/JS). Requires PSParseHTML to be installed and available.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

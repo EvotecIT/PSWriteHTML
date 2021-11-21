@@ -14,9 +14,9 @@ schema: 2.0.0
 
 ```
 New-HTMLText [[-TextBlock] <ScriptBlock>] [-Text <String[]>] [-Color <String[]>] [-BackGroundColor <String[]>]
- [-FontSize <Object[]>] [-FontWeight <String[]>] [-FontStyle <String[]>] [-FontVariant <String[]>]
- [-FontFamily <String[]>] [-Alignment <String[]>] [-TextDecoration <String[]>] [-TextTransform <String[]>]
- [-Direction <String[]>] [-LineBreak] [-SkipParagraph] [<CommonParameters>]
+ [-FontSize <Object[]>] [-LineHeight <String[]>] [-FontWeight <String[]>] [-FontStyle <String[]>]
+ [-FontVariant <String[]>] [-FontFamily <String[]>] [-Alignment <String[]>] [-TextDecoration <String[]>]
+ [-TextTransform <String[]>] [-Direction <String[]>] [-LineBreak] [-SkipParagraph] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -116,7 +116,7 @@ Accept wildcard characters: False
 ```yaml
 Type: Object[]
 Parameter Sets: (All)
-Aliases:
+Aliases: Size
 
 Required: False
 Position: Named
@@ -178,6 +178,21 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LineHeight
+{{ Fill LineHeight Description }}
+
+```yaml
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 

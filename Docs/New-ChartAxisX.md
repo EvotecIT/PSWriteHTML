@@ -13,8 +13,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-ChartAxisX [[-Names] <Array>] [[-TitleText] <String>] [[-Type] <String>] [[-MinValue] <Int32>]
- [[-MaxValue] <Int32>] [<CommonParameters>]
+New-ChartAxisX [[-Names] <Array>] [[-TitleText] <String>] [[-Type] <String>] [[-MinValue] <Object>]
+ [[-MaxValue] <Object>] [[-TimeZoneOffset] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -35,7 +35,7 @@ PS C:\> {{ Add example code here }}
 {{ Fill MaxValue Description }}
 
 ```yaml
-Type: Int32
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -50,7 +50,7 @@ Accept wildcard characters: False
 {{ Fill MinValue Description }}
 
 ```yaml
-Type: Int32
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -71,6 +71,21 @@ Aliases: Name
 
 Required: False
 Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TimeZoneOffset
+{{ Fill TimeZoneOffset Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

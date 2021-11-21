@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLContainer [[-HTML] <ScriptBlock>] [-Width <String>] [-Margin <String>] [-AnchorName <String>]
+New-HTMLContainer [[-HTML] <ScriptBlock>] [-Width <Object>] [-Margin <String>] [-AnchorName <String>]
  [<CommonParameters>]
 ```
 
@@ -80,7 +80,7 @@ Accept wildcard characters: False
 {{ Fill Width Description }}
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 

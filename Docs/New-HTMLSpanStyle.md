@@ -14,9 +14,9 @@ schema: 2.0.0
 
 ```
 New-HTMLSpanStyle [[-Content] <ScriptBlock>] [[-Color] <String>] [[-BackGroundColor] <String>]
- [[-FontSize] <Object>] [[-FontWeight] <String>] [[-FontStyle] <String>] [[-FontVariant] <String>]
- [[-FontFamily] <String>] [[-Alignment] <String>] [[-TextDecoration] <String>] [[-TextTransform] <String>]
- [[-Direction] <String>] [-LineBreak] [<CommonParameters>]
+ [[-FontSize] <Object>] [[-LineHeight] <String>] [[-FontWeight] <String>] [[-FontStyle] <String>]
+ [[-FontVariant] <String>] [[-FontFamily] <String>] [[-Alignment] <String>] [[-TextDecoration] <String>]
+ [[-TextTransform] <String>] [[-Direction] <String>] [-LineBreak] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -43,7 +43,7 @@ Aliases:
 Accepted values: left, center, right, justify
 
 Required: False
-Position: 8
+Position: 9
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -104,7 +104,7 @@ Aliases:
 Accepted values: rtl
 
 Required: False
-Position: 11
+Position: 12
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -119,7 +119,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 7
+Position: 8
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -150,7 +150,7 @@ Aliases:
 Accepted values: normal, italic, oblique
 
 Required: False
-Position: 5
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -166,7 +166,7 @@ Aliases:
 Accepted values: normal, small-caps
 
 Required: False
-Position: 6
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -182,7 +182,7 @@ Aliases:
 Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
-Position: 4
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -203,6 +203,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -LineHeight
+{{ Fill LineHeight Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -TextDecoration
 {{ Fill TextDecoration Description }}
 
@@ -213,7 +228,7 @@ Aliases:
 Accepted values: none, line-through, overline, underline
 
 Required: False
-Position: 9
+Position: 10
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -229,7 +244,7 @@ Aliases:
 Accepted values: uppercase, lowercase, capitalize
 
 Required: False
-Position: 10
+Position: 11
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

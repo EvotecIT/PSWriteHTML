@@ -13,8 +13,9 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Add-HTMLStyle [[-Placement] <String>] [[-ResourceComment] <String>] [[-Link] <String[]>]
- [[-Content] <String[]>] [[-FilePath] <String[]>] [[-Css] <IDictionary>] [<CommonParameters>]
+Add-HTMLStyle [[-Placement] <String>] [[-Resource] <IDictionary>] [[-ResourceComment] <String>]
+ [[-Link] <String[]>] [[-Content] <String[]>] [[-FilePath] <String[]>] [[-Css] <IDictionary>] [-AddComment]
+ [[-RelType] <String>] [-SkipTags] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,6 +32,21 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
+### -AddComment
+{{ Fill AddComment Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Content
 {{ Fill Content Description }}
 
@@ -40,7 +56,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -55,7 +71,7 @@ Parameter Sets: (All)
 Aliases: CssInline
 
 Required: False
-Position: 5
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -70,7 +86,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 4
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -85,7 +101,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -107,6 +123,37 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -RelType
+{{ Fill RelType Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Accepted values: dns-prefetch, preconnect, preload
+
+Required: False
+Position: 8
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Resource
+{{ Fill Resource Description }}
+
+```yaml
+Type: IDictionary
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -ResourceComment
 {{ Fill ResourceComment Description }}
 
@@ -116,7 +163,22 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SkipTags
+{{ Fill SkipTags Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

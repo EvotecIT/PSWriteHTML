@@ -13,10 +13,10 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-HTMLList [[-ListItems] <ScriptBlock>] [[-Type] <String>] [[-Color] <String>] [[-BackGroundColor] <String>]
- [[-FontSize] <Int32>] [[-FontWeight] <String>] [[-FontStyle] <String>] [[-FontVariant] <String>]
- [[-FontFamily] <String>] [[-Alignment] <String>] [[-TextDecoration] <String>] [[-TextTransform] <String>]
- [[-Direction] <String>] [-LineBreak] [<CommonParameters>]
+New-HTMLList [[-ListItems] <ScriptBlock>] [-Type <String>] [-Color <String>] [-BackGroundColor <String>]
+ [-FontSize <Object>] [-FontWeight <String>] [-FontStyle <String>] [-FontVariant <String>]
+ [-FontFamily <String>] [-Alignment <String>] [-TextDecoration <String>] [-TextTransform <String>]
+ [-Direction <String>] [-LineBreak] [-Reversed] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -43,7 +43,7 @@ Aliases:
 Accepted values: left, center, right, justify
 
 Required: False
-Position: 9
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -58,7 +58,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -73,7 +73,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -89,7 +89,7 @@ Aliases:
 Accepted values: rtl
 
 Required: False
-Position: 12
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -104,7 +104,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 8
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -114,12 +114,12 @@ Accept wildcard characters: False
 {{ Fill FontSize Description }}
 
 ```yaml
-Type: Int32
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 4
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -135,7 +135,7 @@ Aliases:
 Accepted values: normal, italic, oblique
 
 Required: False
-Position: 6
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -151,7 +151,7 @@ Aliases:
 Accepted values: normal, small-caps
 
 Required: False
-Position: 7
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -167,7 +167,7 @@ Aliases:
 Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
-Position: 5
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -203,6 +203,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Reversed
+{{ Fill Reversed Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -TextDecoration
 {{ Fill TextDecoration Description }}
 
@@ -213,7 +228,7 @@ Aliases:
 Accepted values: none, line-through, overline, underline
 
 Required: False
-Position: 10
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -229,7 +244,7 @@ Aliases:
 Accepted values: uppercase, lowercase, capitalize
 
 Required: False
-Position: 11
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -245,7 +260,7 @@ Aliases:
 Accepted values: Unordered, Ordered
 
 Required: False
-Position: 1
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

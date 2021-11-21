@@ -21,7 +21,8 @@ New-DiagramLink [[-From] <String[]>] [[-To] <String[]>] [[-Label] <String>] [-Ar
  [[-ColorOpacity] <Double>] [-Dashes] [[-Length] <String>] [[-FontColor] <String>] [[-FontSize] <Object>]
  [[-FontName] <String>] [[-FontBackground] <String>] [[-FontStrokeWidth] <Object>]
  [[-FontStrokeColor] <String>] [[-FontAlign] <String>] [[-FontMulti] <String>] [[-FontVAdjust] <Int32>]
- [[-WidthConstraint] <Int32>] [<CommonParameters>]
+ [[-WidthConstraint] <Int32>] [[-SmoothType] <String>] [[-SmoothForceDirection] <String>]
+ [[-SmoothRoundness] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -38,108 +39,46 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -ArrowStrikethrough
-{{ Fill ArrowStrikethrough Description }}
+### -From
+{{ Fill From Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ArrowsFromEnabled
-{{ Fill ArrowsFromEnabled Description }}
+### -To
+{{ Fill To Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ArrowsFromScaleFactor
-{{ Fill ArrowsFromScaleFactor Description }}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 7
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ArrowsFromType
-{{ Fill ArrowsFromType Description }}
+### -Label
+{{ Fill Label Description }}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: arrow, bar, circle
 
 Required: False
-Position: 8
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ArrowsMiddleEnabled
-{{ Fill ArrowsMiddleEnabled Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ArrowsMiddleScaleFactor
-{{ Fill ArrowsMiddleScaleFactor Description }}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 5
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ArrowsMiddleType
-{{ Fill ArrowsMiddleType Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: arrow, bar, circle
-
-Required: False
-Position: 6
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -169,7 +108,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -182,10 +121,114 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: arrow, bar, circle
 
 Required: False
-Position: 4
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ArrowsMiddleEnabled
+{{ Fill ArrowsMiddleEnabled Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ArrowsMiddleScaleFactor
+{{ Fill ArrowsMiddleScaleFactor Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 6
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ArrowsMiddleType
+{{ Fill ArrowsMiddleType Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 7
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ArrowsFromEnabled
+{{ Fill ArrowsFromEnabled Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ArrowsFromScaleFactor
+{{ Fill ArrowsFromScaleFactor Description }}
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 8
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ArrowsFromType
+{{ Fill ArrowsFromType Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 9
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ArrowStrikethrough
+{{ Fill ArrowStrikethrough Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -215,7 +258,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 9
+Position: 10
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -230,7 +273,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 10
+Position: 11
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -245,7 +288,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 11
+Position: 12
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -258,10 +301,9 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: true, false, from, to, both
 
 Required: False
-Position: 12
+Position: 13
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -276,7 +318,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 13
+Position: 14
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -297,24 +339,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -FontAlign
-{{ Fill FontAlign Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: center, left
-
-Required: False
-Position: 21
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -FontBackground
-{{ Fill FontBackground Description }}
+### -Length
+{{ Fill Length Description }}
 
 ```yaml
 Type: String
@@ -322,7 +348,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 18
+Position: 15
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -337,38 +363,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 15
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -FontMulti
-{{ Fill FontMulti Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: false, true, markdown, html
-
-Required: False
-Position: 22
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -FontName
-{{ Fill FontName Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 17
+Position: 16
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -383,14 +378,14 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 16
+Position: 17
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -FontStrokeColor
-{{ Fill FontStrokeColor Description }}
+### -FontName
+{{ Fill FontName Description }}
 
 ```yaml
 Type: String
@@ -398,7 +393,22 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 20
+Position: 18
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontBackground
+{{ Fill FontBackground Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 19
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -413,7 +423,52 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 19
+Position: 20
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontStrokeColor
+{{ Fill FontStrokeColor Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 21
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontAlign
+{{ Fill FontAlign Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 22
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FontMulti
+{{ Fill FontMulti Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 23
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -428,67 +483,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 23
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -From
-{{ Fill From Description }}
-
-```yaml
-Type: String[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Label
-{{ Fill Label Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Length
-{{ Fill Length Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 14
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -To
-{{ Fill To Description }}
-
-```yaml
-Type: String[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
+Position: 24
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -503,7 +498,57 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 24
+Position: 25
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SmoothType
+Possible options: 'dynamic', 'continuous', 'discrete', 'diagonalCross', 'straightCross', 'horizontal', 'vertical', 'curvedCW', 'curvedCCW', 'cubicBezier'.
+Take a look at this example to see what these look like and pick the one that you like best! When using dynamic, the edges will have an invisible support node guiding the shape.
+This node is part of the physics simulation.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 26
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SmoothForceDirection
+Accepted options: ['horizontal', 'vertical', 'none'].
+This options is only used with the cubicBezier curves.
+When true, horizontal is chosen, when false, the direction that is larger (x distance between nodes vs y distance between nodes) is used.
+If the x distance is larger, horizontal. This is ment to be used with hierarchical layouts.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 27
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SmoothRoundness
+Accepted range: 0 .. 1.0. This parameter tweaks the roundness of the smooth curves for all types EXCEPT dynamic.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 28
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

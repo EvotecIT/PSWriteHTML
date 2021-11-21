@@ -53,7 +53,7 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: h1, h2, h3, h4, h5, h6, h7
+Accepted values: h1, h2, h3, h4, h5, h6
 
 Required: False
 Position: 0

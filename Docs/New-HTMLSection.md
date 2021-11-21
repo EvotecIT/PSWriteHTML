@@ -14,10 +14,11 @@ schema: 2.0.0
 
 ```
 New-HTMLSection [[-Content] <ScriptBlock>] [-HeaderText <String>] [-HeaderTextColor <String>]
- [-HeaderTextAlignment <String>] [-HeaderBackGroundColor <String>] [-BackgroundColor <String>] [-CanCollapse]
- [-IsHidden] [-Collapsed] [-Height <Object>] [-Invisible] [-Wrap <String>] [-Direction <String>]
- [-AlignContent <String>] [-AlignItems <String>] [-JustifyContent <String>] [-BorderRadius <String>]
- [-AnchorName <String>] [-StyleSheetsConfiguration <IDictionary>] [<CommonParameters>]
+ [-HeaderTextSize <String>] [-HeaderTextAlignment <String>] [-HeaderBackGroundColor <String>]
+ [-BackgroundColor <String>] [-CanCollapse] [-IsHidden] [-Collapsed] [-Height <Object>] [-Width <Object>]
+ [-Invisible] [-Margin <Object>] [-Wrap <String>] [-Direction <String>] [-AlignContent <String>]
+ [-AlignItems <String>] [-JustifyContent <String>] [-BorderRadius <String>] [-AnchorName <String>]
+ [-StyleSheetsConfiguration <IDictionary>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -234,6 +235,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -HeaderTextSize
+{{ Fill HeaderTextSize Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: TextSize
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Height
 {{ Fill Height Description }}
 
@@ -295,11 +311,41 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Margin
+{{ Fill Margin Description }}
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -StyleSheetsConfiguration
 {{ Fill StyleSheetsConfiguration Description }}
 
 ```yaml
 Type: IDictionary
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Width
+{{ Fill Width Description }}
+
+```yaml
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
