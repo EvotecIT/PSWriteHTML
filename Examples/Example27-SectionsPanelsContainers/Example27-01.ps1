@@ -10,7 +10,7 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example27-01.html" -Show {
         }
         New-HTMLSection -HeaderText 'Test 2' -CanCollapse -Collapsed {
             New-HTMLTable -DataTable $ProcessSmaller
-        }
+        } -Margin 20px
     }
     New-HTMLSection -Collapsed -CanCollapse {
         New-HTMLPanel {
@@ -31,7 +31,7 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example27-01.html" -Show {
                 New-ChartPie -Name 'Test2' -Value 40
             }
         }
-    }
+    } -Margin 50px
     New-HTMLSection -Invisible {
         New-HTMLSection -HeaderText 'Test 1' {
             New-HTMLTable -DataTable $ProcessSmaller
