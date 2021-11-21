@@ -49,14 +49,14 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Articles worth reading to understand use cases
 
-- 🔗 [Meet Statusimo – PowerShell generated Status Page](https://evotec.xyz/meet-statusimo-powershell-generated-status-page/)
-- 🔗 [Meet Dashimo – PowerShell Generated Dashboard](https://evotec.xyz/meet-dashimo-powershell-generated-dashboard/)
-- 🔗 [Dashimo – Easy Table Conditional Formatting and more](https://evotec.xyz/dashimo-easy-table-conditional-formatting-and-more/)
-- 🔗 [Out-HtmlView – HTML alternative to Out-GridView](https://evotec.xyz/out-htmlview-html-alternative-to-out-gridview/)
-- 🔗 [Meet Emailimo – New way to send pretty emails with PowerShell](https://evotec.xyz/meet-emailimo-new-way-to-send-pretty-emails-with-powershell/)
+- 🔗 [Meet Statusimo - PowerShell generated Status Page](https://evotec.xyz/meet-statusimo-powershell-generated-status-page/)
+- 🔗 [Meet Dashimo - PowerShell Generated Dashboard](https://evotec.xyz/meet-dashimo-powershell-generated-dashboard/)
+- 🔗 [Dashimo - Easy Table Conditional Formatting and more](https://evotec.xyz/dashimo-easy-table-conditional-formatting-and-more/)
+- 🔗 [Out-HtmlView - HTML alternative to Out-GridView](https://evotec.xyz/out-htmlview-html-alternative-to-out-gridview/)
+- 🔗 [Meet Emailimo - New way to send pretty emails with PowerShell](https://evotec.xyz/meet-emailimo-new-way-to-send-pretty-emails-with-powershell/)
 - 🔗 [All your HTML Tables are belong to us](https://evotec.xyz/all-your-html-tables-are-belong-to-us/)
 - 🔗 [Sending HTML emails with PowerShell and zero HTML knowledge required](https://evotec.xyz/sending-html-emails-with-powershell-and-zero-html-knowledge-required/)
-- 🔗 [Dashimo (PSWriteHTML) – Charting, Icons and few other changes](https://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes/)
+- 🔗 [Dashimo (PSWriteHTML) - Charting, Icons and few other changes](https://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes/)
 - 🔗 [Working with HTML in PowerShell just got better](https://evotec.xyz/working-with-html-in-powershell-just-got-better/)
 - 🔗 [Comparing two or more objects visually in PowerShell (cross-platform)](https://evotec.xyz/comparing-two-or-more-objects-visually-in-powershell-cross-platform/)
 - 🔗 [Easy way to create diagrams using PowerShell and PSWriteHTML](https://evotec.xyz/easy-way-to-create-diagrams-using-powershell-and-pswritehtml/)
@@ -65,6 +65,12 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - 🔗 [Active Directory DHCP Report to HTML or EMAIL with zero HTML knowledge](https://evotec.xyz/active-directory-dhcp-report-to-html-or-email-with-zero-html-knowledge/)
 - 🔗 [Creating Office 365 Migration Diagram with PowerShell](https://evotec.xyz/creating-office-365-migration-diagram-with-powershell/)
 - 🔗 [Advanced HTML reporting using PowerShell](https://evotec.xyz/advanced-html-reporting-using-powershell/)
+
+## Changelog
+
+`PSWriteHTML` undergoes changes that hopefully will make it more versalite, consistent and better.
+Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
+Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 ## Advantages over ReportHTML
 
@@ -87,13 +93,11 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ![Out-HTMLView](https://evotec.xyz/wp-content/uploads/2019/04/Out-HtmlView.gif)
 
-Following external libraries and frameworks are in use. They make `PSWriteHTML` what it is now. This list is dynamic and doesn't cover everything yet.
-
 For colors, you can visit this [online page](https://evotec.xyz/wp-content/uploads/2019/05/Example-Colors.html).
 
 ## 3rd Party Libraries
 
-**PSWriteHTML** uses some 3rd party libraries to deliver its functionality. It requires those. There are two ways to use it
+**PSWriteHTML** uses some 3rd party libraries to deliver its functionality. It requires those and without them - this project would have a basic functionality. There are two ways to use it
 
 - With links to CSS/JS which makes code cleaner and easy to see what is happening
 - With code inline in HTML which makes HTML much bigger (default, but makes PSWriteHTML usage offline possible)
