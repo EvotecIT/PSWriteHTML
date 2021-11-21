@@ -8,6 +8,7 @@ Please make sure to read changes before updating, as we're undergoing some break
   - Fixes `New-ChartLegend` case-senitivity issue [#283](https://github.com/EvotecIT/PSWriteHTML/issues/283)
   - Added `Margin` to `New-HTMLSection`
   - Added `New-HTMLFrame`
+  - Added some inline HELP for some commands. Please help where you can.
 ## 0.0.158 - 2021.07.24
   - 📦 Added support in `New-HTMLTable` to handle null values better
   - 🐛 Fixed bug in `Out-HTMLView` which would skip displaying data in some cases
