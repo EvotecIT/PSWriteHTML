@@ -15,6 +15,7 @@ Function New-HTMLSection {
         [object] $Height,
         [object] $Width = '100%',
         [switch] $Invisible,
+        [object] $Margin,
         # Following are based on https://css-tricks.com/snippets/css/a-guide-to-flexbox/
         [string][ValidateSet('wrap', 'nowrap', 'wrap-reverse')] $Wrap,
         [string][ValidateSet('row', 'row-reverse', 'column', 'column-reverse')] $Direction,
@@ -123,6 +124,9 @@ Function New-HTMLSection {
         "background-color" = ConvertFrom-Color -Color $BackgroundColor
         'border-radius'    = $BorderRadius
         'flex-basis'       = $Width
+    }
+    if ($PSBoundParameters.ContainsKey('Margin')) {
+        $AttributesTop['style']['margin'] = ConvertFrom-Size -Size $Margin
     }
     if ($IsHidden) {
         $AttributesTop['style']["display"] = 'none'
