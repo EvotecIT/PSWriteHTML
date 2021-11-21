@@ -84,11 +84,9 @@
         }
         $InlineScriptBody = $InlineScript | ConvertTo-Json -Depth 100
         $Script = New-HTMLTag -Tag 'script' -Value {
-            # Convert Dictionary to JSON and return chart within SCRIPT tag
-            # Make sure to return with additional empty string
-
+            # https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/options.md
+            # We should go thru options and add them to the script
             "iFrameResize($InlineScriptBody, '#$Id')"
-
         } -NewLine
         $Script
     }
