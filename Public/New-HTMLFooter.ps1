@@ -4,10 +4,10 @@
     Building block for use within New-HTML. Provides ability to define footer.
 
     .DESCRIPTION
-    Building block for use within New-HTML. Provides ability to define footer.
+    Building block for use within New-HTML. Provides ability to define footer. Additional way of managing how HTML content is displayed.
 
     .PARAMETER HTMLContent
-    Provides ability to define on or more HTML elements
+    Define one or more HTML elements
 
     .EXAMPLE
     New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example34_01.html" {
