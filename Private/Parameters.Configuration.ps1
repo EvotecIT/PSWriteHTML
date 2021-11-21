@@ -1977,6 +1977,7 @@ $Script:Configuration = [ordered] @{
 
 <#
 $Keys = @(
+    #'iFrameResizer
     #'Popper'
     #'Moment'
     #'Jquery'
