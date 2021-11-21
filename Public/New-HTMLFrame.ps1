@@ -23,7 +23,7 @@
     - no: This value does not show the scrollbar in the Iframe Element.
 
     .PARAMETER FrameBorder
-    Parameter description
+    Set the frameborder attribute of the <iframe> element. This attribute specifies whether the frame should have a border. The default value is 0.
 
     .PARAMETER UseiFrameResizer
     Forces HTML inline feature to use iFrameResizer instead of native functionality. For fully functional feature it requires modifying the source HTML file.
@@ -53,7 +53,7 @@
         [string] $SourcePath,
         [validateSet('No', 'Yes', 'Auto')][string] $Scrolling = 'auto',
         [object] $Height,
-        [object] $FrameBorder,
+        [object] $FrameBorder = 0,
         [switch] $UseiFrameResizer,
         [switch] $EnableLogging
     )
