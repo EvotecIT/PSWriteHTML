@@ -1409,6 +1409,37 @@ $Script:Configuration = [ordered] @{
             Default     = $true
             Email       = $false
         }
+        iFrame                      = @{
+            Comment      = 'iFrame'
+            Default      = $true
+            Email        = $false
+            HeaderAlways = [ordered] @{
+                CssInline = @{
+                    "iframe" = @{
+                        'width'     = '1px'
+                        'min-width' = '100%'
+                    }
+                }
+            }
+        }
+        iFrameResizer               = @{
+            Comment     = 'iFrame Resizer (iframeSizer.min.js)'
+            Demos       = 'http://davidjbradshaw.github.io/iframe-resizer/'
+
+            Header      = @{
+                JSLink = @(
+                    'https://cdn.jsdelivr.net/gh/davidjbradshaw/iframe-resizer@4.3.2/js/iframeResizer.min.js'
+                )
+                JS     = @(
+                    "$PSScriptRoot\..\Resources\JS\iframeResizer.min.js"
+                )
+            }
+            Default     = $true
+            Email       = $false
+            License     = 'MIT'
+            LicenseLink = 'https://github.com/davidjbradshaw/iframe-resizer/blob/master/LICENSE'
+            SourceCodes = 'https://github.com/davidjbradshaw/iframe-resizer'
+        }
         JustGage                    = @{
             Comment     = 'Just Gage Library'
             Demos       = 'https://toorshia.github.io/justgage'
@@ -1946,6 +1977,7 @@ $Script:Configuration = [ordered] @{
 
 <#
 $Keys = @(
+    #'iFrameResizer
     #'Popper'
     #'Moment'
     #'Jquery'
