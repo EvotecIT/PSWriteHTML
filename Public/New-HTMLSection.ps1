@@ -132,8 +132,11 @@ Function New-HTMLSection {
         $AttributesTop['style']["display"] = 'none'
     }
 
-
-    $HiddenDivStyle['height'] = ConvertFrom-Size -Size $Height
+    if ($Invisible) {
+        $AttributesTop['style']['height'] = ConvertFrom-Size -Size $Height
+    } else {
+        $HiddenDivStyle['height'] = ConvertFrom-Size -Size $Height
+    }
 
     if ($Wrap -or $Direction) {
         [string] $ClassName = "flexParent$(Get-RandomStringName -Size 8 -LettersOnly)"
