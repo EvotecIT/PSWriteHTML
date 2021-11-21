@@ -1,5 +1,5 @@
 Clear-Host
-Import-Module "C:\Support\GitHub\PSPublishModule\PSPublishModule.psm1" -Force
+Import-Module "C:\Support\GitHub\PSPublishModule\PSPublishModule.psd1" -Force
 
 $Configuration = @{
     Information = @{
@@ -157,10 +157,10 @@ $Configuration = @{
             Verbose         = $false
         }
         PublishModule      = @{  # requires Enable to be on to process all of that
-            Enabled      = $true
+            Enabled      = $false
             Prerelease   = ''
             RequireForce = $false
-            GitHub       = $true
+            GitHub       = $false
         }
     }
 }
