@@ -219,6 +219,12 @@ Function New-HTML {
                     # this gets rid of any non-strings
                     # it's added here to track nested tabs
                     if ($_.Output -isnot [System.Collections.IDictionary]) {
+                        if ($_.FilePath) {
+                            $SavePath = $_.FilePath
+                        } else {
+                            $Name = $_.Name.Replace(":", "_").Replace("/", "_").Replace("\", "_")
+                            $SavePath = [io.path]::Combine($PagesPath, "$($FileName)_$($Name).html")
+                        }
                         $Pages[$_.Name] = [ordered] @{
                             Name     = " $($FileName)_$($_.Name)"
                             #Output   = $null
@@ -226,7 +232,7 @@ Function New-HTML {
                             Primary  = if ($Pages.Keys.Count -eq 0) { $true } else { $false }
                             Header   = $null
                             Footer   = $null
-                            SavePath = [io.path]::Combine($PagesPath, "$($FileName)_$($_.Name).html")
+                            SavePath = $SavePath
                             ShowHTML = $false
                         }
                         $Pages[$_.Name].Main = foreach ($Object in $_.Output) {

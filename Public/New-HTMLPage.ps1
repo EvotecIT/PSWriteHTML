@@ -2,7 +2,9 @@
     [cmdletBinding()]
     param(
         [scriptblock] $PageContent,
-        [Parameter(Mandatory)][string] $Name
+        [Parameter(Mandatory)][string] $Name,
+        [string] $FilePath,
+        [string] $ID
     )
 
     if ($PageContent) {
@@ -12,9 +14,11 @@
         $Script:HTMLSchema = $Script:GlobalSchema['Pages'][$Name]
 
         [PSCustomObject] @{
-            Type   = 'Page'
-            Output = & $PageContent
-            Name   = $Name
+            Type     = 'Page'
+            Output   = & $PageContent
+            Name     = $Name
+            FilePath = $FilePath
+            ID       = $ID
         }
     }
 }
