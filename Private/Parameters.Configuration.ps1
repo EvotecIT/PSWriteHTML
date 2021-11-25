@@ -1008,6 +1008,19 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
+        DataTablesFuzzySearch       = @{
+            Comment = 'DataTables Fuzzy Search'
+            Header  = @{
+                JsLink = @(
+                    "https://cdn.datatables.net/plug-ins/1.11.1/features/fuzzySearch/dataTables.fuzzySearch.js"
+                )
+                JS     = @(
+                    "$PSScriptRoot\..\Resources\JS\dataTables.fuzzySearch.js"
+                )
+            }
+            Default = $true
+            Email   = $false
+        }
         DataTablesFixedColumn       = @{
             Comment = 'DataTables Fixed Column Features'
             Header  = @{
@@ -1974,9 +1987,9 @@ $Script:Configuration = [ordered] @{
         }
     }
 }
-
 <#
 $Keys = @(
+    #'datatablesfuzzysearch'
     #'iFrameResizer
     #'Popper'
     #'Moment'
