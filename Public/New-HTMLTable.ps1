@@ -76,7 +76,9 @@ function New-HTMLTable {
         [switch] $Transpose,
         [string] $OverwriteDOM,
         [switch] $SearchHighlight,
-        [switch] $AlphabetSearch
+        [switch] $AlphabetSearch,
+        [switch] $FuzzySearch,
+        [switch] $FuzzySearchSmartToggle
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -398,6 +400,18 @@ function New-HTMLTable {
         if ($SearchBuilderEnabled) {
             Write-Warning -Message "New-HTMLTable - Using SearchBuilder option and SearchBuilder button won't work properly. Only one will work. Disabling SearchBuiler."
             $SearchBuilderEnabled = $false
+        }
+    }
+    if ($FuzzySearch -or $FuzzySearchSmartToggle) {
+        $Script:HTMLSchema.Features.DataTablesFuzzySearch = $true
+        if ($FuzzySearch) {
+            if ($FuzzySearchSmartToggle) {
+                $Options['fuzzySearch'] = @{
+                    toggleSmart = $true
+                }
+            } else {
+                $Options['fuzzySearch'] = $true
+            }
         }
     }
     if ($SearchPane) {
