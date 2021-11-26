@@ -63,7 +63,8 @@ New-HTML -TitleText 'My charts' -Online -FilePath $PSScriptRoot\Example-ChartRad
             }
             New-HTMLPanel {
                 New-HTMLChart -Patterned {
-                    New-ChartRadial -Name 'Test' -Value 20
+                    New-ChartRadial -Name 'All Users' -Value 20
+                    New-ChartRadial -Name 'All Computers' -Value 50 
                 }
             }
         }
