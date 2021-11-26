@@ -4,7 +4,7 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-## 0.0.159
+## 0.0.159 - 2021.11.26
   - Fixes `New-ChartLegend` case-senitivity issue [#283](https://github.com/EvotecIT/PSWriteHTML/issues/283)
   - Added `Margin` to `New-HTMLSection`
   - Added `New-HTMLFrame`
