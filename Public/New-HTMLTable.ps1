@@ -426,7 +426,7 @@ function New-HTMLTable {
         $Options['dom'] = $OverwriteDOM
     } else {
         $DOM = 'Bfrtip'
-        if ($AlphabetSearch) {
+        if ($AlphabetSearch -or $TableAlphabetSearch) {
             $DOM = "A$($Dom)"
         }
         if ($SearchBuilderEnabled -and $SearchPane) {
