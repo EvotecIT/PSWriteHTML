@@ -29,7 +29,8 @@ Out-HtmlView [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostConten
  [-HighlightDifferences] [-First <Int32>] [-Last <Int32>] [-CompareReplace <Array>] [-SearchRegularExpression]
  [-WordBreak <String>] [-AutoSize] [-DisableAutoWidthOptimization] [-SearchPane] [-SearchPaneLocation <String>]
  [-SearchBuilder] [-SearchBuilderLocation <String>] [-DataStore <String>] [-Transpose] [-PreventShowHTML]
- [-Online] [-OverwriteDOM <String>] [-SearchHighlight] [-AlphabetSearch] [<CommonParameters>]
+ [-Online] [-OverwriteDOM <String>] [-SearchHighlight] [-AlphabetSearch] [-FuzzySearch]
+ [-FuzzySearchSmartToggle] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -1188,6 +1189,36 @@ Accept wildcard characters: False
 
 ### -AlphabetSearch
 {{ Fill AlphabetSearch Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FuzzySearch
+{{ Fill FuzzySearch Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FuzzySearchSmartToggle
+{{ Fill FuzzySearchSmartToggle Description }}
 
 ```yaml
 Type: SwitchParameter
