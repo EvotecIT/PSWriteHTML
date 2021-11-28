@@ -7,6 +7,7 @@ Please make sure to read changes before updating, as we're undergoing some break
 ## 0.0.160 - 2021.11.28
   - Added `FuzzySearch`,`FuzzySearchSmartToggle` to `New-HTMLTable`
   - Added `FuzzySearch`,`FuzzySearchSmartToggle` to `Out-HTMLView`
+  - Fixed `New-TableAlphabetSearch` beign ignored if `AlphabetSearch` switch is not used
 ## 0.0.159 - 2021.11.26
   - Fixes `New-ChartLegend` case-senitivity issue [#283](https://github.com/EvotecIT/PSWriteHTML/issues/283)
   - Added `Margin` to `New-HTMLSection`
