@@ -30,7 +30,7 @@ New-HTMLTable [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostConte
  [-WordBreak <String>] [-AutoSize] [-DisableAutoWidthOptimization] [-SearchPane] [-SearchPaneLocation <String>]
  [-SearchBuilder] [-SearchBuilderLocation <String>] [-DataStore <String>] [-DataTableID <String>]
  [-DataStoreID <String>] [-Transpose] [-OverwriteDOM <String>] [-SearchHighlight] [-AlphabetSearch]
- [<CommonParameters>]
+ [-FuzzySearch] [-FuzzySearchSmartToggle] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -611,6 +611,36 @@ Accept wildcard characters: False
 
 ```yaml
 Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FuzzySearch
+{{ Fill FuzzySearch Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FuzzySearchSmartToggle
+{{ Fill FuzzySearchSmartToggle Description }}
+
+```yaml
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
