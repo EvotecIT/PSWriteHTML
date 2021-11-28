@@ -103,7 +103,9 @@ function Out-HtmlView {
         [switch] $Online,
         [string] $OverwriteDOM,
         [switch] $SearchHighlight,
-        [switch] $AlphabetSearch
+        [switch] $AlphabetSearch,
+        [switch] $FuzzySearch,
+        [switch] $FuzzySearchSmartToggle
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -196,6 +198,8 @@ function Out-HtmlView {
                     OverwriteDOM                 = $OverwriteDOM
                     IncludeProperty              = $IncludeProperty
                     ExcludeProperty              = $ExcludeProperty
+                    FuzzySearch                  = $FuzzySearch
+                    FuzzySearchSmartToggle       = $FuzzySearchSmartToggle
                 }
                 Remove-EmptyValue -Hashtable $newHTMLTableSplat
                 New-HTMLTable @newHTMLTableSplat
