@@ -412,6 +412,10 @@ function New-HTMLTable {
             } else {
                 $Options['fuzzySearch'] = $true
             }
+        } else {
+            $Options['fuzzySearch'] = @{
+                toggleSmart = $true
+            }
         }
     }
     if ($SearchPane) {
