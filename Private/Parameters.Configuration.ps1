@@ -1,4 +1,4 @@
-﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.10'
+﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.12'
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
         Inject                      = @{
@@ -1011,12 +1011,9 @@ $Script:Configuration = [ordered] @{
         DataTablesFuzzySearch       = @{
             Comment = 'DataTables Fuzzy Search'
             Header  = @{
-                JsLink = @(
-                    "https://cdn.datatables.net/plug-ins/1.11.1/features/fuzzySearch/dataTables.fuzzySearch.js"
-                )
-                JS     = @(
-                    "$PSScriptRoot\..\Resources\JS\dataTables.fuzzySearch.js"
-                )
+                JsLinkOriginal = "https://cdn.datatables.net/plug-ins/1.11.1/features/fuzzySearch/dataTables.fuzzySearch.js"
+                JsLink         = "$($Script:ConfigurationURL)/JS/dataTables.fuzzySearch.min.js"
+                JS             = "$PSScriptRoot\..\Resources\JS\dataTables.fuzzySearch.js"
             }
             Default = $true
             Email   = $false
