@@ -1,4 +1,109 @@
 function New-HTMLText {
+    <#
+    .SYNOPSIS
+    This function provides ability to add new text to the HTML file.
+
+    .DESCRIPTION
+    This function provides ability to add new text to the HTML file, with colors, fonts and other styling features.
+    It is used to add text to the HTML file with proper styling and formatting.
+    Please keep in mind that if parameter is not provided the defaults will be used.
+    The defaults can be from the body itself, or from section or other parts of HTML depending on where the text is added.
+
+    .PARAMETER TextBlock
+    Defines ability to use text block instead of array
+
+    .PARAMETER Text
+    Provide text or text array to be added to the HTML file.
+
+    .PARAMETER Color
+    Pick one of the 800 colors or provide a hex color code.
+
+    .PARAMETER BackGroundColor
+    Pick one of the 800 colors or provide a hex color code.
+
+    .PARAMETER FontSize
+    Provide font size. When skipped the default font size will be used.
+
+    .PARAMETER LineHeight
+    Provide line height. When skipped the default line height will be used.
+
+    .PARAMETER FontWeight
+    Provide font weight. When skipped the default font weight will be used. Options are: 'normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900'
+
+    .PARAMETER FontStyle
+    Provide font style. When skipped the default font style will be used. Options are: 'normal', 'italic', 'oblique'
+
+    .PARAMETER FontVariant
+    Provide font variant. When skipped the default font variant will be used. Options are: 'normal', 'small-caps'
+
+    .PARAMETER FontFamily
+    Provide font family. When skipped the default font family will be used.
+
+    .PARAMETER Alignment
+    Provide alignment. When skipped the default alignment will be used. Options are: 'left', 'right', 'center', 'justify'
+
+    .PARAMETER TextDecoration
+    Provide text decoration. When skipped the default text decoration will be used. Options are: 'none', 'line-through', 'overline', 'underline'
+
+    .PARAMETER TextTransform
+    Provide text transform. When skipped the default text transform will be used. Options are: 'uppercase', 'lowercase', 'capitalize'
+
+    .PARAMETER Direction
+    Provide direction. When skipped the direction will not be changed. Options are: 'rtl','ltr'. By default it's 'ltr'.
+
+    .PARAMETER LineBreak
+    Decides whether to add line break at the end of the text or not.
+
+    .PARAMETER SkipParagraph
+    Skips adding div tag to make sure text is not wrapped in it. By default it wraps all text in div tag.
+
+    .EXAMPLE
+    New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example34_01.html" {
+        New-HTMLHeader {
+            New-HTMLText -Text "Date of this report $(Get-Date)" -Color Blue -Alignment right
+        }
+        New-HTMLMain {
+            New-HTMLTab -TabName 'Test' {
+                New-HTMLSection -HeaderText '0 section' {
+                    New-HTMLPanel {
+                        New-HTMLTable -DataTable $Processes -HideFooter
+                    }
+                    New-HTMLPanel {
+                        New-HTMLTable -DataTable $Processes -HideFooter
+                    }
+                    New-HTMLPanel {
+                        New-HTMLTable -DataTable $Processes -HideFooter -Simplify
+                    }
+                    New-HTMLPanel {
+                        New-HTMLTable -DataTable $Processes -HideFooter
+                    }
+                }
+            }
+            New-HTMLTab -TabName 'Test5' {
+                New-HTMLSection -HeaderText '1 section' {
+                    New-HTMLPanel {
+                        New-HTMLTable -DataTable $Processes -HideFooter
+                    }
+                    New-HTMLPanel {
+                        New-HTMLTable -DataTable $Processes -HideFooter
+                        # New-HTMLTable -DataTable $Processes -HideFooter
+                    }
+                    New-HTMLPanel {
+                        New-HTMLTable -DataTable $Processes -HideFooter
+                    }
+                }
+            }
+        }
+        New-HTMLFooter {
+            New-HTMLText -Text "Date of this report $(Get-Date)" -Color Blue -Alignment right
+        }
+    } -Online -ShowHTML
+
+    .EXAMPLE
+
+    .NOTES
+    General notes
+    #>
     [alias('HTMLText', 'Text', 'EmailText')]
     [CmdletBinding()]
     param(
@@ -15,7 +120,7 @@ function New-HTMLText {
         [ValidateSet('left', 'center', 'right', 'justify')][string[]] $Alignment = @(),
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string[]] $TextDecoration = @(),
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string[]] $TextTransform = @(),
-        [ValidateSet('rtl')][string[]] $Direction = @(),
+        [ValidateSet('rtl', 'ltr')][string[]] $Direction = @(),
         [switch] $LineBreak,
         [switch] $SkipParagraph #,
         #[string] $Margin = '5px'
