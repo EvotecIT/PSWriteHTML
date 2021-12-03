@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.162
+  - Fixes `New-TableContent` where it would set FontSize to 0 sometimes.
+  - Some documentation updates
 ## 0.0.161 - 2021.11.29
   - Fixes `FuzzySearch` when multiple tables are involved
 ## 0.0.160 - 2021.11.28
