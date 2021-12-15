@@ -136,6 +136,7 @@ function New-HTMLTable {
     $TableEvents = [System.Collections.Generic.List[PSCustomObject]]::new()
     $TablePercentageBar = [System.Collections.Generic.List[PSCustomObject]]::new()
     $TableAlphabetSearch = [ordered]@{}
+    $TableLanguage = [ordered]@{}
 
     # This will be used to store the colulmnDef option for the datatable
     $ColumnDefinitionList = [System.Collections.Generic.List[PSCustomObject]]::New()
@@ -211,6 +212,8 @@ function New-HTMLTable {
                     $TablePercentageBar.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableAlphabetSearch') {
                     $TableAlphabetSearch = $Parameters.Output
+                } elseif ($Parameters.Type -eq 'TableLanguage') {
+                    $TableLanguage = $Parameters.Output
                 }
             }
         }
@@ -286,7 +289,13 @@ function New-HTMLTable {
     if ($null -eq $DataTable -or $DataTable.Count -eq 0) {
         $Filtering = $false # setting it to false because it's not nessecary
         $HideFooter = $true
-        [Array] $DataTable = $TextWhenNoData
+        if ($TableLanguage -and $TableLanguage.emptyTable) {
+            # emnpty table from language option
+            [Array] $DataTable = $TableLanguage.emptyTable
+            $TableLanguage.Remove('emptyTable')
+        } else {
+            [Array] $DataTable = $TextWhenNoData
+        }
     }
 
     # we don't do anything for dictionaries, as dictionaries are displayed in two columns approach
@@ -384,6 +393,9 @@ function New-HTMLTable {
         F - jQueryUI theme "footer" classes (fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix)
         Q - SearchBuilder
     #>
+    if ($TableLanguage) {
+        $Options['language'] = $TableLanguage
+    }
     if ($AlphabetSearch -or $TableAlphabetSearch.Count -gt 0) {
         $Script:HTMLSchema.Features.DataTablesSearchAlphabet = $true
     }
