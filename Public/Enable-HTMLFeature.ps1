@@ -23,6 +23,10 @@
         [string[]] $Feature,
         [System.Collections.IDictionary] $Configuration
     )
+    if (-not $Script:HTMLSchema) {
+        Write-Warning -Message "Enable-HTMLFeature - no HTMLSchema defined. Using cmdlets outside of New-HTML will not generate missing CSS/JS content."
+        return
+    }
     foreach ($F in $Feature) {
         $Script:HTMLSchema.Features.$F = $true
     }
