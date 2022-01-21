@@ -1,7 +1,9 @@
 ﻿function ConvertTo-CascadingStyleSheets {
+    [alias('ConvertTo-CSS')]
     [cmdletBinding()]
     param(
         [Parameter(ValueFromPipeline, ValueFromPipelineByPropertyName)][System.Collections.IDictionary] $Css,
+        [string] $Name,
         [string] $Comment,
         [switch] $WithTags
     )
@@ -45,14 +47,30 @@
         }
         if ($WithTags) {
             New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css'; comment = $Comment } {
+                if ($Name) {
+                    "$Name {"
+                    if ($Comment) { "/* $($Comment)-start */" }
+                    $Output
+                    if ($Comment) { "/* $($Comment)-end */" }
+                    "}"
+                } else {
+                    if ($Comment) { "/* $($Comment)-start */" }
+                    $Output
+                    if ($Comment) { "/* $($Comment)-end */" }
+                }
+            }
+        } else {
+            if ($Name) {
+                "$Name {"
+                if ($Comment) { "/* $($Comment)-start */" }
+                $Output
+                if ($Comment) { "/* $($Comment)-end */" }
+                "}"
+            } else {
                 if ($Comment) { "/* $($Comment)-start */" }
                 $Output
                 if ($Comment) { "/* $($Comment)-end */" }
             }
-        } else {
-            if ($Comment) { "/* $($Comment)-start */" }
-            $Output
-            if ($Comment) { "/* $($Comment)-end */" }
         }
     }
 }
