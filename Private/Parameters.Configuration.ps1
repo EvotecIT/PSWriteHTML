@@ -1,4 +1,4 @@
-﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.12'
+﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.13'
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
         Inject                      = @{
@@ -495,6 +495,28 @@ $Script:Configuration = [ordered] @{
             }
             Default      = $true
             Email        = $false
+        }
+        AccordionSummary            = @{
+            Comment     = 'Accordion Summary'
+            Internal    = $true
+            Header      = @{
+                CssLink = "$($Script:ConfigurationURL)/CSS/accordionSummary.min.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\accordionSummary.css"
+                JsLink  = "$($Script:ConfigurationURL)/JS/accordionSummary.min.js"
+                JS      = "$PSScriptRoot\..\Resources\JS\accordionSummary.js"
+            }
+            # HeaderAlways = @{
+            #     CssInline = @{
+
+            #     }
+            #     Css       = "$PSScriptRoot\..\Resources\CSS\accordionSummary.css"
+            #     JS        = "$PSScriptRoot\..\Resources\JS\accordionSummary.js"
+            # }
+            LicenseLink = ''
+            License     = ''
+            SourceCodes = 'https://codepen.io/banik/pen/exjLzB'
+            Default     = $true
+            Email       = $false
         }
         CarouselKineto              = @{
             Comment      = 'Kineto JS Library'
@@ -1591,6 +1613,28 @@ $Script:Configuration = [ordered] @{
             License      = 'MIT'
             Default      = $true
             Email        = $false
+        }
+        SectionScrolling            = @{
+            Comment     = 'Section Scrolling'
+            Internal    = $true
+            Header      = @{
+                CssLink = "$($Script:ConfigurationURL)/CSS/sectionScrolling.min.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\sectionScrolling.css"
+                JsLink  = "$($Script:ConfigurationURL)/JS/sectionScrolling.min.js"
+                JS      = "$PSScriptRoot\..\Resources\JS\sectionScrolling.js"
+            }
+            # HeaderAlways = @{
+            #     CssInline = @{
+
+            #     }
+            #     Css       = "$PSScriptRoot\..\Resources\CSS\sectionScrolling.css"
+            #     JS        = "$PSScriptRoot\..\Resources\JS\sectionScrolling.js"
+            # }
+            LicenseLink = ''
+            License     = 'https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation/'
+            SourceCodes = 'https://codepen.io/bramus/pen/ExaEqMJ'
+            Default     = $true
+            Email       = $false
         }
         Popper                      = @{
             Comment      = 'Popper and Tooltip for FullCalendar'
