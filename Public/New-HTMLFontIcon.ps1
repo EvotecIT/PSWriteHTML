@@ -86,7 +86,12 @@ function New-HTMLFontIcon {
         [parameter(ParameterSetName = "FontAwesomeBrands")]
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")]
-        [parameter(ParameterSetName = "FontMaterial")][switch] $FixedWidth
+        [parameter(ParameterSetName = "FontMaterial")][switch] $FixedWidth,
+
+
+        [switch] $AsCSS,
+        [switch] $AsHashTable,
+        [string] $Name
     )
 
     $StyleIcon = @{ }
@@ -99,22 +104,53 @@ function New-HTMLFontIcon {
     }
 
     if ($IconBrands -or $IconSolid -or $IconRegular) {
-        $Script:HTMLSchema.Features.FontsAwesome = $true
-        $Class = @(
-            if ($IconBrands) {
-                "fab fa-$IconBrands".ToLower() # fa-$($FontSize)x"
-            } elseif ($IconRegular) {
-                "far fa-$IconRegular".ToLower() # fa-$($FontSize)x"
-            } elseif ($IconSolid) {
-                "fas fa-$IconSolid".ToLower() # fa-$($FontSize)x"
+        #$Script:HTMLSchema.Features.FontsAwesome = $true
+        Enable-HTMLFeature -Feature FontsAwesome
+
+        if ($AsCSS) {
+            [string] $Content = @(
+                if ($IconBrands) {
+                    $Face = '"Font Awesome 5 Brands"'
+                    $Global:HTMLIcons['FontAwesomeBrands'][$IconBrands]
+                } elseif ($IconRegular) {
+                    $Face = '"Font Awesome 5 Free"'
+                    $Global:HTMLIcons['FontAwesomeRegular'][$IconRegular]
+                } elseif ($IconSolid) {
+                    $Face = '"Font Awesome 5 Free"'
+                    $Global:HTMLIcons['FontAwesomeSolid'][$IconSolid]
+                }
+            )
+            $Css = [ordered] @{
+                'font-family' = $Face
+                'font-weight' = 'bold'
+                'content'     = "`"\$Content`""
+                'color'       = $StyleIcon.'color'
+                'font-size'   = $StyleIcon.'font-size'
             }
-            if ($FixedWidth) {
-                'fa-fw'
+            Remove-EmptyValue -Hashtable $Css
+            if ($AsHashTable) {
+                $Css
+            } else {
+                ConvertTo-CascadingStyleSheets -Css $CSS -Name $Name
             }
-        ) | Where-Object { $_ }
-        New-HTMLTag -Tag 'i' -Attributes @{ class = $Class; style = $StyleIcon }
+        } else {
+            $Class = @(
+                if ($IconBrands) {
+                    "fab fa-$IconBrands".ToLower() # fa-$($FontSize)x"
+                } elseif ($IconRegular) {
+                    "far fa-$IconRegular".ToLower() # fa-$($FontSize)x"
+                } elseif ($IconSolid) {
+                    "fas fa-$IconSolid".ToLower() # fa-$($FontSize)x"
+                }
+                if ($FixedWidth) {
+                    'fa-fw'
+                }
+            ) | Where-Object { $_ }
+            New-HTMLTag -Tag 'i' -Attributes @{ class = $Class; style = $StyleIcon }
+        }
     } elseif ($IconMaterial) {
-        $Script:HTMLSchema.Features.FontsMaterialIcon = $true
+        Enable-HTMLFeature -Feature FontsMaterialIcon
+        #$Script:HTMLSchema.Features.FontsMaterialIcon = $true
         $Class = @(
             'zmdi'
             "zmdi-$IconMaterial"
