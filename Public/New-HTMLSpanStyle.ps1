@@ -14,6 +14,13 @@ function New-HTMLSpanStyle {
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string]  $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string]  $TextTransform,
         [ValidateSet('rtl')][string] $Direction,
+        [ValidateSet(
+            'none', 'inline', 'block', 'inline-block', 'contents',
+            'flex', 'grid', 'inline-flex', 'inline-grid', 'inline-table', 'list-item', 'run-in',
+            'table', 'table-caption', 'table-column-group', 'table-header-group', 'table-footer-group',
+            'table-row-group', 'table-cell', 'table-column', 'table-row'
+        )][string] $Display,
+        [double] $Opacity,
         [switch] $LineBreak
     )
     $Style = @{
@@ -30,6 +37,8 @@ function New-HTMLSpanStyle {
             'text-decoration'  = $TextDecoration
             'text-transform'   = $TextTransform
             'direction'        = $Direction
+            'display'          = $Display
+            'opacity'          = $Opacity
         }
     }
 
