@@ -57,6 +57,14 @@ function New-HTMLText {
     .PARAMETER SkipParagraph
     Skips adding div tag to make sure text is not wrapped in it. By default it wraps all text in div tag.
 
+    .PARAMETER Display
+    Allows configuring CSS display property. The display property specifies the display behavior (the type of rendering box) of an element.
+    Options are: 'none', 'inline', 'block', 'inline-block', 'contents','flex', 'grid', 'inline-flex', 'inline-grid', 'inline-table', 'list-item', 'run-in',
+    'table', 'table-caption', 'table-column-group', 'table-header-group', 'table-footer-group', 'table-row-group', 'table-cell', 'table-column', 'table-row'
+
+    .PARAMETER Opacity
+    The opacity property sets the opacity level for an element. Value between 0 and 1. 1 is default.
+
     .EXAMPLE
     New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example34_01.html" {
         New-HTMLHeader {
@@ -122,7 +130,14 @@ function New-HTMLText {
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string[]] $TextTransform = @(),
         [ValidateSet('rtl', 'ltr')][string[]] $Direction = @(),
         [switch] $LineBreak,
-        [switch] $SkipParagraph #,
+        [switch] $SkipParagraph,
+        [ValidateSet(
+            'none', 'inline', 'block', 'inline-block', 'contents',
+            'flex', 'grid', 'inline-flex', 'inline-grid', 'inline-table', 'list-item', 'run-in',
+            'table', 'table-caption', 'table-column-group', 'table-header-group', 'table-footer-group',
+            'table-row-group', 'table-cell', 'table-column', 'table-row'
+        )][string[]] $Display = @(),
+        [double[]] $Opacity = @()#,
         #[string] $Margin = '5px'
     )
     $Script:HTMLSchema.Features.DefaultText = $true
@@ -143,6 +158,8 @@ function New-HTMLText {
     $DefaultDirection = if ($null -eq $Direction[0]) { '' } else { $Direction[0] }
     $DefaultAlignment = if ($null -eq $Alignment[0]) { '' } else { $Alignment[0] }
     $DefaultLineHeight = if ($null -eq $LineHeight[0]) { '' } else { $LineHeight[0] }
+    $DefaultDisplay = if ($null -eq $Display[0]) { '' } else { $Display[0] }
+    $DefaultOpacity = if ($null -eq $Opacity[0]) { '' } else { $Opacity[0] }
 
     $Output = for ($i = 0; $i -lt $Text.Count; $i++) {
         if ($null -eq $FontWeight[$i]) {
@@ -208,6 +225,16 @@ function New-HTMLText {
         } else {
             $ParamLineHeight = $LineHeight[$i]
         }
+        if ($null -eq $Display[$i]) {
+            $ParamDisplay = $DefaultDisplay
+        } else {
+            $ParamDisplay = $Display[$i]
+        }
+        if ($null -eq $Opacity[$i]) {
+            $ParamOpacity = $DefaultOpacity
+        } else {
+            $ParamOpacity = $Opacity[$i]
+        }
 
         $newSpanTextSplat = @{ }
         $newSpanTextSplat.Color = $ParamColor
@@ -238,6 +265,12 @@ function New-HTMLText {
         }
         if ($ParamLineHeight -ne '') {
             $newSpanTextSplat.LineHeight = $ParamLineHeight
+        }
+        if ($ParamDisplay) {
+            $newSpanTextSplat.display = $ParamDisplay
+        }
+        if ($ParamOpacity) {
+            $newSpanTextSplat.opacity = $ParamOpacity
         }
 
         $newSpanTextSplat.LineBreak = $LineBreak
