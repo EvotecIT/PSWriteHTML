@@ -90,7 +90,7 @@ Function Save-HTML {
         [switch] $Minify
     )
     if ([string]::IsNullOrEmpty($FilePath)) {
-        $FilePath = Get-FileName -Temporary -Extension 'html'
+        $FilePath = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), "$($([System.IO.Path]::GetRandomFileName()).Split('.')[0]).html")
         Write-Verbose "Save-HTML - FilePath parameter is empty, using Temporary $FilePath"
     } else {
         if (Test-Path -LiteralPath $FilePath) {
@@ -119,7 +119,7 @@ Function Save-HTML {
         }
     } catch {
         $ErrorMessage = $_.Exception.Message -replace "`n", " " -replace "`r", " "
-        $FilePath = Get-FileName -Temporary -Extension 'html'
+        $FilePath = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), "$($([System.IO.Path]::GetRandomFileName()).Split('.')[0]).html")
         Write-Warning "Save-HTML - Failed with error: $ErrorMessage"
         Write-Warning "Save-HTML - Saving HTML to file $FilePath"
         try {

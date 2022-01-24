@@ -110,7 +110,7 @@ function Out-HtmlView {
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
         if ($FilePath -eq '') {
-            $FilePath = Get-FileName -Extension 'html' -Temporary
+            $FilePath = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), "$($([System.IO.Path]::GetRandomFileName()).Split('.')[0]).html")
         }
     }
     Process {
