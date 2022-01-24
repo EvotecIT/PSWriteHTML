@@ -4,6 +4,12 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.166
+ - Added new functionality which is Work in Progress.
+    - Added `New-HTMLSummary`
+    - Added `New-HTMLSummaryItem`
+    - Added `New-HTMLSummaryData`
+ - Fixed critical bug with files being created in temporary folder unnessesarily.
 ## 0.0.165
   - Added `New-TableLanguage` to be able to translate tables.
 ## 0.0.164
