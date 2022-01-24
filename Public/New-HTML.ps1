@@ -159,7 +159,7 @@ Function New-HTML {
     if (-not $FilePath -and ($Temporary -or $ShowHTML)) {
         # if we have not chosen filepath but we used ShowHTML user wants to show it right? Or we have chosen temporary
         # We want to make sure we don't return useless HTML to the user
-        $FilePath = Get-FileName -Extension 'html' -Temporary
+        $FilePath = [io.path]::Combine([System.IO.Path]::GetTempPath(), "$($([System.IO.Path]::GetRandomFileName()).Split('.')[0]).html")
     }
     if ($FilePath) {
         $DirectoryPath = [System.IO.Path]::GetDirectoryName($FilePath)
