@@ -8,9 +8,17 @@ function New-HTMLTag {
         [switch] $NoClosing,
         [switch] $NewLine
     )
+    # It's really hard to debug problems with this, lets see if this helps
+    try {
+        $ScriptBlockResult = if ($null -eq $Value) { '' } else { Invoke-Command -ScriptBlock $Value -ErrorAction Stop }
+    } catch {
+        Write-Warning -Message "New-HTMLTag - Error: $($_.Exception.Message). The value that failed:"
+        Write-Warning -Message $Value
+        $ScriptBlockResult = ''
+    }
     $HTMLTag = [Ordered] @{
         Tag         = $Tag
-        Value       = if ($null -eq $Value) { '' } else { Invoke-Command -ScriptBlock $Value }
+        Value       = $ScriptBlockResult
         Attributes  = $Attributes
         SelfClosing = $SelfClosing
         NoClosing   = $NoClosing
