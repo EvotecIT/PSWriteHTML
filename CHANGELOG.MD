@@ -3,7 +3,10 @@
 `PSWriteHTML` undergoes changes that hopefully will make it more versalite, consistent and better.
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
-## 0.0.165
+
+## 0.0.166 - 2021.12.25
+  - Small improvements for New-HTMLTag to catch errors, to not prevent other part of HTML to be displayed
+## 0.0.165 - 2022.12.24
   - Added new functionality which is Work in Progress and requires improvements.
       - Added `New-HTMLSummary`
       - Added `New-HTMLSummaryItem`
