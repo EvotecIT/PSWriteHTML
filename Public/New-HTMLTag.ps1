@@ -12,7 +12,7 @@ function New-HTMLTag {
     try {
         $ScriptBlockResult = if ($null -eq $Value) { '' } else { Invoke-Command -ScriptBlock $Value -ErrorAction Stop }
     } catch {
-        Write-Warning -Message "New-HTMLTag - Error: $($_.Exception.Message). The value that failed to be converted to a string was: $($Value.ToString())"
+        Write-Warning -Message "New-HTMLTag - Error: $($_.Exception.Message). Failed value: $($Value.ToString())"
         $ScriptBlockResult = ''
     }
     $HTMLTag = [Ordered] @{
