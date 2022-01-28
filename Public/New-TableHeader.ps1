@@ -6,7 +6,7 @@
         [string] $Title,
         [string] $Color,
         [string] $BackGroundColor,
-        [int] $FontSize,
+        [object] $FontSize,
         [ValidateSet('normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900')][string] $FontWeight,
         [ValidateSet('normal', 'italic', 'oblique')][string] $FontStyle,
         [ValidateSet('normal', 'small-caps')][string] $FontVariant,
