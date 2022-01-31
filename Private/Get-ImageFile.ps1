@@ -13,7 +13,7 @@
             return
         }
         $Extension = $Extension.Replace('.', '')
-        $ImageFile = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), "$($([System.IO.Path]::GetRandomFileName()).Split('.')[0])$Extension")
+        $ImageFile = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), "$($([System.IO.Path]::GetRandomFileName()).Split('.')[0]).$Extension")
         if ($Cache -and $Script:CacheImagesHTML[$Image]) {
             $Script:CacheImagesHTML[$Image]
         } else {

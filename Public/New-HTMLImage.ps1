@@ -68,7 +68,7 @@ function New-HTMLImage {
     New-HTMLTag -Tag 'div' -Attributes @{ class = $Class.ToLower() } {
         $AAttributes = [ordered]@{
             'target' = $Target
-            'href'   = $UrlLink
+            'href'   = $UrlLink.AbsoluteUri
         }
         New-HTMLTag -Tag 'a' -Attributes $AAttributes {
             if ($Inline) {
