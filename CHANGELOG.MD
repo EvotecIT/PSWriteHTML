@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.168 - 2021.01.31
+  - Fixes problem with `Inline` image functionality in `New-HTMLImage`
+
 ## 0.0.167 - 2022.01.28
   - Fixes `New-TableHeader` when FontSize is not set. [#306](https://github.com/EvotecIT/PSWriteHTML/issues/306)
 
