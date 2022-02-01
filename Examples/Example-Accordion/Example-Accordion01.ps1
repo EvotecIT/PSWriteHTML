@@ -7,7 +7,7 @@ New-HTML -TitleText 'My Accordion' -Online -FilePath $PSScriptRoot\Example-Accor
                 New-AccordionItem -HeaderText 'Test1' -PanelText 'Test2'
                 New-AccordionItem -HeaderText 'Test2' -PanelText 'Test2'
                 New-AccordionItem -HeaderText 'Test3' -PanelText 'Test2'
-            }
+            } -CollapseOnClick
             New-HTMLAccordion -Duration 1 {
                 New-AccordionItem -HeaderText 'Test1' -PanelText 'Test2'
                 New-AccordionItem -HeaderText 'Test2' -PanelText 'Test2'
