@@ -60,4 +60,4 @@ New-HTML {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
         }
     }
-} -ShowHTML -Online -FilePath $PSScriptRoot\Example41-NavigationFloat.html
+} -ShowHTML -Online -FilePath $PSScriptRoot\Example41-NavigationFloat.html -AddComment

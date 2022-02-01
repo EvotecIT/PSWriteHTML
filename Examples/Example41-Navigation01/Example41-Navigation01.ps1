@@ -8,13 +8,15 @@ $DataTable1 = @(
 )
 
 New-HTML {
-    New-HTMLNav -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' -LogoLinkHome { #-FixedMenu {
+    New-HTMLNav -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' -TopBarBackGroundColor Black -LeftMenuBackgroundColor Black -LogoLinkHome { #-FixedMenu {
         New-NavItem -Type Grid -Text 'Page One' -InternalPageID 'Page1'
         New-NavItem -Type Grid -Text 'Page Two' -InternalPageID 'Page2'
+        New-NavItem -Type Grid -Text 'Page Three' -InternalPageID 'Page3'
         New-NavItem -Type Grid -Text 'Place Holder'
         New-NavItem -Type Grid -IconBrands codepen -IconColor Blue -InternalPageID 'Page1'
         New-NavItem -Type Menu -IconSolid address-card -IconColor Green -Text 'Link to Page 1' -InternalPageID 'Page1'
-        New-NavItem -Type Menu -IconSolid atlas -IconColor Green -Text 'Link to Page 2' -InternalPageID 'Page2'
+        New-NavItem -Type Menu -IconSolid atlas -IconColor Green -Text '2nd page' -InternalPageID 'Page2'
+        New-NavItem -Type Menu -IconSolid atlas -IconColor Green -Text 'GPOZaurr' -InternalPageID 'Page3'
         New-NavItem -Type Menu -IconMaterial star -IconColor Green -Text 'Star'
         New-NavItem -Type Menu -IconBrands edge -IconColor Green -Text 'Visit Evotec!' -Href 'https://evotec.xyz'
 
@@ -34,7 +36,7 @@ New-HTML {
             New-NavLink -Name 'One Level 1' -Href '#1'
             New-NavLink -Name 'One Level 2' -Href '#2'
         }
-    }
+    } -StartMenuOpen -ResizeContent
     New-HTMLTabStyle -SlimTabs -Transition -LinearGradient -SelectorColor Gold -SelectorColorTarget AliceBlue #-FontSize 15
     New-HTMLTab -Name 'Test 1' -IconBrands acquisitions-incorporated -IconColor Coriander {
         New-HTMLTab -Name 'Nested Tab 1' -IconRegular address-card {
@@ -81,8 +83,6 @@ New-HTML {
     New-HTMLTab -Name 'Test' -IconRegular kiss-beam -TextColor BritishRacingGreen {
         New-HTMLTable -DataTable $Test -DisablePaging
     }
-
-
     New-HTMLPage -Name 'Page1' {
         New-HTMLSection -HeaderText 'Test 0' {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
@@ -91,9 +91,15 @@ New-HTML {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
         }
     }
+    # This adds more pages with different content
     New-HTMLPage -Name 'Page2' {
-        New-HTMLSection -HeaderText 'Test2' {
-            New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
-        }
+        New-HTMLSection -Invisible {
+            New-HTMLFrame -SourcePath "C:\Support\GitHub\PSWriteHTML\Examples\Example-Maps\Example-Maps.html"
+        } -Height 93vh
+    }
+    New-HTMLPage -Name 'Page3' {
+        New-HTMLSection {
+            New-HTMLFrame -SourcePath "C:\Support\GitHub\PSWriteHTML\Examples\Example-InlineOtherHTMLFile.ps1\GroupMembership-CriticalGroups_2021-05-20_002030.html"
+        } -HeaderText 'Test' -Height 100vh
     }
 } -ShowHTML -Online -FilePath $PSScriptRoot\Example41-Navigation01.html
