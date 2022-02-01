@@ -80,4 +80,7 @@ $Output = EmailBody -FontSize 8px -FontFamily 'Tahoma' {
     EmailText -FontFamily 'Calibri' -Size 15 -Text "      already this will be one continues line. Get it right? 😎" -LineHeight 0.5
 
 } -Online
-Save-HTML -FilePath $PSScriptRoot\Output\TestBody.html -ShowHTML -HTML $Output
+
+
+
+#Save-HTML -FilePath $PSScriptRoot\Output\TestBody.html -ShowHTML -HTML $Output
