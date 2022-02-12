@@ -105,7 +105,8 @@ function Out-HtmlView {
         [switch] $SearchHighlight,
         [switch] $AlphabetSearch,
         [switch] $FuzzySearch,
-        [switch] $FuzzySearchSmartToggle
+        [switch] $FuzzySearchSmartToggle,
+        [switch] $FlattenObject
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -200,6 +201,7 @@ function Out-HtmlView {
                     ExcludeProperty              = $ExcludeProperty
                     FuzzySearch                  = $FuzzySearch
                     FuzzySearchSmartToggle       = $FuzzySearchSmartToggle
+                    FlattenObject                = $FlattenObject
                 }
                 Remove-EmptyValue -Hashtable $newHTMLTableSplat
                 New-HTMLTable @newHTMLTableSplat

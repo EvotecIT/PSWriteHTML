@@ -78,7 +78,9 @@ function New-HTMLTable {
         [switch] $SearchHighlight,
         [switch] $AlphabetSearch,
         [switch] $FuzzySearch,
-        [switch] $FuzzySearchSmartToggle
+        [switch] $FuzzySearchSmartToggle,
+        [switch] $FlattenObject,
+        [int] $FlattenDepth
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -155,6 +157,13 @@ function New-HTMLTable {
     if ($Transpose) {
         # Allows easy conversion from PSCustomObject to Hashtable and vice versa
         $DataTable = Format-TransposeTable -Object $DataTable
+    }
+    if ($FlattenObject) {
+        if ($FlattenDepth) {
+            $DataTable = ConvertTo-FlatObject -Objects $DataTable -Depth $FlattenDepth
+        } else {
+            $DataTable = ConvertTo-FlatObject -Objects $DataTable
+        }
     }
 
     if ($HTML) {
@@ -237,7 +246,7 @@ function New-HTMLTable {
             }
         }
 
-        $DataTable = Compare-MultipleObjects -Objects $DataTable -Summary -Splitter $Splitter -FormatOutput -AllProperties:$AllProperties -SkipProperties:$SkipProperties -Replace $ReplaceCompare
+        $DataTable = Compare-MultipleObjects -Objects $DataTable -Summary -Splitter $Splitter -FormatOutput -AllProperties:$AllProperties -SkipProperties:$SkipProperties -Replace $ReplaceCompare -ExcludeProperty $ExcludeProperty -Property $IncludeProperty
 
         if ($HighlightDifferences) {
             $Highlight = for ($i = 0; $i -lt $DataTable.Count; $i++) {
@@ -273,6 +282,9 @@ function New-HTMLTable {
             foreach ($Parameter in $Highlight.Output) {
                 $ContentStyle.Add($Parameter)
             }
+            $ConditionalFormatting.Add((New-TableCondition -Name "Status" -Operator eq -Value $true -ComparisonType bool -BackgroundColor MediumSpringGreen).Output)
+            $ConditionalFormatting.Add((New-TableCondition -Name "Status" -Operator eq -Value $false -ComparisonType bool -BackgroundColor Salmon).Output)
+            $ConditionalFormatting.Add((New-TableCondition -Name "Status" -Operator eq -Value '' -ComparisonType String -BackgroundColor Cumulus).Output)
         }
     }
 
