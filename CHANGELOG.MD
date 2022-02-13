@@ -7,6 +7,7 @@ Please make sure to read changes before updating, as we're undergoing some break
 ## 0.0.169 - 2022.02.13
   - Added `FlattenObject` and `FlattenDepth` parameter to `New-HTMLTable`
   - Added `FlattenObject` and `FlattenDepth` parameter to `Out-HtmlView`
+  - Added `CompareNames` parameter to `New-HTMLTable/Out-HTMLView` for usage in `-Compare`
   - Fixes `New-HTMLTable/Out-HTMLView -Compare` for more complicated object, with support for `FlattenObject` and `FlattenDepth` which allows to compare advanced objects
   - Fixes `New-HTMLTable/Out-HTMLView -Compare` for IncludeProperty, ExcludeProperty
 
