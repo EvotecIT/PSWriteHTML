@@ -58,6 +58,7 @@ function New-HTMLTable {
         [switch] $AllProperties,
         [switch] $SkipProperties,
         [switch] $Compare,
+        [Array] $CompareNames,
         [alias('CompareWithColors')][switch] $HighlightDifferences,
         [int] $First,
         [int] $Last,
@@ -246,7 +247,7 @@ function New-HTMLTable {
             }
         }
 
-        $DataTable = Compare-MultipleObjects -Objects $DataTable -Summary -Splitter $Splitter -FormatOutput -AllProperties:$AllProperties -SkipProperties:$SkipProperties -Replace $ReplaceCompare -ExcludeProperty $ExcludeProperty -Property $IncludeProperty
+        $DataTable = Compare-MultipleObjects -Objects $DataTable -Summary -Splitter $Splitter -FormatOutput -AllProperties:$AllProperties -SkipProperties:$SkipProperties -Replace $ReplaceCompare -ExcludeProperty $ExcludeProperty -Property $IncludeProperty -ObjectsName $CompareNames
 
         if ($HighlightDifferences) {
             $Highlight = for ($i = 0; $i -lt $DataTable.Count; $i++) {
@@ -275,7 +276,7 @@ function New-HTMLTable {
                 }
             }
         }
-        $Properties = Select-Properties -Objects $DataTable -ExcludeProperty '*-*', 'Same', 'Different'
+        $Properties = Select-Properties -Objects $DataTable -ExcludeProperty '*-Same','*-Add','*-Remove', 'Same', 'Different'
         $DataTable = $DataTable | Select-Object -Property $Properties
 
         if ($HighlightDifferences) {

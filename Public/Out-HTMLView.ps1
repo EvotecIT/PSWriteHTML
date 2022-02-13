@@ -86,6 +86,7 @@ function Out-HtmlView {
         [switch] $SkipProperties,
         [switch] $Compare,
         [alias('CompareWithColors')][switch] $HighlightDifferences,
+        [Array] $CompareNames,
         [int] $First,
         [int] $Last,
         [alias('Replace')][Array] $CompareReplace,
@@ -202,6 +203,7 @@ function Out-HtmlView {
                     FuzzySearch                  = $FuzzySearch
                     FuzzySearchSmartToggle       = $FuzzySearchSmartToggle
                     FlattenObject                = $FlattenObject
+                    CompareNames                 = $CompareNames
                 }
                 Remove-EmptyValue -Hashtable $newHTMLTableSplat
                 New-HTMLTable @newHTMLTableSplat
