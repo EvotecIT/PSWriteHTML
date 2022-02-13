@@ -4,7 +4,13 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-## 0.0.168 - 2021.01.31
+## 0.0.169 - 2022.02.13
+  - Added `FlattenObject` and `FlattenDepth` parameter to `New-HTMLTable`
+  - Added `FlattenObject` and `FlattenDepth` parameter to `Out-HtmlView`
+  - Fixes `New-HTMLTable/Out-HTMLView -Compare` for more complicated object, with support for `FlattenObject` and `FlattenDepth` which allows to compare advanced objects
+  - Fixes `New-HTMLTable/Out-HTMLView -Compare` for IncludeProperty, ExcludeProperty
+
+## 0.0.168 - 2022.01.31
   - Fixes problem with `Inline` image functionality in `New-HTMLImage`
 
 ## 0.0.167 - 2022.01.28
