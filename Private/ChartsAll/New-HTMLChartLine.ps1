@@ -56,6 +56,13 @@ function New-HTMLChartLine {
 
     $Options.series = $DataSeries
     $Options.stroke = New-ChartInternalStroke -Stroke $Stroke
+    if ($Stroke.Colors) {
+        # if stroke colors are defined we can either push them to stroke only or globally
+        # if we push them to stroke only we don't get proper colors for the legend
+        # but if we push them to both we could in theory have different colors for strokes and legend if need arises in the future.
+        # hence the choice to push them to both for now
+        $Options['colors'] = $Stroke.Colors
+    }
     $Options.dataLabels = $DataLabel
     $Options.markers = $Markers
     <#
