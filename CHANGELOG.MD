@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.170 - 2022.02.14
+  - Fixes [ChartLine -Color only affects lines, not labels/numbers](https://github.com/EvotecIT/PSWriteHTML/issues/310)
+
 ## 0.0.169 - 2022.02.13
   - Added `FlattenObject` and `FlattenDepth` parameter to `New-HTMLTable`
   - Added `FlattenObject` and `FlattenDepth` parameter to `Out-HtmlView`
