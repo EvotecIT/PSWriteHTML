@@ -4,6 +4,8 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.171 - 2022.03.02
+  - Fixes problem with Comparing objects in `New-HTMLTable` and `Out-HTMLView`
 ## 0.0.170 - 2022.02.14
   - Fixes [ChartLine -Color only affects lines, not labels/numbers](https://github.com/EvotecIT/PSWriteHTML/issues/310)
 
