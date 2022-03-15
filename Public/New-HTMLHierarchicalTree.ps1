@@ -2,7 +2,7 @@
     [cmdletBinding()]
     param(
         [ScriptBlock] $TreeView,
-		[Switch]$Autosize
+        [Switch]$Autosize
     )
     $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.D3Mitch = $true
@@ -21,12 +21,12 @@
     # Prepare NODES
     $Data = $TreeNodes | ConvertTo-Json -Depth 5
 
-	# Set sizing mode
-	if ($Autosize) {
-		$SizingMode = 'nodeSize'	# Size the SVG based on the nodes
-	} else {
-		$SizingMode = 'size'		# Use configured height/width for the SVG
-	}
+    # Set sizing mode
+    if ($Autosize) {
+        $SizingMode = 'nodeSize'  # Size the SVG based on the nodes
+    } else {
+        $SizingMode = 'size'      # Use configured height/width for the SVG
+    }
 
     # Prepare HTML
     $Section = New-HTMLTag -Tag 'section' -Attributes @{ id = $ID; class = 'hierarchicalTree' }
@@ -48,9 +48,9 @@
         .setTitleDisplayTextAccessor(function (data) {
             return data.name;
         })
-		.getNodeSettings()
-			.setSizingMode('${SizingMode}')
-			.back()
+        .getNodeSettings()
+            .setSizingMode('${SizingMode}')
+            .back()
         .initialize();
 "@
     } -NewLine
