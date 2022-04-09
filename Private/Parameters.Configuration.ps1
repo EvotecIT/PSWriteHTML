@@ -1,4 +1,4 @@
-﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.13'
+﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.16'
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
         Inject                      = @{
@@ -1033,7 +1033,7 @@ $Script:Configuration = [ordered] @{
         DataTablesFuzzySearch       = @{
             Comment = 'DataTables Fuzzy Search'
             Header  = @{
-                JsLinkOriginal = "https://cdn.datatables.net/plug-ins/1.11.1/features/fuzzySearch/dataTables.fuzzySearch.js"
+                JsLinkOriginal = "https://cdn.datatables.net/plug-ins/1.11.5/features/fuzzySearch/dataTables.fuzzySearch.js"
                 JsLink         = "$($Script:ConfigurationURL)/JS/dataTables.fuzzySearch.min.js"
                 JS             = "$PSScriptRoot\..\Resources\JS\dataTables.fuzzySearch.js"
             }
@@ -1228,8 +1228,10 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JsLink = "https://cdn.datatables.net/plug-ins/preview/searchFade/dataTables.searchFade.min.js"
-                JS     = "$PSScriptRoot\..\Resources\JS\datatables.SearchFade.min.js"
+                JsLink  = "https://cdn.datatables.net/plug-ins/1.11.5/features/searchFade/dataTables.searchFade.min.js"
+                JS      = "$PSScriptRoot\..\Resources\JS\datatables.SearchFade.min.js"
+                CssLink = "https://cdn.datatables.net/plug-ins/1.11.5/features/searchFade/dataTables.searchFade.min.css"
+                Css     = "$PSScriptRoot\..\Resources\CSS\datatables.SearchFade.min.css"
             }
             Default      = $true
             Email        = $false
@@ -1303,6 +1305,15 @@ $Script:Configuration = [ordered] @{
             }
             Default      = $true
             Email        = $false
+        }
+        DataTablesPageResize            = @{
+            Comment = 'DataTables PageResize'
+            Header  = @{
+                JsLink  = "https://cdn.datatables.net/plug-ins/1.11.5/features/pageResize/dataTables.pageResize.min.js"
+                JS      = "$PSScriptRoot\..\Resources\JS\dataTables.pageResize.min.js"
+            }
+            Default = $true
+            Email   = $false
         }
         DataTablesSelect            = @{
             Comment = 'DataTables Select'
@@ -2028,7 +2039,7 @@ $Script:Configuration = [ordered] @{
         }
     }
 }
-
+<#
 $Keys = @(
     #'datatablesfuzzysearch'
     #'iFrameResizer
@@ -2043,7 +2054,7 @@ $Keys = @(
     #'VisData'
     #'FullCalendar'
     #'DataTablesSearchAlphabet'
-    #'DataTable*'
+    'DataTable*'
     #'FancyTree'
     #'JustGage'
     #'CarouselKineto'
