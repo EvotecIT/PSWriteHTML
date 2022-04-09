@@ -13,7 +13,7 @@
   <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/languages/top/evotecit/PSWriteHTML.svg?style=flat-square"></a>
   <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/languages/code-size/evotecit/PSWriteHTML.svg?style=flat-square"></a>
   <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/dt/PSWriteHTML.svg?style=flat-square"></a>
-  <a href="https://www.jsdelivr.com/package/gh/evotecit/cdn"><img src="https://img.shields.io/jsdelivr/gh/hm/evotecit/cdn?style=flat-square"></a>
+  <a href="https://www.jsdelivr.com/package/gh/evotecit/cdn"><img src="https://data.jsdelivr.com/v1/package/gh/evotecit/cdn/badge"></a>
 </p>
 
 <p align="center">
@@ -72,6 +72,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 `PSWriteHTML` undergoes changes that hopefully will make it more versalite, consistent and better.
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
+Full **changelog** can be found [here](ChangeLog.md).
 
 ## Advantages over ReportHTML
 
