@@ -61,7 +61,7 @@ function New-HTMLChartLine {
         # if we push them to stroke only we don't get proper colors for the legend
         # but if we push them to both we could in theory have different colors for strokes and legend if need arises in the future.
         # hence the choice to push them to both for now
-        $Options['colors'] = $Stroke.Colors
+        $Options['colors'] = @($Stroke.Colors)
     }
     $Options.dataLabels = $DataLabel
     $Options.markers = $Markers

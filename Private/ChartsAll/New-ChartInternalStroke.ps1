@@ -21,7 +21,7 @@
             $LineStroke.lineCap = $Stroke.lineCap
         }
         if ($Stroke.colors) {
-            $LineStroke.colors = $Stroke.colors
+            $LineStroke.colors = @($Stroke.colors)
         }
         if ($Stroke.width) {
             $LineStroke.width = $Stroke.width
