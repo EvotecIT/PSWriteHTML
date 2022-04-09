@@ -4,6 +4,15 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.173
+  - Update dependencies
+    - FullCalendar 5.11.0
+    - Moment 2.29.2
+    - DataTables 1.11.5 and all plugins
+    - Vis-network 9.1.2
+    - Vis-TimeLine 7.5.1
+    - ApexCharts 3.35.0
+
 ## 0.0.172 - 2022.03.15
   - `New-HTMLHierarchicalTree` added `AutoSize` [Feature/add tree view autosize #313](https://github.com/EvotecIT/PSWriteHTML/pull/313) - tnx RussPitcher
 

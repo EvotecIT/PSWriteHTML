@@ -608,10 +608,10 @@ $Script:Configuration = [ordered] @{
             Header  = @{
                 JsLink = @(
                     'https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
-                    'https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
-                    'https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn@1.0.0/findIndex.min.js' # You will need this only if you require timeline/rangebar charts
+                    'https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
+                    'https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn' # You will need this only if you require timeline/rangebar charts
                     #'https://unpkg.com/canvg@3.0.4/lib/umd.js' # You will need this only if you require PNG download of your charts
-                    'https://cdn.jsdelivr.net/npm/apexcharts@3.27.0/dist/apexcharts.min.js'
+                    'https://cdn.jsdelivr.net/npm/apexcharts@3.35.0/dist/apexcharts.min.js'
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\polyfill.min.js"
@@ -828,17 +828,17 @@ $Script:Configuration = [ordered] @{
             }
             Header       = @{
                 CssLink = @(
-                    "https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"
-                    "https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css"
+                    "https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
+                    "https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\dataTables.jquery.min.css"
                     "$PSScriptRoot\..\Resources\CSS\dataTables.select.min.css"
                 )
                 JsLink  = @(
-                    "https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"
-                    "https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"
-                    "https://cdn.datatables.net/plug-ins/1.10.25/sorting/datetime-moment.js"
+                    "https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"
+                    "https://cdn.datatables.net/select/1.3.4/js/dataTables.select.min.js"
+                    "https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"
                 )
                 JS      = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.jquery.min.js"
@@ -924,14 +924,14 @@ $Script:Configuration = [ordered] @{
             Comment = 'DataTables Buttons Features'
             Header  = @{
                 JsLink  = @(
-                    "https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"
+                    "https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"
                     #"https://cdn.jsdelivr.net/npm/datatables.net-buttons@1.7.1/js/dataTables.buttons.min.js"
                 )
                 JS      = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.buttons.min.js"
                 )
                 CssLink = @(
-                    "https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css"
+                    "https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"
                     #"https://cdn.jsdelivr.net/npm/datatables.net-buttons@1.7.1/css/dataTables.buttons.min.css"
                 )
                 Css     = @(
@@ -946,7 +946,7 @@ $Script:Configuration = [ordered] @{
             Comment = 'DataTables ButtonsHTML5 Features'
             Header  = @{
                 JsLink = @(
-                    "https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"
+                    "https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\datatables.buttons.html5.min.js"
@@ -960,7 +960,7 @@ $Script:Configuration = [ordered] @{
             Comment = 'DataTables ButtonsPrint Features'
             Header  = @{
                 JsLink = @(
-                    "https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"
+                    "https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\datatables.buttons.print.min.js"
@@ -1015,13 +1015,13 @@ $Script:Configuration = [ordered] @{
             Comment = 'DataTables ColReorder Features'
             Header  = @{
                 JsLink  = @(
-                    "https://cdn.datatables.net/colreorder/1.5.4/js/dataTables.colReorder.min.js"
+                    "https://cdn.datatables.net/colreorder/1.5.5/js/dataTables.colReorder.min.js"
                 )
                 JS      = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.colReorder.min.js"
                 )
                 CssLink = @(
-                    "https://cdn.datatables.net/colreorder/1.5.4/css/colReorder.dataTables.min.css"
+                    "https://cdn.datatables.net/colreorder/1.5.5/css/colReorder.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\dataTables.colReorder.min.css"
@@ -1044,13 +1044,13 @@ $Script:Configuration = [ordered] @{
             Comment = 'DataTables Fixed Column Features'
             Header  = @{
                 JsLink  = @(
-                    "https://cdn.datatables.net/fixedcolumns/3.3.3/js/dataTables.fixedColumns.min.js"
+                    "https://cdn.datatables.net/fixedcolumns/4.0.2/js/dataTables.fixedColumns.min.js"
                 )
                 JS      = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.fixedColumns.min.js"
                 )
                 CssLink = @(
-                    "https://cdn.datatables.net/fixedcolumns/3.3.3/css/fixedColumns.dataTables.min.css"
+                    "https://cdn.datatables.net/fixedcolumns/4.0.2/css/fixedColumns.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\dataTables.fixedColumns.min.css"
@@ -1066,13 +1066,13 @@ $Script:Configuration = [ordered] @{
             }
             Header       = @{
                 JsLink  = @(
-                    "https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"
+                    "https://cdn.datatables.net/fixedheader/3.2.2/js/dataTables.fixedHeader.min.js"
                 )
                 JS      = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.fixedHeader.min.js"
                 )
                 CssLink = @(
-                    "https://cdn.datatables.net/fixedheader/3.1.9/css/fixedHeader.dataTables.min.css"
+                    "https://cdn.datatables.net/fixedheader/3.2.2/css/fixedHeader.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\dataTables.fixedHeader.min.css"
@@ -1085,13 +1085,13 @@ $Script:Configuration = [ordered] @{
             Comment = 'DataTables KeyTable Features'
             Header  = @{
                 JsLink  = @(
-                    "https://cdn.datatables.net/keytable/2.6.2/js/dataTables.keyTable.min.js"
+                    "https://cdn.datatables.net/keytable/2.6.4/js/dataTables.keyTable.min.js"
                 )
                 JS      = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.keyTable.min.js"
                 )
                 CssLink = @(
-                    "https://cdn.datatables.net/keytable/2.6.2/css/keyTable.dataTables.min.css"
+                    "https://cdn.datatables.net/keytable/2.6.4/css/keyTable.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\dataTables.keyTable.min.css"
@@ -1136,13 +1136,13 @@ $Script:Configuration = [ordered] @{
             Comment = 'DataTables RowGrouping Features'
             Header  = @{
                 JsLink  = @(
-                    "https://cdn.datatables.net/rowgroup/1.1.3/js/dataTables.rowGroup.min.js"
+                    "https://cdn.datatables.net/rowgroup/1.1.4/js/dataTables.rowGroup.min.js"
                 )
                 JS      = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.rowGroup.min.js"
                 )
                 CssLink = @(
-                    "https://cdn.datatables.net/rowgroup/1.1.3/css/rowGroup.dataTables.min.css"
+                    "https://cdn.datatables.net/rowgroup/1.1.4/css/rowGroup.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\dataTables.rowGroup.min.css"
@@ -1174,13 +1174,13 @@ $Script:Configuration = [ordered] @{
             Comment = 'DataTables Scroller Features'
             Header  = @{
                 JsLink  = @(
-                    "https://cdn.datatables.net/scroller/2.0.4/js/dataTables.scroller.min.js"
+                    "https://cdn.datatables.net/scroller/2.0.5/js/dataTables.scroller.min.js"
                 )
                 JS      = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.scroller.min.js"
                 )
                 CssLink = @(
-                    "https://cdn.datatables.net/scroller/2.0.4/css/scroller.dataTables.min.css"
+                    "https://cdn.datatables.net/scroller/2.0.5/css/scroller.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\dataTables.scroller.min.css"
@@ -1237,10 +1237,10 @@ $Script:Configuration = [ordered] @{
         DataTablesSearchHighlight   = @{
             Comment = 'DataTables SearchHighlight'
             Header  = @{
-                JsLinkOriginal = "https://cdn.datatables.net/plug-ins/1.10.25/features/searchHighlight/dataTables.searchHighlight.min.js", 'https://cdn.jsdelivr.net/gh/bartaz/sandbox.js@master/jquery.highlight.js'
-                JsLink         = "https://cdn.datatables.net/plug-ins/1.10.25/features/searchHighlight/dataTables.searchHighlight.min.js", "$($Script:ConfigurationURL)/JS/dataTables.searchHighlightRequire.min.js"
+                JsLinkOriginal = "https://cdn.datatables.net/plug-ins/1.11.5/features/searchHighlight/dataTables.searchHighlight.min.js", 'https://cdn.jsdelivr.net/gh/bartaz/sandbox.js@master/jquery.highlight.js'
+                JsLink         = "https://cdn.datatables.net/plug-ins/1.11.5/features/searchHighlight/dataTables.searchHighlight.min.js", "$($Script:ConfigurationURL)/JS/dataTables.searchHighlightRequire.min.js"
                 JS             = "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlight.min.js", "$PSScriptRoot\..\Resources\JS\dataTables.searchHighlightRequire.js"
-                CSSLink        = 'https://cdn.datatables.net/plug-ins/1.10.25/features/searchHighlight/dataTables.searchHighlight.css'
+                CSSLink        = 'https://cdn.datatables.net/plug-ins/1.11.5/features/searchHighlight/dataTables.searchHighlight.css'
                 CSS            = "$PSScriptRoot\..\Resources\CSS\dataTables.searchHighlight.css"
             }
             Default = $true
@@ -1249,12 +1249,12 @@ $Script:Configuration = [ordered] @{
         DataTablesSearchAlphabet    = @{
             Comment = 'DataTables AlphabetSearch'
             Header  = @{
-                #JsLink  = "https://cdn.datatables.net/plug-ins/1.10.22/features/alphabetSearch/dataTables.alphabetSearch.min.js"
-                JsLinkOriginal  = "https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.js"
+                JsLinkOriginal  = "https://cdn.datatables.net/plug-ins/1.11.5/features/alphabetSearch/dataTables.alphabetSearch.min.js"
+                #JsLinkOriginal  = "https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.js"
                 JsLink          = "$($Script:ConfigurationURL)/JS/dataTables.alphabetSearch.min.js"
                 JS              = "$PSScriptRoot\..\Resources\JS\dataTables.alphabetSearch.min.js"
-                #CSSLink = 'https://cdn.datatables.net/plug-ins/1.10.22/features/alphabetSearch/dataTables.alphabetSearch.css'
-                CSSLinkOriginal = 'https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.css'
+                CSSLinkOriginal = 'https://cdn.datatables.net/plug-ins/1.11.5/features/alphabetSearch/dataTables.alphabetSearch.css'
+                #CSSLinkOriginal = 'https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.css'
                 CSSLink         = "$($Script:ConfigurationURL)/CSS/dataTables.alphabetSearch.min.css"
                 CSS             = "$PSScriptRoot\..\Resources\CSS\dataTables.alphabetSearch.css"
             }
@@ -1265,13 +1265,13 @@ $Script:Configuration = [ordered] @{
             Comment      = 'DataTables Search Panes Features'
             Header       = @{
                 JsLink  = @(
-                    "https://cdn.datatables.net/searchpanes/1.3.0/js/dataTables.searchPanes.min.js"
+                    "https://cdn.datatables.net/searchpanes/2.0.0/js/dataTables.searchPanes.min.js"
                 )
                 Js      = @(
                     "$PSScriptRoot\..\Resources\JS\dataTables.searchPanes.min.js"
                 )
                 CssLink = @(
-                    "https://cdn.datatables.net/searchpanes/1.3.0/css/searchPanes.dataTables.min.css"
+                    "https://cdn.datatables.net/searchpanes/2.0.0/css/searchPanes.dataTables.min.css"
                 )
                 Css     = @(
                     "$PSScriptRoot\..\Resources\CSS\dataTables.searchPanes.min.css"
@@ -1307,9 +1307,9 @@ $Script:Configuration = [ordered] @{
         DataTablesSelect            = @{
             Comment = 'DataTables Select'
             Header  = @{
-                JsLink  = "https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"
+                JsLink  = "https://cdn.datatables.net/select/1.3.4/js/dataTables.select.min.js"
                 JS      = "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
-                CSSLink = 'https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css'
+                CSSLink = 'https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css'
                 CSS     = "$PSScriptRoot\..\Resources\CSS\select.dataTables.min.css"
             }
             Default = $true
@@ -1361,8 +1361,8 @@ $Script:Configuration = [ordered] @{
                 JsInLine  = "var calendarTracker = {};"
             }
             Header       = @{
-                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js'
-                CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.css'
+                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'
+                CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendar.css"
                 JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
             }
@@ -1510,7 +1510,7 @@ $Script:Configuration = [ordered] @{
         Moment                      = @{
             Comment     = 'Momment JS Library'
             Header      = @{
-                JSLink = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'
+                JSLink = 'https://cdn.jsdelivr.net/npm/moment@2.29.2/moment.min.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\moment.min.js"
             }
             Library     = 'https://momentjs.com/'
@@ -1808,9 +1808,9 @@ $Script:Configuration = [ordered] @{
             Header       = @{
                 # https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js
                 # https://unpkg.com/vis-network/styles/vis-network.min.css
-                JsLink  = 'https://cdn.jsdelivr.net/npm/vis-network@9.0.4/peer/umd/vis-network.min.js'
+                JsLink  = 'https://cdn.jsdelivr.net/npm/vis-network@9.1.2/peer/umd/vis-network.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
-                CssLink = 'https://cdn.jsdelivr.net/npm/vis-network@9.0.4/styles/vis-network.min.css'
+                CssLink = 'https://cdn.jsdelivr.net/npm/vis-network@9.1.2/styles/vis-network.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
             }
             Default      = $true
@@ -1899,10 +1899,10 @@ $Script:Configuration = [ordered] @{
             }
             Header       = @{
                 # https://unpkg.com/vis-timeline@latest/peer/umd/vis-timeline-graph2d.min.js
-                JsLink  = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.4.6/peer/umd/vis-timeline-graph2d.min.js'
+                JsLink  = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.5.1/peer/umd/vis-timeline-graph2d.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-timeline-graph2d.min.js"
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
-                CssLink = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.4.6/styles/vis-timeline-graph2d.min.css'
+                CssLink = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.5.1/styles/vis-timeline-graph2d.min.css'
             }
             LicenseLink  = 'https://github.com/visjs/vis-timeline/blob/master/LICENSE.md'
             License      = 'MIT and Apache 2.0'
@@ -2028,7 +2028,7 @@ $Script:Configuration = [ordered] @{
         }
     }
 }
-<#
+
 $Keys = @(
     #'datatablesfuzzysearch'
     #'iFrameResizer

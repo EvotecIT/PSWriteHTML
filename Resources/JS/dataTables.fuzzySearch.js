@@ -1,7 +1,7 @@
 /*!
  * Fuzzy Search for DataTables
  * 2021 SpryMedia Ltd - datatables.net/license MIT license
- *
+ * 
  * Damerau-Levenshtein function courtesy of https://github.com/tad-lispy/node-damerau-levenshtein
  * BSD 2-Clause License
  * Copyright (c) 2018, Tadeusz Łazurski
@@ -9,14 +9,14 @@
  */
 (function() {
     function levenshtein(__this, that, limit) {
-
+    
         var thisLength = __this.length,
                 thatLength = that.length,
                 matrix = [];
-
+    
         // If the limit is not defined it will be calculate from this and that args.
         limit = (limit || ((thatLength > thisLength ? thatLength : thisLength)))+1;
-
+    
         for (var i = 0; i < limit; i++) {
             matrix[i] = [i];
             matrix[i].length = limit;
@@ -24,7 +24,7 @@
         for (i = 0; i < limit; i++) {
             matrix[0][i] = i;
         }
-
+    
         if (Math.abs(thisLength - thatLength) > (limit || 100)){
             return prepare (limit || 100);
         }
@@ -34,31 +34,31 @@
         if (thatLength === 0){
             return prepare (thisLength);
         }
-
+    
         // Calculate matrix.
         var j, this_i, that_j, cost, min, t;
         for (i = 1; i <= thisLength; ++i) {
             this_i = __this[i-1];
-
+    
             // Step 4
             for (j = 1; j <= thatLength; ++j) {
                 // Check the jagged ld total so far
                 if (i === j && matrix[i][j] > 4) return prepare (thisLength);
-
+    
                 that_j = that[j-1];
                 cost = (this_i === that_j) ? 0 : 1; // Step 5
                 // Calculate the minimum (much faster than Math.min(...)).
                 min    = matrix[i - 1][j    ] + 1; // Devarion.
                 if ((t = matrix[i    ][j - 1] + 1   ) < min) min = t;   // Insertion.
                 if ((t = matrix[i - 1][j - 1] + cost) < min) min = t;   // Substitution.
-
+    
                 // Update matrix.
                 matrix[i][j] = (i > 1 && j > 1 && this_i === that[j-2] && __this[i-2] === that_j && (t = matrix[i-2][j-2]+cost) < min) ? t : min; // Transposition.
             }
         }
-
+    
         return prepare (matrix[thisLength][thatLength]);
-
+    
         function prepare(steps) {
             var length = Math.max(thisLength, thatLength)
             var relative = length === 0
@@ -72,7 +72,7 @@
             };
         }
     }
-
+    
     function fuzzySearch(searchVal, data, initial) {
         // If no searchVal has been defined then return all rows.
         if(searchVal === undefined || searchVal.length === 0) {
@@ -81,15 +81,15 @@
                 score: ''
             }
         }
-
+    
         var threshold = initial.threshold !== undefined ? initial.threshold : 0.5;
-
+    
         // Split the searchVal into individual words.
         var splitSearch = searchVal.split(/ /g);
-
+    
         // Array to keep scores in
         var highestCollated = [];
-
+    
         // Remove any empty words or spaces
         for(var x = 0; x < splitSearch.length; x++) {
             if (splitSearch[x].length === 0 || splitSearch[x] === ' ') {
@@ -101,15 +101,15 @@
                 highestCollated.push({pass: false, score: 0});
             }
         }
-
+    
         // Going to check each cell for potential matches
         for(var i = 0; i < data.length; i++) {
             // Convert all data points to lower case fo insensitive sorting
             data[i] = data[i].toLowerCase();
-
+    
             // Split the data into individual words
             var splitData = data[i].split(/ /g);
-
+    
             // Remove any empty words or spaces
             for (var y = 0; y < splitData.length; y++){
                 if(splitData[y].length === 0 || splitData[y] === ' ') {
@@ -117,7 +117,7 @@
                     x--;
                 }
             }
-
+    
             // Check each search term word
             for(var x = 0; x < splitSearch.length; x++) {
                 // Reset highest score
@@ -125,7 +125,7 @@
                     pass: undefined,
                     score: 0
                 };
-
+    
                 // Against each word in the cell
                 for (var y = 0; y < splitData.length; y++){
                     // If this search Term word is the beginning of the word in the cell we want to pass this word
@@ -136,16 +136,16 @@
                             score: highest.score < newScore ? newScore : highest.score
                         };
                     }
-
+    
                     // Get the levenshtein similarity score for the two words
                     var steps = levenshtein(splitSearch[x], splitData[y]).similarity;
-
+                    
                     // If the levenshtein similarity score is better than a previous one for the search word then var's store it
                     if(steps > highest.score) {
                         highest.score = steps;
                     }
                 }
-
+    
                 // If this cell has a higher scoring word than previously found to the search term in the row, store it
                 if(highestCollated[x].score < highest.score || highest.pass) {
                     highestCollated[x] = {
@@ -155,7 +155,7 @@
                 }
             }
         }
-
+        
         // Check that all of the search words have passed
         for(var i = 0; i < highestCollated.length; i++) {
             if(!highestCollated[i].pass) {
@@ -165,14 +165,14 @@
                 };
             }
         }
-
+    
         // If we get to here, all scores greater than 0.5 so display the row
         return {
             pass: true,
             score: Math.round(((highestCollated.reduce((a,b) => a+b.score, 0) / highestCollated.length) * 100)) + "%"
         };
     }
-
+    
     $.fn.dataTable.ext.search.push(
         function( settings, data, dataIndex ) {
             var initial = settings.oInit.fuzzySearch;
@@ -185,14 +185,14 @@
             if (settings.aoData[dataIndex]._fuzzySearch !== undefined) {
                 // Read score to set the cell content and sort data
                 var score = settings.aoData[dataIndex]._fuzzySearch.score;
-
+                
                 if (initial.rankColumn !== undefined) {
                     settings.aoData[dataIndex].anCells[initial.rankColumn].innerHTML = score;
-
+                    
                     // Remove '%' from the end of the score so can sort on a number
                     settings.aoData[dataIndex]._aSortData[initial.rankColumn] = +score.substring(0, score.length - 1);
                 }
-
+                
                 // Return the value for the pass as decided by the fuzzySearch function
                 return settings.aoData[dataIndex]._fuzzySearch.pass;
             }
@@ -204,7 +204,7 @@
             return true;
         }
     );
-
+    
     $(document).on('init.dt', function(e, settings) {
         var api = new $.fn.dataTable.Api(settings);
         var initial = api.init();
@@ -216,7 +216,7 @@
         }
 
         var fromPlugin = false;
-
+    
         // Find the input element
         var input = $('div.dataTables_filter input', api.table().container())
 
@@ -238,7 +238,7 @@
             'cursor': 'pointer',
             'padding': '0.5em'
         }
-
+        
         // Only going to set the toggle if it is enabled
         var toggle, tooltip, exact, fuzzy, label;
         if(initialFuzzy.toggleSmart) {
@@ -278,7 +278,7 @@
                     'background-color': '#16232a',
                     'box-shadow': '4px 4px 4px rgba(0, 0, 0, 0.5)',
                     'color': 'white',
-                    'transition': 'opacity 0.25s',
+                    'transition': 'opacity 0.25s',					
                     'z-index': '30001',
                     'width': input.outerWidth() - 3,
                 })
@@ -327,11 +327,11 @@
                     // Get the value from the input element and convert to lower case
                     fuzzySearchVal = input.val();
                     searchVal = "";
-
+                    
                     if (fuzzySearchVal !== undefined && fuzzySearchVal.length !== 0) {
                         fuzzySearchVal = fuzzySearchVal.toLowerCase();
                     }
-
+                    
                     // For each row call the fuzzy search function to get result
                     api.rows().iterator('row', function(settings, rowIdx) {
                         settings.aoData[rowIdx]._fuzzySearch = fuzzySearch(fuzzySearchVal, settings.aoData[rowIdx]._aFilterData, initialFuzzy)
@@ -359,7 +359,7 @@
                 fuzzySearchVal = value.toLowerCase();
                 searchVal = api.search();
                 input.val(fuzzySearchVal);
-
+                
                 // For each row call the fuzzy search function to get result
                 api.rows().iterator('row', function(settings, rowIdx) {
                     settings.aoData[rowIdx]._fuzzySearch = fuzzySearch(fuzzySearchVal, settings.aoData[rowIdx]._aFilterData, initialFuzzy)
@@ -417,7 +417,7 @@
                         }
                     }, 250);
                 });
-
+            
             var state = api.state.loaded();
 
             api.on('stateSaveParams', function(e, settings, data) {
@@ -447,3 +447,4 @@
         input.on('input keydown', triggerSearchFunction);
     })
 }());
+    
