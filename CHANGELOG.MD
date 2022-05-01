@@ -4,7 +4,7 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-## 0.0.173 - 20222.04.09
+## 0.0.173 - 2022.04.09
   - Update dependencies
     - FullCalendar 5.11.0
     - Moment 2.29.2
