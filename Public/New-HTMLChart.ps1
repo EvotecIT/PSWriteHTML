@@ -32,6 +32,7 @@
         [string] $Id,
         [string] $Group
     )
+    $Events = $null
     $Script:HTMLSchema.Features.MainFlex = $true
 
     if (-not $Id) {
