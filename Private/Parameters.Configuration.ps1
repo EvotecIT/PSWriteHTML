@@ -1521,7 +1521,7 @@ $Script:Configuration = [ordered] @{
         Moment                      = @{
             Comment     = 'Momment JS Library'
             Header      = @{
-                JSLink = 'https://cdn.jsdelivr.net/npm/moment@2.29.2/moment.min.js'
+                JSLink = 'https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\moment.min.js"
             }
             Library     = 'https://momentjs.com/'
@@ -2039,12 +2039,12 @@ $Script:Configuration = [ordered] @{
         }
     }
 }
-<#
+
 $Keys = @(
     #'datatablesfuzzysearch'
     #'iFrameResizer
     #'Popper'
-    #'Moment'
+    'Moment'
     #'Jquery'
     #'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
     #'ChartsApex'
@@ -2054,7 +2054,7 @@ $Keys = @(
     #'VisData'
     #'FullCalendar'
     #'DataTablesSearchAlphabet'
-    'DataTable*'
+    #'DataTable*'
     #'FancyTree'
     #'JustGage'
     #'CarouselKineto'
@@ -2065,4 +2065,3 @@ $Keys = @(
 )
 
 Save-HTMLResource -Configuration $Script:Configuration -Keys $Keys -PathToSave 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources' -Verbose
-#>
