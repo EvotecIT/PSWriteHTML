@@ -4,8 +4,8 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-## 0.0.175
-- Update moment.js to 2.29.4 (from 2.29.2)
+## 0.0.175 - 2022.07.08
+- Update moment.js to 2.29.4 (from 2.29.2) to fix security issue
 
 ## 0.0.174 - 2022.05.20
   - Fixes an issue with charts if user used `$Events` variable in their code [#70](https://github.com/EvotecIT/PSWinReporting/issues/70)
