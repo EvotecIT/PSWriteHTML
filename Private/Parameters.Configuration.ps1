@@ -2040,6 +2040,7 @@ $Script:Configuration = [ordered] @{
     }
 }
 
+<#
 $Keys = @(
     #'datatablesfuzzysearch'
     #'iFrameResizer
@@ -2065,3 +2066,4 @@ $Keys = @(
 )
 
 Save-HTMLResource -Configuration $Script:Configuration -Keys $Keys -PathToSave 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources' -Verbose
+#>
