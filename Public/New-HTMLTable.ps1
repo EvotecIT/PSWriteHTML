@@ -774,7 +774,7 @@ function New-HTMLTable {
     } else {
         $SortingTranslate = [ordered] @{
             'Ascending'  = 'asc'
-            'Descending' = 'dsc'
+            'Descending' = 'desc'
         }
         [Array] $TranslatedDefaultSortOrder = foreach ($Order in $DefaultSortOrder) {
             $SortingTranslate[$Order]
