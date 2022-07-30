@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.176 - 2022.07.30
+- Fixes Descending order in Tables [#329](https://github.com/EvotecIT/PSWriteHTML/issues/329) - tnx BaTarrY
+
 ## 0.0.175 - 2022.07.08
 - Update moment.js to 2.29.4 (from 2.29.2) to fix security issue
 
