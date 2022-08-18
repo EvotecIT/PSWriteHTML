@@ -525,7 +525,7 @@ function New-HTMLTable {
         if ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin -or $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat) {
             foreach ($Row in $Table) {
                 foreach ($Name in $Row.PSObject.Properties.Name) {
-                    if ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin -and $Row.$Name -is [Array]) {
+                    if ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin -and ($Row.$Name -is [System.Collections.IList] -or $Row.$Name -is [System.Collections.ReadOnlyCollectionBase])) {
                         $Row.$Name = $Row.$Name -join $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
                     } elseif ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat -and $Row.$Name -is [DateTime]) {
                         $Row.$Name = $($Row.$Name).ToString($Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat)
