@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.177 - 2022.08.18
+- Fixes `New-HTMLTable` when used with `ArrayJoin` from `New-HTMLTableOption` when DataStore is `HTML` and `GenericList` is used.
+
 ## 0.0.176 - 2022.07.30
 - Fixes Descending order in Tables [#329](https://github.com/EvotecIT/PSWriteHTML/issues/329) - tnx BaTarrY
 
