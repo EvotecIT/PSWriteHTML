@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.179 - 2022.10.03
+- Improvements for EmailLayoutRow/EmailLayoutColumn - still WIP
+
 ## 0.0.178 - 2022.10.03
 - Add `Height` to EmailLayoutRow - still WIP. Please consider EmailLayout, EmailLayoutRow and EmailLayoutColumn as experimental and subject to change.
 
