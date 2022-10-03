@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.178 - 2022.10.03
+- Add `Height` to EmailLayoutRow - still WIP. Please consider EmailLayout, EmailLayoutRow and EmailLayoutColumn as experimental and subject to change.
+
 ## 0.0.177 - 2022.08.18
 - Fixes `New-HTMLTable` when used with `ArrayJoin` from `New-HTMLTableOption` when DataStore is `HTML` and `GenericList` is used.
 
