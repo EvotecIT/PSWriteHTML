@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.180
+- Added `listYear` to `New-HTMLCalendar` that can be used as part of HeaderLeft, HeaderCenter and HeaderRight and InitialView
+
 ## 0.0.179 - 2022.10.03
 - Improvements for EmailLayoutRow/EmailLayoutColumn - still WIP
 
