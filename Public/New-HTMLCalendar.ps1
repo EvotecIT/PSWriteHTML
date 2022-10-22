@@ -5,15 +5,15 @@
         [ScriptBlock] $CalendarSettings,
         [ValidateSet(
             'prev', 'next', 'today', 'prevYear', 'nextYear', 'dayGridDay', 'dayGridWeek', 'dayGridMonth',
-            'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title'
+            'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title', 'listYear'
         )][string[]] $HeaderLeft = @('prev', 'next', 'today'),
         [ValidateSet(
             'prev', 'next', 'today', 'prevYear', 'nextYear', 'dayGridDay', 'dayGridWeek', 'dayGridMonth',
-            'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title'
+            'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title', 'listYear'
         )][string[]]$HeaderCenter = 'title',
         [ValidateSet(
             'prev', 'next', 'today', 'prevYear', 'nextYear', 'dayGridDay', 'dayGridWeek', 'dayGridMonth',
-            'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title'
+            'timeGridWeek', 'timeGridDay', 'listDay', 'listWeek', 'listMonth', 'title', 'listYear'
         )][string[]] $HeaderRight = @('dayGridMonth', 'timeGridWeek', 'timeGridDay', 'listMonth'),
         [DateTime] $DefaultDate = (Get-Date),
         [bool] $NavigationLinks = $true,
@@ -26,7 +26,7 @@
         [switch] $BusinessHours,
         [switch] $Editable,
         [ValidateSet(
-            'dayGridDay', 'dayGridWeek', 'dayGridMonth', 'timeGridDay', 'timeGridWeek', 'listDay', 'listWeek', 'listMonth'
+            'dayGridDay', 'dayGridWeek', 'dayGridMonth', 'timeGridDay', 'timeGridWeek', 'listDay', 'listWeek', 'listMonth', 'listYear'
         )][string] $InitialView
     )
     if (-not $Script:HTMLSchema.Features) {
@@ -77,6 +77,7 @@
             listDay   = @{ buttonText = 'list day' }
             listWeek  = @{ buttonText = 'list week' }
             listMonth = @{ buttonText = 'list month' }
+            listYear  = @{ buttonText = 'list year' }
         }
     }
     Remove-EmptyValue -Hashtable $Calendar -Recursive
