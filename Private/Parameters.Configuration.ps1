@@ -1,4 +1,4 @@
-﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.16'
+﻿$Script:ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.17'
 $Script:Configuration = [ordered] @{
     Features = [ordered] @{
         Inject                      = @{
@@ -749,7 +749,7 @@ $Script:Configuration = [ordered] @{
             Comment         = 'Jquery'
             InternalComment = 'jquery'
             Header          = @{
-                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' # 'https://code.jquery.com/jquery-3.5.1.min.js'
+                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js' # 'https://code.jquery.com/jquery-3.5.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery.min.js"
             }
             LicenseLink     = 'https://github.com/jquery/jquery/blob/main/LICENSE.txt'
@@ -1372,8 +1372,8 @@ $Script:Configuration = [ordered] @{
                 JsInLine  = "var calendarTracker = {};"
             }
             Header       = @{
-                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'
-                CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css'
+                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'
+                CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendar.css"
                 JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
             }
@@ -1488,7 +1488,7 @@ $Script:Configuration = [ordered] @{
             Demos       = 'https://toorshia.github.io/justgage'
             Header      = @{
                 JSLink = @(
-                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.2/justgage.min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.5.1/justgage.min.js'
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\justgage.min.js"
@@ -2045,15 +2045,16 @@ $Keys = @(
     #'datatablesfuzzysearch'
     #'iFrameResizer
     #'Popper'
-    'Moment'
-    #'Jquery'
+    #'Moment'
+    'Jquery'
     #'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
     #'ChartsApex'
     #'AccordionFAQ'
     #'VisNetwork'
     #'VisTimeline'
     #'VisData'
-    #'FullCalendar'
+    'JustGage'
+    'FullCalendar'
     #'DataTablesSearchAlphabet'
     #'DataTable*'
     #'FancyTree'
@@ -2065,5 +2066,5 @@ $Keys = @(
     #'FontsSimpleIcons'
 )
 
-Save-HTMLResource -Configuration $Script:Configuration -Keys $Keys -PathToSave 'C:\Users\przemyslaw.klys\OneDrive - Evotec\Support\GitHub\PSWriteHTML\Resources' -Verbose
+Save-HTMLResource -Configuration $Script:Configuration -Keys $Keys -PathToSave 'C:\Support\GitHub\PSWriteHTML\Resources\CSS' -Verbose
 #>
