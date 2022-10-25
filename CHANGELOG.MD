@@ -6,6 +6,10 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 ## 0.0.180
 - Added `listYear` to `New-HTMLCalendar` that can be used as part of HeaderLeft, HeaderCenter and HeaderRight and InitialView
+- Add warning for Add-HTMLScript, Add-HTMLStyle if file doesn't exists. This can be useful when antivirus randomly removes files from module and not tell you about it.
+- Update FullCalendar 5.11.3
+- Update JQuery 3.6.0
+- Update JustGage 1.5.1
 
 ## 0.0.179 - 2022.10.03
 - Improvements for EmailLayoutRow/EmailLayoutColumn - still WIP
