@@ -43,6 +43,8 @@ function Add-HTMLStyle {
                             if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-end */" }
                         } -NewLine
                     }
+                } else {
+                    Write-Warning "Add-HTMLStyle - File $File not found. Unable to load CSS to HTML. HTML may be broken. Skipping."
                 }
             }
         }

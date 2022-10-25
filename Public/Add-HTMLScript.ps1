@@ -39,6 +39,8 @@ function Add-HTMLScript {
                             if ($Resource.InternalComment) { "/* $($Resource.InternalComment)-end */" }
                         } -NewLine
                     }
+                } else {
+                    Write-Warning "Add-HTMLScript - File $File not found. Unable to load JavaScript to HTML. HTML may be broken. Skipping."
                 }
             }
         }
