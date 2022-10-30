@@ -15,4 +15,4 @@ New-HTML -Name 'Test' -FilePath "$PSScriptRoot\Example-Calendar01.html" -Show {
             }
         }
     }
-} -Online -Format
+} -Format
