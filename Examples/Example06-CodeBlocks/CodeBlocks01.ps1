@@ -79,5 +79,8 @@ New-HTML -Online -FilePath "$PSScriptRoot\CodeBlocks02.html" -ShowHTML {
         New-HTMLSection -HeaderText 'XML Language' {
             New-HTMLCodeBlock -Code $CodeBlocksXML -Style 'xml' -Highlight '12, 19'
         }
+        New-HTMLSection -HeaderText 'XML Language' {
+            New-HTMLCodeBlock -Code $CodeBlocksXML -Style raw -Highlight '12, 19'
+        }
     }
 }
