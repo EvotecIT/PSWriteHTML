@@ -9,8 +9,8 @@ $DataTable = @(
 )
 
 New-HTML {
-    New-HTMLTable -DataTable $DataTable -EnableSearchAlphabet {
+    New-HTMLTable -DataTable $DataTable -AlphabetSearch {
         New-TablePercentageBar -ColumnID 4 # runs on defaults
         New-TablePercentageBar -ColumnID 3 -BackgroundColor Blue -TextColor White -BorderColor Grey -BarColor gold -BorderStyle ridge -Type round
     } -ImmediatelyShowHiddenDetails
-} -ShowHTML -Online -FilePath $PSScriptRoot\Example7_PercentageBar.html -Format
+} -ShowHTML -Online -FilePath $PSScriptRoot\Example7_PercentageBar.html
