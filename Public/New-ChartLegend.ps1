@@ -25,7 +25,7 @@
     $Object = [PSCustomObject] @{
         ObjectType = 'Legend'
         Names      = $Names
-        Color      = $Color
+        Color      = if ($Color) { ConvertFrom-Color -Color $Color } else { $null }
 
         legend     = [ordered] @{
             show            = -not $HideLegend.IsPresent

@@ -4,6 +4,22 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.181
+- Update libraries:
+  - DataTables and related plugins/extensions
+  - OrgCharts
+  - FullCalendar
+  - Jquery
+  - ApexCharts
+  - Vis-Timeline
+  - EasyQRCode
+  - SmartWizard
+  - JustGage
+  - Accordion
+  - FancyTree
+  - SmartTabs
+- [Fixes HTMLChart lines & bars colors #364](https://github.com/EvotecIT/PSWriteHTML/issues/364)
+
 ## 0.0.180 - 2022.10.25
 - Added `listYear` to `New-HTMLCalendar` that can be used as part of HeaderLeft, HeaderCenter and HeaderRight and InitialView
 - Add warning for Add-HTMLScript, Add-HTMLStyle if file doesn't exists. This can be useful when antivirus randomly removes files from module and not tell you about it.

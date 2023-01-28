@@ -54,7 +54,7 @@
         #LineWidth  = $Width
         #LineCap    = $Cap
         #LineDash   = $Dash
-
+        Color      = ConvertFrom-Color -Color $Color
         series     = [ordered] @{
             name = $Name
             type = 'line'
@@ -63,7 +63,7 @@
         stroke     = [ordered] @{
             curve     = $Curve
             lineCap   = $Cap
-            colors    = ConvertFrom-Color -Color $Color
+            #colors    = ConvertFrom-Color -Color $Color
             width     = $Width
             dashArray = $Dash
         }
