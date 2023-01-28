@@ -2,10 +2,11 @@
     [alias('ChartBar')]
     [CmdletBinding()]
     param(
-        [string] $Name,
-        [object] $Value
+        [Parameter(Mandatory)][string] $Name,
+        [Parameter(Mandatory)][object] $Value,
+        [string[]] $Color
     )
-    [PSCustomObject] @{
+    $Object = [ordered] @{
         ObjectType = 'Bar'
         Name       = $Name
         Value      = $Value
@@ -14,5 +15,10 @@
             type = 'column'
             data = $Value
         }
+        Color      = if ($Color) { ConvertFrom-Color -Color $Color } else { $null }
     }
+    Remove-EmptyValue -Hashtable $Object -Recursive
+    $Object
 }
+
+Register-ArgumentCompleter -CommandName New-ChartBar -ParameterName Color -ScriptBlock $Script:ScriptBlockColors

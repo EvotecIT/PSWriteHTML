@@ -97,16 +97,7 @@
     # Legend Variables
     $Colors = [System.Collections.Generic.List[string]]::new()
 
-    # Line Variables
-    # $LineColors = [System.Collections.Generic.List[string]]::new()
-    #$LineCurves = [System.Collections.Generic.List[string]]::new()
-    #$LineWidths = [System.Collections.Generic.List[int]]::new()
-    #$LineDashes = [System.Collections.Generic.List[int]]::new()
-    #$LineCaps = [System.Collections.Generic.List[string]]::new()
     $ChartAxisY = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
-
-    #$RadialColors = [System.Collections.Generic.List[string]]::new()
-    #$SparkColors = [System.Collections.Generic.List[string]]::new()
 
     # Bar default definitions
     [bool] $BarHorizontal = $true
@@ -128,9 +119,13 @@
             }
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
-
-
             $DataSeries.Add($Setting.series)
+
+            if ($Setting.Color) {
+                $Setting.Color | ForEach-Object {
+                    $Colors.Add($_)
+                }
+            }
 
         } elseif ($Setting.ObjectType -eq 'Pie' -or $Setting.ObjectType -eq 'Donut') {
             # For Pie Charts
@@ -139,7 +134,9 @@
             $DataName.Add($Setting.Name)
 
             if ($Setting.Color) {
-                $Colors.Add($Setting.Color)
+                $Setting.Color | ForEach-Object {
+                    $Colors.Add($_)
+                }
             }
         } elseif ($Setting.ObjectType -eq 'Spark') {
             # For Spark Charts
@@ -148,7 +145,9 @@
             $DataName.Add($Setting.Name)
 
             if ($Setting.Color) {
-                $Colors.Add($Setting.Color)
+                $Setting.Color | ForEach-Object {
+                    $Colors.Add($_)
+                }
             }
         } elseif ($Setting.ObjectType -eq 'Radial') {
             $Type = $Setting.ObjectType
@@ -156,7 +155,9 @@
             $DataName.Add($Setting.Name)
 
             if ($Setting.Color) {
-                $Colors.Add($Setting.Color)
+                $Setting.Color | ForEach-Object {
+                    $Colors.Add($_)
+                }
             }
         } elseif ($Setting.ObjectType -eq 'Legend') {
             # For Bar Charts
@@ -195,33 +196,15 @@
             # For Line Charts
             $Type = $Setting.ObjectType
 
-            #$DataSet.Add($Setting.Value)
-            #$DataName.Add($Setting.Name)
-            <#
-            if ($Setting.LineColor) {
-                $Colors.Add($Setting.LineColor)
-            }
-            if ($Setting.LineCurve) {
-                $LineCurves.Add($Setting.LineCurve)
-            }
-            if ($Setting.LineWidth) {
-                $LineWidths.Add($Setting.LineWidth)
-            }
-            if ($Setting.LineDash) {
-                $LineDashes.Add($Setting.LineDash)
-            }
-            if ($Setting.LineCap) {
-                $LineCaps.Add($Setting.LineCap)
-            }
-            #>
-
             if ($Setting.series) {
                 $DataSeries.Add($Setting.series)
             }
             if ($Setting.stroke.count -gt 0) {
                 $LineStroke.Add($setting.stroke)
             }
-
+            if ($Setting.Color) {
+                $Colors.Add($Setting.Color)
+            }
         } elseif ($Setting.ObjectType -eq 'ChartAxisX') {
             $ChartAxisX = $Setting.ChartAxisX
         } elseif ($Setting.ObjectType -eq 'ChartGrid') {
@@ -305,6 +288,7 @@
             DataLabel       = $DataLabel
             Legend          = $Legend
             Markers         = $Markers
+            Colors          = $Colors
             #DataLabelsEnabled  = $BarDataLabelsEnabled
             #DataLabelsOffsetX  = $BarDataLabelsOffsetX
             #DataLabelsFontSize = $BarDataLabelsFontSize

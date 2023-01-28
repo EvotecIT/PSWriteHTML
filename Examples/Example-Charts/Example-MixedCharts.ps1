@@ -21,10 +21,10 @@ New-HTML -TitleText 'Charts - Line' -Online -FilePath $PSScriptRoot\Example-Mixe
         New-ChartAxisY -TitleText 'Series A' -Show
         New-ChartAxisY -TitleText 'Series B' -Show -Opposite
         #New-ChartDataLabel -Enabled -DataLabelsColor Green, Yellow, Blue
-        New-ChartLine -Name 'Incidents per month' -Value $DataTable.Incidents -Curve smooth -Width 2 -Dash 12 -Cap round
-        New-ChartLine -Name 'Incidents per month resolved' -Value $DataTable.Resolved #-Width 1
+        New-ChartLine -Name 'Incidents per month' -Value $DataTable.Incidents -Curve smooth -Width 2 -Dash 12 -Cap round -Color Green
+        New-ChartLine -Name 'Incidents per month resolved' -Value $DataTable.Resolved -Color Red
 
-        New-ChartBar -Name 'Test very long' -Value $DataTable.Test
+        New-ChartBar -Name 'Test very long' -Value $DataTable.Test -Color AirForceBlue
         #New-ChartBar -Name 'Test very long' -Value $DataTable.Resolved
 
         New-ChartEvent -DataTableID 'IDTable' -ColumnID 3
