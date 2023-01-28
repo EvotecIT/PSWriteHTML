@@ -59,7 +59,7 @@ $Script:Configuration = [ordered] @{
             Comment         = 'Animation Toolkit'
             InternalComment = 'animation-toolkit'
             Header          = @{
-                CssLink = "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+                CssLink = "https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"
                 Css     = "$PSScriptRoot\..\Resources\CSS\animate.min.css"
             }
             Default         = $true
@@ -466,9 +466,9 @@ $Script:Configuration = [ordered] @{
         AccordionFAQ                = @{
             Comment      = 'Accordion FAQ'
             Header       = @{
-                CssLink = 'https://unpkg.com/accordion-js@3.0.0/dist/accordion.min.css'
+                CssLink = 'https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\accordion.min.css"
-                JsLink  = 'https://unpkg.com/accordion-js@3.0.0/dist/accordion.min.js'
+                JsLink  = 'https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.js'
                 JS      = "$PSScriptRoot\..\Resources\JS\accordion.min.js"
             }
             HeaderAlways = @{
@@ -547,8 +547,8 @@ $Script:Configuration = [ordered] @{
         CarouselSlick               = @{
             Comment     = 'Slick JS'
             Header      = @{
-                CssLink = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\slick.min.css"
+                CssLink = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\slick.min.css", "$PSScriptRoot\..\Resources\CSS\slick-theme.min.css"
                 JSLink  = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'
                 JS      = "$PSScriptRoot\..\Resources\JS\slick.min.css"
             }
@@ -611,7 +611,7 @@ $Script:Configuration = [ordered] @{
                     'https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
                     'https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn' # You will need this only if you require timeline/rangebar charts
                     #'https://unpkg.com/canvg@3.0.4/lib/umd.js' # You will need this only if you require PNG download of your charts
-                    'https://cdn.jsdelivr.net/npm/apexcharts@3.35.0/dist/apexcharts.min.js'
+                    'https://cdn.jsdelivr.net/npm/apexcharts@3.36.0/dist/apexcharts.min.js'
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\polyfill.min.js"
@@ -640,9 +640,9 @@ $Script:Configuration = [ordered] @{
         ChartsOrg                   = [ordered] @{
             Comment      = 'OrgChart'
             Header       = @{
-                CssLink = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/3.1.0/css/jquery.orgchart.min.css'
+                CssLink = 'https://cdn.jsdelivr.net/npm/orgchart@3.1.4/dist/css/jquery.orgchart.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\jquery.orgchart.min.css"
-                JsLink  = 'https://cdnjs.cloudflare.com/ajax/libs/orgchart/3.1.0/js/jquery.orgchart.min.js'
+                JsLink  = 'https://cdn.jsdelivr.net/npm/orgchart@3.1.4/dist/js/jquery.orgchart.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\jquery.orgchart.min.js"
             }
             HeaderAlways = [ordered] @{
@@ -705,7 +705,7 @@ $Script:Configuration = [ordered] @{
         ChartsOrgExportPDF          = @{
             Comment = 'OrgChartExport'
             Header  = @{
-                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js'
+                JsLink = 'https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jspdf.min.js"
             }
             Default = $true
@@ -714,7 +714,7 @@ $Script:Configuration = [ordered] @{
         ChartsOrgExportPNG          = @{
             Comment = 'OrgChartExport'
             Header  = @{
-                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js'
+                JsLink = 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\html2canvas.min.js"
             }
             Default = $true
@@ -749,7 +749,7 @@ $Script:Configuration = [ordered] @{
             Comment         = 'Jquery'
             InternalComment = 'jquery'
             Header          = @{
-                JsLink = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js' # 'https://code.jquery.com/jquery-3.5.1.min.js'
+                JsLink = 'https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js' # 'https://code.jquery.com/jquery-3.5.1.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery.min.js"
             }
             LicenseLink     = 'https://github.com/jquery/jquery/blob/main/LICENSE.txt'
@@ -941,7 +941,6 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-
         DataTablesButtonsHTML5      = @{
             Comment = 'DataTables ButtonsHTML5 Features'
             Header  = @{
@@ -955,7 +954,6 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-
         DataTablesButtonsPrint      = @{
             Comment = 'DataTables ButtonsPrint Features'
             Header  = @{
@@ -969,7 +967,6 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
-
         DataTablesButtonsPDF        = @{
             Comment = 'DataTables PDF Features'
             Header  = @{
@@ -1192,29 +1189,15 @@ $Script:Configuration = [ordered] @{
             Update  = $false
             Header  = @{
                 JSLinkOriginal  = "https://cdn.datatables.net/searchbuilder/1.4.0/js/dataTables.searchBuilder.js"
-                JsLink  = "$($Script:ConfigurationURL)/JS/dataTables.searchBuilder.min.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
-                JS      = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.js"
+                JsLink          = "$($Script:ConfigurationURL)/JS/dataTables.searchBuilder.min.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
+                JS              = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.js"
                 CssLinkOriginal = 'https://cdn.datatables.net/searchbuilder/1.4.0/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
-                CssLink = "$($Script:ConfigurationURL)/CSS/dataTables.searchBuilder.min.css" # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.css"
+                CssLink         = "$($Script:ConfigurationURL)/CSS/dataTables.searchBuilder.min.css" # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
+                Css             = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.css"
             }
             Default = $true
             Email   = $false
         }
-        <#
-        DataTablesSearchBuilder   = @{
-            # https://datatables.net/blog/2020-09-01
-            Comment = 'DataTables SearchBuilder'
-            Header  = @{
-                JsLink  = "https://nightly.datatables.net/searchbuilder/js/dataTables.searchBuilder.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
-                JS      = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.min.js"
-                CssLink = 'https://nightly.datatables.net/searchbuilder/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
-                Css     = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.min.css"
-            }
-            Default = $true
-            Email   = $false
-        }
-        #>
         DataTablesSearchFade        = @{
             Comment      = 'DataTables SearchFade'
             HeaderAlways = @{
@@ -1248,7 +1231,7 @@ $Script:Configuration = [ordered] @{
         DataTablesSearchAlphabet    = @{
             Comment = 'DataTables AlphabetSearch'
             Header  = @{
-                JsLinkOriginal  = "https://cdn.datatables.net/plug-ins/1.13.1/features/alphabetSearch/dataTables.alphabetSearch.min.js"
+                JsLinkOriginal  = "https://cdn.datatables.net/plug-ins/1.13.1/features/alphabetSearch/dataTables.alphabetSearch.js"
                 #JsLinkOriginal  = "https://cdn.jsdelivr.net/gh/PrzemyslawKlys/Plugins@master/features/alphabetSearch/dataTables.alphabetSearch.js"
                 JsLink          = "$($Script:ConfigurationURL)/JS/dataTables.alphabetSearch.min.js"
                 JS              = "$PSScriptRoot\..\Resources\JS\dataTables.alphabetSearch.min.js"
@@ -1315,7 +1298,7 @@ $Script:Configuration = [ordered] @{
         DataTablesSelect            = @{
             Comment = 'DataTables Select'
             Header  = @{
-                JsLink  = "https://cdn.datatables.net/select/1.5.0/js/dataTables.select.min.js"
+                JsLink  = "https://cdn.datatables.net/select/1.5.0/js/dataTables.select.js"
                 JS      = "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
                 CSSLink = 'https://cdn.datatables.net/select/1.5.0/css/select.dataTables.min.css'
                 CSS     = "$PSScriptRoot\..\Resources\CSS\select.dataTables.min.css"
@@ -1369,7 +1352,7 @@ $Script:Configuration = [ordered] @{
                 JsInLine  = "var calendarTracker = {};"
             }
             Header       = @{
-                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'
+                JSLink  = 'https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/index.global.min.js'
                 CssLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\fullCalendar.css"
                 JS      = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
@@ -1420,10 +1403,10 @@ $Script:Configuration = [ordered] @{
             }
             Header       = @{
                 JSLink  = @(
-                    'https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.38.0/jquery.fancytree-all-deps.min.js'
+                    'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38.2/dist/jquery.fancytree-all-deps.min.js'
                 )
                 CSSLink = @(
-                    'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38/dist/skin-win8/ui.fancytree.min.css'
+                    'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38.2/dist/skin-win8/ui.fancytree.min.css'
                 )
             }
             Default      = $true
@@ -1485,7 +1468,7 @@ $Script:Configuration = [ordered] @{
             Demos       = 'https://toorshia.github.io/justgage'
             Header      = @{
                 JSLink = @(
-                    'https://cdnjs.cloudflare.com/ajax/libs/justgage/1.5.1/justgage.min.js'
+                    'https://cdn.jsdelivr.net/npm/justgage@1.6.1/justgage.min.js'
                 )
                 JS     = @(
                     "$PSScriptRoot\..\Resources\JS\justgage.min.js"
@@ -1750,9 +1733,9 @@ $Script:Configuration = [ordered] @{
             # http://techlaboratory.net/jquery-smarttab
             Comment     = 'Tabs Inline'
             Header      = @{
-                JsLink  = 'https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/js/jquery.smartTab.min.js'
+                JsLink  = 'https://cdn.jsdelivr.net/npm/jquery-smarttab@4.0.2/dist/js/jquery.smartTab.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\jquery.smartTab.min.js"
-                CssLink = "https://cdn.jsdelivr.net/npm/jquery-smarttab@3/dist/css/smart_tab_all.min.css"
+                CssLink = "https://cdn.jsdelivr.net/npm/jquery-smarttab@4.0.2/dist/css/smart_tab_all.min.css"
                 Css     = "$PSScriptRoot\..\Resources\CSS\jquery.smartTab.min.css"
             }
             SourceCodes = 'https://github.com/techlab/jquery-smarttab'
@@ -1907,10 +1890,10 @@ $Script:Configuration = [ordered] @{
             }
             Header       = @{
                 # https://unpkg.com/vis-timeline@latest/peer/umd/vis-timeline-graph2d.min.js
-                JsLink  = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.5.1/peer/umd/vis-timeline-graph2d.min.js'
+                JsLink  = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.7.0/peer/umd/vis-timeline-graph2d.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\vis-timeline-graph2d.min.js"
                 Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
-                CssLink = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.5.1/styles/vis-timeline-graph2d.min.css'
+                CssLink = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.7.0/dist/vis-timeline-graph2d.min.css'
             }
             LicenseLink  = 'https://github.com/visjs/vis-timeline/blob/master/LICENSE.md'
             License      = 'MIT and Apache 2.0'
@@ -1929,7 +1912,7 @@ $Script:Configuration = [ordered] @{
                 }
             }
             Header       = @{
-                JSLink = 'https://cdn.jsdelivr.net/npm/easyqrcodejs@4.3.2/dist/easy.qrcode.min.js'
+                JSLink = 'https://cdn.jsdelivr.net/npm/easyqrcodejs@4.4.13/dist/easy.qrcode.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\easy.qrcode.min.js"
             }
             Default      = $true
@@ -1942,9 +1925,9 @@ $Script:Configuration = [ordered] @{
             Comment      = 'Wizard'
             Demos        = 'http://techlaboratory.net/jquery-smartwizard'
             Header       = @{
-                JsLink  = 'https://cdn.jsdelivr.net/npm/smartwizard@5.1.1/dist/js/jquery.smartWizard.min.js'
+                JsLink  = 'https://cdn.jsdelivr.net/npm/smartwizard@6.0.6/dist/js/jquery.smartWizard.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\jquery.smartWizard.min.js"
-                CssLink = "https://cdn.jsdelivr.net/npm/smartwizard@5.1.1/dist/css/smart_wizard_all.min.css"
+                CssLink = "https://cdn.jsdelivr.net/npm/smartwizard@6.0.6/dist/css/smart_wizard_all.min.css"
                 Css     = "$PSScriptRoot\..\Resources\CSS\jquery.smartWizard.min.css"
             }
             HeaderAlways = @{
@@ -1964,9 +1947,13 @@ $Script:Configuration = [ordered] @{
             Comment      = 'WinBox'
             Demos        = 'http://techlaboratory.net/jquery-smartwizard'
             Header       = @{
-                JsLink  = 'https://cdn.jsdelivr.net/npm/winbox@0.1.8/dist/js/winbox.min.js'
+                JsLink  = 'https://cdn.jsdelivr.net/npm/winbox@0.2.6/dist/js/winbox.min.js'
                 Js      = "$PSScriptRoot\..\Resources\JS\winbox.min.js"
-                CssLink = "https://cdn.jsdelivr.net/npm/winbox@0.1.8/dist/css/winbox.min.css", 'https://cdn.jsdelivr.net/npm/winbox@0.1.8/dist/css/themes/modern.min.css', 'https://cdn.jsdelivr.net/npm/winbox@0.1.8/dist/css/themes/white.min.css'
+                CssLink = @(
+                    "https://cdn.jsdelivr.net/npm/winbox@0.2.6/dist/css/winbox.min.css"
+                    'https://cdn.jsdelivr.net/npm/winbox@0.2.6/dist/css/themes/modern.min.css'
+                    'https://cdn.jsdelivr.net/npm/winbox@0.2.6/dist/css/themes/white.min.css'
+                )
                 Css     = "$PSScriptRoot\..\Resources\CSS\winbox.min.css", "$PSScriptRoot\..\Resources\CSS\winbox.modern.min.css", "$PSScriptRoot\..\Resources\CSS\winbox.white.min.css"
             }
             HeaderAlways = @{
@@ -2038,29 +2025,32 @@ $Script:Configuration = [ordered] @{
 }
 
 
-$Keys = @(
-    #'datatablesfuzzysearch'
-    #'iFrameResizer
-    #'Popper'
-    #'Moment'
-    'Jquery'
-    #'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
-    #'ChartsApex'
-    #'AccordionFAQ'
-    #'VisNetwork'
-    #'VisTimeline'
-    #'VisData'
-    #'JustGage'
-    #'FullCalendar'
-    #'DataTablesSearchAlphabet'
-    'DataTable*'
-    #'FancyTree'
-    #'JustGage'
-    #'CarouselKineto'
-    #'QR'
-    #'Fonts*'
-    #'WinBox'
-    #'FontsSimpleIcons'
-)
+#$Keys = @(
+#'datatablesfuzzysearch'
+#'iFrameResizer
+#'Popper'
+#'Moment'
+#'Jquery'
+#'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
+#'ChartsApex'
+#'AccordionFAQ'
+#'VisNetwork'
+#'VisTimeline'
+#'VisData'
+#'JustGage'
+#'FullCalendar'
+#'DataTablesSearchAlphabet'
+#'DataTable*'
+#'FancyTree'
+#'CarouselSlick'
+#'JustGage'
+#'CarouselKineto'
+#'QR'
+#'TabsInline'
+#'Fonts*'
+#'WinBox'
+#'FontsSimpleIcons'
+#'Wizard'
+#)
 
 #Save-HTMLResource -Configuration $Script:Configuration -Keys $Keys -PathToSave 'C:\Support\GitHub\PSWriteHTML\Resources\CSS' -Verbose
