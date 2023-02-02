@@ -4,7 +4,7 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-## 0.0.182
+## 0.0.182 - 2023.02.02
 - Update libraries:
   - FullCalendar
 - [Fixes Divergent behavior in Ubuntu container (Github Actions)](https://github.com/EvotecIT/PSWriteHTML/issues/370)
