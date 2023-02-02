@@ -163,7 +163,9 @@
             # For Bar Charts
             $DataLegend = $Setting.Names
             if ($null -ne $Setting.Color) {
-                $Colors = $Setting.Color
+                $Setting.Color | ForEach-Object {
+                    $Colors.Add($_)
+                }
             }
             $Legend = $Setting.Legend
         } elseif ($Setting.ObjectType -eq 'BarOptions') {
