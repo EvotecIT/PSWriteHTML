@@ -109,7 +109,7 @@ $Configuration = @{
                 RemoveComments = $false
             }
             Integrate      = @{
-                ApprovedModules = @('PSSharedGoods', 'PSWriteColor', 'Connectimo', 'PSUnifi', 'PSWebToolbox', 'PSMyPassword')
+                ApprovedModules = @('PSSharedGoods', 'PSWriteColor', 'Connectimo', 'PSUnifi', 'PSWebToolbox', 'PSMyPassword', "PSPublishModule")
             }
         }
         Standard          = @{
