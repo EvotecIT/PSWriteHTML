@@ -409,7 +409,7 @@ function New-HTMLTable {
     if ($TableLanguage) {
         $Options['language'] = $TableLanguage
     }
-    if ($AlphabetSearch -or $TableAlphabetSearch.Count -gt 0) {
+    if ($AlphabetSearch -or $TableAlphabetSearch.Keys.Count -gt 0) {
         $Script:HTMLSchema.Features.DataTablesSearchAlphabet = $true
     }
     if ($SearchBuilder) {
@@ -451,7 +451,7 @@ function New-HTMLTable {
         $Options['dom'] = $OverwriteDOM
     } else {
         $DOM = 'Bfrtip'
-        if ($AlphabetSearch -or $TableAlphabetSearch) {
+        if ($AlphabetSearch -or $TableAlphabetSearch.Keys.Count -gt 0) {
             $DOM = "A$($Dom)"
         }
         if ($SearchBuilderEnabled -and $SearchPane) {
@@ -581,7 +581,7 @@ function New-HTMLTable {
     $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
 
 
-    if ($TableAlphabetSearch.Count -gt 0) {
+    if ($TableAlphabetSearch.Keys.Count -gt 0) {
         $Options['alphabet'] = @{}
         if ($TableAlphabetSearch.caseSensitive) {
             $Options['alphabet']['caseSensitive'] = $true

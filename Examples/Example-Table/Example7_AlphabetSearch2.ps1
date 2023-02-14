@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 #$Process = Get-Process | Select-Object -First 30
-$ProcessSmaller = Get-ADUser -Filter * | Select-Object -First 15 # -Property Name, Id, PriorityClass, Responding
+$ProcessSmaller = Get-ADUser -Filter * | Select-Object -First 3 # -Property Name, Id, PriorityClass, Responding
 
 New-HTML {
     New-HTMLSection -HeaderText 'Standard Table with Alphabet Search' {
@@ -19,6 +19,11 @@ New-HTML {
     }
     New-HTMLSection -HeaderText 'Standard Table with Alphabet Search' {
         New-HTMLTable -DataTable $ProcessSmaller -AlphabetSearch {
+
+        }
+    }
+    New-HTMLSection -HeaderText 'Standard Table without ALphabet' {
+        New-HTMLTable -DataTable $ProcessSmaller {
 
         }
     }
