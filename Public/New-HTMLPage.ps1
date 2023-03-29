@@ -8,15 +8,17 @@
     )
 
     if ($PageContent) {
-        $Script:GlobalSchema['Pages'][$Name] = New-DefaultSettings
+        $GUID = "$Name_$([guid]::NewGuid().Guid)"
+        $Script:GlobalSchema['Pages'][$GUID] = New-DefaultSettings
 
-        $Script:HTMLSchema['PagesCurrent'] = $Name
-        $Script:HTMLSchema = $Script:GlobalSchema['Pages'][$Name]
+        $Script:HTMLSchema['PagesCurrent'] = $GUID
+        $Script:HTMLSchema = $Script:GlobalSchema['Pages'][$GUID]
 
         [PSCustomObject] @{
             Type     = 'Page'
             Output   = & $PageContent
             Name     = $Name
+            Guid     = $GUID
             FilePath = $FilePath
             ID       = $ID
         }

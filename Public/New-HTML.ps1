@@ -209,24 +209,27 @@ Function New-HTML {
     $Pages[$FileName].Main = foreach ($ObjectTemp in $TempOutputHTML) {
         if ($ObjectTemp -is [PSCustomObject]) {
             if ($ObjectTemp.Type -eq 'Navigation') {
-                $Navigation = foreach ($_ in $ObjectTemp.Output) {
+                $Navigation = foreach ($O in $ObjectTemp.Output) {
                     # this gets rid of any non-strings
                     # it's added here to track nested tabs
-                    if ($_ -isnot [System.Collections.IDictionary]) { $_ }
+                    if ($O -isnot [System.Collections.IDictionary]) { $O }
                 }
             } elseif ($ObjectTemp.Type -eq 'Page') {
-                foreach ($_ in $ObjectTemp) {
+                foreach ($O in $ObjectTemp) {
                     # this gets rid of any non-strings
                     # it's added here to track nested tabs
-                    if ($_.Output -isnot [System.Collections.IDictionary]) {
-                        if ($_.FilePath) {
-                            $SavePath = $_.FilePath
+                    if ($O.Output -isnot [System.Collections.IDictionary]) {
+                        if ($O.FilePath) {
+                            $SavePath = $O.FilePath
                         } else {
-                            $Name = $_.Name.Replace(":", "_").Replace("/", "_").Replace("\", "_")
+                            $Name = $O.Name.Replace(":", "_").Replace("/", "_").Replace("\", "_")
                             $SavePath = [io.path]::Combine($PagesPath, "$($FileName)_$($Name).html")
                         }
-                        $Pages[$_.Name] = [ordered] @{
-                            Name     = " $($FileName)_$($_.Name)"
+                        # $KeyName = "$SavePath"
+                        $KeyName = $($O.Guid)
+                        $Pages[$KeyName] = [ordered] @{
+                            Name     = $KeyName
+                            #Name     = " $($FileName)_$($O.Name)"
                             #Output   = $null
                             Main     = $null
                             Primary  = if ($Pages.Keys.Count -eq 0) { $true } else { $false }
@@ -235,15 +238,15 @@ Function New-HTML {
                             SavePath = $SavePath
                             ShowHTML = $false
                         }
-                        $Pages[$_.Name].Main = foreach ($Object in $_.Output) {
+                        $Pages[$KeyName].Main = foreach ($Object in $O.Output) {
                             if ($Object.Type -eq 'Footer') {
-                                $Pages[$_.Name].Footer = foreach ($Sub in $Object.Output) {
+                                $Pages[$KeyName].Footer = foreach ($Sub in $Object.Output) {
                                     # this gets rid of any non-strings
                                     # it's added here to track nested tabs
                                     if ($Sub -isnot [System.Collections.IDictionary]) { $Sub }
                                 }
                             } elseif ($Object.Type -eq 'Header') {
-                                $Pages[$_.Name].Header = foreach ($Sub in $Object.Output) {
+                                $Pages[$KeyName].Header = foreach ($Sub in $Object.Output) {
                                     # this gets rid of any non-strings
                                     # it's added here to track nested tabs
                                     if ($Sub -isnot [System.Collections.IDictionary]) { $Sub }
