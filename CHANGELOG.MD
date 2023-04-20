@@ -4,6 +4,10 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.185 - 2023.04.20
+- Improves SearchBuilder in `New-HTMLTable` [#361](https://github.com/EvotecIT/PSWriteHTML/issues/361)
+- Update DataTable libraries and related plugins
+
 ## 0.0.184 - 2023.03.29
 - Fixes `New-HTMLPage` that would overwrite pages with same name.
 
