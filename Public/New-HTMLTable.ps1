@@ -276,7 +276,7 @@ function New-HTMLTable {
                 }
             }
         }
-        $Properties = Select-Properties -Objects $DataTable -ExcludeProperty '*-Same','*-Add','*-Remove', 'Same', 'Different'
+        $Properties = Select-Properties -Objects $DataTable -ExcludeProperty '*-Same', '*-Add', '*-Remove', 'Same', 'Different'
         $DataTable = $DataTable | Select-Object -Property $Properties
 
         if ($HighlightDifferences) {
@@ -414,12 +414,14 @@ function New-HTMLTable {
     }
     if ($SearchBuilder) {
         $SearchBuilderEnabled = $true
+        $Script:HTMLSchema.Features.DataTablesDateTime = $true
         $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
     } else {
         $SearchBuilderEnabled = $false
     }
     if ($Buttons -contains 'searchBuilder') {
         # We make sure created storage is expanding
+        $Script:HTMLSchema.Features.DataTablesDateTime = $true
         $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
         $Script:HTMLSchema.Features.DataTablesSearchPanesButton = $true
         if ($SearchBuilderEnabled) {
@@ -661,6 +663,7 @@ function New-HTMLTable {
                             title  = $Title
                         }
                     } elseif ($button -eq 'searchBuilder') {
+                        $Script:HTMLSchema.Features.DataTablesDateTime = $true
                         $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
                         $ButtonOutput = [ordered] @{
                             extend = $button

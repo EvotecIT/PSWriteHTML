@@ -1181,17 +1181,38 @@ $Script:Configuration = [ordered] @{
             Default = $true
             Email   = $false
         }
+        DataTablesDateTime          = @{
+            Comment = 'DataTables DateTime Features'
+            Header  = @{
+                JsLink  = @(
+                    "https://cdn.datatables.net/datetime/1.4.0/js/dataTables.dateTime.min.js"
+                )
+                JS      = @(
+                    "$PSScriptRoot\..\Resources\JS\dataTables.dateTime.js"
+                )
+                CssLink = @(
+                    "https://cdn.datatables.net/datetime/1.4.0/css/dataTables.dateTime.min.css"
+                )
+                Css     = @(
+                    "$PSScriptRoot\..\Resources\CSS\dataTables.dateTime.css"
+                )
+            }
+            Default = $true
+            Email   = $false
+        }
         DataTablesSearchBuilder     = @{
             # https://datatables.net/blog/2020-09-01
             Comment = 'DataTables SearchBuilder'
             Update  = $true
             Header  = @{
-                JSLinkOriginal  = "https://cdn.datatables.net/searchbuilder/1.4.2/js/dataTables.searchBuilder.js"
-                JsLink          = "$($Script:ConfigurationURL)/JS/dataTables.searchBuilder.min.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
-                JS              = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.js"
-                CssLinkOriginal = 'https://cdn.datatables.net/searchbuilder/1.4.2/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
-                CssLink         = "$($Script:ConfigurationURL)/CSS/dataTables.searchBuilder.min.css" # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
-                Css             = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.css"
+                #JSLinkOriginal  = "https://cdn.datatables.net/searchbuilder/1.4.2/js/dataTables.searchBuilder.js"
+                JSLink  = "https://cdn.datatables.net/searchbuilder/1.4.2/js/dataTables.searchBuilder.js"
+                #JsLink          = "$($Script:ConfigurationURL)/JS/dataTables.searchBuilder.min.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
+                JS      = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.js"
+                #CssLinkOriginal = 'https://cdn.datatables.net/searchbuilder/1.4.2/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
+                CssLink = 'https://cdn.datatables.net/searchbuilder/1.4.2/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
+                #CssLink         = "$($Script:ConfigurationURL)/CSS/dataTables.searchBuilder.min.css" # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
+                Css     = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.css"
             }
             Default = $true
             Email   = $false

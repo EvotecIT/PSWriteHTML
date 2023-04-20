@@ -8,6 +8,7 @@
         [switch] $GreyScale
     )
     $Script:HTMLSchema.Features.DataTablesButtons = $true
+    $Script:HTMLSchema.Features.DataTablesDateTime = $true
     $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
     $Output = @{
         config = @{}
