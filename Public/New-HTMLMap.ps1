@@ -1,19 +1,85 @@
 ﻿function New-HTMLMap {
     [cmdletBinding()]
     param(
+        [scriptblock] $MapSettings,
         [parameter(Mandatory)][ValidateSet('poland', 'usa_states', 'world_countries')][string] $Map,
-        [string] $AnchorName
+        [string] $AnchorName,
+        [switch] $ShowAreaLegend,
+        [string] $AreaTitle,
+        [string] $PlotTitle,
+        [switch] $ShowPlotLegend,
+        [alias('SliceColor')][string] $FillColor,
+        [string] $StrokeColor,
+        [nullable[int]] $StrokeWidth
     )
-    Enable-HTMLFeature -Feature Raphael, Mapael, Jquery, JQueryMouseWheel, "MapaelMaps_$Map" -Configuration $Script:Configuration.Features
+    Enable-HTMLFeature -Feature Raphael, Mapael, Jquery, JQueryMouseWheel, "MapaelMaps_$Map" #-Configuration $Script:Configuration.Features
     if (-not $AnchorName) {
         $AnchorName = "MapContainer$(Get-RandomStringName -Size 8)"
     }
-    $Options = @{
-        map = @{
-            name = $Map.ToLower()
+    $Options = [ordered] @{
+        map    = [ordered] @{
+            name        = $Map.ToLower()
+            defaultArea = [ordered]@{
+                attrs = [ordered]@{
+                    fill           = ConvertFrom-Color -Color $FillColor
+                    stroke         = ConvertFrom-Color -Color $StrokeColor
+                    'stroke-width' = $StrokeWidth
+                }
+            }
+        }
+        legend = [ordered] @{
+            area = [ordered] @{
+                title  = $AreaTitle
+                slices = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
+            }
+            plot = [ordered] @{
+                title  = $PlotTitle
+                slices = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
+            }
+        }
+        areas  = [ordered] @{}
+        plots  = [ordered] @{}
+    }
+
+    if ($MapSettings) {
+        $ExecutedData = $MapSettings.Invoke()
+        foreach ($Setting in $ExecutedData) {
+            if ($Setting.Type -eq 'MapArea') {
+                foreach ($MapArea in $Setting.Configuration.Keys ) {
+                    $Options.areas[$MapArea] = $Setting.Configuration[$MapArea]
+                }
+            } elseif ($Setting.Type -eq 'MapPlot') {
+                foreach ($MapPlot in $Setting.Configuration.Keys ) {
+                    $Options.plots[$MapPlot] = $Setting.Configuration[$MapPlot]
+                }
+            } elseif ($Setting.Type -eq 'MapLegendOption') {
+                if ($Setting.Configuration.default) {
+                    foreach ($Option in $Setting.Configuration.default.Keys) {
+                        $Options.legend.default[$Option] = $Setting.Configuration.default[$Option]
+                    }
+                }
+                if ($Setting.Configuration.area) {
+                    foreach ($Option in $Setting.Configuration.area.Keys) {
+                        $Options.legend.area[$Option] = $Setting.Configuration.area[$Option]
+                    }
+                }
+                if ($Setting.Configuration.plot) {
+                    foreach ($Option in $Setting.Configuration.plot.Keys) {
+                        $Options.legend.plot[$Option] = $Setting.Configuration.plot[$Option]
+                    }
+                }
+            } elseif ($Setting.Type -eq 'MapLegendAreaSlice') {
+                $Options.legend.area.slices.Add($Setting.Configuration)
+
+            } elseif ($Setting.Type -eq 'MapLegendPlotSlice') {
+                $Options.legend.plot.slices.Add($Setting.Configuration)
+            }
         }
     }
-    $OptionsJSON = $Options | ConvertTo-JsonLiteral -Depth 2 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
+
+    Remove-EmptyValue -Hashtable $Options -Recursive -Rerun 2
+
+    $OptionsJSON = $Options | ConvertTo-JsonLiteral -Depth 5 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
 
     New-HTMLTag -Tag 'script' {
         "`$(function () { `$(`".$AnchorName`").mapael($OptionsJSON); });"
@@ -21,7 +87,20 @@
 
     New-HTMLTag -Tag 'div' -Attributes @{ class = $AnchorName } {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'map' } {
-            $AlternateHTML
+            $AlternateMapContent
+        }
+        if ($ShowAreaLegend) {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'areaLegend' } {
+                $AlternateAreaLegendContent
+            }
+        }
+        if ($ShowPlotLegend) {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = 'plotLegend' } {
+                $AlternatePlotLegendContent
+            }
         }
     }
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLMap -ParameterName FillColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLMap -ParameterName StrokeColor -ScriptBlock $Script:ScriptBlockColors

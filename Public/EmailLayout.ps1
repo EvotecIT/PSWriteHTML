@@ -4,7 +4,7 @@
         [ScriptBlock] $Layout
     )
 
-    Enable-HTMLFeature -Feature EmailLayout -Configuration $Script:Configuration
+    Enable-HTMLFeature -Feature EmailLayout #-Configuration $Script:Configuration
     #$Script:HTMLSchema.Features.EmailLayout = $true
 
     if ($Layout) {
