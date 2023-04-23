@@ -1999,17 +1999,34 @@ $Script:Configuration = [ordered] @{
             Email       = $false
         }
         Mapael                      = @{
-            Comment     = 'Mapael JQuery'
-            Header      = @{
+            Comment      = 'Mapael JQuery'
+            Header       = @{
                 JSLink = 'https://cdn.jsdelivr.net/npm/jquery-mapael@2.2.0/js/jquery.mapael.min.js'
                 JS     = "$PSScriptRoot\..\Resources\JS\jquery.mapael.min.js"
             }
-            Library     = 'https://github.com/neveldo/jQuery-Mapael'
-            SourceCodes = 'https://github.com/neveldo/jQuery-Mapael'
-            License     = 'MIT'
-            LicenseLink = 'https://github.com/neveldo/jQuery-Mapael/blob/master/LICENSE'
-            Default     = $true
-            Email       = $false
+            HeaderAlways = @{
+                CssInline = [ordered] @{
+                    ".mapael .mapTooltip" = [ordered]@{
+                        position           = 'absolute'
+                        'background-color' = '#fff'
+                        'moz-opacity'      = 0.70
+                        opacity            = 0.70;
+                        filter             = 'alpha(opacity=70)';
+                        'border-radius'    = '10px';
+                        padding            = '10px';
+                        'z-index'          = 1000;
+                        'max-width'        = '200px';
+                        display            = 'none';
+                        color              = '#343434';
+                    }
+                }
+            }
+            Library      = 'https://github.com/neveldo/jQuery-Mapael'
+            SourceCodes  = 'https://github.com/neveldo/jQuery-Mapael'
+            License      = 'MIT'
+            LicenseLink  = 'https://github.com/neveldo/jQuery-Mapael/blob/master/LICENSE'
+            Default      = $true
+            Email        = $false
         }
         MapaelMaps_Poland           = @{
             Internal = $true
