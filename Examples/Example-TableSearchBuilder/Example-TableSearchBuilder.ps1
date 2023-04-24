@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-$Table = Get-Process | Select-Object -First 4 -Property Name, Id, PriorityClass, Handle, HandleCount, WorkingSet
+$Table = Get-Process | Select-Object -First 2 -Property Name, Id, PriorityClass, Handle, HandleCount, WorkingSet
 
 New-HTML -TitleText "Testing Search Pane" -FilePath "$PSScriptRoot\Example-TableSearchBuilder.html" {
     # Hide Buttons
@@ -15,4 +15,4 @@ New-HTML -TitleText "Testing Search Pane" -FilePath "$PSScriptRoot\Example-Table
 
         } -SearchPane
     }
-} -ShowHTML -Online -Format
+} -ShowHTML -Online #-Format
