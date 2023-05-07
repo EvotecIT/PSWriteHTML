@@ -26,7 +26,7 @@ New-HTML {
 
                     New-MapLegendSlice -Type 'Area' -Label 'Population to 100' -Min 0 -Max 100 -SliceColor '#FF0000' -StrokeWidth 0
                     New-MapLegendSlice -Type 'Area' -Label 'Population to 200' -Min 100 -Max 200 -SliceColor '#00FF00' -StrokeWidth 0
-                    New-MapLegendSlice -Type 'Area' -Label 'Population to 300' -Min 200 -Max 300 -SliceColor '#0000FF' -StrokeWidth 0
+                    New-MapLegendSlice -Type 'Area' -Label 'Population to 300' -Min 101 -SliceColor '#0000FF' -StrokeWidth 0
 
                     New-MapLegendSlice -Size 5 -Type 'Plot' -Label 'Population to 100' -Min 0 -Max 100 -SliceColor '#FF0000' -HoverTransform 's1.5' -HoverStrokeWidth 1
                     New-MapLegendSlice -Size 10 -Type 'Plot' -Label 'Population to 200' -Min 100 -Max 1000000 -SliceColor '#00FF00' -HoverTransform 's1.5' -HoverStrokeWidth 1
