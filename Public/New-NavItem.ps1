@@ -95,7 +95,7 @@ function New-NavItem {
     )
 
     if ($InternalPageID) {
-        $Href = "$($Script:GlobalSchema.StorageInformation.FileName)_$InternalPageID.html"
+        $Href = "$($Script:GlobalSchema.StorageInformation.FileName)_$($InternalPageID)$($Script:GlobalSchema.StorageInformation.Extension)"
     }
 
 

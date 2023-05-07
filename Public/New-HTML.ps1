@@ -166,11 +166,13 @@ Function New-HTML {
         #$PagesPath = [io.path]::Combine($DirectoryPath, "Pages")
         $PagesPath = $DirectoryPath
         $FileName = [System.IO.Path]::GetFileNameWithoutExtension($FilePath)
+        $HtmlExtension = [System.IO.Path]::GetExtension($FilePath)
     } else {
         # it actually won't be used, as it returns HTML, but we need it for tracking
         $FileName = 'Temporary.html'
         $DirectoryPath = $null
         $PagesPath = $null
+        $HtmlExtension = '.html'
     }
 
     # This makes sure we use always fresh copy
@@ -181,6 +183,7 @@ Function New-HTML {
             FileName  = $FileName
             Directory = $DirectoryPath
             PagesPath = $PagesPath
+            Extension = $HtmlExtension
         }
         # We need to track tabs per page, rather then globally
         PagesCurrent       = $FileName
@@ -223,7 +226,7 @@ Function New-HTML {
                             $SavePath = $O.FilePath
                         } else {
                             $Name = $O.Name.Replace(":", "_").Replace("/", "_").Replace("\", "_")
-                            $SavePath = [io.path]::Combine($PagesPath, "$($FileName)_$($Name).html")
+                            $SavePath = [io.path]::Combine($PagesPath, "$($FileName)_$($Name)$($HtmlExtension)")
                         }
                         # $KeyName = "$SavePath"
                         $KeyName = $($O.Guid)
