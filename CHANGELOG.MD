@@ -4,7 +4,7 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-## 0.0.187
+## 0.0.187 - 2023.05.08
 - Adds ability to save **HTML** as **ASPX** (just an extension, not actual ASPX file) including pages with navigation. This provides an easy way to run PSWriteHTML in SharePoint Online
 
 ## 0.0.186 - 2023.04.23
