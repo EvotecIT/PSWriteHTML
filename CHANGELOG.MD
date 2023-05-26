@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.189 - 2023.05.26
+- Fixes AlphabetSearch
+
 ## 0.0.188 - 2023.05.08
 - Fix for null handling values in `New-HTMLTable` when using `AllProperties` (real fix in dependant PSSharedGoods)
 
