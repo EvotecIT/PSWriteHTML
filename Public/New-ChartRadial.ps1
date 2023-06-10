@@ -10,7 +10,7 @@
         ObjectType = 'Radial'
         Name       = $Name
         Value      = $Value
-        Color      = $Color
+        Color      = if ($Color) { ConvertFrom-Color -Color $Color } else { $null }
     }
 }
 
