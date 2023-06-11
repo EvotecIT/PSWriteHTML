@@ -550,7 +550,7 @@ $Script:Configuration = [ordered] @{
                 CssLink = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css'
                 Css     = "$PSScriptRoot\..\Resources\CSS\slick.min.css", "$PSScriptRoot\..\Resources\CSS\slick-theme.min.css"
                 JSLink  = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'
-                JS      = "$PSScriptRoot\..\Resources\JS\slick.min.css"
+                JS      = "$PSScriptRoot\..\Resources\JS\slick.min.js"
             }
             LicenseLink = 'https://github.com/kenwheeler/slick/blob/main/LICENSE'
             License     = 'MIT'
@@ -749,7 +749,7 @@ $Script:Configuration = [ordered] @{
             Comment         = 'Jquery'
             InternalComment = 'jquery'
             Header          = @{
-                JsLink = 'https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js' # 'https://code.jquery.com/jquery-3.5.1.min.js'
+                JsLink = 'https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js'
                 Js     = "$PSScriptRoot\..\Resources\JS\jquery.min.js"
             }
             LicenseLink     = 'https://github.com/jquery/jquery/blob/main/LICENSE.txt'
