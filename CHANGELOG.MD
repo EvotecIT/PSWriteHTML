@@ -4,6 +4,15 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.190
+- Rename CSS to JS fixing wrong name
+- Fix Color for `New-ChartPie`, `New-ChartRadial`
+- Jquery 3.6.3 to 3.7.0
+- Forces use of UTF8 for `Add-HTMLScript`, `Add-HTMLStyle` to fix issues with non-ASCII characters on PS 5.1
+- Fixes issue with `New-HTMLTable` sorting buttons in offline mode
+- Remove not needed functions
+- Removed images for DataTables as no longer nessecary
+
 ## 0.0.189 - 2023.05.26
 - Fixes AlphabetSearch
 
