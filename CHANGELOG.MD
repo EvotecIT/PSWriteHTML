@@ -4,7 +4,7 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-## 0.0.190
+## 0.0.190 - 2023.06.11
 - Rename CSS to JS fixing wrong name
 - Fix Color for `New-ChartPie`, `New-ChartRadial`
 - Jquery 3.6.3 to 3.7.0
