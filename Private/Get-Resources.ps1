@@ -14,17 +14,11 @@ function Get-Resources {
                 Add-HTMLStyle -Placement Inline -Resource $Script:CurrentConfiguration.Features.$Feature -Link $Script:CurrentConfiguration.Features.$Feature.$Location.'CssLink' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -AddComment:$AddComment
             } else {
                 $CSSOutput = Add-HTMLStyle -Placement Inline -Resource $Script:CurrentConfiguration.Features.$Feature -FilePath $Script:CurrentConfiguration.Features.$Feature.$Location.'Css' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -Replace $Script:CurrentConfiguration.Features.$Feature.CustomActionsReplace -AddComment:$AddComment
-                $Data = Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "../images/"
-                if ($Data) {
-                    $Data
-                }
+                $CSSOutput
                 # CssInLine is should always be processed
                 # But since Get-Resources is executed in both times we only add it to Offline section
                 $CSSOutput = Add-HTMLStyle -Placement Inline -Resource $Script:CurrentConfiguration.Features.$Feature -CssInline $Script:CurrentConfiguration.Features.$Feature.$Location.'CssInline' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -Replace $Script:CurrentConfiguration.Features.$Feature.CustomActionsReplace -AddComment:$AddComment
-                $Data = Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "../images/"
-                if ($Data) {
-                    $Data
-                }
+                $CSSOutput
             }
             if ($Online) {
                 $Data = Add-HTMLScript -Placement Inline -Resource $Script:CurrentConfiguration.Features.$Feature -Link $Script:CurrentConfiguration.Features.$Feature.$Location.'JsLink' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -AddComment:$AddComment
@@ -49,18 +43,12 @@ function Get-Resources {
                     } else {
                         $CSSOutput = Add-HTMLStyle -Placement Inline -Resource $Script:CurrentConfiguration.Features.$Feature -FilePath $Script:CurrentConfiguration.Features.$Feature.$Location.'CssNoScript' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -ReplaceData $Script:CurrentConfiguration.Features.$Feature.CustomActionsReplace -AddComment:$AddComment
                         if ($CSSOutput) {
-                            $Data = Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "../images/"
-                            if ($Data) {
-                                $Data
-                            }
+                            $CSSOutput
                         }
                         # CssInLine is should always be processed
                         $CSSOutput = Add-HTMLStyle -Placement Inline -Resource $Script:CurrentConfiguration.Features.$Feature -CssInline $Script:CurrentConfiguration.Features.$Feature.$Location.'CssInlineNoScript' -ResourceComment $Script:CurrentConfiguration.Features.$Feature.Comment -Replace $Script:CurrentConfiguration.Features.$Feature.CustomActionsReplace -AddComment:$AddComment
                         if ($CSSOutput) {
-                            $Data = Convert-StyleContent -CSS $CSSOutput -ImagesPath "$PSScriptRoot\..\Resources\Images\DataTables" -SearchPath "../images/"
-                            if ($Data) {
-                                $Data
-                            }
+                            $CSSOutput
                         }
                     }
                 )
