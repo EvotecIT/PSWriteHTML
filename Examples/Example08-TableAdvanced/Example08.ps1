@@ -34,7 +34,7 @@ New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example08.html -Show
                 New-HTMLTableHeader -Names 'Id' -BackGroundColor Blue -Color White
                 New-HTMLTableHeader -Names 'PriorityClass', 'FileVersion', 'HandleCount' -BackGroundColor Gold -Color White
                 New-HTMLTableHeader -BackGroundColor Green -Color White  -Title 'Full Title'
-                New-HTMLTableCondition -Name 'HandleCount' -ComparisonType number -Operator gt 500 -BackgroundColor Gray -Color White -Row
+                New-HTMLTableCondition -Name 'HandleCount' -ComparisonType number -Operator gt -Value 500 -BackgroundColor Gray -Color White -Row
             } -Filtering
         }
     }
