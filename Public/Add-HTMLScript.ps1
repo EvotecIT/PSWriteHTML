@@ -22,7 +22,7 @@ function Add-HTMLScript {
                 if (Test-Path -LiteralPath $File) {
                     # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
                     # Not really used anymore
-                    $FileContent = Get-Content -LiteralPath $File -Raw
+                    $FileContent = Get-Content -LiteralPath $File -Raw -Encoding UTF8
                     if ($null -ne $ReplaceData) {
                         foreach ($_ in $ReplaceData.Keys) {
                             $FileContent = $FileContent -replace $_, $ReplaceData[$_]

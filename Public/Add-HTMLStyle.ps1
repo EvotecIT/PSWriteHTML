@@ -24,7 +24,7 @@ function Add-HTMLStyle {
                 if (Test-Path -LiteralPath $File) {
                     Write-Verbose "Add-HTMLStyle - Reading file from $File"
                     # Replaces stuff based on $Script:CurrentConfiguration CustomActionReplace Entry
-                    $FileContent = Get-Content -LiteralPath $File -Raw
+                    $FileContent = Get-Content -LiteralPath $File -Raw -Encoding UTF8
                     if ($null -ne $ReplaceData) {
                         foreach ($_ in $ReplaceData.Keys) {
                             $FileContent = $FileContent -replace $_, $ReplaceData[$_]
