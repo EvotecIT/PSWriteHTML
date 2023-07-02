@@ -176,7 +176,7 @@ Function New-HTML {
     }
 
     # This makes sure we use always fresh copy
-    $Script:CurrentConfiguration = Copy-Dictionary -Dictionary $Script:Configuration
+    $Script:CurrentConfiguration = Get-DefaultParameters
     $Script:GlobalSchema = @{
         Features           = [ordered] @{ } # tracks features for CSS/JS implementation
         StorageInformation = @{

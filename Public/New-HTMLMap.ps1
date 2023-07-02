@@ -12,7 +12,7 @@
         [string] $StrokeColor,
         [nullable[int]] $StrokeWidth
     )
-    Enable-HTMLFeature -Feature Raphael, Mapael, Jquery, JQueryMouseWheel, "MapaelMaps_$Map" #-Configuration $Script:Configuration.Features
+    Enable-HTMLFeature -Feature Raphael, Mapael, Jquery, JQueryMouseWheel, "MapaelMaps_$Map"
     if (-not $AnchorName) {
         $AnchorName = "MapContainer$(Get-RandomStringName -Size 8)"
     }

@@ -13,7 +13,7 @@
     Provide hashtable with configuration of libraries
 
     .EXAMPLE
-    Enable-HTMLFeature -Feature Raphael, Mapael, Jquery, JQueryMouseWheel, "MapaelMaps_$Map" -Configuration $Script:Configuration
+    Enable-HTMLFeature -Feature Raphael, Mapael, Jquery, JQueryMouseWheel, "MapaelMaps_$Map"
 
     .NOTES
     General notes
