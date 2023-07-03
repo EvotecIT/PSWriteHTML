@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.191 - 2023.07.03
+- Fix to support PowerShell 7.4
+
 ## 0.0.190 - 2023.06.11
 - Rename CSS to JS fixing wrong name
 - Fix Color for `New-ChartPie`, `New-ChartRadial`
