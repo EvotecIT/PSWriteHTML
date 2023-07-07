@@ -998,6 +998,19 @@
                 Default = $true
                 Email   = $false
             }
+            DataTablesButtonsColVis     = @{
+                Comment = 'DataTables ColVis Features'
+                Header  = @{
+                    JsLink = @(
+                        "https://cdn.datatables.net/buttons/2.4.0/js/buttons.colVis.min.js"
+                    )
+                    JS     = @(
+                        "$PSScriptRoot\..\Resources\JS\dataTables.buttons.colVis.min.js"
+                    )
+                }
+                Default = $true
+                Email   = $false
+            }
             DataTablesConditions        = @{
                 Comment      = 'DataTables Conditions'
                 FooterAlways = @{
