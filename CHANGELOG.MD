@@ -4,6 +4,26 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 0.0.192
+- Add columnVisibility button to `New-HTMLTable`
+
+```powershell
+$DataTable = @(
+    [PSCustomObject] @{ 'Test.1' = 'Name'; 'Test 2 Another' = 'Name2'; 'Test..3' = 'Name3'; "Da't'es" = $Date; 'Numbers' = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ 'Test.1' = 'Name'; 'Test 2 Another' = 'Name2'; 'Test..3' = 'Name3'; "Da't'es" = $Date2; 'Numbers' = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ 'Test.1' = 'Przemysłąw'; 'Test 2 Another' = 'Name2'; 'Test..3' = 'Name3'; "Da't'es" = $Date3; 'Numbers' = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+    [PSCustomObject] @{ 'Test.1' = 'Kłys'; 'Test 2 Another' = 'Name2'; 'Test..3' = 'Name3'; "Da't'es" = $Date2; 'Numbers' = $Int; Enum = $Enum; EnumFruit = $EnumFruit; Bool = $false }
+)
+
+#$DataTable = Get-Process | Select-Object -First 30
+
+New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example-TableColumnVisibility.html -ShowHTML {
+    New-HTMLTable -DataTable $DataTable -Filtering -Buttons columnVisibility, csvHtml5, excelHtml5, pageLength, searchBuilder
+}
+```
+- Improve CSV output (UTF8 with BOM)
+- Added new options for `New-TableButtonCSV``
+
 ## 0.0.191 - 2023.07.04
 - Fix to support PowerShell 7.4
 
