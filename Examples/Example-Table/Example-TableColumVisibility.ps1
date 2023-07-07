@@ -9,6 +9,6 @@ $DataTable = @(
 
 #$DataTable = Get-Process | Select-Object -First 30
 
-New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example-TableMultiColumnLayout.html -ShowHTML {
-    New-HTMLTable -DataTable $DataTable -Filtering -Buttons columnVisibility, csvHtml5, excelHtml5, pageLength, searchBuilder -Fla
+New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example-TableColumnVisibility.html -ShowHTML {
+    New-HTMLTable -DataTable $DataTable -Filtering -Buttons columnVisibility, csvHtml5, excelHtml5, pageLength, searchBuilder
 }
