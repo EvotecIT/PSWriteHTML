@@ -7,7 +7,7 @@ function New-HTMLTable {
         [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
         [string] $Title,
-        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'print', 'searchPanes', 'searchBuilder')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchBuilder'),
+        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'print', 'searchPanes', 'searchBuilder', 'columnVisibility')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchBuilder'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
         [int] $PagingLength,
@@ -187,6 +187,8 @@ function New-HTMLTable {
                 } elseif ($Parameters.Type -eq 'TableButtonCopy') {
                     $CustomButtons.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableButtonSearchBuilder') {
+                    $CustomButtons.Add($Parameters.Output)
+                } elseif ($Parameters.Type -eq 'TableButtonColumnVisibility') {
                     $CustomButtons.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableCondition') {
                     $ConditionalFormatting.Add($Parameters.Output)
@@ -647,8 +649,15 @@ function New-HTMLTable {
                     } elseif ($button -eq 'csvHtml5') {
                         $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
                         $ButtonOutput = [ordered] @{
-                            extend = $button
-                            title  = $Title
+                            extend         = $button
+                            title          = $Title
+                            text           = 'CSV'
+                            charset        = 'utf-8'
+                            extension      = '.csv'
+                            fieldSeparator = ';'
+                            fieldBoundary  = ''
+                            #filename       = 'export'
+                            bom            = $true
                         }
                     } elseif ($button -eq 'searchPanes') {
                         $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
@@ -668,9 +677,18 @@ function New-HTMLTable {
                         $ButtonOutput = [ordered] @{
                             extend = $button
                             title  = $Title
-                            config = @{
-                                #depthLimit = 2
-                            }
+                            #config = @{
+                            #depthLimit = 2
+                            #}
+                        }
+                    } elseif ($button -eq 'columnVisibility') {
+                        $Script:HTMLSchema.Features.DataTablesButtonsColVis = $true
+                        $Script:HTMLSchema.Features.DataTablesButtonsColVis = $true
+                        $ButtonOutput = [ordered] @{
+                            extend           = 'colvis'
+                            title            = $Title
+                            collectionLayout = 'fixed columns'
+                            collectionTitle  = 'Column visibility control'
                         }
                     } else {
                         $ButtonOutput = [ordered] @{
