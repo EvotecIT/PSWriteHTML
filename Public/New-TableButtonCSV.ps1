@@ -7,11 +7,19 @@
         [string] $Extension = '.csv',
         [string] $FileName,
         [switch] $DisableBOM,
-        [string] $FieldSeparator = ';'
+        [string] $FieldSeparator = ';',
+        [string] $FieldBoundary = '"'
     )
     if (-not $Script:HTMLSchema['TableSimplify']) {
         $Script:HTMLSchema.Features.DataTablesButtons = $true
         $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
+    }
+    if ($FileName) {
+        $Split = $FileName.Split('.')
+        if ($Split.Count -gt 1) {
+            $Extension = '.' + $Split[-1]
+        }
+        $FileName = $Split[0]
     }
     $Output = [ordered]@{
         extend         = 'csvHtml5'
@@ -19,7 +27,7 @@
         charset        = 'utf-8'
         extension      = $Extension
         fieldSeparator = $FieldSeparator
-        fieldBoundary  = ''
+        fieldBoundary  = $FieldBoundary
         bom            = -not $DisableBOM.IsPresent
     }
     if ($FileName) {
