@@ -30,7 +30,7 @@ Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
         'Microsoft.PowerShell.Utility'
         # this is optional, and checked for existance in the source codes directly
         'PSParseHTML'
-    ) -IgnoreFunctionName 'Select-Unique'
+    ) -IgnoreFunctionName 'Select-Unique', 'Compare-TwoArrays' # those functions are internal within private function
 
     $ConfigurationFormat = [ordered] @{
         RemoveComments                              = $false
