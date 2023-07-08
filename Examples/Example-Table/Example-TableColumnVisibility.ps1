@@ -11,4 +11,9 @@ $DataTable = @(
 
 New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example-TableColumnVisibility.html -ShowHTML {
     New-HTMLTable -DataTable $DataTable -Filtering -Buttons columnVisibility, csvHtml5, excelHtml5, pageLength, searchBuilder
+
+    New-HTMLTable -DataTable $DataTable -Filtering -Buttons columnVisibility, csvHtml5, excelHtml5, pageLength, searchBuilder {
+        New-TableButtonCSV -Title 'My title' -ButtonName 'Export CSV' -FileName 'MyFile.csv' -DisableBOM -FieldBoundary "'"
+        New-TableButtonColumnVisibility -ButtonName 'Choose Columns' -CollectionLayout two-column -CollectionPosition dropdown
+    }
 }
