@@ -70,7 +70,7 @@
     [CmdletBinding()]
     param(
         [string] $Title,
-        [string] $DisplayName,
+        [alias('DisplayName')][string] $ButtonName,
         [string] $MessageBottom,
         [string] $MessageTop,
         [string] $FileName,
@@ -100,8 +100,8 @@
     if ($MessageTop) {
         $Button.messageTop = $MessageTop
     }
-    if ($DisplayName) {
-        $Button.text = $DisplayName
+    if ($ButtonName) {
+        $Button.text = $ButtonName
     }
     if ($Title) {
         $Button.title = $Title
