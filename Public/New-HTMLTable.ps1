@@ -687,8 +687,8 @@ function New-HTMLTable {
                         $ButtonOutput = [ordered] @{
                             extend           = 'colvis'
                             title            = $Title
-                            collectionLayout = 'fixed columns'
-                            collectionTitle  = 'Column visibility control'
+                            collectionLayout = 'dropdown columns'
+                            collectionTitle  = 'Visibility control'
                         }
                     } else {
                         $ButtonOutput = [ordered] @{
