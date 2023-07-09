@@ -20,7 +20,7 @@ Function Get-HTMLLogos {
         } else {
             "$PSScriptRoot\..\Resources\Images\Other"
         }
-        "$PSScriptRoot\..\Resources\Images\DataTables"
+        #"$PSScriptRoot\..\Resources\Images\DataTables"
     )
     $ImageFiles = Get-ChildItem -Path (Join-Path $LogoPath '\*') -Include *.jpg, *.png, *.bmp -Recurse
     foreach ($ImageFile in $ImageFiles) {
