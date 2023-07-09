@@ -1,14 +1,13 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-
-Import-Module .\PSWriteHTML.psd1 -Force
-
 New-HTML {
     New-HTMLSectionOption -RemoveShadow -BorderRadius 0px
+    New-HTMLTabPanelColor -BorderStyle dashed -AnchorDefaultPrimaryColor Grey -AnchorActivePrimaryColor LightGrey
+    New-HTMLWizardColor -AnchorDefaultPrimaryColor LightGrey -AnchorActivePrimaryColor Grey -AnchorDonePrimaryColor Aquamarine
     New-HTMLSection -HeaderText 'This is just to show what you can do' -HeaderBackGroundColor Grey {
-        New-HTMLTabPanel {
+        New-HTMLTabPanel -Theme basic {
             New-HTMLTab -Name 'Standard Top Level Tabs 1' -IconBrands 500px {
-                New-HTMLTabPanel -Orientation vertical {
+                New-HTMLTabPanel -Orientation vertical -Theme 'pills' {
                     New-HTMLTab -Name 'Standard Nested Level Tabs 2.1' -IconBrands 500px {
                         New-HTMLSection -Invisible {
                             New-HTMLSection -HeaderText 'My Section with nested tabs in section' {
