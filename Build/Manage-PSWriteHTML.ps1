@@ -4,7 +4,7 @@ Import-Module "C:\Support\GitHub\PSPublishModule\PSPublishModule.psd1" -Force
 Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
     # Usual defaults as per standard module
     $Manifest = [ordered] @{
-        ModuleVersion        = '0.0.X'
+        ModuleVersion        = '1.0.0'
         CompatiblePSEditions = @('Desktop', 'Core')
         GUID                 = 'a7bdf640-f5cb-4acf-9de0-365b322d245c'
         Author               = 'Przemyslaw Klys'
@@ -21,7 +21,7 @@ Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
 
     New-ConfigurationModule -Type RequiredModule -Name 'PSSharedGoods' -Guid Auto -Version Latest
     #New-ConfigurationModule -Type ExternalModule -Name 'Microsoft.PowerShell.Utility', 'Microsoft.PowerShell.Management','Microsoft.PowerShell.Security'
-    New-ConfigurationModule -Type ApprovedModule -Name 'PSSharedGoods', 'PSWriteColor', 'Connectimo', 'PSUnifi', 'PSWebToolbox', 'PSMyPassword', 'PSPublishModule'
+    New-ConfigurationModule -Type ApprovedModule -Name 'PSSharedGoods', 'PSWriteColor', 'Connectimo', 'PSUnifi', 'PSWebToolbox', 'PSMyPassword'
 
     New-ConfigurationModuleSkip -IgnoreModuleName @(
         # this are builtin into PowerShell, so not critical
