@@ -2,7 +2,7 @@
     [cmdletBinding()]
     param(
         [scriptblock] $MapSettings,
-        [parameter(Mandatory)][ValidateSet('poland', 'usa_states', 'world_countries')][string] $Map,
+        [parameter(Mandatory)][ValidateSet('Poland', 'Usa_States', 'World_Countries', 'European_Union')][string] $Map,
         [string] $AnchorName,
         [switch] $ShowAreaLegend,
         [string] $AreaTitle,
