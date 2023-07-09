@@ -88,6 +88,8 @@
                         }
                         '.main-section' = @{
                             'margin-top' = '0px'
+                            #'border-style' = 'solid'
+                            #'border-width' = '1px'
                         }
                         #'table'          = @{
                         #'font-size' = '8pt'
@@ -471,9 +473,9 @@
             AccordionFAQ                = @{
                 Comment      = 'Accordion FAQ'
                 Header       = @{
-                    CssLink = 'https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css'
+                    CssLink = 'https://unpkg.com/accordion-js@3.3.4/dist/accordion.min.css'
                     Css     = "$PSScriptRoot\..\Resources\CSS\accordion.min.css"
-                    JsLink  = 'https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.js'
+                    JsLink  = 'https://unpkg.com/accordion-js@3.3.4/dist/accordion.min.js'
                     JS      = "$PSScriptRoot\..\Resources\JS\accordion.min.js"
                 }
                 HeaderAlways = @{
@@ -616,7 +618,7 @@
                         'https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
                         'https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn' # You will need this only if you require timeline/rangebar charts
                         #'https://unpkg.com/canvg@3.0.4/lib/umd.js' # You will need this only if you require PNG download of your charts
-                        'https://cdn.jsdelivr.net/npm/apexcharts@3.36.0/dist/apexcharts.min.js'
+                        'https://cdn.jsdelivr.net/npm/apexcharts@3.41.0/dist/apexcharts.min.js'
                     )
                     JS     = @(
                         "$PSScriptRoot\..\Resources\JS\polyfill.min.js"
@@ -645,9 +647,9 @@
             ChartsOrg                   = [ordered] @{
                 Comment      = 'OrgChart'
                 Header       = @{
-                    CssLink = 'https://cdn.jsdelivr.net/npm/orgchart@3.1.4/dist/css/jquery.orgchart.min.css'
+                    CssLink = 'https://cdn.jsdelivr.net/npm/orgchart@3.8.0/dist/css/jquery.orgchart.min.css'
                     Css     = "$PSScriptRoot\..\Resources\CSS\jquery.orgchart.min.css"
-                    JsLink  = 'https://cdn.jsdelivr.net/npm/orgchart@3.1.4/dist/js/jquery.orgchart.min.js'
+                    JsLink  = 'https://cdn.jsdelivr.net/npm/orgchart@3.8.0/dist/js/jquery.orgchart.min.js'
                     Js      = "$PSScriptRoot\..\Resources\JS\jquery.orgchart.min.js"
                 }
                 HeaderAlways = [ordered] @{
@@ -767,33 +769,32 @@
                 Comment      = 'DataTables'
                 HeaderAlways = @{
                     CssInline   = @{
-                        #/* Added to make sure plus logo fits in */
-                        'td'                               = @{
-                            'height' = '14px'
-                        }
+                        # Added to make sure plus logo fits in
+                        #'td'                               = @{
+                        #    'height' = '14px'
+                        #}
                         #/* Button in Table - giving it some colors */
-                        <#
-                    'td.sorting_1::before'   = @{
-                        'background-color' = '#007bff !important'
-                    }
-                    'td::before'             = @{
-                        'background-color' = '#007bff !important'
-                    }
-                    #>
+                        #'td.sorting_1::before'             = @{
+                        #    'background-color' = '#007bff !important'
+                        #}
+                        #'td::before'                       = @{
+                        #    'background-color' = '#007bff !important'
+                        #}
                         'td::before, td.sorting_1::before' = @{
-                            'background-color' = '#007bff !important'
+                            #'background-color' = '#007bff !important'
+                            color = '#007bff !important'
                         }
                         # /* giving some spaces between tables being to close */
                         'div.dataTables_wrapper'           = @{
                             #    'padding' = '10px 10px 10px 10px'
                             'margin' = '5px';
                         }
-                        'button.dt-button'                 = @{
-                            #'font-size'     = '8pt !important'
-                            'color'         = 'blue !important'
-                            'border-radius' = '5px'
-                            'line-height'   = '1 !important'
-                        }
+                        #'button.dt-button'                 = @{
+                        #    #'font-size'     = '8pt !important'
+                        #    'color'         = 'blue !important'
+                        #    'border-radius' = '5px'
+                        #    'line-height'   = '1 !important'
+                        #}
                         #/* Filtering at the bottom */
                         'tfoot input'                      = @{
                             'width'      = '100%'
@@ -833,17 +834,17 @@
                 }
                 Header       = @{
                     CssLink = @(
-                        "https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"
-                        "https://cdn.datatables.net/select/1.6.2/css/select.dataTables.min.css"
+                        "https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css"
+                        "https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.jquery.min.css"
                         "$PSScriptRoot\..\Resources\CSS\dataTables.select.min.css"
                     )
                     JsLink  = @(
-                        "https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"
-                        "https://cdn.datatables.net/select/1.6.2/js/dataTables.select.min.js"
-                        "https://cdn.datatables.net/plug-ins/1.13.4/sorting/datetime-moment.js"
+                        "https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"
+                        "https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"
+                        "https://cdn.datatables.net/plug-ins/1.13.5/sorting/datetime-moment.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.jquery.min.js"
@@ -910,13 +911,13 @@
                 Comment = 'DataTables AutoFill Features'
                 Header  = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/autofill/2.5.3/js/dataTables.autoFill.min.js"
+                        "https://cdn.datatables.net/autofill/2.6.0/js/dataTables.autoFill.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.autoFill.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/autofill/2.5.3/css/autoFill.dataTables.min.css"
+                        "https://cdn.datatables.net/autofill/2.6.0/css/autoFill.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.autoFill.min.css"
@@ -929,13 +930,13 @@
                 Comment = 'DataTables Buttons Features'
                 Header  = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"
+                        "https://cdn.datatables.net/buttons/2.4.0/js/dataTables.buttons.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.buttons.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css"
+                        "https://cdn.datatables.net/buttons/2.4.0/css/buttons.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\datatables.buttons.min.css"
@@ -948,7 +949,7 @@
                 Comment = 'DataTables ButtonsHTML5 Features'
                 Header  = @{
                     JsLink = @(
-                        "https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"
+                        "https://cdn.datatables.net/buttons/2.4.0/js/buttons.html5.min.js"
                     )
                     JS     = @(
                         "$PSScriptRoot\..\Resources\JS\datatables.buttons.html5.min.js"
@@ -961,7 +962,7 @@
                 Comment = 'DataTables ButtonsPrint Features'
                 Header  = @{
                     JsLink = @(
-                        "https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"
+                        "https://cdn.datatables.net/buttons/2.4.0/js/buttons.print.min.js"
                     )
                     JS     = @(
                         "$PSScriptRoot\..\Resources\JS\datatables.buttons.print.min.js"
@@ -974,8 +975,8 @@
                 Comment = 'DataTables PDF Features'
                 Header  = @{
                     JsLink = @(
-                        'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js'
-                        'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js'
+                        'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js'
+                        'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js'
                     )
                     Js     = @(
                         "$PSScriptRoot\..\Resources\JS\pdfmake.min.js"
@@ -989,7 +990,7 @@
                 Comment = 'DataTables Excel Features'
                 Header  = @{
                     JsLink = @(
-                        'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'
+                        'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'
                     )
                     JS     = @(
                         "$PSScriptRoot\..\Resources\JS\jszip.min.js"
@@ -1025,13 +1026,13 @@
                 Comment = 'DataTables ColReorder Features'
                 Header  = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/colreorder/1.6.2/js/dataTables.colReorder.min.js"
+                        "https://cdn.datatables.net/colreorder/1.7.0/js/dataTables.colReorder.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.colReorder.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/colreorder/1.6.2/css/colReorder.dataTables.min.css"
+                        "https://cdn.datatables.net/colreorder/1.7.0/css/colReorder.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.colReorder.min.css"
@@ -1054,13 +1055,13 @@
                 Comment = 'DataTables Fixed Column Features'
                 Header  = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/fixedcolumns/4.2.2/js/dataTables.fixedColumns.min.js"
+                        "https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.fixedColumns.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.dataTables.min.css"
+                        "https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.fixedColumns.min.css"
@@ -1076,13 +1077,13 @@
                 }
                 Header       = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/fixedheader/3.3.2/js/dataTables.fixedHeader.min.js"
+                        "https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.fixedHeader.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/fixedheader/3.3.2/css/fixedHeader.dataTables.min.css"
+                        "https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.fixedHeader.min.css"
@@ -1095,13 +1096,13 @@
                 Comment = 'DataTables KeyTable Features'
                 Header  = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/keytable/2.8.2/js/dataTables.keyTable.min.js"
+                        "https://cdn.datatables.net/keytable/2.10.0/js/dataTables.keyTable.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.keyTable.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/keytable/2.8.2/css/keyTable.dataTables.min.css"
+                        "https://cdn.datatables.net/keytable/2.10.0/css/keyTable.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.keyTable.min.css"
@@ -1127,13 +1128,13 @@
                 Comment = 'DataTables Responsive Features'
                 Header  = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"
+                        "https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.responsive.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css"
+                        "https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.responsive.min.css"
@@ -1146,13 +1147,13 @@
                 Comment = 'DataTables RowGrouping Features'
                 Header  = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/rowgroup/1.3.1/js/dataTables.rowGroup.min.js"
+                        "https://cdn.datatables.net/rowgroup/1.4.0/js/dataTables.rowGroup.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.rowGroup.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/rowgroup/1.3.1/css/rowGroup.dataTables.min.css"
+                        "https://cdn.datatables.net/rowgroup/1.4.0/css/rowGroup.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.rowGroup.min.css"
@@ -1165,13 +1166,13 @@
                 Comment = 'DataTables RowReorder Features'
                 Header  = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/rowreorder/1.3.3/js/dataTables.rowReorder.min.js"
+                        "https://cdn.datatables.net/rowreorder/1.4.0/js/dataTables.rowReorder.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.rowReorder.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/rowreorder/1.3.3/css/rowReorder.dataTables.min.css"
+                        "https://cdn.datatables.net/rowreorder/1.4.0/css/rowReorder.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.rowReorder.min.css"
@@ -1184,16 +1185,35 @@
                 Comment = 'DataTables Scroller Features'
                 Header  = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/scroller/2.1.1/js/dataTables.scroller.min.js"
+                        "https://cdn.datatables.net/scroller/2.2.0/js/dataTables.scroller.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.scroller.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/scroller/2.1.1/css/scroller.dataTables.min.css"
+                        "https://cdn.datatables.net/scroller/2.2.0/css/scroller.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.scroller.min.css"
+                    )
+                }
+                Default = $true
+                Email   = $false
+            }
+            DataTablesStateRestore      = @{
+                Comment = 'DataTables State Restore Features'
+                Header  = @{
+                    JsLink  = @(
+                        "https://cdn.datatables.net/staterestore/1.3.0/js/dataTables.stateRestore.min.js"
+                    )
+                    JS      = @(
+                        "$PSScriptRoot\..\Resources\JS\dataTables.stateRestore.min.js"
+                    )
+                    CssLink = @(
+                        "https://cdn.datatables.net/staterestore/1.3.0/css/stateRestore.dataTables.min.css"
+                    )
+                    Css     = @(
+                        "$PSScriptRoot\..\Resources\CSS\dataTables.stateRestore.min.css"
                     )
                 }
                 Default = $true
@@ -1203,13 +1223,13 @@
                 Comment = 'DataTables DateTime Features'
                 Header  = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/datetime/1.4.0/js/dataTables.dateTime.min.js"
+                        "https://cdn.datatables.net/datetime/1.5.0/js/dataTables.dateTime.min.js"
                     )
                     JS      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.dateTime.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/datetime/1.4.0/css/dataTables.dateTime.min.css"
+                        "https://cdn.datatables.net/datetime/1.5.0/css/dataTables.dateTime.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.dateTime.css"
@@ -1224,11 +1244,11 @@
                 Update  = $true
                 Header  = @{
                     #JSLinkOriginal  = "https://cdn.datatables.net/searchbuilder/1.4.2/js/dataTables.searchBuilder.js"
-                    JSLink  = "https://cdn.datatables.net/searchbuilder/1.4.2/js/dataTables.searchBuilder.js"
+                    JSLink  = "https://cdn.datatables.net/searchbuilder/1.5.0/js/dataTables.searchBuilder.min.js"
                     #JsLink          = "$($ConfigurationURL)/JS/dataTables.searchBuilder.min.js" # "https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"
                     JS      = "$PSScriptRoot\..\Resources\JS\dataTables.searchBuilder.js"
                     #CssLinkOriginal = 'https://cdn.datatables.net/searchbuilder/1.4.2/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
-                    CssLink = 'https://cdn.datatables.net/searchbuilder/1.4.2/css/searchBuilder.dataTables.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
+                    CssLink = 'https://cdn.datatables.net/searchbuilder/1.5.0/css/searchBuilder.dataTables.min.css' # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
                     #CssLink         = "$($ConfigurationURL)/CSS/dataTables.searchBuilder.min.css" # 'https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css'
                     Css     = "$PSScriptRoot\..\Resources\CSS\dataTables.searchBuilder.css"
                 }
@@ -1284,13 +1304,13 @@
                 Comment      = 'DataTables Search Panes Features'
                 Header       = @{
                     JsLink  = @(
-                        "https://cdn.datatables.net/searchpanes/2.1.2/js/dataTables.searchPanes.min.js"
+                        "https://cdn.datatables.net/searchpanes/2.2.0/js/dataTables.searchPanes.min.js"
                     )
                     Js      = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.searchPanes.min.js"
                     )
                     CssLink = @(
-                        "https://cdn.datatables.net/searchpanes/2.1.2/css/searchPanes.dataTables.min.css"
+                        "https://cdn.datatables.net/searchpanes/2.2.0/css/searchPanes.dataTables.min.css"
                     )
                     Css     = @(
                         "$PSScriptRoot\..\Resources\CSS\dataTables.searchPanes.min.css"
@@ -1335,9 +1355,9 @@
             DataTablesSelect            = @{
                 Comment = 'DataTables Select'
                 Header  = @{
-                    JsLink  = "https://cdn.datatables.net/select/1.6.2/js/dataTables.select.js"
+                    JsLink  = "https://cdn.datatables.net/select/1.7.0/js/dataTables.select.js"
                     JS      = "$PSScriptRoot\..\Resources\JS\dataTables.select.min.js"
-                    CSSLink = 'https://cdn.datatables.net/select/1.6.2/css/select.dataTables.min.css'
+                    CSSLink = 'https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css'
                     CSS     = "$PSScriptRoot\..\Resources\CSS\select.dataTables.min.css"
                 }
                 Default = $true
@@ -1389,7 +1409,7 @@
                     JsInLine  = "var calendarTracker = {};"
                 }
                 Header       = @{
-                    JSLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/index.global.min.js'
+                    JSLink = 'https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'
                     JS     = "$PSScriptRoot\..\Resources\JS\fullCalendar.js"
                 }
                 Default      = $true
@@ -1779,6 +1799,28 @@
                 Default     = $true
                 Email       = $false
             }
+            TabsInlineColor             = @{
+                Comment      = 'Tabs Inline Color'
+                HeaderAlways = [ordered]@{
+                    CssInline = [ordered]@{
+                        ':root' = [ordered]@{
+                            # '--st-background'                      = 'unset'
+                            # '--st-border'                          = '1px solid #eeeeee'
+                            # '--st-anchor-default-primary-color'    = '#f8f9fa'
+                            # '--st-anchor-default-secondary-color'  = '#b0b0b1'
+                            # '--st-anchor-active-primary-color'     = '#009EF7'
+                            # '--st-anchor-active-secondary-color'   = '#ffffff'
+                            # '--st-anchor-disabled-primary-color'   = '#f8f9fa'
+                            # '--st-anchor-disabled-secondary-color' = '#dbe0e5'
+                            # '--st-loader-color'                    = '#009EF7'
+                            # '--st-loader-background-color'         = '#f8f9fa'
+                            # '--st-loader-background-wrapper-color' = 'rgba(255, 255, 255, 0.7)'
+                        }
+                    }
+                }
+                Default      = $true
+                Email        = $false
+            }
             TimeLine                    = @{
                 Comment      = 'Timeline Simple'
                 HeaderAlways = @{
@@ -1806,7 +1848,7 @@
             VisData                     = [ordered]@{
                 Header  = @{
                     # https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js
-                    JsLink = 'https://cdn.jsdelivr.net/npm/vis-data@7.1.2/peer/umd/vis-data.min.js'
+                    JsLink = 'https://cdn.jsdelivr.net/npm/vis-data@7.1.6/peer/umd/vis-data.min.js'
                     Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
                 }
                 Default = $true
@@ -1834,9 +1876,9 @@
                 Header       = @{
                     # https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js
                     # https://unpkg.com/vis-network/styles/vis-network.min.css
-                    JsLink  = 'https://cdn.jsdelivr.net/npm/vis-network@9.1.2/peer/umd/vis-network.min.js'
+                    JsLink  = 'https://cdn.jsdelivr.net/npm/vis-network@9.1.6/peer/umd/vis-network.min.js'
                     Js      = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
-                    CssLink = 'https://cdn.jsdelivr.net/npm/vis-network@9.1.2/styles/vis-network.min.css'
+                    CssLink = 'https://cdn.jsdelivr.net/npm/vis-network@9.1.6/styles/vis-network.min.css'
                     Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
                 }
                 Default      = $true
@@ -1925,10 +1967,10 @@
                 }
                 Header       = @{
                     # https://unpkg.com/vis-timeline@latest/peer/umd/vis-timeline-graph2d.min.js
-                    JsLink  = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.7.0/peer/umd/vis-timeline-graph2d.min.js'
+                    JsLink  = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.7.2/peer/umd/vis-timeline-graph2d.min.js'
                     Js      = "$PSScriptRoot\..\Resources\JS\vis-timeline-graph2d.min.js"
                     Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
-                    CssLink = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.7.0/dist/vis-timeline-graph2d.min.css'
+                    CssLink = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.7.2/dist/vis-timeline-graph2d.min.css'
                 }
                 LicenseLink  = 'https://github.com/visjs/vis-timeline/blob/master/LICENSE.md'
                 License      = 'MIT and Apache 2.0'
@@ -1978,16 +2020,47 @@
                 License      = 'MIT'
                 SourceCodes  = 'https://github.com/techlab/jquery-smartwizard'
             }
+            WizardColor                 = @{
+                Comment      = 'Wizard Color'
+                HeaderAlways = [ordered]@{
+                    CssInline = [ordered]@{
+                        ':root' = [ordered] @{
+                            # '-sw-border-color'                    = '#eeeeee'
+                            # '-sw-toolbar-btn-color'               = '#ffffff'
+                            # '-sw-toolbar-btn-background-color'    = '#009EF7'
+                            # '-sw-anchor-default-primary-color'    = '#f8f9fa'
+                            # '-sw-anchor-default-secondary-color'  = '#b0b0b1'
+                            # '-sw-anchor-active-primary-color'     = '#009EF7'
+                            # '-sw-anchor-active-secondary-color'   = '#ffffff'
+                            # '-sw-anchor-done-primary-color'       = '#90d4fa'
+                            # '-sw-anchor-done-secondary-color'     = '#fefefe'
+                            # '-sw-anchor-disabled-primary-color'   = '#f8f9fa'
+                            # '-sw-anchor-disabled-secondary-color' = '#dbe0e5'
+                            # '-sw-anchor-error-primary-color'      = '#dc3545'
+                            # '-sw-anchor-error-secondary-color'    = '#ffffff'
+                            # '-sw-anchor-warning-primary-color'    = '#ffc107'
+                            # '-sw-anchor-warning-secondary-color'  = '#ffffff'
+                            # '-sw-progress-color'                  = '#009EF7'
+                            # '-sw-progress-background-color'       = '#f8f9fa'
+                            # '-sw-loader-color'                    = '#009EF7'
+                            # '-sw-loader-background-color'         = '#f8f9fa'
+                            # '-sw-loader-background-wrapper-color' = 'rgba(255, 255, 255, 0.7)'
+                        }
+                    }
+                }
+                Default      = $true
+                Email        = $false
+            }
             WinBox                      = [ordered] @{
                 Comment      = 'WinBox'
                 Demos        = 'http://techlaboratory.net/jquery-smartwizard'
                 Header       = @{
-                    JsLink  = 'https://cdn.jsdelivr.net/npm/winbox@0.2.6/dist/js/winbox.min.js'
+                    JsLink  = 'https://cdn.jsdelivr.net/npm/winbox@0.2.73/dist/js/winbox.min.js'
                     Js      = "$PSScriptRoot\..\Resources\JS\winbox.min.js"
                     CssLink = @(
-                        "https://cdn.jsdelivr.net/npm/winbox@0.2.6/dist/css/winbox.min.css"
-                        'https://cdn.jsdelivr.net/npm/winbox@0.2.6/dist/css/themes/modern.min.css'
-                        'https://cdn.jsdelivr.net/npm/winbox@0.2.6/dist/css/themes/white.min.css'
+                        "https://cdn.jsdelivr.net/npm/winbox@0.2.73/dist/css/winbox.min.css"
+                        'https://cdn.jsdelivr.net/npm/winbox@0.2.73/dist/css/themes/modern.min.css'
+                        'https://cdn.jsdelivr.net/npm/winbox@0.2.73/dist/css/themes/white.min.css'
                     )
                     Css     = "$PSScriptRoot\..\Resources\CSS\winbox.min.css", "$PSScriptRoot\..\Resources\CSS\winbox.modern.min.css", "$PSScriptRoot\..\Resources\CSS\winbox.white.min.css"
                 }
@@ -2045,6 +2118,15 @@
                 LicenseLink  = 'https://github.com/neveldo/jQuery-Mapael/blob/master/LICENSE'
                 Default      = $true
                 Email        = $false
+            }
+            MapaelMaps_European_Union   = @{
+                Internal = $true
+                Header   = @{
+                    JSLink = "$($ConfigurationURL)/Maps/european_union/european_union.js"
+                    JS     = "$PSScriptRoot\..\Resources\Maps\european_union\european_union.js"
+                }
+                Default  = $true
+                Email    = $false
             }
             MapaelMaps_Poland           = @{
                 Internal = $true
