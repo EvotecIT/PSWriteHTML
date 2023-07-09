@@ -14,4 +14,9 @@ New-HTML {
             New-HTMLMap -Map world_countries
         }
     }
+    New-HTMLSection -Invisible {
+        New-HTMLPanel {
+            New-HTMLMap -Map European_Union
+        }
+    }
 } -ShowHTML -Online -FilePath $PSScriptRoot\Example-Maps.html
