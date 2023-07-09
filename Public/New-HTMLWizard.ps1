@@ -67,7 +67,7 @@
     [cmdletBinding()]
     param(
         [scriptblock] $WizardSteps,
-        [ValidateSet('default', 'arrows', 'dots', 'progress')][string] $Theme,
+        [ValidateSet('basic', 'arrows', 'square', 'round', 'dots')][string] $Theme,
         [switch] $DisableCycleSteps,
 
         [ValidateSet('bottom', 'top', 'both', 'none')][string] $ToolbarPosition,
