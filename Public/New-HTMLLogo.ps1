@@ -10,16 +10,7 @@ function New-HTMLLogo {
     )
     $Script:HTMLSchema.Features.MainImage = $true
 
-    Write-Warning "New-HTMLLogo - This function is deprecated. If you're using it consider letting me know on https://github.com/evotecit/PSWriteHTML"
-    Write-Warning "New-HTMLLogo - There will be replacement for this sooner or later."
-
-    $LogoSources = Get-HTMLLogos `
-        -RightLogoName $RightLogoName `
-        -LeftLogoName $LeftLogoName  `
-        -LeftLogoString $LeftLogoString `
-        -RightLogoString $RightLogoString
-
-    #Convert-StyleContent1 -Options $Options
+    $LogoSources = Get-HTMLLogos -RightLogoName $RightLogoName -LeftLogoName $LeftLogoName -LeftLogoString $LeftLogoString -RightLogoString $RightLogoString
 
     $Options = [PSCustomObject] @{
         Logos        = $LogoSources
