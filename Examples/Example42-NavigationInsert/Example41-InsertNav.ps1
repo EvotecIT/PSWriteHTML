@@ -2,6 +2,8 @@
 
 $Files = Get-ChildItem -LiteralPath $PSScriptRoot\pages
 
+# not a working example
+
 $Navitation = New-HTMLNavTop -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' -LogoLinkHome {
     New-NavTopMenu -Name 'Domains' -IconRegular address-book {
         New-NavLink -IconMaterial airplane -Name 'This is internal link 1' -InternalPageID 'Page 1'
