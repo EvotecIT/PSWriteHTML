@@ -1,5 +1,5 @@
 ﻿Clear-Host
-Import-Module "C:\Support\GitHub\PSPublishModule\PSPublishModule.psd1" -Force
+Import-Module "PSPublishModule" -Force
 
 Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
     # Usual defaults as per standard module
