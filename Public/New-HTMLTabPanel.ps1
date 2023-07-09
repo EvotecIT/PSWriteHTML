@@ -52,7 +52,8 @@
         [int] $TransitionSpeed,
         [switch] $AutoProgress,
         [int] $AutoProgressInterval,
-        [switch] $DisableAutoProgressStopOnFocus
+        [switch] $DisableAutoProgressStopOnFocus,
+        [ValidateSet('basic', 'elite', 'pills', 'brick', 'forge', 'blocks')] $Theme = 'basic'
     )
     $Script:HTMLSchema.Features.JQuery = $true
     $Script:HTMLSchema.Features.TabsInline = $true
@@ -88,6 +89,7 @@
             $SmartTab = [ordered] @{
                 orientation      = $Orientation
                 autoAdjustHeight = $false # this fights with Flex
+                theme            = $Theme.ToLower()
             }
             if ($TransitionAnimation) {
                 $SmartTab['transition'] = [ordered] @{}
