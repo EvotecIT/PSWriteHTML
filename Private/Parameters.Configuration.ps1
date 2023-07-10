@@ -807,6 +807,9 @@
                             'padding'    = '-3px'
                             'box-sizing' = 'border-box'
                         }
+                        'td:first-child'                   = @{
+                            'white-space' = 'nowrap'
+                        }
                         #'tr:nth-of-type(odd)'  = @{
                         #'background-color' = '#F6F6F5'
                         #'background-color' = 'green'
