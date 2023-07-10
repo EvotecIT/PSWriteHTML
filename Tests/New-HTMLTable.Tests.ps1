@@ -4,7 +4,10 @@
         $Process = Get-Process | Select-Object -First 5
         New-HTML {
             New-HTMLTable -DataTable $Process -HideFooter
-        } -FilePath $FilePath
+        } -FilePath $FilePath -WarningVariable warnings
+
+        $Warnings | Should -BeNullOrEmpty
+
         $Content = Get-Content -Path $FilePath -Raw
         $TableOutput = ConvertFrom-HtmlTable -Content $Content
         for ($i = 0; $i -lt $TableOutput.Count; $i++) {
@@ -30,7 +33,10 @@
         )
         New-HTML {
             New-HTMLTable -DataTable $Process -HideFooter
-        } -FilePath $FilePath
+        } -FilePath $FilePath -WarningVariable warnings
+
+        $Warnings | Should -BeNullOrEmpty
+
         $Content = Get-Content -Path $FilePath -Raw
         $TableOutput = ConvertFrom-HtmlTable -Content $Content
         for ($i = 0; $i -lt $TableOutput.Count; $i++) {
@@ -42,8 +48,8 @@
         $GroupedNames = $TableOutput.Name | Group-Object
         $GroupedValues = $TableOutput.Value | Group-Object
 
-        $GroupedNames.Count | Should -be 2
-        $GroupedValues.Count | Should -be 4
+        $GroupedNames.Count | Should -Be 2
+        $GroupedValues.Count | Should -Be 4
 
         $TableOutput[3].Name | Should -BeIn 'Test', 'Test2'
         $TableOutput[3].Value | Should -BeIn 'Test3', 'Test4', 'Test1', 'Test2'
@@ -65,7 +71,10 @@
         )
         New-HTML {
             New-HTMLTable -DataTable $Process -HideFooter
-        } -FilePath $FilePath
+        } -FilePath $FilePath -WarningVariable warnings
+
+        $Warnings | Should -BeNullOrEmpty
+
         $Content = Get-Content -Path $FilePath -Raw
         $TableOutput = ConvertFrom-HtmlTable -Content $Content
         for ($i = 0; $i -lt $TableOutput.Count; $i++) {
@@ -93,7 +102,10 @@
         }
         New-HTML {
             New-HTMLTable -DataTable $Process -HideFooter
-        } -FilePath $FilePath
+        } -FilePath $FilePath -WarningVariable warnings
+
+        $Warnings | Should -BeNullOrEmpty
+
         $Content = Get-Content -Path $FilePath -Raw
         $TableOutput = ConvertFrom-HtmlTable -Content $Content
         for ($i = 0; $i -lt $TableOutput.Count; $i++) {
@@ -118,7 +130,10 @@
         }
         New-HTML {
             New-HTMLTable -DataTable $Process -HideFooter
-        } -FilePath $FilePath
+        } -FilePath $FilePath -WarningVariable warnings
+
+        $Warnings | Should -BeNullOrEmpty
+
         $Content = Get-Content -Path $FilePath -Raw
         $TableOutput = ConvertFrom-HtmlTable -Content $Content
         for ($i = 0; $i -lt $TableOutput.Count; $i++) {
@@ -136,7 +151,7 @@
     }
     It 'Given New-HTMLTable with Null values it shouldnt throw' {
         $FilePath = "$PSScriptRoot\TemporaryTest.html"
-        $Output = for($i = 0;$i -le 10; $i++) {
+        $Output = for ($i = 0; $i -le 10; $i++) {
             $null
         }
         New-HTML {

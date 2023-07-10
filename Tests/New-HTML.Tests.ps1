@@ -3,7 +3,10 @@
         $FilePath = "$PSScriptRoot\TemporaryTest.html"
         New-HTML {
 
-        } -FilePath $FilePath
+        } -FilePath $FilePath -WarningVariable warnings
+
+        $Warnings | Should -BeNullOrEmpty
+
         $PathExists = Test-Path -LiteralPath $FilePath
         $PathExists | Should -Be $True
         if ($PathExists) {
