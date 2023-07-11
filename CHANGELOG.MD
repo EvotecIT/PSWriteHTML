@@ -4,6 +4,10 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.0.1
+- Fixes `PSWriteHTML` published module
+- Adds tests before publishing to prevent similar issue
+
 ## 1.0.0
 - This release is first release of PSWriteHTML that is considered stable. It's been in development for over 2 years, but it's time to say it's stable.
 - Add columnVisibility button to `New-HTMLTable`
