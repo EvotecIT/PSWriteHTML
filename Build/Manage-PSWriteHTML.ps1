@@ -5,7 +5,7 @@ Import-Module "PSPublishModule" -Force
 Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
     # Usual defaults as per standard module
     $Manifest = [ordered] @{
-        ModuleVersion        = '1.0.0'
+        ModuleVersion        = '1.X.0'
         CompatiblePSEditions = @('Desktop', 'Core')
         GUID                 = 'a7bdf640-f5cb-4acf-9de0-365b322d245c'
         Author               = 'Przemyslaw Klys'
