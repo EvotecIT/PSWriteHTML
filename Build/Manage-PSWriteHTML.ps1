@@ -1,5 +1,6 @@
 ﻿Clear-Host
 Import-Module "PSPublishModule" -Force
+#Import-Module C:\Support\GitHub\PSPublishModule\PSPublishModule.psd1 -Force
 
 Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
     # Usual defaults as per standard module
@@ -77,6 +78,8 @@ Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
     New-ConfigurationImportModule -ImportSelf
 
     New-ConfigurationBuild -Enable:$true -SignModule -MergeModuleOnBuild -MergeFunctionsFromApprovedModules -CertificateThumbprint '483292C9E317AA13B07BB7A96AE9D1A5ED9E7703'
+
+    New-ConfigurationTest -TestsPath "$PSScriptRoot\..\Tests" -Enable
 
     New-ConfigurationArtefact -Type Unpacked -Enable -Path "$PSScriptRoot\..\Artefacts\Unpacked"
     New-ConfigurationArtefact -Type Packed -Enable -Path "$PSScriptRoot\..\Artefacts\Packed" -ArtefactName '<ModuleName>.v<ModuleVersion>.zip'
