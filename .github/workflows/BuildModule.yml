@@ -41,7 +41,8 @@ jobs:
 
       - name: Test with Pester
         shell: pwsh
-        run: Invoke-Pester -Script .\Tests -Passthru | Export-CliXml -Path PesterTestResultsBeforeBuild.xml
+        run: .\PSWriteHTML.Tests.ps1
+        #Invoke-Pester -Script .\Tests -Passthru | Export-CliXml -Path PesterTestResultsBeforeBuild.xml
 
       - name: Upload test results
         uses: actions/upload-artifact@v3
@@ -52,3 +53,4 @@ jobs:
       - name: Build Module
         shell: pwsh
         run: .\Build\BuildModule.ps1
+        if: ${{ always() }}
