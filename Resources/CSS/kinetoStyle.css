@@ -6,16 +6,12 @@
 
 .slide {
     width: 100%;
-    /*
-    height: 300px;
-    */
+    /* height: 300px; */
     box-sizing: -box;
-    /*
-    background-color: rgb(52, 73, 85);
-    */
+    /* background-color: rgb(52, 73, 85); */
     line-height: 1.15em;
-    font-size: 3rem;
-    text-align: center;
+    /* font-size: 3rem; */
+    /* text-align: center; */
     /* transition: background-color .3s; */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -28,22 +24,27 @@
     align-items: center;
 }
 
-.slide::before, .slide::after, .slide .count {
+.slide::before,
+.slide::after,
+.slide .count {
     display: inline-block;
     vertical-align: middle;
 }
 
-.slide::before, .slide::after {
+.slide::before,
+.slide::after {
     content: '';
     width: 1px;
     height: 100%;
 }
 
-.carousel [tabindex]:focus, .carousel button:focus {
+.carousel [tabindex]:focus,
+.carousel button:focus {
     outline: 0;
 }
 
-.carousel [tabindex='0']:focus, .carousel button:focus {
+.carousel [tabindex='0']:focus,
+.carousel button:focus {
     box-shadow: inset 0 0 0 2px rgba(249, 170, 51, 0.6);
 }
 
@@ -52,7 +53,8 @@
     font-size: 1.8rem;
 }
 
-.kineto .kineto__frame, .kineto .kineto-frame {
+.kineto .kineto__frame,
+.kineto .kineto-frame {
     /*
     color: rgb(249, 170, 51);
     background-color: rgb(74, 101, 114);
@@ -60,13 +62,13 @@
     transition: height 0.25s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.kineto .kineto__slide--active, .kineto .kineto-slide.kineto-active {
-    /*
-    background-color: rgb(35, 47, 52);
-    */
+.kineto .kineto__slide--active,
+.kineto .kineto-slide.kineto-active {
+    /* background-color: rgb(35, 47, 52); */
 }
 
-.kineto .kineto__arrow__button, .kineto .kineto-arrow-button {
+.kineto .kineto__arrow__button,
+.kineto .kineto-arrow-button {
     position: absolute;
     top: 50%;
     color: rgb(249, 170, 51);
@@ -74,49 +76,58 @@
     transition: opacity 0.3s;
 }
 
-.kineto .kineto__arrow__button--previous, .kineto .kineto-previous {
+.kineto .kineto__arrow__button--previous,
+.kineto .kineto-previous {
     left: 1%;
 }
 
-.kineto .kineto__arrow__button--next, .kineto .kineto-next {
+.kineto .kineto__arrow__button--next,
+.kineto .kineto-next {
     right: 1%;
 }
 
-.kineto .kineto__pagination, .kineto .kineto-pagination {
-    position: absolute;
+.kineto .kineto__pagination,
+.kineto .kineto-pagination {
+    /* position: absolute; */
     right: 0;
     bottom: 20px;
     left: 0;
     color: rgb(249, 170, 51);
 }
 
-.kineto .kineto__pagination__button, .kineto .kineto-pagination-button {
+.kineto .kineto__pagination__button,
+.kineto .kineto-pagination-button {
     border-radius: 100%;
     transition: opacity 0.3s;
 }
 
-.kineto .kineto__pagination__button--active, .kineto .kineto-pagination-button.kineto-active {
+.kineto .kineto__pagination__button--active,
+.kineto .kineto-pagination-button.kineto-active {
     font-weight: 700;
 }
 
-.kineto .kineto__count, .kineto .kineto-count {
+.kineto .kineto__count,
+.kineto .kineto-count {
     position: absolute;
     top: 10px;
     right: 15px;
     color: rgb(249, 170, 51, 0.4);
 }
 
-.kineto .kineto__count .current, .kineto .kineto-count .current {
+.kineto .kineto__count .current,
+.kineto .kineto-count .current {
     color: rgb(249, 170, 51);
     font-size: 1.2rem;
     font-style: normal;
 }
 
-#navigation .kineto__arrow__button, #navigation .kineto-arrow-button {
+#navigation .kineto__arrow__button,
+#navigation .kineto-arrow-button {
     font-size: 1.2rem;
 }
 
-#navigation .kineto__pagination__button, #navigation .kineto-pagination-button {
+#navigation .kineto__pagination__button,
+#navigation .kineto-pagination-button {
     width: auto;
     height: auto;
     background: transparent;
