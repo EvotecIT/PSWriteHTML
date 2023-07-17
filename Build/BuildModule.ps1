@@ -1,4 +1,4 @@
-﻿Clear-Host
+﻿#Clear-Host
 Import-Module "PSPublishModule" -Force
 #Import-Module C:\Support\GitHub\PSPublishModule\PSPublishModule.psd1 -Force
 
