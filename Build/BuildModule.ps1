@@ -81,7 +81,7 @@ Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
 
     New-ConfigurationTest -TestsPath "$PSScriptRoot\..\Tests" -Enable
 
-    New-ConfigurationArtefact -Type Unpacked -Enable -Path "$PSScriptRoot\..\Artefacts\Unpacked"
+    New-ConfigurationArtefact -Type Unpacked -Enable -Path "$PSScriptRoot\..\Artefacts\Unpacked" -AddRequiredModules
     New-ConfigurationArtefact -Type Packed -Enable -Path "$PSScriptRoot\..\Artefacts\Packed" -ArtefactName '<ModuleName>.v<ModuleVersion>.zip'
 
     # options for publishing to github/psgallery
