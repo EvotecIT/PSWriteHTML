@@ -5,7 +5,7 @@ Unfortunetly some code is very old, some code doesn't serve it's purpose anymore
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 ## 1.1.0
-- Improve `New-HTMLCarousel`
+- Improve `New-HTMLCarousel` (WIP)
 
 ## 1.0.192
 - Fixes `PSWriteHTML` published module
