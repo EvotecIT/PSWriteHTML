@@ -63,7 +63,7 @@
     }
     Remove-EmptyValue -Hashtable $StyleNodeInformation -Recursive -Rerun 2
     if ($StyleNodeInformation) {
-        Add-HTMLStyle -Placement Header -Css $StyleNodeInformation -SkipTags
+        Add-HTMLStyle -Placement Header -Css $StyleNodeInformation #-SkipTags
     }
     $ChartNode = [ordered] @{
         name      = $Name
