@@ -1,7 +1,7 @@
 ﻿function New-HTMLTree {
     [CmdletBinding()]
     param(
-        [scriptblock] $Nodes,
+        [scriptblock] $Data,
         [ValidateSet('none', 'checkbox', 'radio')][string] $Checkbox = 'none',
         [ValidateSet('none', '1', '2', '3')] $SelectMode = '2',
         [switch] $DisableIcons,
@@ -11,7 +11,8 @@
         [switch] $AutoScroll,
         [switch] $EnableQuickSearch,
         [switch] $EnableChildCounter,
-        [switch] $WideSelection
+        [switch] $WideSelection,
+        [nullable[int]] $MinimumExpandLevel
     )
     $Script:HTMLSchema.Features.MainFlex = $true
     $Script:HTMLSchema.Features.Jquery = $true
@@ -19,13 +20,29 @@
 
     [string] $ID = "FancyTree" + (Get-RandomStringName -Size 8)
 
+    if ($Data) {
+        [Array] $Source = & $Data
+    }
+
+    $ChildCounter = [ordered] @{}
+    $Nodes = [System.Collections.Generic.List[object]]::new()
+    if ($Source.Count -gt 0) {
+        foreach ($S in $Source) {
+            if ($S.Type -eq 'TreeNode') {
+                $Nodes.Add($S.Node)
+            } elseif ($S.Type -eq 'ChildCounter') {
+                $ChildCounter = $S.childcounter
+            }
+        }
+    }
+
     # https://wwwendt.de/tech/fancytree/doc/jsdoc/global.html#FancytreeOptions
     $FancyTree = [ordered] @{}
 
     $FancyTree['extensions'] = @(
         "edit"
         "filter"
-        if ($EnableChildCounter.IsPresent) {
+        if ($EnableChildCounter.IsPresent -or $ChildCounter.Count -gt 0) {
             "childcounter"
         }
         if ($WideSelection) {
@@ -71,10 +88,14 @@
         # Navigate to next node by typing the first letters
         $FancyTree['quicksearch'] = $true
     }
-
-    [Array] $Source = & $Nodes
-    if ($Source.Count -gt 0) {
-        $FancyTree['source'] = $Source
+    if ($ChildCounter.Count -gt 0) {
+        $FancyTree['childcounter'] = $ChildCounter
+    }
+    if ($MinimumExpandLevel) {
+        $FancyTree['minExpandLevel'] = $MinimumExpandLevel
+    }
+    if ($Nodes.Count -gt 0) {
+        $FancyTree['source'] = $Nodes
     }
     Remove-EmptyValue -Hashtable $FancyTree -Rerun 1 -Recursive
 
