@@ -9,6 +9,9 @@
     .PARAMETER Id
     ID of the HTML element. By default it's auto-generated.
 
+    .PARAMETER Name
+    Name of the HTML element. By default it's empty.
+
     .PARAMETER SourcePath
     Path to a file with HTML file to display within iFrame
 
@@ -50,6 +53,7 @@
     [CmdletBinding()]
     param(
         [string] $Id,
+        [string] $Name,
         [string] $SourcePath,
         [validateSet('No', 'Yes', 'Auto')][string] $Scrolling = 'auto',
         [object] $Height,
@@ -69,6 +73,7 @@
     $Attributes = [ordered] @{
         id          = $Id
         src         = $SourcePath
+        name        = $Name
         height      = ConvertFrom-Size -Size $Height
         frameborder = ConvertFrom-Size -Size $FrameBorder
         scrolling   = $Scrolling.ToLower()
