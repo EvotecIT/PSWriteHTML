@@ -6,6 +6,7 @@
         [string] $Id,
         [switch] $Folder,
         [string] $Tooltip,
+        [string] $Icon,
         [string] $IconTooltip,
         [switch] $IsSelected,
         [alias('Expanded')][switch] $IsExpanded,
@@ -56,6 +57,9 @@
             href   = $HrefLink
             target = "_blank"
         }
+    }
+    if ($Icon) {
+        $Node['icon'] = $Icon
     }
     Remove-EmptyValue -Hashtable $Node
     [ordered] @{
