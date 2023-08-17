@@ -44,7 +44,7 @@ Function New-HTMLPanel {
             'margin'     = if ($Margin) { $Margin }
         }
         [string] $ClassName = "defaultPanel$(Get-RandomStringName -Size 8 -LettersOnly)"
-        $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes
+        $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes -Group
         $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css
         [string] $Class = "flexPanel overflowHidden $ClassName"
     } else {
