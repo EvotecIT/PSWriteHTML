@@ -7,7 +7,7 @@ Please make sure to read changes before updating, as we're undergoing some break
 ## 1.3.0
 - Fixes internal CSS issues after fix to `Add-HTMLStyle`
 - Improve `New-HTMLFrame` adding `Name`
-- Rename `New-TreeNode` to `New-HTMLTreeNode`
+- Rename `New-TreeNode` to `New-HTMLTreeNode` *BREAKING CHANGE*
 - Improve `New-HTMLTreeNode` options
 - Improve `New-HTMLTree`
 
