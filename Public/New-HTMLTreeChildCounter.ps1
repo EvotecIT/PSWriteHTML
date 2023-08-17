@@ -8,15 +8,12 @@
 
 
     $Counter = [ordered] @{
-        Type      = 'ChildCounter'
-        Settings  = [ordered] @{
-            childcounter = @{
-                deep         = $Deep.IsPresent
-                hideZeros    = $HideZero.IsPresent
-                hideExpanded = $HideExpanded.IsPresent
-            }
+        Type         = 'ChildCounter'
+        childcounter = [ordered] @{
+            deep         = $Deep.IsPresent
+            hideZeros    = $HideZero.IsPresent
+            hideExpanded = $HideExpanded.IsPresent
         }
-        Extension = 'childcounter'
     }
     $Counter
 }

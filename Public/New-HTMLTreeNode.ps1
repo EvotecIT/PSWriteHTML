@@ -17,6 +17,7 @@
 
     if ($Children) {
         [Array] $SourceChildren = & $Children
+        $NestedChildren = $SourceChildren.Node
     }
 
     $Node = [ordered] @{
@@ -40,7 +41,7 @@
         $Node['expanded'] = $true
     }
     if ($SourceChildren.Count) {
-        $Node['children'] = $SourceChildren
+        $Node['children'] = @( $NestedChildren )
     }
     if ($Unselectable.IsPresent) {
         $Node['unselectable'] = $true
@@ -57,5 +58,8 @@
         }
     }
     Remove-EmptyValue -Hashtable $Node
-    $Node
+    [ordered] @{
+        Type = 'TreeNode'
+        Node = $Node
+    }
 }
