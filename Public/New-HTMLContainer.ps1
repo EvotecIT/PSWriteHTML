@@ -17,7 +17,7 @@
             'flex-basis' = ConvertFrom-Size -Size $Width
             'margin'     = if ($Margin) { $Margin }
         }
-        $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes
+        $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes -Group
 
         # $Script:HTMLSchema.CustomHeaderCSS.Add($Css)
         $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css

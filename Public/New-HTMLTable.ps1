@@ -1103,7 +1103,7 @@ function New-HTMLTable {
 
         if ($WordBreak -ne 'normal') {
             New-HTMLTag -Tag 'style' {
-                ConvertTo-LimitedCSS -ClassName 'td' -ID $TableAttributes.id -Attributes @{ 'word-break' = $WordBreak }
+                ConvertTo-LimitedCSS -ClassName 'td' -ID $TableAttributes.id -Attributes @{ 'word-break' = $WordBreak } -Group
             }
         }
 
