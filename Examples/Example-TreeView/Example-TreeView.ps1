@@ -1,21 +1,5 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-function New-Node {
-    [CmdletBinding()]
-    param(
-        [string] $Path,
-        [System.Collections.IDictionary] $Directory
-    )
-    $FileSystem = Get-ChildItem -Filter * -Path $Path
-    foreach ($F in $FileSystem) {
-        if ($F.PSIsContainer) {
-            $Directory[$F.Name] = [ordered] @{}
-            New-Node -Path $F.FullName -Directory $Directory[$F.Name]
-        } else {
-            $Directory[$F.Name] = $F
-        }
-    }
-}
 function New-HTMLTreeFileNodes {
     [CmdletBinding()]
     param(
