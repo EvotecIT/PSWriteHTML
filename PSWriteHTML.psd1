@@ -12,15 +12,15 @@
     PowerShellVersion    = '5.1'
     PrivateData          = @{
         PSData = @{
-            Tags       = @('HTML', 'WWW', 'JavaScript', 'CSS', 'Reports', 'Reporting', 'Windows', 'MacOS', 'Linux')
             IconUri    = 'https://evotec.xyz/wp-content/uploads/2018/12/PSWriteHTML.png'
             ProjectUri = 'https://github.com/EvotecIT/PSWriteHTML'
+            Tags       = @('HTML', 'WWW', 'JavaScript', 'CSS', 'Reports', 'Reporting', 'Windows', 'MacOS', 'Linux')
         }
     }
     RequiredModules      = @(@{
-            ModuleName    = 'PSSharedGoods'
-            ModuleVersion = '0.0.264'
             Guid          = 'ee272aa8-baaa-4edf-9f45-b6d6f7d844fe'
+            ModuleName    = 'PSSharedGoods'
+            ModuleVersion = '0.0.265'
         })
     RootModule           = 'PSWriteHTML.psm1'
 }
