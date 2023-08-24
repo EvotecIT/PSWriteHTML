@@ -27,7 +27,8 @@
         [switch] $Editable,
         [ValidateSet(
             'dayGridDay', 'dayGridWeek', 'dayGridMonth', 'timeGridDay', 'timeGridWeek', 'listDay', 'listWeek', 'listMonth', 'listYear'
-        )][string] $InitialView
+        )][string] $InitialView,
+        [string] $UrlTarget
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLCalendar - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -58,7 +59,7 @@
 
         initialView           = $InitialView
         initialDate           = '{0:yyyy-MM-dd}' -f ($DefaultDate)
-        eventDidMount         = 'ReplaceMe'
+        eventDidMount         = 'eventDidMountReplaceMe'
         nowIndicator          = $NowIndicator
         #now: '2018-02-13T09:25:00' // just for demo
         navLinks              = $NavigationLinks #// can click day/week names to navigate views
@@ -80,6 +81,9 @@
             listYear  = @{ buttonText = 'list year' }
         }
     }
+    if ($UrlTargetName) {
+        $Calendar['eventClick'] = 'eventClickReplaceMe'
+    }
     Remove-EmptyValue -Hashtable $Calendar -Recursive
     $CalendarJSON = $Calendar | ConvertTo-Json -Depth 7
 
@@ -94,12 +98,29 @@
         });
     }
 "@
+
+    $eventClick = @"
+    eventClick: function (info) {
+        var eventObj = info.event;
+        if (eventObj.url) {
+            window.open(eventObj.url, '$UrlTargetName');
+            info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
+        }
+    }
+"@
     if ($PSEdition -eq 'Desktop') {
-        $TextToFind = '"eventDidMount":  "ReplaceMe"'
+        $TextToFind = '"eventDidMount":  "eventDidMountReplaceMe"'
     } else {
-        $TextToFind = '"eventDidMount": "ReplaceMe"'
+        $TextToFind = '"eventDidMount": "eventDidMountReplaceMe"'
     }
     $CalendarJSON = $CalendarJSON.Replace($TextToFind, $eventDidMount)
+
+    if ($PSEdition -eq 'Desktop') {
+        $TextToFind = '"eventClick":  "eventClickReplaceMe"'
+    } else {
+        $TextToFind = '"eventClick": "eventClickReplaceMe"'
+    }
+    $CalendarJSON = $CalendarJSON.Replace($TextToFind, $eventClick)
 
     $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = $ID; class = 'calendarFullCalendar'; style = $Style }
     $Script = New-HTMLTag -Tag 'script' -Value {
