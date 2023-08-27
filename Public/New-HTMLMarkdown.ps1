@@ -115,7 +115,7 @@
     }
 
     if ($EnableTOC) {
-        $Script:HTMLSchema.Features.MarkdownTOC = $true
+        $Script:HTMLSchema.Features.MarkdownShowdownTOC = $true
         $Options['extensions'] = @('tocReplaceMe')
     }
 
