@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.6.0
+- Add `New-HTMLMarkdown` command
+
 ## 1.4.0
 - Add `UrlTarget` to `New-HTMLCalendar` allowing for greater link control (for example iFrame)
 
