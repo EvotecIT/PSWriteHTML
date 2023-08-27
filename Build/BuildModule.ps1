@@ -5,7 +5,7 @@ Import-Module "PSPublishModule" -Force
 Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
     # Usual defaults as per standard module
     $Manifest = [ordered] @{
-        ModuleVersion        = '1.X.0'
+        ModuleVersion        = '1.6.0'
         CompatiblePSEditions = @('Desktop', 'Core')
         GUID                 = 'a7bdf640-f5cb-4acf-9de0-365b322d245c'
         Author               = 'Przemyslaw Klys'
@@ -34,7 +34,8 @@ Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
     ) -IgnoreFunctionName 'Select-Unique', 'Compare-TwoArrays' # those functions are internal within private function
 
     $ConfigurationFormat = [ordered] @{
-        RemoveComments                              = $false
+        RemoveComments                              = $true
+        RemoveEmptyLines                            = $true
 
         PlaceOpenBraceEnable                        = $true
         PlaceOpenBraceOnSameLine                    = $true
@@ -42,9 +43,9 @@ Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
         PlaceOpenBraceIgnoreOneLineBlock            = $false
 
         PlaceCloseBraceEnable                       = $true
-        PlaceCloseBraceNewLineAfter                 = $true
-        PlaceCloseBraceIgnoreOneLineBlock           = $false
-        PlaceCloseBraceNoEmptyLineBefore            = $true
+        PlaceCloseBraceNewLineAfter                 = $false
+        PlaceCloseBraceIgnoreOneLineBlock           = $true
+        PlaceCloseBraceNoEmptyLineBefore            = $false
 
         UseConsistentIndentationEnable              = $true
         UseConsistentIndentationKind                = 'space'
