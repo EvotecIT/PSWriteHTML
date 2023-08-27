@@ -1556,6 +1556,49 @@
             }
         }
         #>
+            MarkdownShowdown            = @{
+                Comment      = 'Showdown JS Library'
+                Header       = @{
+                    JSLink = 'https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js'
+                    JS     = "$PSScriptRoot\..\Resources\JS\showdown.min.js"
+                }
+                HeaderAlways = @{
+                    Css = "$PSScriptRoot\..\Resources\CSS\showdown.css"
+
+                }
+                Library      = 'https://showdownjs.com/'
+                SourceCodes  = 'https://github.com/showdownjs/showdown'
+                License      = 'MIT'
+                LicenseLink  = 'https://github.com/showdownjs/showdown/blob/master/LICENSE'
+                Default      = $true
+                Email        = $false
+            }
+            MarkdownShowdownTOC         = @{
+                Comment     = 'Showdown-TOC JS Library'
+                Header      = @{
+                    JSLink = 'https://cdn.jsdelivr.net/npm/showdown-toc@1.0.1/dist/index.min.js'
+                    JS     = "$PSScriptRoot\..\Resources\JS\showdown-toc.min.js"
+                }
+                Library     = 'https://github.com/ahungrynoob/showdown-toc'
+                SourceCodes = 'https://github.com/ahungrynoob/showdown-toc'
+                License     = 'MIT'
+                LicenseLink = 'https://github.com/ahungrynoob/showdown-toc/blob/master/LICENSE'
+                Default     = $true
+                Email       = $false
+            }
+            JSXSS                       = @{
+                Comment     = 'JS XSS Library'
+                Header      = @{
+                    JSLink = 'https://cdn.jsdelivr.net/npm/xss@1.0.14/dist/xss.min.js'
+                    JS     = "$PSScriptRoot\..\Resources\JS\xss.min.js"
+                }
+                Library     = 'https://jsxss.com/en/index.html'
+                SourceCodes = 'https://github.com/leizongmin/js-xss'
+                License     = 'MIT'
+                LicenseLink = 'https://github.com/leizongmin/js-xss/blob/master/LICENSE'
+                Default     = $true
+                Email       = $false
+            }
             Moment                      = @{
                 Comment     = 'Momment JS Library'
                 Header      = @{
@@ -2190,5 +2233,7 @@
 #'WinBox'
 #'FontsSimpleIcons'
 #'Wizard'
+#'MarkdownShowdown*'
+#'JSXSS'
 #)
 #Save-HTMLResource -Configuration $Configuration -Keys $Keys -PathToSave 'C:\Support\GitHub\PSWriteHTML\Resources\CSS' -Verbose
