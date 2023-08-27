@@ -2206,34 +2206,34 @@
     $Configuration
 }
 
-$Configuration = Get-DefaultParameters
-$Keys = @(
-    #'datatablesfuzzysearch'
-    #'iFrameResizer
-    #'Popper'
-    #'Moment'
-    #'Jquery'
-    #'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
-    #'ChartsApex'
-    #'AccordionFAQ'
-    #'VisNetwork'
-    #'VisTimeline'
-    #'VisData'
-    #'JustGage'
-    #'FullCalendar'
-    #'DataTablesSearchAlphabet'
-    #'DataTable*'
-    #'FancyTree'
-    #'CarouselSlick'
-    #'JustGage'
-    #'CarouselKineto'
-    #'QR'
-    #'TabsInline'
-    #'Fonts*'
-    #'WinBox'
-    #'FontsSimpleIcons'
-    #'Wizard'
-    'MarkdownShowdown*'
-    'JSXSS'
-)
-Save-HTMLResource -Configuration $Configuration -Keys $Keys -PathToSave 'C:\Support\GitHub\PSWriteHTML\Resources\CSS' -Verbose
+#$Configuration = Get-DefaultParameters
+#$Keys = @(
+#'datatablesfuzzysearch'
+#'iFrameResizer
+#'Popper'
+#'Moment'
+#'Jquery'
+#'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
+#'ChartsApex'
+#'AccordionFAQ'
+#'VisNetwork'
+#'VisTimeline'
+#'VisData'
+#'JustGage'
+#'FullCalendar'
+#'DataTablesSearchAlphabet'
+#'DataTable*'
+#'FancyTree'
+#'CarouselSlick'
+#'JustGage'
+#'CarouselKineto'
+#'QR'
+#'TabsInline'
+#'Fonts*'
+#'WinBox'
+#'FontsSimpleIcons'
+#'Wizard'
+#'MarkdownShowdown*'
+#'JSXSS'
+#)
+#Save-HTMLResource -Configuration $Configuration -Keys $Keys -PathToSave 'C:\Support\GitHub\PSWriteHTML\Resources\CSS' -Verbose
