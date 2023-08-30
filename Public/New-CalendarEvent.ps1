@@ -36,6 +36,9 @@
     .PARAMETER Url
     A URL that will be visited when this event is clicked by the user.
 
+    .PARAMETER TargetName
+    Specifies the name of the target frame or window. Default is _self
+
     .PARAMETER AllDayEvent
     Determines if the event is shown in the “all-day” section of the view, if applicable. Determines if time text is displayed in the event. If this value is not specified, it will be inferred by the start and end properties
 
@@ -62,7 +65,8 @@
         [string] $BorderColor,
         [string] $TextColor,
         [alias('Uri')][string] $Url,
-        [switch] $AllDayEvent
+        [switch] $AllDayEvent,
+        [string] $TargetName
     )
     $Object = [PSCustomObject] @{
         Type     = 'CalendarEvent'
@@ -75,6 +79,7 @@
             borderColor     = ConvertFrom-Color -Color $BorderColor
             textColor       = ConvertFrom-Color -Color $TextColor
             url             = $Url
+            targetName      = $targetName
         }
     }
     if ($AllDayEvent) {

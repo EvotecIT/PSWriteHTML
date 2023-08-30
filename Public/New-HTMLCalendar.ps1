@@ -81,9 +81,8 @@
             listYear  = @{ buttonText = 'list year' }
         }
     }
-    if ($UrlTargetName) {
-        $Calendar['eventClick'] = 'eventClickReplaceMe'
-    }
+    $Calendar['eventClick'] = 'eventClickReplaceMe'
+
     Remove-EmptyValue -Hashtable $Calendar -Recursive
     $CalendarJSON = $Calendar | ConvertTo-Json -Depth 7
 
@@ -99,15 +98,30 @@
     }
 "@
 
-    $eventClick = @"
+    if ($UrlTarget) {
+        # this allows to open links in new tab, frames etc but on global basis
+        $eventClick = @"
     eventClick: function (info) {
         var eventObj = info.event;
         if (eventObj.url) {
-            window.open(eventObj.url, '$UrlTargetName');
+            window.open(eventObj.url, '$UrlTarget');
             info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
         }
     }
 "@
+    } else {
+        # this allows to open links in new tab, frames etc but on link per link basis via New-CalendarEvent -TargetName '_blank'
+        $eventClick = @"
+    eventClick: function (info) {
+        var eventObj = info.event;
+        if (eventObj.extendedProps.targetName) {
+            window.open(eventObj.url, eventObj.extendedProps.targetName);
+            info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
+        }
+    }
+"@
+    }
+
     if ($PSEdition -eq 'Desktop') {
         $TextToFind = '"eventDidMount":  "eventDidMountReplaceMe"'
     } else {
