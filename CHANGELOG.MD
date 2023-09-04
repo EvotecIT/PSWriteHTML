@@ -4,6 +4,10 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.8.0
+- Fixes problem with encoding in `New-HTMLMarkdown`
+- Fixes problem with `EnableTOC` switch in `New-HTMLMarkdown`
+
 ## 1.7.0
 - Add `TargetName` to `New-HTMLCalendar`
 
