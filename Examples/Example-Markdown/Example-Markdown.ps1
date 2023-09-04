@@ -9,12 +9,17 @@ New-HTML {
     New-HTMLSection {
         # as a scriptblock
         New-HTMLMarkdown {
-            '# Hello, Markdown!'
+            '# Testing Header 1'
             'This is TOC'
-            '[TOC]'
-            '## Hello, Markdown!'
+            ' [TOC]'
+            '## Testing Header 2'
             'Ok this is a test'
-            '### Hello, Markdown!'
+            '## Testing Header 3'
+            'Ok this is a test'
+            '## Testing Header 4'
+            ' [TOC]'
+            'Ok this is a test'
+            '### Testing Header 5'
         } -EnableTOC
     }
     New-HTMLSection -Invisible {
@@ -23,14 +28,14 @@ New-HTML {
             New-HTMLMarkdown -FilePath "$PSScriptRoot\..\..\readme.md"
         }
         New-HTMLSection {
-            New-HTMLMarkdown -FilePath "$PSScriptRoot\..\..\readme.md" -SanitezeHTML
+            New-HTMLMarkdown -FilePath "C:\Support\GitHub\ADEssentials\readme.md" -SanitezeHTML
         }
 
         New-HTMLSection {
-            New-HTMLMarkdown -FilePath "$PSScriptRoot\..\..\readme.md" -EnableOpenLinksInNewWindow
+            New-HTMLMarkdown -FilePath "C:\Support\GitHub\PSTeams\readme.md" -EnableOpenLinksInNewWindow
         }
         New-HTMLSection {
-            New-HTMLMarkdown -FilePath "C:\Support\GitHub\PowerFederatedDirectory\README.MD" -EnableTOC
+            New-HTMLMarkdown -FilePath "C:\Support\GitHub\PowerFederatedDirectory\README.MD"
         }
     }
-} -ShowHTML:$false -Online -FilePath $PSScriptRoot\Example-Markdown.html
+} -ShowHTML:$true -FilePath $PSScriptRoot\Example-Markdown.html -Online
