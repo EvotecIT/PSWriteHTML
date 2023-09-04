@@ -3,7 +3,7 @@
     param(
         [Parameter(Mandatory, ParameterSetName = 'ScriptBlock', Position = 0)][scriptblock] $ScriptBlock,
         [Parameter(Mandatory, ParameterSetName = 'FilePath')][string] $FilePath,
-        [Parameter(Mandatory, ParameterSetName = 'Content')][string[]] $Content,
+        [Parameter(Mandatory, ParameterSetName = 'Content')][Array] $Content,
         #[ValidateSet('original', 'vanilla', 'github')][string] $MarkdownFlavor,
         [string] $Id,
         [switch] $omitExtraWLInCodeBlocks,
@@ -21,18 +21,17 @@
         [switch] $EnableOpenLinksInNewWindow,
         [switch] $EnableBackslashEscapes,
         [switch] $SanitezeHTML,
-        [switch] $EnableTOC
+        [switch] $EnableTOC,
+        [string] $Encoding = 'UTF8'
     )
 
     $Script:HTMLSchema.Features.MarkdownShowdown = $true
-    $Script:HTMLSchema.Features.CodeBlocksHighlight = $true
-
-
+    #$Script:HTMLSchema.Features.CodeBlocksHighlight = $true
 
     if ($FilePath) {
-        $Content = Get-Content -LiteralPath $FilePath
+        [Array] $Content = Get-Content -LiteralPath $FilePath -Encoding $Encoding
     } elseif ($ScriptBlock) {
-        $Content = & $ScriptBlock
+        [Array]  $Content = & $ScriptBlock
     }
     if (-not $Content) {
         Write-Warning -Message 'New-HTMLMarkdown - No content provided. Skipping'
@@ -45,25 +44,14 @@
 
     #$CodeBlock = $false
     $Var = foreach ($C in $Content) {
-        # if ($C -match '```') {
-        #     $Value = [System.Web.HttpUtility]::HtmlEncode($C)
-        #     if ($CodeBlock) {
-        #         $CodeBlock = $false
-        #     } else {
-        #         $CodeBlock = $true
-        #     }
-
-        # } else {
-        #     if (-not $CodeBlock) {
-        #         $Value = [System.Web.HttpUtility]::HtmlEncode($C)
-        #     } else {
-        #         $Value = $C.Replace("'", "\'")
-        #     }
-        # }
         $Value = $C.Replace("'", "\'")
         $Value + "\n"
     }
     $JoinedContent = $Var -join ''
+    if ($EnableTOC) {
+        $JoinedContent = $JoinedContent.Replace('[TOC]', '[toc]')
+        $JoinedContent = $JoinedContent.Replace('[toc]', '<p>[toc]</p>')
+    }
 
     $VariableOutput = "outputMarkdown$(Get-RandomStringName -Size 8)"
     $ConverterVariable = "converter$(Get-RandomStringName -Size 8)"
