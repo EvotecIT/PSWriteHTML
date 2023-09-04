@@ -1538,24 +1538,29 @@
                 LicenseLink = 'https://github.com/toorshia/justgage/blob/master/LICENSE'
                 SourceCodes = 'https://github.com/toorshia/justgage'
             }
-            <#
-        JsTree                  = @{
-            Header = @{
-                JSLink = @(
-                    'https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js'
-                )
-                CSSLink = @(
-                    'https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css'
-                )
-                JS = @(
-                    "$PSScriptRoot\..\Resources\JS\stree.min.js"
-                )
-                CSS = @(
-                    "$PSScriptRoot\..\Resources\CSS\style.min.css"
-                )
+
+            JsTree                      = @{
+                Comment     = 'JsTree Library'
+                Header      = @{
+                    JSLink  = @(
+                        'https://cdn.jsdelivr.net/npm/jstree@3.3.15/dist/jstree.min.js'
+                    )
+                    CSSLink = @(
+                        'https://cdn.jsdelivr.net/npm/jstree@3.3.15/dist/themes/default/style.min.css'
+                    )
+                    JS      = @(
+                        "$PSScriptRoot\..\Resources\JS\jstree.min.js"
+                    )
+                    CSS     = @(
+                        "$PSScriptRoot\..\Resources\CSS\jstree.min.css"
+                    )
+                }
+                Default     = $true
+                Email       = $false
+                SourceCodes = 'https://github.com/vakata/jstree'
+                License     = 'MIT'
+                LicenseLink = 'https://github.com/vakata/jstree/blob/master/LICENSE-MIT'
             }
-        }
-        #>
             MarkdownShowdown            = @{
                 Comment      = 'Showdown JS Library'
                 Header       = @{
@@ -1576,7 +1581,7 @@
             MarkdownShowdownTOC         = @{
                 Comment     = 'Showdown-TOC JS Library'
                 Header      = @{
-                    JSLink = 'https://cdn.jsdelivr.net/npm/showdown-toc@1.0.1/dist/index.min.js'
+                    JSLink = 'https://cdn.jsdelivr.net/npm/showdown-toc@1.0.1/dist/index.umd.min.js'
                     JS     = "$PSScriptRoot\..\Resources\JS\showdown-toc.min.js"
                 }
                 Library     = 'https://github.com/ahungrynoob/showdown-toc'
@@ -2234,6 +2239,7 @@
 #'FontsSimpleIcons'
 #'Wizard'
 #'MarkdownShowdown*'
+#'JSTree'
 #'JSXSS'
 #)
 #Save-HTMLResource -Configuration $Configuration -Keys $Keys -PathToSave 'C:\Support\GitHub\PSWriteHTML\Resources\CSS' -Verbose
