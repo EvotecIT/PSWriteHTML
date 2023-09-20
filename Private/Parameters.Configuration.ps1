@@ -1118,7 +1118,9 @@
                 Comment = 'DataTables PercentageBars'
                 Header  = @{
                     JsLink = @(
-                        "https://cdn.datatables.net/plug-ins/1.13.4/dataRender/percentageBars.js"
+                        # until datatables updates their sources, we use our own CDN
+                        "$($ConfigurationURL)/JS/dataTables.percentageBars.js"
+                        #"https://cdn.datatables.net/plug-ins/1.13.4/dataRender/percentageBars.js"
                     )
                     JS     = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.percentageBars.js"
@@ -1614,6 +1616,19 @@
                 SourceCodes = 'https://github.com/moment/moment/'
                 License     = 'MIT'
                 LicenseLink = 'https://github.com/moment/moment/blob/develop/LICENSE'
+                Default     = $true
+                Email       = $false
+            }
+            Mermaid                     = @{
+                Comment     = 'Mermaid JS Library'
+                Footer      = @{
+                    JSLink = 'https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js'
+                    JS     = "$PSScriptRoot\..\Resources\JS\mermaid.min.js"
+                }
+                Library     = 'https://mermaid.js.org/'
+                SourceCodes = 'https://github.com/mermaid-js/mermaid'
+                License     = 'MIT'
+                LicenseLink = 'https://github.com/mermaid-js/mermaid/blob/develop/LICENSE'
                 Default     = $true
                 Email       = $false
             }
@@ -2241,5 +2256,6 @@
 #'MarkdownShowdown*'
 #'JSTree'
 #'JSXSS'
+#'Mermaid'
 #)
 #Save-HTMLResource -Configuration $Configuration -Keys $Keys -PathToSave 'C:\Support\GitHub\PSWriteHTML\Resources\CSS' -Verbose
