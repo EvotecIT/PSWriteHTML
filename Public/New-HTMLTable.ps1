@@ -903,6 +903,8 @@ function New-HTMLTable {
     # After: "display": $.fn.dataTable.Responsive.display.childRowImmediate
     $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.childRowImmediate)"', '$1'
     $Options = $Options -replace '"(\$\.fn\.dataTable\.render\.percentBar\(.+\))"', '$1'
+    # we need to cleanup $Options for columnDefs/render, remove \r\n
+    $Options = $Options -replace '\\r\\n', '' -replace "\\`"",'"'
 
     #
     $ExportExcelOptions = @'
