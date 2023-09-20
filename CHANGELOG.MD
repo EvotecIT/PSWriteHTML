@@ -4,6 +4,10 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.9.0
+- Add support for conditions for percentage in table `New-TablePercentageBar` / `New-TablePercentageBarCondition`
+- Added `New-HTMLMermeidChart` - work in progress / not fully functional
+
 ## 1.8.0
 - Fixes problem with encoding in `New-HTMLMarkdown`
 - Fixes problem with `EnableTOC` switch in `New-HTMLMarkdown`
