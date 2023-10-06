@@ -279,7 +279,8 @@ function New-HTMLText {
             if ($FindMe) {
                 foreach ($find in $FindMe) {
                     $LinkName = ([regex]::Match($Find.value, "[^\[]+(?=\])")).Value
-                    $LinkURL = ([regex]::Match($Find.value, "(?<=\().+(?=\))")).Value
+                    $res = [regex]::Matches($Find.value, "\(([^)]+)\)")
+                    $LinkURL = $res.captures.groups[$res.captures.groups.count-1].Value
                     $Link = New-HTMLAnchor -HrefLink $LinkURL -Text $LinkName
                     $Text[$i] = $Text[$i].Replace($find.value, $Link)
                 }
