@@ -37,10 +37,10 @@
         $Script:CurrentConfiguration['Features']['NavigationMenuDropdown']['HeaderAlways']['CssInLine']['@media only screen and (min-width: 480px)']['.has-child ul']['width'] = $MenuItemsWidth
 
         if ($LogoLinkHome) {
-            $LogoLink = "$($Script:GlobalSchema.StorageInformation.FileName).html"
+            $LogoLink = "$($Script:GlobalSchema.StorageInformation.FileName)$($Script:GlobalSchema.StorageInformation.Extension)"
         }
         if ($HomeLinkHome) {
-            $HomeHref = "$($Script:GlobalSchema.StorageInformation.FileName).html"
+            $HomeHref = "$($Script:GlobalSchema.StorageInformation.FileName)$($Script:GlobalSchema.StorageInformation.Extension)"
         }
     }
 
