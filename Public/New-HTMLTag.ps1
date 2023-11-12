@@ -13,6 +13,10 @@ function New-HTMLTag {
         $ScriptBlockResult = if ($null -eq $Value) { '' } else { Invoke-Command -ScriptBlock $Value -ErrorAction Stop }
     } catch {
         Write-Warning -Message "New-HTMLTag - Error: $($_.Exception.Message). Failed value: $($Value.ToString())"
+        $StackTraceList = $_.ScriptStackTrace -split [System.Environment]::NewLine
+        foreach ($S in $StackTraceList | Select-Object -First 4) {
+            Write-Warning -Message "New-HTMLTag - Review StackTrace: $S"
+        }
         $ScriptBlockResult = ''
     }
     $HTMLTag = [Ordered] @{
