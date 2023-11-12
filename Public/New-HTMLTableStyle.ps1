@@ -183,8 +183,6 @@
     $TableStyle = [ordered] @{
         'text-align'          = $TextAlign
         'text-transform'      = $TextTransform
-        'color'               = ConvertFrom-Color -Color $TextColor
-        'background-color'    = ConvertFrom-Color -Color $BackgroundColor
         'font-size'           = ConvertFrom-Size -TextSize $FontSize
         'font-weight'         = $FontWeight
         'font-style'          = $FontStyle
@@ -194,19 +192,33 @@
 
         'border-top-width'    = ConvertFrom-Size -TextSize $BorderTopWidth
         'border-top-style'    = $BorderTopStyle
-        'border-top-color'    = ConvertFrom-Color -Color $BorderTopColor
 
         'border-bottom-width' = ConvertFrom-Size -TextSize $BorderBottomWidth
         'border-bottom-style' = $BorderBottomStyle
-        'border-bottom-color' = "$(ConvertFrom-Color -Color $BorderBottomColor) !important"
 
         'border-left-width'   = ConvertFrom-Size -TextSize $BorderLeftWidth
         'border-left-style'   = $BorderLeftStyle
-        'border-left-color'   = ConvertFrom-Color -Color $BorderLeftColor
 
         'border-right-width'  = ConvertFrom-Size -TextSize $BorderRightWidth
         'border-right-style'  = $BorderRightStyle
-        'border-right-color'  = ConvertFrom-Color -Color $BorderRightColor
+    }
+    if ($TextColor) {
+        $TableStyle['color'] = "$(ConvertFrom-Color -Color $TextColor) !important"
+    }
+    if ($BackgroundColor) {
+        $TableStyle['background-color'] = "$(ConvertFrom-Color -Color $BackgroundColor) !important"
+    }
+    if ($BorderTopColor) {
+        $TableStyle['border-top-color'] = "$(ConvertFrom-Color -Color $BorderTopColor) !important"
+    }
+    if ($BorderBottomColor) {
+        $TableStyle['border-bottom-color'] = "$(ConvertFrom-Color -Color $BorderBottomColor) !important"
+    }
+    if ($BorderLeftColor) {
+        $TableStyle['border-left-color'] = "$(ConvertFrom-Color -Color $BorderLeftColor) !important"
+    }
+    if ($BorderRightColor) {
+        $TableStyle['border-right-color'] = "$(ConvertFrom-Color -Color $BorderRightColor) !important"
     }
 
     # this will add configuration for all Tables as it already exists
