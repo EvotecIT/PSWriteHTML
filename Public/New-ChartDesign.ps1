@@ -86,7 +86,7 @@
         [string][ValidateSet('light', 'dark')]$GradientShade,
         [string][ValidateSet('horizontal', 'vertical', 'diagonal1', 'diagonal2')]$GradientType,
         [nullable[float]] $GradientShadeIntensity,
-        $GradientGradientToColors,
+        [string[]] $GradientGradientToColors,
         [switch] $GradientInverseColors,
         [float[]] $GradientOpacityFrom,
         [float[]] $GradientOpacityTo,
@@ -110,7 +110,7 @@
 
     $Object = [PSCustomObject] @{
         ObjectType = 'Fill'
-        Design     = @{
+        Design     = [ordered] @{
             fill       = [ordered] @{
                 gradient = [ordered] @{
 
@@ -127,9 +127,6 @@
             }
         }
     }
-
-
-
 
     # DropShadow
     if ($DropShadowEnabled) {
@@ -153,10 +150,68 @@
     if ($null -ne $DropShadowOpacity) {
         $Object.Design.dropShadow.opacity = $DropShadowOpacity
     }
-    $Object
+
+    # Gradient
+    if ($GradientShade) {
+        $Object.Design.fill.gradient.shade = $GradientShade
+    }
+    if ($GradientType) {
+        $Object.Design.fill.gradient.type = $GradientType
+    }
+    if ($null -ne $GradientShadeIntensity) {
+        $Object.Design.fill.gradient.shadeIntensity = $GradientShadeIntensity
+    }
+    if ($GradientGradientToColors) {
+        $Object.Design.fill.gradient.gradientToColors = @(ConvertFrom-Color -Color $GradientGradientToColors)
+    }
+    if ($GradientInverseColors) {
+        $Object.Design.fill.gradient.inverseColors = $GradientInverseColors.IsPresent
+    }
+    if ($GradientOpacityFrom) {
+        $Object.Design.fill.gradient.opacityFrom = $GradientOpacityFrom
+    }
+    if ($GradientOpacityTo) {
+        $Object.Design.fill.gradient.opacityTo = $GradientOpacityTo
+    }
+    if ($GradientStops) {
+        $Object.Design.fill.gradient.stops = $GradientStops
+    }
+
+    # Image
+    if ($ImageSource) {
+        $Object.Design.fill.image.src = $ImageSource
+    }
+    if ($ImageWidth) {
+        $Object.Design.fill.image.width = $ImageWidth
+    }
+    if ($ImageHeight) {
+        $Object.Design.fill.image.height = $ImageHeight
+    }
+
+    # Pattern
+    if ($PatternStyle) {
+        $Object.Design.fill.pattern.style = $PatternStyle
+    }
+    if ($PatternWidth) {
+        $Object.Design.fill.pattern.width = $PatternWidth
+    }
+    if ($PatternHeight) {
+        $Object.Design.fill.pattern.height = $PatternHeight
+    }
+    if ($PatternStrokeWidth) {
+        $Object.Design.fill.pattern.strokeWidth = $PatternStrokeWidth
+    }
+    # lets clean it up and see if we did not miss anything
+    Remove-EmptyValue -Hashtable $Object.Design -Recursive -Rerun 2
+    if ($Object.Design.Count -gt 0) {
+        $Object
+    } else {
+        Write-Warning -Message "New-ChartDesign: No design options were specified."
+    }
 }
 
 Register-ArgumentCompleter -CommandName New-ChartDesign -ParameterName DropShadowColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-ChartDesign -ParameterName GradientGradientToColors -ScriptBlock $Script:ScriptBlockColors
 
 <#
 fill: {
