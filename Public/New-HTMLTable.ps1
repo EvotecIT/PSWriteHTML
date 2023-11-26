@@ -895,7 +895,7 @@ function New-HTMLTable {
         $Options.autoWidth = $false
     }
 
-    $Options = $Options | ConvertTo-JsonLiteral -Depth 6 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
+    $Options = $Options | ConvertTo-Json -Depth 6 #ConvertTo-JsonLiteral -Depth 6 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
 
     # cleans up $Options for ImmediatelyShowHiddenDetails
     # Since it's JavaScript inside we're basically removing double quotes from JSON in favor of no quotes at all
@@ -904,7 +904,7 @@ function New-HTMLTable {
     $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.childRowImmediate)"', '$1'
     $Options = $Options -replace '"(\$\.fn\.dataTable\.render\.percentBar\(.+\))"', '$1'
     # we need to cleanup $Options for columnDefs/render, remove \r\n
-    $Options = $Options -replace '\\r\\n', '' -replace "\\`"",'"'
+    #$Options = $Options -replace '\\r\\n', '\r\n' #-replace "\\`"",'"'
 
     #
     $ExportExcelOptions = @'
@@ -926,13 +926,17 @@ function New-HTMLTable {
             $Options = $Options.Replace('"markerForDataReplacement"', $DataStoreID)
             # We only add data if it isn't added yet
             if (-not $Script:HTMLSchema.CustomFooterJS[$DataStoreID]) {
-                $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' } `
-                    -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
-                    -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
-                    -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat `
-                    -NewLineFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat -Force `
-                    -ArrayJoin:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin `
-                    -ArrayJoinString $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
+                $convertToPrettyObjectSplat = [ordered] @{
+                    #AdvancedReplace = @{ '.' = '\.'; '$' = '\$' }
+                    NumberAsString  = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString
+                    BoolAsString    = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString
+                    DateTimeFormat  = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat
+                    NewLineFormat   = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat
+                    Force           = $true
+                    ArrayJoin       = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin
+                    ArrayJoinString = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
+                }
+                $DataToInsert = $Table | ConvertTo-PrettyObject @convertToPrettyObjectSplat | ConvertTo-Json
                 if ($DataToInsert.StartsWith('[')) {
                     $Script:HTMLSchema.CustomFooterJS[$DataStoreID] = "var $DataStoreID = $DataToInsert;"
                 } else {
@@ -941,19 +945,24 @@ function New-HTMLTable {
             }
 
         } else {
-            $DataToInsert = $Table | ConvertTo-JsonLiteral -Depth 0 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }`
-                -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
-                -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
-                -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat `
-                -NewLineFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat -Force `
-                -ArrayJoin:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin `
-                -ArrayJoinString $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
+            $convertToPrettyObjectSplat = [ordered] @{
+                #AdvancedReplace = @{ '.' = '\.'; '$' = '\$' }
+                NumberAsString  = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString
+                BoolAsString    = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString
+                DateTimeFormat  = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat
+                NewLineFormat   = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat
+                Force           = $true
+                ArrayJoin       = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin
+                ArrayJoinString = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
+            }
+            $DataToInsert = $Table | ConvertTo-PrettyObject @convertToPrettyObjectSplat | ConvertTo-Json
             if ($DataToInsert.StartsWith('[')) {
                 $Options = $Options.Replace('"markerForDataReplacement"', $DataToInsert)
             } else {
                 $Options = $Options.Replace('"markerForDataReplacement"', "[$DataToInsert]")
             }
         }
+        $Options = $Options -replace '\\\\r', '\r' -replace "\\\\n", "\n"
         # we need to reset table to $Null to make sure it's not added as HTML as well
         $Table = $null
     }
