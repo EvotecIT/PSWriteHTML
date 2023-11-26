@@ -4,6 +4,12 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.13.0
+- Added support for all charts `New-ChartDesign`
+- Gradient support in charts no longer uses `Inverse Colors` by default and can be set by `New-ChartDesign`
+- Speed improvements for `New-HTMLTable` when using `DataStore` `JavaScript`
+- Should fix `Powershell ScriptBlock Logging` slowdown when using `New-HTMLTable` with `DataStore` `JavaScript`
+
 ## 1.12.0 - 12.11.2023
 - Improvement to `New-HTMLTableStyle` for color handling which would potentially generate wrong CSS code
 - Improvement to error handling which should show stack trace in case of error (last 5 lines)
