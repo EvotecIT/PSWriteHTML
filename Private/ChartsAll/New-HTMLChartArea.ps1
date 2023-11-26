@@ -39,7 +39,8 @@ function New-HTMLChartArea {
         [switch] $GradientColors,
         [System.Collections.IDictionary] $GridOptions,
         [System.Collections.IDictionary] $Toolbar,
-        [System.Collections.IDictionary] $Theme
+        [System.Collections.IDictionary] $Theme,
+        [System.Collections.IDictionary] $Design
     )
 
     $Options = [ordered] @{ }
@@ -76,8 +77,21 @@ function New-HTMLChartArea {
     New-ChartInternalZoom -Options $Options -Enabled:$Zoom
 
     # Default for all charts
-    if ($PatternedColors) { New-ChartInternalPattern }
-    if ($GradientColors) { New-ChartInternalGradient }
+    if ($Design.fill.pattern) {
+        $Options.fill = [ordered] @{
+            type    = 'pattern'
+            pattern = $Design.fill.pattern
+        }
+    } elseif ($Design.fill.gradient) {
+        $Options.fill = [ordered] @{
+            type     = 'gradient'
+            gradient = $Design.fill.gradient
+        }
+    } elseif ($PatternedColors) {
+        New-ChartInternalPattern
+    } elseif ($GradientColors) {
+        New-ChartInternalGradient
+    }
     New-ChartInternalTitle -Options $Options -Title $Title -TitleAlignment $TitleAlignment
     New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }

@@ -20,7 +20,8 @@
 
         [System.Collections.IDictionary] $ChartToolTip,
         [System.Collections.IDictionary] $DataLabel,
-        [Object] $Events
+        [Object] $Events,
+        [System.Collections.IDictionary] $Design
     )
     # Defaults
     $Options = [ordered] @{}
@@ -59,8 +60,21 @@
     New-ChartInternalTimeLine -Options $Options -Color $Color -Data $Data
 
     # Default for all charts
-    if ($PatternedColors) { New-ChartInternalPattern }
-    if ($GradientColors) { New-ChartInternalGradient }
+    if ($Design.fill.pattern) {
+        $Options.fill = [ordered] @{
+            type    = 'pattern'
+            pattern = $Design.fill.pattern
+        }
+    } elseif ($Design.fill.gradient) {
+        $Options.fill = [ordered] @{
+            type     = 'gradient'
+            gradient = $Design.fill.gradient
+        }
+    } elseif ($PatternedColors) {
+        New-ChartInternalPattern
+    } elseif ($GradientColors) {
+        New-ChartInternalGradient
+    }
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
     if ($Toolbar) { New-ChartInternalToolbar -Options $Options @Toolbar -Show $true }

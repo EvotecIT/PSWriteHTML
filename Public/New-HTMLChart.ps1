@@ -224,6 +224,8 @@
             $Events = $Setting.Event
         } elseif ($Setting.ObjectType -eq 'RadialOptions') {
             $PlotOptions = $Setting.plotOptions
+        } elseif ($Setting.ObjectType -eq 'Fill') {
+            $Design = $Setting.Design
         }
     }
 
@@ -247,7 +249,7 @@
             }
         }
 
-        $SplatChart = @{
+        $SplatChart = [ordered] @{
             Data               = $($HashTable.Values)
             DataNames          = $DataName
             Colors             = $Colors
@@ -274,6 +276,7 @@
             Events             = $Events
             Title              = $TitleBlock
             SubTitle           = $SubTitleBlock
+            Design             = $Design
         }
 
         New-HTMLChartBar @SplatChart
@@ -307,6 +310,7 @@
             Events          = $Events
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
+            Design             = $Design
         }
         New-HTMLChartLine @SplatChartLine
     } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
@@ -326,6 +330,7 @@
             Events          = $Events
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
+            Design             = $Design
         }
 
         New-HTMLChartPie @SplatChart -Type $Type
@@ -348,6 +353,7 @@
             Events          = $Events
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
+            Design             = $Design
         }
         New-HTMLChartSpark @SplatChart
     } elseif ($Type -eq 'Radial') {
@@ -368,6 +374,7 @@
             Events          = $Events
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
+            Design             = $Design
         }
         New-HTMLChartRadial @SplatChart
     } elseif ($Type -eq 'rangeBar') {
@@ -388,6 +395,7 @@
             Events          = $Events
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
+            Design             = $Design
         }
         New-HTMLChartTimeLine @SplatChart
     }

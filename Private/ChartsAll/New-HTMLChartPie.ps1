@@ -24,7 +24,8 @@
         [System.Collections.IDictionary] $GridOptions,
         [System.Collections.IDictionary] $Toolbar,
         [System.Collections.IDictionary] $Theme,
-        [Object] $Events
+        [Object] $Events,
+        [System.Collections.IDictionary] $Design
 
     )
     $Options = [ordered] @{ }
@@ -41,8 +42,21 @@
     New-ChartInternalPie -Options $Options -Names $DataNames -Values $Data -Type $Type
     New-ChartInternalColors -Options $Options -Colors $Colors
     # Default for all charts
-    if ($PatternedColors) { New-ChartInternalPattern }
-    if ($GradientColors) { New-ChartInternalGradient }
+    if ($Design.fill.pattern) {
+        $Options.fill = [ordered] @{
+            type    = 'pattern'
+            pattern = $Design.fill.pattern
+        }
+    } elseif ($Design.fill.gradient) {
+        $Options.fill = [ordered] @{
+            type     = 'gradient'
+            gradient = $Design.fill.gradient
+        }
+    } elseif ($PatternedColors) {
+        New-ChartInternalPattern
+    } elseif ($GradientColors) {
+        New-ChartInternalGradient
+    }
     New-ChartInternalSize -Options $Options -Height $Height -Width $Width
     if ($GridOptions) { New-ChartInternalGrid -Options $Options @GridOptions }
     if ($Theme) { New-ChartInternalTheme -Options $Options @Theme }
