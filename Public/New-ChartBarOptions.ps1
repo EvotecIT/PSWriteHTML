@@ -39,4 +39,4 @@
     }
 }
 
-Register-ArgumentCompleter -CommandName New-ChartBarOptions -ParameterName LineColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-ChartBarOptions -ParameterName DataLabelsColor -ScriptBlock $Script:ScriptBlockColors
