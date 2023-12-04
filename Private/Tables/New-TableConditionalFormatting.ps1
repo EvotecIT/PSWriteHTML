@@ -70,7 +70,11 @@ function New-TableConditionalFormatting {
 
             "}"
         )
-        $TextToFind = '"createdRow":""'
+        if ($PSEdition -eq 'Desktop') {
+            $TextToFind = '"createdRow":  ""'
+        } else {
+            $TextToFind = '"createdRow": ""'
+        }
         $Options = $Options -Replace ($TextToFind, $ConditionsReplacement)
     }
     $Options

@@ -30,14 +30,12 @@
     } else {
         $TextToReplace = ''
     }
-    <#
     if ($PSEdition -eq 'Desktop') {
         $TextToFind = '"rowGroup":  "",'
     } else {
         $TextToFind = '"rowGroup": "",'
     }
-    #>
-    $TextToFind = '"rowGroup":"",'
+    # $TextToFind = '"rowGroup":"",' # this is a workaround for ConvertTo-JsonLiteral
     $Options = $Options -Replace ($TextToFind, $TextToReplace)
     $Options
 }
