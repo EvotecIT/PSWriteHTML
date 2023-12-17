@@ -1,11 +1,7 @@
-﻿#Clear-Host
-Import-Module "PSPublishModule" -Force
-#Import-Module C:\Support\GitHub\PSPublishModule\PSPublishModule.psd1 -Force
-
-Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
+﻿Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
     # Usual defaults as per standard module
     $Manifest = [ordered] @{
-        ModuleVersion        = '1.X.0'
+        ModuleVersion        = '1.14.0'
         CompatiblePSEditions = @('Desktop', 'Core')
         GUID                 = 'a7bdf640-f5cb-4acf-9de0-365b322d245c'
         Author               = 'Przemyslaw Klys'
@@ -18,7 +14,7 @@ Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
         ProjectUri           = 'https://github.com/EvotecIT/PSWriteHTML'
         #DotNetFrameworkVersion = '4.5.2'
     }
-    New-ConfigurationManifest @Manifest
+    New-ConfigurationManifest @Manifest #-Prerelease "Alpha02"
 
     New-ConfigurationModule -Type RequiredModule -Name 'PSSharedGoods' -Guid Auto -Version Latest
     #New-ConfigurationModule -Type ExternalModule -Name 'Microsoft.PowerShell.Utility', 'Microsoft.PowerShell.Management','Microsoft.PowerShell.Security'
