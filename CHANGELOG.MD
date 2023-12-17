@@ -9,6 +9,7 @@ Please make sure to read changes before updating, as we're undergoing some break
 - Gradient support in charts no longer uses `Inverse Colors` by default and can be set by `New-ChartDesign`
 - Speed improvements for `New-HTMLTable` when using `DataStore` `JavaScript`
 - Should fix `Powershell ScriptBlock Logging` slowdown when using `New-HTMLTable` with `DataStore` `JavaScript`
+- Fixes `New-HTMLTabPanel` orientation
 
 ## 1.12.0 - 12.11.2023
 - Improvement to `New-HTMLTableStyle` for color handling which would potentially generate wrong CSS code
