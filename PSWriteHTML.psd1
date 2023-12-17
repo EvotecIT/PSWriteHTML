@@ -13,7 +13,7 @@
     PrivateData          = @{
         PSData = @{
             IconUri    = 'https://evotec.xyz/wp-content/uploads/2018/12/PSWriteHTML.png'
-            Prerelease = 'Alpha01'
+            Prerelease = 'Alpha02'
             ProjectUri = 'https://github.com/EvotecIT/PSWriteHTML'
             Tags       = @('HTML', 'WWW', 'JavaScript', 'CSS', 'Reports', 'Reporting', 'Windows', 'MacOS', 'Linux')
         }
