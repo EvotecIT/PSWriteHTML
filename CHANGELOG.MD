@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.15.0 - 2024.01.03
+- Fixes `New-ChartSpark` when using which would be ignored
+
 ## 1.14.0 - 17.12.2023
 - Added support for all charts `New-ChartDesign`
 - Gradient support in charts no longer uses `Inverse Colors` by default and can be set by `New-ChartDesign`
