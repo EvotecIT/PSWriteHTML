@@ -12,7 +12,6 @@ function New-HTMLChartSpark {
 
         # Data to display in Spark
         [Array] $Data,
-        [Array] $DataNames,
 
         [string[]] $Colors,
 

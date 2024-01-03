@@ -141,9 +141,12 @@
         } elseif ($Setting.ObjectType -eq 'Spark') {
             # For Spark Charts
             $Type = $Setting.ObjectType
-            $DataSet.Add($Setting.Value)
-            $DataName.Add($Setting.Name)
-
+            $DataSet.Add(
+                [ordered] @{
+                    Name   = $Setting.Name
+                    Values = $Setting.Value
+                }
+            )
             if ($Setting.Color) {
                 $Setting.Color | ForEach-Object {
                     $Colors.Add($_)
@@ -310,7 +313,7 @@
             Events          = $Events
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
-            Design             = $Design
+            Design          = $Design
         }
         New-HTMLChartLine @SplatChartLine
     } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
@@ -330,14 +333,14 @@
             Events          = $Events
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
-            Design             = $Design
+            Design          = $Design
         }
 
         New-HTMLChartPie @SplatChart -Type $Type
     } elseif ($Type -eq 'Spark') {
         $SplatChart = @{
             Data            = $DataSet
-            DataNames       = $DataName
+            #DataNames       = $DataName
             Colors          = $Colors
 
             ChartAxisX      = $ChartAxisX
@@ -353,7 +356,7 @@
             Events          = $Events
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
-            Design             = $Design
+            Design          = $Design
         }
         New-HTMLChartSpark @SplatChart
     } elseif ($Type -eq 'Radial') {
@@ -374,7 +377,7 @@
             Events          = $Events
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
-            Design             = $Design
+            Design          = $Design
         }
         New-HTMLChartRadial @SplatChart
     } elseif ($Type -eq 'rangeBar') {
@@ -395,7 +398,7 @@
             Events          = $Events
             Title           = $TitleBlock
             SubTitle        = $SubTitleBlock
-            Design             = $Design
+            Design          = $Design
         }
         New-HTMLChartTimeLine @SplatChart
     }

@@ -25,15 +25,10 @@ function New-ChartInternalSpark {
     }
     $Options.series = @(
         # Checks if it's multiple array passed or just one. If one it will draw one line, if more then one it will draw line per each array
-        if ($Values[0] -is [Array]) {
-            foreach ($Value in $Values) {
-                @{
-                    data = @($Value)
-                }
-            }
-        } else {
-            @{
-                data = @($Values)
+        foreach ($Data in $Values) {
+            [ordered] @{
+                name = $Data.Name
+                data = @($Data.Values)
             }
         }
     )
