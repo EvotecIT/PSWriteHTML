@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.16.0 - 2024.01.15
+- Improves `New-HTMLNavTop` for HomeLink
+
 ## 1.15.0 - 2024.01.03
 - Fixes `New-ChartSpark` when using which would be ignored
 
