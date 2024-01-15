@@ -32,6 +32,7 @@
         [string] $Id,
         [string] $Group
     )
+    $Theme = $null
     $Events = $null
     $Script:HTMLSchema.Features.MainFlex = $true
 
