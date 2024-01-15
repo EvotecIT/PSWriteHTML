@@ -41,6 +41,10 @@
         }
         if ($HomeLinkHome) {
             $HomeHref = "$($Script:GlobalSchema.StorageInformation.FileName)$($Script:GlobalSchema.StorageInformation.Extension)"
+        } elseif ($HomeLink) {
+            $HomeHref = $HomeLink
+        } else {
+            $HomeHref = '#'
         }
     }
 
