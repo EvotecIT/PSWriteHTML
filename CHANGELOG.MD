@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.17.0 - 2024.01.15
+- Fixes `New-HTMLChart` when used inside `New-HTMLTabPanel` [#429](https://github.com/EvotecIT/PSWriteHTML/issues/429)
+
 ## 1.16.0 - 2024.01.15
 - Improves `New-HTMLNavTop` for HomeLink
 
