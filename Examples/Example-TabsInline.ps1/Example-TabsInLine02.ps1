@@ -1,11 +1,13 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML {
+
+    New-HTMLTabPanelColor -BorderColor Red ## -AnchorDefaultPrimaryColor Grey -AnchorActivePrimaryColor LightGrey
     New-HTMLTab -Name 'Standard Top Level Tabs 1' -IconBrands 500px {
         New-HTMLTab -Name 'Nested Top Level Tabs 1' {
             New-HTMLSection -Invisible {
                 New-HTMLSection -HeaderText 'My Section with nested tabs in section' {
-                    New-HTMLTabPanel {
+                    New-HTMLTabPanel -Orientation vertical {
                         New-HTMLTab -Name 'Test 5' -IconBrands apple -IconColor Red -IconSize 15 -TextSize 15 -TextColor Blue {
                             New-HTMLTable -DataTable 'test'
                         }
@@ -52,7 +54,7 @@ New-HTML {
                     }
                 }
                 New-HTMLPanel {
-                    New-HTMLTabPanel {
+                    New-HTMLTabPanel -Orientation vertical {
                         New-HTMLTab -Name 'Test 3' {
                             New-HTMLTable -DataTable 'test2'
                         }

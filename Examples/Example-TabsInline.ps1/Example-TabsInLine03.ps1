@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
 New-HTML {
-    New-HTMLTabPanel {
+    New-HTMLTabPanel -Orientation horizontal {
         New-HTMLTab -Name 'Standard Top Level Tabs 1' -IconBrands 500px {
             New-HTMLTabPanel {
                 New-HTMLTab -Name 'Standard Nested Level Tabs 2.1' -IconBrands 500px {
