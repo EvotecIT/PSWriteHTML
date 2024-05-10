@@ -23,7 +23,7 @@ New-HTML -TitleText 'Charts - Line' -Online -FilePath $PSScriptRoot\Example-Char
     }
     New-HTMLPanel {
         New-HTMLChart -Title 'Incidents Reported vs Solved' -TitleAlignment center {
-            New-ChartAxisX -Name 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
+            New-ChartAxisX -Name 'Jan', 'Feb', 'Mar', @('April', 'Multiline'), 'May', 'Jun', 'Jul', 'Aug', 'Sep'
             New-ChartLine -Name 'Incidents per month' -Value 10, 41, 35, 51, 49, 62, 69, 91, 148 -Color Red -Cap square -Dash 5 -Curve smooth
             New-ChartLine -Name 'Incidents per month resolved' -Value 5, 10, 20, 31, 49, 62, 69, 91, 148 -Color Green #-Curve stepline -Width 10
         }
