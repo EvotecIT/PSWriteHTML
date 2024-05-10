@@ -104,41 +104,6 @@ function New-InternalDiagram {
             '});'
         )
     }
-#     if ($DisableLoader) {
-#         $LoadingBarEvent = ''
-#     } else {
-#         $LoadingBarEvent = @"
-#             network.on("stabilizationProgress", function (params) {
-#                 var maxWidth = 496;
-#                 var minWidth = 20;
-#                 var widthFactor = params.iterations / params.total;
-#                 var width = Math.max(minWidth, maxWidth * widthFactor);
-
-#                 document.getElementById("$ID-diagramBar").style.width = width + "px";
-#                 document.getElementById("$ID-diagramText").innerHTML = Math.round(widthFactor * 100) + "%";
-#             });
-#             network.once("stabilizationIterationsDone", function () {
-#                 document.getElementById("$ID-diagramText").innerHTML = "100%";
-#                 document.getElementById("$ID-diagramBar").style.width = "496px";
-#                 document.getElementById("$ID-diagramLoadingBar").style.opacity = 0;
-#                 // really clean the dom element
-#                 setTimeout(function () {
-#                     document.getElementById("$ID-diagramLoadingBar").style.display = "none";
-#                 }, 500);
-#             });
-#             //window.addEventListener("load", () => {
-#             //    draw();
-#             //});
-# "@
-#     }
-
-#     $FunctionInclude = @"
-#     function loadDiagram(container, data, options) {
-#         var network = new vis.Network(container, data, options);
-#         $PreparedEvents
-#         $LoadingBarEvent
-#     }
-# "@
 
     $Script = New-HTMLTag -Tag 'script' -Value {
         # Convert Dictionary to JSON and return chart within SCRIPT tag
