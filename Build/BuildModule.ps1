@@ -27,7 +27,7 @@
         'Microsoft.PowerShell.Utility'
         # this is optional, and checked for existance in the source codes directly
         'PSParseHTML'
-    ) -IgnoreFunctionName 'Select-Unique', 'Compare-TwoArrays', 'IsNumeric', 'IsOfType' # those functions are internal within private function
+    ) -IgnoreFunctionName 'Select-Unique', 'Compare-TwoArrays', 'IsNumeric', 'IsOfType', 'Format-HTML', 'Optimize-HTML' # those functions are internal within private function
 
     $ConfigurationFormat = [ordered] @{
         RemoveComments                              = $true
