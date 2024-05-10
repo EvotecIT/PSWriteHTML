@@ -3,6 +3,7 @@
     param(
         [scriptblock] $PageContent,
         [Parameter(Mandatory)][string] $Name,
+        [string] $Title,
         [string] $FilePath,
         [string] $ID
     )
@@ -20,6 +21,7 @@
             Name     = $Name
             Guid     = $GUID
             FilePath = $FilePath
+            Title    = $Title
             ID       = $ID
         }
     }

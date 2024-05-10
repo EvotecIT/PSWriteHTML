@@ -202,6 +202,7 @@ Function New-HTML {
     # Lets add primary page to the mix, either as the only page, or one of many pages
     $Pages[$FileName] = [ordered] @{
         Name     = $FileName
+        Title    = $TitleText
         Main     = $null
         Primary  = $true
         Header   = $null
@@ -228,12 +229,10 @@ Function New-HTML {
                             $Name = $O.Name.Replace(":", "_").Replace("/", "_").Replace("\", "_")
                             $SavePath = [io.path]::Combine($PagesPath, "$($FileName)_$($Name)$($HtmlExtension)")
                         }
-                        # $KeyName = "$SavePath"
                         $KeyName = $($O.Guid)
                         $Pages[$KeyName] = [ordered] @{
                             Name     = $KeyName
-                            #Name     = " $($FileName)_$($O.Name)"
-                            #Output   = $null
+                            Title    = if ($O.Title) { $O.Title } else { $TitleText }
                             Main     = $null
                             Primary  = if ($Pages.Keys.Count -eq 0) { $true } else { $false }
                             Header   = $null
@@ -320,7 +319,7 @@ Function New-HTML {
                         New-HTMLTag -Tag 'meta' -Attributes @{ name = 'author'; content = $Author } -NoClosing
                     }
                     New-HTMLTag -Tag 'meta' -Attributes @{ name = 'revised'; content = $CurrentDate } -NoClosing
-                    New-HTMLTag -Tag 'title' { $TitleText }
+                    New-HTMLTag -Tag 'title' { $Pages[$Page].Title }
 
                     if ($null -ne $FavIcon) {
                         $Extension = [System.IO.Path]::GetExtension($FavIcon)
