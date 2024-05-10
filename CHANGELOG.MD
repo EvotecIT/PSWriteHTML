@@ -4,6 +4,14 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.18.0 - 2024.05.10
+- Improved `New-HTML` and `New-HTMLPage` by allowing `Title` to be used in `New-HTMLPage`.
+By default Title from `New-HTML` is used, but if title is set in `New-HTMLPage` it will be used instead for coresponsing page.
+Title will still be used for the first page.
+- Improved `EmailBody` `Parameter` parameter to be able to handle nulls
+- Some cleanup
+- Fixes `New-ChartDonut` colors
+
 ## 1.17.0 - 2024.01.15
 - Fixes `New-HTMLChart` when used inside `New-HTMLTabPanel` [#429](https://github.com/EvotecIT/PSWriteHTML/issues/429)
 
