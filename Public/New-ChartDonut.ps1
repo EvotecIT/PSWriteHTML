@@ -11,7 +11,7 @@
         ObjectType = 'Donut'
         Name       = $Name
         Value      = $Value
-        Color      = $Color
+        Color      = if ($Color) { ConvertFrom-Color -Color $Color } else { $null }
     }
 }
 Register-ArgumentCompleter -CommandName New-ChartDonut -ParameterName Color -ScriptBlock $Script:ScriptBlockColors
