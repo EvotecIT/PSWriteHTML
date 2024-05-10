@@ -112,7 +112,11 @@ function EmailBody {
         if ($Parameter) {
             # This is to support special case of executing external scriptblocks
             [Array] $ArrayParamerers = foreach ($Key in $Parameter.Keys) {
-                , $Parameter[$Key]
+                if ($null -eq $Parameter[$Key]) {
+                    , $null
+                } else {
+                    , $Parameter[$Key]
+                }
             }
             $Template = Add-ParametersToScriptBlock -ScriptBlock $EmailBody -Parameter $Parameter
             if ($SpanRequired) {
