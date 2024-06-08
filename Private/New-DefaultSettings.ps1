@@ -15,10 +15,15 @@
             DataStore        = ''
             # Applies to only JavaScript and AjaxJSON store
             DataStoreOptions = [ordered] @{
-                BoolAsString   = $false
-                NumberAsString = $false
-                DateTimeFormat = '' #"yyyy-MM-dd HH:mm:ss"
-                NewLineFormat  = @{
+                BoolAsString          = $false
+                NumberAsString        = $false
+                DateTimeFormat        = '' #"yyyy-MM-dd HH:mm:ss"
+                NewLineFormat         = @{
+                    NewLineCarriage = '<br>'
+                    NewLine         = "\n"
+                    Carriage        = "\r"
+                }
+                NewLineFormatProperty = @{
                     NewLineCarriage = '<br>'
                     NewLine         = "\n"
                     Carriage        = "\r"

@@ -84,6 +84,15 @@
         if ($Carriage) {
             $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormat.Carriage = $Carriage
         }
+        if ($NewLineCarriage) {
+            $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormatProperty.NewLineCarriage = $NewLineCarriage
+        }
+        if ($NewLine) {
+            $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormatProperty.NewLine = $NewLine
+        }
+        if ($Carriage) {
+            $Script:HTMLSchema['TableOptions']['DataStoreOptions'].NewLineFormatProperty.Carriage = $Carriage
+        }
         if ($ArrayJoin) {
             $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin = $true
             $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString = $ArrayJoinString
