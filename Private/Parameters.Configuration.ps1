@@ -316,11 +316,11 @@
                 HeaderAlways = @{
                     CssInline = [ordered] @{
                         # Workaround for IE 11
-                        '@media all and (-ms-high-contrast:active)' = @{
-                            '.defaultSection' = @{
-                                'display' = 'flex'
-                            }
-                        }
+                        # '@media all and (-ms-high-contrast:active)' = @{
+                        #     '.defaultSection' = @{
+                        #         'display' = 'flex'
+                        #     }
+                        # }
                         '.defaultSection'                           = [ordered] @{
                             #'display'        = 'flex' # added to allow diagram to resize properly
                             'flex-direction' = 'column' # added to allow diagram to resize properly

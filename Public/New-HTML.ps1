@@ -306,7 +306,7 @@ Function New-HTML {
 
         [string] $HTML = @(
             #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
-            '<!-- saved from url=(0014)about:internet -->' + [System.Environment]::NewLine
+            #'<!-- saved from url=(0014)about:internet -->' + [System.Environment]::NewLine
             '<!DOCTYPE html>' + [System.Environment]::NewLine
             New-HTMLTag -Tag 'html' {
                 if ($AddComment) { '<!-- HEAD -->' }
