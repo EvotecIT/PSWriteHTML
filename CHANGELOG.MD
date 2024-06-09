@@ -4,7 +4,7 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
-## 1.19.0
+## 1.19.0 - 2024.06.09
 - Dropping IE support
 - Fixes `New-HTMLTable` when using `DataStore` `JavaScript` for new lines
 - Fixes `New-HTMLTable` when using `DataStore` `JavaScript` when replacing `\r\n` [#439](https://github.com/EvotecIT/PSWriteHTML/issues/439) tnx @matt555
