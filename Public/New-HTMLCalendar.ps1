@@ -28,7 +28,23 @@
         [ValidateSet(
             'dayGridDay', 'dayGridWeek', 'dayGridMonth', 'timeGridDay', 'timeGridWeek', 'listDay', 'listWeek', 'listMonth', 'listYear'
         )][string] $InitialView,
-        [string] $UrlTarget
+        [string] $UrlTarget,
+        [System.Collections.IDictionary] $EventTimeFormat = [ordered] @{
+            hour           = '2-digit'
+            minute         = '2-digit'
+            #second   = '2-digit'
+            omitZeroMinute = $false
+            meridiem       = $false
+            hour12         = $false
+        },
+        [System.Collections.IDictionary] $SlotLabelFormat = [ordered] @{
+            hour           = '2-digit'
+            minute         = '2-digit'
+            #second   = '2-digit'
+            omitZeroMinute = $false
+            meridiem       = $false
+            hour12         = $false
+        }
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLCalendar - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -72,6 +88,9 @@
         selectable            = $Selectable
         selectMirror          = $SelectMirror
         buttonIcons           = $false # // show the prev/next text
+        # https://fullcalendar.io/docs/eventTimeFormat
+        eventTimeFormat       = $EventTimeFormat
+        slotLabelFormat       = $SlotLabelFormat
         #// customize the button names,
         #// otherwise they'd all just say "list"
         views                 = @{
