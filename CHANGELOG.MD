@@ -4,6 +4,13 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.20.0 - 2024.06.27
+- Added to `EmailTable` / `New-HTMLTable` additional properties `PrettifyObject, PrettifyObjectSeparator, PrettifyObjectDateTimeFormat`
+- Added to `New-HTMLTableOption` additional properties `PrettifyObject, PrettifyObjectSeparator, PrettifyObjectDateTimeFormat`
+
+Those options above allow object to be translated to more readable format when using properties that are arrays or when wanting different datetime format
+It basically does to HTML version what normally is doable in JavaScript DataStore.
+
 ## 1.19.0 - 2024.06.09
 - Dropping IE support
 - Fixes `New-HTMLTable` when using `DataStore` `JavaScript` for new lines
