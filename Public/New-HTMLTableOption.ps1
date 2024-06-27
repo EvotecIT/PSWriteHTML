@@ -60,7 +60,10 @@
         [string] $NewLine,
         [string] $Carriage,
         [switch] $ArrayJoin,
-        [string] $ArrayJoinString = ', '
+        [string] $ArrayJoinString = ', ',
+        [switch] $PrettifyObject,
+        [string] $PrettifyObjectSeparator = ", ",
+        [string] $PrettifyObjectDateTimeFormat
     )
     if ($Script:HTMLSchema) {
         if ($DataStore ) {
@@ -96,6 +99,15 @@
         if ($ArrayJoin) {
             $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoin = $true
             $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString = $ArrayJoinString
+        }
+        if ($PSBoundParameters.ContainsKey('PrettifyObject')) {
+            $Script:HTMLSchema['TableOptions']['DataStoreOptions'].PrettifyObject = $PrettifyObject.IsPresent
+            if ($PrettifyObjectSeparator) {
+                $Script:HTMLSchema['TableOptions']['DataStoreOptions'].PrettifyObjectSeparator = $PrettifyObjectSeparator
+            }
+            if ($PrettifyObjectDateTimeFormat) {
+                $Script:HTMLSchema['TableOptions']['DataStoreOptions'].PrettifyObjectDateTimeFormat = $PrettifyObjectDateTimeFormat
+            }
         }
     }
 }
