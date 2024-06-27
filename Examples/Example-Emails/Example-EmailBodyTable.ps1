@@ -22,8 +22,14 @@ $Table = @(
 )
 
 $Output = EmailBody -FontSize 15px -FontFamily 'Tahoma' {
+    EmailTableOption -PrettifyObject -PrettifyObjectSeparator " - "
     EmailText -Text 'This should be font 8pt, table should also be font 8pt'
-    EmailTable -Table $Table -PrettifyObject #-PrettifyObjectSeparator " - "
+    EmailTable -Table $Table # this will use PrettifyObject from above
+
+    EmailText -LineBreak
+
+    EmailTable -Table $Table -PrettifyObject -PrettifyObjectSeparator ", "
+
     EmailText -LineBreak
 
     EmailTextBox -FontFamily 'Calibri' -Size 17 -TextDecoration underline -Color DarkSalmon -Alignment center {
