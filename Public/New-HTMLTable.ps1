@@ -1,4 +1,268 @@
 function New-HTMLTable {
+    <#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER HTML
+    Parameter description
+
+    .PARAMETER PreContent
+    Parameter description
+
+    .PARAMETER PostContent
+    Parameter description
+
+    .PARAMETER DataTable
+    Parameter description
+
+    .PARAMETER Title
+    Parameter description
+
+    .PARAMETER Buttons
+    Parameter description
+
+    .PARAMETER PagingStyle
+    Parameter description
+
+    .PARAMETER PagingOptions
+    Parameter description
+
+    .PARAMETER PagingLength
+    Parameter description
+
+    .PARAMETER DisablePaging
+    Parameter description
+
+    .PARAMETER DisableOrdering
+    Parameter description
+
+    .PARAMETER DisableInfo
+    Parameter description
+
+    .PARAMETER HideFooter
+    Parameter description
+
+    .PARAMETER HideButtons
+    Parameter description
+
+    .PARAMETER DisableProcessing
+    Parameter description
+
+    .PARAMETER DisableResponsiveTable
+    Parameter description
+
+    .PARAMETER DisableSelect
+    Parameter description
+
+    .PARAMETER DisableStateSave
+    Parameter description
+
+    .PARAMETER DisableSearch
+    Parameter description
+
+    .PARAMETER OrderMulti
+    Parameter description
+
+    .PARAMETER Filtering
+    Parameter description
+
+    .PARAMETER FilteringLocation
+    Parameter description
+
+    .PARAMETER Style
+    Parameter description
+
+    .PARAMETER Simplify
+    Parameter description
+
+    .PARAMETER TextWhenNoData
+    Parameter description
+
+    .PARAMETER ScreenSizePercent
+    Parameter description
+
+    .PARAMETER DefaultSortColumn
+    Parameter description
+
+    .PARAMETER DefaultSortIndex
+    Parameter description
+
+    .PARAMETER DefaultSortOrder
+    Parameter description
+
+    .PARAMETER DateTimeSortingFormat
+    Parameter description
+
+    .PARAMETER Find
+    Parameter description
+
+    .PARAMETER InvokeHTMLTags
+    Parameter description
+
+    .PARAMETER DisableNewLine
+    Parameter description
+
+    .PARAMETER EnableKeys
+    Parameter description
+
+    .PARAMETER EnableColumnReorder
+    Parameter description
+
+    .PARAMETER EnableRowReorder
+    Parameter description
+
+    .PARAMETER EnableAutoFill
+    Parameter description
+
+    .PARAMETER EnableScroller
+    Parameter description
+
+    .PARAMETER ScrollX
+    Parameter description
+
+    .PARAMETER ScrollY
+    Parameter description
+
+    .PARAMETER ScrollSizeY
+    Parameter description
+
+    .PARAMETER ScrollCollapse
+    Parameter description
+
+    .PARAMETER FreezeColumnsLeft
+    Parameter description
+
+    .PARAMETER FreezeColumnsRight
+    Parameter description
+
+    .PARAMETER FixedHeader
+    Parameter description
+
+    .PARAMETER FixedFooter
+    Parameter description
+
+    .PARAMETER ResponsivePriorityOrder
+    Parameter description
+
+    .PARAMETER ResponsivePriorityOrderIndex
+    Parameter description
+
+    .PARAMETER PriorityProperties
+    Parameter description
+
+    .PARAMETER IncludeProperty
+    Parameter description
+
+    .PARAMETER ExcludeProperty
+    Parameter description
+
+    .PARAMETER ImmediatelyShowHiddenDetails
+    Parameter description
+
+    .PARAMETER HideShowButton
+    Parameter description
+
+    .PARAMETER AllProperties
+    Parameter description
+
+    .PARAMETER SkipProperties
+    Parameter description
+
+    .PARAMETER Compare
+    Parameter description
+
+    .PARAMETER CompareNames
+    Parameter description
+
+    .PARAMETER HighlightDifferences
+    Parameter description
+
+    .PARAMETER First
+    Parameter description
+
+    .PARAMETER Last
+    Parameter description
+
+    .PARAMETER CompareReplace
+    Parameter description
+
+    .PARAMETER SearchRegularExpression
+    Parameter description
+
+    .PARAMETER WordBreak
+    Parameter description
+
+    .PARAMETER AutoSize
+    Parameter description
+
+    .PARAMETER DisableAutoWidthOptimization
+    Parameter description
+
+    .PARAMETER SearchPane
+    Parameter description
+
+    .PARAMETER SearchPaneLocation
+    Parameter description
+
+    .PARAMETER SearchBuilder
+    Parameter description
+
+    .PARAMETER SearchBuilderLocation
+    Parameter description
+
+    .PARAMETER DataStore
+    Parameter description
+
+    .PARAMETER DataTableID
+    Parameter description
+
+    .PARAMETER DataStoreID
+    Parameter description
+
+    .PARAMETER Transpose
+    Parameter description
+
+    .PARAMETER OverwriteDOM
+    Parameter description
+
+    .PARAMETER SearchHighlight
+    Parameter description
+
+    .PARAMETER AlphabetSearch
+    Parameter description
+
+    .PARAMETER FuzzySearch
+    Parameter description
+
+    .PARAMETER FuzzySearchSmartToggle
+    Parameter description
+
+    .PARAMETER FlattenObject
+    Parameter description
+
+    .PARAMETER FlattenDepth
+    Parameter description
+
+    .PARAMETER PrettifyObject
+    Forces object to be preprocessed before passing to HTML.
+    This is useful when converting object with arrays or when there is a need to display DateTime in different format.
+    This is mostly useful for email tables or when using DataStore HTML.
+
+    .PARAMETER PrettifyObjectSeparator
+    Define separator for prettified array object. Default is ", ".
+
+    .PARAMETER PrettifyObjectDateTimeFormat
+    Define DateTime format for prettified object.
+
+    .EXAMPLE
+    An example
+
+    .NOTES
+    General notes
+    #>
     [alias('Table', 'EmailTable')]
     [CmdletBinding()]
     param(
@@ -81,6 +345,9 @@ function New-HTMLTable {
         [switch] $FuzzySearch,
         [switch] $FuzzySearchSmartToggle,
         [switch] $FlattenObject,
+        [switch] $PrettifyObject,
+        [string] $PrettifyObjectSeparator = ", ",
+        [string] $PrettifyObjectDateTimeFormat,
         [int] $FlattenDepth
     )
     if (-not $Script:HTMLSchema.Features) {
@@ -165,6 +432,19 @@ function New-HTMLTable {
         } else {
             $DataTable = ConvertTo-FlatObject -Objects $DataTable
         }
+    }
+    if ($PrettifyObject) {
+        $convertToPrettyObjectSplat = @{
+            Object          = $DataTable
+            ArrayJoin       = $true
+        }
+        if ($PrettifyObjectDateTimeFormat) {
+            $convertToPrettyObjectSplat['DateTimeFormat'] = $PrettifyObjectDateTimeFormat
+        }
+        if ($PrettifyObjectSeparator) {
+            $convertToPrettyObjectSplat['ArrayJoinString'] = $PrettifyObjectSeparator
+        }
+        $DataTable = ConvertTo-PrettyObject @convertToPrettyObjectSplat
     }
 
     if ($HTML) {
