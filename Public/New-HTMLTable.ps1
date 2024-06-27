@@ -433,16 +433,31 @@ function New-HTMLTable {
             $DataTable = ConvertTo-FlatObject -Objects $DataTable
         }
     }
-    if ($PrettifyObject) {
+
+    if ($PSBoundParameters.ContainsKey('PrettifyObject')) {
+        if ($PrettifyObject) {
+            $convertToPrettyObjectSplat = @{
+                Object    = $DataTable
+                ArrayJoin = $true
+            }
+            if ($PrettifyObjectDateTimeFormat) {
+                $convertToPrettyObjectSplat['DateTimeFormat'] = $PrettifyObjectDateTimeFormat
+            }
+            if ($PrettifyObjectSeparator) {
+                $convertToPrettyObjectSplat['ArrayJoinString'] = $PrettifyObjectSeparator
+            }
+            $DataTable = ConvertTo-PrettyObject @convertToPrettyObjectSplat
+        }
+    } elseif ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].PrettifyObject) {
         $convertToPrettyObjectSplat = @{
-            Object          = $DataTable
-            ArrayJoin       = $true
+            Object    = $DataTable
+            ArrayJoin = $true
         }
-        if ($PrettifyObjectDateTimeFormat) {
-            $convertToPrettyObjectSplat['DateTimeFormat'] = $PrettifyObjectDateTimeFormat
+        if ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].PrettifyObjectDateTimeFormat) {
+            $convertToPrettyObjectSplat['DateTimeFormat'] = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].PrettifyObjectDateTimeFormat
         }
-        if ($PrettifyObjectSeparator) {
-            $convertToPrettyObjectSplat['ArrayJoinString'] = $PrettifyObjectSeparator
+        if ($Script:HTMLSchema['TableOptions']['DataStoreOptions'].PrettifyObjectSeparator) {
+            $convertToPrettyObjectSplat['ArrayJoinString'] = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].PrettifyObjectSeparator
         }
         $DataTable = ConvertTo-PrettyObject @convertToPrettyObjectSplat
     }
