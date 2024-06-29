@@ -100,6 +100,9 @@ function Out-HtmlView {
         [ValidateSet('top', 'bottom')][string] $SearchBuilderLocation = 'top',
         [ValidateSet('HTML', 'JavaScript', 'AjaxJSON')][string] $DataStore,
         [switch] $Transpose,
+        [string] $TransposeProperty,
+        [string] $TransposeName,
+        [switch] $TransposeLegacy,
         [switch] $PreventShowHTML,
         [switch] $Online,
         [string] $OverwriteDOM,
@@ -107,7 +110,10 @@ function Out-HtmlView {
         [switch] $AlphabetSearch,
         [switch] $FuzzySearch,
         [switch] $FuzzySearchSmartToggle,
-        [switch] $FlattenObject
+        [switch] $FlattenObject,
+        [switch] $PrettifyObject,
+        [string] $PrettifyObjectSeparator = ", ",
+        [string] $PrettifyObjectDateTimeFormat
     )
     Begin {
         $DataTable = [System.Collections.Generic.List[Object]]::new()
@@ -177,7 +183,6 @@ function Out-HtmlView {
                     Simplify                     = $Simplify
                     HideShowButton               = $HideShowButton
                     CompareReplace               = $CompareReplace
-                    Transpose                    = $Transpose
                     SearchRegularExpression      = $SearchRegularExpression
                     WordBreak                    = $WordBreak
                     AutoSize                     = $AutoSize
@@ -204,6 +209,27 @@ function Out-HtmlView {
                     FuzzySearchSmartToggle       = $FuzzySearchSmartToggle
                     FlattenObject                = $FlattenObject
                     CompareNames                 = $CompareNames
+                }
+                if ($Transpose) {
+                    $newHTMLTableSplat['Transpose'] = $Transpose.IsPresent
+                    if ($TransposeProperty) {
+                        $newHTMLTableSplat['TransposeProperty'] = $TransposeProperty
+                    }
+                    if ($TransposeName) {
+                        $newHTMLTableSplat['TransposeName'] = $TransposeName
+                    }
+                    if ($TransposeLegacy) {
+                        $newHTMLTableSplat['TransposeLegacy'] = $TransposeLegacy
+                    }
+                }
+                if ($PrettifyObject) {
+                    $newHTMLTableSplat['PrettifyObject'] = $PrettifyObject.IsPresent
+                    if ($PrettifyObjectSeparator) {
+                        $newHTMLTableSplat['PrettifyObjectSeparator'] = $PrettifyObjectSeparator
+                    }
+                    if ($PrettifyObjectDateTimeFormat) {
+                        $newHTMLTableSplat['PrettifyObjectDateTimeFormat'] = $PrettifyObjectDateTimeFormat
+                    }
                 }
                 Remove-EmptyValue -Hashtable $newHTMLTableSplat
                 New-HTMLTable @newHTMLTableSplat

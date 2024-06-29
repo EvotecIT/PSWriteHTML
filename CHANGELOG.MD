@@ -4,9 +4,60 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.21.0 - 2024.06.29
+- Changed behavior of `Transpose` in `New-HTMLTable` / `Out-HtmlView`
+- Added `TransposeLegacy` to `New-HTMLTable` / `Out-HtmlView` to keep old behavior
+- Added `TransposeName` to `New-HTMLTable` / `Out-HtmlView` to allow for custom name (default is `Object 0`, `Object 1`, `Object 2`)
+- Added `TransposeProperty` to `New-HTMLTable` / `Out-HtmlView` to allow for transposing on unique value from specific property (ex. ServerName)
+- Added `Out-HtmlView` additional options `PrettifyObject, PrettifyObjectSeparator, PrettifyObjectDateTimeFormat`
+
+Those changes resolve: [#316](https://github.com/EvotecIT/PSWriteHTML/issues/316)
+
+```powershell
+$Object = @(
+    [PSCustomObject] @{
+        Test  = 5
+        Ello  = 'Motto'
+        Hello = 'Totto'
+    }
+    [PSCustomObject] @{
+        Test  = 5
+        Ello  = 'Motto'
+        Hello = 'Totto'
+    }
+    [PSCustomObject] @{
+        Test  = 5
+        Ello  = 'Motto'
+        Hello = 'Totto'
+    }
+    [PSCustomObject] @{
+        Test  = 5
+        Ello  = 'Motto'
+        Hello = 'Totto'
+    }
+    [PSCustomObject] @{
+        Test  = 5
+        Ello  = 'Motto'
+        Hello = 'Totto'
+    }
+    [PSCustomObject] @{
+        Test  = 3
+        Ello  = 'Lotto'
+        Hello = 'Totto'
+    }
+)
+
+
+$Object | Out-HtmlView -Transpose -TransposeName 'Test ' -Filtering
+
+New-HTML -TitleText $Title -Online -FilePath $PSScriptRoot\Example-TableTranspose01.html {
+    New-HTMLTable -DataTable $Object -Filtering -Transpose
+} -ShowHTML
+```
+
 ## 1.20.0 - 2024.06.27
-- Added to `EmailTable` / `New-HTMLTable` additional properties `PrettifyObject, PrettifyObjectSeparator, PrettifyObjectDateTimeFormat`
-- Added to `New-HTMLTableOption` additional properties `PrettifyObject, PrettifyObjectSeparator, PrettifyObjectDateTimeFormat`
+- Added to `EmailTable` / `New-HTMLTable` additional options `PrettifyObject, PrettifyObjectSeparator, PrettifyObjectDateTimeFormat`
+- Added to `New-HTMLTableOption` additional options `PrettifyObject, PrettifyObjectSeparator, PrettifyObjectDateTimeFormat`
 
 Those options above allow object to be translated to more readable format when using properties that are arrays or when wanting different datetime format
 It basically does to HTML version what normally is doable in JavaScript DataStore.

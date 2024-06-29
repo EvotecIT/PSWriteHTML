@@ -223,7 +223,16 @@ function New-HTMLTable {
     Parameter description
 
     .PARAMETER Transpose
-    Parameter description
+    Transpose table. This is useful when you have objects and you want to transpose them.
+
+    .PARAMETER TransposeProperty
+    Transpose table based on property. By default it's "Object X". This makes sense if you have unique value per object that you want to transpose table based on.
+
+    .PARAMETER TransposeName
+    Name of the column that will be used per object to transpose table. By default it's "Object X", "Object Y", "Object Z" etc.
+
+    .PARAMETER TransposeLegacy
+    Use old method of transposing table. This is useful when you have objects and you want to transpose them, using legacy method.
 
     .PARAMETER OverwriteDOM
     Parameter description
@@ -339,6 +348,9 @@ function New-HTMLTable {
         [alias('DataTableName')][string] $DataTableID,
         [string] $DataStoreID,
         [switch] $Transpose,
+        [string] $TransposeProperty,
+        [string] $TransposeName,
+        [switch] $TransposeLegacy,
         [string] $OverwriteDOM,
         [switch] $SearchHighlight,
         [switch] $AlphabetSearch,
@@ -424,7 +436,19 @@ function New-HTMLTable {
 
     if ($Transpose) {
         # Allows easy conversion from PSCustomObject to Hashtable and vice versa
-        $DataTable = Format-TransposeTable -Object $DataTable
+        $formatTransposeTableSplat = @{
+            AllObjects = $DataTable
+        }
+        if ($TransposeProperty) {
+            $formatTransposeTableSplat['Property'] = $TransposeProperty
+        }
+        if ($TransposeName) {
+            $formatTransposeTableSplat['Name'] = $TransposeName
+        }
+        if ($TransposeLegacy) {
+            $formatTransposeTableSplat['Legacy'] = $true
+        }
+        $DataTable = Format-TransposeTable @formatTransposeTableSplat
     }
     if ($FlattenObject) {
         if ($FlattenDepth) {
