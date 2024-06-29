@@ -6,6 +6,8 @@
 
     if ($ImageFile.Extension -eq '.jpg') {
         $FileType = 'jpeg'
+    } elseif ($ImageFile.Extension -eq '.svg') {
+        $FileType = 'svg+xml'
     } else {
         $FileType = $ImageFile.Extension.Replace('.', '')
     }
