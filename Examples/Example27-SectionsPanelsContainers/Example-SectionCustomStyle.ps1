@@ -22,7 +22,7 @@ New-HTML {
             'margin' = '10px'
             'width'  = 'calc(100% - 20px)'
         }
-    } -SkipTags
+    }
     New-HTMLSection -HeaderText 'Test' {
         for ($i = 0; $i -le 5; $i++) {
             New-HTMLTable -DataTable $DataTable -HideFooter
