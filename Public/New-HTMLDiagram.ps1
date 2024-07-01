@@ -12,7 +12,8 @@ function New-HTMLDiagram {
         [alias('DisableLoadingBar')]
         [switch] $DisableLoader,
         [switch] $EnableFiltering,
-        [int] $MinimumFilteringChars = 3
+        [int] $MinimumFilteringChars = 3,
+        [switch] $EnableFilteringButton
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLDiagram - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -157,5 +158,21 @@ function New-HTMLDiagram {
         $Image = $BackGroundImage
     }
 
-    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height -BackgroundImage $Image -Events $DataEvents -IconsAvailable:$IconsAvailable -DisableLoader:$DisableLoader -EnableFiltering:$EnableFiltering -MinimumFilteringChars $MinimumFilteringChars
+    $newInternalDiagramSplat = @{
+        Nodes                 = $Nodes
+        Edges                 = $Edges
+        Options               = $Options
+        Width                 = $Width
+        Height                = $Height
+        BackgroundImage       = $Image
+        Events                = $DataEvents
+        IconsAvailable        = $IconsAvailable
+        DisableLoader         = $DisableLoader
+        EnableFiltering       = $EnableFiltering.IsPresent
+        MinimumFilteringChars = $MinimumFilteringChars
+    }
+    if ($PSBoundParameters.ContainsKey('EnableFilteringButton')) {
+        $newInternalDiagramSplat['EnableFilteringButton'] = $EnableFilteringButton.IsPresent
+    }
+    New-InternalDiagram @newInternalDiagramSplat
 }
