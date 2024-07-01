@@ -90,7 +90,7 @@ New-HTML {
         New-HTMLSection -HeaderText 'Test 1' {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
         }
-    }
+    } -Title "Test 123"
     # This adds more pages with different content
     New-HTMLPage -Name 'Page2' {
         New-HTMLSection -Invisible {
