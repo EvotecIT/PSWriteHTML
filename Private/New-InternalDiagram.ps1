@@ -12,13 +12,17 @@ function New-InternalDiagram {
         [switch] $IconsAvailable,
         [switch] $DisableLoader,
         [switch] $EnableFiltering,
-        [int] $MinimumFilteringChars = 3
+        [int] $MinimumFilteringChars = 3,
+        [switch] $EnableFilteringButton
     )
     $Script:HTMLSchema.Features.VisNetwork = $true
     $Script:HTMLSchema.Features.VisData = $true
     $Script:HTMLSchema.Features.Moment = $true
     $Script:HTMLSchema.Features.VisNetworkLoad = $true
     $Script:HTMLSchema.Features.EscapeRegex = $true
+
+
+    $UseFilteringButton = $PSBoundParameters.ContainsKey('EnableFilteringButton')
 
     # We need to disable loader if physics is disabled, as it doesn't give us anything
     # and it prevents loading
@@ -62,9 +66,13 @@ function New-InternalDiagram {
     if (-not $DisableLoader) {
         $Div = New-HTMLTag -Tag 'div' -Attributes @{ class = 'diagramWrapper' } -Value {
             New-HTMLTag -Tag 'div' -Attributes $AttributesOutside -Value {
-                New-HTMLTag -Tag 'div' -Attributes @{ class = 'searchDiagram' } -Value {
-                    New-HTMLTag -Tag 'input' -Attributes @{ type = 'search'; class = 'searchInput'; id = "searchInput$ID"; placeholder = 'Filter...' }
-                    #New-HTMLTag -Tag 'button' -Attributes @{ id = 'searchButton'; class = 'searchButton'; type = 'button' } -Value 'Search'
+                if ($EnableFiltering -or $UseFilteringButton) {
+                    New-HTMLTag -Tag 'div' -Attributes @{ class = 'searchDiagram' } -Value {
+                        New-HTMLTag -Tag 'input' -Attributes @{ type = 'search'; class = 'searchInput'; id = "searchInput$ID"; placeholder = 'Filter name...' }
+                        if ($UseFilteringButton) {
+                            New-HTMLTag -Tag 'button' -Attributes @{ id = "searchButton$ID"; class = 'searchButton'; type = 'button' } -Value { 'Filter' }
+                        }
+                    }
                 }
                 New-HTMLTag -Tag 'div' -Attributes $AttributesInside
             }
@@ -80,10 +88,12 @@ function New-InternalDiagram {
 
     } else {
         $Div = New-HTMLTag -Tag 'div' -Attributes $AttributesOutside {
-            if ($EnableFiltering) {
+            if ($EnableFiltering -or $UseFilteringButton) {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'searchDiagram' } -Value {
-                    New-HTMLTag -Tag 'input' -Attributes @{ type = 'search'; class = 'searchInput'; id = "searchInput$ID"; placeholder = 'Filter...' }
-                    #New-HTMLTag -Tag 'button' -Attributes @{ id = 'searchButton'; class = 'searchButton'; type = 'button' } -Value 'Search'
+                    New-HTMLTag -Tag 'input' -Attributes @{ type = 'search'; class = 'searchInput'; id = "searchInput$ID"; placeholder = 'Filter name...' }
+                    if ($UseFilteringButton) {
+                        New-HTMLTag -Tag 'button' -Attributes @{ id = "searchButton$ID"; class = 'searchButton'; type = 'button' } -Value { 'Filter' }
+                    }
                 }
             }
             New-HTMLTag -Tag 'div' -Attributes $AttributesInside
@@ -134,8 +144,9 @@ function New-InternalDiagram {
         "diagramTracker['$ID'] = network;"
         "$PreparedEvents"
 
-        if ($EnableFiltering) {
-            "setupSearch(nodes, edges, 'searchInput$ID', null, true, $MinimumFilteringChars); // Enables typing search only"
+        if ($EnableFiltering -or $UseFilteringButton) {
+            $SearchByTyping = if ($UseFilteringButton) { "false" } else { "true" }
+            "setupSearch(nodes, edges, 'searchInput$ID', 'searchButton$ID', $SearchByTyping, $MinimumFilteringChars); // Enables typing search only"
         }
 
     } -NewLine
