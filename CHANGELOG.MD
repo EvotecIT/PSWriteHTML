@@ -4,6 +4,11 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.22.0
+- `New-HTMLImage` issue with SVG images [#398](https://github.com/EvotecIT/PSWriteHTML/issues/398) - tnx @matt555
+- `New-HTMLDiagram` has new parameters `EnableSearch` and `MinimumSearchChars` which allows adding a search/limit to display only nodes that match search
+- Updated VisNetwork/VisTimeline to 9.1.9
+
 ## 1.21.0 - 2024.06.29
 - Changed behavior of `Transpose` in `New-HTMLTable` / `Out-HtmlView`
 - Added `TransposeLegacy` to `New-HTMLTable` / `Out-HtmlView` to keep old behavior
