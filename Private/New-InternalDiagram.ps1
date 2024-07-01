@@ -11,8 +11,8 @@ function New-InternalDiagram {
         [string] $BackgroundSize = '100% 100%',
         [switch] $IconsAvailable,
         [switch] $DisableLoader,
-        [switch] $EnableSearch,
-        [int] $MinimumSearchChars = 3
+        [switch] $EnableFiltering,
+        [int] $MinimumFilteringChars = 3
     )
     $Script:HTMLSchema.Features.VisNetwork = $true
     $Script:HTMLSchema.Features.VisData = $true
@@ -30,7 +30,7 @@ function New-InternalDiagram {
     }
     # Vis network clustering allows to cluster more than 1 node, there's no code to enable it yet
     #$Script:HTMLSchema.Features.VisNetworkClustering = $true
-    if ($EnableSearch) {
+    if ($EnableFiltering) {
         $Script:HTMLSchema.Features.VisNetworkFind = $true
     }
 
@@ -63,7 +63,7 @@ function New-InternalDiagram {
         $Div = New-HTMLTag -Tag 'div' -Attributes @{ class = 'diagramWrapper' } -Value {
             New-HTMLTag -Tag 'div' -Attributes $AttributesOutside -Value {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'searchDiagram' } -Value {
-                    New-HTMLTag -Tag 'input' -Attributes @{ type = 'search'; class = 'searchInput'; id = "searchInput$ID"; placeholder = 'Search...' }
+                    New-HTMLTag -Tag 'input' -Attributes @{ type = 'search'; class = 'searchInput'; id = "searchInput$ID"; placeholder = 'Filter...' }
                     #New-HTMLTag -Tag 'button' -Attributes @{ id = 'searchButton'; class = 'searchButton'; type = 'button' } -Value 'Search'
                 }
                 New-HTMLTag -Tag 'div' -Attributes $AttributesInside
@@ -80,9 +80,9 @@ function New-InternalDiagram {
 
     } else {
         $Div = New-HTMLTag -Tag 'div' -Attributes $AttributesOutside {
-            if ($EnableSearch) {
+            if ($EnableFiltering) {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'searchDiagram' } -Value {
-                    New-HTMLTag -Tag 'input' -Attributes @{ type = 'search'; class = 'searchInput'; id = "searchInput$ID"; placeholder = 'Search...' }
+                    New-HTMLTag -Tag 'input' -Attributes @{ type = 'search'; class = 'searchInput'; id = "searchInput$ID"; placeholder = 'Filter...' }
                     #New-HTMLTag -Tag 'button' -Attributes @{ id = 'searchButton'; class = 'searchButton'; type = 'button' } -Value 'Search'
                 }
             }
@@ -134,8 +134,8 @@ function New-InternalDiagram {
         "diagramTracker['$ID'] = network;"
         "$PreparedEvents"
 
-        if ($EnableSearch) {
-            "setupSearch(nodes, edges, 'searchInput$ID', null, true, $MinimumSearchChars); // Enables typing search only"
+        if ($EnableFiltering) {
+            "setupSearch(nodes, edges, 'searchInput$ID', null, true, $MinimumFilteringChars); // Enables typing search only"
         }
 
     } -NewLine

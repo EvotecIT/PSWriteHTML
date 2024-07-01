@@ -11,8 +11,8 @@ function New-HTMLDiagram {
         [switch] $NoAutoResize, # Doesn't seem to do anything
         [alias('DisableLoadingBar')]
         [switch] $DisableLoader,
-        [switch] $EnableSearch,
-        [int] $MinimumSearchChars = 3
+        [switch] $EnableFiltering,
+        [int] $MinimumFilteringChars = 3
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLDiagram - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -157,5 +157,5 @@ function New-HTMLDiagram {
         $Image = $BackGroundImage
     }
 
-    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height -BackgroundImage $Image -Events $DataEvents -IconsAvailable:$IconsAvailable -DisableLoader:$DisableLoader -EnableSearch:$EnableSearch -MinimumSearchChars $MinimumSearchChars
+    New-InternalDiagram -Nodes $Nodes -Edges $Edges -Options $Options -Width $Width -Height $Height -BackgroundImage $Image -Events $DataEvents -IconsAvailable:$IconsAvailable -DisableLoader:$DisableLoader -EnableFiltering:$EnableFiltering -MinimumFilteringChars $MinimumFilteringChars
 }
