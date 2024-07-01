@@ -3,7 +3,7 @@
     param(
 
     )
-    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.22'
+    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.25'
     $Configuration = [ordered] @{
         Features = [ordered] @{
             Inject                      = @{
@@ -321,7 +321,7 @@
                         #         'display' = 'flex'
                         #     }
                         # }
-                        '.defaultSection'                           = [ordered] @{
+                        '.defaultSection'     = [ordered] @{
                             #'display'        = 'flex' # added to allow diagram to resize properly
                             'flex-direction' = 'column' # added to allow diagram to resize properly
                             #'flex-direction' = 'default' # added to allow diagram to resize properly
@@ -333,7 +333,7 @@
                             'transition'     = '0.3s'
                             'border-radius'  = '5px'
                         }
-                        '.defaultSectionHead'                       = [ordered] @{
+                        '.defaultSectionHead' = [ordered] @{
                             'display'          = 'flex'
                             'justify-content'  = 'center'
                             'padding'          = '5px'
@@ -614,16 +614,16 @@
                 Comment = 'Apex Charts'
                 Header  = @{
                     JsLink = @(
-                        'https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
-                        'https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
-                        'https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn' # You will need this only if you require timeline/rangebar charts
+                        #'https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
+                        #'https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill' # If you need to make it work with IE11, you need to include these polyfills before including ApexCharts
+                        #'https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn' # You will need this only if you require timeline/rangebar charts
                         #'https://unpkg.com/canvg@3.0.4/lib/umd.js' # You will need this only if you require PNG download of your charts
                         'https://cdn.jsdelivr.net/npm/apexcharts@3.41.0/dist/apexcharts.min.js'
                     )
                     JS     = @(
-                        "$PSScriptRoot\..\Resources\JS\polyfill.min.js"
-                        "$PSScriptRoot\..\Resources\JS\classList.min.js"
-                        "$PSScriptRoot\..\Resources\JS\findIndex.min.js"
+                        #"$PSScriptRoot\..\Resources\JS\polyfill.min.js"
+                        #"$PSScriptRoot\..\Resources\JS\classList.min.js"
+                        # "$PSScriptRoot\..\Resources\JS\findIndex.min.js"
                         #"$PSScriptRoot\..\Resources\JS\umd.min.js"
                         "$PSScriptRoot\..\Resources\JS\apexcharts.min.js"
                     )
@@ -1914,7 +1914,7 @@
             VisData                     = [ordered]@{
                 Header  = @{
                     # https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js
-                    JsLink = 'https://cdn.jsdelivr.net/npm/vis-data@7.1.6/peer/umd/vis-data.min.js'
+                    JsLink = 'https://cdn.jsdelivr.net/npm/vis-data@7.1.9/peer/umd/vis-data.min.js'
                     Js     = "$PSScriptRoot\..\Resources\JS\vis-data.min.js"
                 }
                 Default = $true
@@ -1942,9 +1942,9 @@
                 Header       = @{
                     # https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js
                     # https://unpkg.com/vis-network/styles/vis-network.min.css
-                    JsLink  = 'https://cdn.jsdelivr.net/npm/vis-network@9.1.6/peer/umd/vis-network.min.js'
+                    JsLink  = 'https://cdn.jsdelivr.net/npm/vis-network@9.1.9/peer/umd/vis-network.min.js'
                     Js      = "$PSScriptRoot\..\Resources\JS\vis-network.min.js"
-                    CssLink = 'https://cdn.jsdelivr.net/npm/vis-network@9.1.6/styles/vis-network.min.css'
+                    CssLink = 'https://cdn.jsdelivr.net/npm/vis-network@9.1.9/styles/vis-network.min.css'
                     Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.min.css"
                 }
                 Default      = $true
@@ -1956,25 +1956,15 @@
             VisNetworkClustering        = [ordered] @{
                 Comment  = 'VIS Network Clustering'
                 Internal = $true
-                <#
-            FooterAlways = @{
-                JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
-            }
-            #>
                 Footer   = @{
-                    JSLink = "$($ConfigurationURL)/JS/vis-networkFunctions.min.js"
-                    JS     = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
+                    JSLink = "$($ConfigurationURL)/JS/vis-network.functions.min.js"
+                    JS     = "$PSScriptRoot\..\Resources\JS\vis-network.functions.js"
                 }
                 Default  = $true
                 Email    = $false
             }
             VisNetworkLoadingBar        = [ordered]@{
                 Comment = 'VIS Network Loading Bar'
-                <#
-            HeaderAlways = @{
-                Css = "$PSScriptRoot\..\Resources\CSS\vis-network.loadingbar.css"
-            }
-            #>
                 Header  = @{
                     CssLink = "$($ConfigurationURL)/CSS/vis-network.loadingbar.min.css"
                     Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.loadingbar.css"
@@ -1984,43 +1974,24 @@
             }
             VisNetworkLoad              = [ordered] @{
                 Comment = 'VIS Network Load'
-                <#
-            HeaderAlways = @{
-                JS = "$PSScriptRoot\..\Resources\JS\vis-networkLoadDiagram.js"
-            }
-            #>
                 Header  = @{
-                    JSLink = "$($ConfigurationURL)/JS/vis-networkLoadDiagram.min.js"
-                    JS     = "$PSScriptRoot\..\Resources\JS\vis-networkLoadDiagram.js"
+                    JSLink = "$($ConfigurationURL)/JS/vis-network.loadingbar.min.js"
+                    JS     = "$PSScriptRoot\..\Resources\JS\vis-network.loadingbar.js"
                 }
                 Default = $true
                 Email   = $false
             }
-            <#
-        VisNetworkStandalone   = [ordered]@{
-            Comment      = 'VIS Network Standalone Dynamic, browser based visualization libraries'
-            HeaderAlways = @{
-                CssInline = [ordered]@{
-                    '.diagram'           = [ordered]@{
-                        'min-height' = '400px'
-                        'width'      = '100%'
-                        'height'     = '100%'
-                        'border'     = '0px solid unset'
-                    }
-                    '.vis-network:focus' = [ordered]@{
-                        'outline' = 'none'
-                    }
+            VisNetworkFind              = [ordered] @{
+                Comment = 'VIS Network Find'
+                Header  = @{
+                    JSLink  = "$($ConfigurationURL)/JS/vis-network.find.min.js"
+                    JS      = "$PSScriptRoot\..\Resources\JS\vis-network.find.js"
+                    Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.find.css"
+                    CssLink = "$($ConfigurationURL)/CSS/vis-network.find.min.css"
                 }
+                Default = $true
+                Email   = $false
             }
-            Header       = @{
-                JsLink = 'https://unpkg.com/vis-network@8.4.1/standalone/umd/vis-network.min.js'
-                Js     = "$PSScriptRoot\..\Resources\JS\vis-networkStandalone.min.js"
-            }
-            FooterAlways = @{
-                JS = "$PSScriptRoot\..\Resources\JS\vis-networkFunctions.js"
-            }
-        }
-        #>
             VisTimeline                 = [ordered]@{
                 Comment      = 'VIS TimeLine'
                 HeaderAlways = [ordered]@{
@@ -2033,10 +2004,10 @@
                 }
                 Header       = @{
                     # https://unpkg.com/vis-timeline@latest/peer/umd/vis-timeline-graph2d.min.js
-                    JsLink  = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.7.2/peer/umd/vis-timeline-graph2d.min.js'
+                    JsLink  = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.7.3/peer/umd/vis-timeline-graph2d.min.js'
                     Js      = "$PSScriptRoot\..\Resources\JS\vis-timeline-graph2d.min.js"
                     Css     = "$PSScriptRoot\..\Resources\CSS\vis-timeline-graph2d.min.css"
-                    CssLink = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.7.2/dist/vis-timeline-graph2d.min.css'
+                    CssLink = 'https://cdn.jsdelivr.net/npm/vis-timeline@7.7.3/dist/vis-timeline-graph2d.min.css'
                 }
                 LicenseLink  = 'https://github.com/visjs/vis-timeline/blob/master/LICENSE.md'
                 License      = 'MIT and Apache 2.0'
@@ -2226,36 +2197,37 @@
     $Configuration
 }
 
-#$Configuration = Get-DefaultParameters
-#$Keys = @(
-#'datatablesfuzzysearch'
-#'iFrameResizer
-#'Popper'
-#'Moment'
-#'Jquery'
-#'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
-#'ChartsApex'
-#'AccordionFAQ'
-#'VisNetwork'
-#'VisTimeline'
-#'VisData'
-#'JustGage'
-#'FullCalendar'
-#'DataTablesSearchAlphabet'
-#'DataTable*'
-#'FancyTree'
-#'CarouselSlick'
-#'JustGage'
-#'CarouselKineto'
-#'QR'
-#'TabsInline'
-#'Fonts*'
-#'WinBox'
-#'FontsSimpleIcons'
-#'Wizard'
-#'MarkdownShowdown*'
-#'JSTree'
-#'JSXSS'
-#'Mermaid'
-#)
-#Save-HTMLResource -Configuration $Configuration -Keys $Keys -PathToSave 'C:\Support\GitHub\PSWriteHTML\Resources\CSS' -Verbose
+# $Configuration = Get-DefaultParameters
+# $Keys = @(
+# 'datatablesfuzzysearch'
+# 'iFrameResizer
+# 'Popper'
+# 'Moment'
+# 'Jquery'
+# 'ChartsOrg', 'ChartsOrgExportPDF', 'ChartsOrgExportPNG'
+# 'ChartsApex'
+# 'AccordionFAQ'
+# 'VisNetwork'
+# 'VisTimeline'
+# 'VisData'
+# 'JustGage'
+# 'FullCalendar'
+# 'DataTablesSearchAlphabet'
+# 'DataTable*'
+# 'FancyTree'
+# 'CarouselSlick'
+# 'JustGage'
+# 'CarouselKineto'
+# 'QR'
+# 'TabsInline'
+# 'Fonts*'
+# 'WinBox'
+# 'FontsSimpleIcons'
+# 'Wizard'
+# 'MarkdownShowdown*'
+# 'JSTree'
+# 'JSXSS'
+# 'Mermaid'
+# )
+# Import-Module "C:\Support\GitHub\PSWriteHTML.Helper\PSWriteHTML.Helper.psd1" -Force
+# Save-HTMLResource -Configuration $Configuration -Keys $Keys -PathToSave 'C:\Support\GitHub\PSWriteHTML\Resources\CSS' -Verbose
