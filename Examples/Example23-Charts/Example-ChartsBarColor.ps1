@@ -8,6 +8,7 @@ New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example-ChartsBar
             New-ChartBar -Name 'Test' -Value 1, 2, 3
             New-ChartBar -Name 'Test1' -Value 2, 5, 7
             New-ChartBar -Name 'Test2' -Value 3, 1, 2
-        } -Title 'Testing Title' -TitleAlignment center
+            New-ChartDesign -GradientInverseColors:$false
+        } -Title 'Testing Title' -TitleAlignment center -Gradient
     }
-} -Show -Format
+} -Show #-Format
