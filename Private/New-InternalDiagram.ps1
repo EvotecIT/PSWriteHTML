@@ -10,13 +10,16 @@ function New-InternalDiagram {
         [string] $BackgroundImage,
         [string] $BackgroundSize = '100% 100%',
         [switch] $IconsAvailable,
-        [switch] $DisableLoader
+        [switch] $DisableLoader,
+        [switch] $EnableSearch,
+        [int] $MinimumSearchChars = 3
     )
     $Script:HTMLSchema.Features.VisNetwork = $true
     $Script:HTMLSchema.Features.VisData = $true
     $Script:HTMLSchema.Features.Moment = $true
     $Script:HTMLSchema.Features.VisNetworkLoad = $true
     $Script:HTMLSchema.Features.EscapeRegex = $true
+
     # We need to disable loader if physics is disabled, as it doesn't give us anything
     # and it prevents loading
     if ($Options.physics -and $Options.physics.enabled -eq $false) {
@@ -27,7 +30,9 @@ function New-InternalDiagram {
     }
     # Vis network clustering allows to cluster more than 1 node, there's no code to enable it yet
     #$Script:HTMLSchema.Features.VisNetworkClustering = $true
-
+    if ($EnableSearch) {
+        $Script:HTMLSchema.Features.VisNetworkFind = $true
+    }
 
     [string] $ID = "Diagram-" + (Get-RandomStringName -Size 8)
 
@@ -57,6 +62,10 @@ function New-InternalDiagram {
     if (-not $DisableLoader) {
         $Div = New-HTMLTag -Tag 'div' -Attributes @{ class = 'diagramWrapper' } -Value {
             New-HTMLTag -Tag 'div' -Attributes $AttributesOutside -Value {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'searchDiagram' } -Value {
+                    New-HTMLTag -Tag 'input' -Attributes @{ type = 'search'; class = 'searchInput'; id = "searchInput$ID"; placeholder = 'Search...' }
+                    #New-HTMLTag -Tag 'button' -Attributes @{ id = 'searchButton'; class = 'searchButton'; type = 'button' } -Value 'Search'
+                }
                 New-HTMLTag -Tag 'div' -Attributes $AttributesInside
             }
             New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramLoadingBar"; class = 'diagramLoadingBar' } {
@@ -69,23 +78,14 @@ function New-InternalDiagram {
             }
         }
 
-        <#
-        $Div = New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramWrapper"; class = 'diagramWrapper' } -Value {
-            New-HTMLTag -Tag 'div' -Attributes $AttributesOutside -Value {
-                New-HTMLTag -Tag 'div' -Attributes $AttributesInside
-            }
-            New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramLoadingBar"; class = 'diagramLoadingBar' } {
-                New-HTMLTag -Tag 'div' -Attributes @{ class = "$ID-diagramOuterBorder" } {
-                    New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramText"; class = 'diagramText' } -Value { '0%' }
-                    New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramBorder"; class = 'diagramBorder' } {
-                        New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-diagramBar"; class = 'diagramBar' }
-                    }
-                }
-            }
-        }
-        #>
     } else {
         $Div = New-HTMLTag -Tag 'div' -Attributes $AttributesOutside {
+            if ($EnableSearch) {
+                New-HTMLTag -Tag 'div' -Attributes @{ class = 'searchDiagram' } -Value {
+                    New-HTMLTag -Tag 'input' -Attributes @{ type = 'search'; class = 'searchInput'; id = "searchInput$ID"; placeholder = 'Search...' }
+                    #New-HTMLTag -Tag 'button' -Attributes @{ id = 'searchButton'; class = 'searchButton'; type = 'button' } -Value 'Search'
+                }
+            }
             New-HTMLTag -Tag 'div' -Attributes $AttributesInside
         }
     }
@@ -133,6 +133,10 @@ function New-InternalDiagram {
         "var network = loadDiagramWithFonts(container, data, options, '$ID', $DisableLoaderString , $IconsAvailableString);"
         "diagramTracker['$ID'] = network;"
         "$PreparedEvents"
+
+        if ($EnableSearch) {
+            "setupSearch(nodes, edges, 'searchInput$ID', null, true, $MinimumSearchChars); // Enables typing search only"
+        }
 
     } -NewLine
 
