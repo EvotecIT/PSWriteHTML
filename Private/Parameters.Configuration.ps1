@@ -3,7 +3,7 @@
     param(
 
     )
-    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.25'
+    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.26'
     $Configuration = [ordered] @{
         Features = [ordered] @{
             Inject                      = @{
