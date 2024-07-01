@@ -2,6 +2,8 @@
     padding: 5px 5px;
     /* Some padding */
     border: none;
+    /* marging between the buttons and input */
+    margin-left: 5px;
     /* No border */
     cursor: pointer;
     /* Pointer/hand icon */
