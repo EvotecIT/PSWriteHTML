@@ -1,0 +1,27 @@
+﻿.searchButton {
+    padding: 5px 5px;
+    /* Some padding */
+    border: none;
+    /* No border */
+    cursor: pointer;
+    /* Pointer/hand icon */
+    border-radius: 3px;
+    /* Rounded corners */
+    font-size: 8pt;
+}
+
+.searchInput {
+    padding: 6px;
+    font-size: 8pt;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.searchDiagram {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 100;
+    display: flex;
+    transform: translate(-5px, 5px);
+}
