@@ -4,6 +4,9 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.25.0 - 2024.07.02
+- Improved filtering for `New-HTMLDiagram`
+
 ## 1.24.0 - 2024.07.01
 - Added `EnableFilteringButton` to `New-HTMLDiagram` which allows to filter only on press of a button
 - Improved filtering performance in `New-HTMLDiagram`
