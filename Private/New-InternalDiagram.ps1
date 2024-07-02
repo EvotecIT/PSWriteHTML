@@ -22,7 +22,7 @@ function New-InternalDiagram {
     $Script:HTMLSchema.Features.EscapeRegex = $true
 
 
-    $UseFilteringButton = $PSBoundParameters.ContainsKey('EnableFilteringButton')
+    $UseFilteringButton = $EnableFilteringButton.IsPresent
 
     # We need to disable loader if physics is disabled, as it doesn't give us anything
     # and it prevents loading
@@ -34,7 +34,7 @@ function New-InternalDiagram {
     }
     # Vis network clustering allows to cluster more than 1 node, there's no code to enable it yet
     #$Script:HTMLSchema.Features.VisNetworkClustering = $true
-    if ($EnableFiltering) {
+    if ($EnableFiltering -or $UseFilteringButton) {
         $Script:HTMLSchema.Features.VisNetworkFind = $true
     }
 
