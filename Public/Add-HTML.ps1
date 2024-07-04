@@ -1,8 +1,8 @@
-function Add-HTML {
-    [alias('EmailHTML')]
+function Insert-HTML {
+    [alias('SendHTML')]
     [CmdletBinding()]
     param(
-        [ScriptBlock] $HTML
+        [ScriptBlock] $Content
     )
-    Invoke-Command -ScriptBlock $HTML
+    Invoke-Command -ScriptBlock $Content
 }
