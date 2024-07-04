@@ -1,4 +1,34 @@
 function Add-TableFiltering {
+    <#
+    .SYNOPSIS
+    Adds filtering functionality to a DataTable.
+
+    .DESCRIPTION
+    This function adds filtering functionality to a DataTable by allowing users to search for specific data within the table.
+
+    .PARAMETER Filtering
+    Specifies whether filtering functionality should be enabled.
+
+    .PARAMETER FilteringLocation
+    Specifies the location of the filtering input box. Valid values are 'Top', 'Bottom', or 'Both'.
+
+    .PARAMETER DataTableName
+    Specifies the name of the DataTable to which filtering will be applied.
+
+    .PARAMETER SearchRegularExpression
+    Indicates whether the search should be treated as a regular expression.
+
+    .EXAMPLE
+    Add-TableFiltering -Filtering $true -FilteringLocation 'Bottom' -DataTableName 'myTable'
+
+    Adds filtering functionality to the DataTable named 'myTable' at the bottom of the table.
+
+    .EXAMPLE
+    Add-TableFiltering -Filtering $true -FilteringLocation 'Both' -DataTableName 'myTable' -SearchRegularExpression
+
+    Adds filtering functionality to the DataTable named 'myTable' at both the top and bottom of the table, treating the search as a regular expression.
+
+    #>
     [CmdletBinding()]
     param(
         [bool] $Filtering,

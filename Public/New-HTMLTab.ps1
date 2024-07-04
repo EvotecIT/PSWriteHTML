@@ -1,4 +1,44 @@
 function New-HTMLTab {
+    <#
+    .SYNOPSIS
+    Creates a new HTML tab with customizable content and icons.
+
+    .DESCRIPTION
+    The New-HTMLTab function creates a new HTML tab with the specified content, heading, and icon. It supports different parameter sets for FontAwesomeBrands, FontAwesomeRegular, and FontAwesomeSolid icons.
+
+    .PARAMETER HtmlData
+    The HTML content to be displayed within the tab. This should be provided as a ScriptBlock.
+
+    .PARAMETER Heading
+    The heading or title of the tab.
+
+    .PARAMETER Name
+    The name of the tab.
+
+    .PARAMETER IconBrands
+    The icon to be displayed for FontAwesomeBrands. Use tab completion to select from available options.
+
+    .PARAMETER IconRegular
+    The icon to be displayed for FontAwesomeRegular. Use tab completion to select from available options.
+
+    .PARAMETER IconSolid
+    The icon to be displayed for FontAwesomeSolid. Use tab completion to select from available options.
+
+    .EXAMPLE
+    New-HTMLTab -HtmlData { Get-Process } -Heading "Processes" -Name "ProcessTab" -IconBrands "fab fa-windows"
+
+    Creates a new tab displaying the list of processes with a Windows icon.
+
+    .EXAMPLE
+    New-HTMLTab -HtmlData { Get-Service } -Heading "Services" -Name "ServiceTab" -IconRegular "far fa-hdd"
+
+    Creates a new tab displaying the list of services with a hard drive icon.
+
+    .EXAMPLE
+    New-HTMLTab -HtmlData { Get-EventLog -LogName System } -Heading "System Events" -Name "EventTab" -IconSolid "fas fa-exclamation-triangle"
+
+    Creates a new tab displaying the system events log with an exclamation triangle icon.
+    #>
     [alias('Tab')]
     [CmdLetBinding(DefaultParameterSetName = 'FontAwesomeBrands')]
     param(

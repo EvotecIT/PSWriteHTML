@@ -1,4 +1,50 @@
 ﻿function New-HTMLNavFloat {
+    <#
+    .SYNOPSIS
+    Creates a new HTML floating navigation menu with customizable options.
+
+    .DESCRIPTION
+    This function creates a new HTML floating navigation menu with various customization options such as navigation links, title, tagline, colors, and button styling for hover effects.
+
+    .PARAMETER NavigationLinks
+    Specifies the script block containing navigation links to be displayed in the menu.
+
+    .PARAMETER Title
+    Specifies the title of the floating navigation menu.
+
+    .PARAMETER SubTitle
+    Specifies the subtitle or tagline of the floating navigation menu.
+
+    .PARAMETER TitleColor
+    Specifies the color of the title text.
+
+    .PARAMETER TaglineColor
+    Specifies the color of the tagline text.
+
+    .PARAMETER ButtonLocationTop
+    Specifies the top position of the floating navigation menu button.
+
+    .PARAMETER ButtonLocationLeft
+    Specifies the left position of the floating navigation menu button.
+
+    .PARAMETER ButtonLocationRight
+    Specifies the right position of the floating navigation menu button.
+
+    .PARAMETER ButtonLocationBottom
+    Specifies the bottom position of the floating navigation menu button.
+
+    .PARAMETER ButtonColor
+    Specifies the color of the floating navigation menu button.
+
+    .PARAMETER ButtonColorBackground
+    Specifies the background color of the floating navigation menu button.
+
+    .PARAMETER ButtonColorOnHover
+    Specifies the color of the floating navigation menu button on hover.
+
+    .PARAMETER ButtonColorBackgroundOnHover
+    Specifies the background color of the floating navigation menu button on hover.
+    #>
     [cmdletBinding()]
     param(
         [ScriptBlock] $NavigationLinks,

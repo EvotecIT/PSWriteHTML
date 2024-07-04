@@ -1,4 +1,28 @@
 ﻿function Add-TableEvent {
+    <#
+    .SYNOPSIS
+    Adds event listeners to a table for handling row selection and deselection.
+
+    .DESCRIPTION
+    This function adds event listeners to a table to handle row selection and deselection. It allows for dynamic filtering of data based on user interactions.
+
+    .PARAMETER Events
+    An array of events to listen for.
+
+    .PARAMETER HeaderNames
+    An array of header names for the table columns.
+
+    .PARAMETER DataStore
+    The type of data store being used.
+
+    .EXAMPLE
+    Add-TableEvent -Events $events -HeaderNames $headerNames -DataStore 'html'
+    Adds event listeners to the table using the specified events, header names, and data store type.
+
+    .EXAMPLE
+    Add-TableEvent -Events $events -HeaderNames $headerNames -DataStore 'json'
+    Adds event listeners to the table using the specified events, header names, and data store type.
+    #>
     [cmdletBinding()]
     param(
         [Array] $Events,

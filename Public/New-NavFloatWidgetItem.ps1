@@ -1,4 +1,43 @@
 ﻿function New-NavFloatWidgetItem {
+    <#
+    .SYNOPSIS
+    Creates a new navigation float item with specified parameters.
+
+    .DESCRIPTION
+    This function creates a new navigation float item with the provided parameters. It allows customization of the item's name, link, icon, color, and other properties.
+
+    .PARAMETER Name
+    Specifies the name of the navigation float item.
+
+    .PARAMETER Href
+    Specifies the URL link for the navigation float item.
+
+    .PARAMETER InternalPageID
+    Specifies the internal page ID for the navigation float item.
+
+    .PARAMETER LinkHome
+    Indicates whether the navigation float item should link to the home page.
+
+    .PARAMETER IconColor
+    Specifies the color of the icon for the navigation float item.
+
+    .PARAMETER IconBrands
+    Specifies the icon brand for the navigation float item. Valid values are: $($Global:HTMLIcons.FontAwesomeBrands.Keys).
+
+    .PARAMETER IconRegular
+    Specifies the regular icon for the navigation float item. Valid values are: $($Global:HTMLIcons.FontAwesomeRegular.Keys).
+
+    .EXAMPLE
+    PS C:\> New-NavFloatWidgetItem -Name "Home" -Href "https://www.example.com" -IconBrands "fab fa-home" -IconColor "blue"
+
+    Creates a new navigation float item named "Home" that links to "https://www.example.com" with a blue home icon.
+
+    .EXAMPLE
+    PS C:\> New-NavFloatWidgetItem -Name "About" -InternalPageID "about" -LinkHome
+
+    Creates a new navigation float item named "About" that links to the internal page with ID "about" and links to the home page.
+
+    #>
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(
         [parameter(Mandatory, ParameterSetName = "FontAwesomeBrands")]

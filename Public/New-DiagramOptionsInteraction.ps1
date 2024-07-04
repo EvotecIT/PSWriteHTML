@@ -1,67 +1,66 @@
 ﻿function New-DiagramOptionsInteraction {
     <#
     .SYNOPSIS
-    Short description
+    Creates a new diagram options interaction object with customizable options.
 
     .DESCRIPTION
-    Long description
+    This function defines a diagram options interaction object with various interactive features such as dragging nodes, dragging view, hiding edges on drag, hiding edges on zoom, hiding nodes on drag, hover effects, keyboard navigation, multiselect, navigation buttons, and selection options.
 
     .PARAMETER DragNodes
-    Parameter description
+    Specifies whether dragging nodes is enabled.
 
     .PARAMETER DragView
-    Parameter description
+    Specifies whether dragging the view is enabled.
 
     .PARAMETER HideEdgesOnDrag
-    Parameter description
+    Specifies whether edges are hidden when dragging.
 
     .PARAMETER HideEdgesOnZoom
-    Parameter description
+    Specifies whether edges are hidden when zooming.
 
     .PARAMETER HideNodesOnDrag
-    Parameter description
+    Specifies whether nodes are hidden when dragging.
 
     .PARAMETER Hover
-    Parameter description
+    Specifies whether hover effects are enabled.
 
     .PARAMETER HoverConnectedEdges
-    Parameter description
+    Specifies whether connected edges are affected by hover.
 
     .PARAMETER KeyboardEnabled
-    Parameter description
+    Specifies whether keyboard navigation is enabled.
 
     .PARAMETER KeyboardSpeedX
-    Parameter description
+    Specifies the speed of movement in the X direction using the keyboard.
 
     .PARAMETER KeyboardSpeedY
-    Parameter description
+    Specifies the speed of movement in the Y direction using the keyboard.
 
     .PARAMETER KeyboardSpeedZoom
-    Parameter description
+    Specifies the speed of zooming using the keyboard.
 
     .PARAMETER KeyboardBindToWindow
-    Parameter description
+    Specifies whether keyboard events are bound to the window.
 
     .PARAMETER Multiselect
-    Parameter description
+    Specifies whether multiple selections are allowed.
 
     .PARAMETER NavigationButtons
-    Parameter description
+    Specifies whether navigation buttons are displayed.
 
     .PARAMETER Selectable
-    Parameter description
+    Specifies whether nodes and edges are selectable.
 
     .PARAMETER SelectConnectedEdges
-    Parameter description
-
-    .PARAMETER TooltipDelay
-    Parameter description
-
-    .PARAMETER ZoomView
-    Parameter description
+    Specifies whether connected edges are selected along with nodes.
 
     .EXAMPLE
-    An example
+    New-DiagramOptionsInteraction -DragNodes -DragView -HideEdgesOnDrag -HideNodesOnDrag -Hover -KeyboardEnabled -Multiselect -Selectable -SelectConnectedEdges
+    Creates a new diagram options interaction object with basic interactive features enabled.
+
+    .EXAMPLE
+    New-DiagramOptionsInteraction -DragNodes -DragView -HideEdgesOnDrag -HideNodesOnDrag -Hover -KeyboardEnabled -Multiselect -Selectable -SelectConnectedEdges -NavigationButtons
+    Creates a new diagram options interaction object with navigation buttons added.
 
     .NOTES
     Based on options https://visjs.github.io/vis-network/docs/network/interaction.html#

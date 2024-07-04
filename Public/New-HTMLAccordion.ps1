@@ -1,4 +1,25 @@
 ﻿function New-HTMLAccordion {
+    <#
+    .SYNOPSIS
+    Creates a new HTML accordion element with customizable options.
+
+    .DESCRIPTION
+    This function creates a new HTML accordion element with the specified accordion item content, duration of animation, and option to collapse on click.
+
+    .PARAMETER AccordionItem
+    Specifies the content of the accordion item as a script block.
+
+    .PARAMETER Duration
+    Specifies the duration of the accordion animation in milliseconds.
+
+    .PARAMETER CollapseOnClick
+    Indicates whether the accordion should collapse when clicked.
+
+    .EXAMPLE
+    New-HTMLAccordion -AccordionItem { "Accordion Content Here" } -Duration 500 -CollapseOnClick
+    Creates a new HTML accordion with the specified content, animation duration of 500 milliseconds, and collapses on click.
+
+    #>
     [cmdletBinding()]
     param(
         [scriptBlock] $AccordionItem,

@@ -1,4 +1,47 @@
 ﻿function New-HTMLToast {
+    <#
+    .SYNOPSIS
+    Creates a new HTML toast notification with customizable text, icons, and colors.
+
+    .DESCRIPTION
+    This function generates an HTML toast notification with options to set the text, text colors, icons, icon size, and various color settings for different elements of the notification.
+
+    .PARAMETER TextHeader
+    Specifies the header text of the notification.
+
+    .PARAMETER TextHeaderColor
+    Specifies the color of the header text.
+
+    .PARAMETER Text
+    Specifies the main text content of the notification.
+
+    .PARAMETER TextColor
+    Specifies the color of the main text.
+
+    .PARAMETER IconSize
+    Specifies the size of the icon in pixels.
+
+    .PARAMETER IconColor
+    Specifies the color of the icon.
+
+    .PARAMETER BarColorLeft
+    Specifies the color of the left bar in the notification.
+
+    .PARAMETER BarColorRight
+    Specifies the color of the right bar in the notification.
+
+    .PARAMETER IconBrands
+    Specifies the icon to be used from the Font Awesome Brands collection.
+
+    .EXAMPLE
+    New-HTMLToast -TextHeader "Notification" -Text "This is a sample notification" -IconBrands "fa-github" -BarColorRight "Red"
+    Creates a new HTML toast notification with a header "Notification", main text "This is a sample notification", GitHub icon, and a red color for the right bar.
+
+    .EXAMPLE
+    New-HTMLToast -TextHeader "Alert" -Text "Alert message here" -IconBrands "fa-exclamation-triangle" -IconColor "Orange" -BarColorLeft "Yellow" -BarColorRight "Red"
+    Creates a new HTML toast notification with a header "Alert", main text "Alert message here", warning triangle icon in orange color, yellow left bar, and red right bar.
+
+    #>
     [CmdletBinding()]
     param(
         [parameter(ParameterSetName = "FontAwesomeBrands")]

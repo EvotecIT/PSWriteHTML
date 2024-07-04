@@ -1,4 +1,39 @@
 ﻿function New-ChartAxisX {
+    <#
+    .SYNOPSIS
+    Creates a new X-axis for a chart with specified parameters.
+
+    .DESCRIPTION
+    This function creates a new X-axis for a chart with the provided parameters. It allows customization of the axis name, title, type, minimum and maximum values, and timezone offset.
+
+    .PARAMETER Names
+    An array of names for the X-axis categories.
+
+    .PARAMETER TitleText
+    The title text to be displayed for the X-axis.
+
+    .PARAMETER Type
+    The type of the X-axis data. Accepted values are 'datetime', 'category', or 'numeric'. Default is 'category'.
+
+    .PARAMETER MinValue
+    The minimum value of the X-axis.
+
+    .PARAMETER MaxValue
+    The maximum value of the X-axis.
+
+    .PARAMETER TimeZoneOffset
+    The timezone offset to adjust the X-axis values.
+
+    .EXAMPLE
+    New-ChartAxisX -Names @('Jan', 'Feb', 'Mar') -TitleText 'Months' -Type 'category'
+
+    Creates a new X-axis with categories 'Jan', 'Feb', 'Mar' and title 'Months'.
+
+    .EXAMPLE
+    New-ChartAxisX -Names @('2020-01-01', '2020-02-01', '2020-03-01') -TitleText 'Dates' -Type 'datetime' -MinValue (Get-Date '2020-01-01') -MaxValue (Get-Date '2020-03-01') -TimeZoneOffset '+02:00'
+
+    Creates a new X-axis with datetime values, title 'Dates', and timezone offset of +2 hours.
+    #>
     [alias('ChartCategory', 'ChartAxisX', 'New-ChartCategory')]
     [CmdletBinding()]
     param(

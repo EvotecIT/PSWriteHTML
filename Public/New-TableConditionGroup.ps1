@@ -1,4 +1,104 @@
 ﻿function New-TableConditionGroup {
+    <#
+    .SYNOPSIS
+    Creates a new table condition group with specified conditions and styling options.
+
+    .DESCRIPTION
+    This function creates a new table condition group with the specified conditions and allows customization of the styling options for both pass and fail conditions.
+
+    .PARAMETER Conditions
+    Specifies the conditions to be applied within the condition group.
+
+    .PARAMETER Logic
+    Specifies the logic to be used for combining conditions. Valid values are 'AND', 'OR', or 'NONE'.
+
+    .PARAMETER HighlightHeaders
+    Specifies an array of headers to highlight based on the conditions.
+
+    .PARAMETER Row
+    Switch parameter to indicate if the styling should be applied to the entire row.
+
+    .PARAMETER Inline
+    Switch parameter to indicate if the styling should be applied inline.
+
+    .PARAMETER Color
+    Specifies the text color for pass conditions.
+
+    .PARAMETER BackgroundColor
+    Specifies the background color for pass conditions.
+
+    .PARAMETER FontSize
+    Specifies the font size for pass conditions.
+
+    .PARAMETER FontWeight
+    Specifies the font weight for pass conditions.
+
+    .PARAMETER FontStyle
+    Specifies the font style for pass conditions.
+
+    .PARAMETER FontVariant
+    Specifies the font variant for pass conditions.
+
+    .PARAMETER FontFamily
+    Specifies the font family for pass conditions.
+
+    .PARAMETER Alignment
+    Specifies the alignment for pass conditions.
+
+    .PARAMETER TextDecoration
+    Specifies the text decoration for pass conditions.
+
+    .PARAMETER TextTransform
+    Specifies the text transformation for pass conditions.
+
+    .PARAMETER Direction
+    Specifies the text direction for pass conditions.
+
+    .PARAMETER FailColor
+    Specifies the text color for fail conditions.
+
+    .PARAMETER FailBackgroundColor
+    Specifies the background color for fail conditions.
+
+    .PARAMETER FailFontSize
+    Specifies the font size for fail conditions.
+
+    .PARAMETER FailFontWeight
+    Specifies the font weight for fail conditions.
+
+    .PARAMETER FailFontStyle
+    Specifies the font style for fail conditions.
+
+    .PARAMETER FailFontVariant
+    Specifies the font variant for fail conditions.
+
+    .PARAMETER FailFontFamily
+    Specifies the font family for fail conditions.
+
+    .PARAMETER FailAlignment
+    Specifies the alignment for fail conditions.
+
+    .PARAMETER FailTextDecoration
+    Specifies the text decoration for fail conditions.
+
+    .PARAMETER FailTextTransform
+    Specifies the text transformation for fail conditions.
+
+    .PARAMETER FailDirection
+    Specifies the text direction for fail conditions.
+
+    .EXAMPLE
+    New-TableConditionGroup -Conditions { 
+        New-HTMLTableCondition -Name 'Test1' -Value 1 -ComparisonType number
+        New-HTMLTableCondition -Name 'Test2' -Value 2 -ComparisonType number
+    } -Logic 'OR' -HighlightHeaders 'Test1', 'Test2', 'DisplayName', 'DomainName' -Color 'Green' -BackgroundColor 'LightGreen' -FontSize 12 -FontWeight 'bold' -Alignment 'center'
+
+    Description:
+    Creates a new table condition group with specified conditions, logic, highlighted headers, and styling options for pass conditions.
+
+    .NOTES
+    Additional notes about the function.
+    #>
     [alias('EmailTableConditionGroup', 'TableConditionGroup', 'New-HTMLTableConditionGroup')]
     [CmdletBinding()]
     param(

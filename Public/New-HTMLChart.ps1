@@ -1,4 +1,105 @@
 ﻿function New-HTMLChart {
+    <#
+    .SYNOPSIS
+    Creates a new HTML chart with customizable settings.
+
+    .DESCRIPTION
+    This function creates a new HTML chart with customizable settings such as title, subtitle, dimensions, colors, and more.
+
+    .PARAMETER ChartSettings
+    Specifies the settings for the chart. This should be a ScriptBlock containing the chart configuration.
+
+    .PARAMETER Title
+    Specifies the title of the chart.
+
+    .PARAMETER TitleAlignment
+    Specifies the alignment of the chart title. Valid values are 'center', 'left', or 'right'.
+
+    .PARAMETER TitleMargin
+    Specifies the margin of the chart title.
+
+    .PARAMETER TitleOffsetX
+    Specifies the horizontal offset of the chart title.
+
+    .PARAMETER TitleOffsetY
+    Specifies the vertical offset of the chart title.
+
+    .PARAMETER TitleFloating
+    Specifies whether the chart title should float.
+
+    .PARAMETER TitleFontSize
+    Specifies the font size of the chart title.
+
+    .PARAMETER TitleFontWeight
+    Specifies the font weight of the chart title. Valid values are 'normal', 'bold', 'bolder', 'lighter', or numeric values from '100' to '900'.
+
+    .PARAMETER TitleFontFamily
+    Specifies the font family of the chart title.
+
+    .PARAMETER TitleColor
+    Specifies the color of the chart title.
+
+    .PARAMETER SubTitle
+    Specifies the subtitle of the chart.
+
+    .PARAMETER SubTitleAlignment
+    Specifies the alignment of the chart subtitle. Valid values are 'center', 'left', or 'right'.
+
+    .PARAMETER SubTitleMargin
+    Specifies the margin of the chart subtitle.
+
+    .PARAMETER SubTitleOffsetX
+    Specifies the horizontal offset of the chart subtitle.
+
+    .PARAMETER SubTitleOffsetY
+    Specifies the vertical offset of the chart subtitle.
+
+    .PARAMETER SubTitleFloating
+    Specifies whether the chart subtitle should float.
+
+    .PARAMETER SubTitleFontSize
+    Specifies the font size of the chart subtitle.
+
+    .PARAMETER SubTitleFontWeight
+    Specifies the font weight of the chart subtitle. Valid values are 'normal', 'bold', 'bolder', 'lighter', or numeric values from '100' to '900'.
+
+    .PARAMETER SubTitleFontFamily
+    Specifies the font family of the chart subtitle.
+
+    .PARAMETER SubTitleColor
+    Specifies the color of the chart subtitle.
+
+    .PARAMETER Height
+    Specifies the height of the chart. Default is 350.
+
+    .PARAMETER Width
+    Specifies the width of the chart.
+
+    .PARAMETER Gradient
+    Indicates whether to use gradient colors in the chart.
+
+    .PARAMETER Patterned
+    Indicates whether to use patterned colors in the chart.
+
+    .PARAMETER Id
+    Specifies the ID of the chart. If not provided, a random ID will be generated.
+
+    .PARAMETER Group
+    Specifies the group to which the chart belongs.
+
+    .EXAMPLE
+    New-HTMLChart -Title "Sales Data" -ChartSettings {
+        // Chart configuration settings here
+    }
+
+    Creates a new HTML chart with the title "Sales Data" and custom chart settings.
+
+    .EXAMPLE
+    New-HTMLChart -Title "Sales Data" -SubTitle "Quarterly Sales" -Height 400 -Width 600 -Gradient -Id "SalesChart"
+
+    Creates a new HTML chart with the title "Sales Data", subtitle "Quarterly Sales", height of 400, width of 600, gradient colors, and specified ID.
+
+    #>
     [alias('Chart')]
     [CmdletBinding()]
     param(

@@ -1,4 +1,84 @@
 function Email {
+    <#
+    .SYNOPSIS
+    Sends an email with specified parameters.
+
+    .DESCRIPTION
+    This function sends an email with the provided parameters including recipients, subject, content, and server settings.
+
+    .PARAMETER Email
+    Specifies the ScriptBlock containing the email content and additional parameters.
+
+    .PARAMETER To
+    Specifies the email addresses of the primary recipients.
+
+    .PARAMETER CC
+    Specifies the email addresses of the carbon copy recipients.
+
+    .PARAMETER BCC
+    Specifies the email addresses of the blind carbon copy recipients.
+
+    .PARAMETER ReplyTo
+    Specifies the email address to set as the reply-to address.
+
+    .PARAMETER From
+    Specifies the email address of the sender.
+
+    .PARAMETER Subject
+    Specifies the subject of the email.
+
+    .PARAMETER AttachSelf
+    Switch parameter to attach the email to itself.
+
+    .PARAMETER AttachSelfName
+    Specifies the name of the attached email.
+
+    .PARAMETER Server
+    Specifies the SMTP server for sending the email.
+
+    .PARAMETER Username
+    Specifies the username for authentication with the SMTP server.
+
+    .PARAMETER Port
+    Specifies the port number for the SMTP server. Default is 587.
+
+    .PARAMETER Password
+    Specifies the password for authentication with the SMTP server.
+
+    .PARAMETER PasswordFromFile
+    Switch parameter to indicate that the password is read from a file.
+
+    .PARAMETER PasswordAsSecure
+    Switch parameter to treat the password as a secure string.
+
+    .PARAMETER SSL
+    Switch parameter to enable SSL for the SMTP connection.
+
+    .PARAMETER Priority
+    Specifies the priority of the email. Valid values are 'Low', 'Normal', or 'High'. Default is 'Normal'.
+
+    .PARAMETER DeliveryNotifications
+    Specifies the type of delivery notifications. Valid values are 'None', 'OnSuccess', 'OnFailure', 'Delay', or 'Never'. Default is 'None'.
+
+    .PARAMETER Encoding
+    [Obsolete] Deprecated parameter. Encoding is set to UTF8 to prevent errors.
+
+    .PARAMETER FilePath
+    Specifies the file path for attachments.
+
+    .PARAMETER Suppress
+    Switch parameter to suppress sending the email.
+
+    .PARAMETER Online
+    Switch parameter to send the email online without saving it.
+
+    .PARAMETER OutputHTML
+    Switch parameter to output the email content as HTML.
+
+    .PARAMETER WhatIf
+    Switch parameter to show what would happen without actually sending the email.
+
+    #>
     [CmdLetBinding()]
     param(
         [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $Email,

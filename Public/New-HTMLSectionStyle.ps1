@@ -1,4 +1,76 @@
 ﻿function New-HTMLSectionStyle {
+    <#
+    .SYNOPSIS
+    Creates a new HTML section style with customizable options.
+
+    .DESCRIPTION
+    This function creates a new HTML section style with various styling options such as border radius, text color, alignment, background color, and more.
+
+    .EXAMPLE
+    New-HTMLSectionStyle -BorderRadius '10px' -HeaderTextColor 'blue' -HeaderTextAlignment 'center' -HeaderBackGroundColor 'lightgray' -Wrap 'wrap' -Direction 'row' -Align 'center' -AlignItems 'flex-start' -Justify 'space-between' -Rotate '90deg' -BackgroundColorContent 'white' -WrapContent 'wrap' -DirectionContent 'column' -AlignContent 'flex-end' -AlignItemsContent 'center' -JustifyContent 'flex-start' -WritingMode 'horizontal-tb' -TextOrientation 'upright' -RequestConfiguration
+    Creates a new HTML section style with specified options.
+
+    .PARAMETER BorderRadius
+    Specifies the border radius of the section.
+
+    .PARAMETER HeaderTextColor
+    Specifies the text color of the section header.
+
+    .PARAMETER HeaderTextAlignment
+    Specifies the text alignment of the section header.
+
+    .PARAMETER HeaderBackGroundColor
+    Specifies the background color of the section header.
+
+    .PARAMETER Wrap
+    Specifies the wrapping behavior of the section.
+
+    .PARAMETER Direction
+    Specifies the direction of the section layout.
+
+    .PARAMETER Align
+    Specifies the alignment of the section.
+
+    .PARAMETER AlignItems
+    Specifies the alignment of the items within the section.
+
+    .PARAMETER Justify
+    Specifies the justification of the section.
+
+    .PARAMETER Rotate
+    Specifies the rotation angle of the section.
+
+    .PARAMETER BackgroundColorContent
+    Specifies the background color of the section content.
+
+    .PARAMETER WrapContent
+    Specifies the wrapping behavior of the section content.
+
+    .PARAMETER DirectionContent
+    Specifies the direction of the section content layout.
+
+    .PARAMETER AlignContent
+    Specifies the alignment of the section content.
+
+    .PARAMETER AlignItemsContent
+    Specifies the alignment of the items within the section content.
+
+    .PARAMETER JustifyContent
+    Specifies the justification of the section content.
+
+    .PARAMETER WritingMode
+    Specifies the writing mode of the section.
+
+    .PARAMETER TextOrientation
+    Specifies the text orientation of the section.
+
+    .PARAMETER RequestConfiguration
+    Indicates whether to request configuration for the section styling.
+
+    .NOTES
+    File Name      : New-HTMLSectionStyle.ps1
+    Prerequisite   : PowerShell V5
+    #>
     [alias("New-HTMLSectionOptions", 'SectionOption', 'New-HTMLSectionOption')]
     [cmdletBinding()]
     param(

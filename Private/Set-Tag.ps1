@@ -1,4 +1,58 @@
 function Set-Tag {
+    <#
+    .SYNOPSIS
+    Sets HTML tags and attributes based on the provided HtmlObject.
+
+    .DESCRIPTION
+    This function generates HTML tags and attributes based on the provided HtmlObject. It constructs the HTML structure with the specified tag, attributes, and values.
+
+    .PARAMETER HtmlObject
+    Specifies the HtmlObject containing tag, attributes, and values to be set.
+
+    .PARAMETER NewLine
+    Specifies whether new lines are needed in the generated HTML code, useful for languages like JavaScript.
+
+    .EXAMPLE
+    $HtmlObject = @{
+        Tag = 'div'
+        Attributes = @{
+            'class' = 'container'
+            'style' = @{
+                'color' = 'blue'
+                'font-size' = '16px'
+            }
+        }
+        Value = 'Hello, World!'
+    }
+
+    Set-Tag -HtmlObject $HtmlObject
+    Generates the HTML tag <div class="container" style="color:blue;font-size:16px">Hello, World!</div>.
+
+    .EXAMPLE
+    $HtmlObject = @{
+        Tag = 'ul'
+        Attributes = @{
+            'id' = 'list'
+        }
+        Value = @(
+            @{
+                Tag = 'li'
+                Value = 'Item 1'
+            }
+            @{
+                Tag = 'li'
+                Value = 'Item 2'
+            }
+        )
+    }
+
+    Set-Tag -HtmlObject $HtmlObject -NewLine
+    Generates the HTML structure:
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+    #>
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $HtmlObject,

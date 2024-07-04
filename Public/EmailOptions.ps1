@@ -1,4 +1,26 @@
 function EmailOptions {
+    <#
+    .SYNOPSIS
+    Configures email options for sending notifications.
+
+    .DESCRIPTION
+    This function sets the priority and delivery notifications for email notifications.
+
+    .PARAMETER Priority
+    Specifies the priority of the email. Valid values are 'Low', 'Normal', or 'High'.
+
+    .PARAMETER DeliveryNotifications
+    Specifies when delivery notifications should be sent. Valid values are 'None', 'OnSuccess', 'OnFailure', 'Delay', or 'Never'.
+
+    .EXAMPLE
+    EmailOptions -Priority 'High' -DeliveryNotifications 'OnSuccess'
+    Configures email options with High priority and delivery notifications on success.
+
+    .EXAMPLE
+    EmailOptions
+    Configures email options with default settings.
+
+    #>
     [CmdletBinding()]
     param(
         [ValidateSet('Low', 'Normal', 'High')] [string] $Priority = 'Normal',

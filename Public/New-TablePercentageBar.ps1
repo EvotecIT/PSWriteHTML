@@ -1,46 +1,49 @@
 ﻿function New-TablePercentageBar {
     <#
     .SYNOPSIS
-    Short description
+    Creates a new table percentage bar object with specified attributes.
 
     .DESCRIPTION
-    Long description
+    This function creates a new table percentage bar object with the provided attributes. It allows customization of the appearance of the percentage bar within a table.
 
     .PARAMETER ColumnID
-    Parameter description
+    Specifies the ID of the column where the percentage bar will be displayed.
 
     .PARAMETER ColumnName
-    Parameter description
+    Specifies the name of the column where the percentage bar will be displayed.
 
     .PARAMETER Type
-    Parameter description
+    Specifies the shape of the percentage bar. Valid values are 'square' or 'round'.
 
     .PARAMETER TextColor
-    Parameter description
+    Specifies the color of the text within the percentage bar.
 
     .PARAMETER BorderColor
-    Parameter description
+    Specifies the color of the border of the percentage bar.
 
     .PARAMETER BorderStyle
-    Parameter description
+    Specifies the style of the border of the percentage bar. Valid values are 'solid', 'outset', 'groove', or 'ridge'.
 
     .PARAMETER BarColor
-    Parameter description
+    Specifies the color of the percentage bar itself.
 
     .PARAMETER BackgroundColor
-    Parameter description
+    Specifies the background color of the percentage bar.
 
     .PARAMETER RoundValue
-    Parameter description
+    Specifies the decimal places to round the percentage value to.
 
     .PARAMETER ConditionalFormatting
-
+    Specifies any conditional formatting rules for the percentage bar.
 
     .EXAMPLE
-    An example
+    New-TablePercentageBar -ColumnID 1 -ColumnName "Progress" -Type 'round' -TextColor "#ffffff" -BorderColor "#000000" -BorderStyle 'solid' -BarColor "#00ff00" -BackgroundColor "#ffffff" -RoundValue 2
+
+    Description:
+    Creates a new table percentage bar object for the column "Progress" with specified attributes.
 
     .NOTES
-    General notes
+    Additional notes about the function.
     #>
     [alias('TablePercentageBar', 'New-HTMLTablePercentageBar')]
     [CmdletBinding()]

@@ -1,4 +1,34 @@
 ﻿function New-TableButtonColumnVisibility {
+    <#
+    .SYNOPSIS
+    Creates a new table button for column visibility control.
+
+    .DESCRIPTION
+    This function creates a new table button for controlling the visibility of columns in a table. It allows customization of the button text, layout, and other properties.
+
+    .PARAMETER ButtonName
+    Specifies the text to display on the button.
+
+    .PARAMETER CollectionTitle
+    Specifies the title for the column visibility control collection. Default is 'Visibility control'.
+
+    .PARAMETER CollectionPosition
+    Specifies the position of the collection (fixed or dropdown). Default is 'dropdown'.
+
+    .PARAMETER CollectionLayout
+    Specifies the layout of the collection (columns, two-column, three-column, four-column). Default is 'columns'.
+
+    .PARAMETER DropUp
+    Indicates whether the collection should be displayed as a drop-up menu.
+
+    .PARAMETER Fade
+    Specifies the fade effect duration when toggling visibility.
+
+    .EXAMPLE
+    New-TableButtonColumnVisibility -ButtonName "Toggle Columns" -CollectionTitle "Column Visibility" -CollectionPosition "fixed" -CollectionLayout "two-column" -DropUp -Fade 500
+    Creates a new table button with the specified properties.
+
+    #>
     [alias('TableButtonColumnVisibility', 'New-HTMLTableButtonColumnVisibility')]
     [CmdletBinding()]
     param(

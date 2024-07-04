@@ -1,4 +1,58 @@
 ﻿function New-HTMLTree {
+    <#
+    .SYNOPSIS
+    Creates a new HTML tree using FancyTree with various customization options.
+
+    .DESCRIPTION
+    This function creates a new HTML tree using FancyTree with the ability to customize the tree's appearance and behavior. It supports features like checkboxes, radio buttons, selection modes, icons, keyboard navigation, quick search, child counters, and more.
+
+    .PARAMETER Data
+    The script block that contains the data to populate the tree.
+
+    .PARAMETER Checkbox
+    Specifies the type of checkboxes to be displayed in the tree. Valid values are 'none', 'checkbox', or 'radio'. Default is 'none'.
+
+    .PARAMETER SelectMode
+    Specifies the selection mode for the tree. Valid values are 'none', '1', '2', or '3'. Default is '2'.
+
+    .PARAMETER DisableIcons
+    Disables icons in the tree if this switch is present.
+
+    .PARAMETER DisableControl
+    Disables control features in the tree if this switch is present.
+
+    .PARAMETER DisableKeyboardNavigation
+    Disables keyboard navigation in the tree if this switch is present.
+
+    .PARAMETER AutoCollapseSibling
+    Automatically collapses sibling nodes when a node is expanded.
+
+    .PARAMETER AutoScroll
+    Enables auto-scrolling when navigating the tree.
+
+    .PARAMETER EnableQuickSearch
+    Enables quick search functionality in the tree.
+
+    .PARAMETER EnableChildCounter
+    Enables child counter display in the tree.
+
+    .PARAMETER WideSelection
+    Enables wide selection mode in the tree.
+
+    .PARAMETER MinimumExpandLevel
+    Specifies the minimum level of nodes to expand in the tree.
+
+    .EXAMPLE
+    New-HTMLTree -Data {
+        TreeNode -Node "Root" -Children {
+            TreeNode -Node "Child 1"
+            TreeNode -Node "Child 2"
+        }
+    } -Checkbox 'checkbox' -SelectMode '3' -EnableChildCounter -WideSelection
+
+    Creates a new HTML tree with checkboxes, hierarchical selection mode, child counters, and wide selection enabled.
+
+    #>
     [CmdletBinding()]
     param(
         [scriptblock] $Data,

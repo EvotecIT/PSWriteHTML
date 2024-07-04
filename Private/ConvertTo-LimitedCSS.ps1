@@ -1,4 +1,32 @@
 ﻿function ConvertTo-LimitedCSS {
+    <#
+    .SYNOPSIS
+    Converts a dictionary of CSS attributes into a limited CSS string.
+
+    .DESCRIPTION
+    This function takes a dictionary of CSS attributes and converts them into a limited CSS string. It supports adding an ID, class name, and grouping the CSS attributes.
+
+    .PARAMETER ID
+    The ID to be used in the CSS selector.
+
+    .PARAMETER ClassName
+    The class name to be used in the CSS selector.
+
+    .PARAMETER Attributes
+    A dictionary containing the CSS attributes to be converted.
+
+    .PARAMETER Group
+    Switch parameter to indicate if the CSS should be grouped within <style> tags.
+
+    .EXAMPLE
+    ConvertTo-LimitedCSS -ID "myID" -ClassName "myClass" -Attributes @{ "color" = "red"; "font-size" = "12px" } -Group
+    Generates the following CSS:
+    #myID .myClass {
+        color: red;
+        font-size: 12px;
+    }
+
+    #>
     [CmdletBinding()]
     param(
         [string] $ID,

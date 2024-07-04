@@ -1,4 +1,59 @@
 function New-HTMLDiagram {
+    <#
+    .SYNOPSIS
+    Creates a new HTML diagram with customizable options.
+
+    .DESCRIPTION
+    This function creates a new HTML diagram with customizable options such as diagram data, height, width, image bundling, background image, background size, auto-resize, loading bar, filtering, and more.
+
+    .PARAMETER Diagram
+    Specifies the diagram data to be displayed. This should be a ScriptBlock containing the diagram configuration.
+
+    .PARAMETER Height
+    Specifies the height of the diagram.
+
+    .PARAMETER Width
+    Specifies the width of the diagram.
+
+    .PARAMETER BundleImages
+    Indicates whether to bundle images used in the diagram.
+
+    .PARAMETER BackGroundImage
+    Specifies the background image for the diagram.
+
+    .PARAMETER BackgroundSize
+    Specifies the size of the background image. Default is '100% 100%'.
+
+    .PARAMETER NoAutoResize
+    Indicates whether auto-resize functionality is disabled.
+
+    .PARAMETER DisableLoader
+    Indicates whether the loading bar should be disabled.
+
+    .PARAMETER EnableFiltering
+    Indicates whether filtering functionality is enabled.
+
+    .PARAMETER MinimumFilteringChars
+    Specifies the minimum number of characters required for filtering.
+
+    .PARAMETER EnableFilteringButton
+    Indicates whether a filtering button should be displayed.
+
+    .EXAMPLE
+    New-HTMLDiagram -Diagram {
+        // Diagram configuration settings here
+    } -Height 500 -Width 800 -BundleImages -BackGroundImage 'https://example.com/background.jpg' -BackgroundSize 'cover' -DisableLoader -EnableFiltering -MinimumFilteringChars 2 -EnableFilteringButton
+
+    Creates a new HTML diagram with custom configuration settings including height, width, bundled images, background image, disabled loading bar, enabled filtering, and a filtering button.
+
+    .EXAMPLE
+    New-HTMLDiagram -Diagram {
+        // More diagram configuration settings
+    } -Height 600 -Width 1000
+
+    Creates a new HTML diagram with additional configuration settings and default options for height and width.
+
+    #>
     [alias('Diagram', 'New-Diagram')]
     [CmdletBinding()]
     param(

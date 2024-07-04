@@ -1,4 +1,111 @@
 function New-HTMLChartArea {
+    <#
+    .SYNOPSIS
+    Creates a new HTML chart area with customizable options.
+
+    .DESCRIPTION
+    The New-HTMLChartArea function creates a new HTML chart area with various customizable options for creating interactive charts.
+
+    .PARAMETER Chart
+    Specifies the chart configuration settings.
+
+    .PARAMETER Height
+    Specifies the height of the chart area. Default is 350.
+
+    .PARAMETER DataLabelsEnabled
+    Indicates whether data labels are enabled. Default is $true.
+
+    .PARAMETER DataLabelsOffsetX
+    Specifies the horizontal offset for data labels. Default is -6.
+
+    .PARAMETER DataLabelsFontSize
+    Specifies the font size for data labels. Default is '12px'.
+
+    .PARAMETER DataLabelsColor
+    Specifies the color of data labels.
+
+    .PARAMETER DataCategoriesType
+    Specifies the type of data categories. Valid values are 'datetime', 'category', or 'numeric'. Default is 'category'.
+
+    .PARAMETER LineCurve
+    Specifies the curve type for lines. Valid values are 'straight', 'smooth', or 'stepline'. Default is 'straight'.
+
+    .PARAMETER LineWidth
+    Specifies the width of lines.
+
+    .PARAMETER LineColor
+    Specifies the color of lines.
+
+    .PARAMETER GridColors
+    Specifies the colors of the grid lines.
+
+    .PARAMETER GridOpacity
+    Specifies the opacity of the grid lines.
+
+    .PARAMETER LegendPosition
+    Specifies the position of the legend. Valid values are 'top', 'topRight', 'left', 'right', 'bottom', or 'default'. Default is 'default'.
+
+    .PARAMETER TitleX
+    Specifies the title for the X-axis.
+
+    .PARAMETER TitleY
+    Specifies the title for the Y-axis.
+
+    .PARAMETER MarkerSize
+    Specifies the size of markers.
+
+    .PARAMETER Data
+    Specifies the data points for the chart.
+
+    .PARAMETER DataNames
+    Specifies the names of the data series.
+
+    .PARAMETER DataLegend
+    Specifies the legends for the data series.
+
+    .PARAMETER Zoom
+    Indicates whether zoom functionality is enabled.
+
+    .PARAMETER ChartAxisY
+    Specifies the configuration settings for the Y-axis.
+
+    .PARAMETER Legend
+    Specifies the legend settings.
+
+    .PARAMETER Title
+    Specifies the title of the chart.
+
+    .PARAMETER TitleAlignment
+    Specifies the alignment of the chart title. Valid values are 'center', 'left', 'right', or 'default'. Default is 'default'.
+
+    .PARAMETER PatternedColors
+    Indicates whether to use patterned colors.
+
+    .PARAMETER GradientColors
+    Indicates whether to use gradient colors.
+
+    .PARAMETER GridOptions
+    Specifies additional grid options.
+
+    .PARAMETER Toolbar
+    Specifies the toolbar settings.
+
+    .PARAMETER Theme
+    Specifies the theme settings.
+
+    .PARAMETER Design
+    Specifies the design settings.
+
+    .EXAMPLE
+    New-HTMLChartArea -Chart @{ type = 'line'; data = @((1, 10), (2, 20), (3, 30)) } -Title 'Sample Line Chart' -DataLabelsEnabled $true
+
+    Creates a new HTML line chart with sample data points and enables data labels.
+
+    .EXAMPLE
+    New-HTMLChartArea -Chart @{ type = 'bar'; data = @((1, 10), (2, 20), (3, 30)) } -Title 'Sample Bar Chart' -DataLabelsEnabled $false
+
+    Creates a new HTML bar chart with sample data points and disables data labels.
+    #>
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Chart,

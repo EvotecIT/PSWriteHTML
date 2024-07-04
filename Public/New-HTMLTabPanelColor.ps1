@@ -1,4 +1,56 @@
 ﻿function New-HTMLTabPanelColor {
+    <#
+    .SYNOPSIS
+    Creates a new HTML Tab Panel with customizable colors.
+
+    .DESCRIPTION
+    This function allows you to define colors for various elements of an HTML Tab Panel, such as background color, border color, anchor colors, and loader colors.
+
+    .PARAMETER BackgrounColor
+    The background color of the tab panel.
+
+    .PARAMETER BorderWidth
+    The width of the border. Default is '1px'.
+
+    .PARAMETER BorderStyle
+    The style of the border. Choose from: 'solid', 'dotted', 'dashed', 'double', 'groove', 'ridge', 'inset', 'outset', 'none', 'hidden'. Default is 'solid'.
+
+    .PARAMETER BorderColor
+    The color of the border. Default is '#eeeeee'.
+
+    .PARAMETER AnchorDefaultPrimaryColor
+    The primary color of default anchor links.
+
+    .PARAMETER AnchorDefaultSecondaryColor
+    The secondary color of default anchor links.
+
+    .PARAMETER AnchorActivePrimaryColor
+    The primary color of active anchor links.
+
+    .PARAMETER AnchorActiveSecondaryColor
+    The secondary color of active anchor links.
+
+    .PARAMETER AnchorDisabledPrimaryColor
+    The primary color of disabled anchor links.
+
+    .PARAMETER AnchorDisabledSecondaryColor
+    The secondary color of disabled anchor links.
+
+    .PARAMETER LoaderColor
+    The color of the loader.
+
+    .PARAMETER LoaderBackgroundColor
+    The background color of the loader.
+
+    .PARAMETER LoaderBackgroundWrapperColor
+    The color of the loader background wrapper.
+
+    .EXAMPLE
+    Set-HTMLTabPanelColor -BackgrounColor '#f0f0f0' -BorderColor '#cccccc' -AnchorDefaultPrimaryColor '#333333'
+
+    .NOTES
+    This function allows customization of colors for an HTML Tab Panel.
+    #>
     [CmdletBinding()]
     param(
         [string] $BackgrounColor,

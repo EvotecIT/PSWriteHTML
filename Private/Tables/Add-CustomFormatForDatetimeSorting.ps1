@@ -1,6 +1,7 @@
 function Add-CustomFormatForDatetimeSorting {
     <#
     .SYNOPSIS
+    Adds custom datetime formats for sortable datatable columns.
 
     .DESCRIPTION
         This function adds code to make the datatable columns sortable with different datetime formats.

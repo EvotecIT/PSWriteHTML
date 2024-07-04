@@ -1,4 +1,89 @@
 ﻿function New-HTMLCalendar {
+    <#
+    .SYNOPSIS
+    Creates a new HTML calendar using FullCalendar library.
+
+    .DESCRIPTION
+    This function creates a new HTML calendar using the FullCalendar library. It allows customization of various calendar settings such as header elements, initial view, default date, event handling, and more.
+
+    .PARAMETER CalendarSettings
+    Specifies the script block containing settings for the calendar.
+
+    .PARAMETER HeaderLeft
+    Specifies the elements to display on the left side of the calendar header.
+
+    .PARAMETER HeaderCenter
+    Specifies the element to display in the center of the calendar header.
+
+    .PARAMETER HeaderRight
+    Specifies the elements to display on the right side of the calendar header.
+
+    .PARAMETER DefaultDate
+    Specifies the default date to display on the calendar.
+
+    .PARAMETER NavigationLinks
+    Indicates whether navigation links are enabled on the calendar.
+
+    .PARAMETER NowIndicator
+    Indicates whether the current time indicator is displayed on the calendar.
+
+    .PARAMETER EventLimit
+    Indicates whether to limit the number of events displayed on a day.
+
+    .PARAMETER WeekNumbers
+    Indicates whether week numbers are displayed on the calendar.
+
+    .PARAMETER Selectable
+    Indicates whether events can be selected on the calendar.
+
+    .PARAMETER SelectMirror
+    Indicates whether a mirror effect is applied when selecting events.
+
+    .PARAMETER BusinessHours
+    Indicates whether business hours are displayed on the calendar.
+
+    .PARAMETER Editable
+    Indicates whether events are editable on the calendar.
+
+    .PARAMETER InitialView
+    Specifies the initial view of the calendar.
+
+    .PARAMETER UrlTarget
+    Specifies the target URL for calendar events.
+
+    .PARAMETER EventTimeFormat
+    Specifies the format for displaying event times.
+
+    .PARAMETER SlotLabelFormat
+    Specifies the format for displaying slot labels.
+
+    .EXAMPLE
+    New-HTMLCalendar -CalendarSettings {
+        # Define calendar settings here
+    }
+
+    Creates a new HTML calendar with default settings.
+
+    .EXAMPLE
+    New-HTMLCalendar -CalendarSettings {
+        # Define calendar settings here
+    } -HeaderLeft 'prev', 'next' -HeaderCenter 'title' -HeaderRight 'dayGridMonth', 'timeGridWeek' -DefaultDate (Get-Date) -NavigationLinks $true -NowIndicator $true -EventLimit $true -WeekNumbers $true -Selectable $true -SelectMirror $true -BusinessHours -Editable -InitialView 'dayGridMonth' -UrlTarget 'https://example.com' -EventTimeFormat @{
+        hour           = '2-digit'
+        minute         = '2-digit'
+        omitZeroMinute = $false
+        meridiem       = $false
+        hour12         = $false
+    } -SlotLabelFormat @{
+        hour           = '2-digit'
+        minute         = '2-digit'
+        omitZeroMinute = $false
+        meridiem       = $false
+        hour12         = $false
+    }
+
+    Creates a new HTML calendar with custom settings.
+
+    #>
     [alias('Calendar')]
     [CmdletBinding()]
     param(

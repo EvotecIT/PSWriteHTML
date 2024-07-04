@@ -1,4 +1,25 @@
 ﻿function Convert-TableRowGrouping {
+    <#
+    .SYNOPSIS
+    Converts a specified row grouping column in a table to a collapsible row group.
+
+    .DESCRIPTION
+    This function converts a specified row grouping column in a table to a collapsible row group. It adds a rowGroup property to the options object with the necessary configuration for the 'row group' plugin.
+
+    .PARAMETER Options
+    The options object containing the table configuration.
+
+    .PARAMETER RowGroupingColumnID
+    The ID of the column to be used for row grouping.
+
+    .EXAMPLE
+    Convert-TableRowGrouping -Options $options -RowGroupingColumnID 2
+    Converts the table to have a collapsible row group using column 2 for grouping.
+
+    .EXAMPLE
+    Convert-TableRowGrouping -Options $options -RowGroupingColumnID 0
+    Converts the table to have a collapsible row group using column 0 for grouping.
+    #>
     [CmdletBinding()]
     param(
         [string] $Options,

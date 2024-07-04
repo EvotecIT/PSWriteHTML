@@ -1,4 +1,50 @@
 function New-ChartInternalSpark {
+    <#
+    .SYNOPSIS
+    Creates a sparkline chart with customizable options.
+
+    .DESCRIPTION
+    The New-ChartInternalSpark function creates a sparkline chart with customizable options such as colors, values, and chart type. It generates a sparkline chart that can be used to visualize data trends in a compact format.
+
+    .PARAMETER Options
+    A dictionary containing various options for customizing the sparkline chart.
+
+    .PARAMETER Color
+    An array of colors to be used in the sparkline chart.
+
+    .PARAMETER Values
+    An array of values to be plotted on the sparkline chart.
+
+    .EXAMPLE
+    $options = @{
+        chart = @{
+            type = 'area'
+            sparkline = @{
+                enabled = $true
+            }
+        }
+        stroke = @{
+            curve = 'straight'
+        }
+        fill = @{
+            opacity = 0.3
+        }
+    }
+    $color = @('red', 'blue', 'green')
+    $values = @(
+        @{
+            Name = 'Series 1'
+            Values = @(10, 20, 30, 40, 50)
+        }
+        @{
+            Name = 'Series 2'
+            Values = @(5, 15, 25, 35, 45)
+        }
+    )
+    New-ChartInternalSpark -Options $options -Color $color -Values $values
+
+    #>
+    
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,

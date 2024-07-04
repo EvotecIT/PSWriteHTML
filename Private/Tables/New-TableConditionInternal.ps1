@@ -1,4 +1,36 @@
 ﻿function New-TableConditionInternal {
+    <#
+    .SYNOPSIS
+    Creates a new table condition object based on the provided parameters.
+
+    .DESCRIPTION
+    This function creates a new table condition object with specified properties such as column name, column ID, operator, type, value, value date, data store, case sensitivity, date time format, and reverse condition.
+
+    .PARAMETER Condition
+    Specifies the condition object containing properties like Name, Operator, Type, Value, case sensitivity, DateTimeFormat, and ReverseCondition.
+
+    .PARAMETER Header
+    Specifies an array of header strings.
+
+    .PARAMETER DataStore
+    Specifies the data store for the condition.
+
+    .EXAMPLE
+    $condition = [PSCustomObject]@{
+        Name            = "Column1"
+        Operator        = "Equals"
+        Type            = "String"
+        Value           = "Value1"
+        caseSensitive   = $true
+        DateTimeFormat  = "yyyy-MM-dd"
+        ReverseCondition = $false
+    }
+    $header = @("Column1", "Column2", "Column3")
+    $dataStore = "DataStore1"
+    $result = New-TableConditionInternal -Condition $condition -Header $header -DataStore $dataStore
+    $result
+
+    #>
     [CmdletBinding()]
     param(
         [PSCustomObject] $Condition,

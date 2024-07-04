@@ -1,4 +1,56 @@
 ﻿function New-ChartInternalGrid {
+    <#
+    .SYNOPSIS
+    Creates a new internal grid configuration for a chart with customizable options for grid lines and colors.
+
+    .DESCRIPTION
+    This function creates a new internal grid configuration for a chart with the provided options. It allows customization of grid lines, colors, and padding.
+
+    .PARAMETER Options
+    Specifies the options for configuring the internal grid. This should be a dictionary containing the necessary settings for the grid.
+
+    .PARAMETER Show
+    Specifies whether the grid should be displayed on the chart.
+
+    .PARAMETER BorderColor
+    Specifies the color of the grid border.
+
+    .PARAMETER StrokeDash
+    Specifies the stroke dash array for the grid lines.
+
+    .PARAMETER Position
+    Specifies the position of the grid. Valid values are 'front', 'back', or 'default'.
+
+    .PARAMETER xAxisLinesShow
+    Specifies whether the x-axis grid lines should be displayed.
+
+    .PARAMETER yAxisLinesShow
+    Specifies whether the y-axis grid lines should be displayed.
+
+    .PARAMETER RowColors
+    Specifies an array of colors for the row grid lines.
+
+    .PARAMETER RowOpacity
+    Specifies the opacity of the row grid lines. Valid range is 0 to 1.
+
+    .PARAMETER ColumnColors
+    Specifies an array of colors for the column grid lines.
+
+    .PARAMETER ColumnOpacity
+    Specifies the opacity of the column grid lines. Valid range is 0 to 1.
+
+    .PARAMETER PaddingTop
+    Specifies the top padding for the grid.
+
+    .PARAMETER PaddingRight
+    Specifies the right padding for the grid.
+
+    .PARAMETER PaddingBottom
+    Specifies the bottom padding for the grid.
+
+    .PARAMETER PaddingLeft
+    Specifies the left padding for the grid.
+    #>
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Options,

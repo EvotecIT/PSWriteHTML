@@ -1,4 +1,37 @@
 ﻿function New-NavLink {
+    <#
+    .SYNOPSIS
+    Creates a new navigation link with customizable options for nested links.
+
+    .DESCRIPTION
+    The New-NavLink function creates a new navigation link with various customizable options such as nested links, name, name color, href, internal page ID, and icon color.
+
+    .PARAMETER NestedLinks
+    Specifies the script block defining the nested link properties.
+
+    .PARAMETER Name
+    Specifies the name of the navigation link. This parameter is mandatory.
+
+    .PARAMETER NameColor
+    Specifies the color of the navigation link name.
+
+    .PARAMETER Href
+    Specifies the URL to navigate to when the navigation link is clicked.
+
+    .PARAMETER InternalPageID
+    Specifies the internal page ID associated with the navigation link.
+
+    .PARAMETER IconColor
+    Specifies the color of the icon for the navigation link.
+
+    .EXAMPLE
+    New-NavLink -NestedLinks { New-NavLink -Name "Sublink 1" -Href "/sublink1" } -Name "Main Link" -NameColor "blue" -Href "/mainlink" -InternalPageID "main" -IconColor "green"
+    Creates a new navigation link named "Main Link" with a nested link named "Sublink 1" in blue name color, green icon color, navigating to "/mainlink" with internal page ID "main".
+
+    .EXAMPLE
+    New-NavLink -NestedLinks { New-NavLink -Name "Sublink 2" -Href "/sublink2" } -Name "Another Link" -NameColor "red" -Href "/anotherlink" -InternalPageID "another" -IconColor "yellow"
+    Creates a new navigation link named "Another Link" with a nested link named "Sublink 2" in red name color, yellow icon color, navigating to "/anotherlink" with internal page ID "another".
+    #>
     [alias('New-HTMLNavLink')]
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(

@@ -1,4 +1,43 @@
 ﻿function New-HTMLSummaryItem {
+    <#
+    .SYNOPSIS
+    Creates a new HTML summary item with specified parameters.
+
+    .DESCRIPTION
+    This function creates a new HTML summary item with customizable text, icons, and other visual properties.
+
+    .PARAMETER NestedItems
+    Specifies the nested items to include within the summary item.
+
+    .PARAMETER Text
+    Specifies the text content of the summary item.
+
+    .PARAMETER Open
+    Indicates whether the summary item should be initially open or closed.
+
+    .PARAMETER IconSize
+    Specifies the size of the icon in the summary item.
+
+    .PARAMETER IconColor
+    Specifies the color of the icon in the summary item.
+
+    .PARAMETER IconBrands
+    Specifies the icon brand to use for the summary item. Valid values are retrieved from the available FontAwesome brands.
+
+    .PARAMETER IconRegular
+    Specifies the regular icon to use for the summary item. Valid values are retrieved from the available FontAwesome regular icons.
+
+    .EXAMPLE
+    New-HTMLSummaryItem -Text "Summary Item 1" -IconBrands "fa-windows" -IconSize 2 -IconColor "blue" -Open
+
+    Creates a new HTML summary item with the text "Summary Item 1", using the Windows icon brand, a size of 2, blue color, and initially open.
+
+    .EXAMPLE
+    New-HTMLSummaryItem -Text "Summary Item 2" -IconRegular "fa-address-book" -IconSize 3 -IconColor "green"
+
+    Creates a new HTML summary item with the text "Summary Item 2", using the address book regular icon, a size of 3, and green color.
+
+    #>
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(
         [parameter(ParameterSetName = "FontAwesomeBrands")]

@@ -1,4 +1,116 @@
 function New-DiagramOptionsNodes {
+    <#
+    .SYNOPSIS
+    Creates a custom object representing options for diagram nodes.
+
+    .DESCRIPTION
+    This function creates a custom object with various settings for diagram nodes, such as border width, colors, font styles, shape, constraints, and margins.
+
+    .PARAMETER BorderWidth
+    Specifies the width of the border around the node.
+
+    .PARAMETER BorderWidthSelected
+    Specifies the width of the border around the node when selected.
+
+    .PARAMETER BrokenImage
+    Specifies the image to display if the node image is broken.
+
+    .PARAMETER Chosen
+    Indicates whether the node is chosen.
+
+    .PARAMETER ColorBorder
+    Specifies the color of the node border.
+
+    .PARAMETER ColorBackground
+    Specifies the background color of the node.
+
+    .PARAMETER ColorHighlightBorder
+    Specifies the color of the node border when highlighted.
+
+    .PARAMETER ColorHighlightBackground
+    Specifies the background color of the node when highlighted.
+
+    .PARAMETER ColorHoverBorder
+    Specifies the color of the node border when hovered over.
+
+    .PARAMETER ColorHoverBackground
+    Specifies the background color of the node when hovered over.
+
+    .PARAMETER FixedX
+    Indicates whether the node's X position is fixed.
+
+    .PARAMETER FixedY
+    Indicates whether the node's Y position is fixed.
+
+    .PARAMETER FontColor
+    Specifies the color of the node's font.
+
+    .PARAMETER FontSize
+    Specifies the font size of the node text in pixels.
+
+    .PARAMETER FontName
+    Specifies the font family of the node text.
+
+    .PARAMETER FontBackground
+    Specifies the background color of the node's font.
+
+    .PARAMETER FontStrokeWidth
+    Specifies the stroke width of the node's font.
+
+    .PARAMETER FontStrokeColor
+    Specifies the stroke color of the node's font.
+
+    .PARAMETER FontAlign
+    Specifies the alignment of the node's text (center or left).
+
+    .PARAMETER FontMulti
+    Specifies the multi-line mode for the node's text (false, true, markdown, html).
+
+    .PARAMETER FontVAdjust
+    Specifies the vertical adjustment of the node's text.
+
+    .PARAMETER Size
+    Specifies the size of the node.
+
+    .PARAMETER Shape
+    Specifies the shape of the node (circle, dot, diamond, ellipse, database, box, square, triangle, triangleDown, text, star, hexagon).
+
+    .PARAMETER HeightConstraintMinimum
+    Specifies the minimum height constraint for the node.
+
+    .PARAMETER HeightConstraintVAlign
+    Specifies the vertical alignment of the node within its height constraint (top, middle, bottom).
+
+    .PARAMETER WidthConstraintMinimum
+    Specifies the minimum width constraint for the node.
+
+    .PARAMETER WidthConstraintMaximum
+    Specifies the maximum width constraint for the node.
+
+    .PARAMETER Margin
+    Specifies the margin around the node on all sides.
+
+    .PARAMETER MarginTop
+    Specifies the top margin around the node.
+
+    .PARAMETER MarginRight
+    Specifies the right margin around the node.
+
+    .PARAMETER MarginBottom
+    Specifies the bottom margin around the node.
+
+    .PARAMETER MarginLeft
+    Specifies the left margin around the node.
+
+    .EXAMPLE
+    New-DiagramOptionsNodes -BorderWidth 1 -BorderWidthSelected 2 -ColorBorder '#2B7CE9' -ColorBackground '#97C2FC' -Shape 'circle' -Size 50
+    Creates a new diagram node with specified border widths, colors, shape, and size.
+
+    .EXAMPLE
+    New-DiagramOptionsNodes -FontColor '#000000' -FontSize 12 -FontName 'Arial' -Shape 'square' -Size 30
+    Creates a new diagram node with specified font color, size, font family, shape, and size.
+
+    #>
     [alias('DiagramOptionsNodes')]
     [CmdletBinding()]
     param(

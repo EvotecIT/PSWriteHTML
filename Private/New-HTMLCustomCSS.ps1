@@ -1,4 +1,27 @@
 ﻿function New-HTMLCustomCSS {
+    <#
+    .SYNOPSIS
+    Creates custom CSS styles based on the provided CSS key-value pairs.
+
+    .DESCRIPTION
+    This function generates custom CSS styles based on the CSS key-value pairs provided in the input dictionary. It allows for the inclusion of comments before and after each CSS block.
+
+    .PARAMETER CSS
+    Specifies a dictionary containing CSS key-value pairs where the key represents the CSS selector and the value represents the CSS properties.
+
+    .PARAMETER AddComment
+    Indicates whether comments should be added before and after each CSS block. Default is false.
+
+    .EXAMPLE
+    New-HTMLCustomCSS -CSS @{ '.header' = 'background-color: #333; color: white;' '.content' = 'font-size: 16px; line-height: 1.5;' } -AddComment
+    Generates custom CSS styles for the '.header' and '.content' selectors with specified properties and includes comments before and after each CSS block.
+
+    .EXAMPLE
+    $customCSS = @{ '.button' = 'background-color: blue; color: white;' '.link' = 'text-decoration: none;' }
+    New-HTMLCustomCSS -CSS $customCSS
+    Creates custom CSS styles for the '.button' and '.link' selectors with specified properties without adding comments.
+
+    #>
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $CSS,

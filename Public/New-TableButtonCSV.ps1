@@ -1,4 +1,40 @@
 ﻿function New-TableButtonCSV {
+    <#
+    .SYNOPSIS
+    Creates a new table button for exporting data to CSV with customizable options.
+
+    .DESCRIPTION
+    This function creates a new table button for exporting data to CSV with customizable options. It allows users to specify the button title, file name, and other settings for CSV export.
+
+    .PARAMETER Title
+    The title to be displayed when hovering over the button.
+
+    .PARAMETER ButtonName
+    The text to be displayed on the button. Default value is 'CSV'.
+
+    .PARAMETER Extension
+    The file extension for the exported CSV file. Default value is '.csv'.
+
+    .PARAMETER FileName
+    The name of the exported CSV file.
+
+    .PARAMETER DisableBOM
+    Switch to disable Byte Order Mark (BOM) in the exported CSV file.
+
+    .PARAMETER FieldSeparator
+    The separator character for fields in the CSV file. Default value is ';'.
+
+    .PARAMETER FieldBoundary
+    The character used to enclose fields in the CSV file. Default value is '"'.
+
+    .EXAMPLE
+    New-TableButtonCSV -Title "Export to CSV" -FileName "data" -FieldSeparator "," -FieldBoundary "'"
+
+    Description
+    -----------
+    Creates a new table button with the title "Export to CSV", exports data to a CSV file named "data.csv" with comma as the field separator and single quote as the field boundary.
+
+    #>
     [alias('TableButtonCSV', 'EmailTableButtonCSV', 'New-HTMLTableButtonCSV')]
     [CmdletBinding()]
     param(

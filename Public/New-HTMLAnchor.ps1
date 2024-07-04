@@ -1,45 +1,47 @@
 function New-HTMLAnchor {
     <#
     .SYNOPSIS
-    Short description
+    Creates a new HTML anchor element.
 
     .DESCRIPTION
-    Long description
+    This function creates a new HTML anchor element (<a>) with specified attributes.
 
     .PARAMETER Name
-    Parameter description
+    The name of the anchor element.
 
     .PARAMETER Id
-    Parameter description
+    The ID of the anchor element.
 
     .PARAMETER Target
-    Parameter description
+    Specifies where to open the linked document.
 
     .PARAMETER Class
-    Parameter description
+    The CSS class of the anchor element.
 
     .PARAMETER HrefLink
-    Parameter description
+    The URL of the linked document.
 
     .PARAMETER OnClick
-    Parameter description
+    JavaScript code to execute when the anchor element is clicked.
 
     .PARAMETER Style
-    Parameter description
+    The CSS styles to apply to the anchor element.
 
     .PARAMETER Text
-    Parameter description
+    The text to display within the anchor element.
 
     .EXAMPLE
     New-HTMLAnchor -Target _parent
+    Creates an anchor element with the target attribute set to "_parent".
 
     New-HTMLAnchor -Id "show_$RandomNumber" -Href '#' -OnClick "show('$RandomNumber');" -Style "color: #ffffff; display:none;" -Text 'Show'
+    Creates an anchor element with specified attributes and text.
 
     Output:
-    <a target = "_parent" />
+    <a id="show_$RandomNumber" class="" target="_parent" href="#" onclick="show('$RandomNumber');" style="color: #ffffff; display:none;">Show</a>
 
     .NOTES
-    General notes
+    This function is part of a set of functions for generating HTML elements.
     #>
     [alias('New-HTMLLink')]
     [cmdletBinding()]

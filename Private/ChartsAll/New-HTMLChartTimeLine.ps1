@@ -1,4 +1,116 @@
 ﻿function New-HTMLChartTimeLine {
+    <#
+    .SYNOPSIS
+    Creates a new HTML timeline chart with customizable options.
+
+    .DESCRIPTION
+    This function generates an HTML timeline chart with various customization options such as title, subtitle, legend, data, colors, grid options, toolbar, theme, axis settings, tooltips, data labels, events, and design.
+
+    .PARAMETER Chart
+    Specifies the main chart configuration settings.
+
+    .PARAMETER Title
+    Specifies the title of the chart.
+
+    .PARAMETER SubTitle
+    Specifies the subtitle of the chart.
+
+    .PARAMETER Legend
+    Specifies the legend settings for the chart.
+
+    .PARAMETER Data
+    Specifies the data points to be displayed on the chart.
+
+    .PARAMETER PatternedColors
+    Indicates whether to use patterned colors for the chart.
+
+    .PARAMETER GradientColors
+    Indicates whether to use gradient colors for the chart.
+
+    .PARAMETER GridOptions
+    Specifies the grid options for the chart.
+
+    .PARAMETER Toolbar
+    Specifies the toolbar settings for the chart.
+
+    .PARAMETER Theme
+    Specifies the theme to be applied to the chart.
+
+    .PARAMETER ChartAxisX
+    Specifies the X-axis settings for the chart.
+
+    .PARAMETER ChartAxisY
+    Specifies the Y-axis settings for the chart.
+
+    .PARAMETER ChartToolTip
+    Specifies the tooltip settings for the chart.
+
+    .PARAMETER DataLabel
+    Specifies the data label settings for the chart.
+
+    .PARAMETER Events
+    Specifies any events to be associated with the chart.
+
+    .PARAMETER Design
+    Specifies the design options for the chart.
+
+    .EXAMPLE
+    $chartData = @{
+        labels = @("Jan", "Feb", "Mar", "Apr")
+        datasets = @(
+            @{
+                label = "Dataset 1"
+                data = @([10, 20, 15, 25])
+            },
+            @{
+                label = "Dataset 2"
+                data = @([5, 15, 10, 20])
+            }
+        )
+    }
+
+    $chartOptions = @{
+        Chart = @{
+            height = 300
+        }
+        Title = @{
+            text = "Monthly Sales"
+        }
+        SubTitle = @{
+            text = "2021"
+        }
+        Legend = @{
+            show = $true
+        }
+        Data = $chartData
+        PatternedColors = $true
+        GridOptions = @{
+            show = $true
+        }
+        Theme = @{
+            mode = "dark"
+        }
+        ChartAxisX = @{
+            categories = @("Jan", "Feb", "Mar", "Apr")
+        }
+        ChartAxisY = @(
+            @{
+                seriesName = "Sales"
+            }
+        )
+        ChartToolTip = @{
+            enabled = $true
+        }
+        DataLabel = @{
+            enabled = $true
+        }
+        Design = @{
+            colors = @("#FF5733", "#33FF57")
+        }
+    }
+
+    New-HTMLChartTimeLine @chartOptions
+    #>
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Chart,

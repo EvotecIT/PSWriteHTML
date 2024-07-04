@@ -1,4 +1,20 @@
 ﻿function Remove-ConfigurationCSS {
+    <#
+    .SYNOPSIS
+    Removes specified CSS properties or sections from a CSS configuration dictionary.
+
+    .DESCRIPTION
+    This function removes specified CSS properties or sections from a CSS configuration dictionary. It allows for targeted removal of individual properties or entire sections based on the provided parameters.
+
+    .EXAMPLE
+    Remove-ConfigurationCSS -CSS $CSS -Name 'Header' -Property 'Color'
+    Removes the 'Color' property from the 'Header' section in the CSS configuration.
+
+    .EXAMPLE
+    Remove-ConfigurationCSS -CSS $CSS -Section @('Footer', 'Sidebar') -Not
+    Removes all sections except 'Footer' and 'Sidebar' from the CSS configuration.
+
+    #>
     [cmdletBinding()]
     param(
         [Parameter(ParameterSetName = 'Default')]

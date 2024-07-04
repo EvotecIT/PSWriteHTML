@@ -1,4 +1,34 @@
 ﻿function Add-TableContent {
+    <#
+    .SYNOPSIS
+    Adds content to a table with customizable styling and conditional formatting.
+
+    .DESCRIPTION
+    The Add-TableContent function adds content to a table with the ability to customize styling and apply conditional formatting. It takes in content rows, content styles, content top, content formatting inline, header names, and the table itself as parameters.
+
+    .PARAMETER ContentRows
+    Specifies the content rows to be added to the table.
+
+    .PARAMETER ContentStyle
+    Specifies the styles to be applied to the content.
+
+    .PARAMETER ContentTop
+    Specifies the top content to be added to the table.
+
+    .PARAMETER ContentFormattingInline
+    Specifies the inline conditional formatting to be applied to the content.
+
+    .PARAMETER HeaderNames
+    Specifies the names of the headers in the table.
+
+    .PARAMETER Table
+    Specifies the table to which content will be added.
+
+    .EXAMPLE
+    Add-TableContent -ContentRows $rows -ContentStyle $styles -ContentTop $topContent -ContentFormattingInline $formatting -HeaderNames $headers -Table $table
+    Adds content to a table with the specified content rows, styles, top content, formatting, headers, and table.
+
+    #>
     [CmdletBinding()]
     param(
         [System.Collections.Generic.List[PSCustomObject]] $ContentRows,

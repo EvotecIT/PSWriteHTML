@@ -1,4 +1,45 @@
 function New-HTMLStatusItem {
+    <#
+    <#
+    .SYNOPSIS
+    Creates a new HTML status item with customizable parameters.
+
+    .DESCRIPTION
+    This function creates a new HTML status item with customizable parameters such as service name, status, icon, percentage, font color, background color, and icon style.
+
+    .PARAMETER Name
+    Specifies the name of the service.
+
+    .PARAMETER Status
+    Specifies the status of the service.
+
+    .PARAMETER Icon
+    Specifies the icon style for the status item. Default value is 'Good'.
+
+    .PARAMETER Percentage
+    Specifies the percentage value for the status item. Default value is '100%'.
+
+    .PARAMETER FontColor
+    Specifies the font color for the status item. Default value is '#5f6982'.
+
+    .PARAMETER BackgroundColor
+    Specifies the background color for the status item. Default value is '#0ef49b'.
+
+    .PARAMETER IconBrands
+    Specifies the icon style for brands.
+
+    .PARAMETER IconRegular
+    Specifies the icon style for regular icons.
+
+    .EXAMPLE
+    New-HTMLStatusItem -Name "ServiceA" -Status "Good" -Icon "Good" -Percentage "100%" -FontColor "#5f6982" -BackgroundColor "#0ef49b" -IconBrands "BrandIcon"
+
+    Creates a new HTML status item for ServiceA with a 'Good' status, using the 'Good' icon style, 100% percentage, font color '#5f6982', background color '#0ef49b', and 'BrandIcon' as the icon style for brands.
+
+    .NOTES
+    File Name      : New-HTMLStatusItem.ps1
+    Prerequisite   : PowerShell V5
+    #>
     [CmdletBinding(DefaultParameterSetName = 'Statusimo')]
     param(
         [alias('ServiceName')][string] $Name,

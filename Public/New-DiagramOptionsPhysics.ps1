@@ -1,10 +1,10 @@
 function New-DiagramOptionsPhysics {
     <#
     .SYNOPSIS
-    Short description
+    Configures the physics settings for a network visualization.
 
     .DESCRIPTION
-    Long description
+    Configures the physics settings for a network visualization in a detailed manner, allowing customization of stabilization, velocity limits, timestep, and other parameters to optimize the behavior of the physics simulation.
 
     .PARAMETER Enabled
     Toggle the physics system on or off. This property is optional. If you define any of the options below and enabled is undefined, this will be set to true.
@@ -80,7 +80,7 @@ function New-DiagramOptionsPhysics {
     Accepted range: [0 .. 1]. The damping factor is how much of the velocity from the previous physics simulation iteration carries over to the next iteration.
 
     .PARAMETER ForceAtlas2BasedAvoidOverlap
-    	Accepted range: [0 .. 1]. When larger than 0, the size of the node is taken into account. The distance will be calculated from the radius of the encompassing circle of the node for both the gravity model. Value 1 is maximum overlap avoidance.
+    Accepted range: [0 .. 1]. When larger than 0, the size of the node is taken into account. The distance will be calculated from the radius of the encompassing circle of the node for both the gravity model. Value 1 is maximum overlap avoidance.
 
     .PARAMETER RepulsionNodeDistance
     This is the range of influence for the repulsion.

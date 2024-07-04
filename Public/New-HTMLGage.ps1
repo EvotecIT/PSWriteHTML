@@ -1,4 +1,128 @@
 ﻿function New-HTMLGage {
+    <#
+    .SYNOPSIS
+    Creates a new HTML gauge with customizable options.
+
+    .DESCRIPTION
+    This function creates a new HTML gauge with various customizable options such as type, colors, fonts, values, and more.
+
+    .PARAMETER GageContent
+    The content of the gauge.
+
+    .PARAMETER Type
+    Specifies the type of gauge to create. Valid values are 'Gage' and 'Donut'. Default is 'Gage'.
+
+    .PARAMETER BackgroundGaugageColor
+    The background color of the gauge.
+
+    .PARAMETER Value
+    The value to display on the gauge. This parameter is mandatory.
+
+    .PARAMETER ValueSymbol
+    The symbol to display with the value.
+
+    .PARAMETER ValueColor
+    The color of the value displayed on the gauge.
+
+    .PARAMETER ValueFont
+    The font of the value displayed on the gauge.
+
+    .PARAMETER MinValue
+    The minimum value of the gauge.
+
+    .PARAMETER MinText
+    The text to display for the minimum value.
+
+    .PARAMETER MaxValue
+    The maximum value of the gauge.
+
+    .PARAMETER MaxText
+    The text to display for the maximum value.
+
+    .PARAMETER Reverse
+    Indicates whether the gauge should be displayed in reverse.
+
+    .PARAMETER DecimalNumbers
+    The number of decimal places to display.
+
+    .PARAMETER GaugageWidth
+    The width of the gauge.
+
+    .PARAMETER Label
+    The label to display on the gauge.
+
+    .PARAMETER LabelColor
+    The color of the label.
+
+    .PARAMETER Counter
+    Indicates whether a counter should be displayed.
+
+    .PARAMETER ShowInnerShadow
+    Indicates whether an inner shadow should be displayed.
+
+    .PARAMETER NoGradient
+    Indicates whether gradient should be disabled.
+
+    .PARAMETER ShadowOpacity
+    The opacity of the shadow.
+
+    .PARAMETER ShadowSize
+    The size of the shadow.
+
+    .PARAMETER ShadowVerticalOffset
+    The vertical offset of the shadow.
+
+    .PARAMETER Pointer
+    Indicates whether a pointer should be displayed.
+
+    .PARAMETER PointerTopLength
+    The length of the top of the pointer.
+
+    .PARAMETER PointerBottomLength
+    The length of the bottom of the pointer.
+
+    .PARAMETER PointerBottomWidth
+    The width of the bottom of the pointer.
+
+    .PARAMETER StrokeColor
+    The color of the stroke.
+
+    .PARAMETER PointerStrokeWidth
+    The width of the pointer stroke.
+
+    .PARAMETER PointerStrokeLinecap
+    The linecap style of the pointer stroke. Valid values are 'none', 'square', 'round'.
+
+    .PARAMETER PointerColor
+    The color of the pointer.
+
+    .PARAMETER HideValue
+    Indicates whether the value should be hidden.
+
+    .PARAMETER HideMinMax
+    Indicates whether the min/max values should be hidden.
+
+    .PARAMETER FormatNumber
+    Indicates whether the number should be formatted.
+
+    .PARAMETER DisplayRemaining
+    Indicates whether the remaining value should be displayed.
+
+    .PARAMETER HumanFriendly
+    Indicates whether the value should be displayed in a human-friendly format.
+
+    .PARAMETER HumanFriendlyDecimal
+    The number of decimal places to display in human-friendly format.
+
+    .PARAMETER SectorColors
+    An array of colors to use for different sectors of the gauge.
+
+    .EXAMPLE
+    New-HTMLGage -Value 75 -Label "Progress" -Type "Donut" -MinValue 0 -MaxValue 100 -SectorColors @("red", "yellow", "green")
+
+    Creates a new donut gauge with a value of 75, labeled as "Progress", with a range from 0 to 100, and sector colors red, yellow, and green.
+
+    #>
     [CmdletBinding()]
     param (
         [scriptblock] $GageContent,

@@ -1,4 +1,85 @@
 ﻿function New-HTMLMarkdown {
+    <#
+    .SYNOPSIS
+    Creates HTML content from Markdown text with customizable options.
+
+    .DESCRIPTION
+    The New-HTMLMarkdown function converts Markdown text to HTML content with various customization options such as strikethrough, emojis, code block styling, table of contents, and more.
+
+    .PARAMETER ScriptBlock
+    Specifies a script block containing Markdown content to convert.
+
+    .PARAMETER FilePath
+    Specifies the path to a file containing Markdown content to convert.
+
+    .PARAMETER Content
+    Specifies an array of Markdown content to convert.
+
+    .PARAMETER Id
+    Specifies the ID attribute for the HTML container.
+
+    .PARAMETER omitExtraWLInCodeBlocks
+    Switch parameter to omit extra whitespace in code blocks.
+
+    .PARAMETER EnableStrikethrough
+    Switch parameter to enable strikethrough styling.
+
+    .PARAMETER EnableEmoji
+    Switch parameter to enable emoji support.
+
+    .PARAMETER EnableBackslashEscapesHTMLTags
+    Switch parameter to enable backslash escapes for HTML tags.
+
+    .PARAMETER EnableMoreStyling
+    Switch parameter to enable additional styling options.
+
+    .PARAMETER HeaderLevelStart
+    Specifies the starting header level for Markdown content.
+
+    .PARAMETER EnableGithubCodeBlocks
+    Switch parameter to enable GitHub-style code blocks.
+
+    .PARAMETER EnableTaskLists
+    Switch parameter to enable task lists in Markdown.
+
+    .PARAMETER DisableTables
+    Switch parameter to disable table rendering.
+
+    .PARAMETER EnableSimpleLineBreaks
+    Switch parameter to enable simple line breaks.
+
+    .PARAMETER EnableRequireSpaceBeforeHeadingText
+    Switch parameter to require space before heading text.
+
+    .PARAMETER EnableEncodeEmails
+    Switch parameter to enable email encoding.
+
+    .PARAMETER EnableOpenLinksInNewWindow
+    Switch parameter to open links in a new window.
+
+    .PARAMETER EnableBackslashEscapes
+    Switch parameter to enable backslash escapes.
+
+    .PARAMETER SanitezeHTML
+    Switch parameter to sanitize HTML content.
+
+    .PARAMETER EnableTOC
+    Switch parameter to enable table of contents generation.
+
+    .PARAMETER Encoding
+    Specifies the encoding for reading the Markdown content file. Default is 'UTF8'.
+
+    .EXAMPLE
+    New-HTMLMarkdown -FilePath "C:\Markdown\example.md" -EnableStrikethrough -EnableEmoji -EnableTOC
+
+    Converts the Markdown content from the file "example.md" to HTML with strikethrough, emojis, and a table of contents.
+
+    .EXAMPLE
+    $MarkdownContent = @("## Title", "This is a **bold** text.")
+    New-HTMLMarkdown -Content $MarkdownContent -EnableMoreStyling -EnableTaskLists
+
+    Converts the Markdown content in the array with additional styling and task list support.
+    #>
     [CmdletBinding(DefaultParameterSetName = 'FilePath')]
     param(
         [Parameter(Mandatory, ParameterSetName = 'ScriptBlock', Position = 0)][scriptblock] $ScriptBlock,

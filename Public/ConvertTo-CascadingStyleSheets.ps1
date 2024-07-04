@@ -1,4 +1,49 @@
 ﻿function ConvertTo-CascadingStyleSheets {
+    <#
+    .SYNOPSIS
+    Converts a hashtable of CSS properties into Cascading Style Sheets (CSS) format.
+
+    .DESCRIPTION
+    The ConvertTo-CascadingStyleSheets function takes a hashtable of CSS properties and converts them into a CSS stylesheet format. It organizes the properties into selectors and declarations, ready to be used in styling HTML elements.
+
+    .PARAMETER Css
+    Specifies the hashtable of CSS properties to be converted.
+
+    .PARAMETER Name
+    Specifies the name of the CSS selector to be used in the stylesheet.
+
+    .PARAMETER Comment
+    Specifies an optional comment to be included in the CSS stylesheet.
+
+    .PARAMETER WithTags
+    Indicates whether to include CSS style tags around the generated CSS content. Default is false.
+
+    .EXAMPLE
+    $CssProperties = @{
+        'color' = 'blue'
+        'font-size' = '16px'
+        'font-family' = 'Arial'
+    }
+
+    ConvertTo-CascadingStyleSheets -Css $CssProperties -Name '.myClass' -Comment 'Custom styles for myClass'
+
+    Converts the hashtable of CSS properties into a CSS stylesheet with the selector '.myClass' and a custom comment.
+
+    .EXAMPLE
+    $CssProperties = @{
+        'background-color' = 'lightblue'
+        'border' = @{
+            'style' = 'solid'
+            'width' = '1px'
+            'color' = 'black'
+        }
+    }
+
+    ConvertTo-CascadingStyleSheets -Css $CssProperties -Name '#myDiv' -WithTags
+
+    Converts the CSS properties into a CSS stylesheet with the selector '#myDiv' and includes CSS style tags.
+
+    #>
     [alias('ConvertTo-CSS')]
     [cmdletBinding()]
     param(

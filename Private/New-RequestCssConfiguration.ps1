@@ -1,4 +1,38 @@
 ﻿function New-RequestCssConfiguration {
+    <#
+    .SYNOPSIS
+    Creates a new CSS configuration based on existing CSS code.
+
+    .DESCRIPTION
+    This function generates new named class names for existing CSS code based on the provided Pair dictionary. It then copies the original CSS configuration, removes unwanted sections, and renames existing CSS classes to their new names.
+
+    .PARAMETER Pair
+    Specifies a dictionary containing key-value pairs for mapping existing CSS classes to new names.
+
+    .PARAMETER CssConfiguration
+    Specifies the original CSS configuration to be modified.
+
+    .PARAMETER Feature
+    Specifies the feature associated with the CSS configuration.
+
+    .PARAMETER Type
+    Specifies the type of CSS configuration.
+
+    .EXAMPLE
+    $Pair = @{
+        "Header" = "header-class";
+        "Footer" = "footer-class"
+    }
+    $CssConfiguration = @{
+        "header-class" = ".header";
+        "footer-class" = ".footer";
+    }
+    $Feature = "Website"
+    $Type = "Main"
+    New-RequestCssConfiguration -Pair $Pair -CssConfiguration $CssConfiguration -Feature $Feature -Type $Type
+    # Generates new CSS configuration based on the provided Pair dictionary.
+
+    #>
     [cmdletBinding()]
     param(
         [System.Collections.IDictionary] $Pair,

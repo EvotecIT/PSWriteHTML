@@ -1,4 +1,22 @@
 function New-HTMLTabHead {
+    <#
+    .SYNOPSIS
+    Creates the HTML structure for a set of tabs.
+
+    .DESCRIPTION
+    This function generates the HTML structure for a set of tabs based on the provided TabsCollection and PageName. It creates a div element with tab headers inside.
+
+    .PARAMETER TabsCollection
+    An array containing the tabs information.
+
+    .PARAMETER PageName
+    The name of the page to which the tabs belong.
+
+    .EXAMPLE
+    New-HTMLTabHead -TabsCollection @($Tab1, $Tab2) -PageName 'HomePage'
+    Creates the HTML structure for tabs Tab1 and Tab2 on the HomePage.
+
+    #>
     [CmdletBinding()]
     Param (
         [Array] $TabsCollection,
