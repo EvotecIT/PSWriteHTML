@@ -4,6 +4,12 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.26.0 - 2024.07.06
+* Added help to all PowerShell functions lacking it. by @neztach in https://github.com/EvotecIT/PSWriteHTML/pull/446
+
+### New Contributors
+* @neztach made their first contribution in https://github.com/EvotecIT/PSWriteHTML/pull/446
+
 ## 1.25.0 - 2024.07.02
 - Improved filtering for `New-HTMLDiagram`
 
