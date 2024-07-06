@@ -25,17 +25,17 @@ function New-HTMLTab {
     The icon to be displayed for FontAwesomeSolid. Use tab completion to select from available options.
 
     .EXAMPLE
-    New-HTMLTab -HtmlData { Get-Process } -Heading "Processes" -Name "ProcessTab" -IconBrands "fab fa-windows"
+    New-HTMLTab -HtmlData { Get-Process } -Heading "Processes" -Name "ProcessTab" -IconBrands "windows"
 
     Creates a new tab displaying the list of processes with a Windows icon.
 
     .EXAMPLE
-    New-HTMLTab -HtmlData { Get-Service } -Heading "Services" -Name "ServiceTab" -IconRegular "far fa-hdd"
+    New-HTMLTab -HtmlData { Get-Service } -Heading "Services" -Name "ServiceTab" -IconRegular building
 
     Creates a new tab displaying the list of services with a hard drive icon.
 
     .EXAMPLE
-    New-HTMLTab -HtmlData { Get-EventLog -LogName System } -Heading "System Events" -Name "EventTab" -IconSolid "fas fa-exclamation-triangle"
+    New-HTMLTab -HtmlData { Get-EventLog -LogName System } -Heading "System Events" -Name "EventTab" -IconSolid "exclamation-triangle"
 
     Creates a new tab displaying the system events log with an exclamation triangle icon.
     #>
