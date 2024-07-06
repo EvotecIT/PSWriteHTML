@@ -1,4 +1,39 @@
 ﻿function New-HTMLWizardStep {
+    <#
+    .SYNOPSIS
+    Creates a new HTML wizard step with customizable options.
+
+    .DESCRIPTION
+    This function creates a new HTML wizard step with various customization options such as setting the HTML data, tab heading, tab name, and icons.
+
+    .PARAMETER HtmlData
+    Specifies the HTML data to be displayed in the wizard step.
+
+    .PARAMETER Heading
+    Specifies the heading text for the tab.
+
+    .PARAMETER Name
+    Specifies the name of the tab.
+
+    .PARAMETER IconBrands
+    Specifies the icon for the tab from the FontAwesome Brands collection.
+
+    .PARAMETER IconRegular
+    Specifies the icon for the tab from the FontAwesome Regular collection.
+
+    .PARAMETER IconSolid
+    Specifies the icon for the tab from the FontAwesome Solid collection.
+
+    .EXAMPLE
+    New-HTMLWizardStep -HtmlData { Get-Content -Path "C:\example.html" } -Heading "Step 1" -Name "First Tab" -IconBrands "fa fa-facebook"
+
+    Creates a new HTML wizard step with the specified HTML data, tab heading, tab name, and FontAwesome Brands icon.
+
+    .EXAMPLE
+    New-HTMLWizardStep -HtmlData { Get-Content -Path "C:\another.html" } -Heading "Step 2" -Name "Second Tab" -IconRegular "fa fa-github"
+
+    Creates a new HTML wizard step with the specified HTML data, tab heading, tab name, and FontAwesome Regular icon.
+    #>
     [CmdLetBinding(DefaultParameterSetName = 'FontAwesomeBrands')]
     param(
         [parameter(ParameterSetName = "FontAwesomeBrands")]

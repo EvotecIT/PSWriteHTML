@@ -1,4 +1,51 @@
 function Add-HTMLScript {
+    <#
+    .SYNOPSIS
+    Adds JavaScript content to the HTML body.
+
+    .DESCRIPTION
+    This function adds JavaScript content to the HTML body by including JavaScript code from files, strings, or links. It allows customization of the placement of JavaScript content within the HTML document.
+
+    .PARAMETER Placement
+    Specifies where the JavaScript content should be placed in the HTML document. Valid values are 'Inline', 'Header', or 'Footer'. Default is 'Header'.
+
+    .PARAMETER Resource
+    Specifies the resource containing the JavaScript content.
+
+    .PARAMETER ResourceComment
+    Specifies a comment to be included with the JavaScript content.
+
+    .PARAMETER Link
+    Specifies an array of URLs to external JavaScript files to be included.
+
+    .PARAMETER Content
+    Specifies an array of JavaScript content as strings to be included.
+
+    .PARAMETER FilePath
+    Specifies an array of file paths containing JavaScript code to be included.
+
+    .PARAMETER ReplaceData
+    Specifies a dictionary of key-value pairs to replace in the JavaScript code.
+
+    .PARAMETER AddComments
+    Indicates whether to add comments around the JavaScript content. By default, comments are not added.
+
+    .PARAMETER SkipTags
+    Indicates whether to skip adding script tags around the JavaScript content. By default, script tags are added.
+
+    .EXAMPLE
+    Add-HTMLScript -Placement 'Header' -Resource 'MyScript' -ResourceComment 'Script for functionality X' -Link 'https://example.com/script.js'
+    Adds an external JavaScript file 'script.js' to the header of the HTML document with a specified comment.
+
+    .EXAMPLE
+    Add-HTMLScript -Placement 'Footer' -Resource 'CustomScript' -ResourceComment 'Custom script for feature Y' -Content 'function myFunction() { // code here }'
+    Adds custom JavaScript content to the footer of the HTML document with a specified comment.
+
+    .EXAMPLE
+    Add-HTMLScript -Placement 'Inline' -Resource 'InlineScript' -ResourceComment 'Inline script for page Z' -FilePath 'C:\Scripts\inline.js' -ReplaceData @{ 'placeholder' = 'replacement' }
+    Adds JavaScript code from a file 'inline.js' to be included inline in the HTML document with specified replacements.
+
+    #>
     [alias('Add-JavaScript', 'New-JavaScript', 'Add-JS')]
     [CmdletBinding()]
     param(

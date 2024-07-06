@@ -1,4 +1,89 @@
 ﻿function New-ChartRadialOptions {
+    <#
+    .SYNOPSIS
+    Creates customizable options for a radial chart.
+
+    .DESCRIPTION
+    This function defines various customizable options for a radial chart, such as circle type, angles, colors, shadows, labels, gradients, and more.
+
+    .PARAMETER CircleType
+    Specifies the type of circle for the radial chart. Valid values are 'FullCircleTop', 'FullCircleBottom', 'FullCircleBottomLeft', 'FullCircleLeft', 'Speedometer', 'SemiCircleGauge'.
+
+    .PARAMETER StartAngle
+    Specifies the starting angle for the radial chart.
+
+    .PARAMETER EndAngle
+    Specifies the ending angle for the radial chart.
+
+    .PARAMETER HollowBackGroundColor
+    Specifies the color for the hollow background of the radial chart.
+
+    .PARAMETER HollowMargin
+    Specifies the margin for the hollow area of the radial chart.
+
+    .PARAMETER HollowSize
+    Specifies the size of the hollow area in the radial chart.
+
+    .PARAMETER TrackDropShadow
+    Specifies the drop shadow for the track of the radial chart.
+
+    .PARAMETER TrackDropShadowTop
+    Specifies the top shadow for the track of the radial chart.
+
+    .PARAMETER TrackDropShadowLeft
+    Specifies the left shadow for the track of the radial chart.
+
+    .PARAMETER TrackDropShadowBlur
+    Specifies the blur effect for the drop shadow of the track in the radial chart.
+
+    .PARAMETER TrackDropShadowOpacity
+    Specifies the opacity of the drop shadow for the track in the radial chart.
+
+    .PARAMETER DataLabelNameOffsetY
+    Specifies the Y-axis offset for the data label name in the radial chart.
+
+    .PARAMETER DataLabelNameColor
+    Specifies the color for the data label name in the radial chart.
+
+    .PARAMETER DataLabelNameFontSize
+    Specifies the font size for the data label name in the radial chart.
+
+    .PARAMETER DataLabelValueShow
+    Indicates whether to show the data label value in the radial chart.
+
+    .PARAMETER DataLabelValueColor
+    Specifies the color for the data label value in the radial chart.
+
+    .PARAMETER DataLabelValueFontSize
+    Specifies the font size for the data label value in the radial chart.
+
+    .PARAMETER FillType
+    Specifies the fill type for the radial chart.
+
+    .PARAMETER GradientShade
+    Specifies the shade for the gradient in the radial chart.
+
+    .PARAMETER GradientType
+    Specifies the type of gradient for the radial chart.
+
+    .PARAMETER GradientToColors
+    Specifies the colors for the gradient in the radial chart.
+
+    .PARAMETER GraidentStops
+    Specifies the gradient stops for the radial chart.
+
+    .PARAMETER StrokeLineCap
+    Specifies the line cap for the stroke in the radial chart.
+
+    .PARAMETER Labels
+    Specifies an array of labels for the radial chart.
+
+    .EXAMPLE
+    New-ChartRadialOptions -CircleType 'FullCircleTop' -StartAngle 0 -EndAngle 180 -HollowBackGroundColor 'white' -HollowMargin '10px' -HollowSize '50%' -TrackDropShadow 'black' -TrackDropShadowTop '2px' -TrackDropShadowLeft '2px' -TrackDropShadowBlur '5px' -TrackDropShadowOpacity '0.5' -DataLabelNameOffsetY '20px' -DataLabelNameColor 'black' -DataLabelNameFontSize '12px' -DataLabelValueShow -DataLabelValueColor 'red' -DataLabelValueFontSize '14px' -FillType 'solid' -GradientShade 'dark' -GradientType 'vertical' -GradientToColors @('red', 'blue') -GraidentStops @('0%', '100%') -StrokeLineCap 'round' -Labels @('Label1', 'Label2')
+
+    Creates customizable options for a radial chart with specified parameters.
+
+    #>
     [CmdletBinding()]
     param(
         [parameter(ParameterSetName = 'CircleType')][ValidateSet('FullCircleTop', 'FullCircleBottom', 'FullCircleBottomLeft', 'FullCircleLeft', 'Speedometer', 'SemiCircleGauge')] $CircleType,

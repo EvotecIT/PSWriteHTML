@@ -1,91 +1,91 @@
 ﻿function New-DiagramLink {
     <#
     .SYNOPSIS
-    Short description
+    Creates a new diagram link between two nodes.
 
     .DESCRIPTION
-    Long description
+    Creates a new diagram link connecting two nodes in a visual representation.
 
     .PARAMETER From
-    Parameter description
+    Specifies the starting node of the link.
 
     .PARAMETER To
-    Parameter description
+    Specifies the ending node of the link.
 
     .PARAMETER Label
-    Parameter description
+    Specifies the label text for the link.
 
     .PARAMETER ArrowsToEnabled
-    Parameter description
+    Switch parameter to enable arrows at the end of the link.
 
-    .PARAMETER ArrowsToScaleFacto
-    Parameter description
+    .PARAMETER ArrowsToScaleFactor
+    Specifies the scale factor for the arrows at the end of the link.
 
     .PARAMETER ArrowsToType
-    Parameter description
+    Specifies the type of arrows at the end of the link. Valid values are 'arrow', 'bar', or 'circle'.
 
     .PARAMETER ArrowsMiddleEnabled
-    Parameter description
+    Switch parameter to enable arrows in the middle of the link.
 
     .PARAMETER ArrowsMiddleScaleFactor
-    Parameter description
+    Specifies the scale factor for the arrows in the middle of the link.
 
     .PARAMETER ArrowsMiddleType
-    Parameter description
+    Specifies the type of arrows in the middle of the link. Valid values are 'arrow', 'bar', or 'circle'.
 
     .PARAMETER ArrowsFromEnabled
-    Parameter description
+    Switch parameter to enable arrows at the start of the link.
 
     .PARAMETER ArrowsFromScaleFactor
-    Parameter description
+    Specifies the scale factor for the arrows at the start of the link.
 
     .PARAMETER ArrowsFromType
-    Parameter description
+    Specifies the type of arrows at the start of the link. Valid values are 'arrow', 'bar', or 'circle'.
 
     .PARAMETER ArrowStrikethrough
-    Parameter description
+    Switch parameter to enable a strikethrough effect for the link.
 
     .PARAMETER Chosen
-    Parameter description
+    Switch parameter to mark the link as chosen.
 
     .PARAMETER Color
-    Parameter description
+    Specifies the color of the link.
 
     .PARAMETER ColorHighlight
-    Parameter description
+    Specifies the highlight color of the link.
 
     .PARAMETER ColorHover
-    Parameter description
+    Specifies the hover color of the link.
 
     .PARAMETER ColorInherit
-    Parameter description
+    Specifies how the link color should inherit. Valid values are 'true', 'false', 'from', 'to', or 'both'.
 
     .PARAMETER ColorOpacity
-    Parameter description
+    Specifies the opacity of the link color. Range between 0 and 1.
 
     .PARAMETER Dashes
-    Parameter description
+    Switch parameter to enable dashed line style for the link.
 
     .PARAMETER Length
-    Parameter description
+    Specifies the length of the link.
 
     .PARAMETER FontColor
-    Parameter description
+    Specifies the font color for the label.
 
     .PARAMETER FontSize
-    Parameter description
+    Specifies the font size for the label.
 
     .PARAMETER FontName
-    Parameter description
+    Specifies the font name for the label.
 
     .PARAMETER FontBackground
-    Parameter description
+    Specifies the background color for the font.
 
     .PARAMETER FontStrokeWidth
-    Parameter description
+    Specifies the stroke width for the font. (in pixels)
 
     .PARAMETER FontStrokeColor
-    Parameter description
+    Specifies the stroke color for the font.
 
     .PARAMETER FontAlign
     Possible options: 'horizontal','top','middle','bottom'.
@@ -94,13 +94,13 @@
     When an option other than horizontal is chosen, the label will align itself according to the edge.
 
     .PARAMETER FontMulti
-    Parameter description
+    Specifies whether the label supports multiple lines or markdown/html formatting.
 
     .PARAMETER FontVAdjust
-    Parameter description
+    Specifies the vertical adjustment for the label.
 
     .PARAMETER WidthConstraint
-    Parameter description
+    Specifies the width constraint for the link.
 
     .PARAMETER SmoothType
     Possible options: 'dynamic', 'continuous', 'discrete', 'diagonalCross', 'straightCross', 'horizontal', 'vertical', 'curvedCW', 'curvedCCW', 'cubicBezier'.
@@ -117,10 +117,10 @@
     Accepted range: 0 .. 1.0. This parameter tweaks the roundness of the smooth curves for all types EXCEPT dynamic.
 
     .EXAMPLE
-    An example
+    An example of creating a new diagram link.
 
     .NOTES
-    General notes
+    Additional notes
     #>
     [alias('DiagramEdge', 'DiagramEdges', 'New-DiagramEdge', 'DiagramLink')]
     [CmdletBinding()]

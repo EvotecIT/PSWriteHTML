@@ -1,112 +1,112 @@
 function New-TableCondition {
     <#
     .SYNOPSIS
-    Short description
+    Creates a new table condition with specified parameters and styling options for pass and fail conditions.
 
     .DESCRIPTION
-    Long description
+    This function creates a new table condition with the specified parameters and allows customization of the styling options for both pass and fail conditions.
 
     .PARAMETER Name
-    Parameter description
+    Specifies the name of the condition.
 
     .PARAMETER HighlightHeaders
-    By default Name parameter is used as column to be highlighted. In case you want to specify different header(s) to be highlighted you can use this parameter.
+    Specifies an array of headers to highlight based on the condition.
 
     .PARAMETER ComparisonType
-    Parameter description
+    Specifies the type of comparison to be performed. Valid values are 'number', 'string', 'bool', or 'date'.
 
     .PARAMETER Operator
-    Parameter description
+    Specifies the comparison operator to be used.
 
     .PARAMETER Value
-    Parameter description
+    Specifies the value to compare against.
 
     .PARAMETER Row
-    Parameter description
+    Switch parameter to indicate if the styling should be applied to the entire row.
 
     .PARAMETER Inline
-    Parameter description
+    Switch parameter to indicate if the styling should be applied inline.
 
     .PARAMETER CaseSensitive
-    Parameter description
+    Switch parameter to indicate if the comparison should be case-sensitive.
 
     .PARAMETER DateTimeFormat
-    Parameter description
+    Specifies the format for date and time comparisons.
 
     .PARAMETER ReverseCondition
-    By default ColumnValue (left side) is being compared to Condition Value (right side). This switch reverses the comparison
+    Switch parameter to reverse the comparison logic.
 
     .PARAMETER Color
-    Parameter description
+    Specifies the text color for pass conditions.
 
     .PARAMETER BackgroundColor
-    Parameter description
+    Specifies the background color for pass conditions.
 
     .PARAMETER FontSize
-    Parameter description
+    Specifies the font size for pass conditions.
 
     .PARAMETER FontWeight
-    Parameter description
+    Specifies the font weight for pass conditions.
 
     .PARAMETER FontStyle
-    Parameter description
+    Specifies the font style for pass conditions.
 
     .PARAMETER FontVariant
-    Parameter description
+    Specifies the font variant for pass conditions.
 
     .PARAMETER FontFamily
-    Parameter description
+    Specifies the font family for pass conditions.
 
     .PARAMETER Alignment
-    Parameter description
+    Specifies the alignment for pass conditions.
 
     .PARAMETER TextDecoration
-    Parameter description
+    Specifies the text decoration for pass conditions.
 
     .PARAMETER TextTransform
-    Parameter description
+    Specifies the text transformation for pass conditions.
 
     .PARAMETER Direction
-    Parameter description
+    Specifies the text direction for pass conditions.
 
     .PARAMETER FailColor
-    Parameter description
+    Specifies the text color for fail conditions.
 
     .PARAMETER FailBackgroundColor
-    Parameter description
+    Specifies the background color for fail conditions.
 
     .PARAMETER FailFontSize
-    Parameter description
+    Specifies the font size for fail conditions.
 
     .PARAMETER FailFontWeight
-    Parameter description
+    Specifies the font weight for fail conditions.
 
     .PARAMETER FailFontStyle
-    Parameter description
+    Specifies the font style for fail conditions.
 
     .PARAMETER FailFontVariant
-    Parameter description
+    Specifies the font variant for fail conditions.
 
     .PARAMETER FailFontFamily
-    Parameter description
+    Specifies the font family for fail conditions.
 
     .PARAMETER FailAlignment
-    Parameter description
+    Specifies the alignment for fail conditions.
 
     .PARAMETER FailTextDecoration
-    Parameter description
+    Specifies the text decoration for fail conditions.
 
     .PARAMETER FailTextTransform
-    Parameter description
+    Specifies the text transformation for fail conditions.
 
     .PARAMETER FailDirection
-    Parameter description
+    Specifies the text direction for fail conditions.
 
     .EXAMPLE
-    An example
+    An example of how to use this function.
 
     .NOTES
-    General notes
+    Additional notes about the function.
     #>
     [alias('EmailTableCondition', 'TableConditionalFormatting', 'New-HTMLTableCondition', 'TableCondition')]
     [CmdletBinding()]

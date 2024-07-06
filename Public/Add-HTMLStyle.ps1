@@ -1,4 +1,60 @@
 function Add-HTMLStyle {
+    <#
+    .SYNOPSIS
+    Adds CSS styles to HTML documents.
+
+    .DESCRIPTION
+    The Add-HTMLStyle function allows you to add CSS styles to HTML documents in various ways such as inline styles, external stylesheets, and content from files or strings.
+
+    .PARAMETER Placement
+    Specifies where the CSS styles should be placed in the HTML document. Valid values are 'Inline', 'Header', or 'Footer'. Default is 'Header'.
+
+    .PARAMETER Resource
+    Specifies the resource to be added as CSS styles.
+
+    .PARAMETER ResourceComment
+    Specifies a comment for the resource being added.
+
+    .PARAMETER Link
+    Specifies an array of URLs to external CSS stylesheets to be linked in the HTML document.
+
+    .PARAMETER Content
+    Specifies an array of CSS content to be added directly to the HTML document.
+
+    .PARAMETER FilePath
+    Specifies an array of file paths containing CSS content to be added to the HTML document.
+
+    .PARAMETER Css
+    Specifies a hashtable of CSS styles to be converted and added to the HTML document.
+
+    .PARAMETER ReplaceData
+    Specifies a hashtable of data to be replaced in the CSS content.
+
+    .PARAMETER AddComment
+    Switch parameter to add comments around the added CSS styles.
+
+    .PARAMETER RelType
+    Specifies the relationship type for linked stylesheets. Valid values are 'dns-prefetch', 'preconnect', or 'preload'. Default is 'preload'.
+
+    .PARAMETER SkipTags
+    Switch parameter to skip adding HTML tags when inserting CSS content.
+
+    .EXAMPLE
+    Add-HTMLStyle -Placement 'Header' -Resource 'styles.css' -ResourceComment 'Custom styles' -Link 'https://example.com/styles.css'
+
+    Adds a linked CSS stylesheet to the header of the HTML document with a custom comment.
+
+    .EXAMPLE
+    Add-HTMLStyle -Placement 'Inline' -Content 'body { background-color: lightblue; }' -ResourceComment 'Inline styles'
+
+    Adds inline CSS styles directly to the HTML document body with a custom comment.
+
+    .EXAMPLE
+    Add-HTMLStyle -Placement 'Footer' -Css @{ 'body' = @{ 'background-color' = 'lightblue' } } -ResourceComment 'Custom CSS'
+
+    Converts a hashtable of CSS styles to a stylesheet and adds it to the footer of the HTML document with a custom comment.
+
+    #>
     [alias('Add-CSS')]
     [CmdletBinding()]
     param(

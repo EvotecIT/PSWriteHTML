@@ -1,4 +1,59 @@
 function New-InternalDiagram {
+    <#
+    .SYNOPSIS
+    Creates a new internal diagram with specified nodes, edges, events, options, dimensions, and styling.
+
+    .DESCRIPTION
+    This function creates a new internal diagram with the provided nodes, edges, events, and options. It allows customization of dimensions, background image, filtering options, and more.
+
+    .PARAMETER Nodes
+    Specifies the collection of nodes for the diagram.
+
+    .PARAMETER Edges
+    Specifies the collection of edges connecting the nodes.
+
+    .PARAMETER Events
+    Specifies the events associated with the diagram.
+
+    .PARAMETER Options
+    Specifies the options for configuring the diagram.
+
+    .PARAMETER Height
+    Specifies the height of the diagram.
+
+    .PARAMETER Width
+    Specifies the width of the diagram.
+
+    .PARAMETER BackgroundImage
+    Specifies the background image for the diagram.
+
+    .PARAMETER BackgroundSize
+    Specifies the size of the background image. Default is '100% 100%'.
+
+    .PARAMETER IconsAvailable
+    Indicates if icons are available for use in the diagram.
+
+    .PARAMETER DisableLoader
+    Indicates whether the loader should be disabled.
+
+    .PARAMETER EnableFiltering
+    Indicates whether filtering functionality is enabled.
+
+    .PARAMETER MinimumFilteringChars
+    Specifies the minimum number of characters required for filtering. Default is 3.
+
+    .PARAMETER EnableFilteringButton
+    Indicates whether a filtering button should be displayed.
+
+    .EXAMPLE
+    New-InternalDiagram -Nodes @($Node1, $Node2) -Edges @($Edge1) -Events @($Event1) -Options $DiagramOptions -Height 500 -Width 800 -BackgroundImage 'bg.jpg' -EnableFiltering -EnableFilteringButton
+    Creates a new internal diagram with specified nodes, edges, events, options, dimensions, and background image with filtering enabled.
+
+    .EXAMPLE
+    New-InternalDiagram -Nodes @($Node1, $Node2) -Edges @($Edge1) -Options $DiagramOptions -Height 400 -Width 600
+    Creates a new internal diagram with specified nodes, edges, and options with custom dimensions.
+
+    #>
     [CmdletBinding()]
     param(
         [System.Collections.IList] $Nodes,

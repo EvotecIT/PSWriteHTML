@@ -1,4 +1,40 @@
 ﻿function New-NavTopMenu {
+    <#
+    .SYNOPSIS
+    Creates a new navigation top menu item with customizable options.
+
+    .DESCRIPTION
+    The New-NavTopMenu function creates a new navigation top menu item with various customizable options such as icon, name, href, and more.
+
+    .PARAMETER MenuItem
+    Specifies the script block defining the menu item properties.
+
+    .PARAMETER Name
+    Specifies the name of the menu item. This parameter is mandatory.
+
+    .PARAMETER Href
+    Specifies the URL to navigate to when the menu item is clicked.
+
+    .PARAMETER InternalPageID
+    Specifies the internal page ID associated with the menu item.
+
+    .PARAMETER IconColor
+    Specifies the color of the icon.
+
+    .PARAMETER IconBrands
+    Specifies the icon for the menu item from the Font Awesome Brands collection.
+
+    .PARAMETER IconRegular
+    Specifies the icon for the menu item from the Font Awesome Regular collection.
+
+    .EXAMPLE
+    New-NavTopMenu -Name "Home" -Href "/home" -IconBrands "fa fa-home" -IconColor "blue"
+    Creates a new navigation top menu item named "Home" with a home icon from Font Awesome Brands in blue color.
+
+    .EXAMPLE
+    New-NavTopMenu -Name "About" -Href "/about" -IconRegular "fa fa-info-circle" -IconColor "green"
+    Creates a new navigation top menu item named "About" with an info circle icon from Font Awesome Regular in green color.
+    #>
     [alias('New-HTMLNavTopMenu')]
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(

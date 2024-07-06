@@ -1,53 +1,52 @@
 ﻿function New-ChartMarker {
     <#
     .SYNOPSIS
-    Short description
+    Creates a new chart marker with customizable options.
 
     .DESCRIPTION
-    Long description
+    This function defines the properties of a chart marker, such as size, color, shape, and other visual attributes. It allows customization of the marker appearance in the chart.
 
     .PARAMETER Size
-    Size of the marker point.
+    Specifies the size of the marker point.
 
     .PARAMETER Color
     Sets the fill color(s) of the marker point.
 
     .PARAMETER StrokeColors
-    Stroke Color of the marker. Accepts a single color or an array of colors in a multi-series chart.
+    Specifies the stroke color of the marker. Accepts a single color or an array of colors in a multi-series chart.
 
     .PARAMETER StrokeWidth
-    Stroke Size of the marker.
+    Sets the stroke size of the marker.
 
     .PARAMETER StrokeOpacity
-    Opacity of the border around marker.
+    Specifies the opacity of the border around the marker.
 
     .PARAMETER StrokeDashArray
-    Dashes in the border around marker. Higher number creates more space between dashes in the border.
+    Defines the dashes in the border around the marker. A higher number creates more space between dashes in the border.
 
     .PARAMETER FillOpacity
-    Opacity of the marker fill color.
+    Specifies the opacity of the marker fill color.
 
     .PARAMETER Shape
-    Shape of the marker. Available Options for shape circle or square
+    Defines the shape of the marker. Available options for shape are circle or square.
 
     .PARAMETER Radius
-    Radius of the marker (applies to square shape)
+    Specifies the radius of the marker (applies to square shape).
 
     .PARAMETER OffsetX
-    Sets the left offset of the marker
+    Sets the left offset of the marker.
 
     .PARAMETER OffsetY
-    Sets the top offset of the marker
+    Sets the top offset of the marker.
 
     .PARAMETER ShowNullDataPoints
-    Whether to show markers for null values in a line/area chart. If disabled, any null values present in line/area charts will not be visible.
+    Determines whether to show markers for null values in a line/area chart. If disabled, any null values present in line/area charts will not be visible.
 
     .PARAMETER HoverSize
-    Fixed size of the marker when it is active
+    Specifies the fixed size of the marker when it is active.
 
     .PARAMETER HoverSizeOffset
-    Unlike the fixed size, this option takes the original markers.size and increases/decreases the value based on it.
-    So, if markers.size: 6, markers.hover.sizeOffset: 3 will make the marker’s size 9 when hovered.
+    Unlike the fixed size, this option takes the original marker size and increases/decreases the value based on it. For example, if markers.size is 6 and markers.hover.sizeOffset is 3, the marker's size will be 9 when hovered.
 
     .EXAMPLE
     New-HTMLChart -Title 'Incidents Reported vs Solved' -TitleAlignment center {

@@ -1,4 +1,46 @@
 Function New-HTMLCodeBlock {
+    <#
+    .SYNOPSIS
+    Creates a new HTML code block with customizable settings for syntax highlighting.
+
+    .DESCRIPTION
+    This function creates a new HTML code block with customizable settings for syntax highlighting. It allows you to specify the code language, theme, group, title, line numbers visibility, highlighted lines, and line numbering offset.
+
+    .PARAMETER Code
+    Specifies the code content to be displayed in the code block.
+
+    .PARAMETER Style
+    Specifies the language style for syntax highlighting. Default is 'powershell'.
+
+    .PARAMETER Theme
+    Specifies the theme for the code block. Available themes include 'enlighter', 'beyond', 'classic', and more.
+
+    .PARAMETER Group
+    Specifies the group to which the code block belongs.
+
+    .PARAMETER Title
+    Specifies the title of the code block.
+
+    .PARAMETER Highlight
+    Specifies specific lines to highlight in the code block.
+
+    .PARAMETER ShowLineNumbers
+    Indicates whether line numbers should be displayed in the code block.
+
+    .PARAMETER LineOffset
+    Specifies the starting line number offset for line numbering.
+
+    .EXAMPLE
+    New-HTMLCodeBlock -Code "function greet() { return 'Hello, World!'; }" -Style 'javascript' -Theme 'monokai' -Group 'Functions' -Title 'Greeting Function' -Highlight 2,4-6 -ShowLineNumbers $true -LineOffset 1
+
+    Creates a new HTML code block displaying a JavaScript function with a custom theme, belonging to the 'Functions' group, titled 'Greeting Function', highlighting lines 2, 4 to 6, showing line numbers, and starting line numbering from 1.
+
+    .EXAMPLE
+    New-HTMLCodeBlock -Code "for ($i = 0; $i -lt 5; $i++) { Write-Host $i }" -Style 'powershell' -Group 'Loops' -Title 'For Loop Example' -ShowLineNumbers $false
+
+    Creates a new HTML code block displaying a PowerShell for loop without line numbers, belonging to the 'Loops' group, titled 'For Loop Example'.
+
+    #>
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true)][String] $Code,

@@ -1,22 +1,22 @@
 ﻿function New-OrgChartNode {
     <#
     .SYNOPSIS
-    Short description
+    Creates a new organizational chart node.
 
     .DESCRIPTION
-    Long description
+    This function creates a new node for an organizational chart. It allows defining children nodes by specifying nested nodes for self-nesting.
 
     .PARAMETER Children
-    Define children of the node by specifying nested nodes (self-nesting)
+    Specifies the children of the node by defining nested nodes for self-nesting.
 
     .PARAMETER Name
-    Name of the node
+    Specifies the name of the node.
 
     .PARAMETER Title
-    Title of the node
+    Specifies the title of the node.
 
     .PARAMETER ClassName
-    Parameter description
+    Specifies the class name for styling the node.
 
     .EXAMPLE
     New-HTML {
@@ -32,7 +32,7 @@
     } -FilePath $PSScriptRoot\Example-OrgChart01.html -ShowHTML -Online
 
     .NOTES
-    General notes
+    Additional information
     #>
     [cmdletBinding()]
     param(

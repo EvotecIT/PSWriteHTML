@@ -1,4 +1,32 @@
 ﻿function New-DiagramInternalEvent {
+    <#
+    .SYNOPSIS
+    Creates a new internal event for a diagram.
+
+    .DESCRIPTION
+    This function creates a new internal event for a diagram based on the provided parameters.
+
+    .PARAMETER OnClick
+    Specifies if the event is triggered on click.
+
+    .PARAMETER ID
+    Specifies the ID of the diagram element.
+
+    .PARAMETER FadeSearch
+    Specifies whether to fade the search results.
+
+    .PARAMETER ColumnID
+    Specifies the ID of the column to search within.
+
+    .EXAMPLE
+    New-DiagramInternalEvent -OnClick -ID "diagramElement1" -FadeSearch -ColumnID 2
+    Creates a new internal event triggered on click for the diagram element with ID "diagramElement1", fading the search results within column 2.
+
+    .EXAMPLE
+    New-DiagramInternalEvent -ID "diagramElement2" -ColumnID 1
+    Creates a new internal event for the diagram element with ID "diagramElement2", searching within column 1.
+
+    #>
     [CmdletBinding()]
     param(
         #[switch] $OnClick,

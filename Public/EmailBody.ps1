@@ -1,4 +1,63 @@
 function EmailBody {
+    <#
+    .SYNOPSIS
+    Defines styling properties for an email body content.
+
+    .DESCRIPTION
+    This function defines styling properties for an email body content such as color, background color, font size, font weight, font style, font family, alignment, text decoration, text transform, direction, and more.
+
+    .PARAMETER EmailBody
+    Specifies the ScriptBlock containing the email body content.
+
+    .PARAMETER Color
+    Specifies the color of the text in the email body.
+
+    .PARAMETER BackGroundColor
+    Specifies the background color of the email body.
+
+    .PARAMETER LineHeight
+    Specifies the line height of the text in the email body.
+
+    .PARAMETER Size
+    Specifies the font size of the text in the email body.
+
+    .PARAMETER FontWeight
+    Specifies the weight of the font in the email body. Valid values are 'normal', 'bold', 'bolder', 'lighter', or numeric values from 100 to 900.
+
+    .PARAMETER FontStyle
+    Specifies the style of the font in the email body. Valid values are 'normal', 'italic', or 'oblique'.
+
+    .PARAMETER FontVariant
+    Specifies the variant of the font in the email body. Valid values are 'normal' or 'small-caps'.
+
+    .PARAMETER FontFamily
+    Specifies the font family of the text in the email body.
+
+    .PARAMETER Alignment
+    Specifies the alignment of the text in the email body. Valid values are 'left', 'center', 'right', or 'justify'.
+
+    .PARAMETER TextDecoration
+    Specifies the decoration of the text in the email body. Valid values are 'none', 'line-through', 'overline', or 'underline'.
+
+    .PARAMETER TextTransform
+    Specifies the transformation of the text in the email body. Valid values are 'uppercase', 'lowercase', or 'capitalize'.
+
+    .PARAMETER Direction
+    Specifies the direction of the text in the email body. Valid value is 'rtl'.
+
+    .PARAMETER Online
+    Switch parameter to indicate if the email body content is online.
+
+    .PARAMETER Format
+    Switch parameter to format the email body content.
+
+    .PARAMETER Minify
+    Switch parameter to minify the email body content.
+
+    .PARAMETER Parameter
+    Specifies additional parameters for styling the email body content.
+
+    #>
     [CmdletBinding()]
     param(
         [Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $EmailBody,

@@ -1,4 +1,55 @@
 ﻿function New-HTMLMap {
+    <#
+    .SYNOPSIS
+    Creates a new HTML map with specified settings.
+
+    .DESCRIPTION
+    This function creates a new HTML map with customizable settings such as map type, legend options, colors, and titles.
+
+    .PARAMETER MapSettings
+    A script block containing custom map settings to be applied.
+
+    .PARAMETER Map
+    Specifies the type of map to be displayed. Valid values are 'Poland', 'Usa_States', 'World_Countries', or 'European_Union'.
+
+    .PARAMETER AnchorName
+    Specifies the name of the HTML anchor element where the map will be rendered.
+
+    .PARAMETER ShowAreaLegend
+    Switch parameter to indicate whether to display the area legend on the map.
+
+    .PARAMETER AreaTitle
+    Specifies the title for the area legend.
+
+    .PARAMETER PlotTitle
+    Specifies the title for the plot legend.
+
+    .PARAMETER ShowPlotLegend
+    Switch parameter to indicate whether to display the plot legend on the map.
+
+    .PARAMETER FillColor
+    Specifies the color to fill the map areas.
+
+    .PARAMETER StrokeColor
+    Specifies the color of the map area borders.
+
+    .PARAMETER StrokeWidth
+    Specifies the width of the map area borders.
+
+    .EXAMPLE
+    New-HTMLMap -Map 'World_Countries' -AnchorName 'Map1' -ShowAreaLegend -AreaTitle 'Country Population' -PlotTitle 'Population Density' -FillColor 'blue' -StrokeColor 'black' -StrokeWidth 2
+
+    Creates a new HTML map displaying world countries with area legend showing country population and plot legend showing population density. The map areas are filled with blue color, have black borders, and a border width of 2.
+
+    .EXAMPLE
+    $CustomSettings = {
+        # Custom map settings here
+    }
+    New-HTMLMap -Map 'Usa_States' -AnchorName 'Map2' -ShowPlotLegend -PlotTitle 'Economic Data' -FillColor 'green' -StrokeColor 'gray' -StrokeWidth 1 -MapSettings $CustomSettings
+
+    Creates a new HTML map displaying USA states with plot legend showing economic data. The map areas are filled with green color, have gray borders, and a border width of 1. Custom map settings are applied using the script block $CustomSettings.
+
+    #>
     [cmdletBinding()]
     param(
         [scriptblock] $MapSettings,

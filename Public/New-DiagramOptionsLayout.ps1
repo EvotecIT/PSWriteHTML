@@ -1,7 +1,7 @@
 function New-DiagramOptionsLayout {
     <#
     .SYNOPSIS
-    Short description
+    Defines layout options for hierarchical diagrams.
 
     .DESCRIPTION
     When enabling the hierarchical layout, it overrules some of the other options.

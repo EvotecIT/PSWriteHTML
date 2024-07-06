@@ -1,4 +1,24 @@
 function New-ChartInternalDataSet {
+    <#
+    .SYNOPSIS
+    Creates a new internal data set for a chart with the specified data and data series names.
+
+    .DESCRIPTION
+    This function creates a new internal data set for a chart with the provided data points and corresponding data series names. It allows for defining multiple data series with their respective names.
+
+    .PARAMETER Data
+    Specifies the data points to be displayed in the data set.
+
+    .PARAMETER DataNames
+    Specifies the names of the data series in the data set.
+
+    .EXAMPLE
+    $dataPoints = @(100, 200, 300, 400, 500)
+    $dataSeriesNames = @('Series A', 'Series B', 'Series C')
+    New-ChartInternalDataSet -Data $dataPoints -DataNames $dataSeriesNames
+
+    Creates a new internal data set with data points [100, 200, 300, 400, 500] and data series named 'Series A', 'Series B', 'Series C'.
+    #>
     [CmdletBinding()]
     param(
         [Array] $Data,

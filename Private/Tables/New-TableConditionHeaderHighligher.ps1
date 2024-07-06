@@ -1,4 +1,27 @@
 ﻿function New-TableConditionHeaderHighligher {
+    <#
+    .SYNOPSIS
+    Highlights specific headers in a table based on given conditions.
+
+    .DESCRIPTION
+    This function highlights specific headers in a table based on the conditions provided. It searches for the specified headers and returns their column IDs.
+
+    .PARAMETER Condition
+    Specifies the condition object containing information about the headers to highlight.
+
+    .PARAMETER Header
+    Specifies the headers of the table to search for highlighting.
+
+    .EXAMPLE
+    $condition = [PSCustomObject]@{
+        HighlightHeaders = @('Name', 'Age')
+    }
+    $header = @('ID', 'Name', 'Age', 'Location')
+    New-TableConditionHeaderHighligher -Condition $condition -Header $header
+
+    This example highlights the 'Name' and 'Age' headers in the table with headers 'ID', 'Name', 'Age', and 'Location'.
+
+    #>
     [CmdletBinding()]
     param(
         [PSCustomObject] $Condition,

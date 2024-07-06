@@ -1,4 +1,86 @@
 ﻿function New-HTMLCarousel {
+    <#
+    .SYNOPSIS
+    Creates a new HTML carousel element with customizable options.
+
+    .DESCRIPTION
+    This function creates a new HTML carousel element with the specified options such as slide content, mode (Horizontal/Vertical), alignment, number of slides per view, height, margin, looping, pagination, speed, starting slide, autoplay settings, arrow visibility, and more.
+
+    .PARAMETER Slide
+    Specifies the content of the carousel slide as a script block.
+
+    .PARAMETER Mode
+    Specifies the mode of the carousel (Horizontal/Vertical). Default is Horizontal.
+
+    .PARAMETER Align
+    Specifies the alignment of the carousel slides (center/start/end/justify).
+
+    .PARAMETER PerView
+    Specifies the number of slides per view.
+
+    .PARAMETER Height
+    Specifies the height of the carousel (adaptive/equal/auto).
+
+    .PARAMETER Margin
+    Specifies the margin between slides.
+
+    .PARAMETER Loop
+    Indicates whether the carousel should loop.
+
+    .PARAMETER Pagination
+    Indicates whether pagination should be enabled.
+
+    .PARAMETER Speed
+    Specifies the speed of the carousel animation.
+
+    .PARAMETER MoveBy
+    Specifies the number of slides to move at a time.
+
+    .PARAMETER StartAt
+    Specifies the index of the slide to start at.
+
+    .PARAMETER MoveOnClick
+    Indicates whether the carousel should move to the next slide on click.
+
+    .PARAMETER AutoPlay
+    Indicates whether autoplay is enabled.
+
+    .PARAMETER AutoPlayEvery
+    Specifies the interval for autoplay.
+
+    .PARAMETER AutoPlayRewind
+    Indicates whether autoplay should rewind.
+
+    .PARAMETER AutoPlayPauseOnFocus
+    Indicates whether autoplay should pause on focus.
+
+    .PARAMETER AutoPlayPauseOnHover
+    Indicates whether autoplay should pause on hover.
+
+    .PARAMETER AutoPlaySyncID
+    Specifies the ID to sync autoplay with.
+
+    .PARAMETER DisableArrows
+    Indicates whether the arrow navigation should be disabled.
+
+    .PARAMETER ArrowTemplate
+    Specifies custom arrow templates.
+
+    .PARAMETER PaginationTemplate
+    Specifies the pagination template ('default'/'index'/'custom').
+
+    .PARAMETER Count
+    Indicates whether slide count should be displayed.
+
+    .PARAMETER CountTemplate
+    Specifies the template for displaying slide count.
+
+    .EXAMPLE
+    New-HTMLCarousel -Slide { "Slide Content Here" } -Mode Horizontal -Align center -PerView 3 -Height adaptive -Margin '10px' -Loop -Pagination -Speed 500 -MoveBy 1 -StartAt 0 -MoveOnClick -AutoPlay -AutoPlayEvery 3000 -AutoPlayRewind -AutoPlayPauseOnFocus -AutoPlayPauseOnHover -AutoPlaySyncID 'carousel1' -DisableArrows -ArrowTemplate @('left-arrow', 'right-arrow') -PaginationTemplate 'index' -Count -CountTemplate 'Slide {index} of {total}'
+
+    Creates a new HTML carousel with the specified options.
+
+    #>
     [cmdletBinding()]
     param(
         [scriptblock] $Slide,

@@ -1,4 +1,76 @@
 ﻿function New-HTMLWizardColor {
+    <#
+    .SYNOPSIS
+    Creates a new HTML Wizard Color configuration.
+
+    .DESCRIPTION
+    This function creates a new HTML Wizard Color configuration with customizable color settings for various elements in the wizard interface.
+
+    .PARAMETER BorderColor
+    Specifies the color for the border of the wizard interface.
+
+    .PARAMETER ToolbarBtnColor
+    Specifies the color for the toolbar button text.
+
+    .PARAMETER ToolbarBtnBackgroundColor
+    Specifies the background color for the toolbar buttons.
+
+    .PARAMETER AnchorDefaultPrimaryColor
+    Specifies the primary color for default anchor elements.
+
+    .PARAMETER AnchorDefaultSecondaryColor
+    Specifies the secondary color for default anchor elements.
+
+    .PARAMETER AnchorActivePrimaryColor
+    Specifies the primary color for active anchor elements.
+
+    .PARAMETER AnchorActiveSecondaryColor
+    Specifies the secondary color for active anchor elements.
+
+    .PARAMETER AnchorDonePrimaryColor
+    Specifies the primary color for completed anchor elements.
+
+    .PARAMETER AnchorDoneSecondaryColor
+    Specifies the secondary color for completed anchor elements.
+
+    .PARAMETER AnchorDisabledPrimaryColor
+    Specifies the primary color for disabled anchor elements.
+
+    .PARAMETER AnchorDisabledSecondaryColor
+    Specifies the secondary color for disabled anchor elements.
+
+    .PARAMETER AnchorErrorPrimaryColor
+    Specifies the primary color for anchor elements in error state.
+
+    .PARAMETER AnchorErrorSecondaryColor
+    Specifies the secondary color for anchor elements in error state.
+
+    .PARAMETER AnchorWarningPrimaryColor
+    Specifies the primary color for anchor elements in warning state.
+
+    .PARAMETER AnchorWarningSecondaryColor
+    Specifies the secondary color for anchor elements in warning state.
+
+    .PARAMETER ProgressColor
+    Specifies the color for the progress indicator.
+
+    .PARAMETER ProgressBackgroundColor
+    Specifies the background color for the progress indicator.
+
+    .PARAMETER LoaderColor
+    Specifies the color for the loader animation.
+
+    .PARAMETER LoaderBackgroundColor
+    Specifies the background color for the loader animation.
+
+    .PARAMETER LoaderBackgroundWrapperColor
+    Specifies the background color for the loader animation wrapper.
+
+    .EXAMPLE
+    New-HTMLWizardColor -BorderColor "#FF0000" -ToolbarBtnColor "#00FF00" -ToolbarBtnBackgroundColor "#0000FF"
+    Creates a new HTML Wizard Color configuration with specified border, toolbar button text, and toolbar button background colors.
+
+    #>
     [CmdletBinding()]
     param(
         [string] $BorderColor,

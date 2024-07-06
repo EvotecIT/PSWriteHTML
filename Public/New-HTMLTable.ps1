@@ -1,226 +1,226 @@
 function New-HTMLTable {
     <#
     .SYNOPSIS
-    Short description
+    Creates a new HTML table with various customization options.
 
     .DESCRIPTION
-    Long description
+    This function generates an HTML table based on the provided data and allows for extensive customization using a wide range of parameters.
 
     .PARAMETER HTML
-    Parameter description
+    The HTML content to be included before the table.
 
     .PARAMETER PreContent
-    Parameter description
+    Additional content to be included before the table.
 
     .PARAMETER PostContent
-    Parameter description
+    Additional content to be included after the table.
 
     .PARAMETER DataTable
-    Parameter description
+    An array of objects containing the data to be displayed in the table.
 
     .PARAMETER Title
-    Parameter description
+    The title of the HTML table.
 
     .PARAMETER Buttons
-    Parameter description
+    An array of buttons to be displayed in the table for actions like copying, exporting, and printing.
 
     .PARAMETER PagingStyle
-    Parameter description
+    The style of pagination to be used in the table.
 
     .PARAMETER PagingOptions
-    Parameter description
+    An array of options for the number of items to display per page.
 
     .PARAMETER PagingLength
-    Parameter description
+    The default number of items to display per page.
 
     .PARAMETER DisablePaging
-    Parameter description
+    Disables pagination in the table.
 
     .PARAMETER DisableOrdering
-    Parameter description
+    Disables column ordering in the table.
 
     .PARAMETER DisableInfo
-    Parameter description
+    Disables information display at the bottom of the table.
 
     .PARAMETER HideFooter
-    Parameter description
+    Hides the footer of the table.
 
     .PARAMETER HideButtons
-    Parameter description
+    Hides all buttons in the table.
 
     .PARAMETER DisableProcessing
-    Parameter description
+    Disables processing indicator in the table.
 
     .PARAMETER DisableResponsiveTable
-    Parameter description
+    Disables responsiveness of the table.
 
     .PARAMETER DisableSelect
-    Parameter description
+    Disables row selection in the table.
 
     .PARAMETER DisableStateSave
-    Parameter description
+    Disables saving the state of the table.
 
     .PARAMETER DisableSearch
-    Parameter description
+    Disables search functionality in the table.
 
     .PARAMETER OrderMulti
-    Parameter description
+    Allows multiple column ordering in the table.
 
     .PARAMETER Filtering
-    Parameter description
+    Enables filtering in the table.
 
     .PARAMETER FilteringLocation
-    Parameter description
+    Specifies the location of the filter (Top, Bottom, Both).
 
     .PARAMETER Style
-    Parameter description
+    An array of styles to apply to the table.
 
     .PARAMETER Simplify
-    Parameter description
+    Simplifies the table layout.
 
     .PARAMETER TextWhenNoData
-    Parameter description
+    The text to display when no data is available.
 
     .PARAMETER ScreenSizePercent
-    Parameter description
+    The percentage of the screen width to occupy.
 
     .PARAMETER DefaultSortColumn
-    Parameter description
+    An array of default columns to sort by.
 
     .PARAMETER DefaultSortIndex
-    Parameter description
+    An array of default column indexes to sort by.
 
     .PARAMETER DefaultSortOrder
-    Parameter description
+    The default sort order (Ascending, Descending).
 
     .PARAMETER DateTimeSortingFormat
-    Parameter description
+    An array of date-time formats for sorting.
 
     .PARAMETER Find
-    Parameter description
+    Search string to find in the table.
 
     .PARAMETER InvokeHTMLTags
-    Parameter description
+    Enables HTML tags in the table.
 
     .PARAMETER DisableNewLine
-    Parameter description
+    Disables new line characters in the table.
 
     .PARAMETER EnableKeys
-    Parameter description
+    Enables keyboard navigation in the table.
 
     .PARAMETER EnableColumnReorder
-    Parameter description
+    Enables column reordering in the table.
 
     .PARAMETER EnableRowReorder
-    Parameter description
+    Enables row reordering in the table.
 
     .PARAMETER EnableAutoFill
-    Parameter description
+    Enables auto-filling in the table.
 
     .PARAMETER EnableScroller
-    Parameter description
+    Enables table scrolling.
 
     .PARAMETER ScrollX
-    Parameter description
+    Enables horizontal scrolling.
 
     .PARAMETER ScrollY
-    Parameter description
+    Enables vertical scrolling.
 
     .PARAMETER ScrollSizeY
-    Parameter description
+    The height of the vertical scroll.
 
     .PARAMETER ScrollCollapse
-    Parameter description
+    Collapses the table when scrolling.
 
     .PARAMETER FreezeColumnsLeft
-    Parameter description
+    The number of columns to freeze on the left.
 
     .PARAMETER FreezeColumnsRight
-    Parameter description
+    The number of columns to freeze on the right.
 
     .PARAMETER FixedHeader
-    Parameter description
+    Fixes the header of the table.
 
     .PARAMETER FixedFooter
-    Parameter description
+    Fixes the footer of the table.
 
     .PARAMETER ResponsivePriorityOrder
-    Parameter description
+    The priority order for responsiveness.
 
     .PARAMETER ResponsivePriorityOrderIndex
-    Parameter description
+    The index for responsive priority order.
 
     .PARAMETER PriorityProperties
-    Parameter description
+    Properties to prioritize in the table.
 
     .PARAMETER IncludeProperty
-    Parameter description
+    Properties to include in the table.
 
     .PARAMETER ExcludeProperty
-    Parameter description
+    Properties to exclude from the table.
 
     .PARAMETER ImmediatelyShowHiddenDetails
-    Parameter description
+    Shows hidden details immediately.
 
     .PARAMETER HideShowButton
-    Parameter description
+    Displays a button to show/hide details.
 
     .PARAMETER AllProperties
-    Parameter description
+    Displays all properties in the table.
 
     .PARAMETER SkipProperties
-    Parameter description
+    Properties to skip in the table.
 
     .PARAMETER Compare
-    Parameter description
+    Compares data in the table.
 
     .PARAMETER CompareNames
-    Parameter description
+    Names to compare in the table.
 
     .PARAMETER HighlightDifferences
-    Parameter description
+    Highlights differences in the table.
 
     .PARAMETER First
-    Parameter description
+    Displays the first item in the table.
 
     .PARAMETER Last
-    Parameter description
+    Displays the last item in the table.
 
     .PARAMETER CompareReplace
-    Parameter description
+    Replaces data for comparison.
 
     .PARAMETER SearchRegularExpression
-    Parameter description
+    Enables regular expression search.
 
     .PARAMETER WordBreak
-    Parameter description
+    Enables word breaking in the table.
 
     .PARAMETER AutoSize
-    Parameter description
+    Automatically sizes the table.
 
     .PARAMETER DisableAutoWidthOptimization
-    Parameter description
+    Disables auto width optimization.
 
     .PARAMETER SearchPane
-    Parameter description
+    Enables search pane in the table.
 
     .PARAMETER SearchPaneLocation
-    Parameter description
+    Specifies the location of the search pane.
 
     .PARAMETER SearchBuilder
-    Parameter description
+    Enables search builder in the table.
 
     .PARAMETER SearchBuilderLocation
-    Parameter description
+    Specifies the location of the search builder.
 
     .PARAMETER DataStore
-    Parameter description
+    Stores data for the table.
 
     .PARAMETER DataTableID
-    Parameter description
+    The ID of the data table.
 
     .PARAMETER DataStoreID
-    Parameter description
+    The ID of the data store.
 
     .PARAMETER Transpose
     Transpose table. This is useful when you have objects and you want to transpose them.
@@ -235,25 +235,25 @@ function New-HTMLTable {
     Use old method of transposing table. This is useful when you have objects and you want to transpose them, using legacy method.
 
     .PARAMETER OverwriteDOM
-    Parameter description
+    Overwrites the DOM structure.
 
     .PARAMETER SearchHighlight
-    Parameter description
+    Highlights search results.
 
     .PARAMETER AlphabetSearch
-    Parameter description
+    Enables alphabet search.
 
     .PARAMETER FuzzySearch
-    Parameter description
+    Enables fuzzy search.
 
     .PARAMETER FuzzySearchSmartToggle
-    Parameter description
+    Toggles smart fuzzy search.
 
     .PARAMETER FlattenObject
-    Parameter description
+    Flattens the object for display.
 
     .PARAMETER FlattenDepth
-    Parameter description
+    The depth to flatten the object.
 
     .PARAMETER PrettifyObject
     Forces object to be preprocessed before passing to HTML.
@@ -264,13 +264,17 @@ function New-HTMLTable {
     Define separator for prettified array object. Default is ", ".
 
     .PARAMETER PrettifyObjectDateTimeFormat
-    Define DateTime format for prettified object.
+    DateTime format for prettified object.
 
     .EXAMPLE
-    An example
+    $data = @(
+        [PSCustomObject]@{ Name = 'John'; Age = 30 },
+        [PSCustomObject]@{ Name = 'Jane'; Age = 25 }
+    )
+    New-HTMLTable -DataTable $data -Title 'User Information' -Buttons @('copyHtml5', 'excelHtml5') -PagingStyle 'full_numbers' -PagingOptions @(10, 25, 50) -DefaultSortColumn @('Name') -DefaultSortOrder @('Ascending')
 
     .NOTES
-    General notes
+    This function is designed to create customizable HTML tables for various data representation needs.
     #>
     [alias('Table', 'EmailTable')]
     [CmdletBinding()]

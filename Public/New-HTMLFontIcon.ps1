@@ -1,4 +1,34 @@
 function New-HTMLFontIcon {
+    <#
+    .SYNOPSIS
+    Creates an HTML font icon with specified parameters.
+
+    .DESCRIPTION
+    This function generates an HTML font icon based on the provided parameters such as icon size, color, and specific icon set (e.g., FontAwesomeBrands, FontAwesomeRegular, FontAwesomeSolid, FontMaterial).
+
+    .PARAMETER IconSize
+    Specifies the size of the icon.
+
+    .PARAMETER IconColor
+    Specifies the color of the icon.
+
+    .PARAMETER IconBrands
+    Specifies the icon from the FontAwesomeBrands set.
+
+    .PARAMETER IconRegular
+    Specifies the icon from the FontAwesomeRegular set.
+
+    .PARAMETER IconSolid
+    Specifies the icon from the FontAwesomeSolid set.
+
+    .EXAMPLE
+    New-HTMLFontIcon -IconSize 24 -IconColor "red" -IconBrands "fa-github"
+    Generates an HTML font icon with a size of 24, red color, and the GitHub icon from the FontAwesomeBrands set.
+
+    .EXAMPLE
+    New-HTMLFontIcon -IconSize 32 -IconColor "blue" -IconRegular "fa-envelope"
+    Generates an HTML font icon with a size of 32, blue color, and the envelope icon from the FontAwesomeRegular set.
+    #>
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(
         [parameter(ParameterSetName = "FontAwesomeBrands")]

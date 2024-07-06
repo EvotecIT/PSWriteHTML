@@ -1,4 +1,78 @@
 ﻿function New-HTMLChartPie {
+    <#
+    .SYNOPSIS
+    Creates a new HTML pie chart with customizable options.
+
+    .DESCRIPTION
+    The New-HTMLChartPie function generates an HTML pie chart with various customization options such as data labels, colors, titles, legends, and more.
+
+    .PARAMETER Chart
+    Specifies the chart configuration settings.
+
+    .PARAMETER Type
+    Specifies the type of chart to create.
+
+    .PARAMETER DataLabelsEnabled
+    Indicates whether data labels are enabled. Default is $true.
+
+    .PARAMETER DataLabelsOffsetX
+    Specifies the horizontal offset for data labels.
+
+    .PARAMETER DataLabelsFontSize
+    Specifies the font size for data labels.
+
+    .PARAMETER DataLabelsColor
+    Specifies the color for data labels.
+
+    .PARAMETER Data
+    Specifies the data values for the chart.
+
+    .PARAMETER DataNames
+    Specifies the names corresponding to the data values.
+
+    .PARAMETER Title
+    Specifies the title settings for the chart.
+
+    .PARAMETER SubTitle
+    Specifies the subtitle settings for the chart.
+
+    .PARAMETER Legend
+    Specifies the legend settings for the chart.
+
+    .PARAMETER Colors
+    Specifies the colors to be used in the chart.
+
+    .PARAMETER PatternedColors
+    Indicates whether patterned colors are used.
+
+    .PARAMETER GradientColors
+    Indicates whether gradient colors are used.
+
+    .PARAMETER GridOptions
+    Specifies the grid options for the chart.
+
+    .PARAMETER Toolbar
+    Specifies the toolbar settings for the chart.
+
+    .PARAMETER Theme
+    Specifies the theme settings for the chart.
+
+    .PARAMETER Events
+    Specifies the events to be associated with the chart.
+
+    .PARAMETER Design
+    Specifies the design settings for the chart.
+
+    .EXAMPLE
+    New-HTMLChartPie -Chart @{ type = 'pie' } -Type 'pie' -Data @(10, 20, 30) -DataNames @('A', 'B', 'C') -Colors @('red', 'green', 'blue')
+
+    Creates a new pie chart with specified data values and names using custom colors.
+
+    .EXAMPLE
+    New-HTMLChartPie -Chart @{ type = 'donut' } -Type 'donut' -Data @(25, 35, 40) -DataNames @('X', 'Y', 'Z') -Colors @('orange', 'purple', 'yellow')
+
+    Creates a new donut chart with specified data values and names using custom colors.
+    #>
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $Chart,

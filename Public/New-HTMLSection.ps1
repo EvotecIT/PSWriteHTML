@@ -1,4 +1,86 @@
 Function New-HTMLSection {
+    <#
+    .SYNOPSIS
+    Creates a new HTML section with customizable styling options.
+
+    .DESCRIPTION
+    The New-HTMLSection function creates a new HTML section with various customizable styling options such as text alignment, background color, flexbox properties, and more.
+
+    .PARAMETER Content
+    Specifies the content of the HTML section as a ScriptBlock.
+
+    .PARAMETER HeaderText
+    Specifies the header text of the section.
+
+    .PARAMETER HeaderTextColor
+    Specifies the text color of the header.
+
+    .PARAMETER HeaderTextSize
+    Specifies the text size of the header.
+
+    .PARAMETER HeaderTextAlignment
+    Specifies the text alignment of the header. Valid values are 'center', 'left', 'right', 'justify'.
+
+    .PARAMETER HeaderBackGroundColor
+    Specifies the background color of the header.
+
+    .PARAMETER BackgroundColor
+    Specifies the background color of the section.
+
+    .PARAMETER CanCollapse
+    Indicates whether the section can be collapsed.
+
+    .PARAMETER IsHidden
+    Indicates whether the section is initially hidden.
+
+    .PARAMETER Collapsed
+    Indicates whether the section is collapsed.
+
+    .PARAMETER Height
+    Specifies the height of the section.
+
+    .PARAMETER Width
+    Specifies the width of the section. Default value is '100%'.
+
+    .PARAMETER Invisible
+    Indicates whether the section is invisible.
+
+    .PARAMETER Margin
+    Specifies the margin of the section.
+
+    .PARAMETER Wrap
+    Specifies the flex-wrap property. Valid values are 'wrap', 'nowrap', 'wrap-reverse'.
+
+    .PARAMETER Direction
+    Specifies the flex-direction property. Valid values are 'row', 'row-reverse', 'column', 'column-reverse'.
+
+    .PARAMETER AlignContent
+    Specifies the align-content property. Valid values are 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch'.
+
+    .PARAMETER AlignItems
+    Specifies the align-items property. Valid values are 'stretch', 'flex-start', 'flex-end', 'center', 'baseline'.
+
+    .PARAMETER JustifyContent
+    Specifies the justify-content property. Valid values are 'flex-start', 'flex-end', 'center'.
+
+    .PARAMETER BorderRadius
+    Specifies the border radius of the section. Valid values are '0px', '5px', '10px', '15px', '20px', '25px'.
+
+    .PARAMETER AnchorName
+    Specifies the anchor name for the section.
+
+    .PARAMETER StyleSheetsConfiguration
+    Specifies the configuration for style sheets.
+
+    .EXAMPLE
+    New-HTMLSection -Content { "This is the content of the section." } -HeaderText "Section Title" -HeaderTextColor "blue" -HeaderTextSize "20px" -HeaderTextAlignment "center" -HeaderBackGroundColor "lightgray" -BackgroundColor "white" -CanCollapse -Height "200px" -Width "50%" -Wrap "wrap" -Direction "row" -AlignContent "center" -AlignItems "center" -JustifyContent "flex-start" -BorderRadius "10px" -AnchorName "section1" -StyleSheetsConfiguration @{ Section = 'customSection'; SectionText = 'customSectionText' }
+
+    .EXAMPLE
+    $content = {
+        "This is a sample content."
+    }
+    New-HTMLSection -Content $content -HeaderText "Sample Section" -HeaderTextColor "red" -HeaderTextSize "18px" -HeaderTextAlignment "left" -HeaderBackGroundColor "lightblue" -BackgroundColor "lightyellow" -Height "150px" -Wrap "nowrap" -Direction "column" -AlignContent "flex-start" -AlignItems "flex-start" -JustifyContent "center" -BorderRadius "5px" -AnchorName "sampleSection" -StyleSheetsConfiguration @{ Section = 'customSection'; SectionText = 'customSectionText' }
+    #>
     [alias('New-HTMLContent', 'Section')]
     [CmdletBinding()]
     Param (

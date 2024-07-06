@@ -1,4 +1,33 @@
 function New-TableConditionalFormatting {
+    <#
+    .SYNOPSIS
+    Creates conditional formatting for a table based on specified conditions.
+
+    .DESCRIPTION
+    This function applies conditional formatting to a table based on the provided conditions. It generates JavaScript code to be used in DataTables for highlighting rows based on the conditions specified.
+
+    .PARAMETER Options
+    Specifies additional options for the conditional formatting.
+
+    .PARAMETER ConditionalFormatting
+    An array of objects representing the conditions for conditional formatting.
+
+    .PARAMETER Header
+    An array of strings representing the headers of the table.
+
+    .PARAMETER DataStore
+    Specifies the data store to be used for conditional formatting.
+
+    .EXAMPLE
+    New-TableConditionalFormatting -Options "option1" -ConditionalFormatting @($condition1, $condition2) -Header @("Header1", "Header2") -DataStore "Store1"
+    Creates conditional formatting for a table with specified conditions, headers, and data store.
+
+    .EXAMPLE
+    $conditions = @($condition1, $condition2)
+    New-TableConditionalFormatting -Options "option1" -ConditionalFormatting $conditions -Header @("Header1", "Header2") -DataStore "Store1"
+    Creates conditional formatting for a table using a variable to store the conditions.
+
+    #>
     [CmdletBinding()]
     param(
         [string] $Options,

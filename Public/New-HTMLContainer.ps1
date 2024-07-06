@@ -1,4 +1,38 @@
 ﻿function New-HTMLContainer {
+    <#
+    .SYNOPSIS
+    Creates a new HTML container element with customizable options.
+
+    .DESCRIPTION
+    This function creates a new HTML container element with the specified options such as content, width, margin, and anchor name.
+
+    .PARAMETER HTML
+    Specifies the content to be placed inside the container as a ScriptBlock.
+
+    .PARAMETER Width
+    Specifies the width of the container. Default is '100%'.
+
+    .PARAMETER Margin
+    Specifies the margin of the container.
+
+    .PARAMETER AnchorName
+    Specifies the anchor name for the container. If not provided, a random anchor name will be generated.
+
+    .EXAMPLE
+    New-HTMLContainer -HTML {
+        // HTML content here
+    } -Width '50%' -Margin '10px' -AnchorName 'myAnchor'
+
+    Creates a new HTML container with custom HTML content, width of 50%, margin of 10px, and anchor name 'myAnchor'.
+
+    .EXAMPLE
+    New-HTMLContainer -HTML {
+        // More HTML content
+    }
+
+    Creates a new HTML container with additional HTML content and default width and margin.
+
+    #>
     [alias('Container')]
     [CmdletBinding()]
     param(

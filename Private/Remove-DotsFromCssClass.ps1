@@ -1,19 +1,18 @@
 ﻿function Remove-DotsFromCssClass {
     <#
     .SYNOPSIS
-    Remove dot from .class
+    Removes dots from CSS class names.
 
     .DESCRIPTION
-    Long description
+    This function removes dots from CSS class names by trimming the leading dot from each class name.
 
     .PARAMETER Css
-    Parameter description
+    Specifies a dictionary of CSS class names.
 
     .EXAMPLE
-    An example
+    Remove-DotsFromCssClass -Css @{ '.class1' = 'value1'; '.class2' = 'value2' }
+    Removes dots from the CSS class names in the provided dictionary.
 
-    .NOTES
-    General notes
     #>
     [cmdletBinding()]
     param(

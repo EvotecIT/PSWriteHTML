@@ -1,4 +1,96 @@
 ﻿function New-ChartAxisY {
+    <#
+    .SYNOPSIS
+    Creates a new Y-axis for a chart with customizable parameters.
+
+    .DESCRIPTION
+    This function creates a new Y-axis for a chart with the provided parameters. It allows customization of the axis visibility, title, labels, range, style, and other options.
+
+    .PARAMETER Show
+    Indicates whether the Y-axis should be displayed.
+
+    .PARAMETER ShowAlways
+    Indicates whether the Y-axis should always be visible.
+
+    .PARAMETER TitleText
+    The text to be displayed as the title of the Y-axis.
+
+    .PARAMETER TitleRotate
+    The rotation angle of the Y-axis title. Accepted values are '90' or '270'.
+
+    .PARAMETER TitleOffsetX
+    The horizontal offset of the Y-axis title.
+
+    .PARAMETER TitleOffsetY
+    The vertical offset of the Y-axis title.
+
+    .PARAMETER TitleFontWeight
+    The font weight of the Y-axis title.
+
+    .PARAMETER TitleColor
+    The color of the Y-axis title.
+
+    .PARAMETER TitleFontSize
+    The font size of the Y-axis title.
+
+    .PARAMETER TitleFontFamily
+    The font family of the Y-axis title.
+
+    .PARAMETER MinValue
+    The minimum value of the Y-axis.
+
+    .PARAMETER MaxValue
+    The maximum value of the Y-axis.
+
+    .PARAMETER LabelMinWidth
+    The minimum width of the Y-axis labels.
+
+    .PARAMETER LabelMaxWidth
+    The maximum width of the Y-axis labels.
+
+    .PARAMETER LabelAlign
+    The alignment of the Y-axis labels. Accepted values are 'left', 'center', or 'right'.
+
+    .PARAMETER LabelFontSize
+    The font size of the Y-axis labels.
+
+    .PARAMETER LabelFontFamily
+    The font family of the Y-axis labels.
+
+    .PARAMETER LabelFontWeight
+    The font weight of the Y-axis labels.
+
+    .PARAMETER LabelFontColor
+    The color of the Y-axis labels.
+
+    .PARAMETER Reversed
+    Indicates whether the Y-axis should be reversed.
+
+    .PARAMETER Opposite
+    Indicates whether the Y-axis should be positioned on the opposite side.
+
+    .PARAMETER Logarithmic
+    Indicates whether the Y-axis should have a logarithmic scale.
+
+    .PARAMETER ForceNiceScale
+    Indicates whether the Y-axis should have a nice scale.
+
+    .PARAMETER Floating
+    Indicates whether the Y-axis should be floating.
+
+    .PARAMETER SeriesName
+    The name of the series associated with the Y-axis.
+
+    .EXAMPLE
+    New-ChartAxisY -Show -TitleText 'Sales' -MinValue 0 -MaxValue 1000 -LabelAlign 'center'
+
+    Creates a new Y-axis with the title 'Sales', range from 0 to 1000, and center-aligned labels.
+
+    .EXAMPLE
+    New-ChartAxisY -Show -ShowAlways -TitleText 'Temperature' -TitleColor 'red' -LabelAlign 'right'
+
+    Creates a new Y-axis with the title 'Temperature', always visible, red-colored title, and right-aligned labels.
+    #>
     [alias('ChartAxisY')]
     [CmdletBinding()]
     param(

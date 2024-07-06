@@ -1,4 +1,51 @@
 ﻿function Add-TableHeader {
+    <#
+    .SYNOPSIS
+    Adds table headers to a table with specified styles and responsive operations.
+
+    .DESCRIPTION
+    The Add-TableHeader function adds table headers to a table based on the provided HeaderRows, HeaderStyle, HeaderTop, HeaderResponsiveOperations, and HeaderNames parameters. It prepares styles for merged headers, standard header rows, and responsive operations.
+
+    .PARAMETER HeaderRows
+    Specifies the list of custom objects representing header rows.
+
+    .PARAMETER HeaderStyle
+    Specifies the list of custom objects representing header styles.
+
+    .PARAMETER HeaderTop
+    Specifies the list of custom objects representing top headers.
+
+    .PARAMETER HeaderResponsiveOperations
+    Specifies the list of custom objects representing responsive operations for headers.
+
+    .PARAMETER HeaderNames
+    Specifies an array of header names.
+
+    .EXAMPLE
+    Add-TableHeader -HeaderRows $headerRows -HeaderStyle $headerStyle -HeaderTop $headerTop -HeaderResponsiveOperations $responsiveOps -HeaderNames @("Name", "Age", "Location")
+    Adds table headers with specified styles and responsive operations for the given header rows.
+
+    .EXAMPLE
+    $headerRows = @(
+        [PSCustomObject]@{ Names = @("Name", "Age"); Title = "Personal Info"; Style = "Bold" },
+        [PSCustomObject]@{ Names = @("Location"); Title = "Address"; Style = "Italic" }
+    )
+    $headerStyle = @(
+        [PSCustomObject]@{ Names = @("Name", "Age"); Style = "Bold" },
+        [PSCustomObject]@{ Names = @("Location"); Style = "Italic" }
+    )
+    $headerTop = @(
+        [PSCustomObject]@{ Names = @("Name", "Age"); Top = "True" },
+        [PSCustomObject]@{ Names = @("Location"); Top = "False" }
+    )
+    $responsiveOps = @(
+        [PSCustomObject]@{ Names = @("Name", "Age"); ResponsiveOperations = "Collapse" },
+        [PSCustomObject]@{ Names = @("Location"); ResponsiveOperations = "Hide" }
+    )
+    Add-TableHeader -HeaderRows $headerRows -HeaderStyle $headerStyle -HeaderTop $headerTop -HeaderResponsiveOperations $responsiveOps -HeaderNames @("Name", "Age", "Location")
+    Adds table headers with specified styles and responsive operations using sample data.
+
+    #>
     [CmdletBinding()]
     param(
         [System.Collections.Generic.List[PSCustomObject]] $HeaderRows,

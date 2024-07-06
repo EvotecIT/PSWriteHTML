@@ -1,4 +1,54 @@
 ﻿function New-HTMLNavTop {
+    <#
+    .SYNOPSIS
+    Creates a top navigation bar in HTML format with customizable options.
+
+    .DESCRIPTION
+    This function generates a top navigation bar in HTML format with customizable options such as navigation links, logo, colors, and more.
+
+    .PARAMETER NavigationLinks
+    Specifies the script block containing the navigation links to be displayed.
+
+    .PARAMETER Logo
+    Specifies the path to the logo image.
+
+    .PARAMETER LogoLink
+    Specifies the URL to link the logo to.
+
+    .PARAMETER LogoLinkHome
+    Indicates whether the logo should link to the home page.
+
+    .PARAMETER MenuItemsWidth
+    Specifies the width of the menu items.
+
+    .PARAMETER MenuColor
+    Specifies the color of the menu text.
+
+    .PARAMETER MenuColorBackground
+    Specifies the background color of the menu.
+
+    .PARAMETER HomeColor
+    Specifies the color of the home link text.
+
+    .PARAMETER HomeColorBackground
+    Specifies the background color of the home link.
+
+    .PARAMETER HomeLink
+    Specifies the URL for the home link.
+
+    .PARAMETER HomeLinkHome
+    Indicates whether the home link should link to the home page.
+
+    .PARAMETER Convert
+    Switch parameter to indicate if conversion is needed.
+
+    .EXAMPLE
+    New-HTMLNavTop -NavigationLinks { 
+        "Link 1", "Link 2", "Link 3" 
+    } -Logo "logo.png" -LogoLink "https://example.com" -LogoLinkHome -MenuItemsWidth '250px' -MenuColor 'Blue' -MenuColorBackground 'White' -HomeColor 'Red' -HomeColorBackground 'White' -HomeLink "https://example.com/home" -HomeLinkHome
+    Creates a top navigation bar with specified navigation links, logo, colors, and home link.
+
+    #>
     [cmdletBinding()]
     param(
         [ScriptBlock] $NavigationLinks,

@@ -1,4 +1,71 @@
 ﻿function New-HTMLNav {
+    <#
+    .SYNOPSIS
+    Creates a new HTML navigation menu with customizable options.
+
+    .DESCRIPTION
+    This function creates a new HTML navigation menu with various customization options such as navigation links, logo, colors, and menu settings.
+
+    .PARAMETER NavigationLinks
+    Specifies the script block containing navigation links to be displayed in the menu.
+
+    .PARAMETER Logo
+    Specifies the path to the logo image to be displayed in the menu.
+
+    .PARAMETER LogoLink
+    Specifies the URL to link the logo to.
+
+    .PARAMETER LogoLinkHome
+    Indicates whether the logo should link to the home page.
+
+    .PARAMETER DisableBackgroundFading
+    Switch to disable background fading when the side navigation drawer is open.
+
+    .PARAMETER DisableClickToClose
+    Switch to disable closing opened items when the user clicks outside of them.
+
+    .PARAMETER DisableNavControls
+    Switch to disable navigation controls for adjusting drawer width and height.
+
+    .PARAMETER DisableStickyMenubar
+    Switch to make the menubar static instead of sticky.
+
+    .PARAMETER StartMenuOpen
+    Switch to determine if the menu should start open.
+
+    .PARAMETER FixedMenu
+    Switch to make the menu fixed.
+
+    .PARAMETER DisableHamburger
+    Switch to disable the hamburger menu icon.
+
+    .PARAMETER ResizeContent
+    Switch to enable content resizing.
+
+    .PARAMETER MenuWidth
+    Specifies the width of the menu (default is 270).
+
+    .PARAMETER MenuWidthExtended
+    Specifies the extended width of the menu (default is 320).
+
+    .PARAMETER TopBarBackGroundColor
+    Specifies the background color of the top bar.
+
+    .PARAMETER TopBarColor
+    Specifies the text color of the top bar.
+
+    .PARAMETER LeftMenuBackgroundColor
+    Specifies the background color of the left menu.
+
+    .PARAMETER LeftMenuColor
+    Specifies the text color of the left menu.
+
+    .EXAMPLE
+    New-HTMLNav -NavigationLinks { 'Home', 'About', 'Services' } -Logo 'logo.png' -LogoLink 'https://example.com' -TopBarBackGroundColor 'blue' -TopBarColor 'white' -LeftMenuBackgroundColor 'black' -LeftMenuColor 'white'
+
+    Creates a new HTML navigation menu with specified navigation links and custom logo, colors, and menu settings.
+
+    #>
     [cmdletBinding()]
     param(
         [ScriptBlock] $NavigationLinks,

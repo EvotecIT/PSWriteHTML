@@ -1,4 +1,16 @@
 ﻿function Get-DefaultParameters {
+    <#
+    .SYNOPSIS
+    Retrieves the default parameters for the script.
+
+    .DESCRIPTION
+    This function retrieves the default parameters for the script. It initializes the configuration URL and sets up default features related to CSS, fonts, and icons.
+
+    .EXAMPLE
+    Get-DefaultParameters
+    Retrieves the default parameters for the script.
+
+    #>
     [CmdletBinding()]
     param(
 

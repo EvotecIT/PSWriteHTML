@@ -1,4 +1,44 @@
 ﻿function New-TableConditionalFormattingInline {
+    <#
+    .SYNOPSIS
+    Creates conditional formatting for a table based on specified criteria.
+
+    .DESCRIPTION
+    This function applies conditional formatting to a table based on the provided criteria. It supports formatting based on numeric values and dates.
+
+    .PARAMETER HeaderNames
+    Specifies the names of the headers in the table.
+
+    .PARAMETER ConditionalFormatting
+    Specifies the criteria for conditional formatting. It includes the type of formatting (number or date), the operator (e.g., 'between', 'betweenInclusive'), and the value(s) to compare against.
+
+    .PARAMETER RowData
+    Specifies the data of a row in the table.
+
+    .PARAMETER ColumnCount
+    Specifies the number of columns in the table.
+
+    .PARAMETER RowCount
+    Specifies the number of rows in the table.
+
+    .PARAMETER ColumnIndexHeader
+    Specifies the index of the column header.
+
+    .EXAMPLE
+    $headerNames = @("Name", "Age", "Date")
+    $conditionalFormatting = [PSCustomObject]@{
+        Type = 'number'
+        Operator = 'between'
+        Value = @(20, 30)
+    }
+    $rowData = @("John", 25, "01/01/1990")
+    $columnCount = 3
+    $rowCount = 1
+    $columnIndexHeader = 2
+
+    New-TableConditionalFormattingInline -HeaderNames $headerNames -ConditionalFormatting $conditionalFormatting -RowData $rowData -ColumnCount $columnCount -RowCount $rowCount -ColumnIndexHeader $columnIndexHeader
+
+    #>
     [CmdletBinding()]
     param(
         [string[]] $HeaderNames,

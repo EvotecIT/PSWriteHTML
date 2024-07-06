@@ -1,4 +1,16 @@
 ﻿function New-DefaultSettings {
+    <#
+    .SYNOPSIS
+    Creates a new default settings object with predefined values for various properties.
+
+    .DESCRIPTION
+    This function creates a new default settings object with predefined values for properties related to email, features, charts, carousel, diagrams, logos, tabs, table options, tab panels, custom CSS and JS headers and footers, and wizard list.
+
+    .EXAMPLE
+    $defaultSettings = New-DefaultSettings
+    Creates a new default settings object with all properties initialized to their default values.
+
+    #>
     [cmdletBinding()]
     param()
     [ordered]@{

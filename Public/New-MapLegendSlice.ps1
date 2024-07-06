@@ -1,37 +1,37 @@
 ﻿function New-MapLegendSlice {
     <#
     .SYNOPSIS
-    Short description
+    Creates a new map legend slice.
 
     .DESCRIPTION
-    Long description
+    This function creates a new map legend slice with specified parameters.
 
     .PARAMETER Label
-    The label of the slice for the legend
+    The label of the slice for the legend.
 
     .PARAMETER FillColor
-    Parameter description
+    The color to fill the slice with.
 
     .PARAMETER MinimumValue
-    The minimal value for the interval defining the slice
+    The minimum value for the interval defining the slice.
 
     .PARAMETER MaximumValue
-    The maximal value for the interval defining the slice
+    The maximum value for the interval defining the slice.
 
     .PARAMETER Value
-    The value for the slice. This option can be used instead of the 'min' and 'max' options in order to set a fixed value instead of an interval of values for the slice.
+    The fixed value for the slice. Use this instead of 'MinimumValue' and 'MaximumValue' to set a specific value.
 
     .PARAMETER DisplayInLegend
-    Display the slice in the legend (Boolean, default : true)
+    Specifies whether to display the slice in the legend. Default is true.
 
     .PARAMETER InitializeClicked
-    Set to true in order to initialize the legend item in the 'clicked' state on the map load. (Boolean, default : false)
+    Set to true to initialize the legend item in the 'clicked' state on map load. Default is false.
 
     .EXAMPLE
-    An example
+    New-MapLegendSlice -Label "Slice 1" -FillColor "Blue" -MinimumValue 0 -MaximumValue 100 -DisplayInLegend $true
 
     .NOTES
-    General notes
+    This function is used to create slices for map legends.
     #>
     [CmdletBinding()]
     param(

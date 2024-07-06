@@ -1,4 +1,35 @@
 function Get-Resources {
+    <#
+    .SYNOPSIS
+    Retrieves and adds resources (stylesheets and scripts) to the HTML page based on the specified features and location.
+
+    .DESCRIPTION
+    The Get-Resources function retrieves resources such as CSS and JavaScript files and adds them to the HTML page. It allows customization based on the specified features and location. Online and offline modes are supported.
+
+    .PARAMETER Online
+    Indicates whether the resources should be added for online use. If specified, resources will be linked directly. Default is offline mode.
+
+    .PARAMETER NoScript
+    Indicates whether resources for scripts should be excluded. If specified, script-related resources will not be added.
+
+    .PARAMETER Location
+    Specifies the location where the resources should be added. Valid values are 'Header', 'Footer', 'HeaderAlways', 'FooterAlways', 'Body', 'BodyAlways'.
+
+    .PARAMETER Features
+    Specifies an array of features for which resources should be retrieved and added.
+
+    .PARAMETER AddComment
+    Indicates whether comments should be added to the resources. Default is false.
+
+    .EXAMPLE
+    Get-Resources -Online -Location 'Header' -Features 'Feature1', 'Feature2' -AddComment
+    Retrieves resources for 'Feature1' and 'Feature2' in online mode, adds them to the header section of the HTML page, and includes comments.
+
+    .EXAMPLE
+    Get-Resources -Location 'Footer' -Features 'Feature3' -NoScript
+    Retrieves resources for 'Feature3' in offline mode, adds them to the footer section of the HTML page, and excludes script-related resources.
+
+    #>
     [CmdLetBinding()]
     param(
         [switch] $Online,

@@ -1,4 +1,24 @@
 ﻿function New-ChartInternalStroke {
+    <#
+    .SYNOPSIS
+    Creates a new internal stroke for a chart.
+
+    .DESCRIPTION
+    This function creates a new internal stroke for a chart based on the provided parameters.
+
+    .PARAMETER Stroke
+    Specifies the stroke properties to be set for the chart.
+
+    .EXAMPLE
+    $strokeParams = @{
+        curve     = "smooth"
+        lineCap   = "round"
+        colors    = "blue", "green", "red"
+        width     = 2
+        dashArray = 5, 10
+    }
+    $newStroke = New-ChartInternalStroke -Stroke $strokeParams
+    #>
     [CmdletBinding()]
     param(
         [Array] $Stroke

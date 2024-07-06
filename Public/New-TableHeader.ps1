@@ -1,4 +1,64 @@
 ﻿function New-TableHeader {
+    <#
+    .SYNOPSIS
+    Creates a new table header with specified styling options.
+
+    .DESCRIPTION
+    The New-TableHeader function creates a new table header with customizable styling options such as font size, color, alignment, and more.
+
+    .EXAMPLE
+    New-TableHeader -Names "Name", "Age", "Email" -Title "Employee Information" -Color "black" -BackGroundColor "lightgray" -FontSize 14 -FontWeight "bold" -FontStyle "normal" -FontVariant "normal" -FontFamily "Arial" -Alignment "center" -TextDecoration "none" -TextTransform "uppercase" -Direction "ltr" -AddRow -ColumnCount 3 -Display "all"
+    Creates a table header with specified column names, title, and styling options.
+
+    .PARAMETER Names
+    Specifies an array of column names for the table header.
+
+    .PARAMETER Title
+    Specifies the title of the table header.
+
+    .PARAMETER Color
+    Specifies the text color of the table header.
+
+    .PARAMETER BackGroundColor
+    Specifies the background color of the table header.
+
+    .PARAMETER FontSize
+    Specifies the font size of the table header.
+
+    .PARAMETER FontWeight
+    Specifies the font weight of the table header.
+
+    .PARAMETER FontStyle
+    Specifies the font style of the table header.
+
+    .PARAMETER FontVariant
+    Specifies the font variant of the table header.
+
+    .PARAMETER FontFamily
+    Specifies the font family of the table header.
+
+    .PARAMETER Alignment
+    Specifies the alignment of the table header.
+
+    .PARAMETER TextDecoration
+    Specifies the text decoration of the table header.
+
+    .PARAMETER TextTransform
+    Specifies the text transformation of the table header.
+
+    .PARAMETER Direction
+    Specifies the text direction of the table header.
+
+    .PARAMETER AddRow
+    Switch parameter to add an additional row to the table header.
+
+    .PARAMETER ColumnCount
+    Specifies the number of columns in the table header.
+
+    .PARAMETER Display
+    Specifies the display settings for the table header.
+
+    #>
     [alias('TableHeader', 'EmailTableHeader','New-HTMLTableHeader')]
     [CmdletBinding()]
     param(

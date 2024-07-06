@@ -1,4 +1,26 @@
 ﻿function Get-ImageFile {
+    <#
+    .SYNOPSIS
+    Downloads an image file from a specified URI.
+
+    .DESCRIPTION
+    This function downloads an image file from a specified URI. It supports caching of downloaded images.
+
+    .PARAMETER Image
+    Specifies the URI of the image to download.
+
+    .PARAMETER Cache
+    Indicates whether to cache the downloaded image.
+
+    .EXAMPLE
+    Get-ImageFile -Image "https://example.com/image.jpg" -Cache
+    Downloads the image file from the specified URI and caches it.
+
+    .EXAMPLE
+    Get-ImageFile -Image "https://example.com/image.png"
+    Downloads the image file from the specified URI without caching.
+
+    #>
     [CmdletBinding()]
     param(
         [uri] $Image,

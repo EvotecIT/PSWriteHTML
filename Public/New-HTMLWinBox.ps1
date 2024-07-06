@@ -1,19 +1,19 @@
 ﻿function New-HTMLWinBox {
     <#
     .SYNOPSIS
-    Short description
+    Creates a customizable HTML window box with various options for styling and functionality.
 
     .DESCRIPTION
-    Long description
+    This function allows you to create an HTML window box with customizable features such as title, background color, initial position, size, URL content, modal display, theme, and more.
 
     .PARAMETER HTML
-    Parameter description
+    Specifies the HTML content to be displayed within the window box.
 
     .PARAMETER Title
-    The window title.
+    Specifies the title of the window box.
 
     .PARAMETER BackgroundColor
-    Set the background color for the title
+    Specifies the background color of the window box title.
 
     .PARAMETER Index
     Set the initial z-index of the window to this value (could be increased automatically when unfocused/focused).
@@ -46,42 +46,43 @@
     Set or limit the viewport of the window's available area (supports units "px" and "%").
 
     .PARAMETER Url
-    Open URL inside the window (loaded via iframe).
+    Specifies the URL content to be loaded inside the window box via iframe.
 
     .PARAMETER Modal
-    Shows the window as modal.
+    Indicates whether the window box should be displayed as a modal window.
 
     .PARAMETER Maximize
-    Automatically toggles the window into maximized state when created.
+    Automatically maximizes the window box when created.
 
     .PARAMETER Theme
+    Specifies the theme of the window box.
 
     .PARAMETER NoAnimation
-    Disables the windows transition animation
+    Disables transition animations for the window box.
 
     .PARAMETER NoShadow
-    Disables the windows drop shadow
+    Disables the drop shadow effect for the window box.
 
     .PARAMETER NoHeader
-    Hide the window header incl. title and toolbar
+    Hides the header of the window box, including the title and toolbar.
 
     .PARAMETER NoMinmizeIcon
-    Hide the minimize icon
+    Hides the minimize icon in the window box.
 
     .PARAMETER NoMaximizeIcon
-    Hide the maximize icon
+    Hides the maximize icon in the window box.
 
     .PARAMETER NoFullScreenIcon
-    Hide the fullscreen icon
+    Hides the fullscreen icon in the window box.
 
     .PARAMETER NoCloseIcon
-    Hide the close icon
+    Hides the close icon in the window box.
 
     .PARAMETER NoResizeCapability
-    Disables the window resizing capability
+    Disables the resizing capability of the window box.
 
     .PARAMETER NoMoveCapability
-    Disables the window moving capability
+    Disables the moving capability of the window box.
 
     .EXAMPLE
     $Data = Get-Process | Select-Object -First 3
@@ -95,7 +96,7 @@
 
 
     .NOTES
-    General notes
+    This function provides a flexible way to create interactive and styled window boxes in HTML.
     #>
     [cmdletBinding()]
     param(

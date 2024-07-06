@@ -1,4 +1,127 @@
 ﻿function New-HTMLTabStyle {
+    <#
+    .SYNOPSIS
+    Creates a new HTML tab style with customizable options.
+
+    .DESCRIPTION
+    This function allows you to define various styling options for HTML tabs, such as font size, color, weight, style, background color, border properties, and more.
+
+    .PARAMETER FontSize
+    Specifies the font size for the tabs.
+
+    .PARAMETER FontSizeActive
+    Specifies the font size for the active tab.
+
+    .PARAMETER TextColor
+    Specifies the text color for the tabs.
+
+    .PARAMETER TextColorActive
+    Specifies the text color for the active tab.
+
+    .PARAMETER FontWeight
+    Specifies the font weight for the tabs.
+
+    .PARAMETER FontWeightActive
+    Specifies the font weight for the active tab.
+
+    .PARAMETER FontStyle
+    Specifies the font style for the tabs.
+
+    .PARAMETER FontStyleActive
+    Specifies the font style for the active tab.
+
+    .PARAMETER FontVariant
+    Specifies the font variant for the tabs.
+
+    .PARAMETER FontVariantActive
+    Specifies the font variant for the active tab.
+
+    .PARAMETER FontFamily
+    Specifies the font family for the tabs.
+
+    .PARAMETER FontFamilyActive
+    Specifies the font family for the active tab.
+
+    .PARAMETER TextDecoration
+    Specifies the text decoration for the tabs.
+
+    .PARAMETER TextDecorationActive
+    Specifies the text decoration for the active tab.
+
+    .PARAMETER BackgroundColor
+    Specifies the background color for the tabs.
+
+    .PARAMETER BackgroundColorActive
+    Specifies the background color for the active tab.
+
+    .PARAMETER BackgroundColorActiveTarget
+    Specifies the background color for the active tab target.
+
+    .PARAMETER BorderRadius
+    Specifies the border radius for the tabs.
+
+    .PARAMETER TextTransform
+    Specifies the text transformation for the tabs.
+
+    .PARAMETER TextTransformActive
+    Specifies the text transformation for the active tab.
+
+    .PARAMETER SlimTabs
+    Indicates whether to use slim tabs.
+
+    .PARAMETER Transition
+    Indicates whether to apply transitions.
+
+    .PARAMETER LinearGradient
+    Indicates whether to use linear gradients.
+
+    .PARAMETER RemoveShadow
+    Indicates whether to remove shadows.
+
+    .PARAMETER BorderStyle
+    Specifies the border style for the tabs.
+
+    .PARAMETER BorderColor
+    Specifies the border color for the tabs.
+
+    .PARAMETER BorderBottomWidth
+    Specifies the bottom border width for the tabs.
+
+    .PARAMETER BorderBottomStyle
+    Specifies the bottom border style for the tabs.
+
+    .PARAMETER BorderBottomColor
+    Specifies the bottom border color for the tabs.
+
+    .PARAMETER BorderBottomWidthActive
+    Specifies the bottom border width for the active tab.
+
+    .PARAMETER BorderBottomStyleActive
+    Specifies the bottom border style for the active tab.
+
+    .PARAMETER BorderBottomColorActive
+    Specifies the bottom border color for the active tab.
+
+    .PARAMETER Style
+    Specifies a custom style for the tabs.
+
+    .PARAMETER Align
+    Specifies the alignment of the tabs.
+
+    .PARAMETER Wrap
+    Specifies the wrapping behavior of the tabs.
+
+    .PARAMETER Direction
+    Specifies the direction of the tabs.
+
+    .EXAMPLE
+    New-HTMLTabStyle -FontSize "14px" -FontSizeActive "16px" -TextColor "black" -TextColorActive "blue" -FontWeight "normal" -FontWeightActive "bold" -FontStyle "normal" -FontStyleActive "italic" -FontVariant "normal" -FontVariantActive "small-caps" -FontFamily "Arial" -FontFamilyActive "Verdana" -TextDecoration "none" -TextDecorationActive "underline" -BackgroundColor "#f0f0f0" -BackgroundColorActive "#e0e0e0" -BackgroundColorActiveTarget "#d0d0d0" -BorderRadius "5px" -TextTransform "uppercase" -TextTransformActive "lowercase" -SlimTabs -Transition -LinearGradient -RemoveShadow -BorderStyle "solid" -BorderColor "gray" -BorderBottomWidth "1px" -BorderBottomStyle "solid" -BorderBottomColor "gray" -BorderBottomWidthActive "2px" -BorderBottomStyleActive "dashed" -BorderBottomColorActive "blue" -Style "custom" -Align "center" -Wrap "wrap" -Direction "row"
+    Creates a new HTML tab style with specified options.
+
+    .EXAMPLE
+    New-HTMLTabStyle -FontSize "12px" -FontSizeActive "14px" -TextColor "gray" -TextColorActive "black" -FontWeight "bold" -FontWeightActive "bolder" -FontStyle "italic" -FontStyleActive "oblique" -FontVariant "small-caps" -FontVariantActive "normal" -FontFamily "Verdana" -FontFamilyActive "Arial" -TextDecoration "underline" -TextDecorationActive "none" -BackgroundColor "#e0e0e0" -BackgroundColorActive "#f0f0f0" -BackgroundColorActiveTarget "#d0d0d0" -BorderRadius "10px" -TextTransform "capitalize" -TextTransformActive "uppercase" -SlimTabs -Transition -LinearGradient -RemoveShadow -BorderStyle "dotted" -BorderColor "black" -BorderBottomWidth "2px" -BorderBottomStyle "dashed" -BorderBottomColor "blue" -BorderBottomWidthActive "1px" -BorderBottomStyleActive "solid" -BorderBottomColorActive "gray" -Style "default" -Align "left" -Wrap "nowrap" -Direction "column"
+    Creates another HTML tab style with different options.
+    #>
     [alias('TabOptions', 'New-TabOption', 'New-HTMLTabOptions', 'TabOption', 'New-HTMLTabOption', 'TabStyle')]
     [CmdletBinding(DefaultParameterSetName = 'Manual')]
     param(

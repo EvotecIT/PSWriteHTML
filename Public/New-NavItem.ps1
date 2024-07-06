@@ -1,4 +1,23 @@
 function New-NavItem {
+    <#
+    .SYNOPSIS
+    Creates a new navigation item with specified parameters.
+
+    .DESCRIPTION
+    The New-NavItem function creates a new navigation item with the specified parameters, such as name, href, type, icon, and color.
+
+    .EXAMPLE
+    New-NavItem -Name "Home" -Href "/" -Type "Menu" -IconBrands "fa fa-home" -IconColor "blue"
+    Creates a new navigation item named "Home" with a link to the root ("/"), type "Menu", using a home icon from FontAwesome Brands with blue color.
+
+    .EXAMPLE
+    New-NavItem -Name "About" -Href "/about" -Type "Grid" -IconRegular "far fa-address-card" -IconColor "green"
+    Creates a new navigation item named "About" with a link to "/about", type "Grid", using an address card icon from FontAwesome Regular with green color.
+
+    .EXAMPLE
+    New-NavItem -Name "Contact" -Href "/contact" -Type "Menu" -FontMaterial "person" -IconColor "red"
+    Creates a new navigation item named "Contact" with a link to "/contact", type "Menu", using a person icon from Material Design Icons with red color.
+    #>
     [alias('New-HTMLNavItem')]
     [cmdletBinding(DefaultParameterSetName = 'FontAwesomeSolid')]
     param(

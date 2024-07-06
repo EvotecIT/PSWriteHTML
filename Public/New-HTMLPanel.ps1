@@ -1,4 +1,44 @@
 Function New-HTMLPanel {
+    <#
+    .SYNOPSIS
+    Creates a new HTML panel with customizable styling options.
+
+    .DESCRIPTION
+    The New-HTMLPanel function creates a new HTML panel with various styling options such as background color, width, margin, alignment, and more.
+
+    .PARAMETER Content
+    Specifies the content of the HTML panel as a ScriptBlock.
+
+    .PARAMETER BackgroundColor
+    Specifies the background color of the HTML panel.
+
+    .PARAMETER Invisible
+    Indicates whether the panel should be invisible.
+
+    .PARAMETER Width
+    Specifies the width of the panel.
+
+    .PARAMETER Margin
+    Specifies the margin of the panel.
+
+    .PARAMETER AlignContentText
+    Specifies the alignment of the content within the panel.
+
+    .PARAMETER BorderRadius
+    Specifies the border radius of the panel.
+
+    .PARAMETER AnchorName
+    Specifies the anchor name of the panel.
+
+    .PARAMETER StyleSheetsConfiguration
+    Specifies the style sheets configuration for the panel.
+
+    .EXAMPLE
+    New-HTMLPanel -Content { "This is the content of the panel" } -BackgroundColor "lightblue" -Width "50%" -Margin "10px" -AlignContentText "center" -BorderRadius "5px" -AnchorName "myPanel" -StyleSheetsConfiguration @{ Panel = "customPanel" }
+
+    Creates a new HTML panel with specified content, background color, width, margin, alignment, border radius, anchor name, and custom style sheet configuration.
+
+    #>
     [alias('New-HTMLColumn', 'Panel')]
     [CmdletBinding()]
     param (

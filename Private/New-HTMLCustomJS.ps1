@@ -1,4 +1,27 @@
 ﻿function New-HTMLCustomJS {
+    <#
+    .SYNOPSIS
+    Creates custom JavaScript blocks based on the provided JavaScript key-value pairs.
+
+    .DESCRIPTION
+    This function generates custom JavaScript blocks based on the JavaScript key-value pairs provided in the input dictionary. It allows for the inclusion of comments before and after each JavaScript block.
+
+    .PARAMETER JS
+    Specifies a dictionary containing JavaScript key-value pairs where the key represents the JavaScript block name and the value represents the JavaScript code.
+
+    .EXAMPLE
+    $customJS = @{
+        'script1' = 'console.log("Hello, World!");'
+        'script2' = 'alert("Welcome!");'
+    }
+    New-HTMLCustomJS -JS $customJS
+    Creates custom JavaScript blocks named 'script1' and 'script2' with specified JavaScript code without adding comments.
+
+    .EXAMPLE
+    New-HTMLCustomJS -JS @{ 'analytics' = 'trackUserActivity();' }
+    Generates a custom JavaScript block named 'analytics' with the specified JavaScript code and includes comments before and after the block.
+
+    #>
     [CmdletBinding()]
     param(
         [System.Collections.IDictionary] $JS
