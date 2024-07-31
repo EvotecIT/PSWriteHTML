@@ -147,7 +147,8 @@ Function New-HTML {
         [switch] $Temporary,
         [switch] $AddComment,
         [switch] $Format,
-        [switch] $Minify
+        [switch] $Minify,
+        [string] $Language = 'en'
     )
     if ($UseCssLinks -or $UseJavaScriptLinks) {
         Write-Warning "New-HTML - UseCssLinks and UseJavaScriptLinks is depreciated. Use Online switch instead. Those switches will be removed in near future."
@@ -308,11 +309,11 @@ Function New-HTML {
             #"<!-- saved from url=(0016)http://localhost -->" + "`r`n"
             #'<!-- saved from url=(0014)about:internet -->' + [System.Environment]::NewLine
             '<!DOCTYPE html>' + [System.Environment]::NewLine
-            New-HTMLTag -Tag 'html' {
+            New-HTMLTag -Tag 'html' -Attributes @{ lang = $Language } {
                 if ($AddComment) { '<!-- HEAD -->' }
                 New-HTMLTag -Tag 'head' {
-                    New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = "Content-Type"; content = "text/html; charset=utf-8" } -NoClosing
-                    #New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -NoClosing
+                    #New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = "Content-Type"; content = "text/html; charset=utf-8" } -NoClosing
+                    New-HTMLTag -Tag 'meta' -Attributes @{ charset = "utf-8" } -NoClosing
                     #New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'X-UA-Compatible'; content = 'IE=8' } -SelfClosing
                     New-HTMLTag -Tag 'meta' -Attributes @{ name = 'viewport'; content = 'width=device-width, initial-scale=1' } -NoClosing
                     if ($Author) {
