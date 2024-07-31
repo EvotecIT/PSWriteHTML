@@ -163,8 +163,8 @@ function New-InternalDiagram {
             'network.on("click", function (params) {'
             'params.event = "[original event]";'
             'var findValue = escapeRegExp(params.nodes);'
-            foreach ($_ in $Events) {
-                New-DiagramInternalEvent -ID $_.ID -ColumnID $_.ColumnID
+            foreach ($E in $Events) {
+                New-DiagramInternalEvent -ID $E.ID -ColumnID $E.ColumnID
             }
             '});'
         )
