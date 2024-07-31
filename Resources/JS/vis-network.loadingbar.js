@@ -1,60 +1,36 @@
-﻿// function loadDiagramWithFonts(container, data, options, id, loader, fonts) {
-//     var network;
-//     if (fonts == true) {
-//         if (document.fonts) {
-//             // Decent browsers: Make sure the fonts are loaded.
-//             document.fonts
-//                 .load('normal normal 900 24px/1 "Font Awesome 5 Free"')
-//                 .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
-//                 .then(
-//                     document.fonts
-//                         .load('normal normal 900 24px/1 "Font Awesome 5 Brands"')
-//                         .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
-//                         .then(
-//                             network = loadDiagram(container, data, options, id, loader)
-//                         )
-//                         .catch(
-//                             console.error.bind(console, "Failed to render the network with Font Awesome 5.")
-//                         )
-//                 ).catch(
-//                     console.error.bind(console, "Failed to render the network with Font Awesome 5.")
-//                 );
-//         } else {
-//             // IE: Let's just hope the fonts are loaded (they're probably not, hence the timeout).
-//             network = window.addEventListener("load", function () {
-//                 setTimeout(function () {
-//                     loadDiagram(container, data, options, id, loader);
-//                 }, 500);
-//             });
-//         }
-//     } else {
-//         network = loadDiagram(container, data, options, id, loader);
-//     }
-//     return network;
-// }
-
-function loadDiagramWithFonts(container, data, options, id, loader, fonts) {
-    var networkPromise;
-
-    if (fonts === true && document.fonts) {
-        // Use Promise.all to wait for all fonts to be loaded
-        networkPromise = Promise.all([
-            document.fonts.load('normal normal 900 24px/1 "Font Awesome 5 Free"'),
-            document.fonts.load('normal normal 900 24px/1 "Font Awesome 5 Brands"')
-        ]).then(() => loadDiagram(container, data, options, id, loader))
-          .catch(error => {
-              console.error("Failed to load fonts or render the network:", error);
-          });
-    } else if (fonts === true) {
-        // For browsers where document.fonts is not supported, attempt to load the diagram directly
-        console.warn("Font loading detection not supported. Attempting to load the diagram directly.");
-        networkPromise = Promise.resolve(loadDiagram(container, data, options, id, loader));
+﻿function loadDiagramWithFonts(container, data, options, id, loader, fonts) {
+    var network;
+    if (fonts == true) {
+        if (document.fonts) {
+            // Decent browsers: Make sure the fonts are loaded.
+            document.fonts
+                .load('normal normal 900 24px/1 "Font Awesome 5 Free"')
+                .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
+                .then(
+                    document.fonts
+                        .load('normal normal 900 24px/1 "Font Awesome 5 Brands"')
+                        .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
+                        .then(
+                            network = loadDiagram(container, data, options, id, loader)
+                        )
+                        .catch(
+                            console.error.bind(console, "Failed to render the network with Font Awesome 5.")
+                        )
+                ).catch(
+                    console.error.bind(console, "Failed to render the network with Font Awesome 5.")
+                );
+        } else {
+            // IE: Let's just hope the fonts are loaded (they're probably not, hence the timeout).
+            network = window.addEventListener("load", function () {
+                setTimeout(function () {
+                    loadDiagram(container, data, options, id, loader);
+                }, 500);
+            });
+        }
     } else {
-        // If fonts loading is not requested, load the diagram directly
-        networkPromise = Promise.resolve(loadDiagram(container, data, options, id, loader));
+        network = loadDiagram(container, data, options, id, loader);
     }
-
-    return networkPromise;
+    return network;
 }
 
 function loadDiagram(container, data, options, id, loader) {
