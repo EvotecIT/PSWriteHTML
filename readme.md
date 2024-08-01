@@ -71,7 +71,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 `PSWriteHTML` undergoes changes that hopefully will make it more versalite, consistent and better.
 Please make sure to read changes before updating, as we're undergoing some breaking changes from time to time.
-Full **changelog** can be found [here](ChangeLog.md).
+Full **changelog** can be found [here](CHANGELOG.MD).
 
 ## Advantages over ReportHTML
 
