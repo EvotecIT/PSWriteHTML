@@ -5,7 +5,15 @@ Unfortunetly some code is very old, some code doesn't serve it's purpose anymore
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 ## 1.27.0
+### What's Changed
 - Improve `New-HTML` utf-8 and lang properties for proper HTML specification
+- Fixes [Linking Diagram with Tables by using New-DiagramEvent is currently broke #449](https://github.com/EvotecIT/PSWriteHTML/issues/449)
+* Fix case-sensitivity for ChangeLog in readme.md by @cksapp in https://github.com/EvotecIT/PSWriteHTML/pull/447
+
+### New Contributors
+* @cksapp made their first contribution in https://github.com/EvotecIT/PSWriteHTML/pull/447
+
+**Full Changelog**: https://github.com/EvotecIT/PSWriteHTML/compare/v1.26.0...v1.27.0
 
 ## 1.26.0 - 2024.07.06
 * Added help to all PowerShell functions lacking it. by @neztach in https://github.com/EvotecIT/PSWriteHTML/pull/446
