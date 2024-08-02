@@ -26,48 +26,43 @@
     )
 
     $Name = "scrolling-$(Get-RandomStringName -Size 8 -LettersOnly)"
+    $NestedScrollingList = [System.Collections.Generic.List[string]]::new()
 
-
-
-    if (-not $Script:HTMLSectionScrollingItem) {
-        $HTMLOutput = New-HTMLTag -Tag 'section' {
-            New-HTMLTag -Tag 'h2' {
-                $SectionTitle
-            }
-            New-HTMLTag -Tag 'div' {
-                $Script:HTMLSectionScrollingItem = $true
-                if ($Content) {
-                    & $Content
-                }
-                $Script:HTMLSectionScrollingItem = $false
-            }
-        } -Attributes @{ 'id' = $Name }
-        $Level = 0
-
-        $ListEntry = New-HTMLTag -Tag 'li' {
-            New-HTMLTag -Tag 'a' {
-                $SectionTitle
-            } -Attributes @{ href = "#$Name" }
+    $HTMLOutput = New-HTMLTag -Tag 'section' {
+        New-HTMLTag -Tag 'h2' {
+            $SectionTitle
         }
-    } else {
-        $Link
-        New-HTMLTag -Tag 'section' {
-            if ($Content) {
+        New-HTMLTag -Tag 'div' {
+            #  $Script:HTMLSectionScrollingItem = $true
+            $ExecutedContent = if ($Content) {
                 & $Content
             }
-            $Script:HTMLSectionScrollingItem = $false
-        } -Attributes @{ 'id' = $Name }
-        $Level = 1
+            foreach ($C in $ExecutedContent) {
+                if ($C -is [PSCustomObject] -and $C.Type -eq 'SectionScrollingItem') {
+                    $C.HTMLOutput
+                    $NestedScrollingList.Add($C.ListEntry)
+                } else {
+                    $C
+                }
+            }
+        }
+    } -Attributes @{ 'id' = $Name }
 
+    if ($NestedScrollingList.Count -gt 0) {
         $ListEntry = New-HTMLTag -Tag 'li' {
             New-HTMLTag -Tag 'a' {
                 $SectionTitle
             } -Attributes @{ href = "#$Name" }
             New-HTMLTag -Tag 'ul' {
-
+                $NestedScrollingList
             }
         }
-
+    } else {
+        $ListEntry = New-HTMLTag -Tag 'li' {
+            New-HTMLTag -Tag 'a' {
+                $SectionTitle
+            } -Attributes @{ href = "#$Name" }
+        }
     }
     [PSCustomObject] @{
         Type       = 'SectionScrollingItem'
