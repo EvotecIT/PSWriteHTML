@@ -4,6 +4,11 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.28.0
+### What's Changed
+- Improves `New-HTMLSectionScrolling` and `New-HTMLSectionScrollingItem` to allow for nesting (just 1 level, no more)
+
+
 ## 1.27.0
 ### What's Changed
 - Improve `New-HTML` utf-8 and lang properties for proper HTML specification
