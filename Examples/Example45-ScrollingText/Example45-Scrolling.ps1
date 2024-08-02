@@ -9,7 +9,7 @@ New-HTML {
 
         }
         New-HTMLSectionScrollingItem -SectionTitle 'Test 3' {
-            New-HTMLTable -DataTable 'Test'
+            # New-HTMLTable -DataTable 'Test'
         }
         New-HTMLSectionScrollingItem -SectionTitle 'Test 4' {
 
@@ -19,6 +19,12 @@ New-HTML {
 
             New-HTMLSectionScrollingItem -SectionTitle 'Test 5.1' {
                 "<p>Test 5.1 Text</p>"
+                New-HTMLSectionScrollingItem -SectionTitle 'Test 5.1.1' {
+                    "<p>Test 5.1.1 Text</p>"
+                }
+                New-HTMLSectionScrollingItem -SectionTitle 'Test 5.1.2' {
+                    "<p>Test 5.1.2 Text</p>"
+                }
             }
 
             New-HTMLSectionScrollingItem -SectionTitle 'Test 5.2' {

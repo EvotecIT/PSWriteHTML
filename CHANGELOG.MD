@@ -6,7 +6,7 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 ## 1.28.0
 ### What's Changed
-- Improves `New-HTMLSectionScrolling` and `New-HTMLSectionScrollingItem` to allow for nesting (just 1 level, no more)
+- Improves `New-HTMLSectionScrolling` and `New-HTMLSectionScrollingItem` to allow for nesting
 
 
 ## 1.27.0
