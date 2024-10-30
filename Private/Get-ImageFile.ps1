@@ -40,7 +40,7 @@
             $Script:CacheImagesHTML[$Image]
         } else {
             try {
-                Invoke-WebRequest -Uri $Image -OutFile $ImageFile
+                Invoke-WebRequest -Uri $Image -OutFile $ImageFile -ErrorAction Stop
                 if ($Cache) {
                     $Script:CacheImagesHTML[$Image] = $ImageFile
                 }
