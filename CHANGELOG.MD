@@ -4,6 +4,10 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.29.0
+### What's Changed
+- Improve Get-ImageFile to not throw errors when having issues with internet connection
+
 ## 1.28.0
 ### What's Changed
 - Improves `New-HTMLSectionScrolling` and `New-HTMLSectionScrollingItem` to allow for nesting
