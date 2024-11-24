@@ -438,22 +438,6 @@ function New-HTMLTable {
         }
     }
 
-    if ($Transpose) {
-        # Allows easy conversion from PSCustomObject to Hashtable and vice versa
-        $formatTransposeTableSplat = @{
-            AllObjects = $DataTable
-        }
-        if ($TransposeProperty) {
-            $formatTransposeTableSplat['Property'] = $TransposeProperty
-        }
-        if ($TransposeName) {
-            $formatTransposeTableSplat['Name'] = $TransposeName
-        }
-        if ($TransposeLegacy) {
-            $formatTransposeTableSplat['Legacy'] = $true
-        }
-        $DataTable = Format-TransposeTable @formatTransposeTableSplat
-    }
     if ($FlattenObject) {
         if ($FlattenDepth) {
             $DataTable = ConvertTo-FlatObject -Objects $DataTable -Depth $FlattenDepth
@@ -558,10 +542,7 @@ function New-HTMLTable {
         [string] $Width = '100%'
     }
 
-    # Limit objects count First or Last
-    if ($First -or $Last) {
-        $DataTable = $DataTable | Select-Object -First $First -Last $Last
-    }
+
 
     if ($Compare) {
         $Splitter = "`r`n"
@@ -662,6 +643,24 @@ function New-HTMLTable {
             }
         }
     }
+
+    if ($Transpose) {
+        # Allows easy conversion from PSCustomObject to Hashtable and vice versa
+        $formatTransposeTableSplat = @{
+            AllObjects = $DataTable
+        }
+        if ($TransposeProperty) {
+            $formatTransposeTableSplat['Property'] = $TransposeProperty
+        }
+        if ($TransposeName) {
+            $formatTransposeTableSplat['Name'] = $TransposeName
+        }
+        if ($TransposeLegacy) {
+            $formatTransposeTableSplat['Legacy'] = $true
+        }
+        $DataTable = Format-TransposeTable @formatTransposeTableSplat
+    }
+
     # This is more direct way of PriorityProperties that will work also on Scroll and in other circumstances
     if ($PriorityProperties) {
         if ($DataTable.Count -gt 0) {
