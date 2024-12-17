@@ -1993,6 +1993,15 @@
                 Default = $true
                 Email   = $false
             }
+            VisNetworkSearchDataTables  = [ordered] @{
+                Comment = 'VIS Network Search DataTables'
+                Header  = @{
+                    JSLink = "$($ConfigurationURL)/JS/vis-network.searchDataTables.min.js"
+                    JS     = "$PSScriptRoot\..\Resources\JS\vis-network.searchDataTables.js"
+                }
+                Default = $true
+                Email   = $false
+            }
             VisNetworkFind              = [ordered] @{
                 Comment = 'VIS Network Find'
                 Header  = @{

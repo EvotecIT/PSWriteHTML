@@ -158,6 +158,7 @@ function New-InternalDiagram {
     $ConvertedEdges = $Edges -join ', '
 
     if ($Events.Count -gt 0) {
+        $Script:HTMLSchema.Features.VisNetworkSearchDataTables = $true
         [Array] $PreparedEvents = @(
 
             'network.on("click", function (params) {'
