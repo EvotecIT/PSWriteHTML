@@ -6,9 +6,13 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 ## 1.28.0
 ### What's Changed
+- fixed Get-HTMLLogos missing `$LogoPath` by @Binomimus in https://github.com/EvotecIT/PSWriteHTML/pull/466
 - Improve Get-ImageFile to not throw errors when having issues with internet connection
 - Improves `New-HTMLSectionScrolling` and `New-HTMLSectionScrollingItem` to allow for nesting
 - Improve `New-HTMLTable` Transpose to process it a bit later so some other settings can be applied to data first
+
+## New Contributors
+* @Binomimus made their first contribution in https://github.com/EvotecIT/PSWriteHTML/pull/466
 
 ## 1.27.0
 ### What's Changed
