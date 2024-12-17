@@ -23,7 +23,7 @@ New-HTML -TitleText 'Testing Navigation' {
             }
         }
         New-NavTopMenu -Name 'Domain Controllers' -IconSolid ambulance {
-            New-NavLink -IconMaterial airplane -Name 'This is link 1' -InternalPageID 'Page 2'
+            New-NavLink -IconMaterial airplane -Name 'This is link 1 (internal)' -InternalPageID 'Page 2'
             New-NavLink -IconSolid address-book -Href 'https://evotec.xyz' -Name 'This is link 2'
             New-NavLink -IconBrands codiepie -Href 'https://evotec.xyz' -Name 'This is link 3'
         }
@@ -65,12 +65,10 @@ New-HTML -TitleText 'Testing Navigation' {
         New-HTMLFooter {
             New-HTMLText -Text 'In footer'
         }
-    } -FilePath $PSScriptRoot\Page1.html
-    <#
+    }
     New-HTMLPage -Name 'Page 2' {
         New-HTMLSection -HeaderText 'Test2' {
             New-HTMLTable -DataTable $DataTable1 -Title 'Test2' -PagingLength 2
         }
     }
-    #>
 } -ShowHTML -Online -FilePath $PSScriptRoot\Example41-Navigation03.html
