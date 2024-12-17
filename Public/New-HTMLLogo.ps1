@@ -46,7 +46,7 @@ function New-HTMLLogo {
     )
     $Script:HTMLSchema.Features.MainImage = $true
 
-    $LogoSources = Get-HTMLLogos -RightLogoName $RightLogoName -LeftLogoName $LeftLogoName -LeftLogoString $LeftLogoString -RightLogoString $RightLogoString
+    $LogoSources = Get-HTMLLogos -LogoPath $LogoPath -RightLogoName $RightLogoName -LeftLogoName $LeftLogoName -LeftLogoString $LeftLogoString -RightLogoString $RightLogoString
 
     $Options = [PSCustomObject] @{
         Logos        = $LogoSources
