@@ -7,9 +7,24 @@ if ($null -eq $Table1) {
     $Table1 = (Get-ChildItem | Select-Object -First 5 -Property Name, BasePriority, Company, CompanyName)
 }
 
+$Table2 = @(
+    [PSCustomObject] @{
+        Name = 'Test'
+        BasePriority = 1
+        Company = 'Test'
+        CompanyName = 'Test'
+    }
+    [PSCustomObject] @{
+        Name = 'Test'
+        BasePriority = 1
+        Company = 'Test'
+        CompanyName = 'Test', 'Dual', 'Triple'
+    }
+)
+
 $Output = EmailBody -FontSize 8px -FontFamily 'Tahoma' {
     EmailText -Text 'This should be font 8pt, table should also be font 8pt'
-    EmailTable -Table $Table
+    EmailTable -Table $Table2 -HideFooter -PrettifyObject
     EmailText -LineBreak
 
     EmailTextBox -FontFamily 'Calibri' -Size 17 -TextDecoration underline -Color DarkSalmon -Alignment center {
@@ -82,5 +97,4 @@ $Output = EmailBody -FontSize 8px -FontFamily 'Tahoma' {
 } -Online
 
 
-
-#Save-HTML -FilePath $PSScriptRoot\Output\TestBody.html -ShowHTML -HTML $Output
+Save-HTML -FilePath $PSScriptRoot\Output\TestBody.html -ShowHTML -HTML $Output
