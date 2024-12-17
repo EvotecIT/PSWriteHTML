@@ -6,6 +6,9 @@ Function Get-HTMLLogos {
     .DESCRIPTION
     This function retrieves HTML logos from specified paths and converts them to binary format. It allows for customization of left and right logos with default names "Sample" and "Alternate" respectively.
 
+    .PARAMETER LogoPath
+    The path to the logos. Default is not set.
+
     .PARAMETER LeftLogoName
     The name of the left logo. Default is "Sample".
 
@@ -29,6 +32,7 @@ Function Get-HTMLLogos {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $false)]
+        [string]$LogoPath,
         [string]$LeftLogoName = "Sample",
         [string]$RightLogoName = "Alternate",
         [string]$LeftLogoString,
@@ -36,18 +40,20 @@ Function Get-HTMLLogos {
 
     )
     $LogoSources = [ordered] @{ }
-    $LogoPath = @(
-        if ([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
-            if ([String]::IsNullOrEmpty($RightLogoString) -eq $false) {
-                $LogoSources.Add($RightLogoName, $RightLogoString)
+    if ([String]::IsNullOrEmpty($LogoPath)) {
+        $LogoPath = @(
+            if ([String]::IsNullOrEmpty($RightLogoString) -eq $false -or [String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
+                if ([String]::IsNullOrEmpty($RightLogoString) -eq $false) {
+                    $LogoSources.Add($RightLogoName, $RightLogoString)
+                }
+                if ([String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
+                    $LogoSources.Add($LeftLogoName, $LeftLogoString)
+                }
+            } else {
+                "$PSScriptRoot\..\Resources\Images\Other"
             }
-            if ([String]::IsNullOrEmpty($LeftLogoString) -eq $false) {
-                $LogoSources.Add($LeftLogoName, $LeftLogoString)
-            }
-        } else {
-            "$PSScriptRoot\..\Resources\Images\Other"
-        }
-    )
+        )
+    }
     $ImageFiles = Get-ChildItem -Path (Join-Path $LogoPath '\*') -Include *.jpg, *.png, *.bmp -Recurse
     foreach ($ImageFile in $ImageFiles) {
         $ImageBinary = Convert-ImageToBinary -ImageFile $ImageFile
