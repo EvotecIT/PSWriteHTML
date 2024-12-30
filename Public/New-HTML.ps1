@@ -459,7 +459,13 @@ Function New-HTML {
             Save-HTML -HTML $HTML -FilePath $Pages[$Page].SavePath -Encoding $Encoding -Format:$Format -Minify:$Minify -ShowHTML:$Pages[$Page].ShowHTML
         } else {
             # User opted to return all data in form of html
-            $HTML
+            if ($Format) {
+                Format-HTML -Content $HTML
+            } elseif ($Minify) {
+                Optimize-HTML -Content $HTML
+            } else {
+                $HTML
+            }
         }
     }
 }
