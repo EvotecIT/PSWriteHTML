@@ -6,9 +6,16 @@
         console.log('dateValue: ' + dateValue + ', dateFormat: ' + dateFormat + ', fromNowEnabled: ' + fromNowEnabled);
         if (dateValue && moment(dateValue, dateFormat).isValid()) {
             if (fromNowEnabled) {
+                console.log('fromNowEnabled: ' + fromNowEnabled);
                 var fromNow = moment(dateValue, dateFormat).fromNow();
+                console.log('fromNow: ' + fromNow);
                 $(this).append(' (' + fromNow + ')');
+
+
+                console.log('this: ' + $(this).html());
             }
+        } else {
+            console.log('Invalid dateValue: ' + dateValue + ', dateFormat: ' + dateFormat);
         }
     });
 });
