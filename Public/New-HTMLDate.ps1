@@ -20,5 +20,5 @@
 
     $dateString = $InputDate.ToString($DisplayFormat)
 
-    "<span class='reportDate' data-reportdate='$dateString' data-format='$DisplayFormat' data-fromnow=$($IncludeFromNow.IsPresent)>$($InputDate.ToString())</span>"
+    "<span class='reportDate' data-reportdate='$dateString' data-format='$DisplayFormat' data-fromnow='$($IncludeFromNow.IsPresent.ToString().ToLower())'>$($InputDate.ToString())</span>"
 }
