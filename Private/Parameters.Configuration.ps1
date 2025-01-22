@@ -461,12 +461,12 @@
                             'border-spacing'  = '0px'
                         }
                         'img'                                       = @{
-                            'width'   = '100%';
-                            'display' = 'block';
+                            'width'   = '100%'
+                            'display' = 'block'
                         }
                         '.wrapper'                                  = @{
-                            'padding-left'  = '10px';
-                            'padding-right' = '10px';
+                            'padding-left'  = '10px'
+                            'padding-right' = '10px'
                         }
                         '@media only screen and (max-width: 620px)' = @{
                             '.wrapper .section' = @{
@@ -649,7 +649,7 @@
                     JsInLine  = "var dataTablesChartsEvents = {}; var count = 0;"
                     CssInline = @{
                         'td.highlight' = @{
-                            'background-color' = 'yellow';
+                            'background-color' = 'yellow'
                         }
                     }
                 }
@@ -799,7 +799,7 @@
                         # /* giving some spaces between tables being to close */
                         'div.dataTables_wrapper'           = @{
                             #    'padding' = '10px 10px 10px 10px'
-                            'margin' = '5px';
+                            'margin' = '5px'
                         }
                         #'button.dt-button'                 = @{
                         #    #'font-size'     = '8pt !important'
@@ -889,9 +889,9 @@
                         }
                         'table thead th' = @{
                             #'color'= 'white';
-                            'text-align'       = 'center';
-                            'font-weight'      = 'bold';
-                            'padding'          = '4px 17px';
+                            'text-align'       = 'center'
+                            'font-weight'      = 'bold'
+                            'padding'          = '4px 17px'
                             #'border-bottom'    = '1px solid #111'
                             'background-color' = 'white'
                             'color'            = 'black'
@@ -1631,6 +1631,14 @@
                 Default     = $true
                 Email       = $false
             }
+            MomentDateText              = @{
+                Comment      = 'Moment Date Text Library'
+                HeaderAlways = @{
+                    JS = "$PSScriptRoot\..\Resources\JS\momentDateText.js"
+                }
+                Default      = $true
+                Email        = $false
+            }
             Mermaid                     = @{
                 Comment     = 'Mermaid JS Library'
                 Footer      = @{
@@ -2150,14 +2158,14 @@
                             position           = 'absolute'
                             'background-color' = '#fff'
                             'moz-opacity'      = 0.70
-                            opacity            = 0.70;
-                            filter             = 'alpha(opacity=70)';
-                            'border-radius'    = '10px';
-                            padding            = '10px';
-                            'z-index'          = 1000;
-                            'max-width'        = '200px';
-                            display            = 'none';
-                            color              = '#343434';
+                            opacity            = 0.70
+                            filter             = 'alpha(opacity=70)'
+                            'border-radius'    = '10px'
+                            padding            = '10px'
+                            'z-index'          = 1000
+                            'max-width'        = '200px'
+                            display            = 'none'
+                            color              = '#343434'
                         }
                     }
                 }
