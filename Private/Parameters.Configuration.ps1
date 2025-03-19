@@ -1380,6 +1380,18 @@
                 Default = $true
                 Email   = $false
             }
+            DataTablesToggleView        = @{
+                Comment      = 'DataTables ToggleView'
+                # Header       = @{
+                #     JsLink = "$($ConfigurationURL)/JS/dataTables.buttons.toggleView.js"
+                #     JS     = "$PSScriptRoot\..\Resources\JS\dataTables.buttons.toggleView.js"
+                # }
+                HeaderAlways = @{
+                    JS = "$PSScriptRoot\..\Resources\JS\dataTables.buttons.toggleView.js"
+                }
+                Default      = $true
+                Email        = $false
+            }
             DataTablesSimplify          = @{
                 Comment      = 'DataTables (not really) - Simplified'
                 HeaderAlways = @{
