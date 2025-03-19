@@ -1,4 +1,4 @@
-Function New-HTMLPanel {
+function New-HTMLPanel {
     <#
     .SYNOPSIS
     Creates a new HTML panel with customizable styling options.
@@ -46,6 +46,7 @@ Function New-HTMLPanel {
         [alias('BackgroundShade')][string]$BackgroundColor,
         [switch] $Invisible,
         [alias('flex-basis')][string] $Width,
+        [object] $Height,
         [string] $Margin,
 
         [string][ValidateSet('center', 'left', 'right', 'justify')] $AlignContentText,
@@ -73,6 +74,7 @@ Function New-HTMLPanel {
         "background-color" = ConvertFrom-Color -Color $BackgroundColor
         'border-radius'    = $BorderRadius
         'text-align'       = $AlignContentText # This controls content within panel if it's not 100% width such as text
+        'height'           = ConvertFrom-Size -Size $Height
     }
     if ($Invisible) {
         #$PanelStyle['box-shadow'] = 'unset !important;'
