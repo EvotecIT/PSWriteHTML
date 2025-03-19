@@ -1540,7 +1540,7 @@
                 Demos       = 'https://toorshia.github.io/justgage'
                 Header      = @{
                     JSLink = @(
-                        'https://cdn.jsdelivr.net/npm/justgage@1.6.1/justgage.min.js'
+                        'https://cdn.jsdelivr.net/npm/justgage@1.7.0/justgage.min.js'
                     )
                     JS     = @(
                         "$PSScriptRoot\..\Resources\JS\justgage.min.js"
