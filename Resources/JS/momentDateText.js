@@ -1,21 +1,20 @@
 ﻿$(document).ready(function () {
     $('.reportDate').each(function () {
         var dateValue = $(this).data('reportdate');
-        var dateFormat = $(this).data('format') || 'YYYY-MM-DD HH:mm:ss';
+        var momentFormat = $(this).data('format');
         var fromNowEnabled = $(this).data('fromnow') === true || $(this).data('fromnow') === 'true';
-        console.log('dateValue: ' + dateValue + ', dateFormat: ' + dateFormat + ', fromNowEnabled: ' + fromNowEnabled);
-        if (dateValue && moment(dateValue, dateFormat).isValid()) {
+
+        // First parse with the canonical format
+        var parsedDate = moment(dateValue, "YYYY-MM-DD HH:mm:ss");
+
+        if (parsedDate.isValid()) {
+            // If fromNow is enabled, append relative time
             if (fromNowEnabled) {
-                console.log('fromNowEnabled: ' + fromNowEnabled);
-                var fromNow = moment(dateValue, dateFormat).fromNow();
-                console.log('fromNow: ' + fromNow);
+                var fromNow = parsedDate.fromNow();
                 $(this).append(' (' + fromNow + ')');
-
-
-                console.log('this: ' + $(this).html());
             }
         } else {
-            console.log('Invalid dateValue: ' + dateValue + ', dateFormat: ' + dateFormat);
+            console.log('Invalid date:', dateValue);
         }
     });
 });
