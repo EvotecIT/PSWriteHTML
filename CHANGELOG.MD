@@ -4,6 +4,12 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.30.0
+
+### What's Changed
+- Added `New-HTMLDate`
+- Added `Height` to `New-HTMLPanel` for better control
+
 ## 1.29.0
 ### What's Changed
 - improve `New-HTML` to allow Minify/Format when not saving to file
