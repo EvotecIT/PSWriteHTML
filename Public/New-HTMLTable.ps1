@@ -1,4 +1,4 @@
-function New-HTMLTable {
+﻿function New-HTMLTable {
     <#
     .SYNOPSIS
     Creates a new HTML table with various customization options.
@@ -364,7 +364,8 @@ function New-HTMLTable {
         [switch] $PrettifyObject,
         [string] $PrettifyObjectSeparator = ", ",
         [string] $PrettifyObjectDateTimeFormat,
-        [int] $FlattenDepth
+        [int] $FlattenDepth,
+        [object] $Width
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -539,10 +540,13 @@ function New-HTMLTable {
     }
     # Autosize removes $Width of 100%, which means it will fit the content rather then trying to fill the screen
     if (-not $AutoSize) {
-        [string] $Width = '100%'
+        if (-not $Width) {
+            $Width = '100%'
+        }
     }
-
-
+    if ($Width) {
+        $Width = ConvertFrom-Size -Size $Width
+    }
 
     if ($Compare) {
         $Splitter = "`r`n"
@@ -756,7 +760,7 @@ function New-HTMLTable {
     if ($Buttons -contains 'toggleView') {
         $Script:HTMLSchema.Features.DataTablesToggleView = $true
         if ($ScrollX) {
-            $ToggleViewDefaultViewMode = 'scrollX'
+            $ToggleViewDefaultViewMode = 'scrollx'
         } else {
             $ToggleViewDefaultViewMode = 'responsive'
         }
@@ -1046,7 +1050,8 @@ function New-HTMLTable {
     }
     if ($ScrollX) {
         $Options.'scrollX' = $true
-        # disabling responsive table because it won't work with ScrollX
+        # We don't disable responsive table if toggleView is requested
+        # This allows preserving responsive settings for toggle functionality
         if ($Buttons -notcontains 'toggleView') {
             $DisableResponsiveTable = $true
         }
