@@ -13,7 +13,10 @@ New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example-Texts02.ht
     }
     New-HTMLFooter {
         New-HTMLPanel {
-            New-HTMLText -Text "Report generated on ", (New-HTMLDate -InputDate (Get-Date) -DisplayFormat "dd MMM yyyy" -IncludeFromNow) -Color None, Blue -FontSize 10, 10
+            New-HTMLText -Text "Report generated on ", (New-HTMLDate -InputDate (Get-Date)) -Color None, Blue -FontSize 10, 10
+            New-HTMLText -Text "Report generated on ", (New-HTMLDate -InputDate (Get-Date -Year 2022)) -Color None, Blue -FontSize 10, 10
+            New-HTMLText -Text "Report generated on ", (New-HTMLDate -InputDate (Get-Date -Year 2022) -DoNotIncludeFromNow) -Color None, Blue -FontSize 10, 10
+            New-HTMLText -Text "Report generated on ", (New-HTMLDate -InputDate (Get-Date -Year 2024 -Month 11)) -Color None, Blue -FontSize 10, 10
         } -Invisible -AlignContentText right
     }
 } -ShowHTML -Online
