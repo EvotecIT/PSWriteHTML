@@ -755,6 +755,13 @@ function New-HTMLTable {
     }
     if ($Buttons -contains 'toggleView') {
         $Script:HTMLSchema.Features.DataTablesToggleView = $true
+        if ($ScrollX) {
+            $ToggleViewDefaultViewMode = 'scrollX'
+        } else {
+            $ToggleViewDefaultViewMode = 'responsive'
+        }
+    } else {
+        $ToggleViewDefaultViewMode = 'responsive'
     }
     if ($FuzzySearch -or $FuzzySearchSmartToggle) {
         $Script:HTMLSchema.Features.DataTablesFuzzySearch = $true
@@ -1019,7 +1026,7 @@ function New-HTMLTable {
                         $ButtonOutput = [ordered] @{
                             extend          = 'toggleView'
                             title           = $Title
-                            defaultViewMode = 'responsive'
+                            defaultViewMode = $ToggleViewDefaultViewMode
                         }
                     } else {
                         $ButtonOutput = [ordered] @{
@@ -1040,7 +1047,9 @@ function New-HTMLTable {
     if ($ScrollX) {
         $Options.'scrollX' = $true
         # disabling responsive table because it won't work with ScrollX
-        $DisableResponsiveTable = $true
+        if ($Buttons -notcontains 'toggleView') {
+            $DisableResponsiveTable = $true
+        }
     }
     if ($ScrollY -or $EnableScroller) {
         # Scroller only works if ScrollY is set
@@ -1185,28 +1194,28 @@ function New-HTMLTable {
         $PriorityOrder = 0
 
         [Array] $PriorityOrderBinding = @(
-            foreach ($_ in $ResponsivePriorityOrder) {
-                $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
+            foreach ($R in $ResponsivePriorityOrder) {
+                $Index = [array]::indexof($HeaderNames.ToUpper(), $R.ToUpper())
                 if ($Index -ne -1) {
                     [pscustomobject]@{ responsivePriority = 0; targets = $Index }
                 }
             }
-            foreach ($_ in $ResponsivePriorityOrderIndex) {
-                [pscustomobject]@{ responsivePriority = 0; targets = $_ }
+            foreach ($R in $ResponsivePriorityOrderIndex) {
+                [pscustomobject]@{ responsivePriority = 0; targets = $R }
             }
         )
 
-        foreach ($_ in $PriorityOrderBinding) {
+        foreach ($P in $PriorityOrderBinding) {
             $PriorityOrder++
-            $_.responsivePriority = $PriorityOrder
-            $ColumnDefinitionList.Add($_)
+            $P.responsivePriority = $PriorityOrder
+            $ColumnDefinitionList.Add($P)  # Corrected to use $P instead of $_
         }
     }
 
     # The table column options also adds to the columnDefs parameter
     if ($TableColumnOptions.Count -gt 0) {
-        foreach ($_ in $TableColumnOptions) {
-            $ColumnDefinitionList.Add($_)
+        foreach ($T in $TableColumnOptions) {
+            $ColumnDefinitionList.Add($T)  # Corrected to use $T instead of $_
         }
     }
 
