@@ -8,8 +8,9 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 ### What's Changed
 - Added `New-HTMLDate`
-- Added `Height` to `New-HTMLPanel` for better control\
+- Added `Height` to `New-HTMLPanel` for better control
 - Update `JustGage JS library` version to 1.7.0
+- Allow setting `Width` in `New-HTMLTable` - resolves [#469](https://github.com/EvotecIT/PSWriteHTML/issues/469)
 
 ## 1.29.0
 ### What's Changed
