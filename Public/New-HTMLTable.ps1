@@ -284,7 +284,7 @@ function New-HTMLTable {
         [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
         [string] $Title,
-        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'print', 'searchPanes', 'searchBuilder', 'columnVisibility')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchBuilder'),
+        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'print', 'searchPanes', 'searchBuilder', 'columnVisibility', 'toggleView')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchBuilder', 'toggleView'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
         [int] $PagingLength,
@@ -368,7 +368,7 @@ function New-HTMLTable {
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
-        Exit
+        exit
     }
     $Script:HTMLSchema.Features.MainFlex = $true
     # Building HTML Table / Script
@@ -753,6 +753,9 @@ function New-HTMLTable {
             $SearchBuilderEnabled = $false
         }
     }
+    if ($Buttons -contains 'toggleView') {
+        $Script:HTMLSchema.Features.DataTablesToggleView = $true
+    }
     if ($FuzzySearch -or $FuzzySearchSmartToggle) {
         $Script:HTMLSchema.Features.DataTablesFuzzySearch = $true
         if ($FuzzySearch) {
@@ -831,8 +834,8 @@ function New-HTMLTable {
     # Prepare data for preprocessing. Convert Hashtable/Ordered Dictionary to their visual representation
     $Table = $null
     if ($DataTable[0] -is [System.Collections.IDictionary]) {
-        [Array] $Table = foreach ($_ in $DataTable) {
-            $_.GetEnumerator() | Select-Object Name, Value
+        [Array] $Table = foreach ($D in $DataTable) {
+            $D.GetEnumerator() | Select-Object Name, Value
         }
         $ObjectProperties = 'Name', 'Value'
     } elseif ($DataTable[0].GetType().Name -match 'bool|byte|char|datetime|decimal|double|ExcelHyperLink|float|int|long|sbyte|short|string|timespan|uint|ulong|URI|ushort') {
@@ -1011,6 +1014,12 @@ function New-HTMLTable {
                             title            = $Title
                             collectionLayout = 'dropdown columns'
                             collectionTitle  = 'Visibility control'
+                        }
+                    } elseif ($button -eq 'toggleView') {
+                        $ButtonOutput = [ordered] @{
+                            extend          = 'toggleView'
+                            title           = $Title
+                            defaultViewMode = 'responsive'
                         }
                     } else {
                         $ButtonOutput = [ordered] @{
@@ -1195,7 +1204,7 @@ function New-HTMLTable {
     }
 
     # The table column options also adds to the columnDefs parameter
-    If ($TableColumnOptions.Count -gt 0) {
+    if ($TableColumnOptions.Count -gt 0) {
         foreach ($_ in $TableColumnOptions) {
             $ColumnDefinitionList.Add($_)
         }
@@ -1209,11 +1218,11 @@ function New-HTMLTable {
     }
 
     # If we have a column definition list defined, then set the columnDefs option
-    If ($ColumnDefinitionList.Count -gt 0) {
+    if ($ColumnDefinitionList.Count -gt 0) {
         $Options.columnDefs = $ColumnDefinitionList.ToArray()
     }
 
-    If ($DisableAutoWidthOptimization) {
+    if ($DisableAutoWidthOptimization) {
         $Options.autoWidth = $false
     }
 
