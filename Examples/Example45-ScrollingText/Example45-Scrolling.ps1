@@ -47,4 +47,4 @@ New-HTML {
         }
     }
 
-} -FilePath $PSScriptRoot\Example45-ScrolingText.html -Online -Format # -ShowHTML
+} -FilePath $PSScriptRoot\Example45-ScrolingText.html -Online -Format -ShowHTML
