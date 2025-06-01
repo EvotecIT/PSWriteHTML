@@ -48,7 +48,7 @@ New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\..\ShowMe.html" {
                 New-HTMLTreeFileNodes -Path 'C:\Support\GitHub\PSWriteHTML\Examples' -Filter *.html -IsExpanded
             } -EnableChildCounter -AutoScroll
             New-HTMLSection -Invisible {
-                New-HTMLFrame -Name 'contentFrame' -Scrolling Auto -Height 150px
+                New-HTMLFrame -Name 'contentFrame' -Scrolling Auto -Height 550px
             }
         }
     }
