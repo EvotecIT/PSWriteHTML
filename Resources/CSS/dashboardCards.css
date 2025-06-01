@@ -1,0 +1,180 @@
+/* Dashboard Cards Styles */
+.dashboard-card {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(60, 60, 60, 0.08);
+    min-width: 220px;
+    max-width: 320px;
+    flex: 1 1 220px;
+    margin: 5px;
+    transition: box-shadow 0.2s;
+    padding: 1.2rem 1.8rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 4px 16px rgba(60, 60, 60, 0.16);
+}
+
+.dashboard-card-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    margin-right: 1.2rem;
+    align-self: flex-start;
+    margin-top: 0;
+    padding-top: 0.1rem;
+}
+
+.dashboard-card-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-self: flex-start;
+}
+
+.dashboard-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.2em;
+    margin-top: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.dashboard-card-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0078d4;
+    line-height: 1;
+    margin-bottom: 0.2em;
+    margin-top: 0.1em;
+}
+
+.dashboard-card-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-top: auto;
+}
+
+/* Compact card style */
+.dashboard-card.compact {
+    padding: 0.7rem 1.1rem;
+    min-width: 160px;
+    max-width: 200px;
+}
+
+.dashboard-card.compact .dashboard-card-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    margin-right: 0.7rem;
+    align-items: flex-start;
+    padding-top: 0.1rem;
+}
+
+.dashboard-card.compact .dashboard-card-title {
+    font-size: 1rem;
+}
+
+.dashboard-card.compact .dashboard-card-number {
+    font-size: 1.3rem;
+}
+
+.dashboard-card.compact .dashboard-card-subtitle {
+    font-size: 0.85rem;
+}
+
+/* Fixed layout style - keeps numbers aligned even with multiline titles */
+.dashboard-card.fixed .dashboard-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.2em;
+    margin-top: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    height: 2.6em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.3;
+}
+
+.dashboard-card.fixed .dashboard-card-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0078d4;
+    line-height: 1;
+    margin-bottom: 0.2em;
+    margin-top: 0;
+}
+
+.dashboard-card.fixed .dashboard-card-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-top: auto;
+}
+
+/* Classic card style (icon in colored square, properly sized) */
+.dashboard-card-icon-square {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: 1.2rem;
+    flex-shrink: 0;
+}
+
+.dashboard-card.classic .dashboard-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    height: 48px;
+}
+
+.dashboard-card.classic .dashboard-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.2em;
+    line-height: 1.2;
+}
+
+.dashboard-card.classic .dashboard-card-subtitle {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.2;
+}
+
+@media (max-width: 700px) {
+    .dashboard-cards {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .dashboard-card {
+        max-width: 100%;
+        min-width: 0;
+    }
+}

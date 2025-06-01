@@ -83,6 +83,16 @@
                 Email           = $false
                 License         = 'MIT'
             }
+            DashboardCards              = @{
+                Comment         = 'Dashboard Cards for InfoCards'
+                InternalComment = 'dashboard-cards'
+                HeaderAlways    = @{
+                    Css = "$PSScriptRoot\..\Resources\CSS\dashboardCards.css"
+                }
+                Default         = $true
+                Email           = $false
+                License         = 'MIT'
+            }
             Main                        = [ordered]@{
                 HeaderAlways = [ordered]@{
                     CssInline = [ordered]@{
