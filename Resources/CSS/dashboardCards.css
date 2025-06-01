@@ -1,10 +1,9 @@
-/* Dashboard Cards Styles */
+﻿/* Dashboard Cards Styles */
 .dashboard-card {
     display: flex;
     align-items: flex-start;
     background: #fff;
     border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(60, 60, 60, 0.08);
     min-width: 220px;
     max-width: 320px;
     flex: 1 1 220px;

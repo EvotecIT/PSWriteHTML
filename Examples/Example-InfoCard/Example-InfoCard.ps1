@@ -1,13 +1,17 @@
-Import-Module "$PSScriptRoot\..\..\PSWriteHTML.psd1" -Force
+﻿Import-Module "$PSScriptRoot\..\..\PSWriteHTML.psd1" -Force
 
 New-HTML {
+    New-HTMLTabOptions -SlimTabs
+    New-HTMLPanelOption -BorderRadius 0px
+    New-HTMLSectionOption -BorderRadius 0px -HeaderBackGroundColor AirForceBlue
+
     # Standard Style Cards - using New-HTMLPanel structure
     New-HTMLSection -HeaderText "Standard Style" {
         New-HTMLSection -Invisible {
-            New-HTMLInfoCard -Title "Total Users" -Number 47 -Subtitle "21.28% of users" -Icon "👥" -IconColor Akaroa
-            New-HTMLInfoCard -Title "MFA Capable Users" -Number 10 -Subtitle "21.28% of users" -Icon "🔒" -IconColor "#21c87a"
-            New-HTMLInfoCard -Title "Strong Auth Methods" -Number 8 -Subtitle "17.02% of users" -Icon "💪" -IconColor "#ffb300"
-            New-HTMLInfoCard -Title "Passwordless Capable" -Number 2 -Subtitle "4.26% of users" -Icon "🔑" -IconColor "#d13438"
+            New-HTMLInfoCard -Title "Total Users" -Number 47 -Subtitle "21.28% of users" -Icon "👥" -IconColor "#0078d4" -BorderRadius 0px
+            New-HTMLInfoCard -Title "MFA Capable Users" -Number 10 -Subtitle "21.28% of users" -Icon "🔒" -IconColor "#21c87a" -BorderRadius 0px
+            New-HTMLInfoCard -Title "Strong Auth Methods" -Number 8 -Subtitle "17.02% of users" -Icon "💪" -IconColor "#ffb300" -BorderRadius 0px
+            New-HTMLInfoCard -Title "Passwordless Capable" -Number 2 -Subtitle "4.26% of users" -Icon "🔑" -IconColor "#d13438" -BorderRadius 0px
         }
     }
 
@@ -75,6 +79,15 @@ New-HTML {
             New-HTMLInfoCard -Title "Left Aligned" -Number "Default" -Subtitle "Standard alignment" -Icon "📊" -IconColor "#6f42c1" -Alignment "Left"
             New-HTMLInfoCard -Title "Center Aligned" -Number "Centered" -Subtitle "Perfect for dashboards" -Icon "⚖️" -IconColor "#28a745" -Alignment "Center"
             New-HTMLInfoCard -Title "Right Aligned" -Number "Right Side" -Subtitle "Alternative layout" -Icon "➡️" -IconColor "#17a2b8" -Alignment "Right"
+        }
+    }
+
+    # Color Customization Examples
+    New-HTMLSection -HeaderText "Color Customization" {
+        New-HTMLSection -Invisible {
+            New-HTMLInfoCard -Title "Custom Colors" -Number "Beautiful" -Subtitle "Title, Number & Subtitle colors" -Icon "🎨" -IconColor "#e74c3c" -TitleColor "#2c3e50" -NumberColor "#e74c3c" -SubtitleColor "#7f8c8d" -BorderRadius 0px
+            New-HTMLInfoCard -Title "Shadow Effects" -Number "Amazing" -Subtitle "Custom shadow colors" -Icon "✨" -IconColor "#f39c12" -ShadowColor "rgba(243, 156, 18, 0.3)" -ShadowDirection "All" -BorderRadius 0px
+            New-HTMLInfoCard -Title "Directional Shadow" -Number "Right Side" -Subtitle "Shadow to the right" -Icon "➡️" -IconColor "#9b59b6" -ShadowDirection "Right" -ShadowColor "rgba(155, 89, 182, 0.4)" -BorderRadius 0px
         }
     }
 } -FilePath "$PSScriptRoot\Example-InfoCard.html" -Online -Show
