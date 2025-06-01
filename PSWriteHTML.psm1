@@ -15,7 +15,7 @@ if ($AssemblyFolders.BaseName -contains 'Standard') {
     }
 }
 $FoundErrors = @(
-    Foreach ($Import in @($Assembly)) {
+    foreach ($Import in @($Assembly)) {
         try {
             Add-Type -Path $Import.Fullname -ErrorAction Stop
         } catch [System.Reflection.ReflectionTypeLoadException] {
@@ -37,10 +37,10 @@ $FoundErrors = @(
         }
     }
     #Dot source the files
-    Foreach ($Import in @($Private + $Public + $Classes + $Enums)) {
-        Try {
+    foreach ($Import in @($Private + $Public + $Classes + $Enums)) {
+        try {
             . $Import.Fullname
-        } Catch {
+        } catch {
             Write-Error -Message "Failed to import functions from $($import.Fullname): $_"
             $true
         }
@@ -51,6 +51,77 @@ if ($FoundErrors.Count -gt 0) {
     $ModuleName = (Get-ChildItem $PSScriptRoot\*.psd1).BaseName
     Write-Warning "Importing module $ModuleName failed. Fix errors before continuing."
     break
+}
+
+# Initialize InfoCard Icons Dictionary at module scope
+$Script:InfoCardIcons = @{
+    # People & Users
+    'Users' = '👥'
+    'User' = '👤'
+    'Admin' = '👨‍💼'
+    'Team' = '👨‍👩‍👧‍👦'
+
+    # Security
+    'Lock' = '🔒'
+    'Unlock' = '🔓'
+    'Key' = '🔑'
+    'Shield' = '🛡️'
+    'Security' = '🔐'
+
+    # Status & Alerts
+    'Success' = '✅'
+    'Warning' = '⚠️'
+    'Error' = '❌'
+    'Info' = 'ℹ️'
+    'Check' = '✓'
+
+    # Numbers & Analytics
+    'Chart' = '📊'
+    'Graph' = '📈'
+    'Trending' = '📈'
+    'Report' = '📋'
+    'Analytics' = '📊'
+
+    # Business
+    'Money' = '💰'
+    'Sales' = '💰'
+    'Revenue' = '💵'
+    'Profit' = '💹'
+
+    # Technology
+    'Server' = '🖥️'
+    'Database' = '🗄️'
+    'Cloud' = '☁️'
+    'Network' = '🔌'
+    'Api' = '🔗'
+    'Code' = '💻'
+    'Bug' = '🐛'
+    'Settings' = '⚙️'
+
+    # Communication
+    'Email' = '📧'
+    'Message' = '💬'
+    'Phone' = '📞'
+    'Alert' = '🔔'
+
+    # Time & Activity
+    'Clock' = '🕐'
+    'Calendar' = '📅'
+    'Timer' = '⏱️'
+    'History' = '📜'
+
+    # Actions
+    'Download' = '⬇️'
+    'Upload' = '⬆️'
+    'Sync' = '🔄'
+    'Backup' = '💾'
+    'Archive' = '📦'
+
+    # Status Indicators
+    'Online' = '🟢'
+    'Offline' = '🔴'
+    'Pending' = '🟡'
+    'Processing' = '🔄'
 }
 
 Export-ModuleMember -Function '*' -Alias '*'
