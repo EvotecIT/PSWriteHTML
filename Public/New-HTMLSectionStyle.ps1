@@ -251,3 +251,7 @@
     }
 
 }
+
+Register-ArgumentCompleter -CommandName New-HTMLSectionStyle -ParameterName HeaderBackGroundColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLSectionStyle -ParameterName BackgroundColorContent -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLSectionStyle -ParameterName HeaderTextColor -ScriptBlock $Script:ScriptBlockColors
