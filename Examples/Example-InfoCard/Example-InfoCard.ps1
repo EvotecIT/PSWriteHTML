@@ -1,4 +1,4 @@
-Import-Module .\PSWriteHTML.psd1 -Force
+Import-Module "$PSScriptRoot\..\..\PSWriteHTML.psd1" -Force
 
 New-HTML {
     # Standard Style Cards - using New-HTMLPanel structure
@@ -43,9 +43,9 @@ New-HTML {
     # No Icon Style Cards
     New-HTMLSection -HeaderText "No Icons Style" {
         New-HTMLSection -Invisible {
-            New-HTMLInfoCard -Title "Revenue" -Number "`$45,320" -Subtitle "This month" -Style "NoIcon" -NumberColor "#21c87a"
-            New-HTMLInfoCard -Title "Orders" -Number "1,234" -Subtitle "Processed today" -Style "NoIcon" -NumberColor "#0078d4"
-            New-HTMLInfoCard -Title "Customers" -Number "5,678" -Subtitle "Active users" -Style "NoIcon" -NumberColor "#ffb300"
+            New-HTMLInfoCard -Title "Revenue" -Number "`$45,320" -Subtitle "This month" -Style "NoIcon" -NumberColor "#21c87a" -Alignment "Left"
+            New-HTMLInfoCard -Title "Orders" -Number "1,234" -Subtitle "Processed today" -Style "NoIcon" -NumberColor "#0078d4" -Alignment "Center"
+            New-HTMLInfoCard -Title "Customers" -Number "5,678" -Subtitle "Active users" -Style "NoIcon" -NumberColor "#ffb300" -Alignment "Right"
         }
     }
 
@@ -66,6 +66,15 @@ New-HTML {
             New-HTMLInfoCard -Title "Security Status" -Number "99.9%" -Subtitle "Uptime" -Icon "Shield" -IconColor "#28a745"
             New-HTMLInfoCard -Title "API Calls" -Number "2.3M" -Subtitle "This week" -Icon "Api" -IconColor "#17a2b8"
             New-HTMLInfoCard -Title "Sync Status" -Number "Active" -Subtitle "Last sync: 2 min ago" -Icon "Sync" -IconColor "#ffc107"
+        }
+    }
+
+    # Alignment Examples
+    New-HTMLSection -HeaderText "Alignment Examples" {
+        New-HTMLSection -Invisible {
+            New-HTMLInfoCard -Title "Left Aligned" -Number "Default" -Subtitle "Standard alignment" -Icon "📊" -IconColor "#6f42c1" -Alignment "Left"
+            New-HTMLInfoCard -Title "Center Aligned" -Number "Centered" -Subtitle "Perfect for dashboards" -Icon "⚖️" -IconColor "#28a745" -Alignment "Center"
+            New-HTMLInfoCard -Title "Right Aligned" -Number "Right Side" -Subtitle "Alternative layout" -Icon "➡️" -IconColor "#17a2b8" -Alignment "Right"
         }
     }
 } -FilePath "$PSScriptRoot\Example-InfoCard.html" -Online -Show

@@ -73,7 +73,8 @@
 .dashboard-card.compact {
     padding: 0.7rem 1.1rem;
     min-width: 160px;
-    max-width: 200px;
+    max-width: 320px;
+    flex: 1 1 160px;
 }
 
 .dashboard-card.compact .dashboard-card-icon {
@@ -165,6 +166,31 @@
     font-size: 1.05rem;
     color: #666;
     line-height: 1.2;
+}
+
+/* Alignment options */
+.dashboard-card.align-center {
+    text-align: center;
+}
+
+.dashboard-card.align-center .dashboard-card-content {
+    align-items: center;
+}
+
+.dashboard-card.align-right {
+    text-align: right;
+}
+
+.dashboard-card.align-right .dashboard-card-content {
+    align-items: flex-end;
+}
+
+.dashboard-card.align-left {
+    text-align: left;
+}
+
+.dashboard-card.align-left .dashboard-card-content {
+    align-items: flex-start;
 }
 
 @media (max-width: 700px) {

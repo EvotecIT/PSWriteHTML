@@ -45,6 +45,12 @@ function New-HTMLInfoCard {
     - 'Classic': Traditional style with square colored icon backgrounds
     - 'NoIcon': Cards without any icons
 
+    .PARAMETER Alignment
+    Text alignment within the card. Options:
+    - 'Left' (default): Left-aligned text
+    - 'Center': Center-aligned text
+    - 'Right': Right-aligned text
+
     .PARAMETER BackgroundColor
     Background color of the card. Defaults to white.
 
@@ -68,6 +74,11 @@ function New-HTMLInfoCard {
     New-HTMLInfoCard -Title "Analytics Report" -Number 156 -Subtitle "Reports generated" -IconSolid "chart-bar" -IconColor "#6f42c1"
 
     Creates a card with FontAwesome solid icon.
+
+    .EXAMPLE
+    New-HTMLInfoCard -Title "Revenue" -Number "$45,320" -Subtitle "This month" -Style "NoIcon" -Alignment "Center" -NumberColor "#21c87a"
+
+    Creates a centered card without an icon.
 
     .NOTES
     This function requires the DashboardCards CSS feature to be loaded.
@@ -172,6 +183,14 @@ function New-HTMLInfoCard {
         [Parameter(ParameterSetName = "FontAwesomeSolid")]
         [Parameter(ParameterSetName = "Dictionary")]
         [Parameter(ParameterSetName = "Emoji")]
+        [ValidateSet('Left', 'Center', 'Right')]
+        [string] $Alignment = 'Left',
+
+        [Parameter(ParameterSetName = "FontAwesomeBrands")]
+        [Parameter(ParameterSetName = "FontAwesomeRegular")]
+        [Parameter(ParameterSetName = "FontAwesomeSolid")]
+        [Parameter(ParameterSetName = "Dictionary")]
+        [Parameter(ParameterSetName = "Emoji")]
         [string] $BackgroundColor = '#ffffff',
 
         [Parameter(ParameterSetName = "FontAwesomeBrands")]
@@ -244,10 +263,13 @@ function New-HTMLInfoCard {
         }
     }
 
-    # Determine CSS classes based on style
+    # Determine CSS classes based on style and alignment
     $CssClass = 'flexElement dashboard-card'
     if ($Style -ne 'Standard') {
         $CssClass += " $($Style.ToLower())"
+    }
+    if ($Alignment -ne 'Left') {
+        $CssClass += " align-$($Alignment.ToLower())"
     }
 
     # Build the card HTML as a panel (compatible with New-HTMLPanel)
