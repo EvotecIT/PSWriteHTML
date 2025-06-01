@@ -100,20 +100,6 @@ function New-HTMLInfoCard {
         [Parameter(ParameterSetName = "Emoji")]
         [string] $Icon,
 
-        [ArgumentCompleter(
-            {
-                param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
-                ($Script:InfoCardIcons.Keys)
-            }
-        )]
-        [ValidateScript(
-            {
-                $_ -in (($Script:InfoCardIcons.Keys))
-            }
-        )]
-        [Parameter(ParameterSetName = "Dictionary")]
-        [string] $IconFromDictionary,
-
         # ICON SOLID
         [ArgumentCompleter(
             {
@@ -218,9 +204,13 @@ function New-HTMLInfoCard {
     $IconClass = $null
 
     if ($PSCmdlet.ParameterSetName -eq 'Emoji' -and $Icon) {
-        $ResolvedIcon = $Icon
-    } elseif ($PSCmdlet.ParameterSetName -eq 'Dictionary' -and $IconFromDictionary) {
-        $ResolvedIcon = $Script:InfoCardIcons[$IconFromDictionary]
+        if ($Script:InfoCardIcons[$Icon]) {
+            $ResolvedIcon = $Script:InfoCardIcons[$Icon]
+        } else {
+            $ResolvedIcon = $Icon
+        }
+        # } elseif ($PSCmdlet.ParameterSetName -eq 'Dictionary' -and $IconFromDictionary) {
+        #     $ResolvedIcon = $Script:InfoCardIcons[$IconFromDictionary]
     } elseif ($PSCmdlet.ParameterSetName -eq 'FontAwesomeSolid' -and $IconSolid) {
         $Script:HTMLSchema.Features.FontsAwesome = $true
         $ResolvedIcon = $Global:HTMLIcons.FontAwesomeSolid[$IconSolid]
@@ -316,3 +306,73 @@ function New-HTMLInfoCard {
         }
     }
 }
+
+# Define emoji dictionary for easy icon selection
+$Script:InfoCardIcons = @{
+    # People & Users
+    'Users'     = '👥'
+    'User'      = '👤'
+    'Admin'     = '👨‍💼'
+    'Team'      = '👨‍👩‍👧‍👦'
+
+    # Security
+    'Lock'      = '🔒'
+    'Unlock'    = '🔓'
+    'Key'       = '🔑'
+    'Shield'    = '🛡️'
+    'Security'  = '🔐'
+
+    # Status & Alerts
+    'Success'   = '✅'
+    'Warning'   = '⚠️'
+    'Error'     = '❌'
+    'Info'      = 'ℹ️'
+    'Check'     = '✓'
+
+    # Numbers & Analytics
+    'Chart'     = '📊'
+    'Graph'     = '📈'
+    'Trending'  = '📈'
+    'Report'    = '📋'
+    'Analytics' = '📊'
+
+    # Business
+    'Money'     = '💰'
+    'Dollar'    = '$'
+    'Sales'     = '💵'
+    'Revenue'   = '📈'
+    'Target'    = '🎯'
+
+    # Technology
+    'Server'    = '🖥️'
+    'Database'  = '🗄️'
+    'Cloud'     = '☁️'
+    'Code'      = '💻'
+    'Api'       = '🔌'
+
+    # Time & Calendar
+    'Clock'     = '⏰'
+    'Calendar'  = '📅'
+    'Schedule'  = '📆'
+    'Timer'     = '⏱️'
+
+    # Actions
+    'Download'  = '⬇️'
+    'Upload'    = '⬆️'
+    'Sync'      = '🔄'
+    'Refresh'   = '🔄'
+    'Settings'  = '⚙️'
+}
+
+# Register argument completers for better PowerShell experience
+Register-ArgumentCompleter -CommandName New-HTMLInfoCard -ParameterName Icon -ScriptBlock {
+    param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
+    $Script:InfoCardIcons.Keys | Where-Object { $_ -like "*$WordToComplete*" } | ForEach-Object {
+        #"'$_' # $($Script:InfoCardIcons[$_])"
+        "$_"
+    }
+}
+
+Register-ArgumentCompleter -CommandName New-HTMLInfoCard -ParameterName IconColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLInfoCard -ParameterName NumberColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLInfoCard -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
