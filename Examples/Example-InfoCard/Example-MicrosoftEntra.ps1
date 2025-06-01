@@ -3,25 +3,20 @@ Import-Module "$PSScriptRoot\..\..\PSWriteHTML.psd1" -Force
 New-HTML {
     New-HTMLSectionStyle -BorderRadius 0px -HeaderBackGroundColor '#0078d4'
 
-    # Feature highlights section
-
-    New-HTMLSection -Invisible {
+    # Feature highlights section - now with ResponsiveWrap
+    New-HTMLSection -Density Dense {
         # Identity Protection
         New-HTMLInfoCard -Title "Identity Protection" -Subtitle "View risky users, risky workload identities, and risky sign-ins in your tenant." -Icon "🛡️" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
 
         # Access reviews
         New-HTMLInfoCard -Title "Access reviews" -Subtitle "Make sure only the right people have continued access." -Icon "👥" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
-    }
 
-    New-HTMLSection -Invisible {
         # Authentication methods
         New-HTMLInfoCard -Title "Authentication methods" -Subtitle "Configure your users in the authentication methods policy to enable passwordless authentication." -Icon "🔑" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
 
         # Microsoft Entra Domain Services
         New-HTMLInfoCard -Title "Microsoft Entra Domain Services" -Subtitle "Lift-and-shift legacy applications running on-premises into Azure." -Icon "🔷" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
 
-    }
-    New-HTMLSection -Invisible {
         # Tenant restrictions
         New-HTMLInfoCard -Title "Tenant restrictions" -Subtitle "Specify the list of tenants that their users are permitted to access." -Icon "🚫" -IconColor "#dc3545" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
 
@@ -38,14 +33,13 @@ New-HTML {
 
     # Additional services section
     New-HTMLSection -HeaderText 'Additional Services' {
-        New-HTMLSection -Invisible {
+        New-HTMLSection -Density Spacious {
             # Try Microsoft Entra admin center
             New-HTMLInfoCard -Title "Try Microsoft Entra admin center" -Subtitle "Secure your identity environment with Microsoft Entra ID, permissions management and more." -Icon "🔧" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
 
             # User Profile Card
             New-HTMLInfoCard -Title "Przemysław Klys" -Subtitle "e6a8f1cf-0874-4323-a12f-2bf51bb6dfdd | Global Administrator and 2 other roles" -Icon "👤" -IconColor "#6c757d" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
-        }
-        New-HTMLSection -Invisible {
+
             # Secure Score
             New-HTMLInfoCard -Title "Secure Score for Identity" -Number "28.21%" -Subtitle "Secure score updates can take up to 48 hours." -Icon "🏆" -IconColor "#ffc107" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
 
@@ -56,7 +50,7 @@ New-HTML {
 
     # Enhanced styling showcase with different shadow intensities
     New-HTMLSection -HeaderText 'Enhanced Visual Showcase' {
-        New-HTMLSection -Invisible {
+        New-HTMLSection -Density Spacious {
             # ExtraNormal shadows for high-priority items
             New-HTMLInfoCard -Title "HIGH PRIORITY" -Number "Critical" -Subtitle "Maximum visibility shadow" -Icon "⚠️" -IconColor "#dc3545" -ShadowIntensity 'Normal' -ShadowColor 'rgba(220, 53, 69, 0.4)' -BorderRadius 2px
 

@@ -14,7 +14,28 @@
     overflow-wrap: break-word;
 }
 
+/* Wrapper class that respects parent container boundaries */
+.dashboard-card-content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 14px;
+    /* Remove fixed min/max widths to respect container boundaries */
+    width: 100%;
+    margin: 5px;
+    transition: box-shadow 0.2s;
+    padding: 1.2rem 1.8rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    /* Ensure it doesn't overflow the parent container */
+    box-sizing: border-box;
+}
+
 .dashboard-card:hover {
+    box-shadow: 0 4px 16px rgba(60, 60, 60, 0.16);
+}
+
+.dashboard-card-content-wrapper:hover {
     box-shadow: 0 4px 16px rgba(60, 60, 60, 0.16);
 }
 
@@ -76,7 +97,12 @@
     flex: 1 1 160px;
 }
 
-.dashboard-card.compact .dashboard-card-icon {
+.dashboard-card-content-wrapper.compact {
+    padding: 0.7rem 1.1rem;
+}
+
+.dashboard-card.compact .dashboard-card-icon,
+.dashboard-card-content-wrapper.compact .dashboard-card-icon {
     width: 32px;
     height: 32px;
     font-size: 1.2rem;
@@ -85,20 +111,24 @@
     padding-top: 0.1rem;
 }
 
-.dashboard-card.compact .dashboard-card-title {
+.dashboard-card.compact .dashboard-card-title,
+.dashboard-card-content-wrapper.compact .dashboard-card-title {
     font-size: 1rem;
 }
 
-.dashboard-card.compact .dashboard-card-number {
+.dashboard-card.compact .dashboard-card-number,
+.dashboard-card-content-wrapper.compact .dashboard-card-number {
     font-size: 1.3rem;
 }
 
-.dashboard-card.compact .dashboard-card-subtitle {
+.dashboard-card.compact .dashboard-card-subtitle,
+.dashboard-card-content-wrapper.compact .dashboard-card-subtitle {
     font-size: 0.85rem;
 }
 
 /* Fixed layout style - keeps numbers aligned even with multiline titles */
-.dashboard-card.fixed .dashboard-card-title {
+.dashboard-card.fixed .dashboard-card-title,
+.dashboard-card-content-wrapper.fixed .dashboard-card-title {
     font-size: 1.1rem;
     font-weight: 600;
     color: #222;
@@ -116,7 +146,8 @@
     line-height: 1.3;
 }
 
-.dashboard-card.fixed .dashboard-card-number {
+.dashboard-card.fixed .dashboard-card-number,
+.dashboard-card-content-wrapper.fixed .dashboard-card-number {
     font-size: 2rem;
     font-weight: 700;
     color: #0078d4;
@@ -125,7 +156,8 @@
     margin-top: 0;
 }
 
-.dashboard-card.fixed .dashboard-card-subtitle {
+.dashboard-card.fixed .dashboard-card-subtitle,
+.dashboard-card-content-wrapper.fixed .dashboard-card-subtitle {
     font-size: 1rem;
     color: #666;
     margin-top: auto;
@@ -145,7 +177,8 @@
     flex-shrink: 0;
 }
 
-.dashboard-card.classic .dashboard-card-content {
+.dashboard-card.classic .dashboard-card-content,
+.dashboard-card-content-wrapper.classic .dashboard-card-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -153,7 +186,8 @@
     height: 48px;
 }
 
-.dashboard-card.classic .dashboard-card-title {
+.dashboard-card.classic .dashboard-card-title,
+.dashboard-card-content-wrapper.classic .dashboard-card-title {
     font-size: 1.3rem;
     font-weight: 600;
     color: #222;
@@ -161,34 +195,41 @@
     line-height: 1.2;
 }
 
-.dashboard-card.classic .dashboard-card-subtitle {
+.dashboard-card.classic .dashboard-card-subtitle,
+.dashboard-card-content-wrapper.classic .dashboard-card-subtitle {
     font-size: 1.05rem;
     color: #666;
     line-height: 1.2;
 }
 
 /* Alignment options */
-.dashboard-card.align-center {
+.dashboard-card.align-center,
+.dashboard-card-content-wrapper.align-center {
     text-align: center;
 }
 
-.dashboard-card.align-center .dashboard-card-content {
+.dashboard-card.align-center .dashboard-card-content,
+.dashboard-card-content-wrapper.align-center .dashboard-card-content {
     align-items: center;
 }
 
-.dashboard-card.align-right {
+.dashboard-card.align-right,
+.dashboard-card-content-wrapper.align-right {
     text-align: right;
 }
 
-.dashboard-card.align-right .dashboard-card-content {
+.dashboard-card.align-right .dashboard-card-content,
+.dashboard-card-content-wrapper.align-right .dashboard-card-content {
     align-items: flex-end;
 }
 
-.dashboard-card.align-left {
+.dashboard-card.align-left,
+.dashboard-card-content-wrapper.align-left {
     text-align: left;
 }
 
-.dashboard-card.align-left .dashboard-card-content {
+.dashboard-card.align-left .dashboard-card-content,
+.dashboard-card-content-wrapper.align-left .dashboard-card-content {
     align-items: flex-start;
 }
 

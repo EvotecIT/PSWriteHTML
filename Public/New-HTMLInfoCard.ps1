@@ -404,7 +404,8 @@
     }
 
     # Determine CSS classes based on style and alignment
-    $CssClass = 'flexElement dashboard-card'
+    # Use flexPanel to respect container boundaries, but maintain dashboard-card styling
+    $CssClass = 'flexPanel dashboard-card-content-wrapper'
     if ($Style -ne 'Standard') {
         $CssClass += " $($Style.ToLower())"
     }
