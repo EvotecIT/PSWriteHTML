@@ -10,8 +10,8 @@ New-HTML {
 "@ -Color Black
 
         # Demonstration: Traditional vs ResponsiveWrap
-        New-HTMLSection -HeaderText "❌ OLD: Traditional Layout" -Density Comfortable {
-            New-HTMLSection -Invisible {
+        New-HTMLSection -HeaderText "Traditional Layout" -Density Spacious {
+            New-HTMLSection -Invisible -Density Comfortable {
                 New-HTMLInfoCard -Title "Card 1" -Number "100%" -Subtitle "May get cut off" -Icon "📱" -IconColor '#d13438'
                 New-HTMLInfoCard -Title "Card 2" -Number "100%" -Subtitle "Fixed layout" -Icon "📋" -IconColor '#d13438'
                 New-HTMLInfoCard -Title "Card 3" -Number "100%" -Subtitle "No wrapping" -Icon "🏢" -IconColor '#d13438'
@@ -28,7 +28,7 @@ New-HTML {
 
         New-HTMLText -Text @"
 <h3>🚀 Usage:</h3>
-<pre><code>New-HTMLSection -ResponsiveWrap -MinItemsPerRow 3 {
+<pre><code>New-HTMLSection -Density Compact {
     New-HTMLInfoCard -Title "Card 1" -Number 100 -Icon "📱"
     New-HTMLInfoCard -Title "Card 2" -Number 200 -Icon "📋"
     # Cards will wrap intelligently when resized!

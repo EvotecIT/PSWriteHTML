@@ -2,19 +2,6 @@ Import-Module "$PSScriptRoot\..\..\PSWriteHTML.psd1" -Force
 
 New-HTML {
     New-HTMLSection -HeaderText "🎯 New Density Parameter - Intuitive Layout Control!" -Wrap wrap {
-
-        New-HTMLText -Text @"
-<h3>✨ Much Better Than MinItemsPerRow!</h3>
-<p>Instead of confusing numbers, use descriptive density names:</p>
-<ul>
-<li><strong>Spacious</strong> - Large cards, lots of breathing room</li>
-<li><strong>Comfortable</strong> - Medium cards, balanced layout</li>
-<li><strong>Compact</strong> - Smaller cards, efficient use of space</li>
-<li><strong>Dense</strong> - Small cards, more content per row</li>
-<li><strong>VeryDense</strong> - Tiny cards, maximum density</li>
-</ul>
-"@ -Color Black
-
         New-HTMLSection -HeaderText "📏 Spacious Density" -Density Spacious {
             New-HTMLInfoCard -Title "Identity Protection" -Number "Active" -Subtitle "Large cards with plenty of space" -Icon "🛡️" -IconColor '#0078d4'
             New-HTMLInfoCard -Title "Access Reviews" -Number "Enabled" -Subtitle "Roomy layout for better readability" -Icon "👥" -IconColor '#0078d4'
@@ -58,10 +45,7 @@ New-HTML {
 
         New-HTMLText -Text @"
 <h3>📝 How to Use:</h3>
-<pre><code># Old way (confusing):
-New-HTMLSection -MinItemsPerRow 2 { }
-
-# New way (intuitive):
+<pre><code>
 New-HTMLSection -Density Spacious { }
 New-HTMLPanel -Density Comfortable { }
 New-HTMLContainer -Density Dense { }</code></pre>
