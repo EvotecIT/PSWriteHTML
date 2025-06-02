@@ -1,4 +1,4 @@
-Function New-HTMLPanel {
+function New-HTMLPanel {
     <#
     .SYNOPSIS
     Creates a new HTML panel with customizable styling options.
@@ -46,15 +46,19 @@ Function New-HTMLPanel {
         [alias('BackgroundShade')][string]$BackgroundColor,
         [switch] $Invisible,
         [alias('flex-basis')][string] $Width,
+        [object] $Height,
         [string] $Margin,
 
         [string][ValidateSet('center', 'left', 'right', 'justify')] $AlignContentText,
         [ValidateSet('0px', '5px', '10px', '15px', '20px', '25px')][string] $BorderRadius,
+        # Density parameter - automatically enables responsive wrapping
+        [ValidateSet('Spacious', 'Comfortable', 'Compact', 'Dense', 'VeryDense')][string] $Density,
         [string] $AnchorName,
         [System.Collections.IDictionary] $StyleSheetsConfiguration
     )
     $Script:HTMLSchema.Features.Main = $true
     $Script:HTMLSchema.Features.MainFlex = $true
+    $Script:HTMLSchema.Features.ResponsiveWrap = $true
     # This is so we can support external CSS configuration
     if (-not $StyleSheetsConfiguration) {
         $Script:HTMLSchema.Features.DefaultPanel = $true
@@ -73,17 +77,29 @@ Function New-HTMLPanel {
         "background-color" = ConvertFrom-Color -Color $BackgroundColor
         'border-radius'    = $BorderRadius
         'text-align'       = $AlignContentText # This controls content within panel if it's not 100% width such as text
+        'height'           = ConvertFrom-Size -Size $Height
     }
     if ($Invisible) {
         #$PanelStyle['box-shadow'] = 'unset !important;'
         $StyleSheetsConfiguration.Panel = ''
         [string] $Class = "flexPanel overflowHidden $($StyleSheetsConfiguration.Panel)"
-    } elseif ($Width -or $Margin) {
+    } elseif ($Width -or $Margin -or $PSBoundParameters.ContainsKey('Density')) {
         $Attributes = @{
             'flex-basis' = if ($Width) { $Width } else { '100%' }
             'margin'     = if ($Margin) { $Margin }
         }
-        [string] $ClassName = "defaultPanel$(Get-RandomStringName -Size 8 -LettersOnly)"
+
+        if ($PSBoundParameters.ContainsKey('Density')) {
+            # Enable responsive wrapping for the panel
+            $Script:HTMLSchema.Features.ResponsiveWrap = $true
+
+            # Use global responsive CSS classes for density-based layout
+            [string] $ClassName = "defaultPanel$(Get-RandomStringName -Size 8 -LettersOnly) responsive-wrap-container density-$($Density.ToLower())"
+            # No custom CSS needed - global classes handle everything
+        } else {
+            [string] $ClassName = "defaultPanel$(Get-RandomStringName -Size 8 -LettersOnly)"
+        }
+
         $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes -Group
         $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css
         [string] $Class = "flexPanel overflowHidden $ClassName"

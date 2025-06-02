@@ -83,6 +83,16 @@
                 Email           = $false
                 License         = 'MIT'
             }
+            DashboardCards              = @{
+                Comment         = 'Dashboard Cards for InfoCards'
+                InternalComment = 'dashboard-cards'
+                HeaderAlways    = @{
+                    Css = "$PSScriptRoot\..\Resources\CSS\dashboardCards.css"
+                }
+                Default         = $true
+                Email           = $false
+                License         = 'MIT'
+            }
             Main                        = [ordered]@{
                 HeaderAlways = [ordered]@{
                     CssInline = [ordered]@{
@@ -173,6 +183,66 @@
                 }
                 Default      = $true
                 Email        = $false
+            }
+            ResponsiveWrap              = @{
+                Comment         = 'Responsive Wrapping for InfoCards and other flex items'
+                InternalComment = 'responsive-wrap'
+                HeaderAlways    = @{
+                    Css = "$PSScriptRoot\..\Resources\CSS\responsiveWrap.css"
+                    # CssInline = @{
+                    #     # Base responsive container styles
+                    #     '.responsive-wrap-container' = @{
+                    #         'display' = 'flex !important'
+                    #         'flex-wrap' = 'wrap !important'
+                    #         'gap' = '0.5rem !important'
+                    #         'align-content' = 'flex-start !important'
+                    #         'align-items' = 'stretch !important'
+                    #         'justify-content' = 'flex-start !important'
+                    #     }
+                    #     '.responsive-wrap-container > *' = @{
+                    #         'flex' = '1 1 auto !important'
+                    #         'box-sizing' = 'border-box !important'
+                    #     }
+                    #     # Desktop specific sizes
+                    #     '@media (min-width: 1201px)' = @{
+                    #         '.responsive-wrap-container.min-items-2 > *' = @{
+                    #             'min-width' = 'calc(50% - 0.5rem) !important'
+                    #             'max-width' = 'calc(50% - 0.5rem) !important'
+                    #         }
+                    #         '.responsive-wrap-container.min-items-3 > *' = @{
+                    #             'min-width' = 'calc(33.333% - 0.5rem) !important'
+                    #             'max-width' = 'calc(33.333% - 0.5rem) !important'
+                    #         }
+                    #         '.responsive-wrap-container.min-items-4 > *' = @{
+                    #             'min-width' = 'calc(25% - 0.5rem) !important'
+                    #             'max-width' = 'calc(25% - 0.5rem) !important'
+                    #         }
+                    #     }
+                    #     # Tablet responsive
+                    #     '@media (max-width: 1200px)' = @{
+                    #         '.responsive-wrap-container > *' = @{
+                    #             'min-width' = 'calc(50% - 0.5rem) !important'
+                    #             'max-width' = 'calc(50% - 0.5rem) !important'
+                    #         }
+                    #     }
+                    #     # Mobile responsive
+                    #     '@media (max-width: 768px)' = @{
+                    #         '.responsive-wrap-container > *' = @{
+                    #             'min-width' = 'calc(100% - 0.5rem) !important'
+                    #             'max-width' = 'calc(100% - 0.5rem) !important'
+                    #         }
+                    #     }
+                    #     # InfoCard margin override
+                    #     '.responsive-wrap-container .dashboard-card-content-wrapper' = @{
+                    #         'margin' = '0 !important'
+                    #     }
+                    #     '.responsive-wrap-container .flexPanel' = @{
+                    #         'margin' = '0 !important'
+                    #     }
+                    # }
+                }
+                Default         = $true
+                Email           = $false
             }
             <# Doesn't seem to be in use
         MainLink                = [ordered]@{
@@ -461,12 +531,12 @@
                             'border-spacing'  = '0px'
                         }
                         'img'                                       = @{
-                            'width'   = '100%';
-                            'display' = 'block';
+                            'width'   = '100%'
+                            'display' = 'block'
                         }
                         '.wrapper'                                  = @{
-                            'padding-left'  = '10px';
-                            'padding-right' = '10px';
+                            'padding-left'  = '10px'
+                            'padding-right' = '10px'
                         }
                         '@media only screen and (max-width: 620px)' = @{
                             '.wrapper .section' = @{
@@ -649,7 +719,7 @@
                     JsInLine  = "var dataTablesChartsEvents = {}; var count = 0;"
                     CssInline = @{
                         'td.highlight' = @{
-                            'background-color' = 'yellow';
+                            'background-color' = 'yellow'
                         }
                     }
                 }
@@ -799,7 +869,7 @@
                         # /* giving some spaces between tables being to close */
                         'div.dataTables_wrapper'           = @{
                             #    'padding' = '10px 10px 10px 10px'
-                            'margin' = '5px';
+                            'margin' = '5px'
                         }
                         #'button.dt-button'                 = @{
                         #    #'font-size'     = '8pt !important'
@@ -889,9 +959,9 @@
                         }
                         'table thead th' = @{
                             #'color'= 'white';
-                            'text-align'       = 'center';
-                            'font-weight'      = 'bold';
-                            'padding'          = '4px 17px';
+                            'text-align'       = 'center'
+                            'font-weight'      = 'bold'
+                            'padding'          = '4px 17px'
                             #'border-bottom'    = '1px solid #111'
                             'background-color' = 'white'
                             'color'            = 'black'
@@ -1380,6 +1450,18 @@
                 Default = $true
                 Email   = $false
             }
+            DataTablesToggleView        = @{
+                Comment      = 'DataTables ToggleView'
+                # Header       = @{
+                #     JsLink = "$($ConfigurationURL)/JS/dataTables.buttons.toggleView.js"
+                #     JS     = "$PSScriptRoot\..\Resources\JS\dataTables.buttons.toggleView.js"
+                # }
+                HeaderAlways = @{
+                    JS = "$PSScriptRoot\..\Resources\JS\dataTables.buttons.toggleView.js"
+                }
+                Default      = $true
+                Email        = $false
+            }
             DataTablesSimplify          = @{
                 Comment      = 'DataTables (not really) - Simplified'
                 HeaderAlways = @{
@@ -1540,7 +1622,7 @@
                 Demos       = 'https://toorshia.github.io/justgage'
                 Header      = @{
                     JSLink = @(
-                        'https://cdn.jsdelivr.net/npm/justgage@1.6.1/justgage.min.js'
+                        'https://cdn.jsdelivr.net/npm/justgage@1.7.0/justgage.min.js'
                     )
                     JS     = @(
                         "$PSScriptRoot\..\Resources\JS\justgage.min.js"
@@ -1630,6 +1712,14 @@
                 LicenseLink = 'https://github.com/moment/moment/blob/develop/LICENSE'
                 Default     = $true
                 Email       = $false
+            }
+            MomentDateText              = @{
+                Comment      = 'Moment Date Text Library'
+                HeaderAlways = @{
+                    JS = "$PSScriptRoot\..\Resources\JS\momentDateText.js"
+                }
+                Default      = $true
+                Email        = $false
             }
             Mermaid                     = @{
                 Comment     = 'Mermaid JS Library'
@@ -2150,14 +2240,14 @@
                             position           = 'absolute'
                             'background-color' = '#fff'
                             'moz-opacity'      = 0.70
-                            opacity            = 0.70;
-                            filter             = 'alpha(opacity=70)';
-                            'border-radius'    = '10px';
-                            padding            = '10px';
-                            'z-index'          = 1000;
-                            'max-width'        = '200px';
-                            display            = 'none';
-                            color              = '#343434';
+                            opacity            = 0.70
+                            filter             = 'alpha(opacity=70)'
+                            'border-radius'    = '10px'
+                            padding            = '10px'
+                            'z-index'          = 1000
+                            'max-width'        = '200px'
+                            display            = 'none'
+                            color              = '#343434'
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-Function New-HTMLSection {
+function New-HTMLSection {
     <#
     .SYNOPSIS
     Creates a new HTML section with customizable styling options.
@@ -66,6 +66,10 @@ Function New-HTMLSection {
     .PARAMETER BorderRadius
     Specifies the border radius of the section. Valid values are '0px', '5px', '10px', '15px', '20px', '25px'.
 
+    .PARAMETER Density
+    Specifies the layout density using intuitive names. Valid values are 'Spacious', 'Comfortable', 'Compact', 'Dense', 'VeryDense'.
+    Automatically enables responsive wrapping behavior for child elements.
+
     .PARAMETER AnchorName
     Specifies the anchor name for the section.
 
@@ -76,6 +80,13 @@ Function New-HTMLSection {
     New-HTMLSection -Content { "This is the content of the section." } -HeaderText "Section Title" -HeaderTextColor "blue" -HeaderTextSize "20px" -HeaderTextAlignment "center" -HeaderBackGroundColor "lightgray" -BackgroundColor "white" -CanCollapse -Height "200px" -Width "50%" -Wrap "wrap" -Direction "row" -AlignContent "center" -AlignItems "center" -JustifyContent "flex-start" -BorderRadius "10px" -AnchorName "section1" -StyleSheetsConfiguration @{ Section = 'customSection'; SectionText = 'customSectionText' }
 
     .EXAMPLE
+    New-HTMLSection -HeaderText "Cards with Responsive Layout" -Density Comfortable {
+        New-HTMLInfoCard -Title "Card 1" -Number 100 -Icon "📊"
+        New-HTMLInfoCard -Title "Card 2" -Number 200 -Icon "📈"
+        # Cards will automatically wrap and maintain comfortable spacing
+    }
+
+    .EXAMPLE
     $content = {
         "This is a sample content."
     }
@@ -83,8 +94,8 @@ Function New-HTMLSection {
     #>
     [alias('New-HTMLContent', 'Section')]
     [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace"),
+    param (
+        [Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(throw "Open curly brace"),
         [alias('Name', 'Title')][Parameter(Mandatory = $false)][string]$HeaderText,
         [alias('TextColor')][string]$HeaderTextColor,
         [alias('TextSize')][string] $HeaderTextSize,
@@ -104,6 +115,8 @@ Function New-HTMLSection {
         [string][ValidateSet('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch')] $AlignContent,
         [string][ValidateSet('stretch', 'flex-start', 'flex-end', 'center', 'baseline')] $AlignItems,
         [string][ValidateSet('flex-start', 'flex-end', 'center')] $JustifyContent,
+        # Density parameter - automatically enables responsive wrapping
+        [ValidateSet('Spacious', 'Comfortable', 'Compact', 'Dense', 'VeryDense')][string] $Density,
 
         [ValidateSet('0px', '5px', '10px', '15px', '20px', '25px')][string] $BorderRadius,
 
@@ -112,6 +125,7 @@ Function New-HTMLSection {
     )
     $Script:HTMLSchema.Features.Main = $true
     $Script:HTMLSchema.Features.MainFlex = $true
+    $Script:HTMLSchema.Features.ResponsiveWrap = $true
     # This is so we can support external CSS configuration
     if (-not $StyleSheetsConfiguration) {
         $StyleSheetsConfiguration = [ordered] @{
@@ -161,7 +175,7 @@ Function New-HTMLSection {
         if ($Collapsed) {
             # hides Show button
             $HideStyle = @{
-                "color"   = $TextHeaderColorFromRGB;
+                "color"   = $TextHeaderColorFromRGB
                 'display' = 'none'
             }
             # shows Hide button
@@ -176,7 +190,7 @@ Function New-HTMLSection {
         } else {
             # hides Show button
             $ShowStyle = @{
-                "color"   = $TextHeaderColorFromRGB;
+                "color"   = $TextHeaderColorFromRGB
                 'display' = 'none'
             }
             # shows Hide button
@@ -190,12 +204,12 @@ Function New-HTMLSection {
     } else {
         # hides Show button
         $ShowStyle = @{
-            "color"   = $TextHeaderColorFromRGB;
+            "color"   = $TextHeaderColorFromRGB
             'display' = 'none'
         }
         # hides Show button
         $HideStyle = @{
-            "color"   = $TextHeaderColorFromRGB;
+            "color"   = $TextHeaderColorFromRGB
             'display' = 'none'
         }
         $ClassTop = ''
@@ -220,19 +234,42 @@ Function New-HTMLSection {
         $HiddenDivStyle['height'] = ConvertFrom-Size -Size $Height
     }
 
-    if ($Wrap -or $Direction) {
-        [string] $ClassName = "flexParent$(Get-RandomStringName -Size 8 -LettersOnly)"
-        $Attributes = @{
-            'display'        = 'flex'
-            'flex-wrap'      = if ($Wrap) { $Wrap } else { }
-            'flex-direction' = if ($Direction) { $Direction } else { }
-            'align-content'  = if ($AlignContent) { $AlignContent } else { }
-            'align-items'    = if ($AlignItems) { $AlignItems } else { }
-        }
-        $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes -Group
+    # Auto-enable responsive wrapping if Density is specified
+    $ResponsiveWrap = $PSBoundParameters.ContainsKey('Density')
 
-        #$Script:HTMLSchema.CustomHeaderCSS.Add($Css)
-        $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css
+    if ($Wrap -or $Direction -or $ResponsiveWrap) {
+        [string] $ClassName = "flexParent$(Get-RandomStringName -Size 8 -LettersOnly)"
+
+        if ($ResponsiveWrap) {
+            # Enable responsive wrapping feature
+            $Script:HTMLSchema.Features.ResponsiveWrap = $true
+
+            # Use the responsive-wrap CSS classes with Density
+            $ClassName += " responsive-wrap-container density-$($Density.ToLower())"
+
+            # Create responsive flex container - minimal attributes since CSS handles most of it
+            $Attributes = @{}
+
+            # Only override if user specified custom values
+            if ($Direction) { $Attributes['flex-direction'] = $Direction }
+            if ($AlignContent) { $Attributes['align-content'] = $AlignContent }
+            if ($AlignItems) { $Attributes['align-items'] = $AlignItems }
+            if ($JustifyContent) { $Attributes['justify-content'] = $JustifyContent }
+        } else {
+            $Attributes = @{
+                'display'         = 'flex'
+                'flex-wrap'       = if ($Wrap) { $Wrap } else { }
+                'flex-direction'  = if ($Direction) { $Direction } else { }
+                'align-content'   = if ($AlignContent) { $AlignContent } else { }
+                'align-items'     = if ($AlignItems) { $AlignItems } else { }
+                'justify-content' = if ($JustifyContent) { $JustifyContent } else { }
+            }
+        }
+
+        if ($Attributes.Count -gt 0) {
+            $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes -Group
+            $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css
+        }
     } else {
         if ($Invisible) {
             [string] $ClassName = "flexParentInvisible flexElement overflowHidden $($StyleSheetsConfiguration.SectionContentInvisible)"
@@ -241,10 +278,18 @@ Function New-HTMLSection {
             [string] $ClassName = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
             [string] $ClassNameNested = "flexParent flexElement overflowHidden $($StyleSheetsConfiguration.SectionContent)"
         }
+
+        # Add responsive wrap classes if Density is specified for non-custom flex sections
+        if ($PSBoundParameters.ContainsKey('Density')) {
+            $Script:HTMLSchema.Features.ResponsiveWrap = $true
+            $ClassName += " responsive-wrap-container density-$($Density.ToLower())"
+            $ClassNameNested += " responsive-wrap-container density-$($Density.ToLower())"
+        }
     }
 
     $ContentStyle = @{
         'justify-content' = $JustifyContent
+        'flex-basis'      = if ($Width) { $Width } else { '100%' }
     }
 
     $DivHeaderStyle = @{
@@ -256,7 +301,7 @@ Function New-HTMLSection {
     $HeaderStyle = @{ "color" = $TextHeaderColorFromRGB }
     if ($Invisible) {
         New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; style = $AttributesTop['style'] } -Value {
-            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassNameNested; Style = $ContentStyle } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassNameNested collapsable"; Style = $ContentStyle } -Value {
                 $Object = Invoke-Command -ScriptBlock $Content
                 if ($null -ne $Object) {
                     $Object

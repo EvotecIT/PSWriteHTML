@@ -1,0 +1,174 @@
+/* Responsive Wrapping CSS for PSWriteHTML */
+
+/* Base responsive container styles */
+.responsive-wrap-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    align-content: flex-start !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+}
+
+/* Make sure the collapsable container also flexes properly */
+.responsive-wrap-container > .collapsable {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    align-content: flex-start !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+}
+
+/* Default responsive item behavior */
+.responsive-wrap-container>* {
+    flex: 1 1 auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Density-based responsive cards - intuitive density control */
+/* For Sections (with .collapsable wrapper) */
+.responsive-wrap-container.density-spacious > .collapsable > .flexPanel {
+    min-width: 350px !important;
+    max-width: none !important;
+    flex: 1 1 350px !important;
+}
+
+.responsive-wrap-container.density-comfortable > .collapsable > .flexPanel {
+    min-width: 300px !important;
+    max-width: none !important;
+    flex: 1 1 300px !important;
+}
+
+.responsive-wrap-container.density-compact > .collapsable > .flexPanel {
+    min-width: 280px !important;
+    max-width: none !important;
+    flex: 1 1 280px !important;
+}
+
+.responsive-wrap-container.density-dense > .collapsable > .flexPanel {
+    min-width: 220px !important;
+    max-width: none !important;
+    flex: 1 1 220px !important;
+}
+
+.responsive-wrap-container.density-verydense > .collapsable > .flexPanel {
+    min-width: 180px !important;
+    max-width: none !important;
+    flex: 1 1 180px !important;
+}
+
+/* For Panels and Containers (direct .flexPanel children) */
+.responsive-wrap-container.density-spacious > .flexPanel {
+    min-width: 350px !important;
+    max-width: none !important;
+    flex: 1 1 350px !important;
+}
+
+.responsive-wrap-container.density-comfortable > .flexPanel {
+    min-width: 300px !important;
+    max-width: none !important;
+    flex: 1 1 300px !important;
+}
+
+.responsive-wrap-container.density-compact > .flexPanel {
+    min-width: 280px !important;
+    max-width: none !important;
+    flex: 1 1 280px !important;
+}
+
+.responsive-wrap-container.density-dense > .flexPanel {
+    min-width: 220px !important;
+    max-width: none !important;
+    flex: 1 1 220px !important;
+}
+
+.responsive-wrap-container.density-verydense > .flexPanel {
+    min-width: 180px !important;
+    max-width: none !important;
+    flex: 1 1 180px !important;
+}
+
+/* Legacy support for existing min-items classes */
+.responsive-wrap-container.min-items-2 > .collapsable > .flexPanel {
+    min-width: 350px !important;
+    max-width: none !important;
+    flex: 1 1 350px !important;
+}
+
+.responsive-wrap-container.min-items-3 > .collapsable > .flexPanel {
+    min-width: 300px !important;
+    max-width: none !important;
+    flex: 1 1 300px !important;
+}
+
+.responsive-wrap-container.min-items-4 > .collapsable > .flexPanel {
+    min-width: 280px !important;
+    max-width: none !important;
+    flex: 1 1 280px !important;
+}
+
+.responsive-wrap-container.min-items-5 > .collapsable > .flexPanel {
+    min-width: 250px !important;
+    max-width: none !important;
+    flex: 1 1 250px !important;
+}
+
+.responsive-wrap-container.min-items-6 > .collapsable > .flexPanel {
+    min-width: 220px !important;
+    max-width: none !important;
+    flex: 1 1 220px !important;
+}
+
+.responsive-wrap-container.min-items-7 > .collapsable > .flexPanel {
+    min-width: 200px !important;
+    max-width: none !important;
+    flex: 1 1 200px !important;
+}
+
+.responsive-wrap-container.min-items-8 > .collapsable > .flexPanel {
+    min-width: 180px !important;
+    max-width: none !important;
+    flex: 1 1 180px !important;
+}
+
+
+
+/* Mobile: Single column layout */
+@media (max-width: 768px) {
+    .responsive-wrap-container > .collapsable > .flexPanel,
+    .responsive-wrap-container > .flexPanel {
+        min-width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+}
+
+/* Very small mobile: Tighter spacing */
+@media (max-width: 480px) {
+    .responsive-wrap-container {
+        gap: 0.25rem !important;
+    }
+
+    .responsive-wrap-container > .collapsable {
+        gap: 0.25rem !important;
+    }
+
+    .responsive-wrap-container > .collapsable > .flexPanel,
+    .responsive-wrap-container > .flexPanel {
+        min-width: 100% !important;
+        max-width: 100% !important;
+        margin: 0.25rem 0 !important;
+        flex: 0 0 100% !important;
+    }
+}
+
+/* Special handling for InfoCards to ensure they work properly with responsive wrap */
+.responsive-wrap-container .dashboard-card-content-wrapper {
+    margin: 0 !important;
+}
+
+.responsive-wrap-container .flexPanel {
+    margin: 0 !important;
+}

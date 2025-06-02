@@ -1,4 +1,4 @@
-function New-HTMLTable {
+﻿function New-HTMLTable {
     <#
     .SYNOPSIS
     Creates a new HTML table with various customization options.
@@ -284,7 +284,7 @@ function New-HTMLTable {
         [Parameter(Mandatory = $false, Position = 2)][ScriptBlock] $PostContent,
         [alias('ArrayOfObjects', 'Object', 'Table')][Array] $DataTable,
         [string] $Title,
-        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'print', 'searchPanes', 'searchBuilder', 'columnVisibility')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchBuilder'),
+        [string[]][ValidateSet('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'print', 'searchPanes', 'searchBuilder', 'columnVisibility', 'toggleView')] $Buttons = @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchBuilder', 'toggleView'),
         [string[]][ValidateSet('numbers', 'simple', 'simple_numbers', 'full', 'full_numbers', 'first_last_numbers')] $PagingStyle = 'full_numbers',
         [int[]]$PagingOptions = @(15, 25, 50, 100),
         [int] $PagingLength,
@@ -364,11 +364,12 @@ function New-HTMLTable {
         [switch] $PrettifyObject,
         [string] $PrettifyObjectSeparator = ", ",
         [string] $PrettifyObjectDateTimeFormat,
-        [int] $FlattenDepth
+        [int] $FlattenDepth,
+        [object] $Width
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
-        Exit
+        exit
     }
     $Script:HTMLSchema.Features.MainFlex = $true
     # Building HTML Table / Script
@@ -539,10 +540,13 @@ function New-HTMLTable {
     }
     # Autosize removes $Width of 100%, which means it will fit the content rather then trying to fill the screen
     if (-not $AutoSize) {
-        [string] $Width = '100%'
+        if (-not $Width) {
+            $Width = '100%'
+        }
     }
-
-
+    if ($Width) {
+        $Width = ConvertFrom-Size -Size $Width
+    }
 
     if ($Compare) {
         $Splitter = "`r`n"
@@ -753,6 +757,16 @@ function New-HTMLTable {
             $SearchBuilderEnabled = $false
         }
     }
+    if ($Buttons -contains 'toggleView') {
+        $Script:HTMLSchema.Features.DataTablesToggleView = $true
+        if ($ScrollX) {
+            $ToggleViewDefaultViewMode = 'scrollx'
+        } else {
+            $ToggleViewDefaultViewMode = 'responsive'
+        }
+    } else {
+        $ToggleViewDefaultViewMode = 'responsive'
+    }
     if ($FuzzySearch -or $FuzzySearchSmartToggle) {
         $Script:HTMLSchema.Features.DataTablesFuzzySearch = $true
         if ($FuzzySearch) {
@@ -831,8 +845,8 @@ function New-HTMLTable {
     # Prepare data for preprocessing. Convert Hashtable/Ordered Dictionary to their visual representation
     $Table = $null
     if ($DataTable[0] -is [System.Collections.IDictionary]) {
-        [Array] $Table = foreach ($_ in $DataTable) {
-            $_.GetEnumerator() | Select-Object Name, Value
+        [Array] $Table = foreach ($D in $DataTable) {
+            $D.GetEnumerator() | Select-Object Name, Value
         }
         $ObjectProperties = 'Name', 'Value'
     } elseif ($DataTable[0].GetType().Name -match 'bool|byte|char|datetime|decimal|double|ExcelHyperLink|float|int|long|sbyte|short|string|timespan|uint|ulong|URI|ushort') {
@@ -1012,6 +1026,12 @@ function New-HTMLTable {
                             collectionLayout = 'dropdown columns'
                             collectionTitle  = 'Visibility control'
                         }
+                    } elseif ($button -eq 'toggleView') {
+                        $ButtonOutput = [ordered] @{
+                            extend          = 'toggleView'
+                            title           = $Title
+                            defaultViewMode = $ToggleViewDefaultViewMode
+                        }
                     } else {
                         $ButtonOutput = [ordered] @{
                             extend = $button
@@ -1030,8 +1050,11 @@ function New-HTMLTable {
     }
     if ($ScrollX) {
         $Options.'scrollX' = $true
-        # disabling responsive table because it won't work with ScrollX
-        $DisableResponsiveTable = $true
+        # We don't disable responsive table if toggleView is requested
+        # This allows preserving responsive settings for toggle functionality
+        if ($Buttons -notcontains 'toggleView') {
+            $DisableResponsiveTable = $true
+        }
     }
     if ($ScrollY -or $EnableScroller) {
         # Scroller only works if ScrollY is set
@@ -1176,28 +1199,28 @@ function New-HTMLTable {
         $PriorityOrder = 0
 
         [Array] $PriorityOrderBinding = @(
-            foreach ($_ in $ResponsivePriorityOrder) {
-                $Index = [array]::indexof($HeaderNames.ToUpper(), $_.ToUpper())
+            foreach ($R in $ResponsivePriorityOrder) {
+                $Index = [array]::indexof($HeaderNames.ToUpper(), $R.ToUpper())
                 if ($Index -ne -1) {
                     [pscustomobject]@{ responsivePriority = 0; targets = $Index }
                 }
             }
-            foreach ($_ in $ResponsivePriorityOrderIndex) {
-                [pscustomobject]@{ responsivePriority = 0; targets = $_ }
+            foreach ($R in $ResponsivePriorityOrderIndex) {
+                [pscustomobject]@{ responsivePriority = 0; targets = $R }
             }
         )
 
-        foreach ($_ in $PriorityOrderBinding) {
+        foreach ($P in $PriorityOrderBinding) {
             $PriorityOrder++
-            $_.responsivePriority = $PriorityOrder
-            $ColumnDefinitionList.Add($_)
+            $P.responsivePriority = $PriorityOrder
+            $ColumnDefinitionList.Add($P)  # Corrected to use $P instead of $_
         }
     }
 
     # The table column options also adds to the columnDefs parameter
-    If ($TableColumnOptions.Count -gt 0) {
-        foreach ($_ in $TableColumnOptions) {
-            $ColumnDefinitionList.Add($_)
+    if ($TableColumnOptions.Count -gt 0) {
+        foreach ($T in $TableColumnOptions) {
+            $ColumnDefinitionList.Add($T)  # Corrected to use $T instead of $_
         }
     }
 
@@ -1209,11 +1232,11 @@ function New-HTMLTable {
     }
 
     # If we have a column definition list defined, then set the columnDefs option
-    If ($ColumnDefinitionList.Count -gt 0) {
+    if ($ColumnDefinitionList.Count -gt 0) {
         $Options.columnDefs = $ColumnDefinitionList.ToArray()
     }
 
-    If ($DisableAutoWidthOptimization) {
+    if ($DisableAutoWidthOptimization) {
         $Options.autoWidth = $false
     }
 

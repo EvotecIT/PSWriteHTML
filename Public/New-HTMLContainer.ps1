@@ -39,18 +39,30 @@
         [alias('Content')][Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $HTML,
         [object] $Width = '100%',
         [string] $Margin,
+        # Density parameter - automatically enables responsive wrapping
+        [ValidateSet('Spacious', 'Comfortable', 'Compact', 'Dense', 'VeryDense')][string] $Density,
         [string] $AnchorName
     )
     $Script:HTMLSchema.Features.MainFlex = $true
     if (-not $AnchorName) {
         $AnchorName = "anchor-$(Get-RandomStringName -Size 7)"
     }
-    if ($Width -or $Margin) {
+
+    if ($Width -or $Margin -or $PSBoundParameters.ContainsKey('Density')) {
         [string] $ClassName = "flexElement$(Get-RandomStringName -Size 8 -LettersOnly)"
         $Attributes = @{
             'flex-basis' = ConvertFrom-Size -Size $Width
             'margin'     = if ($Margin) { $Margin }
         }
+
+        if ($PSBoundParameters.ContainsKey('Density')) {
+            # Enable responsive wrapping feature
+            $Script:HTMLSchema.Features.ResponsiveWrap = $true
+
+            # Use the responsive-wrap CSS classes with Density
+            $ClassName += " responsive-wrap-container density-$($Density.ToLower())"
+        }
+
         $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes -Group
 
         # $Script:HTMLSchema.CustomHeaderCSS.Add($Css)

@@ -1,4 +1,4 @@
-Function New-HTMLHeading {
+function New-HTMLHeading {
     <#
     .SYNOPSIS
     Creates a new HTML heading with customizable options.
@@ -27,9 +27,9 @@ Function New-HTMLHeading {
     Generates an HTML heading of level h3 with the text 'Sub Title' in green color.
     #>
     [CmdletBinding()]
-    Param (
+    param (
         [validateset('h1', 'h2', 'h3', 'h4', 'h5', 'h6')][string] $Heading,
-        [string] $HeadingText,
+        [Alias('Text')][string] $HeadingText,
         [switch] $Underline,
         [string] $Color
     )
