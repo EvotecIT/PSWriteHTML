@@ -89,7 +89,7 @@ function New-HTMLPanel {
             'margin'     = if ($Margin) { $Margin }
         }
 
-                if ($PSBoundParameters.ContainsKey('Density')) {
+        if ($PSBoundParameters.ContainsKey('Density')) {
             # Enable responsive wrapping for the panel
             $Script:HTMLSchema.Features.ResponsiveWrap = $true
 
