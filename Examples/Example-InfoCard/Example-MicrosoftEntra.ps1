@@ -22,28 +22,31 @@ New-HTML {
     # Feature highlights section - now with ResponsiveWrap
     New-HTMLSection -Density Dense {
         # Identity Protection
-        New-HTMLInfoCard -Title "Identity Protection" -Subtitle "View risky users, risky workload identities, and risky sign-ins in your tenant." -Icon "🛡️" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
+        New-HTMLInfoCard -Title "Identity Protection" -Subtitle "View risky users, risky workload identities, and risky sign-ins in your tenant." -Icon "🛡️" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px -BackgroundColor Azure
 
-        # Access reviews
-        New-HTMLInfoCard -Title "Access reviews" -Subtitle "Make sure only the right people have continued access." -Icon "👥" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
+        # # Access reviews
+        New-HTMLInfoCard -Title "Access reviews" -Subtitle "Make sure only the right people have continued access." -Icon "👥" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px -BackgroundColor Salmon
 
-        # Authentication methods
-        New-HTMLInfoCard -Title "Authentication methods" -Subtitle "Configure your users in the authentication methods policy to enable passwordless authentication." -Icon "🔑" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
+        # # Authentication methods
+        New-HTMLInfoCard -Title "Authentication methods" -Subtitle "Configure your users in the authentication methods policy to enable passwordless authentication." -Icon "🔑" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px -ShadowColor Salmon
 
-        # Microsoft Entra Domain Services
+        # # Microsoft Entra Domain Services
         New-HTMLInfoCard -Title "Microsoft Entra Domain Services" -Subtitle "Lift-and-shift legacy applications running on-premises into Azure." -Icon "🔷" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
 
-        # Tenant restrictions
+        # # Tenant restrictions
         New-HTMLInfoCard -Title "Tenant restrictions" -Subtitle "Specify the list of tenants that their users are permitted to access." -Icon "🚫" -IconColor "#dc3545" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
 
-        # Entra Permissions Management
+        # # Entra Permissions Management
         New-HTMLInfoCard -Title "Entra Permissions Management" -Subtitle "Continuous protection of your critical cloud resources from accidental misuse and malicious exploitation of permissions." -Icon "📁" -IconColor "#198754" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
 
-        # Privileged Identity Management
+        # # Privileged Identity Management
         New-HTMLInfoCard -Title "Privileged Identity Management" -Subtitle "Manage, control, and monitor access to important resources in your organization." -Icon "💎" -IconColor "#6f42c1" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
 
         # Conditional Access
         New-HTMLInfoCard -Title "Conditional Access" -Subtitle "Control user access based on Conditional Access policy to bring signals together, to make decisions, and enforce organizational policies." -Icon "🔒" -IconColor "#0078d4" -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
+
+        # Conditional Access
+        New-HTMLInfoCard -Title "Conditional Access" -Subtitle "Control user access based on Conditional Access policy to bring signals together, to make decisions, and enforce organizational policies." -IconSolid running -IconColor RedBerry -Style "Standard" -ShadowIntensity 'Normal' -BorderRadius 2px
     }
 
 
