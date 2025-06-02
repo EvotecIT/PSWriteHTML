@@ -6,7 +6,7 @@ New-HTML {
 
     # Enhanced Shadow Visibility Section
     New-HTMLSection -HeaderText 'Enhanced Shadow Examples' {
-        New-HTMLSection -Invisible {
+        New-HTMLSection -Invisible -Density Comfortable {
             # Subtle shadow (original)
             New-HTMLInfoCard -Title "Subtle Shadow" -Number "Original" -Subtitle "0.08 opacity" -Icon "👻" -ShadowColor 'rgba(60, 60, 60, 0.08)'
 
@@ -23,7 +23,7 @@ New-HTML {
 
     # Color Format Support Section
     New-HTMLSection -HeaderText 'Flexible Color Format Support' {
-        New-HTMLSection -Invisible {
+        New-HTMLSection -Density Comfortable {
             # 3-character hex codes
             New-HTMLInfoCard -Title "Short Hex" -Number "999" -Subtitle "3-char format" -Icon "🎨" -TitleColor '#f00' -NumberColor '#0a0' -SubtitleColor '#00f'
 
