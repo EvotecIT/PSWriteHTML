@@ -1,7 +1,7 @@
 Import-Module ..\..\PSWriteHTML.psd1 -Force
 
 New-HTML {
-    New-HTMLSection -HeaderText "✅ SOLUTION: ResponsiveWrap for InfoCards" {
+    New-HTMLSection -HeaderText "✅ SOLUTION: ResponsiveWrap for InfoCards" -Wrap wrap {
 
         New-HTMLText -Text @"
 <h2>🎯 Problem Solved: InfoCards Now Respect Boundaries and Resize Properly!</h2>
@@ -10,7 +10,7 @@ New-HTML {
 "@ -Color Black
 
         # Demonstration: Traditional vs ResponsiveWrap
-        New-HTMLSection -HeaderText "❌ OLD: Traditional Layout" {
+        New-HTMLSection -HeaderText "❌ OLD: Traditional Layout" -Density Comfortable {
             New-HTMLSection -Invisible {
                 New-HTMLInfoCard -Title "Card 1" -Number "100%" -Subtitle "May get cut off" -Icon "📱" -IconColor '#d13438'
                 New-HTMLInfoCard -Title "Card 2" -Number "100%" -Subtitle "Fixed layout" -Icon "📋" -IconColor '#d13438'
@@ -19,7 +19,7 @@ New-HTML {
             }
         }
 
-        New-HTMLSection -HeaderText "✅ NEW: ResponsiveWrap Layout" -ResponsiveWrap -MinItemsPerRow 3 {
+        New-HTMLSection -HeaderText "✅ NEW: ResponsiveWrap Layout" -Density Comfortable {
             New-HTMLInfoCard -Title "Card 1" -Number "100%" -Subtitle "Respects boundaries" -Icon "📱" -IconColor '#198754'
             New-HTMLInfoCard -Title "Card 2" -Number "100%" -Subtitle "Wraps when needed" -Icon "📋" -IconColor '#198754'
             New-HTMLInfoCard -Title "Card 3" -Number "100%" -Subtitle "Perfect alignment" -Icon "🏢" -IconColor '#198754'

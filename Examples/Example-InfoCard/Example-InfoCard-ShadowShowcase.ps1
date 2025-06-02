@@ -4,8 +4,8 @@ New-HTML {
     New-HTMLSectionStyle -BorderRadius 0px -HeaderBackGroundColor 'DarkSlateGray'
 
     # Shadow Intensity Presets Section
-    New-HTMLSection -HeaderText 'Shadow Intensity Presets' {
-        New-HTMLSection -Invisible {
+    New-HTMLSection -HeaderText 'Shadow Intensity Presets'  {
+        New-HTMLSection -Invisible  {
             # None - No shadow
             New-HTMLInfoCard -Title "No Shadow" -Number "Clean" -Subtitle "Minimal look" -Icon "💫" -ShadowIntensity 'None'
 

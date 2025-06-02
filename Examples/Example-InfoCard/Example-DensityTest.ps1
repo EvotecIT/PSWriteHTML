@@ -1,7 +1,7 @@
 Import-Module "$PSScriptRoot\..\..\PSWriteHTML.psd1" -Force
 
 New-HTML {
-    New-HTMLSection -HeaderText "🎯 New Density Parameter - Intuitive Layout Control!" {
+    New-HTMLSection -HeaderText "🎯 New Density Parameter - Intuitive Layout Control!" -Wrap wrap {
 
         New-HTMLText -Text @"
 <h3>✨ Much Better Than MinItemsPerRow!</h3>
