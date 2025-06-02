@@ -1,10 +1,10 @@
 Import-Module ..\..\PSWriteHTML.psd1 -Force
 
 New-HTML {
-    New-HTMLSection -HeaderText "ResponsiveWrap Test - Resize Browser to See Effect" {
+    New-HTMLSection -HeaderText "ResponsiveWrap Test - Resize Browser to See Effect" -Wrap wrap {
 
         # Row 1: 4 cards with ResponsiveWrap - should wrap intelligently
-        New-HTMLSection -HeaderText "Row 1: ResponsiveWrap (MinItemsPerRow = 3)" -ResponsiveWrap -MinItemsPerRow 3 {
+        New-HTMLSection -HeaderText "Row 1: ResponsiveWrap (MinItemsPerRow = 3)" -Density Spacious {
             New-HTMLInfoCard -Title "Total Applications" -Number 55 -Subtitle "Should wrap nicely" -Icon "📱" -IconColor '#0078d4'
             New-HTMLInfoCard -Title "App Registrations" -Number 63 -Subtitle "Responsive behavior" -Icon "📋" -IconColor '#0078d4'
             New-HTMLInfoCard -Title "Enterprise Apps" -Number 45454 -Subtitle "Auto wrap when needed" -Icon "🏢" -IconColor '#0078d4'
@@ -12,7 +12,7 @@ New-HTML {
         }
 
         # Row 2: Same cards with traditional Invisible section for comparison
-        New-HTMLSection -HeaderText "Row 2: Traditional Invisible (No ResponsiveWrap)" {
+        New-HTMLSection -HeaderText "Row 2: Traditional Invisible (No ResponsiveWrap)" -Density Spacious {
             New-HTMLSection -Invisible {
                 New-HTMLInfoCard -Title "Total Applications" -Number 55 -Subtitle "Traditional layout" -Icon "📱" -IconColor '#d13438'
                 New-HTMLInfoCard -Title "App Registrations" -Number 63 -Subtitle "May get cut off" -Icon "📋" -IconColor '#d13438'
@@ -22,7 +22,7 @@ New-HTML {
         }
 
         # Row 3: ResponsiveWrap with more cards - MinItemsPerRow = 2
-        New-HTMLSection -HeaderText "Row 3: ResponsiveWrap (MinItemsPerRow = 2)" -ResponsiveWrap -MinItemsPerRow 2 {
+        New-HTMLSection -HeaderText "Row 3: ResponsiveWrap (MinItemsPerRow = 2)" -Density Spacious {
             New-HTMLInfoCard -Title "Managed Identities" -Number 13 -Subtitle "Min 2 per row" -Icon "🔐" -IconColor '#198754' -Style "Compact"
             New-HTMLInfoCard -Title "Delegated Permissions" -Number 19 -Subtitle "Better responsive" -Icon "👥" -IconColor '#198754' -Style "Compact"
             New-HTMLInfoCard -Title "Application Permissions" -Number 500 -Subtitle "Wraps at smaller sizes" -Icon "🔑" -IconColor '#198754' -Style "Compact"
@@ -32,7 +32,7 @@ New-HTML {
         }
 
         # Row 4: Mixed content with ResponsiveWrap
-        New-HTMLSection -HeaderText "Row 4: Mixed Content with ResponsiveWrap" -ResponsiveWrap -MinItemsPerRow 4 {
+        New-HTMLSection -HeaderText "Row 4: Mixed Content with ResponsiveWrap" -Density Spacious {
             New-HTMLInfoCard -Title "Performance" -Number "Excellent" -Subtitle "Good performance" -Icon "📊" -IconColor '#6f42c1' -Style "Fixed"
             New-HTMLInfoCard -Title "Uptime" -Number "99.9%" -Subtitle "High availability" -Icon "⏰" -IconColor '#6f42c1' -Style "Fixed"
             New-HTMLInfoCard -Title "Users Online" -Number 847 -Subtitle "Active right now" -Icon "🌐" -IconColor '#6f42c1' -Style "Fixed"
