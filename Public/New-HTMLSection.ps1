@@ -1,4 +1,4 @@
-Function New-HTMLSection {
+function New-HTMLSection {
     <#
     .SYNOPSIS
     Creates a new HTML section with customizable styling options.
@@ -94,8 +94,8 @@ Function New-HTMLSection {
     #>
     [alias('New-HTMLContent', 'Section')]
     [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(Throw "Open curly brace"),
+    param (
+        [Parameter(Position = 0)][ValidateNotNull()][ScriptBlock] $Content = $(throw "Open curly brace"),
         [alias('Name', 'Title')][Parameter(Mandatory = $false)][string]$HeaderText,
         [alias('TextColor')][string]$HeaderTextColor,
         [alias('TextSize')][string] $HeaderTextSize,
@@ -175,7 +175,7 @@ Function New-HTMLSection {
         if ($Collapsed) {
             # hides Show button
             $HideStyle = @{
-                "color"   = $TextHeaderColorFromRGB;
+                "color"   = $TextHeaderColorFromRGB
                 'display' = 'none'
             }
             # shows Hide button
@@ -190,7 +190,7 @@ Function New-HTMLSection {
         } else {
             # hides Show button
             $ShowStyle = @{
-                "color"   = $TextHeaderColorFromRGB;
+                "color"   = $TextHeaderColorFromRGB
                 'display' = 'none'
             }
             # shows Hide button
@@ -204,12 +204,12 @@ Function New-HTMLSection {
     } else {
         # hides Show button
         $ShowStyle = @{
-            "color"   = $TextHeaderColorFromRGB;
+            "color"   = $TextHeaderColorFromRGB
             'display' = 'none'
         }
         # hides Show button
         $HideStyle = @{
-            "color"   = $TextHeaderColorFromRGB;
+            "color"   = $TextHeaderColorFromRGB
             'display' = 'none'
         }
         $ClassTop = ''
@@ -234,7 +234,7 @@ Function New-HTMLSection {
         $HiddenDivStyle['height'] = ConvertFrom-Size -Size $Height
     }
 
-        # Auto-enable responsive wrapping if Density is specified
+    # Auto-enable responsive wrapping if Density is specified
     $ResponsiveWrap = $PSBoundParameters.ContainsKey('Density')
 
     if ($Wrap -or $Direction -or $ResponsiveWrap) {
@@ -257,11 +257,11 @@ Function New-HTMLSection {
             if ($JustifyContent) { $Attributes['justify-content'] = $JustifyContent }
         } else {
             $Attributes = @{
-                'display'        = 'flex'
-                'flex-wrap'      = if ($Wrap) { $Wrap } else { }
-                'flex-direction' = if ($Direction) { $Direction } else { }
-                'align-content'  = if ($AlignContent) { $AlignContent } else { }
-                'align-items'    = if ($AlignItems) { $AlignItems } else { }
+                'display'         = 'flex'
+                'flex-wrap'       = if ($Wrap) { $Wrap } else { }
+                'flex-direction'  = if ($Direction) { $Direction } else { }
+                'align-content'   = if ($AlignContent) { $AlignContent } else { }
+                'align-items'     = if ($AlignItems) { $AlignItems } else { }
                 'justify-content' = if ($JustifyContent) { $JustifyContent } else { }
             }
         }
@@ -289,6 +289,7 @@ Function New-HTMLSection {
 
     $ContentStyle = @{
         'justify-content' = $JustifyContent
+        'flex-basis'      = if ($Width) { $Width } else { '100%' }
     }
 
     $DivHeaderStyle = @{
