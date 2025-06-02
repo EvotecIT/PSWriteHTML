@@ -308,23 +308,16 @@
         } else {
             $ResolvedIcon = $Icon
         }
-        # } elseif ($PSCmdlet.ParameterSetName -eq 'Dictionary' -and $IconFromDictionary) {
-        #     $ResolvedIcon = $Script:InfoCardIcons[$IconFromDictionary]
     } elseif ($PSCmdlet.ParameterSetName -eq 'FontAwesomeSolid' -and $IconSolid) {
         $Script:HTMLSchema.Features.FontsAwesome = $true
-        $ResolvedIcon = $Global:HTMLIcons.FontAwesomeSolid[$IconSolid]
-        $IconClass = 'fas'
+        $IconClass = "fas fa-$IconSolid".ToLower()
     } elseif ($PSCmdlet.ParameterSetName -eq 'FontAwesomeRegular' -and $IconRegular) {
         $Script:HTMLSchema.Features.FontsAwesome = $true
-        $ResolvedIcon = $Global:HTMLIcons.FontAwesomeRegular[$IconRegular]
-        $IconClass = 'far'
+        $IconClass = "far fa-$IconRegular".ToLower()
     } elseif ($PSCmdlet.ParameterSetName -eq 'FontAwesomeBrands' -and $IconBrands) {
         $Script:HTMLSchema.Features.FontsAwesome = $true
-        $ResolvedIcon = $Global:HTMLIcons.FontAwesomeBrands[$IconBrands]
-        $IconClass = 'fab'
+        $IconClass = "fab fa-$IconBrands".ToLower()
     }
-
-
 
     # Apply shadow intensity presets
     if ($ShadowIntensity -ne 'Custom') {
@@ -397,7 +390,7 @@
 
     # Icon styling (if icon is provided and not NoIcon style)
     $IconStyle = $null
-    if ($ResolvedIcon -and $Style -ne 'NoIcon') {
+    if (($ResolvedIcon -or $IconClass) -and $Style -ne 'NoIcon') {
         $IconStyle = [ordered] @{
             'background-color' = ConvertFrom-Color -Color $IconColor
         }
@@ -417,11 +410,11 @@
     New-HTMLTag -Tag 'div' -Attributes @{ id = $AnchorName; class = $CssClass; style = $CardStyle } {
 
         # Icon section (if provided and not NoIcon style)
-        if ($ResolvedIcon -and $Style -ne 'NoIcon') {
+        if (($ResolvedIcon -or $IconClass) -and $Style -ne 'NoIcon') {
             if ($Style -eq 'Classic') {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'dashboard-card-icon-square'; style = $IconStyle } {
                     if ($IconClass) {
-                        New-HTMLTag -Tag 'i' -Attributes @{ class = "$IconClass $ResolvedIcon" }
+                        New-HTMLTag -Tag 'i' -Attributes @{ class = "$IconClass" }
                     } else {
                         $ResolvedIcon
                     }
@@ -429,7 +422,7 @@
             } else {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = 'dashboard-card-icon'; style = $IconStyle } {
                     if ($IconClass) {
-                        New-HTMLTag -Tag 'i' -Attributes @{ class = "$IconClass $ResolvedIcon" }
+                        New-HTMLTag -Tag 'i' -Attributes @{ class = "$IconClass" }
                     } else {
                         $ResolvedIcon
                     }

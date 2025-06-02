@@ -234,6 +234,39 @@
     align-items: flex-start;
 }
 
+.dashboard-card-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    /* Top-align the icon container */
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    margin-right: 1.2rem;
+    align-self: flex-start;
+    /* Top-align in the flex row */
+    margin-top: 0;
+    padding-top: 0.1rem;
+}
+
+.dashboard-card-icon i.fas,
+.dashboard-card-icon i.far,
+.dashboard-card-icon i.fal,
+.dashboard-card-icon i.fad,
+.dashboard-card-icon i.fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    /* Match emoji size */
+    line-height: 1;
+}
+
 @media (max-width: 700px) {
     .dashboard-cards {
         flex-direction: column;
