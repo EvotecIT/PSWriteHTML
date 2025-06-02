@@ -301,7 +301,7 @@ function New-HTMLSection {
     $HeaderStyle = @{ "color" = $TextHeaderColorFromRGB }
     if ($Invisible) {
         New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassName; style = $AttributesTop['style'] } -Value {
-            New-HTMLTag -Tag 'div' -Attributes @{ class = $ClassNameNested; Style = $ContentStyle } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ class = "$ClassNameNested collapsable"; Style = $ContentStyle } -Value {
                 $Object = Invoke-Command -ScriptBlock $Content
                 if ($null -ne $Object) {
                     $Object
