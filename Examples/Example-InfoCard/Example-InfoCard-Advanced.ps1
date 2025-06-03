@@ -40,7 +40,7 @@ New-HTML {
 
     # Shadow Direction with Enhanced Visibility
     New-HTMLSection -HeaderText 'Directional Shadows (Enhanced)' {
-        New-HTMLSection -Invisible {
+        New-HTMLSection -Invisible -Density Spacious {
             New-HTMLInfoCard -Title "Bottom Shadow" -Number "Default" -Subtitle "Standard direction" -Icon "⬇️" -ShadowDirection 'Bottom' -ShadowColor 'rgba(0, 0, 0, 0.2)'
             New-HTMLInfoCard -Title "Top Shadow" -Number "Upward" -Subtitle "Above the card" -Icon "⬆️" -ShadowDirection 'Top' -ShadowColor 'rgba(255, 0, 0, 0.15)' -ShadowIntensity ExtraBold
             New-HTMLInfoCard -Title "Left Shadow" -Number "Westward" -Subtitle "To the left" -Icon "⬅️" -ShadowDirection 'Left' -ShadowColor 'rgba(0, 255, 0, 0.15)' -ShadowIntensity Bold
