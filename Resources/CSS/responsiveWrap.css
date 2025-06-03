@@ -1,10 +1,7 @@
-/* Responsive Wrapping CSS for PSWriteHTML */
-
 /* Base responsive container styles */
 .responsive-wrap-container {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 0.5rem !important;
     align-content: flex-start !important;
     align-items: stretch !important;
     justify-content: flex-start !important;
@@ -14,7 +11,6 @@
 .responsive-wrap-container > .collapsable {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 0.5rem !important;
     width: 100% !important;
     align-content: flex-start !important;
     align-items: stretch !important;
@@ -133,8 +129,6 @@
     flex: 1 1 180px !important;
 }
 
-
-
 /* Mobile: Single column layout */
 @media (max-width: 768px) {
     .responsive-wrap-container > .collapsable > .flexPanel,
@@ -147,13 +141,6 @@
 
 /* Very small mobile: Tighter spacing */
 @media (max-width: 480px) {
-    .responsive-wrap-container {
-        gap: 0.25rem !important;
-    }
-
-    .responsive-wrap-container > .collapsable {
-        gap: 0.25rem !important;
-    }
 
     .responsive-wrap-container > .collapsable > .flexPanel,
     .responsive-wrap-container > .flexPanel {
@@ -163,12 +150,3 @@
         flex: 0 0 100% !important;
     }
 }
-
-/* Special handling for InfoCards to ensure they work properly with responsive wrap */
-/* .responsive-wrap-container .dashboard-card-content-wrapper {
-    margin: 0 !important;
-}
-
-.responsive-wrap-container .flexPanel {
-    margin: 0 !important;
-} */
