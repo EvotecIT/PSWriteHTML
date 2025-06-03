@@ -1,7 +1,6 @@
 ﻿Import-Module "$PSScriptRoot\..\..\PSWriteHTML.psd1" -Force
 
 New-HTML {
-    New-HTMLTabOptions -SlimTabs
     New-HTMLPanelOption -BorderRadius 0px
     New-HTMLSectionOption -BorderRadius 0px -HeaderBackGroundColor AirForceBlue
 
@@ -13,6 +12,20 @@ New-HTML {
             New-HTMLInfoCard -Title "Strong Auth Methods" -Number 8 -Subtitle "17.02% of users" -Icon "💪" -IconColor "#ffb300" -BorderRadius 0px
             New-HTMLInfoCard -Title "Passwordless Capable" -Number 2 -Subtitle "4.26% of users" -Icon "🔑" -IconColor "#d13438" -BorderRadius 0px
         }
+    }
+
+    New-HTMLSection -Density Compact -Invisible {
+        New-HTMLInfoCard -Title "Total Users" -Number 47 -Subtitle "21.28% of users" -Icon "👥" -IconColor "#0078d4" -BorderRadius 0px
+        New-HTMLInfoCard -Title "MFA Capable Users" -Number 10 -Subtitle "21.28% of users" -Icon "🔒" -IconColor "#21c87a" -BorderRadius 0px
+        New-HTMLInfoCard -Title "Strong Auth Methods" -Number 8 -Subtitle "17.02% of users" -Icon "💪" -IconColor "#ffb300" -BorderRadius 0px
+        New-HTMLInfoCard -Title "Passwordless Capable" -Number 2 -Subtitle "4.26% of users" -Icon "🔑" -IconColor "#d13438" -BorderRadius 0px
+    }
+
+    New-HTMLSection -Invisible {
+        New-HTMLInfoCard -Title "Total Users" -Number 47 -Subtitle "21.28% of users" -Icon "👥" -IconColor "#0078d4" -BorderRadius 0px
+        New-HTMLInfoCard -Title "MFA Capable Users" -Number 10 -Subtitle "21.28% of users" -Icon "🔒" -IconColor "#21c87a" -BorderRadius 0px
+        New-HTMLInfoCard -Title "Strong Auth Methods" -Number 8 -Subtitle "17.02% of users" -Icon "💪" -IconColor "#ffb300" -BorderRadius 0px
+        New-HTMLInfoCard -Title "Passwordless Capable" -Number 2 -Subtitle "4.26% of users" -Icon "🔑" -IconColor "#d13438" -BorderRadius 0px
     }
 
     # Compact Style Cards

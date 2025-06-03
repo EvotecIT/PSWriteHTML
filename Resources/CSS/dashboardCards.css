@@ -268,11 +268,6 @@
 }
 
 @media (max-width: 700px) {
-    .dashboard-cards {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
     .dashboard-card {
         max-width: 100%;
         min-width: 0;

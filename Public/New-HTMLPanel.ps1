@@ -15,6 +15,10 @@ function New-HTMLPanel {
     .PARAMETER Invisible
     Indicates whether the panel should be invisible.
 
+    .PARAMETER Density
+    Specifies the density of the panel. This will automatically enable responsive wrapping for the panel.
+    The options are: Spacious, Comfortable, Compact, Dense, VeryDense.
+
     .PARAMETER Width
     Specifies the width of the panel.
 
@@ -51,14 +55,13 @@ function New-HTMLPanel {
 
         [string][ValidateSet('center', 'left', 'right', 'justify')] $AlignContentText,
         [ValidateSet('0px', '5px', '10px', '15px', '20px', '25px')][string] $BorderRadius,
-        # Density parameter - automatically enables responsive wrapping
         [ValidateSet('Spacious', 'Comfortable', 'Compact', 'Dense', 'VeryDense')][string] $Density,
         [string] $AnchorName,
         [System.Collections.IDictionary] $StyleSheetsConfiguration
     )
     $Script:HTMLSchema.Features.Main = $true
     $Script:HTMLSchema.Features.MainFlex = $true
-    $Script:HTMLSchema.Features.ResponsiveWrap = $true
+
     # This is so we can support external CSS configuration
     if (-not $StyleSheetsConfiguration) {
         $Script:HTMLSchema.Features.DefaultPanel = $true
@@ -80,7 +83,6 @@ function New-HTMLPanel {
         'height'           = ConvertFrom-Size -Size $Height
     }
     if ($Invisible) {
-        #$PanelStyle['box-shadow'] = 'unset !important;'
         $StyleSheetsConfiguration.Panel = ''
         [string] $Class = "flexPanel overflowHidden $($StyleSheetsConfiguration.Panel)"
     } elseif ($Width -or $Margin -or $PSBoundParameters.ContainsKey('Density')) {
@@ -106,13 +108,11 @@ function New-HTMLPanel {
     } else {
         [string] $Class = "flexPanel overflowHidden $($StyleSheetsConfiguration.Panel)"
     }
-    # New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexParent' } {
     New-HTMLTag -Tag 'div' -Attributes @{ id = $AnchorName; class = $Class; style = $PanelStyle } {
         if ($Content) {
             Invoke-Command -ScriptBlock $Content
         }
     }
-    # }
 }
 
 Register-ArgumentCompleter -CommandName New-HTMLPanel -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
