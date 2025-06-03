@@ -125,7 +125,7 @@ function New-HTMLSection {
     )
     $Script:HTMLSchema.Features.Main = $true
     $Script:HTMLSchema.Features.MainFlex = $true
-    $Script:HTMLSchema.Features.ResponsiveWrap = $true
+
     # This is so we can support external CSS configuration
     if (-not $StyleSheetsConfiguration) {
         $StyleSheetsConfiguration = [ordered] @{
@@ -236,6 +236,9 @@ function New-HTMLSection {
 
     # Auto-enable responsive wrapping if Density is specified
     $ResponsiveWrap = $PSBoundParameters.ContainsKey('Density')
+    if ($ResponsiveWrap) {
+        $Script:HTMLSchema.Features.ResponsiveWrap = $true
+    }
 
     if ($Wrap -or $Direction -or $ResponsiveWrap) {
         [string] $ClassName = "flexParent$(Get-RandomStringName -Size 8 -LettersOnly)"
