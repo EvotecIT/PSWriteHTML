@@ -67,8 +67,8 @@ function New-HTMLSection {
     Specifies the border radius of the section. Valid values are '0px', '5px', '10px', '15px', '20px', '25px'.
 
     .PARAMETER Density
-    Specifies the layout density using intuitive names. Valid values are 'Spacious', 'Comfortable', 'Compact', 'Dense', 'VeryDense'.
-    Automatically enables responsive wrapping behavior for child elements.
+    Specifies the density of the panel. This will automatically enable responsive wrapping for the panel.
+    The options are: Spacious, Comfortable, Compact, Dense, VeryDense.
 
     .PARAMETER AnchorName
     Specifies the anchor name for the section.
@@ -115,7 +115,6 @@ function New-HTMLSection {
         [string][ValidateSet('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch')] $AlignContent,
         [string][ValidateSet('stretch', 'flex-start', 'flex-end', 'center', 'baseline')] $AlignItems,
         [string][ValidateSet('flex-start', 'flex-end', 'center')] $JustifyContent,
-        # Density parameter - automatically enables responsive wrapping
         [ValidateSet('Spacious', 'Comfortable', 'Compact', 'Dense', 'VeryDense')][string] $Density,
 
         [ValidateSet('0px', '5px', '10px', '15px', '20px', '25px')][string] $BorderRadius,
