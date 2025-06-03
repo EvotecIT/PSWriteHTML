@@ -165,10 +165,10 @@
 }
 
 /* Special handling for InfoCards to ensure they work properly with responsive wrap */
-.responsive-wrap-container .dashboard-card-content-wrapper {
+/* .responsive-wrap-container .dashboard-card-content-wrapper {
     margin: 0 !important;
 }
 
 .responsive-wrap-container .flexPanel {
     margin: 0 !important;
-}
+} */

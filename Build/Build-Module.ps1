@@ -67,7 +67,7 @@
     # format PSD1 and PSM1 files within the module
     # enable formatting is required to make sure that formatting is applied (with default settings)
     New-ConfigurationFormat -ApplyTo 'DefaultPSD1', 'DefaultPSM1' -EnableFormatting -Sort None
-    # when creating PSD1 use special style without comments and with only required parameters
+    # when creating PSD1 use special style without comments and with only required parameters 
     New-ConfigurationFormat -ApplyTo 'DefaultPSD1', 'OnMergePSD1' -PSD1Style 'Minimal'
     # configuration for documentation, at the same time it enables documentation processing
     New-ConfigurationDocumentation -Enable:$false -StartClean -UpdateWhenNew -PathReadme 'Docs\Readme.md' -Path 'Docs'
