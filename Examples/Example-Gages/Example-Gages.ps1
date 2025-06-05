@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example32-01.html" {
+New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example-Gages.html" {
     New-HTMLSection -Invisible {
         New-HTMLPanel {
             New-HTMLText -Text 'Title' -Color Red -Alignment center -FontSize 20px
