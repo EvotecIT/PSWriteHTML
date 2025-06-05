@@ -8,6 +8,7 @@ Please make sure to read changes before updating, as we're undergoing some break
 ### What's Changed
 - Fixes `ScrollX` wrap issues
 - Changes ToggleView to `Switch to ScrollX` or `Switch to Responsive` when enabled
+- When using online mode the infocard, responsive wrap and datatables switch are now CDN hosted
 
 ## 1.31.0
 ### What's Changed
