@@ -15,7 +15,7 @@
     param(
 
     )
-    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.27'
+    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.29'
     $Configuration = [ordered] @{
         Features = [ordered] @{
             Inject                      = @{
@@ -86,12 +86,15 @@
             DashboardCards              = @{
                 Comment         = 'Dashboard Cards for InfoCards'
                 InternalComment = 'dashboard-cards'
-                HeaderAlways    = @{
-                    Css = "$PSScriptRoot\..\Resources\CSS\dashboardCards.css"
+                Header          = @{
+                    CssLink = "$($ConfigurationURL)/CSS/dashboardCards.min.css"
+                    Css     = "$PSScriptRoot\..\Resources\CSS\dashboardCards.min.css"
                 }
+                # HeaderAlways    = @{
+                #     Css = "$PSScriptRoot\..\Resources\CSS\dashboardCards.css"
+                # }
                 Default         = $true
                 Email           = $false
-                License         = 'MIT'
             }
             Main                        = [ordered]@{
                 HeaderAlways = [ordered]@{
@@ -1451,16 +1454,16 @@
                 Email   = $false
             }
             DataTablesToggleView        = @{
-                Comment      = 'DataTables ToggleView'
-                # Header       = @{
-                #     JsLink = "$($ConfigurationURL)/JS/dataTables.buttons.toggleView.js"
-                #     JS     = "$PSScriptRoot\..\Resources\JS\dataTables.buttons.toggleView.js"
-                # }
-                HeaderAlways = @{
-                    JS = "$PSScriptRoot\..\Resources\JS\dataTables.buttons.toggleView.js"
+                Comment = 'DataTables ToggleView'
+                Header  = @{
+                    JsLink = "$($ConfigurationURL)/JS/dataTables.buttons.toggleView.js"
+                    JS     = "$PSScriptRoot\..\Resources\JS\dataTables.buttons.toggleView.js"
                 }
-                Default      = $true
-                Email        = $false
+                # HeaderAlways = @{
+                #     JS = "$PSScriptRoot\..\Resources\JS\dataTables.buttons.toggleView.js"
+                # }
+                Default = $true
+                Email   = $false
             }
             DataTablesSimplify          = @{
                 Comment      = 'DataTables (not really) - Simplified'
