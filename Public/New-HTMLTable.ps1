@@ -1095,15 +1095,33 @@
     # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
     if (-not $Script:HTMLSchema['TableSimplify'] -and -not $DisableResponsiveTable) {
         $Script:HTMLSchema.Features.DataTablesResponsive = $true
-        $Options["responsive"] = @{ }
-        $Options["responsive"]['details'] = @{ }
+
+        # Build responsive configuration
+        $ResponsiveConfig = @{ }
+        $ResponsiveConfig['details'] = @{ }
         if ($ImmediatelyShowHiddenDetails) {
-            $Options["responsive"]['details']['display'] = '$.fn.dataTable.Responsive.display.childRowImmediate'
+            $ResponsiveConfig['details']['display'] = '$.fn.dataTable.Responsive.display.childRowImmediate'
         }
         if ($HideShowButton) {
-            $Options["responsive"]['details']['type'] = 'none' # this makes button invisible
+            $ResponsiveConfig['details']['type'] = 'none' # this makes button invisible
         } else {
-            $Options["responsive"]['details']['type'] = 'inline' # this adds a button
+            $ResponsiveConfig['details']['type'] = 'inline' # this adds a button
+        }
+
+        # For toggleView, we need to handle both starting modes
+        if ($Buttons -contains 'toggleView') {
+            if ($ScrollX) {
+                # Starting with ScrollX - store responsive config for later use
+                # but don't apply it initially to avoid conflict
+                $Options["responsiveConfig"] = $ResponsiveConfig
+            } else {
+                # Starting with responsive - apply config immediately but also store it for restoration
+                $Options["responsive"] = $ResponsiveConfig
+                $Options["responsiveConfig"] = $ResponsiveConfig
+            }
+        } else {
+            # Apply responsive config immediately for normal responsive mode
+            $Options["responsive"] = $ResponsiveConfig
         }
     } else {
         # HideSHowButton doesn't work

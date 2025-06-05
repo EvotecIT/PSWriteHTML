@@ -34,12 +34,28 @@
 
                 if (isResponsive) {
                     // Current mode is responsive, switch to scrollX
+                    // Store current responsive config if not already stored
+                    if (!options.responsiveConfig && options.responsive) {
+                        options.responsiveConfig = options.responsive;
+                    }
                     options.responsive = false;
                     options.scrollX = true;
                     n(node).text("Switch to Responsive");
                 } else {
                     // Current mode is scrollX or default, switch to responsive
-                    options.responsive = true;
+                    // Check if we have a stored responsive configuration from PowerShell
+                    if (options.responsiveConfig) {
+                        // Use the stored responsive configuration
+                        options.responsive = options.responsiveConfig;
+                        // Keep the configuration stored for future toggles
+                    } else {
+                        // Fallback to basic responsive configuration
+                        options.responsive = {
+                            details: {
+                                type: 'inline'
+                            }
+                        };
+                    }
                     options.scrollX = false;
                     n(node).text("Switch to ScrollX");
                 }
