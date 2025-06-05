@@ -115,16 +115,67 @@
     The number of decimal places to display in human-friendly format.
 
     .PARAMETER SectorColors
-    An array of colors to use for different sectors of the gauge.
-
-    .PARAMETER UseAbsoluteValues
+    An array of colors to use for different sectors of the gauge.    .PARAMETER UseAbsoluteValues
     Indicates whether to use absolute values for custom sectors.
     By default, it uses percentage values.
+
+    .PARAMETER Width
+    The gauge width in pixels.
+
+    .PARAMETER Height
+    The gauge height in pixels.
+
+    .PARAMETER LevelColors
+    An array of colors for default gradient sectors (e.g., @("green", "yellow", "red")).
+
+    .PARAMETER StartAnimationTime
+    Length of initial animation in milliseconds (default: 700).
+
+    .PARAMETER StartAnimationType
+    Type of initial animation. Valid values are 'linear', '>', '<', '<>', 'bounce'.
+
+    .PARAMETER RefreshAnimationTime
+    Length of refresh animation in milliseconds (default: 700).
+
+    .PARAMETER RefreshAnimationType
+    Type of refresh animation. Valid values are 'linear', '>', '<', '<>', 'bounce'.
+
+    .PARAMETER DonutStartAngle
+    Angle to start from when in donut mode (default: 90).
+
+    .PARAMETER ValueMinFontSize
+    Absolute minimum font size for the value label (default: 16).
+
+    .PARAMETER LabelMinFontSize
+    Absolute minimum font size for the label (default: 10).
+
+    .PARAMETER MinLabelMinFontSize
+    Absolute minimum font size for the min label (default: 10).
+
+    .PARAMETER MaxLabelMinFontSize
+    Absolute minimum font size for the max label (default: 10).
+
+    .PARAMETER Differential
+    Indicates whether the gauge should fill from center rather than from min value.
+
+    .PARAMETER TargetLine
+    Value where target line will be displayed.
+
+    .PARAMETER TargetLineColor
+    Color of the target line (default: "#000000").
+
+    .PARAMETER TargetLineWidth
+    Width of the target line (default: 1.5).
 
     .EXAMPLE
     New-HTMLGage -Value 75 -Label "Progress" -Type "Donut" -MinValue 0 -MaxValue 100 -SectorColors @("red", "yellow", "green")
 
     Creates a new donut gauge with a value of 75, labeled as "Progress", with a range from 0 to 100, and sector colors red, yellow, and green.
+
+    .EXAMPLE
+    New-HTMLGage -Value 65 -Label "Performance" -MinValue 0 -MaxValue 100 -TargetLine 80 -TargetLineColor "red" -TargetLineWidth 3
+
+    Creates a gauge with a target line at 80 to show the goal.
 
     #>
     [CmdletBinding()]
@@ -165,9 +216,24 @@
         [switch] $FormatNumber,
         [switch] $DisplayRemaining,
         [switch] $HumanFriendly,
-        [int] $HumanFriendlyDecimal,
-        [string[]] $SectorColors,
-        [switch] $UseAbsoluteValues
+        [int] $HumanFriendlyDecimal, [string[]] $SectorColors,
+        [switch] $UseAbsoluteValues,
+        [nullable[int]] $Width,
+        [nullable[int]] $Height,
+        [string[]] $LevelColors,
+        [nullable[int]] $StartAnimationTime,
+        [validateSet('linear', '>', '<', '<>', 'bounce')][string] $StartAnimationType,
+        [nullable[int]] $RefreshAnimationTime,
+        [validateSet('linear', '>', '<', '<>', 'bounce')][string] $RefreshAnimationType,
+        [nullable[int]] $DonutStartAngle,
+        [nullable[int]] $ValueMinFontSize,
+        [nullable[int]] $LabelMinFontSize,
+        [nullable[int]] $MinLabelMinFontSize,
+        [nullable[int]] $MaxLabelMinFontSize,
+        [switch] $Differential,
+        [nullable[decimal]] $TargetLine,
+        [string] $TargetLineColor,
+        [nullable[decimal]] $TargetLineWidth
     )
     # Make sure JustGage JS is added to source
     $Script:HTMLSchema.Features.MainFlex = $true
@@ -188,11 +254,10 @@
 
     if ($DecimalNumbers) {
         $Gage.decimals = $DecimalNumbers
+    }    if ($ValueColor) {
+        $Gage.valueFontColor = ConvertFrom-Color -Color $ValueColor
     }
-    if ($ValueColor) {
-        $Gage.valueFontColor = $ValueColor
-    }
-    if ($ValueColor) {
+    if ($ValueFont) {
         $Gage.valueFontFamily = $ValueFont
     }
     if ($MinText) {
@@ -216,9 +281,8 @@
     }
     if ($Type -eq 'Donut') {
         $Gage.donut = $true
-    }
-    if ($GaugageWidth) {
-        $Gage.gaugageWidthScale = $GaugageWidthScale
+    }    if ($GaugageWidth) {
+        $Gage.gaugeWidthScale = $GaugageWidth
     }
     if ($Counter) {
         $Gage.counter = $Counter.IsPresent
@@ -250,9 +314,58 @@
         if ($HumanFriendlyDecimal) {
             $Gage.humanFriendlyDecimal = $HumanFriendlyDecimal
         }
-    }
-    if ($ValueSymbol) {
+    }    if ($ValueSymbol) {
         $Gage.symbol = $ValueSymbol
+    }
+
+    # New JustGage options
+    if ($Width) {
+        $Gage.width = $Width
+    }
+    if ($Height) {
+        $Gage.height = $Height
+    }
+    if ($LevelColors) {
+        $Gage.levelColors = @($LevelColors | ForEach-Object { ConvertFrom-Color -Color $_ })
+    }
+    if ($StartAnimationTime) {
+        $Gage.startAnimationTime = $StartAnimationTime
+    }
+    if ($StartAnimationType) {
+        $Gage.startAnimationType = $StartAnimationType
+    }
+    if ($RefreshAnimationTime) {
+        $Gage.refreshAnimationTime = $RefreshAnimationTime
+    }
+    if ($RefreshAnimationType) {
+        $Gage.refreshAnimationType = $RefreshAnimationType
+    }
+    if ($DonutStartAngle) {
+        $Gage.donutStartAngle = $DonutStartAngle
+    }
+    if ($ValueMinFontSize) {
+        $Gage.valueMinFontSize = $ValueMinFontSize
+    }
+    if ($LabelMinFontSize) {
+        $Gage.labelMinFontSize = $LabelMinFontSize
+    }
+    if ($MinLabelMinFontSize) {
+        $Gage.minLabelMinFontSize = $MinLabelMinFontSize
+    }
+    if ($MaxLabelMinFontSize) {
+        $Gage.maxLabelMinFontSize = $MaxLabelMinFontSize
+    }
+    if ($Differential) {
+        $Gage.differential = $Differential.IsPresent
+    }
+    if ($null -ne $TargetLine) {
+        $Gage.targetLine = $TargetLine
+    }
+    if ($TargetLineColor) {
+        $Gage.targetLineColor = ConvertFrom-Color -Color $TargetLineColor
+    }
+    if ($TargetLineWidth) {
+        $Gage.targetLineWidth = $TargetLineWidth
     }
 
     if ($GageContent) {
@@ -321,6 +434,8 @@ Register-ArgumentCompleter -CommandName New-HTMLGage -ParameterName ValueColor -
 Register-ArgumentCompleter -CommandName New-HTMLGage -ParameterName PointerColor -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLGage -ParameterName StrokeColor -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLGage -ParameterName SectorColors -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLGage -ParameterName LevelColors -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLGage -ParameterName TargetLineColor -ScriptBlock $Script:ScriptBlockColors
 
 <#
 | | Name                 | Default                           | Description                                                                         |
