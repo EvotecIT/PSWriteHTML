@@ -1027,9 +1027,16 @@
                             collectionTitle  = 'Visibility control'
                         }
                     } elseif ($button -eq 'toggleView') {
+                        # Set initial button text based on starting mode
+                        if ($ToggleViewDefaultViewMode -eq 'scrollx') {
+                            $ButtonText = 'Switch to Responsive'
+                        } else {
+                            $ButtonText = 'Switch to ScrollX'
+                        }
                         $ButtonOutput = [ordered] @{
                             extend          = 'toggleView'
                             title           = $Title
+                            text            = $ButtonText
                             defaultViewMode = $ToggleViewDefaultViewMode
                         }
                     } else {
