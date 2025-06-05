@@ -1338,17 +1338,8 @@
         $Script:HTMLSchema.Features.DataTables = $true
         $Script:HTMLSchema.Features.DataTablesEmail = $true
         $Script:HTMLSchema.Features.Moment = $true
-        if (-not $HideButtons) {
-            #$Script:HTMLSchema.Features.DataTablesButtonsPDF = $true
-            #$Script:HTMLSchema.Features.DataTablesButtonsExcel = $true
-        }
-        #$Script:HTMLSchema.Features.DataTablesSearchFade = $true
 
-        #if ($ScrollX) {
-        #    $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = $Width }
-        #} else {
-        $TableAttributes = @{ id = $DataTableID; class = "dataTables $($Style -join ' ')"; width = $Width }
-        #}
+        $TableAttributes = @{ id = $DataTableID; class = "dataTables wrap $($Style -join ' ')"; width = $Width }
 
         # Enable Custom Date fromat sorting
         $SortingFormatDateTime = Add-CustomFormatForDatetimeSorting -DateTimeSortingFormat $DateTimeSortingFormat
@@ -1420,7 +1411,6 @@
     }
     if (-not $DisableNewLine) {
         # Finds new lines and adds HTML TAG BR
-        #$Table = $Table -replace '(?m)\s+$', "`r`n<BR>"
         $Table = $Table -replace '(?m)\s+$', "<BR>"
     }
 
