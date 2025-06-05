@@ -4,6 +4,16 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.33.0
+### What's Changed
+- Improve Gages by @PrzemyslawKlys in https://github.com/EvotecIT/PSWriteHTML/pull/498
+	- adds new features to gages
+	- closes #472 adding ability to define sectors in absolute values
+	- added lots of other options
+	- added more examples
+
+**Full Changelog**: https://github.com/EvotecIT/PSWriteHTML/compare/v1.32.0...v1.33.0
+
 ## 1.32.0
 ### What's Changed
 - Refactor New-HTMLTable.ps1 to enhance table by @PrzemyslawKlys in https://github.com/EvotecIT/PSWriteHTML/pull/497
