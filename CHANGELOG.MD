@@ -5,7 +5,9 @@ Unfortunetly some code is very old, some code doesn't serve it's purpose anymore
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
 ## 1.32.0
+### What's Changed
 - Fixes `ScrollX` wrap issues
+- Changes ToggleView to `Switch to ScrollX` or `Switch to Responsive` when enabled
 
 ## 1.31.0
 ### What's Changed
