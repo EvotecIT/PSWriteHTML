@@ -117,6 +117,10 @@
     .PARAMETER SectorColors
     An array of colors to use for different sectors of the gauge.
 
+    .PARAMETER UseAbsoluteValues
+    Indicates whether to use absolute values for custom sectors.
+    By default, it uses percentage values.
+
     .EXAMPLE
     New-HTMLGage -Value 75 -Label "Progress" -Type "Donut" -MinValue 0 -MaxValue 100 -SectorColors @("red", "yellow", "green")
 
@@ -162,7 +166,8 @@
         [switch] $DisplayRemaining,
         [switch] $HumanFriendly,
         [int] $HumanFriendlyDecimal,
-        [string[]] $SectorColors
+        [string[]] $SectorColors,
+        [switch] $UseAbsoluteValues
     )
     # Make sure JustGage JS is added to source
     $Script:HTMLSchema.Features.MainFlex = $true
@@ -254,7 +259,7 @@
         [Array] $GageOutput = & $GageContent
         if ($GageOutput.Count -gt 0) {
             $Gage.customSectors = @{
-                percents = $true
+                percents = -not $UseAbsoluteValues
                 ranges   = $GageOutput
             }
         }
