@@ -190,92 +190,16 @@
             ResponsiveWrap              = @{
                 Comment         = 'Responsive Wrapping for InfoCards and other flex items'
                 InternalComment = 'responsive-wrap'
-                HeaderAlways    = @{
-                    Css = "$PSScriptRoot\..\Resources\CSS\responsiveWrap.css"
-                    # CssInline = @{
-                    #     # Base responsive container styles
-                    #     '.responsive-wrap-container' = @{
-                    #         'display' = 'flex !important'
-                    #         'flex-wrap' = 'wrap !important'
-                    #         'gap' = '0.5rem !important'
-                    #         'align-content' = 'flex-start !important'
-                    #         'align-items' = 'stretch !important'
-                    #         'justify-content' = 'flex-start !important'
-                    #     }
-                    #     '.responsive-wrap-container > *' = @{
-                    #         'flex' = '1 1 auto !important'
-                    #         'box-sizing' = 'border-box !important'
-                    #     }
-                    #     # Desktop specific sizes
-                    #     '@media (min-width: 1201px)' = @{
-                    #         '.responsive-wrap-container.min-items-2 > *' = @{
-                    #             'min-width' = 'calc(50% - 0.5rem) !important'
-                    #             'max-width' = 'calc(50% - 0.5rem) !important'
-                    #         }
-                    #         '.responsive-wrap-container.min-items-3 > *' = @{
-                    #             'min-width' = 'calc(33.333% - 0.5rem) !important'
-                    #             'max-width' = 'calc(33.333% - 0.5rem) !important'
-                    #         }
-                    #         '.responsive-wrap-container.min-items-4 > *' = @{
-                    #             'min-width' = 'calc(25% - 0.5rem) !important'
-                    #             'max-width' = 'calc(25% - 0.5rem) !important'
-                    #         }
-                    #     }
-                    #     # Tablet responsive
-                    #     '@media (max-width: 1200px)' = @{
-                    #         '.responsive-wrap-container > *' = @{
-                    #             'min-width' = 'calc(50% - 0.5rem) !important'
-                    #             'max-width' = 'calc(50% - 0.5rem) !important'
-                    #         }
-                    #     }
-                    #     # Mobile responsive
-                    #     '@media (max-width: 768px)' = @{
-                    #         '.responsive-wrap-container > *' = @{
-                    #             'min-width' = 'calc(100% - 0.5rem) !important'
-                    #             'max-width' = 'calc(100% - 0.5rem) !important'
-                    #         }
-                    #     }
-                    #     # InfoCard margin override
-                    #     '.responsive-wrap-container .dashboard-card-content-wrapper' = @{
-                    #         'margin' = '0 !important'
-                    #     }
-                    #     '.responsive-wrap-container .flexPanel' = @{
-                    #         'margin' = '0 !important'
-                    #     }
-                    # }
+                Header          = @{
+                    CssLink = "$($ConfigurationURL)/CSS/responsiveWrap.min.css"
+                    Css     = "$PSScriptRoot\..\Resources\CSS\responsiveWrap.min.css"
                 }
+                # HeaderAlways    = @{
+                #     Css = "$PSScriptRoot\..\Resources\CSS\responsiveWrap.css"
+                # }
                 Default         = $true
                 Email           = $false
             }
-            <# Doesn't seem to be in use
-        MainLink                = [ordered]@{
-            HeaderAlways = [ordered] @{
-                CssInline = [ordered]@{
-                    'a.alink:link'      = [ordered]@{
-                        'color'           = '#007bff'
-                        'text-decoration' = 'none'
-                        'font-size'       = '120%'
-                    }
-                    'a.alink:visited'   = [ordered]@{
-                        'color'           = '#ff8400'
-                        'text-decoration' = 'none'
-                        'font-size'       = '120%'
-                    }
-                    'a.alink:hover'     = [ordered]@{
-                        'text-decoration' = 'underline'
-                        'font-size'       = '130%'
-                    }
-                    'a.paginate_button' = [ordered]@{
-                        'color'     = '#000000 !important'
-                        'font-size' = '10px'
-                    }
-                    'a.current'         = [ordered]@{
-                        'color' = '#000000 !important'
-                    }
-                }
-            }
-        }
-        #>
             MainImage                   = [ordered]@{
                 HeaderAlways = [ordered] @{
                     CssInline = [ordered]@{
@@ -303,66 +227,6 @@
                 Default      = $true
                 Email        = $false
             }
-            <#
-        Default                 = @{
-            Comment      = 'Always Required Default Visual Settings'
-            HeaderAlways = @{
-                CssInline = [ordered] @{
-                    # Workaround for IE 11
-                    '@media all and (-ms-high-contrast:active)' = @{
-                        '.defaultSection' = @{
-                            'display' = 'flex'
-                        }
-                    }
-                    '.defaultSection'                           = [ordered] @{
-                        #'display'        = 'flex' # added to allow diagram to resize properly
-                        'flex-direction' = 'column' # added to allow diagram to resize properly
-                        #'flex-direction' = 'default' # added to allow diagram to resize properly
-                        'border'         = '1px solid #bbbbbb'
-                        'padding-bottom' = '0px'
-                        'margin'         = '5px'
-                        'width'          = 'calc(100% - 10px)'
-                        'box-shadow'     = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
-                        'transition'     = '0.3s'
-                        'border-radius'  = '5px'
-                    }
-                    '.defaultSectionHead'                       = [ordered] @{
-                        'display'          = 'flex'
-                        'justify-content'  = 'center'
-                        'padding'          = '5px'
-                        'margin'           = '0px 0px 0px 0px'
-                        'font-weight'      = 'bold'
-                        "background-color" = ConvertFrom-Color -Color "DeepSkyBlue"
-                        'color'            = ConvertFrom-Color -Color "White"
-                    }
-                    '.defaultSectionText'                       = [ordered] @{
-                        "text-align" = 'center'
-                    }
-                    #'.defaultSectionContent'                    = [ordered] @{
-                    #'padding-top'   = '5px'
-                    #'padding-right' = '5px'
-                    #'padding-left'  = '5px'
-                    #'padding' = '5px'
-                    #}
-                    '.defaultPanel'                             = [ordered] @{
-                        'box-shadow'    = '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
-                        'transition'    = '0.3s'
-                        'border-radius' = '5px'
-                        'margin'        = '5px'
-                    }
-                    #'.defaultText'                              = [ordered] @{
-                    #    'margin' = '5px'
-                    #}
-                }
-                # We want email to have no margins
-                # CssInlineNoScript = @{
-                #     '.defaultText' = [ordered] @{
-                #         'margin' = '0px !important'
-                #    }
-                # }
-            }
-        }
-        #>
             DefaultImage                = @{
                 Comment      = 'Image Style'
                 HeaderAlways = @{
