@@ -6,9 +6,10 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 ## 1.32.0
 ### What's Changed
-- Fixes `ScrollX` wrap issues
-- Changes ToggleView to `Switch to ScrollX` or `Switch to Responsive` when enabled
-- When using online mode the infocard, responsive wrap and datatables switch are now CDN hosted
+- Refactor New-HTMLTable.ps1 to enhance table by @PrzemyslawKlys in https://github.com/EvotecIT/PSWriteHTML/pull/497
+	- Fixes `ScrollX` wrap issues
+	- Changes ToggleView to `Switch to ScrollX` or `Switch to Responsive` when enabled
+	- When using online mode the infocard, responsive wrap and datatables switch are now CDN hosted
 
 ## 1.31.0
 ### What's Changed
