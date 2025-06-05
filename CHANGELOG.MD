@@ -4,6 +4,12 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## 1.32.0
+### What's Changed
+- Fixes `ScrollX` wrap issues
+- Changes ToggleView to `Switch to ScrollX` or `Switch to Responsive` when enabled
+- When using online mode the infocard, responsive wrap and datatables switch are now CDN hosted
+
 ## 1.31.0
 ### What's Changed
 * Improve InfoCard by @PrzemyslawKlys in https://github.com/EvotecIT/PSWriteHTML/pull/495

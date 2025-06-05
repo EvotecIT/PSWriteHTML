@@ -1027,9 +1027,16 @@
                             collectionTitle  = 'Visibility control'
                         }
                     } elseif ($button -eq 'toggleView') {
+                        # Set initial button text based on starting mode
+                        if ($ToggleViewDefaultViewMode -eq 'scrollx') {
+                            $ButtonText = 'Switch to Responsive'
+                        } else {
+                            $ButtonText = 'Switch to ScrollX'
+                        }
                         $ButtonOutput = [ordered] @{
                             extend          = 'toggleView'
                             title           = $Title
+                            text            = $ButtonText
                             defaultViewMode = $ToggleViewDefaultViewMode
                         }
                     } else {
@@ -1095,15 +1102,33 @@
     # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
     if (-not $Script:HTMLSchema['TableSimplify'] -and -not $DisableResponsiveTable) {
         $Script:HTMLSchema.Features.DataTablesResponsive = $true
-        $Options["responsive"] = @{ }
-        $Options["responsive"]['details'] = @{ }
+
+        # Build responsive configuration
+        $ResponsiveConfig = @{ }
+        $ResponsiveConfig['details'] = @{ }
         if ($ImmediatelyShowHiddenDetails) {
-            $Options["responsive"]['details']['display'] = '$.fn.dataTable.Responsive.display.childRowImmediate'
+            $ResponsiveConfig['details']['display'] = '$.fn.dataTable.Responsive.display.childRowImmediate'
         }
         if ($HideShowButton) {
-            $Options["responsive"]['details']['type'] = 'none' # this makes button invisible
+            $ResponsiveConfig['details']['type'] = 'none' # this makes button invisible
         } else {
-            $Options["responsive"]['details']['type'] = 'inline' # this adds a button
+            $ResponsiveConfig['details']['type'] = 'inline' # this adds a button
+        }
+
+        # For toggleView, we need to handle both starting modes
+        if ($Buttons -contains 'toggleView') {
+            if ($ScrollX) {
+                # Starting with ScrollX - store responsive config for later use
+                # but don't apply it initially to avoid conflict
+                $Options["responsiveConfig"] = $ResponsiveConfig
+            } else {
+                # Starting with responsive - apply config immediately but also store it for restoration
+                $Options["responsive"] = $ResponsiveConfig
+                $Options["responsiveConfig"] = $ResponsiveConfig
+            }
+        } else {
+            # Apply responsive config immediately for normal responsive mode
+            $Options["responsive"] = $ResponsiveConfig
         }
     } else {
         # HideSHowButton doesn't work
@@ -1338,17 +1363,8 @@
         $Script:HTMLSchema.Features.DataTables = $true
         $Script:HTMLSchema.Features.DataTablesEmail = $true
         $Script:HTMLSchema.Features.Moment = $true
-        if (-not $HideButtons) {
-            #$Script:HTMLSchema.Features.DataTablesButtonsPDF = $true
-            #$Script:HTMLSchema.Features.DataTablesButtonsExcel = $true
-        }
-        #$Script:HTMLSchema.Features.DataTablesSearchFade = $true
 
-        #if ($ScrollX) {
-        #    $TableAttributes = @{ id = $DataTableID; class = "$($Style -join ' ')"; width = $Width }
-        #} else {
-        $TableAttributes = @{ id = $DataTableID; class = "dataTables $($Style -join ' ')"; width = $Width }
-        #}
+        $TableAttributes = @{ id = $DataTableID; class = "dataTables wrap $($Style -join ' ')"; width = $Width }
 
         # Enable Custom Date fromat sorting
         $SortingFormatDateTime = Add-CustomFormatForDatetimeSorting -DateTimeSortingFormat $DateTimeSortingFormat
@@ -1420,7 +1436,6 @@
     }
     if (-not $DisableNewLine) {
         # Finds new lines and adds HTML TAG BR
-        #$Table = $Table -replace '(?m)\s+$', "`r`n<BR>"
         $Table = $Table -replace '(?m)\s+$', "<BR>"
     }
 
