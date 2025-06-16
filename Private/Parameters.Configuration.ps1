@@ -2189,7 +2189,7 @@
 # 'FullCalendar'
 # 'DataTablesSearchAlphabet'
 # 'DataTable*'
-# 'FancyTree'
+# 'FancyTree' # this requires Repair-FancyTree to bne run from PSWriteHTML.Helper before using it
 # 'CarouselSlick'
 # 'JustGage'
 # 'CarouselKineto'
