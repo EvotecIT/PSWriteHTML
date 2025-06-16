@@ -1424,10 +1424,16 @@
                 }
                 Header       = @{
                     JSLink  = @(
-                        'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38.2/dist/jquery.fancytree-all-deps.min.js'
+                        'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38.5/dist/jquery.fancytree-all-deps.min.js'
                     )
                     CSSLink = @(
-                        'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38.2/dist/skin-win8/ui.fancytree.min.css'
+                        'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38.5/dist/skin-win8/ui.fancytree.min.css'
+                    )
+                    JS      = @(
+                        "$PSScriptRoot\..\Resources\JS\fancyTree.jquery.min.js"
+                    )
+                    CSS     = @(
+                        "$PSScriptRoot\..\Resources\CSS\fancyTree.jquery.min.css"
                     )
                 }
                 Default      = $true
