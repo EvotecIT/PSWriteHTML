@@ -189,11 +189,8 @@
                 InternalComment = 'responsive-wrap'
                 Header          = @{
                     CssLink = "$($ConfigurationURL)/CSS/responsiveWrap.min.css"
-                    Css     = "$PSScriptRoot\..\Resources\CSS\responsiveWrap.min.css"
+                    Css     = "$PSScriptRoot\..\Resources\CSS\responsiveWrap.css"
                 }
-                # HeaderAlways    = @{
-                #     Css = "$PSScriptRoot\..\Resources\CSS\responsiveWrap.css"
-                # }
                 Default         = $true
                 Email           = $false
             }
