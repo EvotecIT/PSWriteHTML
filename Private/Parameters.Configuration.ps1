@@ -15,7 +15,7 @@
     param(
 
     )
-    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.29'
+    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.30'
     $Configuration = [ordered] @{
         Features = [ordered] @{
             Inject                      = @{
@@ -88,11 +88,8 @@
                 InternalComment = 'dashboard-cards'
                 Header          = @{
                     CssLink = "$($ConfigurationURL)/CSS/dashboardCards.min.css"
-                    Css     = "$PSScriptRoot\..\Resources\CSS\dashboardCards.min.css"
+                    Css     = "$PSScriptRoot\..\Resources\CSS\dashboardCards.css"
                 }
-                # HeaderAlways    = @{
-                #     Css = "$PSScriptRoot\..\Resources\CSS\dashboardCards.css"
-                # }
                 Default         = $true
                 Email           = $false
             }
