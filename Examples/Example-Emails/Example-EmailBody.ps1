@@ -68,6 +68,15 @@ $Output = EmailBody -FontSize 8px -FontFamily 'Tahoma' {
         ""
     ) -LineHeight 1.0, 2.5, 2.0, 0.5
 
+    EmailList -FontSize 15 {
+        EmailListItem -Text 'First item' -Color Red
+        EmailListItem -Text '2nd item' -Color Green
+        EmailList {
+            EmailListItem -Text '3rd item' -FontStyle italic
+            EmailListItem -Text '4th item' -TextDecoration line-through
+        }
+    }
+
     New-HTMLHeading -Heading h3 -HeadingText 'Another way' -Color Red
 
     EmailText -FontFamily 'Calibri' -Size 15 -Text "This is some text that's preformatted with Emoji 🤷 ‍️" -LineHeight 0.5
@@ -81,6 +90,4 @@ $Output = EmailBody -FontSize 8px -FontFamily 'Tahoma' {
 
 } -Online
 
-
-
-#Save-HTML -FilePath $PSScriptRoot\Output\TestBody.html -ShowHTML -HTML $Output
+Save-HTML -FilePath $PSScriptRoot\Output\TestBody.html -ShowHTML -HTML $Output
