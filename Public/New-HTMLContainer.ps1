@@ -18,6 +18,10 @@
     .PARAMETER AnchorName
     Specifies the anchor name for the container. If not provided, a random anchor name will be generated.
 
+    .PARAMETER Density
+    Specifies the density of the panel. This will automatically enable responsive wrapping for the panel.
+    The options are: Spacious, Comfortable, Compact, Dense, VeryDense.
+
     .EXAMPLE
     New-HTMLContainer -HTML {
         // HTML content here
@@ -39,7 +43,6 @@
         [alias('Content')][Parameter(Mandatory = $false, Position = 0)][ScriptBlock] $HTML,
         [object] $Width = '100%',
         [string] $Margin,
-        # Density parameter - automatically enables responsive wrapping
         [ValidateSet('Spacious', 'Comfortable', 'Compact', 'Dense', 'VeryDense')][string] $Density,
         [string] $AnchorName
     )
@@ -65,7 +68,6 @@
 
         $Css = ConvertTo-LimitedCSS -ClassName $ClassName -Attributes $Attributes -Group
 
-        # $Script:HTMLSchema.CustomHeaderCSS.Add($Css)
         $Script:HTMLSchema.CustomHeaderCSS[$AnchorName] = $Css
         [string] $Class = "$ClassName overflowHidden"
     } else {

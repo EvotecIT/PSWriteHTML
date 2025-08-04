@@ -67,8 +67,8 @@ function New-HTMLSection {
     Specifies the border radius of the section. Valid values are '0px', '5px', '10px', '15px', '20px', '25px'.
 
     .PARAMETER Density
-    Specifies the layout density using intuitive names. Valid values are 'Spacious', 'Comfortable', 'Compact', 'Dense', 'VeryDense'.
-    Automatically enables responsive wrapping behavior for child elements.
+    Specifies the density of the panel. This will automatically enable responsive wrapping for the panel.
+    The options are: Spacious, Comfortable, Compact, Dense, VeryDense.
 
     .PARAMETER AnchorName
     Specifies the anchor name for the section.
@@ -115,7 +115,6 @@ function New-HTMLSection {
         [string][ValidateSet('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch')] $AlignContent,
         [string][ValidateSet('stretch', 'flex-start', 'flex-end', 'center', 'baseline')] $AlignItems,
         [string][ValidateSet('flex-start', 'flex-end', 'center')] $JustifyContent,
-        # Density parameter - automatically enables responsive wrapping
         [ValidateSet('Spacious', 'Comfortable', 'Compact', 'Dense', 'VeryDense')][string] $Density,
 
         [ValidateSet('0px', '5px', '10px', '15px', '20px', '25px')][string] $BorderRadius,
@@ -125,7 +124,7 @@ function New-HTMLSection {
     )
     $Script:HTMLSchema.Features.Main = $true
     $Script:HTMLSchema.Features.MainFlex = $true
-    $Script:HTMLSchema.Features.ResponsiveWrap = $true
+
     # This is so we can support external CSS configuration
     if (-not $StyleSheetsConfiguration) {
         $StyleSheetsConfiguration = [ordered] @{
@@ -236,6 +235,9 @@ function New-HTMLSection {
 
     # Auto-enable responsive wrapping if Density is specified
     $ResponsiveWrap = $PSBoundParameters.ContainsKey('Density')
+    if ($ResponsiveWrap) {
+        $Script:HTMLSchema.Features.ResponsiveWrap = $true
+    }
 
     if ($Wrap -or $Direction -or $ResponsiveWrap) {
         [string] $ClassName = "flexParent$(Get-RandomStringName -Size 8 -LettersOnly)"
