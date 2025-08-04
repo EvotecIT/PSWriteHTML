@@ -32,6 +32,8 @@ jobs:
       - name: Setup PowerShell modules
         run: |
           Install-Module PSPublishModule -Force -Scope CurrentUser -AllowClobber
+          Install-Module PSWriteColor -Force -Scope CurrentUser -AllowClobber
+          Install-Module PSSharedGoods -Force -Scope CurrentUser -AllowClobber
         shell: pwsh
 
       - name: Refresh module manifest
@@ -78,6 +80,7 @@ jobs:
         run: |
           Install-Module -Name Pester -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
           Install-Module -Name PSWriteColor -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+          Install-Module -Name PSSharedGoods -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
         shell: powershell
 
       - name: Run PowerShell tests
@@ -103,6 +106,7 @@ jobs:
         run: |
           Install-Module -Name Pester -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
           Install-Module -Name PSWriteColor -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+          Install-Module -Name PSSharedGoods -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
         shell: pwsh
 
       - name: Run PowerShell tests
@@ -135,6 +139,7 @@ jobs:
         run: |
           Install-Module -Name Pester -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
           Install-Module -Name PSWriteColor -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+          Install-Module -Name PSSharedGoods -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
         shell: pwsh
 
       - name: Run PowerShell tests
@@ -163,6 +168,7 @@ jobs:
         run: |
           Install-Module -Name Pester -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
           Install-Module -Name PSWriteColor -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+          Install-Module -Name PSSharedGoods -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
         shell: pwsh
 
       - name: Run PowerShell tests
