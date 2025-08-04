@@ -1,0 +1,170 @@
+name: Test PowerShell
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '*.md'
+      - 'Docs/**'
+      - 'Examples/**'
+      - '.gitignore'
+  pull_request:
+    branches:
+      - master
+
+env:
+  BUILD_CONFIGURATION: 'Debug'
+
+jobs:
+  refresh-psd1:
+    name: 'Refresh PSD1'
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref }}
+
+      - name: Setup PowerShell modules
+        run: |
+          Install-Module PSPublishModule -Force -Scope CurrentUser -AllowClobber
+        shell: pwsh
+
+      - name: Refresh module manifest
+        env:
+          RefreshPSD1Only: 'true'
+        run: |
+          ./Build/Build-Module.ps1
+        shell: pwsh
+
+      - name: Commit refreshed PSD1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_BRANCH: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add PSWriteHTML.psd1
+          git commit -m "chore: regenerate psd1" || echo "No changes to commit"
+          git push origin HEAD:$Env:HEAD_BRANCH
+        shell: pwsh
+
+      - name: Upload refreshed manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: psd1
+          path: PSWriteHTML.psd1
+
+  test-windows-ps5:
+    needs: refresh-psd1
+    name: 'Windows PowerShell 5.1'
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: psd1
+          path: .
+
+      - name: Install PowerShell modules
+        run: |
+          Install-Module -Name Pester -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+          Install-Module -Name PSWriteColor -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+        shell: powershell
+
+      - name: Run PowerShell tests
+        run: ./PSWriteHTML.Tests.ps1
+        shell: powershell
+
+  test-windows-ps7:
+    needs: refresh-psd1
+    name: 'Windows PowerShell 7'
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: psd1
+          path: .
+
+      - name: Install PowerShell modules
+        run: |
+          Install-Module -Name Pester -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+          Install-Module -Name PSWriteColor -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+        shell: pwsh
+
+      - name: Run PowerShell tests
+        run: ./PSWriteHTML.Tests.ps1
+        shell: pwsh
+
+  test-ubuntu:
+    needs: refresh-psd1
+    name: 'Ubuntu PowerShell 7'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: psd1
+          path: .
+
+      - name: Install PowerShell
+        run: |
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list
+          sudo apt-get update
+          sudo apt-get install -y powershell
+
+      - name: Install PowerShell modules
+        run: |
+          Install-Module -Name Pester -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+          Install-Module -Name PSWriteColor -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+        shell: pwsh
+
+      - name: Run PowerShell tests
+        run: ./PSWriteHTML.Tests.ps1
+        shell: pwsh
+
+  test-macos:
+    needs: refresh-psd1
+    name: 'macOS PowerShell 7'
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: psd1
+          path: .
+
+      - name: Install PowerShell
+        run: brew install --cask powershell
+
+      - name: Install PowerShell modules
+        run: |
+          Install-Module -Name Pester -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+          Install-Module -Name PSWriteColor -Repository PSGallery -Force -SkipPublisherCheck -AllowClobber
+        shell: pwsh
+
+      - name: Run PowerShell tests
+        run: ./PSWriteHTML.Tests.ps1
+        shell: pwsh
