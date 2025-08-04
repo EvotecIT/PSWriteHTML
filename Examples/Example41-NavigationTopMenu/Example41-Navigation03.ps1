@@ -8,7 +8,7 @@ $DataTable1 = @(
 )
 
 New-HTML -TitleText 'Testing Navigation' {
-    New-HTMLNavTop -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' -LogoLinkHome {
+    New-HTMLNavTop -Logo 'https://evotec.xyz/wp-content/uploads/2021/04/Logo-evotec-bb.png' -LogoLink "https://evotec.xyz" -LogoLinkHome {
         New-NavTopMenu -Name 'Domains' -IconRegular address-book {
             New-NavLink -IconMaterial airplane -Name 'This is internal link 1' -InternalPageID 'Page 1'
             New-NavLink -IconSolid address-book -Href 'https://evotec.xyz' -Name 'This is link to evotec' -IconColor Pink -NameColor Red

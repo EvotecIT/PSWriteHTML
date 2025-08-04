@@ -15,7 +15,7 @@
     param(
 
     )
-    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.29'
+    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.30'
     $Configuration = [ordered] @{
         Features = [ordered] @{
             Inject                      = @{
@@ -88,11 +88,8 @@
                 InternalComment = 'dashboard-cards'
                 Header          = @{
                     CssLink = "$($ConfigurationURL)/CSS/dashboardCards.min.css"
-                    Css     = "$PSScriptRoot\..\Resources\CSS\dashboardCards.min.css"
+                    Css     = "$PSScriptRoot\..\Resources\CSS\dashboardCards.css"
                 }
-                # HeaderAlways    = @{
-                #     Css = "$PSScriptRoot\..\Resources\CSS\dashboardCards.css"
-                # }
                 Default         = $true
                 Email           = $false
             }
@@ -192,11 +189,8 @@
                 InternalComment = 'responsive-wrap'
                 Header          = @{
                     CssLink = "$($ConfigurationURL)/CSS/responsiveWrap.min.css"
-                    Css     = "$PSScriptRoot\..\Resources\CSS\responsiveWrap.min.css"
+                    Css     = "$PSScriptRoot\..\Resources\CSS\responsiveWrap.css"
                 }
-                # HeaderAlways    = @{
-                #     Css = "$PSScriptRoot\..\Resources\CSS\responsiveWrap.css"
-                # }
                 Default         = $true
                 Email           = $false
             }
@@ -1424,10 +1418,16 @@
                 }
                 Header       = @{
                     JSLink  = @(
-                        'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38.2/dist/jquery.fancytree-all-deps.min.js'
+                        'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38.5/dist/jquery.fancytree-all-deps.min.js'
                     )
                     CSSLink = @(
-                        'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38.2/dist/skin-win8/ui.fancytree.min.css'
+                        'https://cdn.jsdelivr.net/npm/jquery.fancytree@2.38.5/dist/skin-win8/ui.fancytree.min.css'
+                    )
+                    JS      = @(
+                        "$PSScriptRoot\..\Resources\JS\fancyTree.jquery.min.js"
+                    )
+                    CSS     = @(
+                        "$PSScriptRoot\..\Resources\CSS\fancyTree.jquery.min.css"
                     )
                 }
                 Default      = $true
@@ -2183,7 +2183,7 @@
 # 'FullCalendar'
 # 'DataTablesSearchAlphabet'
 # 'DataTable*'
-# 'FancyTree'
+# 'FancyTree' # this requires Repair-FancyTree to bne run from PSWriteHTML.Helper before using it
 # 'CarouselSlick'
 # 'JustGage'
 # 'CarouselKineto'

@@ -1,7 +1,7 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-$Table1 = Get-Process | Select-Object -First 5
-$Table2 = Get-Process | Select-Object -First 5
+$Table1 = Get-Process | Select-Object -First 5 -ExcludeProperty Modules, Threads
+$Table2 = Get-Process | Select-Object -First 5 -ExcludeProperty Modules, Threads
 <#
 $Table1 = @(
     Get-Process
@@ -86,4 +86,4 @@ New-HTML -TitleText "Server Based Solution" -FilePath "$PSScriptRoot\Example44.h
             } -DataTableID 'TableContent8' -PagingOptions @(5, 10, 15)
         }
     }
-} -Online #-ShowHTML
+} -Online -ShowHTML

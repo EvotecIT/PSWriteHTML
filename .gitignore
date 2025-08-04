@@ -22,3 +22,5 @@ Lib/Standard/*
 Lib/Core/*
 *.json
 *.html
+.claude/*
+CLAUDE.MD
