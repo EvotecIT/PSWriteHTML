@@ -27,13 +27,20 @@ function Convert-ImagesToBinary {
         [string] $ReplacePath
     )
     if ($Content -like "*$Search*") {
-        if ($PSEdition -eq 'Core') {
-            $ImageContent = Get-Content -AsByteStream -LiteralPath $ReplacePath
-        } else {
-            $ImageContent = Get-Content -LiteralPath $ReplacePath -Encoding Byte
+        if (Test-Path $ReplacePath) {
+            try {
+                if ($PSEdition -eq 'Core') {
+                    $ImageContent = Get-Content -AsByteStream -LiteralPath $ReplacePath -ErrorAction Stop
+                } else {
+                    $ImageContent = Get-Content -LiteralPath $ReplacePath -Encoding Byte -ErrorAction Stop
+                }
+            } catch {
+                Write-Warning -Message "Convert-ImagesToBinary - Couldn't read image file at $ReplacePath. Error: $($_.Exception.Message)"
+                return $Content
+            }
+            $Replace = "data:image/$FileType;base64," + [Convert]::ToBase64String($ImageContent)
+            $Content = $Content.Replace($Search, $Replace)
         }
-        $Replace = "data:image/$FileType;base64," + [Convert]::ToBase64String($ImageContent)
-        $Content = $Content.Replace($Search, $Replace)
     }
     $Content
 }
