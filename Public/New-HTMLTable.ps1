@@ -1321,6 +1321,12 @@
                     ArrayJoinString       = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
                 }
                 $DataToInsert = $Table | ConvertTo-PrettyObject @convertToPrettyObjectSplat | ConvertTo-Json
+                if (-not $InvokeHTMLTags) {
+                    # If InvokeHTMLTags is not set, we need to escape HTML characters
+                    # By default HTML tags are escaped when using DataStore HTML, but not when using JavaScript
+                    # So we need to escape them here, so they don't break the JavaScript code
+                    $DataToInsert = $DataToInsert -replace "<", "&lt;" -replace ">", "&gt;"
+                }
                 if ($DataToInsert.StartsWith('[')) {
                     $Script:HTMLSchema.CustomFooterJS[$DataStoreID] = "var $DataStoreID = $DataToInsert;"
                 } else {
@@ -1341,6 +1347,12 @@
                 ArrayJoinString       = $Script:HTMLSchema['TableOptions']['DataStoreOptions'].ArrayJoinString
             }
             $DataToInsert = $Table | ConvertTo-PrettyObject @convertToPrettyObjectSplat | ConvertTo-Json
+            if (-not $InvokeHTMLTags) {
+                # If InvokeHTMLTags is not set, we need to escape HTML characters
+                # By default HTML tags are escaped when using DataStore HTML, but not when using JavaScript
+                # So we need to escape them here, so they don't break the JavaScript code
+                $DataToInsert = $DataToInsert -replace "<", "&lt;" -replace ">", "&gt;"
+            }
             if ($DataToInsert.StartsWith('[')) {
                 $Options = $Options.Replace('"markerForDataReplacement"', $DataToInsert)
             } else {
