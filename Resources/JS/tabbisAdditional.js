@@ -4,13 +4,22 @@ var tabs = tabbis.init({
     tabActive: "active",
     paneActive: "active",
     callback: function (tab, pane) {
-        // console.log("TAB id:" + tab.id + pane.id + tableid);
-        // this makes sure to refresh tables on given tab change to make sure they have buttons and everything
-        // which tab has which table
-        findObjectsToRedraw(tab.id + "-Content");
+        // Ensure redraw runs after pane becomes visible
+        try {
+            var id = (tab && tab.id ? (tab.id + "-Content") : (pane && pane.id ? pane.id : null));
+            if (id) {
+                setTimeout(function () {
+                    try { findObjectsToRedraw(id); } catch (e) {}
+                    try { document.dispatchEvent(new CustomEvent('pswh:tab:shown', { detail: { id: id } })); } catch (e) {}
+                }, 80);
+            }
+        } catch (e) {}
     }
 });
 
-// in theory should take care of removing local storage for tabbis
-// some errors occurs if the local storage is not cleaned after a while
-window.addEventListener("unload", tabbis.remove, false);
+// Safely clear tab memory on unload (if supported)
+try {
+    if (tabbis && typeof tabbis.reset === 'function') {
+        window.addEventListener("unload", tabbis.reset, false);
+    }
+} catch (e) {}

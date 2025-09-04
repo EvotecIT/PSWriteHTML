@@ -115,12 +115,14 @@ function New-TableCondition {
         [string[]] $HighlightHeaders,
         [alias('Type')][ValidateSet('number', 'string', 'bool', 'date')][string] $ComparisonType = 'string',
         [ValidateSet('lt', 'le', 'eq', 'ge', 'gt', 'ne', 'contains', 'like', 'notlike', 'notcontains', 'between', 'betweenInclusive', 'in', 'notin')][string] $Operator = 'eq',
-        [parameter(Mandatory)][Object] $Value,
+        [Object] $Value,
         [switch] $Row,
         [switch] $Inline,
         [switch] $CaseSensitive,
         [string] $DateTimeFormat,
         [switch] $ReverseCondition,
+        # Child row fill for responsive lists
+        [ValidateSet('Parent','Both')][string] $ChildRowFill,
         # Style for PASS
         [string]$Color,
         [string]$BackgroundColor,
@@ -192,6 +194,7 @@ function New-TableCondition {
         CaseSensitive    = $CaseSensitive.IsPresent
         DateTimeFormat   = $DateTimeFormat
         ReverseCondition = $ReverseCondition.IsPresent
+        ChildRowFill     = $ChildRowFill
     }
     [PSCustomObject] @{
         Type   = if ($Inline) { 'TableConditionInline' } else { 'TableCondition' }

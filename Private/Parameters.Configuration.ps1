@@ -15,7 +15,7 @@
     param(
 
     )
-    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.30'
+    $ConfigurationURL = 'https://cdn.jsdelivr.net/gh/evotecit/cdn@0.0.31'
     $Configuration = [ordered] @{
         Features = [ordered] @{
             Inject                      = @{
@@ -959,14 +959,17 @@
                 Email   = $false
             }
             DataTablesConditions        = @{
-                Comment      = 'DataTables Conditions'
-                FooterAlways = @{
-                    JS = @(
-                        "$PSScriptRoot\..\Resources\JS\dataTables.conditions.js"
+                Comment = 'DataTables Conditions'
+                Header  = @{
+                    JsLink = @(
+                        "https://cdn.jsdelivr.net/npm/@evotecit/htmlextensions@0.1.2/dist/datatables.columnHighlighter.js"
+                    )
+                    JS     = @(
+                        "$PSScriptRoot\..\Resources\JS\dataTables.columnHighlighter.js"
                     )
                 }
-                Default      = $true
-                Email        = $false
+                Default = $true
+                Email   = $false
             }
             DataTablesColReorder        = @{
                 Comment = 'DataTables ColReorder Features'

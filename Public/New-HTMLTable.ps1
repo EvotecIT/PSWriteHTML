@@ -1265,7 +1265,20 @@
         $Options.autoWidth = $false
     }
 
-    $Options = $Options | ConvertTo-Json -Depth 6 #ConvertTo-JsonLiteral -Depth 6 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
+    # Prefer plugin-based conditional formatting: serialize rules into columnHighlighter
+
+    if ($ConditionalFormatting -and $ConditionalFormatting.Count -gt 0) {
+        $rules = Convert-TableConditionsToHighlighterRules -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames
+        if ($rules -and $rules.Count -gt 0) {
+            if ($Options.Contains('createdRow')) {
+                $Options.Remove('createdRow')
+            }
+            $Options['columnHighlighter'] = [ordered]@{ rules = $rules }
+        }
+    }
+
+
+    $Options = $Options | ConvertTo-Json -Depth 8 #ConvertTo-JsonLiteral -Depth 6 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
 
     # cleans up $Options for ImmediatelyShowHiddenDetails
     # Since it's JavaScript inside we're basically removing double quotes from JSON in favor of no quotes at all
@@ -1351,8 +1364,10 @@
         $Table = $null
     }
 
-    # Process Conditional Formatting. Ugly JS building
-    $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames -DataStore $DataStore
+    # Process Conditional Formatting using rowCallback only if plugin rules are not present
+    # if ($Options -notmatch '"columnHighlighter"\s*:\s*\{') {
+    #     $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames -DataStore $DataStore
+    # }
     # Process Row Grouping. Ugly JS building
     if ($RowGroupingColumnID -ne -1) {
         $Options = Convert-TableRowGrouping -Options $Options -RowGroupingColumnID $RowGroupingColumnID

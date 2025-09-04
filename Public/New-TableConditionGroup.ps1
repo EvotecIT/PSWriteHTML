@@ -107,6 +107,8 @@
         [string[]] $HighlightHeaders,
         [switch] $Row,
         [switch] $Inline,
+        # Child row fill for responsive lists
+        [ValidateSet('Parent','Both')][string] $ChildRowFill,
         # Style for PASS
         [string]$Color,
         [string]$BackgroundColor,
@@ -174,6 +176,7 @@
             Logic            = $Logic
             HighlightHeaders = $HighlightHeaders
             DateTimeFormat   = $DateTimeFormat
+            ChildRowFill     = $ChildRowFill
         }
         [PSCustomObject] @{
             Type   = if ($Inline) { 'TableConditionGroupInline' } else { 'TableConditionGroup' }
