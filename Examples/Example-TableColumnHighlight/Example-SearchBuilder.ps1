@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-$ProcessesAll = Get-Process | Select-Object -First 1 #-Property Name, Id, StartTime
+$ProcessesAll = Get-Process | Select-Object -First 3 #-Property Name, Id, StartTime
 
 New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example-SearchBuilder.html -ShowHTML {
     #New-HTMLTableStyle -BackgroundColor Blue -Type RowSelected
@@ -10,9 +10,18 @@ New-HTML -TitleText 'Title' -Online -FilePath $PSScriptRoot\Example-SearchBuilde
     New-HTMLSection -HeaderText 'Search Builder 1' {
         New-HTMLTable -DataTable $ProcessesAll -SearchBuilder -Buttons excelHtml5, copyHtml5, csvHtml5 {
             #New-HTMLTableContent -ColumnName 'PriorityClass' -BackgroundColor Salmon
-            #New-HTMLTableContent -ColumnName 'Company' -BackgroundColor Salmon
-            New-HTMLTableCondition -ColumnName 'Name' -BackgroundColor Salmon -Value '1Password'
+            New-HTMLTableContent -ColumnName 'HandleCount' -BackGroundColor Salmon
+            New-HTMLTableCondition -ColumnName 'Product' -BackgroundColor Salmon -Value '1Password' -ChildRowFill Both
+            New-HTMLTableCondition -ColumnName 'Name' -BackgroundColor AirForceBlue -Value '1password'
         }
+        New-HTMLTable -DataTable $ProcessesAll -SearchBuilder -Buttons excelHtml5, copyHtml5, csvHtml5 {
+            #New-HTMLTableContent -ColumnName 'PriorityClass' -BackgroundColor Salmon
+            New-HTMLTableContent -ColumnName 'HandleCount' -BackGroundColor Salmon
+            New-HTMLTableCondition -ColumnName 'Product' -BackgroundColor Salmon -Value '1Password'
+            New-HTMLTableCondition -ColumnName 'Name' -BackgroundColor AirForceBlue -Value '1password'
+
+            New-HTMLTableCondition -ColumnName 'VM' -BackgroundColor Alizarin
+        } -DataStore JavaScript
     }
     # New-HTMLSection -HeaderText 'Search Builder as button' {
     #     New-HTMLTable -DataTable $ProcessesAll

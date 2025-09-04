@@ -6,7 +6,7 @@
 $Data = Get-Process |
     Select-Object -First 12 Name, Id, CPU
 
-New-HTML -Name 'Tabs + Carousel' -FilePath "$PSScriptRoot\Example-Carousel03.html" -Format -Show {
+New-HTML -Name 'Tabs + Carousel' -FilePath "$PSScriptRoot\Example-Carousel03.html" -Online -Show {
     New-HTMLTab -Name 'Tab 1' -Heading 'First' {
         New-HTMLSection -HeaderText 'Visible Tab' -Invisible {
             New-HTMLCarousel {
