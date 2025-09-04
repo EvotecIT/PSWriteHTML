@@ -1325,7 +1325,7 @@
                     # If InvokeHTMLTags is not set, we need to escape HTML characters
                     # By default HTML tags are escaped when using DataStore HTML, but not when using JavaScript
                     # So we need to escape them here, so they don't break the JavaScript code
-                    $DataToInsert = $DataToInsert -replace "<", "&lt;" -replace ">"
+                    $DataToInsert = $DataToInsert -replace "<", "&lt;" -replace ">", "&gt;"
                 }
                 if ($DataToInsert.StartsWith('[')) {
                     $Script:HTMLSchema.CustomFooterJS[$DataStoreID] = "var $DataStoreID = $DataToInsert;"
