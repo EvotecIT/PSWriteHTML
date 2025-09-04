@@ -7,25 +7,13 @@ function show(obj) {
     var flexDirection = window.getComputedStyle(topSectionDiv).getPropertyValue("flex-direction");
     if (flexDirection == 'column') {
         //console.log('flexDirection 1' + flexDirection)
-    } else{
+    } else {
         document.getElementById(obj).parentNode.classList.add('sectionShow');
         document.getElementById(obj).parentNode.classList.remove('sectionHide');
         //console.log('flexDirection 2' + flexDirection)
     }
-    // resize tables within section
-    try {
-        var table = document.getElementById(obj).querySelectorAll('table');
-        table.forEach(resizeTable)
-    } catch (e) {
-        console.log('No datatables available.');
-    }
-    // redraw calendars within section
-    try {
-        var calendar = document.getElementById(obj).querySelectorAll('div[id^="Calendar-"]');
-        calendar.forEach(redrawCalendar)
-    } catch (e) {
-        console.log('No calendars available.');
-    }
+    // reflow/redraw objects within this section (tables, charts, carousels, calendars, diagrams)
+    try { findObjectsToRedraw(obj); } catch (e) { }
 }
 
 function hide(obj) {
@@ -38,7 +26,7 @@ function hide(obj) {
     var flexDirection = window.getComputedStyle(topSectionDiv).getPropertyValue("flex-direction");
     if (flexDirection == 'column') {
         //console.log('flexDirection 1' + flexDirection)
-    } else{
+    } else {
         document.getElementById(obj).parentNode.classList.remove('sectionShow');
         document.getElementById(obj).parentNode.classList.add('sectionHide');
         //console.log('flexDirection 2' + flexDirection)
