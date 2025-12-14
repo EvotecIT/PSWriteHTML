@@ -1,7 +1,7 @@
 /*!
- HTMLExtensions v0.1.10 — DataTables ColumnHighlighter & ToggleView
+ HTMLExtensions v0.1.12 — DataTables ColumnHighlighter & ToggleView
  (c) 2011–2025 Przemyslaw Klys @ Evotec
- https://htmlextensions.evotec.xyz | MIT License | Build: 2025-12-14T14:17:56.670Z
+ https://htmlextensions.evotec.xyz | MIT License | Build: 2025-12-14T18:31:19.713Z
 */
 
 (function(){
@@ -357,8 +357,68 @@
 
     function getHeaderNames(tableId) {
         try {
-            var names = []; var $ths = jQuery('#' + tableId + ' thead th');
-            $ths.each(function(){ names.push(jQuery(this).text().trim()); }); return names;
+            // Prefer cached headers captured from DataTables API during init (avoids title rows / multi-headers).
+            try {
+                if (window.DataTablesColumnHighlighter && window.DataTablesColumnHighlighter.configurations) {
+                    var cached = window.DataTablesColumnHighlighter.configurations[tableId];
+                    if (cached && Array.isArray(cached.headers) && cached.headers.length > 0) {
+                        return cached.headers;
+                    }
+                }
+            } catch (_) { /* noop */ }
+
+            var $table = jQuery('#' + tableId);
+
+            // If table is already initialized, DataTables knows the correct header cells for columns.
+            try {
+                if (jQuery.fn && jQuery.fn.dataTable && jQuery.fn.dataTable.isDataTable($table)) {
+                    var api = $table.DataTable();
+                    if (api && api.columns && api.columns().header) {
+                        var headerNodes = api.columns().header().toArray();
+                        var namesApi = [];
+                        for (var i = 0; i < headerNodes.length; i++) {
+                            namesApi.push(jQuery(headerNodes[i]).text().trim());
+                        }
+                        if (namesApi.length > 0) return namesApi;
+                    }
+                }
+            } catch (_) { /* noop */ }
+
+            // Fallback: pick the header row with the most non-empty header cells.
+            // This ignores PSWriteHTML-style title rows (<th colspan="...">) and common filter-input header rows.
+            try {
+                var bestRow = null;
+                var bestNonEmpty = -1;
+                var bestCount = -1;
+                $table.find('thead tr').each(function () {
+                    var $ths = jQuery(this).find('th');
+                    if (!$ths.length) return;
+                    var nonEmpty = 0;
+                    $ths.each(function () {
+                        var t = (jQuery(this).text() || '').trim();
+                        if (t) nonEmpty++;
+                    });
+                    if (nonEmpty > bestNonEmpty || (nonEmpty === bestNonEmpty && $ths.length > bestCount)) {
+                        bestRow = this;
+                        bestNonEmpty = nonEmpty;
+                        bestCount = $ths.length;
+                    }
+                });
+                if (bestRow) {
+                    var namesBest = [];
+                    jQuery(bestRow).find('th').each(function () {
+                        namesBest.push(jQuery(this).text().trim());
+                    });
+                    if (namesBest.length > 0) return namesBest;
+                }
+            } catch (_) { /* noop */ }
+
+            // Last resort: original behavior (may include title rows).
+            try {
+                var names = [];
+                $table.find('thead th').each(function () { names.push(jQuery(this).text().trim()); });
+                return names;
+            } catch (_) { return []; }
         } catch (e) { return []; }
     }
     function indexToHeaderName(tableId, index) {
@@ -389,9 +449,19 @@
             } catch(e) {}
             return c;
         },
-        normalizeRules: function(tableId, config, table){
+        normalizeRules: function(tableId, config, table, headers, store){
             try {
-                var headers = getHeaderNames(tableId); var store = this.detectStore(table);
+                if (!headers) {
+                    try {
+                        if (table && table.columns && table.columns().header) {
+                            var headerNodes = table.columns().header().toArray();
+                            headers = [];
+                            for (var hi = 0; hi < headerNodes.length; hi++) { headers.push(jQuery(headerNodes[hi]).text().trim()); }
+                        }
+                    } catch (_) { /* noop */ }
+                }
+                headers = headers && headers.length ? headers : getHeaderNames(tableId);
+                store = store || this.detectStore(table);
                 for (var i = 0; i < config.length; i++) {
                     var rule = config[i]; if (rule && rule.conditionsContainer) {
                         for (var r = 0; r < rule.conditionsContainer.length; r++) {
@@ -409,8 +479,19 @@
             return rowData;
         },
         init: function(tableId, config, table) {
-            var normalized = this.normalizeRules(tableId, Array.isArray(config) ? config : [config], table);
-            this.configurations[tableId] = { config: normalized, table: table };
+            var headers = null;
+            try {
+                if (table && table.columns && table.columns().header) {
+                    var headerNodes = table.columns().header().toArray();
+                    headers = [];
+                    for (var hi = 0; hi < headerNodes.length; hi++) { headers.push(jQuery(headerNodes[hi]).text().trim()); }
+                }
+            } catch (_) { /* noop */ }
+            headers = headers && headers.length ? headers : getHeaderNames(tableId);
+
+            var store = this.detectStore(table);
+            var normalized = this.normalizeRules(tableId, Array.isArray(config) ? config : [config], table, headers, store);
+            this.configurations[tableId] = { config: normalized, table: table, headers: headers, store: store };
             this.setupEventHandlers(tableId, table);
         },
         setupEventHandlers: function(tableId, table) {
