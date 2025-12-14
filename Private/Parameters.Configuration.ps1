@@ -962,7 +962,7 @@
                 Comment = 'DataTables Conditions'
                 Header  = @{
                     JsLink = @(
-                        "https://cdn.jsdelivr.net/npm/@evotecit/htmlextensions@0.1.2/dist/datatables.columnHighlighter.js"
+                        "https://cdn.jsdelivr.net/npm/@evotecit/htmlextensions@0.1.10/dist/datatables.columnHighlighter.js"
                     )
                     JS     = @(
                         "$PSScriptRoot\..\Resources\JS\dataTables.columnHighlighter.js"
