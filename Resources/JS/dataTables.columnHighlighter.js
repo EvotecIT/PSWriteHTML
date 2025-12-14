@@ -1,18 +1,287 @@
-﻿// DataTables Column Highlighter (standalone)
-// Combines conditional engine and responsive child-row + visible cell styling
-// Usage:
-//   $('#table').DataTable({
-//     columnHighlighter: { rules: [ /* see README.md */ ] }
-//   });
-/*
- DataTables Column Highlighter v1.0.0
- (c) 2025 EvotecIT | MIT
- https://github.com/EvotecIT/HTMLExtensions
+/*!
+ HTMLExtensions v0.1.12 — DataTables ColumnHighlighter & ToggleView
+ (c) 2011–2025 Przemyslaw Klys @ Evotec
+ https://htmlextensions.evotec.xyz | MIT License | Build: 2025-12-14T18:31:19.713Z
 */
+
 (function(){
     if (typeof window === 'undefined') { return; }
 
     function isEmptyOrSpaces(str) { return !str || str.trim() === ''; }
+    // Normalize header/column names for tolerant matching (case/spacing/punctuation)
+    function normalizeName(input) {
+        try { return ('' + input).toLowerCase().replace(/[\s\u00A0\u202F\-_]/g, '').replace(/[^a-z0-9]/gi, ''); } catch(_) { return ''+input; }
+    }
+
+    // Parse numbers accepting both "." and "," decimal separators (and typical thousands separators)
+    function parseLocaleNumber(input) {
+        if (typeof input === 'number') return input;
+        var s = ('' + input).trim();
+        if (!s) return undefined;
+        // remove regular/narrow/nb spaces used as group separators
+        s = s.replace(/[\s\u00A0\u202F]/g, '');
+        var hasComma = s.indexOf(',') !== -1;
+        var hasDot = s.indexOf('.') !== -1;
+        if (hasComma && hasDot) {
+            // The last separator is the decimal; the other is group separator
+            if (s.lastIndexOf(',') > s.lastIndexOf('.')) {
+                // comma decimal, dot thousands
+                s = s.replace(/\./g, '');
+                s = s.replace(',', '.');
+            } else {
+                // dot decimal, comma thousands
+                s = s.replace(/,/g, '');
+            }
+        } else if (hasComma && !hasDot) {
+            // Only comma present -> treat as decimal separator
+            s = s.replace(',', '.');
+        } else {
+            // Only dot or neither -> unchanged
+        }
+        var n = Number(s);
+        return isNaN(n) ? undefined : n;
+    }
+
+    function isValidDate(d) {
+        return d instanceof Date && !isNaN(d.valueOf());
+    }
+
+    function uniqPush(arr, value) {
+        if (!value) return;
+        if (arr.indexOf(value) === -1) arr.push(value);
+    }
+
+    // Converts common .NET / PowerShell date format tokens to Moment-compatible tokens.
+    // Also converts .NET quoted literals ('...') into Moment literals ([...]) so letters don't get interpreted as tokens.
+    function dotNetToMomentFormat(fmt) {
+        if (!fmt || typeof fmt !== 'string') return fmt;
+        var out = '';
+        var i = 0;
+        while (i < fmt.length) {
+            var ch = fmt[i];
+
+            // .NET literal: '...'
+            if (ch === "'") {
+                var j = i + 1;
+                var lit = '';
+                while (j < fmt.length) {
+                    if (fmt[j] === "'") {
+                        // Escaped single quote: ''
+                        if (j + 1 < fmt.length && fmt[j + 1] === "'") {
+                            lit += "'";
+                            j += 2;
+                            continue;
+                        }
+                        break;
+                    }
+                    lit += fmt[j];
+                    j++;
+                }
+                // consume closing quote if present
+                if (j < fmt.length && fmt[j] === "'") j++;
+                out += '[' + lit + ']';
+                i = j;
+                continue;
+            }
+
+            // .NET escape: \x (treat x as literal)
+            if (ch === '\\') {
+                if (i + 1 < fmt.length) {
+                    out += '[' + fmt[i + 1] + ']';
+                    i += 2;
+                } else {
+                    i++;
+                }
+                continue;
+            }
+
+            // Token runs (same letter repeated)
+            if (/[A-Za-z]/.test(ch)) {
+                var k = i + 1;
+                while (k < fmt.length && fmt[k] === ch) k++;
+                var token = fmt.slice(i, k);
+                var c = token.charAt(0);
+                var len = token.length;
+
+                if (c === 'y') {
+                    out += (len <= 2) ? 'YY' : 'YYYY';
+                } else if (c === 'd') {
+                    // dd = day-of-month in .NET, but dd = weekday in Moment; map only 1-2 to day-of-month.
+                    out += (len <= 2) ? (len === 2 ? 'DD' : 'D') : token;
+                } else if (c === 'f' || c === 'F') {
+                    out += (len === 1) ? 'S' : (len === 2 ? 'SS' : 'SSS');
+                } else if (c === 't') {
+                    // AM/PM designator
+                    out += 'A';
+                } else if (c === 'K') {
+                    out += 'Z';
+                } else if (c === 'z') {
+                    out += 'Z';
+                } else {
+                    out += token;
+                }
+
+                i = k;
+                continue;
+            }
+
+            out += ch;
+            i++;
+        }
+        return out;
+    }
+
+    function buildDateFormatCandidates(fmt) {
+        var candidates = [];
+        if (!fmt || typeof fmt !== 'string') return candidates;
+        var base = fmt.trim();
+        if (!base) return candidates;
+
+        uniqPush(candidates, base);
+        var normalized = dotNetToMomentFormat(base);
+        if (normalized && normalized !== base) uniqPush(candidates, normalized);
+
+        // Common user typos: dd -> DD, yyyy -> YYYY (even when already "moment-like")
+        var quickFix = base
+            .replace(/(^|[^d])dd([^d]|$)/g, '$1DD$2')
+            .replace(/(^|[^d])d([^d]|$)/g, '$1D$2')
+            .replace(/(^|[^y])yyyy([^y]|$)/g, '$1YYYY$2')
+            .replace(/(^|[^y])yyy([^y]|$)/g, '$1YYYY$2')
+            .replace(/(^|[^y])yy([^y]|$)/g, '$1YY$2')
+            .replace(/tt/g, 'A')
+            .replace(/f{3}/g, 'SSS')
+            .replace(/f{2}/g, 'SS')
+            .replace(/f/g, 'S');
+        if (quickFix && quickFix !== base) uniqPush(candidates, quickFix);
+
+        var normalizedFix = dotNetToMomentFormat(quickFix);
+        if (normalizedFix && candidates.indexOf(normalizedFix) === -1) uniqPush(candidates, normalizedFix);
+
+        return candidates;
+    }
+
+    function hasTimezoneOffset(s) {
+        if (!s) return false;
+        // ISO Z or numeric offsets like +02:00 / -0500
+        return /[zZ]$/.test(s) || /[+-]\d{2}:?\d{2}$/.test(s);
+    }
+
+    function detectDateOrder(fmt) {
+        if (!fmt || typeof fmt !== 'string') return null;
+        var normalized = dotNetToMomentFormat(fmt);
+        // Remove moment literals ([...]) so we don't match tokens inside literal text
+        try { normalized = normalized.replace(/\[[^\]]*\]/g, ''); } catch (_) { /* noop */ }
+
+        var idxY = normalized.search(/Y{2,4}/);
+        var idxM = normalized.search(/M{1,4}/);
+        var idxD = normalized.search(/D{1,2}/);
+        if (idxY === -1 || idxM === -1 || idxD === -1) return null;
+
+        var arr = [{ t: 'Y', i: idxY }, { t: 'M', i: idxM }, { t: 'D', i: idxD }];
+        arr.sort(function (a, b) { return a.i - b.i; });
+        return [arr[0].t, arr[1].t, arr[2].t];
+    }
+
+    function parseDateByFormatHint(value, fmt) {
+        if (!value) return undefined;
+        var s = ('' + value).trim();
+        if (!s) return undefined;
+
+        // If we have timezone information, native parsing is usually best (and respects the offset)
+        if (hasTimezoneOffset(s)) {
+            var dIso = new Date(s);
+            if (isValidDate(dIso)) return dIso;
+        }
+
+        var numsRaw = s.match(/\d+/g);
+        if (!numsRaw || numsRaw.length < 3) return undefined;
+        var nums = numsRaw.map(function (x) { return parseInt(x, 10); });
+
+        var order = detectDateOrder(fmt);
+        if (!order) {
+            // Best-effort inference when format is missing or unrecognizable
+            if (numsRaw[0] && numsRaw[0].length === 4) order = ['Y', 'M', 'D'];
+            else if (nums[0] > 12) order = ['D', 'M', 'Y'];
+            else if (nums[1] > 12) order = ['M', 'D', 'Y'];
+            else order = null;
+        }
+        if (!order) return undefined;
+
+        var map = {};
+        map[order[0]] = nums[0];
+        map[order[1]] = nums[1];
+        map[order[2]] = nums[2];
+
+        var year = map.Y, month = map.M, day = map.D;
+        if (typeof year !== 'number' || typeof month !== 'number' || typeof day !== 'number') return undefined;
+
+        // Two-digit year handling (match Moment's pivot-ish behavior)
+        if (year < 100) {
+            year = (year >= 68) ? (1900 + year) : (2000 + year);
+        }
+
+        var hour = nums.length > 3 ? nums[3] : 0;
+        var minute = nums.length > 4 ? nums[4] : 0;
+        var second = nums.length > 5 ? nums[5] : 0;
+        var ms = 0;
+        if (nums.length > 6) {
+            // Use the first 3 digits of the next group as milliseconds (covers 3/6/7 digit fractions from .NET)
+            var msStr = '' + numsRaw[6];
+            ms = parseInt(msStr.substring(0, 3), 10);
+            if (isNaN(ms)) ms = 0;
+        }
+
+        // Handle 12h clocks with AM/PM
+        var normalized = dotNetToMomentFormat(fmt || '');
+        var uses12h = normalized && normalized.indexOf('h') !== -1 && normalized.indexOf('H') === -1;
+        var hasMeridiem = normalized && normalized.indexOf('A') !== -1;
+        if (uses12h || hasMeridiem) {
+            var upper = s.toUpperCase();
+            if (upper.indexOf('PM') !== -1 && hour < 12) hour += 12;
+            if (upper.indexOf('AM') !== -1 && hour === 12) hour = 0;
+        }
+
+        var d = new Date(year, month - 1, day, hour, minute, second, ms);
+        return isValidDate(d) ? d : undefined;
+    }
+
+    function parseDateValue(value, fmt) {
+        if (value === null || value === undefined) return undefined;
+
+        if (value instanceof Date) return value;
+        if (typeof value === 'number') {
+            var dn = new Date(value);
+            return isValidDate(dn) ? dn : undefined;
+        }
+
+        var s = ('' + value).trim();
+        if (!s) return undefined;
+
+        // Prefer Moment.js if available (strict parsing + format candidates)
+        if (typeof moment !== 'undefined') {
+            var candidates = buildDateFormatCandidates(fmt);
+            var m;
+            if (candidates.length > 0) {
+                m = moment(s, candidates, true);
+                if (!m.isValid()) m = moment(s, candidates, false);
+            } else {
+                m = moment(s);
+            }
+            if (m && typeof m.isValid === 'function' && m.isValid()) {
+                return m.toDate();
+            }
+        }
+
+        // When we have a format hint, try our lightweight parser first to avoid locale-dependent native parsing.
+        if (fmt) {
+            var dh = parseDateByFormatHint(s, fmt);
+            if (isValidDate(dh)) return dh;
+        }
+
+        // Fallback to native Date parsing (works well for ISO strings)
+        var d = new Date(s);
+        return isValidDate(d) ? d : undefined;
+    }
 
     function dataTablesCheckCondition(condition, data) {
         var columnName = condition['columnName'];
@@ -46,17 +315,14 @@
             if (Array.isArray(conditionValue)) {
                 var tmp = [];
                 for (var i = 0; i < conditionValue.length; i++) {
-                    if (!isEmptyOrSpaces(String(conditionValue[i]))) { tmp.push(Number(conditionValue[i])); }
-                    else { tmp.push(undefined); }
+                    var parsed = parseLocaleNumber(conditionValue[i]);
+                    tmp.push(parsed);
                 }
                 conditionValue = tmp;
-                if (!isEmptyOrSpaces(String(columnValue))) { columnValue = Number(columnValue); }
-                else { columnValue = undefined; }
+                columnValue = parseLocaleNumber(columnValue);
             } else {
-                if (!isEmptyOrSpaces(String(conditionValue))) { conditionValue = Number(conditionValue); }
-                else { conditionValue = undefined; }
-                if (!isEmptyOrSpaces(String(columnValue))) { columnValue = Number(columnValue); }
-                else { columnValue = undefined; }
+                conditionValue = parseLocaleNumber(conditionValue);
+                columnValue = parseLocaleNumber(columnValue);
             }
         } else if (condition['type'] == 'date') {
             if (Array.isArray(condition['valueDate'])) {
@@ -70,8 +336,8 @@
                 var vd = condition['valueDate'];
                 conditionValue = new Date(vd.year, vd.month - 1, vd.day, vd.hours, vd.minutes, vd.seconds);
             }
-            var momentConversion = (typeof moment !== 'undefined') ? moment(columnValue, condition['dateTimeFormat']) : columnValue;
-            columnValue = new Date(momentConversion);
+            var parsed = parseDateValue(columnValue, condition['dateTimeFormat']);
+            columnValue = parsed ? parsed : new Date(NaN);
         }
         var left, right; if (reverseCondition) { left = conditionValue; right = columnValue; } else { left = columnValue; right = conditionValue; }
         if (operator == 'eq') { return left == right; }
@@ -91,16 +357,78 @@
 
     function getHeaderNames(tableId) {
         try {
-            var names = []; var $ths = jQuery('#' + tableId + ' thead th');
-            $ths.each(function(){ names.push(jQuery(this).text().trim()); }); return names;
+            // Prefer cached headers captured from DataTables API during init (avoids title rows / multi-headers).
+            try {
+                if (window.DataTablesColumnHighlighter && window.DataTablesColumnHighlighter.configurations) {
+                    var cached = window.DataTablesColumnHighlighter.configurations[tableId];
+                    if (cached && Array.isArray(cached.headers) && cached.headers.length > 0) {
+                        return cached.headers;
+                    }
+                }
+            } catch (_) { /* noop */ }
+
+            var $table = jQuery('#' + tableId);
+
+            // If table is already initialized, DataTables knows the correct header cells for columns.
+            try {
+                if (jQuery.fn && jQuery.fn.dataTable && jQuery.fn.dataTable.isDataTable($table)) {
+                    var api = $table.DataTable();
+                    if (api && api.columns && api.columns().header) {
+                        var headerNodes = api.columns().header().toArray();
+                        var namesApi = [];
+                        for (var i = 0; i < headerNodes.length; i++) {
+                            namesApi.push(jQuery(headerNodes[i]).text().trim());
+                        }
+                        if (namesApi.length > 0) return namesApi;
+                    }
+                }
+            } catch (_) { /* noop */ }
+
+            // Fallback: pick the header row with the most non-empty header cells.
+            // This ignores PSWriteHTML-style title rows (<th colspan="...">) and common filter-input header rows.
+            try {
+                var bestRow = null;
+                var bestNonEmpty = -1;
+                var bestCount = -1;
+                $table.find('thead tr').each(function () {
+                    var $ths = jQuery(this).find('th');
+                    if (!$ths.length) return;
+                    var nonEmpty = 0;
+                    $ths.each(function () {
+                        var t = (jQuery(this).text() || '').trim();
+                        if (t) nonEmpty++;
+                    });
+                    if (nonEmpty > bestNonEmpty || (nonEmpty === bestNonEmpty && $ths.length > bestCount)) {
+                        bestRow = this;
+                        bestNonEmpty = nonEmpty;
+                        bestCount = $ths.length;
+                    }
+                });
+                if (bestRow) {
+                    var namesBest = [];
+                    jQuery(bestRow).find('th').each(function () {
+                        namesBest.push(jQuery(this).text().trim());
+                    });
+                    if (namesBest.length > 0) return namesBest;
+                }
+            } catch (_) { /* noop */ }
+
+            // Last resort: original behavior (may include title rows).
+            try {
+                var names = [];
+                $table.find('thead th').each(function () { names.push(jQuery(this).text().trim()); });
+                return names;
+            } catch (_) { return []; }
         } catch (e) { return []; }
     }
     function indexToHeaderName(tableId, index) {
         var headers = getHeaderNames(tableId); if (index >= 0 && index < headers.length) { return headers[index]; } return null;
     }
     function headerNameToIndex(tableId, name) {
-        var headers = getHeaderNames(tableId); if (!name) return -1; var lname = ('' + name).toLowerCase();
-        for (var i = 0; i < headers.length; i++) { if (('' + headers[i]).toLowerCase() === lname) return i; } return -1;
+        var headers = getHeaderNames(tableId); if (!name) return -1; var lname = ('' + name).toLowerCase(); var nname = normalizeName(name);
+        for (var i = 0; i < headers.length; i++) { if (('' + headers[i]).toLowerCase() === lname) return i; }
+        for (var j = 0; j < headers.length; j++) { if (normalizeName(headers[j]) === nname) return j; }
+        return -1;
     }
 
     window.DataTablesColumnHighlighter = {
@@ -113,15 +441,27 @@
             if (!c) return c; try {
                 if (!c.dataStore) c.dataStore = store;
                 if ((c.columnId === undefined || c.columnId === -1) && c.columnName) {
-                    var lname = ('' + c.columnName).toLowerCase(); for (var h = 0; h < headers.length; h++) { if ((headers[h] + '').toLowerCase() === lname) { c.columnId = h; break; } }
+                    var lname = ('' + c.columnName).toLowerCase();
+                    for (var h = 0; h < headers.length; h++) { if ((headers[h] + '').toLowerCase() === lname) { c.columnId = h; break; } }
+                    if ((c.columnId === undefined || c.columnId === -1)) { var nname = normalizeName(c.columnName); for (var h2 = 0; h2 < headers.length; h2++) { if (normalizeName(headers[h2]) === nname) { c.columnId = h2; break; } } }
                 }
                 if ((!c.columnName || c.columnName === '') && (typeof c.columnId === 'number')) { if (c.columnId >= 0 && c.columnId < headers.length) { c.columnName = headers[c.columnId]; } }
             } catch(e) {}
             return c;
         },
-        normalizeRules: function(tableId, config, table){
+        normalizeRules: function(tableId, config, table, headers, store){
             try {
-                var headers = getHeaderNames(tableId); var store = this.detectStore(table);
+                if (!headers) {
+                    try {
+                        if (table && table.columns && table.columns().header) {
+                            var headerNodes = table.columns().header().toArray();
+                            headers = [];
+                            for (var hi = 0; hi < headerNodes.length; hi++) { headers.push(jQuery(headerNodes[hi]).text().trim()); }
+                        }
+                    } catch (_) { /* noop */ }
+                }
+                headers = headers && headers.length ? headers : getHeaderNames(tableId);
+                store = store || this.detectStore(table);
                 for (var i = 0; i < config.length; i++) {
                     var rule = config[i]; if (rule && rule.conditionsContainer) {
                         for (var r = 0; r < rule.conditionsContainer.length; r++) {
@@ -139,8 +479,19 @@
             return rowData;
         },
         init: function(tableId, config, table) {
-            var normalized = this.normalizeRules(tableId, Array.isArray(config) ? config : [config], table);
-            this.configurations[tableId] = { config: normalized, table: table };
+            var headers = null;
+            try {
+                if (table && table.columns && table.columns().header) {
+                    var headerNodes = table.columns().header().toArray();
+                    headers = [];
+                    for (var hi = 0; hi < headerNodes.length; hi++) { headers.push(jQuery(headerNodes[hi]).text().trim()); }
+                }
+            } catch (_) { /* noop */ }
+            headers = headers && headers.length ? headers : getHeaderNames(tableId);
+
+            var store = this.detectStore(table);
+            var normalized = this.normalizeRules(tableId, Array.isArray(config) ? config : [config], table, headers, store);
+            this.configurations[tableId] = { config: normalized, table: table, headers: headers, store: store };
             this.setupEventHandlers(tableId, table);
         },
         setupEventHandlers: function(tableId, table) {
@@ -174,13 +525,55 @@
                 if (matched){ for (var t=0;t<rule.targets.length;t++){ var nt=normalizeTarget(rule.targets[t]); pushStyle(nt.column, nt, true); } }
                 else if (rule.failTargets){ for (var ft=0;ft<rule.failTargets.length;ft++){ var nf=normalizeTarget(rule.failTargets[ft]); pushStyle(nf.column, nf, false); } }
             }
-            for (var col in styleMap){ if (!Object.prototype.hasOwnProperty.call(styleMap,col)) continue; var style=mergedStyle(styleMap[col]); if (!style) continue; var target={ column: col, backgroundColor: style.backgroundColor, textColor: style.textColor, css: style.css, highlightParent: style.highlightParent }; if (childRow.length>0){ DataTablesColumnHighlighter.applyColumnStyling(childRow, target); } DataTablesColumnHighlighter.applyVisibleCellStyling(tableId, $parentRow, target); }
+            for (var col in styleMap){
+                if (!Object.prototype.hasOwnProperty.call(styleMap,col)) continue;
+                var style=mergedStyle(styleMap[col]); if (!style) continue;
+                // Coerce numeric-like keys back to numbers so index-based targets work reliably
+                var key = /^-?\d+$/.test(col) ? parseInt(col, 10) : col;
+                var target={ column: key, backgroundColor: style.backgroundColor, textColor: style.textColor, css: style.css, highlightParent: style.highlightParent };
+                if (childRow.length>0){ DataTablesColumnHighlighter.applyColumnStyling(childRow, target); }
+                DataTablesColumnHighlighter.applyVisibleCellStyling(tableId, $parentRow, target);
+            }
         },
         applyColumnStyling: function(childRow, target) {
-            childRow.find('.dtr-title').each(function() { var $elem = jQuery(this); var text = $elem.text().trim(); if (text === target.column) { var $dataElem = $elem.siblings('.dtr-data').length > 0 ? $elem.siblings('.dtr-data') : $elem.next(); if (target.backgroundColor) { $dataElem.css('background-color', target.backgroundColor); } if (target.textColor) { $dataElem.css('color', target.textColor); } if (target.css) { $dataElem.css(target.css); } if (target.highlightParent) { $elem.parent().css('background-color', target.backgroundColor); if (target.textColor) { $elem.parent().css('color', target.textColor); } } } });
+            var normTarget = normalizeName(target.column);
+            childRow.find('.dtr-title').each(function() {
+                var $elem = jQuery(this); var text = ($elem.text() || '').trim();
+                if (text === target.column || normalizeName(text) === normTarget) {
+                    var $dataElem = $elem.siblings('.dtr-data').length > 0 ? $elem.siblings('.dtr-data') : $elem.next();
+                    if (target.backgroundColor) { $dataElem.css('background-color', target.backgroundColor); }
+                    if (target.textColor) { $dataElem.css('color', target.textColor); }
+                    if (target.css) { $dataElem.css(target.css); }
+                    if (target.highlightParent) { $elem.parent().css('background-color', target.backgroundColor); if (target.textColor) { $elem.parent().css('color', target.textColor); } }
+                }
+            });
         },
         applyVisibleCellStyling: function(tableId, $parentRow, target) {
-            try { var idx = (typeof target.column === 'number') ? target.column : headerNameToIndex(tableId, target.column); if (idx < 0) return; var $cells = $parentRow.find('td'); if ($cells.length === 0) return; var $cell = $cells.eq(idx); if ($cell && $cell.length > 0) { if (target.backgroundColor) { $cell.css('background-color', target.backgroundColor); } if (target.textColor) { $cell.css('color', target.textColor); } if (target.css) { $cell.css(target.css); } } } catch (e) { }
+            try {
+                var idx = (typeof target.column === 'number') ? target.column : headerNameToIndex(tableId, target.column);
+                if (idx < 0) return;
+                var $cells = $parentRow.find('td');
+                if ($cells.length === 0) return;
+                var $cell = $cells.eq(idx);
+                if ($cell && $cell.length > 0) {
+                    // Set foreground color first
+                    if (target.textColor) { $cell.css('color', target.textColor); }
+
+                    // Background highlight: override Bootstrap 5.3 table striped overlay (box-shadow based)
+                    if (target.backgroundColor) {
+                        // Keep the classic background-color for non-Bootstrap tables or custom themes
+                        $cell.css('background-color', target.backgroundColor);
+                        // Neutralize per-cell accent var so striped/hover overlays don’t tint our color
+                        try { $cell.css('--bs-table-accent-bg', 'transparent'); } catch (e1) { /* noop */ }
+                        // Explicitly draw the same full-cell inset overlay with our color so it stays consistent
+                        // across striped rows (Bootstrap uses this technique internally)
+                        $cell.css('box-shadow', 'inset 0 0 0 9999px ' + target.backgroundColor);
+                    }
+
+                    // Custom CSS from the rule takes final precedence
+                    if (target.css) { $cell.css(target.css); }
+                }
+            } catch (e) { }
         },
         createConfig: function(conditions, targets) { return [{ condition: conditions, targets: Array.isArray(targets) ? targets : [targets] }]; }
     };
