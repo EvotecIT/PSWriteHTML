@@ -1285,7 +1285,12 @@
     # Before: "display": "$.fn.dataTable.Responsive.display.childRowImmediate"
     # After: "display": $.fn.dataTable.Responsive.display.childRowImmediate
     $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.childRowImmediate)"', '$1'
-    $Options = $Options -replace '"(\$\.fn\.dataTable\.render\.percentBar\(.+\))"', '$1'
+    # $Options = $Options -replace '"(\$\.fn\.dataTable\.render\.percentBar\(.+\))"', '$1'
+    $Options = [regex]::Replace(
+        $Options,
+        '(?s)"(\$\.fn\.dataTable\.render\.percentBar\(.+?\))"',
+        { param($m) ($m.Groups[1].Value -replace '\\\"', '"' -replace '\\u0027', "'" ) }
+    )
     # we need to cleanup $Options for columnDefs/render, remove \r\n
     #$Options = $Options -replace '\\r\\n', '\r\n' #-replace "\\`"",'"'
 

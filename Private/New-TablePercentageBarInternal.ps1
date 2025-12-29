@@ -59,7 +59,7 @@
     )
 
     if ($ConditionalFormatting) {
-        $JsonConditions = $ConditionalFormatting | ConvertTo-Json
+        $JsonConditions = $ConditionalFormatting | ConvertTo-Json -Compress
         [ordered]@{
             targets = $ColumnID
             render  = "`$.fn.dataTable.render.percentBar('$Type','$TextColor', '$BorderColor', '$BarColor', '$BackgroundColor', $RoundValue, '$BorderStyle', $JsonConditions)"
