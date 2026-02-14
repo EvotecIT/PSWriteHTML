@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://github.com/EvotecIT/PSWriteHTML/actions/workflows/powershell-tests.yml"><img src="https://github.com/EvotecIT/PSWriteHTML/actions/workflows/ci.yml/badge.svg"></a>
   <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/v/PSWriteHTML.svg?style=flat-square"></a>
-  <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/vpre/PSWriteHTML.svg?label=powershell%20gallery%20preview&colorB=yellow&style=flat-square"></a>
+  <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/v/PSWriteHTML.svg?label=powershell%20gallery%20preview&colorB=yellow&style=flat-square&include_prereleases"></a>
   <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/license/EvotecIT/PSWriteHTML.svg?style=flat-square"></a>
 </p>
 
