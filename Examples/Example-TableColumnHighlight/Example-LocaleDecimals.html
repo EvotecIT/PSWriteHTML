@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+ <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="revised" content="2026-03-06 15:54:04"><title>PSWriteHTML decimal number conditions</title><link type="text/css" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet preload prefetch" as="style"/><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js" comment="jquery"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script><link type="text/css" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet preload prefetch" as="style"/><link type="text/css" href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css" rel="stylesheet preload prefetch" as="style"/><script type="text/javascript" src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script><script type="text/javascript" src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script><script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.13.5/sorting/datetime-moment.js"></script><link type="text/css" href="https://cdn.jsdelivr.net/npm/enlighterjs@3.4.0/dist/enlighterjs.min.css" rel="stylesheet preload prefetch" as="style"/><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/enlighterjs@3.4.0/dist/enlighterjs.min.js"></script><link type="text/css" href="https://cdn.datatables.net/buttons/2.4.0/css/buttons.dataTables.min.css" rel="stylesheet preload prefetch" as="style"/><script type="text/javascript" src="https://cdn.datatables.net/buttons/2.4.0/js/dataTables.buttons.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script><script type="text/javascript" src="https://cdn.datatables.net/buttons/2.4.0/js/buttons.html5.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@evotecit/htmlextensions@0.1.12/dist/datatables.columnHighlighter.js"></script><link type="text/css" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css" rel="stylesheet preload prefetch" as="style"/><script type="text/javascript" src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script><style type="text/css">body {    font-family: 'Roboto Condensed', sans-serif;    font-size: 8pt;    margin: 0px;}input {    font-size: 8pt;}.main-section {    margin-top: 0px;}</style><style type="text/css">td:first-child {    white-space: nowrap;}div.dataTables_wrapper {    margin: 5px;}tfoot input {    padding: -3px;    box-sizing: border-box;    width: 100%;}thead input {    padding: -3px;    box-sizing: border-box;    width: 100%;}td::before, td.sorting_1::before {    color: #007bff !important;}</style><noscript><style type="text/css">table {
+    border-collapse: collapse;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+table td {
+    border-width: 1px;
+    padding: 4px;
+    text-align: left;
+    border-top: 1px solid #ddd;
+}
+
+table thead th {
+    text-align: center;
+    font-weight: bold;
+    padding: 4px 17px;
+    border-bottom: 1px solid #111;
+    background-color: white;
+    color: black;
+}
+
+table tfoot th {
+    text-align: center;
+    font-weight: bold;
+    padding: 4px 17px;
+    border-top: 1px solid #111;
+    background-color: white;
+    color: black;
+}
+
+table tr:nth-of-type(odd) {
+    background-color: #F6F6F5;
+}
+
+table tr:nth-of-type(even) {
+    background-color: white;
+}
+
+table td, table th {
+    border: 1px solid black;
+}</style></noscript><style type="text/css">div.enlighter-default {    border-radius: 0px;    margin: 5px;    flex-basis: 100%;}</style><style type="text/css">.defaultSection {    flex-direction: column;    border: 1px solid #bbbbbb;    padding-bottom: 0px;    margin: 5px;    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);    transition: 0.3s;    border-radius: 5px;}.defaultSectionHead {    display: flex;    justify-content: center;    padding: 5px;    margin: 0px 0px 0px 0px;    font-weight: bold;    background-color: #00bfff;    color: #ffffff;}</style><style type="text/css">.defaultText {    margin: 5px;}</style><style type="text/css">.overflowHidden {    overflow: hidden;    overflow-x: hidden;    overflow-y: hidden;}.flexParent {    display: flex;    justify-content: space-between;}.flexParentInvisible {    display: flex;    justify-content: space-between;}.flexElement {    flex-basis: 100%;    max-width: 100%;}.flexPanel {    flex-basis: 100%;    max-width: 100%;}.flex-grid {    display: flex;}</style></head><body><div class="main-section"><div class="defaultSection overflowHidden " style="flex-basis:100%"><div class="defaultSectionHead"><div class="defaultSectionText"><a name="Locale decimal conditions">Locale decimal conditions </a>&nbsp;<a id="show_anchor-ujaf8bz" href="javascript:void(0)" onclick="show('anchor-ujaf8bz'); " style="display:none">(Show)</a><a id="hide_anchor-ujaf8bz" href="javascript:void(0)" onclick="hide('anchor-ujaf8bz'); " style="display:none">(Hide)</a></div></div><div id="anchor-ujaf8bz" class="flexParent flexElement overflowHidden defaultSectionContent" name="anchor-ujaf8bz"><div id="anchor-ujaf8bz" class="flexParent flexElement overflowHidden defaultSectionContent collapsable" style="flex-basis:100%"><div class="defaultText"><span>This example proves the same decimal comparison works for HTML-backed tables and JavaScript-backed tables.</span><span>Use -Value 0.2 for a numeric literal, or quote locale-formatted text with -Value '0,2'.</span><span>Do not use bare -Value 0,2 in PowerShell because it becomes an Object[] before PSWriteHTML sees it.</span></div><pre data-enlighter-language="powershell" data-enlighter-theme="enlighter">New-TableCondition -Name "Value" -ComparisonType number -Operator le -Value 0.2 -Color SeaGreen -FailColor FireBrick
+New-TableCondition -Name "Value" -ComparisonType number -Operator le -Value '0,2' -Color SeaGreen -FailColor FireBrick
+
+# Avoid bare -Value 0,2 in PowerShell.
+# PowerShell parses it as an Object[] containing 0 and 2.</pre></div></div></div><div class="defaultSection overflowHidden " style="flex-basis:100%"><div class="defaultSectionHead"><div class="defaultSectionText"><a name="HTML store with dot decimals">HTML store with dot decimals </a>&nbsp;<a id="show_anchor-r986pls" href="javascript:void(0)" onclick="show('anchor-r986pls'); " style="display:none">(Show)</a><a id="hide_anchor-r986pls" href="javascript:void(0)" onclick="hide('anchor-r986pls'); " style="display:none">(Hide)</a></div></div><div id="anchor-r986pls" class="flexParent flexElement overflowHidden defaultSectionContent" name="anchor-r986pls"><div id="anchor-r986pls" class="flexParent flexElement overflowHidden defaultSectionContent collapsable" style="flex-basis:100%"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-BkSnUMKq').DataTable(
+                        {
+  "dom": "Bfrtip",
+  "searchFade": false,
+  "scrollCollapse": false,
+  "ordering": true,
+  "order": [],
+  "rowGroup": "",
+  "info": true,
+  "procesing": true,
+  "select": true,
+  "searching": true,
+  "stateSave": true,
+  "paging": true,
+  "pagingType": [
+    "full_numbers"
+  ],
+  "lengthMenu": [
+    [
+      15,
+      25,
+      50,
+      100,
+      -1
+    ],
+    [
+      15,
+      25,
+      50,
+      100,
+      "All"
+    ]
+  ],
+  "pageLength": 5,
+  "language": {},
+  "buttons": [
+    {
+      "extend": "copyHtml5"
+    },
+    {
+      "extend": "excelHtml5",
+      "exportOptions": {
+        "format":     {
+        body: function (data, row, column, node) {
+            data = $('<p>' + data + '</p>').text(); return $.isNumeric(data.replace(',', '.')) ? data.replace(',', '.') : data;
+        }
+    }
+      }
+    },
+    {
+      "extend": "csvHtml5",
+      "text": "CSV",
+      "charset": "utf-8",
+      "extension": ".csv",
+      "fieldSeparator": ";",
+      "bom": true
+    },
+    {
+      "extend": "pdfHtml5",
+      "pageSize": "A3",
+      "orientation": "landscape"
+    }
+  ],
+  "responsive": {
+    "details": {
+      "type": "inline"
+    }
+  },
+  "columnHighlighter": {
+    "rules": [
+      {
+        "conditionsContainer": [
+          {
+            "logic": "AND",
+            "conditions": [
+              {
+                "columnName": "Value",
+                "operator": "le",
+                "type": "number",
+                "value": 0.2,
+                "caseSensitive": false,
+                "dateTimeFormat": "",
+                "reverseCondition": false
+              }
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "column": "Value",
+            "css": {
+              "color": "#2e8b57"
+            }
+          }
+        ],
+        "failTargets": [
+          {
+            "column": "Value",
+            "css": {
+              "color": "#b22222"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+                    );
+                    
+                    
+                    
+                });</script><div class="flexElement overflowHidden"><table id="DT-BkSnUMKq" class="dataTables wrap display compact" width="100%"><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>Pass threshold</td><td>0.17</td></tr><tr><td>Fail threshold</td><td>0.25</td></tr><tr><td>Exact threshold</td><td>0.20</td></tr><tr><td>Negative value</td><td>-0.05</td></tr></tbody><tfoot><tr><th>Item</th><th>Value</th></tr></tfoot></table></div></div></div></div><div class="defaultSection overflowHidden " style="flex-basis:100%"><div class="defaultSectionHead"><div class="defaultSectionText"><a name="HTML store with comma decimals">HTML store with comma decimals </a>&nbsp;<a id="show_anchor-of3uryn" href="javascript:void(0)" onclick="show('anchor-of3uryn'); " style="display:none">(Show)</a><a id="hide_anchor-of3uryn" href="javascript:void(0)" onclick="hide('anchor-of3uryn'); " style="display:none">(Hide)</a></div></div><div id="anchor-of3uryn" class="flexParent flexElement overflowHidden defaultSectionContent" name="anchor-of3uryn"><div id="anchor-of3uryn" class="flexParent flexElement overflowHidden defaultSectionContent collapsable" style="flex-basis:100%"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-jANPYUPC').DataTable(
+                        {
+  "dom": "Bfrtip",
+  "searchFade": false,
+  "scrollCollapse": false,
+  "ordering": true,
+  "order": [],
+  "rowGroup": "",
+  "info": true,
+  "procesing": true,
+  "select": true,
+  "searching": true,
+  "stateSave": true,
+  "paging": true,
+  "pagingType": [
+    "full_numbers"
+  ],
+  "lengthMenu": [
+    [
+      15,
+      25,
+      50,
+      100,
+      -1
+    ],
+    [
+      15,
+      25,
+      50,
+      100,
+      "All"
+    ]
+  ],
+  "pageLength": 5,
+  "language": {},
+  "buttons": [
+    {
+      "extend": "copyHtml5"
+    },
+    {
+      "extend": "excelHtml5",
+      "exportOptions": {
+        "format":     {
+        body: function (data, row, column, node) {
+            data = $('<p>' + data + '</p>').text(); return $.isNumeric(data.replace(',', '.')) ? data.replace(',', '.') : data;
+        }
+    }
+      }
+    },
+    {
+      "extend": "csvHtml5",
+      "text": "CSV",
+      "charset": "utf-8",
+      "extension": ".csv",
+      "fieldSeparator": ";",
+      "bom": true
+    },
+    {
+      "extend": "pdfHtml5",
+      "pageSize": "A3",
+      "orientation": "landscape"
+    }
+  ],
+  "responsive": {
+    "details": {
+      "type": "inline"
+    }
+  },
+  "columnHighlighter": {
+    "rules": [
+      {
+        "conditionsContainer": [
+          {
+            "logic": "AND",
+            "conditions": [
+              {
+                "columnName": "Value",
+                "operator": "le",
+                "type": "number",
+                "value": "0,2",
+                "caseSensitive": false,
+                "dateTimeFormat": "",
+                "reverseCondition": false
+              }
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "column": "Value",
+            "css": {
+              "color": "#2e8b57"
+            }
+          }
+        ],
+        "failTargets": [
+          {
+            "column": "Value",
+            "css": {
+              "color": "#b22222"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+                    );
+                    
+                    
+                    
+                });</script><div class="flexElement overflowHidden"><table id="DT-jANPYUPC" class="dataTables wrap display compact" width="100%"><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>Pass threshold</td><td>0,17</td></tr><tr><td>Fail threshold</td><td>0,25</td></tr><tr><td>Exact threshold</td><td>0,20</td></tr><tr><td>Negative value</td><td>-0,05</td></tr></tbody><tfoot><tr><th>Item</th><th>Value</th></tr></tfoot></table></div></div></div></div><div class="defaultSection overflowHidden " style="flex-basis:100%"><div class="defaultSectionHead"><div class="defaultSectionText"><a name="JavaScript store with numeric values">JavaScript store with numeric values </a>&nbsp;<a id="show_anchor-1wuqspg" href="javascript:void(0)" onclick="show('anchor-1wuqspg'); " style="display:none">(Show)</a><a id="hide_anchor-1wuqspg" href="javascript:void(0)" onclick="hide('anchor-1wuqspg'); " style="display:none">(Hide)</a></div></div><div id="anchor-1wuqspg" class="flexParent flexElement overflowHidden defaultSectionContent" name="anchor-1wuqspg"><div id="anchor-1wuqspg" class="flexParent flexElement overflowHidden defaultSectionContent collapsable" style="flex-basis:100%"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-TPlcfyXS').DataTable(
+                        {
+  "dom": "Bfrtip",
+  "searchFade": false,
+  "scrollCollapse": false,
+  "ordering": true,
+  "order": [],
+  "rowGroup": "",
+  "info": true,
+  "procesing": true,
+  "select": true,
+  "searching": true,
+  "stateSave": true,
+  "paging": true,
+  "pagingType": [
+    "full_numbers"
+  ],
+  "lengthMenu": [
+    [
+      15,
+      25,
+      50,
+      100,
+      -1
+    ],
+    [
+      15,
+      25,
+      50,
+      100,
+      "All"
+    ]
+  ],
+  "pageLength": 5,
+  "language": {},
+  "data": [
+  {
+    "Item": "Pass threshold",
+    "Value": 0.17
+  },
+  {
+    "Item": "Fail threshold",
+    "Value": 0.25
+  },
+  {
+    "Item": "Exact threshold",
+    "Value": 0.2
+  },
+  {
+    "Item": "Negative value",
+    "Value": -0.05
+  }
+],
+  "columns": [
+    {
+      "data": "Item"
+    },
+    {
+      "data": "Value"
+    }
+  ],
+  "deferRender": true,
+  "buttons": [
+    {
+      "extend": "copyHtml5"
+    },
+    {
+      "extend": "excelHtml5",
+      "exportOptions": {
+        "format":     {
+        body: function (data, row, column, node) {
+            data = $('<p>' + data + '</p>').text(); return $.isNumeric(data.replace(',', '.')) ? data.replace(',', '.') : data;
+        }
+    }
+      }
+    },
+    {
+      "extend": "csvHtml5",
+      "text": "CSV",
+      "charset": "utf-8",
+      "extension": ".csv",
+      "fieldSeparator": ";",
+      "bom": true
+    },
+    {
+      "extend": "pdfHtml5",
+      "pageSize": "A3",
+      "orientation": "landscape"
+    }
+  ],
+  "responsive": {
+    "details": {
+      "type": "inline"
+    }
+  },
+  "columnHighlighter": {
+    "rules": [
+      {
+        "conditionsContainer": [
+          {
+            "logic": "AND",
+            "conditions": [
+              {
+                "columnName": "Value",
+                "operator": "le",
+                "type": "number",
+                "value": 0.2,
+                "caseSensitive": false,
+                "dateTimeFormat": "",
+                "reverseCondition": false
+              }
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "column": "Value",
+            "css": {
+              "color": "#2e8b57"
+            }
+          }
+        ],
+        "failTargets": [
+          {
+            "column": "Value",
+            "css": {
+              "color": "#b22222"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+                    );
+                    
+                    
+                    
+                });</script><div class="flexElement overflowHidden"><table id="DT-TPlcfyXS" class="dataTables wrap display compact" width="100%"><thead><tr><th>Item</th><th>Value</th></tr></thead><tfoot><tr><th>Item</th><th>Value</th></tr></tfoot></table></div></div></div></div><div class="defaultSection overflowHidden " style="flex-basis:100%"><div class="defaultSectionHead"><div class="defaultSectionText"><a name="JavaScript store with comma-formatted strings">JavaScript store with comma-formatted strings </a>&nbsp;<a id="show_anchor-aki5s1x" href="javascript:void(0)" onclick="show('anchor-aki5s1x'); " style="display:none">(Show)</a><a id="hide_anchor-aki5s1x" href="javascript:void(0)" onclick="hide('anchor-aki5s1x'); " style="display:none">(Hide)</a></div></div><div id="anchor-aki5s1x" class="flexParent flexElement overflowHidden defaultSectionContent" name="anchor-aki5s1x"><div id="anchor-aki5s1x" class="flexParent flexElement overflowHidden defaultSectionContent collapsable" style="flex-basis:100%"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                    
+                    
+                    
+                    //  Table code
+                    var table = $('#DT-XtqiDtxE').DataTable(
+                        {
+  "dom": "Bfrtip",
+  "searchFade": false,
+  "scrollCollapse": false,
+  "ordering": true,
+  "order": [],
+  "rowGroup": "",
+  "info": true,
+  "procesing": true,
+  "select": true,
+  "searching": true,
+  "stateSave": true,
+  "paging": true,
+  "pagingType": [
+    "full_numbers"
+  ],
+  "lengthMenu": [
+    [
+      15,
+      25,
+      50,
+      100,
+      -1
+    ],
+    [
+      15,
+      25,
+      50,
+      100,
+      "All"
+    ]
+  ],
+  "pageLength": 5,
+  "language": {},
+  "data": [
+  {
+    "Item": "Pass threshold",
+    "Value": "0,17"
+  },
+  {
+    "Item": "Fail threshold",
+    "Value": "0,25"
+  },
+  {
+    "Item": "Exact threshold",
+    "Value": "0,20"
+  },
+  {
+    "Item": "Negative value",
+    "Value": "-0,05"
+  }
+],
+  "columns": [
+    {
+      "data": "Item"
+    },
+    {
+      "data": "Value"
+    }
+  ],
+  "deferRender": true,
+  "buttons": [
+    {
+      "extend": "copyHtml5"
+    },
+    {
+      "extend": "excelHtml5",
+      "exportOptions": {
+        "format":     {
+        body: function (data, row, column, node) {
+            data = $('<p>' + data + '</p>').text(); return $.isNumeric(data.replace(',', '.')) ? data.replace(',', '.') : data;
+        }
+    }
+      }
+    },
+    {
+      "extend": "csvHtml5",
+      "text": "CSV",
+      "charset": "utf-8",
+      "extension": ".csv",
+      "fieldSeparator": ";",
+      "bom": true
+    },
+    {
+      "extend": "pdfHtml5",
+      "pageSize": "A3",
+      "orientation": "landscape"
+    }
+  ],
+  "responsive": {
+    "details": {
+      "type": "inline"
+    }
+  },
+  "columnHighlighter": {
+    "rules": [
+      {
+        "conditionsContainer": [
+          {
+            "logic": "AND",
+            "conditions": [
+              {
+                "columnName": "Value",
+                "operator": "le",
+                "type": "number",
+                "value": "0,2",
+                "caseSensitive": false,
+                "dateTimeFormat": "",
+                "reverseCondition": false
+              }
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "column": "Value",
+            "css": {
+              "color": "#2e8b57"
+            }
+          }
+        ],
+        "failTargets": [
+          {
+            "column": "Value",
+            "css": {
+              "color": "#b22222"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+                    );
+                    
+                    
+                    
+                });</script><div class="flexElement overflowHidden"><table id="DT-XtqiDtxE" class="dataTables wrap display compact" width="100%"><thead><tr><th>Item</th><th>Value</th></tr></thead><tfoot><tr><th>Item</th><th>Value</th></tr></tfoot></table></div></div></div></div></div><footer><script type="text/javascript">EnlighterJS.init("pre", "code", {
+    language: "powershell", // - use javascript as default language
+    theme: "enlighter", // - use theme "enlighter" as default theme
+    indent: 2 // - replace tabs with 2 spaces
+});</script></footer></body></html>
