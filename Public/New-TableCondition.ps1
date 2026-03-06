@@ -19,7 +19,9 @@ function New-TableCondition {
     Specifies the comparison operator to be used.
 
     .PARAMETER Value
-    Specifies the value to compare against.
+    Specifies the value to compare against. In PowerShell decimal literals use a dot, for example 0.2.
+    If you want to pass locale-formatted text such as 0,2, quote it as a string. Bare 0,2 is parsed by
+    PowerShell as an array containing 0 and 2 before PSWriteHTML receives it.
 
     .PARAMETER Row
     Switch parameter to indicate if the styling should be applied to the entire row.
@@ -103,7 +105,14 @@ function New-TableCondition {
     Specifies the text direction for fail conditions.
 
     .EXAMPLE
-    An example of how to use this function.
+    New-TableCondition -Name 'Policies_Go' -ComparisonType number -Operator le -Value 0.2 -Color SeaGreen -FailColor FireBrick
+
+    Uses a PowerShell numeric literal with a dot decimal separator.
+
+    .EXAMPLE
+    New-TableCondition -Name 'Policies_Go' -ComparisonType number -Operator le -Value '0,2' -Color SeaGreen -FailColor FireBrick
+
+    Uses a quoted locale-formatted decimal string. Avoid bare -Value 0,2 because PowerShell treats it as an array.
 
     .NOTES
     Additional notes about the function.
