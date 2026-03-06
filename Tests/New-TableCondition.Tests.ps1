@@ -27,8 +27,8 @@ Describe 'New-TableCondition' {
 
         $Content = Get-Content -Path $FilePath -Raw
         $Content | Should -Match '"columnHighlighter"'
-        $Content | Should -Match '"value": "0,2"'
-        $Content | Should -Match '"value": 0.2'
+        $Content | Should -Match '"value"\s*:\s*"0,2"'
+        $Content | Should -Match '"value"\s*:\s*0.2'
 
         if (Test-Path $FilePath) {
             Remove-Item -LiteralPath $FilePath
