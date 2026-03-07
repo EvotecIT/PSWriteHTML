@@ -24,3 +24,5 @@ Lib/Core/*
 *.html
 .claude/*
 CLAUDE.MD
+WebsiteArtifacts/
+en-US/

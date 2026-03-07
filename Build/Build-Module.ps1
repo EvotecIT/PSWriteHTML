@@ -70,7 +70,7 @@
     # when creating PSD1 use special style without comments and with only required parameters
     New-ConfigurationFormat -ApplyTo 'DefaultPSD1', 'OnMergePSD1' -PSD1Style 'Minimal'
     # configuration for documentation, at the same time it enables documentation processing
-    New-ConfigurationDocumentation -Enable:$false -StartClean -UpdateWhenNew -PathReadme 'Docs\Readme.md' -Path 'Docs'
+    New-ConfigurationDocumentation -Enable:$true -StartClean -UpdateWhenNew -SyncExternalHelpToProjectRoot -PathReadme 'Docs\Readme.md' -Path 'Docs'
 
     New-ConfigurationImportModule -ImportSelf
 
@@ -80,7 +80,7 @@
         MergeModuleOnBuild                = $true
         MergeFunctionsFromApprovedModules = $true
         CertificateThumbprint             = '483292C9E317AA13B07BB7A96AE9D1A5ED9E7703'
-        RefreshPSD1Only                   = $true
+        RefreshPSD1Only                   = $env:RefreshPSD1Only -eq 'true'
     }
 
     New-ConfigurationBuild @newConfigurationBuildSplat
