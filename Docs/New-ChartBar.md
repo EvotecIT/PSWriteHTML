@@ -1,63 +1,86 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-ChartBar
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new bar chart object with specified name, value, and color.
 
 ## SYNTAX
-
-```
-New-ChartBar [[-Name] <String>] [[-Value] <Object>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-ChartBar [-Name] <string> [-Value] <Object> [[-Color] <string[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new bar chart object with the provided name, value, and color. The name is used as the identifier for the bar, the value represents the data to be displayed, and the color determines the color of the bar.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-ChartBar -Name 'Sales' -Value 1000 -Color 'blue'
 ```
 
-{{ Add example description here }}
+Creates a new bar chart object named 'Sales' with a value of 1000 and a blue color.
+
+### EXAMPLE 2
+```powershell
+New-ChartBar -Name 'Expenses' -Value 750 -Color 'red'
+```
+
+Creates a new bar chart object named 'Expenses' with a value of 750 and a red color.
 
 ## PARAMETERS
 
+### -Color
+The color of the bar. If not specified, a default color will be used.
+
+```yaml
+Type: String[]
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
 ### -Name
-{{ Fill Name Description }}
+The name of the bar chart object.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
-Required: False
+Required: True
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Value
-{{ Fill Value Description }}
+The value or data to be displayed in the bar chart.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
-Required: False
+Required: True
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -65,11 +88,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

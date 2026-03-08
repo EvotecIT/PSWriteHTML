@@ -1,78 +1,84 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-ChartRadial
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new radial chart object.
 
 ## SYNTAX
-
-```
-New-ChartRadial [[-Name] <String>] [[-Value] <Object>] [[-Color] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-ChartRadial [[-Name] <string>] [[-Value] <Object>] [[-Color] <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new radial chart object with the specified Name, Value, and Color.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-ChartRadial -Name "Chart1" -Value 75 -Color "Blue"
+Creates a new radial chart object named "Chart1" with a value of 75 and a blue color.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+New-ChartRadial -Name "Chart2" -Value 50
+Creates a new radial chart object named "Chart2" with a value of 50 using the default color.
+```
 
 ## PARAMETERS
 
 ### -Color
-{{ Fill Color Description }}
+Specifies the color of the radial chart. If not provided, the default color is used.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Name
-{{ Fill Name Description }}
+Specifies the name of the radial chart.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Value
-{{ Fill Value Description }}
+Specifies the value of the radial chart.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -80,11 +86,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

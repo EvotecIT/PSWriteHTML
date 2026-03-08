@@ -1,370 +1,397 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # Email
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Sends an email with specified parameters.
 
 ## SYNTAX
-
-```
-Email [[-Email] <ScriptBlock>] [-To <String[]>] [-CC <String[]>] [-BCC <String[]>] [-ReplyTo <String>]
- [-From <String>] [-Subject <String>] [-AttachSelf] [-AttachSelfName <String>] [-Server <String>]
- [-Username <String>] [-Port <Int32>] [-Password <String>] [-PasswordFromFile] [-PasswordAsSecure] [-SSL]
- [-Priority <String>] [-DeliveryNotifications <Object>] [-Encoding <String>] [-FilePath <String>]
- [-Suppress <Boolean>] [-WhatIf] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+Email [[-Email] <scriptblock>] [-To <string[]>] [-CC <string[]>] [-BCC <string[]>] [-ReplyTo <string>] [-From <string>] [-Subject <string>] [-AttachSelf] [-AttachSelfName <string>] [-Server <string>] [-Username <string>] [-Port <int>] [-Password <string>] [-PasswordFromFile] [-PasswordAsSecure] [-SSL] [-Priority <string>] [-DeliveryNotifications <Object>] [-Encoding <string>] [-FilePath <string>] [-Suppress <bool>] [-Online] [-OutputHTML] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function sends an email with the provided parameters including recipients, subject, content, and server settings.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+Email -FilePath 'C:\Path'
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -AttachSelf
-{{ Fill AttachSelf Description }}
+Switch parameter to attach the email to itself.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: SelfAttach
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -AttachSelfName
-{{ Fill AttachSelfName Description }}
+Specifies the name of the attached email.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -BCC
-{{ Fill BCC Description }}
+Specifies the email addresses of the blind carbon copy recipients.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -CC
-{{ Fill CC Description }}
+Specifies the email addresses of the carbon copy recipients.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DeliveryNotifications
-{{ Fill DeliveryNotifications Description }}
+Specifies the type of delivery notifications. Valid values are 'None', 'OnSuccess', 'OnFailure', 'Delay', or 'Never'. Default is 'None'.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
-Accepted values: None, OnSuccess, OnFailure, Delay, Never
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: None, OnSuccess, OnFailure, Delay, Never
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Email
-{{ Fill Email Description }}
+Specifies the ScriptBlock containing the email content and additional parameters.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Encoding
-{{ Fill Encoding Description }}
+[Obsolete] Deprecated parameter. Encoding is set to UTF8 to prevent errors.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FilePath
-{{ Fill FilePath Description }}
+Specifies the file path for attachments.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -From
-{{ Fill From Description }}
+Specifies the email address of the sender.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -Online
+Switch parameter to send the email online without saving it.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -OutputHTML
+Switch parameter to output the email content as HTML.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -Password
-{{ Fill Password Description }}
+Specifies the password for authentication with the SMTP server.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PasswordAsSecure
-{{ Fill PasswordAsSecure Description }}
+Switch parameter to treat the password as a secure string.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PasswordFromFile
-{{ Fill PasswordFromFile Description }}
+Switch parameter to indicate that the password is read from a file.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Port
-{{ Fill Port Description }}
+Specifies the port number for the SMTP server. Default is 587.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: 587
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Priority
-{{ Fill Priority Description }}
+Specifies the priority of the email. Valid values are 'Low', 'Normal', or 'High'. Default is 'Normal'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: Low, Normal, High
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Low, Normal, High
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: Normal
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ReplyTo
-{{ Fill ReplyTo Description }}
+Specifies the email address to set as the reply-to address.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SSL
-{{ Fill SSL Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Server
-{{ Fill Server Description }}
+Specifies the SMTP server for sending the email.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -Subject
-{{ Fill Subject Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Suppress
-{{ Fill Suppress Description }}
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases: Supress
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -To
-{{ Fill To Description }}
-
-```yaml
-Type: String[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Username
-{{ Fill Username Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+### -SSL
+Switch parameter to enable SSL for the SMTP connection.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Subject
+Specifies the subject of the email.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -Suppress
+Switch parameter to suppress sending the email.
+
+```yaml
+Type: Boolean
+Parameter Sets: __AllParameterSets
+Aliases: Supress
+Possible values: 
+
+Required: False
+Position: named
+Default value: True
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -To
+Specifies the email addresses of the primary recipients.
+
+```yaml
+Type: String[]
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Username
+Specifies the username for authentication with the SMTP server.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -372,11 +399,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

@@ -1,187 +1,221 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # Add-HTMLStyle
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Adds CSS styles to HTML documents.
 
 ## SYNTAX
-
-```
-Add-HTMLStyle [[-Placement] <String>] [[-Resource] <IDictionary>] [[-ResourceComment] <String>]
- [[-Link] <String[]>] [[-Content] <String[]>] [[-FilePath] <String[]>] [[-Css] <IDictionary>] [-AddComment]
- [[-RelType] <String>] [-SkipTags] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+Add-HTMLStyle [[-Placement] <string>] [[-Resource] <IDictionary>] [[-ResourceComment] <string>] [[-Link] <string[]>] [[-Content] <string[]>] [[-FilePath] <string[]>] [[-Css] <IDictionary>] [[-ReplaceData] <IDictionary>] [[-RelType] <string>] [-AddComment] [-SkipTags] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+The Add-HTMLStyle function allows you to add CSS styles to HTML documents in various ways such as inline styles, external stylesheets, and content from files or strings.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+Add-HTMLStyle -Placement 'Header' -Resource 'styles.css' -ResourceComment 'Custom styles' -Link 'https://example.com/styles.css'
 ```
 
-{{ Add example description here }}
+Adds a linked CSS stylesheet to the header of the HTML document with a custom comment.
+
+### EXAMPLE 2
+```powershell
+Add-HTMLStyle -Placement 'Inline' -Content 'body { background-color: lightblue; }' -ResourceComment 'Inline styles'
+```
+
+Adds inline CSS styles directly to the HTML document body with a custom comment.
+
+### EXAMPLE 3
+```powershell
+Add-HTMLStyle -Placement 'Footer' -Css @{ 'body' = @{ 'background-color' = 'lightblue' } } -ResourceComment 'Custom CSS'
+```
+
+Converts a hashtable of CSS styles to a stylesheet and adds it to the footer of the HTML document with a custom comment.
 
 ## PARAMETERS
 
 ### -AddComment
-{{ Fill AddComment Description }}
+Switch parameter to add comments around the added CSS styles.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Content
-{{ Fill Content Description }}
+Specifies an array of CSS content to be added directly to the HTML document.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Css
-{{ Fill Css Description }}
+Specifies a hashtable of CSS styles to be converted and added to the HTML document.
 
 ```yaml
 Type: IDictionary
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: CssInline
+Possible values: 
 
 Required: False
 Position: 6
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FilePath
-{{ Fill FilePath Description }}
+Specifies an array of file paths containing CSS content to be added to the HTML document.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Link
-{{ Fill Link Description }}
+Specifies an array of URLs to external CSS stylesheets to be linked in the HTML document.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Placement
-{{ Fill Placement Description }}
+Specifies where the CSS styles should be placed in the HTML document. Valid values are 'Inline', 'Header', or 'Footer'. Default is 'Header'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: Inline, Header, Footer
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Inline, Header, Footer
 
 Required: False
 Position: 0
-Default value: None
+Default value: Header
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -RelType
-{{ Fill RelType Description }}
+Specifies the relationship type for linked stylesheets. Valid values are 'dns-prefetch', 'preconnect', or 'preload'. Default is 'preload'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: dns-prefetch, preconnect, preload
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: dns-prefetch, preconnect, preload
 
 Required: False
 Position: 8
-Default value: None
+Default value: preload
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -Resource
-{{ Fill Resource Description }}
+### -ReplaceData
+Specifies a hashtable of data to be replaced in the CSS content.
 
 ```yaml
 Type: IDictionary
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 7
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Resource
+Specifies the resource to be added as CSS styles.
+
+```yaml
+Type: IDictionary
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ResourceComment
-{{ Fill ResourceComment Description }}
+Specifies a comment for the resource being added.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SkipTags
-{{ Fill SkipTags Description }}
+Switch parameter to skip adding HTML tags when inserting CSS content.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -189,11 +223,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

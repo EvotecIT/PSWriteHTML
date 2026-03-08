@@ -1,78 +1,86 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-ChartDonut
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new donut chart object with specified name, value, and color.
 
 ## SYNTAX
-
-```
-New-ChartDonut [[-Name] <String>] [[-Value] <Object>] [[-Color] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-ChartDonut [[-Name] <string>] [[-Value] <Object>] [[-Color] <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new donut chart object with the provided name, value, and color. The name is used as the identifier for the donut, the value represents the data to be displayed, and the color determines the color of the donut.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-ChartDonut -Name 'Sales' -Value 1000 -Color 'blue'
 ```
 
-{{ Add example description here }}
+Creates a new donut chart object named 'Sales' with a value of 1000 and a blue color.
+
+### EXAMPLE 2
+```powershell
+New-ChartDonut -Name 'Expenses' -Value 750 -Color 'red'
+```
+
+Creates a new donut chart object named 'Expenses' with a value of 750 and a red color.
 
 ## PARAMETERS
 
 ### -Color
-{{ Fill Color Description }}
+The color of the donut. If not specified, a default color will be used.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Name
-{{ Fill Name Description }}
+The name of the donut chart object.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Value
-{{ Fill Value Description }}
+The value or data to be displayed in the donut chart.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -80,11 +88,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

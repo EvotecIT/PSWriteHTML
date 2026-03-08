@@ -1,238 +1,238 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # EmailListItem
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates an HTML list item with customizable text styling.
 
 ## SYNTAX
-
-```
-EmailListItem [[-Text] <String[]>] [[-Color] <String[]>] [[-BackGroundColor] <String[]>]
- [[-FontSize] <Int32[]>] [[-FontWeight] <String[]>] [[-FontStyle] <String[]>] [[-FontVariant] <String[]>]
- [[-FontFamily] <String[]>] [[-Alignment] <String[]>] [[-TextDecoration] <String[]>]
- [[-TextTransform] <String[]>] [[-Direction] <String[]>] [-LineBreak] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+EmailListItem [[-Text] <string[]>] [[-Color] <string[]>] [[-BackGroundColor] <string[]>] [[-FontSize] <int[]>] [[-FontWeight] <string[]>] [[-FontStyle] <string[]>] [[-FontVariant] <string[]>] [[-FontFamily] <string[]>] [[-Alignment] <string[]>] [[-TextDecoration] <string[]>] [[-TextTransform] <string[]>] [[-Direction] <string[]>] [-LineBreak] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+The EmailListItem function generates an HTML list item with customizable text styling options such as color, font size, font weight, font style, alignment, text decoration, text transformation, and more.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+EmailListItem -Text "Example Text" -Color "red" -FontSize 14 -FontWeight "bold" -Alignment "center"
+Creates an HTML list item with the text "Example Text" in red color, font size 14, bold font weight, and centered alignment.
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -Alignment
-{{ Fill Alignment Description }}
+Specifies the alignment of the text. Valid values are 'left', 'center', 'right', 'justify'. Default is an empty array.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: left, center, right, justify
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: left, center, right, justify
 
 Required: False
 Position: 8
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -BackGroundColor
-{{ Fill BackGroundColor Description }}
+Specifies the background color of the list item. Default is an empty array.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Color
-{{ Fill Color Description }}
+Specifies the color of the text. Default is an empty array.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Direction
-{{ Fill Direction Description }}
+Specifies the direction of the text. Valid value is 'rtl'. Default is an empty array.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: rtl
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: rtl
 
 Required: False
 Position: 11
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontFamily
-{{ Fill FontFamily Description }}
+Specifies the font family of the text. Default is an empty array.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 7
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontSize
-{{ Fill FontSize Description }}
+Specifies the font size of the text. Default is an empty array.
 
 ```yaml
 Type: Int32[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontStyle
-{{ Fill FontStyle Description }}
+Specifies the font style of the text. Valid values are 'normal', 'italic', 'oblique'. Default is an empty array.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, italic, oblique
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, italic, oblique
 
 Required: False
 Position: 5
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontVariant
-{{ Fill FontVariant Description }}
+Specifies the font variant of the text. Valid values are 'normal', 'small-caps'. Default is an empty array.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, small-caps
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, small-caps
 
 Required: False
 Position: 6
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontWeight
-{{ Fill FontWeight Description }}
+Specifies the font weight of the text. Valid values are 'normal', 'bold', 'bolder', 'lighter', and numeric values from 100 to 900. Default is an empty array.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
 Position: 4
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LineBreak
-{{ Fill LineBreak Description }}
+Indicates whether a line break should be added after the list item.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Text
-{{ Fill Text Description }}
+Specifies the text content of the list item.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TextDecoration
-{{ Fill TextDecoration Description }}
+Specifies the text decoration of the text. Valid values are 'none', 'line-through', 'overline', 'underline'. Default is an empty array.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: none, line-through, overline, underline
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: none, line-through, overline, underline
 
 Required: False
 Position: 9
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TextTransform
-{{ Fill TextTransform Description }}
+Specifies the text transformation of the text. Valid values are 'uppercase', 'lowercase', 'capitalize'. Default is an empty array.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: uppercase, lowercase, capitalize
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: uppercase, lowercase, capitalize
 
 Required: False
 Position: 10
-Default value: None
+Default value: @()
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -240,11 +240,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

@@ -1,1214 +1,1427 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLTable
-
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates a new HTML table with various customization options.
 
 ## SYNTAX
-
-```
-New-HTMLTable [[-HTML] <ScriptBlock>] [[-PreContent] <ScriptBlock>] [[-PostContent] <ScriptBlock>]
- [-DataTable <Array>] [-Title <String>] [-Buttons <String[]>] [-PagingStyle <String[]>]
- [-PagingOptions <Int32[]>] [-PagingLength <Int32>] [-DisablePaging] [-DisableOrdering] [-DisableInfo]
- [-HideFooter] [-HideButtons] [-DisableProcessing] [-DisableResponsiveTable] [-DisableSelect]
- [-DisableStateSave] [-DisableSearch] [-OrderMulti] [-Filtering] [-FilteringLocation <String>]
- [-Style <String[]>] [-Simplify] [-TextWhenNoData <String>] [-ScreenSizePercent <Int32>]
- [-DefaultSortColumn <String[]>] [-DefaultSortIndex <Int32[]>] [-DefaultSortOrder <String[]>]
- [-DateTimeSortingFormat <String[]>] [-Find <String>] [-InvokeHTMLTags] [-DisableNewLine] [-EnableKeys]
- [-EnableColumnReorder] [-EnableRowReorder] [-EnableAutoFill] [-EnableScroller] [-ScrollX] [-ScrollY]
- [-ScrollSizeY <Int32>] [-ScrollCollapse] [-FreezeColumnsLeft <Int32>] [-FreezeColumnsRight <Int32>]
- [-FixedHeader] [-FixedFooter] [-ResponsivePriorityOrder <String[]>] [-ResponsivePriorityOrderIndex <Int32[]>]
- [-PriorityProperties <String[]>] [-IncludeProperty <String[]>] [-ExcludeProperty <String[]>]
- [-ImmediatelyShowHiddenDetails] [-HideShowButton] [-AllProperties] [-SkipProperties] [-Compare]
- [-HighlightDifferences] [-First <Int32>] [-Last <Int32>] [-CompareReplace <Array>] [-SearchRegularExpression]
- [-WordBreak <String>] [-AutoSize] [-DisableAutoWidthOptimization] [-SearchPane] [-SearchPaneLocation <String>]
- [-SearchBuilder] [-SearchBuilderLocation <String>] [-DataStore <String>] [-DataTableID <String>]
- [-DataStoreID <String>] [-Transpose] [-OverwriteDOM <String>] [-SearchHighlight] [-AlphabetSearch]
- [-FuzzySearch] [-FuzzySearchSmartToggle] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLTable [[-HTML] <scriptblock>] [[-PreContent] <scriptblock>] [[-PostContent] <scriptblock>] [-DataTable <array>] [-Title <string>] [-Buttons <string[]>] [-PagingStyle <string[]>] [-PagingOptions <int[]>] [-PagingLength <int>] [-DisablePaging] [-DisableOrdering] [-DisableInfo] [-HideFooter] [-HideButtons] [-DisableProcessing] [-DisableResponsiveTable] [-DisableSelect] [-DisableStateSave] [-DisableSearch] [-OrderMulti] [-Filtering] [-FilteringLocation <string>] [-Style <string[]>] [-Simplify] [-TextWhenNoData <string>] [-ScreenSizePercent <int>] [-DefaultSortColumn <string[]>] [-DefaultSortIndex <int[]>] [-DefaultSortOrder <string[]>] [-DateTimeSortingFormat <string[]>] [-Find <string>] [-InvokeHTMLTags] [-DisableNewLine] [-EnableKeys] [-EnableColumnReorder] [-EnableRowReorder] [-EnableAutoFill] [-EnableScroller] [-ScrollX] [-ScrollY] [-ScrollSizeY <int>] [-ScrollCollapse] [-FreezeColumnsLeft <int>] [-FreezeColumnsRight <int>] [-FixedHeader] [-FixedFooter] [-ResponsivePriorityOrder <string[]>] [-ResponsivePriorityOrderIndex <int[]>] [-PriorityProperties <string[]>] [-IncludeProperty <string[]>] [-ExcludeProperty <string[]>] [-ImmediatelyShowHiddenDetails] [-HideShowButton] [-AllProperties] [-SkipProperties] [-Compare] [-CompareNames <array>] [-HighlightDifferences] [-First <int>] [-Last <int>] [-CompareReplace <array>] [-SearchRegularExpression] [-WordBreak <string>] [-AutoSize] [-DisableAutoWidthOptimization] [-SearchPane] [-SearchPaneLocation <string>] [-SearchBuilder] [-SearchBuilderLocation <string>] [-DataStore <string>] [-DataTableID <string>] [-DataStoreID <string>] [-Transpose] [-TransposeProperty <string>] [-TransposeName <string>] [-TransposeLegacy] [-OverwriteDOM <string>] [-SearchHighlight] [-AlphabetSearch] [-FuzzySearch] [-FuzzySearchSmartToggle] [-FlattenObject] [-PrettifyObject] [-PrettifyObjectSeparator <string>] [-PrettifyObjectDateTimeFormat <string>] [-FlattenDepth <int>] [-Width <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+This function generates an HTML table based on the provided data and allows for extensive customization using a wide range of parameters.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$data = @(
+    [PSCustomObject]@{ Name = 'John'; Age = 30 },
+    [PSCustomObject]@{ Name = 'Jane'; Age = 25 }
+)
+New-HTMLTable -DataTable $data -Title 'User Information' -Buttons @('copyHtml5', 'excelHtml5') -PagingStyle 'full_numbers' -PagingOptions @(10, 25, 50) -DefaultSortColumn @('Name') -DefaultSortOrder @('Ascending')
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -AllProperties
-{{ Fill AllProperties Description }}
+Displays all properties in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -AlphabetSearch
-{{ Fill AlphabetSearch Description }}
+Enables alphabet search.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -AutoSize
-{{ Fill AutoSize Description }}
+Automatically sizes the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Buttons
-{{Fill Buttons Description}}
+An array of buttons to be displayed in the table for actions like copying, exporting, and printing.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: copyHtml5, excelHtml5, csvHtml5, pdfHtml5, pageLength, print, searchPanes, searchBuilder
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: copyHtml5, excelHtml5, csvHtml5, pdfHtml5, pageLength, print, searchPanes, searchBuilder, columnVisibility, toggleView
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: @('copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5', 'pageLength', 'searchBuilder', 'toggleView')
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Compare
-{{ Fill Compare Description }}
+Compares data in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -CompareNames
+Names to compare in the table.
+
+```yaml
+Type: Array
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -CompareReplace
-{{ Fill CompareReplace Description }}
+Replaces data for comparison.
 
 ```yaml
 Type: Array
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: Replace
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DataStore
-{{ Fill DataStore Description }}
+Stores data for the table.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: HTML, JavaScript, AjaxJSON
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: HTML, JavaScript, AjaxJSON
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DataStoreID
-{{ Fill DataStoreID Description }}
+The ID of the data store.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DataTable
-{{Fill DataTable Description}}
+An array of objects containing the data to be displayed in the table.
 
 ```yaml
 Type: Array
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: ArrayOfObjects, Object, Table
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DataTableID
-{{ Fill DataTableID Description }}
+The ID of the data table.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: DataTableName
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DateTimeSortingFormat
-{{Fill DateTimeSortingFormat Description}}
+An array of date-time formats for sorting.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DefaultSortColumn
-{{ Fill DefaultSortColumn Description }}
+An array of default columns to sort by.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DefaultSortIndex
-{{ Fill DefaultSortIndex Description }}
+An array of default column indexes to sort by.
 
 ```yaml
 Type: Int32[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DefaultSortOrder
-{{ Fill DefaultSortOrder Description }}
+The default sort order (Ascending, Descending).
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: Ascending, Descending
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Ascending, Descending
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: Ascending
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableAutoWidthOptimization
-{{ Fill DisableAutoWidthOptimization Description }}
+Disables auto width optimization.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableInfo
-{{Fill DisableInfo Description}}
+Disables information display at the bottom of the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableNewLine
-{{ Fill DisableNewLine Description }}
+Disables new line characters in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableOrdering
-{{Fill DisableOrdering Description}}
+Disables column ordering in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisablePaging
-{{Fill DisablePaging Description}}
+Disables pagination in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableProcessing
-{{Fill DisableProcessing Description}}
+Disables processing indicator in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableResponsiveTable
-{{Fill DisableResponsiveTable Description}}
+Disables responsiveness of the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableSearch
-{{Fill DisableSearch Description}}
+Disables search functionality in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableSelect
-{{Fill DisableSelect Description}}
+Disables row selection in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableStateSave
-{{Fill DisableStateSave Description}}
+Disables saving the state of the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -EnableAutoFill
-{{ Fill EnableAutoFill Description }}
+Enables auto-filling in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -EnableColumnReorder
-{{ Fill EnableColumnReorder Description }}
+Enables column reordering in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -EnableKeys
-{{ Fill EnableKeys Description }}
+Enables keyboard navigation in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -EnableRowReorder
-{{ Fill EnableRowReorder Description }}
+Enables row reordering in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -EnableScroller
-{{ Fill EnableScroller Description }}
+Enables table scrolling.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ExcludeProperty
-{{ Fill ExcludeProperty Description }}
+Properties to exclude from the table.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Filtering
-{{ Fill Filtering Description }}
+Enables filtering in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FilteringLocation
-{{ Fill FilteringLocation Description }}
+Specifies the location of the filter (Top, Bottom, Both).
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: Top, Bottom, Both
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Top, Bottom, Both
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: Bottom
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Find
-{{ Fill Find Description }}
+Search string to find in the table.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: Search
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -First
-Gets only the specified number of objects. Enter the number of objects to get.
+Displays the first item in the table.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FixedFooter
-{{ Fill FixedFooter Description }}
+Fixes the footer of the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FixedHeader
-{{ Fill FixedHeader Description }}
+Fixes the header of the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -FlattenDepth
+The depth to flatten the object.
+
+```yaml
+Type: Int32
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -FlattenObject
+Flattens the object for display.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -FreezeColumnsLeft
-{{ Fill FreezeColumnsLeft Description }}
+The number of columns to freeze on the left.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FreezeColumnsRight
-{{ Fill FreezeColumnsRight Description }}
+The number of columns to freeze on the right.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FuzzySearch
-{{ Fill FuzzySearch Description }}
+Enables fuzzy search.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FuzzySearchSmartToggle
-{{ Fill FuzzySearchSmartToggle Description }}
+Toggles smart fuzzy search.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -HideButtons
+Hides all buttons in the table.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: DisableButtons
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -HideFooter
+Hides the footer of the table.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -HideShowButton
+Displays a button to show/hide details.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: RemoveShowButton
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -HighlightDifferences
+Highlights differences in the table.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: CompareWithColors
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -HTML
-{{ Fill HTML Description }}
+The HTML content to be included before the table.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -HideButtons
-{{ Fill HideButtons Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: DisableButtons
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -HideFooter
-{{Fill HideFooter Description}}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -HideShowButton
-{{ Fill HideShowButton Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: RemoveShowButton
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -HighlightDifferences
-{{ Fill HighlightDifferences Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: CompareWithColors
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ImmediatelyShowHiddenDetails
-{{ Fill ImmediatelyShowHiddenDetails Description }}
+Shows hidden details immediately.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -IncludeProperty
-{{ Fill IncludeProperty Description }}
+Properties to include in the table.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -InvokeHTMLTags
-{{ Fill InvokeHTMLTags Description }}
+Enables HTML tags in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Last
-{{ Fill Last Description }}
+Displays the last item in the table.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -OrderMulti
-{{ Fill OrderMulti Description }}
+Allows multiple column ordering in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -OverwriteDOM
-{{ Fill OverwriteDOM Description }}
+Overwrites the DOM structure.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PagingLength
-{{ Fill PagingLength Description }}
+The default number of items to display per page.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PagingOptions
-{{Fill PagingOptions Description}}
+An array of options for the number of items to display per page.
 
 ```yaml
 Type: Int32[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: @(15, 25, 50, 100)
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PagingStyle
-{{Fill PagingStyle Description}}
+The style of pagination to be used in the table.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: numbers, simple, simple_numbers, full, full_numbers, first_last_numbers
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: numbers, simple, simple_numbers, full, full_numbers, first_last_numbers
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: full_numbers
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PostContent
-{{ Fill PostContent Description }}
+Additional content to be included after the table.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PreContent
-{{ Fill PreContent Description }}
+Additional content to be included before the table.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -PrettifyObject
+Forces object to be preprocessed before passing to HTML.
+This is useful when converting object with arrays or when there is a need to display DateTime in different format.
+This is mostly useful for email tables or when using DataStore HTML.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -PrettifyObjectDateTimeFormat
+DateTime format for prettified object.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -PrettifyObjectSeparator
+Define separator for prettified array object. Default is ", ".
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: ,
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -PriorityProperties
-{{ Fill PriorityProperties Description }}
+Properties to prioritize in the table.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ResponsivePriorityOrder
-{{ Fill ResponsivePriorityOrder Description }}
+The priority order for responsiveness.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ResponsivePriorityOrderIndex
-{{ Fill ResponsivePriorityOrderIndex Description }}
+The index for responsive priority order.
 
 ```yaml
 Type: Int32[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ScreenSizePercent
-{{ Fill ScreenSizePercent Description }}
+The percentage of the screen width to occupy.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ScrollCollapse
-{{ Fill ScrollCollapse Description }}
+Collapses the table when scrolling.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ScrollSizeY
-{{ Fill ScrollSizeY Description }}
+The height of the vertical scroll.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: 500
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ScrollX
-{{ Fill ScrollX Description }}
+Enables horizontal scrolling.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ScrollY
-{{ Fill ScrollY Description }}
+Enables vertical scrolling.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SearchBuilder
-{{ Fill SearchBuilder Description }}
+Enables search builder in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SearchBuilderLocation
-{{ Fill SearchBuilderLocation Description }}
+Specifies the location of the search builder.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: top, bottom
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: top, bottom
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: top
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SearchHighlight
-{{ Fill SearchHighlight Description }}
+Highlights search results.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SearchPane
-{{ Fill SearchPane Description }}
+Enables search pane in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SearchPaneLocation
-{{ Fill SearchPaneLocation Description }}
+Specifies the location of the search pane.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: top, bottom
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: top, bottom
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: top
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SearchRegularExpression
-{{ Fill SearchRegularExpression Description }}
+Enables regular expression search.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: RegularExpression
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Simplify
-{{Fill Simplify Description}}
+Simplifies the table layout.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SkipProperties
-{{ Fill SkipProperties Description }}
+Properties to skip in the table.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Style
-{{Fill Style Description}}
+An array of styles to apply to the table.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: display, cell-border, compact, hover, nowrap, order-column, row-border, stripe
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: display, cell-border, compact, hover, nowrap, order-column, row-border, stripe
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: @('display', 'compact')
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TextWhenNoData
-{{ Fill TextWhenNoData Description }}
+The text to display when no data is available.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: No data available to display.
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Title
-{{ Fill Title Description }}
+The title of the HTML table.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Transpose
-{{ Fill Transpose Description }}
+Transpose table. This is useful when you have objects and you want to transpose them.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -WordBreak
-{{ Fill WordBreak Description }}
+### -TransposeLegacy
+Use old method of transposing table. This is useful when you have objects and you want to transpose them, using legacy method.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -TransposeName
+Name of the column that will be used per object to transpose table. By default it's "Object X", "Object Y", "Object Z" etc.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, break-all, keep-all, break-word
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -TransposeProperty
+Transpose table based on property. By default it's "Object X". This makes sense if you have unique value per object that you want to transpose table based on.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Width
+{{ Fill Width Description }}
+
+```yaml
+Type: Object
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -WordBreak
+Enables word breaking in the table.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, break-all, keep-all, break-word
+
+Required: False
+Position: named
+Default value: normal
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -1216,11 +1429,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

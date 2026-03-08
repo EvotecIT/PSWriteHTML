@@ -1,171 +1,182 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-ChartBarOptions
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates options for a bar chart with customizable parameters.
 
 ## SYNTAX
-
-```
-New-ChartBarOptions [[-Type] <Object>] [[-DataLabelsEnabled] <Boolean>] [[-DataLabelsOffsetX] <Int32>]
- [[-DataLabelsFontSize] <String>] [[-DataLabelsColor] <String>] [-Patterned] [-Gradient] [-Distributed]
- [-Vertical] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-ChartBarOptions [[-Type] <Object>] [[-DataLabelsEnabled] <bool>] [[-DataLabelsOffsetX] <int>] [[-DataLabelsFontSize] <string>] [[-DataLabelsColor] <string>] [-Patterned] [-Gradient] [-Distributed] [-Vertical] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates options for a bar chart with the provided parameters. It allows customization of the bar type, data labels, colors, patterns, gradients, and distribution.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-ChartBarOptions -Type 'barStacked' -DataLabelsEnabled $true -DataLabelsOffsetX -6 -DataLabelsFontSize '12px' -DataLabelsColor 'black' -Patterned -Distributed
 ```
 
-{{ Add example description here }}
+Creates options for a stacked bar chart with data labels enabled, offset of -6, font size '12px', black data labels, patterned colors, and distributed bars.
+
+### EXAMPLE 2
+```powershell
+New-ChartBarOptions -Type 'bar' -DataLabelsEnabled $false -Gradient -Vertical
+```
+
+Creates options for a regular bar chart with data labels disabled, gradient colors, and vertical bars.
 
 ## PARAMETERS
 
 ### -DataLabelsColor
-{{ Fill DataLabelsColor Description }}
+The color of the data labels.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DataLabelsEnabled
-{{ Fill DataLabelsEnabled Description }}
+Indicates whether data labels are enabled. Default is $true.
 
 ```yaml
 Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
-Default value: None
+Default value: True
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DataLabelsFontSize
-{{ Fill DataLabelsFontSize Description }}
+The font size of the data labels. Default is '12px'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
-Default value: None
+Default value: 12px
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DataLabelsOffsetX
-{{ Fill DataLabelsOffsetX Description }}
+The horizontal offset of the data labels. Default is -6.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
-Default value: None
+Default value: -6
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Distributed
-{{ Fill Distributed Description }}
+Indicates whether the bars are distributed.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Gradient
-{{ Fill Gradient Description }}
+Indicates whether gradient colors are used.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: GradientColors
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Patterned
-{{ Fill Patterned Description }}
+Indicates whether patterned colors are used.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: PatternedColors
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Type
-{{ Fill Type Description }}
+The type of the bar chart. Accepted values are 'bar', 'barStacked', 'barStacked100Percent'. Default is 'bar'.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
-Accepted values: bar, barStacked, barStacked100Percent
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: bar, barStacked, barStacked100Percent
 
 Required: False
 Position: 0
-Default value: None
+Default value: bar
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Vertical
-{{ Fill Vertical Description }}
+Indicates whether the bars are vertical.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -173,11 +184,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

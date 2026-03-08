@@ -1,250 +1,340 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLCalendar
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new HTML calendar using FullCalendar library.
 
 ## SYNTAX
-
-```
-New-HTMLCalendar [[-CalendarSettings] <ScriptBlock>] [[-HeaderLeft] <String[]>] [[-HeaderCenter] <String[]>]
- [[-HeaderRight] <String[]>] [[-DefaultDate] <DateTime>] [[-NavigationLinks] <Boolean>]
- [[-NowIndicator] <Boolean>] [[-EventLimit] <Boolean>] [[-WeekNumbers] <Boolean>] [[-Selectable] <Boolean>]
- [[-SelectMirror] <Boolean>] [-BusinessHours] [-Editable] [[-InitialView] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLCalendar [[-CalendarSettings] <scriptblock>] [[-HeaderLeft] <string[]>] [[-HeaderCenter] <string[]>] [[-HeaderRight] <string[]>] [[-DefaultDate] <datetime>] [[-NavigationLinks] <bool>] [[-NowIndicator] <bool>] [[-EventLimit] <bool>] [[-WeekNumbers] <bool>] [[-Selectable] <bool>] [[-SelectMirror] <bool>] [[-InitialView] <string>] [[-UrlTarget] <string>] [[-EventTimeFormat] <IDictionary>] [[-SlotLabelFormat] <IDictionary>] [-BusinessHours] [-Editable] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new HTML calendar using the FullCalendar library. It allows customization of various calendar settings such as header elements, initial view, default date, event handling, and more.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLCalendar -CalendarSettings {
+    # Define calendar settings here
+}
 ```
 
-{{ Add example description here }}
+Creates a new HTML calendar with default settings.
+
+### EXAMPLE 2
+```powershell
+New-HTMLCalendar -CalendarSettings {
+    # Define calendar settings here
+} -HeaderLeft 'prev', 'next' -HeaderCenter 'title' -HeaderRight 'dayGridMonth', 'timeGridWeek' -DefaultDate (Get-Date) -NavigationLinks $true -NowIndicator $true -EventLimit $true -WeekNumbers $true -Selectable $true -SelectMirror $true -BusinessHours -Editable -InitialView 'dayGridMonth' -UrlTarget 'https://example.com' -EventTimeFormat @{
+    hour           = '2-digit'
+    minute         = '2-digit'
+    omitZeroMinute = $false
+    meridiem       = $false
+    hour12         = $false
+} -SlotLabelFormat @{
+    hour           = '2-digit'
+    minute         = '2-digit'
+    omitZeroMinute = $false
+    meridiem       = $false
+    hour12         = $false
+}
+```
+
+Creates a new HTML calendar with custom settings.
 
 ## PARAMETERS
 
 ### -BusinessHours
-{{ Fill BusinessHours Description }}
+Indicates whether business hours are displayed on the calendar.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -CalendarSettings
-{{ Fill CalendarSettings Description }}
+Specifies the script block containing settings for the calendar.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DefaultDate
-{{ Fill DefaultDate Description }}
+Specifies the default date to display on the calendar.
 
 ```yaml
 Type: DateTime
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
-Default value: None
+Default value: (Get-Date)
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Editable
-{{ Fill Editable Description }}
+Indicates whether events are editable on the calendar.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -EventLimit
-{{ Fill EventLimit Description }}
+Indicates whether to limit the number of events displayed on a day.
 
 ```yaml
 Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 7
-Default value: None
+Default value: True
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -EventTimeFormat
+Specifies the format for displaying event times.
+
+```yaml
+Type: IDictionary
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 13
+Default value: [ordered] @{
+            hour           = '2-digit'
+            minute         = '2-digit'
+            #second   = '2-digit'
+            omitZeroMinute = $false
+            meridiem       = $false
+            hour12         = $false
+        }
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -HeaderCenter
-{{ Fill HeaderCenter Description }}
+Specifies the element to display in the center of the calendar header.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: prev, next, today, prevYear, nextYear, dayGridDay, dayGridWeek, dayGridMonth, timeGridWeek, timeGridDay, listDay, listWeek, listMonth, title
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: prev, next, today, prevYear, nextYear, dayGridDay, dayGridWeek, dayGridMonth, timeGridWeek, timeGridDay, listDay, listWeek, listMonth, title, listYear
 
 Required: False
 Position: 2
-Default value: None
+Default value: title
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HeaderLeft
-{{ Fill HeaderLeft Description }}
+Specifies the elements to display on the left side of the calendar header.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: prev, next, today, prevYear, nextYear, dayGridDay, dayGridWeek, dayGridMonth, timeGridWeek, timeGridDay, listDay, listWeek, listMonth, title
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: prev, next, today, prevYear, nextYear, dayGridDay, dayGridWeek, dayGridMonth, timeGridWeek, timeGridDay, listDay, listWeek, listMonth, title, listYear
 
 Required: False
 Position: 1
-Default value: None
+Default value: @('prev', 'next', 'today')
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HeaderRight
-{{ Fill HeaderRight Description }}
+Specifies the elements to display on the right side of the calendar header.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: prev, next, today, prevYear, nextYear, dayGridDay, dayGridWeek, dayGridMonth, timeGridWeek, timeGridDay, listDay, listWeek, listMonth, title
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: prev, next, today, prevYear, nextYear, dayGridDay, dayGridWeek, dayGridMonth, timeGridWeek, timeGridDay, listDay, listWeek, listMonth, title, listYear
 
 Required: False
 Position: 3
-Default value: None
+Default value: @('dayGridMonth', 'timeGridWeek', 'timeGridDay', 'listMonth')
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -InitialView
-{{ Fill InitialView Description }}
+Specifies the initial view of the calendar.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: dayGridDay, dayGridWeek, dayGridMonth, timeGridDay, timeGridWeek, listDay, listWeek, listMonth
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: dayGridDay, dayGridWeek, dayGridMonth, timeGridDay, timeGridWeek, listDay, listWeek, listMonth, listYear
 
 Required: False
 Position: 11
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -NavigationLinks
-{{ Fill NavigationLinks Description }}
+Indicates whether navigation links are enabled on the calendar.
 
 ```yaml
 Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 5
-Default value: None
+Default value: True
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -NowIndicator
-{{ Fill NowIndicator Description }}
+Indicates whether the current time indicator is displayed on the calendar.
 
 ```yaml
 Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 6
-Default value: None
+Default value: True
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SelectMirror
-{{ Fill SelectMirror Description }}
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 10
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Selectable
-{{ Fill Selectable Description }}
+Indicates whether events can be selected on the calendar.
 
 ```yaml
 Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 9
-Default value: None
+Default value: True
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -WeekNumbers
-{{ Fill WeekNumbers Description }}
+### -SelectMirror
+Indicates whether a mirror effect is applied when selecting events.
 
 ```yaml
 Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 10
+Default value: True
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -SlotLabelFormat
+Specifies the format for displaying slot labels.
+
+```yaml
+Type: IDictionary
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 14
+Default value: [ordered] @{
+            hour           = '2-digit'
+            minute         = '2-digit'
+            #second   = '2-digit'
+            omitZeroMinute = $false
+            meridiem       = $false
+            hour12         = $false
+        }
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -UrlTarget
+Specifies the target URL for calendar events.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 12
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -WeekNumbers
+Indicates whether week numbers are displayed on the calendar.
+
+```yaml
+Type: Boolean
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 8
-Default value: None
+Default value: True
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -252,11 +342,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

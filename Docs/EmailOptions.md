@@ -1,50 +1,52 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # EmailOptions
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Configures email options for sending notifications.
 
 ## SYNTAX
-
-```
-EmailOptions [[-Priority] <String>] [[-DeliveryNotifications] <Object>] [[-Encoding] <String>]
- [<CommonParameters>]
+### __AllParameterSets
+```powershell
+EmailOptions [[-Priority] <string>] [[-DeliveryNotifications] <Object>] [[-Encoding] <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function sets the priority and delivery notifications for email notifications.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+EmailOptions -Priority 'High' -DeliveryNotifications 'OnSuccess'
+Configures email options with High priority and delivery notifications on success.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+EmailOptions
+Configures email options with default settings.
+```
 
 ## PARAMETERS
 
 ### -DeliveryNotifications
-{{ Fill DeliveryNotifications Description }}
+Specifies when delivery notifications should be sent. Valid values are 'None', 'OnSuccess', 'OnFailure', 'Delay', or 'Never'.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
-Accepted values: None, OnSuccess, OnFailure, Delay, Never
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: None, OnSuccess, OnFailure, Delay, Never
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Encoding
@@ -52,30 +54,31 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Priority
-{{ Fill Priority Description }}
+Specifies the priority of the email. Valid values are 'Low', 'Normal', or 'High'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: Low, Normal, High
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Low, Normal, High
 
 Required: False
 Position: 0
-Default value: None
+Default value: Normal
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -83,11 +86,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

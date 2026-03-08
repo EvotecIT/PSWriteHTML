@@ -1,48 +1,46 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # EmailFrom
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates an email object for the sender address.
 
 ## SYNTAX
-
-```
-EmailFrom [[-Address] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+EmailFrom [[-Address] <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates an email object specifically for the sender address. It takes a single email address as input and returns a custom object representing the sender address.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$Sender = EmailFrom -Address 'sender@example.com'
+Creates an email object with the specified sender address.
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -Address
-{{ Fill Address Description }}
+Specifies the email address of the sender.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -50,11 +48,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

@@ -1,525 +1,548 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-DiagramOptionsNodes
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a custom object representing options for diagram nodes.
 
 ## SYNTAX
-
-```
-New-DiagramOptionsNodes [-BorderWidth <Int32>] [-BorderWidthSelected <Int32>] [-BrokenImage <String>]
- [-Chosen <Boolean>] [-ColorBorder <String>] [-ColorBackground <String>] [-ColorHighlightBorder <String>]
- [-ColorHighlightBackground <String>] [-ColorHoverBorder <String>] [-ColorHoverBackground <String>]
- [-FixedX <Boolean>] [-FixedY <Boolean>] [-FontColor <String>] [-FontSize <Int32>] [-FontName <String>]
- [-FontBackground <String>] [-FontStrokeWidth <Int32>] [-FontStrokeColor <String>] [-FontAlign <String>]
- [-FontMulti <String>] [-FontVAdjust <Int32>] [-Size <Int32>] [-Shape <String>]
- [-HeightConstraintMinimum <Int32>] [-HeightConstraintVAlign <String>] [-WidthConstraintMinimum <Int32>]
- [-WidthConstraintMaximum <Int32>] [-Margin <Int32>] [-MarginTop <Int32>] [-MarginRight <Int32>]
- [-MarginBottom <Int32>] [-MarginLeft <Int32>] [<CommonParameters>]
+### Shape
+```powershell
+New-DiagramOptionsNodes [-BorderWidth <int>] [-BorderWidthSelected <int>] [-BrokenImage <string>] [-Chosen <bool>] [-ColorBorder <string>] [-ColorBackground <string>] [-ColorHighlightBorder <string>] [-ColorHighlightBackground <string>] [-ColorHoverBorder <string>] [-ColorHoverBackground <string>] [-FixedX <bool>] [-FixedY <bool>] [-FontColor <string>] [-FontSize <int>] [-FontName <string>] [-FontBackground <string>] [-FontStrokeWidth <int>] [-FontStrokeColor <string>] [-FontAlign <string>] [-FontMulti <string>] [-FontVAdjust <int>] [-Size <int>] [-Shape <string>] [-HeightConstraintMinimum <int>] [-HeightConstraintVAlign <string>] [-WidthConstraintMinimum <int>] [-WidthConstraintMaximum <int>] [-Margin <int>] [-MarginTop <int>] [-MarginRight <int>] [-MarginBottom <int>] [-MarginLeft <int>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a custom object with various settings for diagram nodes, such as border width, colors, font styles, shape, constraints, and margins.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-DiagramOptionsNodes -BorderWidth 1 -BorderWidthSelected 2 -ColorBorder '#2B7CE9' -ColorBackground '#97C2FC' -Shape 'circle' -Size 50
+Creates a new diagram node with specified border widths, colors, shape, and size.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+New-DiagramOptionsNodes -FontColor '#000000' -FontSize 12 -FontName 'Arial' -Shape 'square' -Size 30
+Creates a new diagram node with specified font color, size, font family, shape, and size.
+```
 
 ## PARAMETERS
 
 ### -BorderWidth
-{{ Fill BorderWidth Description }}
+Specifies the width of the border around the node.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -BorderWidthSelected
-{{ Fill BorderWidthSelected Description }}
+Specifies the width of the border around the node when selected.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -BrokenImage
-{{ Fill BrokenImage Description }}
+Specifies the image to display if the node image is broken.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Chosen
-{{ Fill Chosen Description }}
+Indicates whether the node is chosen.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColorBackground
-{{ Fill ColorBackground Description }}
+Specifies the background color of the node.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColorBorder
-{{ Fill ColorBorder Description }}
+Specifies the color of the node border.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColorHighlightBackground
-{{ Fill ColorHighlightBackground Description }}
+Specifies the background color of the node when highlighted.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColorHighlightBorder
-{{ Fill ColorHighlightBorder Description }}
+Specifies the color of the node border when highlighted.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColorHoverBackground
-{{ Fill ColorHoverBackground Description }}
+Specifies the background color of the node when hovered over.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColorHoverBorder
-{{ Fill ColorHoverBorder Description }}
+Specifies the color of the node border when hovered over.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FixedX
-{{ Fill FixedX Description }}
+Indicates whether the node's X position is fixed.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FixedY
-{{ Fill FixedY Description }}
+Indicates whether the node's Y position is fixed.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontAlign
-{{ Fill FontAlign Description }}
+Specifies the alignment of the node's text (center or left).
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: center, left
+Parameter Sets: Shape
+Aliases: 
+Possible values: center, left
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontBackground
-{{ Fill FontBackground Description }}
+Specifies the background color of the node's font.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontColor
-{{ Fill FontColor Description }}
+Specifies the color of the node's font.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontMulti
-{{ Fill FontMulti Description }}
+Specifies the multi-line mode for the node's text (false, true, markdown, html).
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: false, true, markdown, html
+Parameter Sets: Shape
+Aliases: 
+Possible values: false, true, markdown, html
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontName
-{{ Fill FontName Description }}
+Specifies the font family of the node text.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontSize
-{{ Fill FontSize Description }}
+Specifies the font size of the node text in pixels.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontStrokeColor
-{{ Fill FontStrokeColor Description }}
+Specifies the stroke color of the node's font.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontStrokeWidth
-{{ Fill FontStrokeWidth Description }}
+Specifies the stroke width of the node's font.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontVAdjust
-{{ Fill FontVAdjust Description }}
+Specifies the vertical adjustment of the node's text.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HeightConstraintMinimum
-{{ Fill HeightConstraintMinimum Description }}
+Specifies the minimum height constraint for the node.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HeightConstraintVAlign
-{{ Fill HeightConstraintVAlign Description }}
+Specifies the vertical alignment of the node within its height constraint (top, middle, bottom).
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: top, middle, bottom
+Parameter Sets: Shape
+Aliases: 
+Possible values: top, middle, bottom
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Margin
-{{ Fill Margin Description }}
+Specifies the margin around the node on all sides.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -MarginBottom
-{{ Fill MarginBottom Description }}
+Specifies the bottom margin around the node.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -MarginLeft
-{{ Fill MarginLeft Description }}
+Specifies the left margin around the node.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -MarginRight
-{{ Fill MarginRight Description }}
+Specifies the right margin around the node.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -MarginTop
-{{ Fill MarginTop Description }}
+Specifies the top margin around the node.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Shape
-{{ Fill Shape Description }}
+Specifies the shape of the node (circle, dot, diamond, ellipse, database, box, square, triangle, triangleDown, text, star, hexagon).
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: circle, dot, diamond, ellipse, database, box, square, triangle, triangleDown, text, star, hexagon
+Parameter Sets: Shape
+Aliases: 
+Possible values: circle, dot, diamond, ellipse, database, box, square, triangle, triangleDown, text, star, hexagon
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Size
-{{ Fill Size Description }}
+Specifies the size of the node.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -WidthConstraintMaximum
-{{ Fill WidthConstraintMaximum Description }}
+Specifies the maximum width constraint for the node.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -WidthConstraintMinimum
-{{ Fill WidthConstraintMinimum Description }}
+Specifies the minimum width constraint for the node.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: Shape
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -527,11 +550,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

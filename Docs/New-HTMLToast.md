@@ -1,215 +1,222 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLToast
-
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates a new HTML toast notification with customizable text, icons, and colors.
 
 ## SYNTAX
-
 ### FontAwesomeSolid
-```
-New-HTMLToast [-TextHeader <String>] [-TextHeaderColor <String>] [-Text <String>] [-TextColor <String>]
- [-IconSize <Int32>] [-IconColor <String>] [-BarColorLeft <String>] [-BarColorRight <String>]
- [-IconSolid <String>] [<CommonParameters>]
+```powershell
+New-HTMLToast [-TextHeader <string>] [-TextHeaderColor <string>] [-Text <string>] [-TextColor <string>] [-IconSize <int>] [-IconColor <string>] [-BarColorLeft <string>] [-BarColorRight <string>] [-IconSolid <string>] [<CommonParameters>]
 ```
 
 ### FontAwesomeRegular
-```
-New-HTMLToast [-TextHeader <String>] [-TextHeaderColor <String>] [-Text <String>] [-TextColor <String>]
- [-IconSize <Int32>] [-IconColor <String>] [-BarColorLeft <String>] [-BarColorRight <String>]
- [-IconRegular <String>] [<CommonParameters>]
+```powershell
+New-HTMLToast [-TextHeader <string>] [-TextHeaderColor <string>] [-Text <string>] [-TextColor <string>] [-IconSize <int>] [-IconColor <string>] [-BarColorLeft <string>] [-BarColorRight <string>] [-IconRegular <string>] [<CommonParameters>]
 ```
 
 ### FontAwesomeBrands
-```
-New-HTMLToast [-TextHeader <String>] [-TextHeaderColor <String>] [-Text <String>] [-TextColor <String>]
- [-IconSize <Int32>] [-IconColor <String>] [-BarColorLeft <String>] [-BarColorRight <String>]
- [-IconBrands <String>] [<CommonParameters>]
+```powershell
+New-HTMLToast [-TextHeader <string>] [-TextHeaderColor <string>] [-Text <string>] [-TextColor <string>] [-IconSize <int>] [-IconColor <string>] [-BarColorLeft <string>] [-BarColorRight <string>] [-IconBrands <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+This function generates an HTML toast notification with options to set the text, text colors, icons, icon size, and various color settings for different elements of the notification.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLToast -TextHeader "Notification" -Text "This is a sample notification" -IconBrands "fa-github" -BarColorRight "Red"
+Creates a new HTML toast notification with a header "Notification", main text "This is a sample notification", GitHub icon, and a red color for the right bar.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+New-HTMLToast -TextHeader "Alert" -Text "Alert message here" -IconBrands "fa-exclamation-triangle" -IconColor "Orange" -BarColorLeft "Yellow" -BarColorRight "Red"
+Creates a new HTML toast notification with a header "Alert", main text "Alert message here", warning triangle icon in orange color, yellow left bar, and red right bar.
+```
 
 ## PARAMETERS
 
 ### -BarColorLeft
-{{ Fill BarColorLeft Description }}
+Specifies the color of the left bar in the notification.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: Blue
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -BarColorRight
-{{ Fill BarColorRight Description }}
+Specifies the color of the right bar in the notification.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -IconBrands
-{{ Fill IconBrands Description }}
+Specifies the icon to be used from the Font Awesome Brands collection.
 
 ```yaml
 Type: String
 Parameter Sets: FontAwesomeBrands
-Aliases:
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -IconColor
-{{ Fill IconColor Description }}
+Specifies the color of the icon.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: Blue
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -IconRegular
-{{ Fill IconRegular Description }}
+ICON REGULAR
 
 ```yaml
 Type: String
 Parameter Sets: FontAwesomeRegular
-Aliases:
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -IconSize
-{{ Fill IconSize Description }}
+Specifies the size of the icon in pixels.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: 30
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -IconSolid
-{{ Fill IconSolid Description }}
+ICON SOLID
 
 ```yaml
 Type: String
 Parameter Sets: FontAwesomeSolid
-Aliases:
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Text
-{{Fill Text Description}}
+Specifies the main text content of the notification.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TextColor
-{{ Fill TextColor Description }}
+Specifies the color of the main text.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TextHeader
-{{Fill TextHeader Description}}
+Specifies the header text of the notification.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TextHeaderColor
-{{ Fill TextHeaderColor Description }}
+Specifies the color of the header text.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -217,11 +224,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

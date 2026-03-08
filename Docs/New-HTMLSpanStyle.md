@@ -1,253 +1,292 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLSpanStyle
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates an HTML <span> element with specified styling.
 
 ## SYNTAX
-
-```
-New-HTMLSpanStyle [[-Content] <ScriptBlock>] [[-Color] <String>] [[-BackGroundColor] <String>]
- [[-FontSize] <Object>] [[-LineHeight] <String>] [[-FontWeight] <String>] [[-FontStyle] <String>]
- [[-FontVariant] <String>] [[-FontFamily] <String>] [[-Alignment] <String>] [[-TextDecoration] <String>]
- [[-TextTransform] <String>] [[-Direction] <String>] [-LineBreak] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLSpanStyle [[-Content] <scriptblock>] [[-Color] <string>] [[-BackGroundColor] <string>] [[-FontSize] <Object>] [[-LineHeight] <string>] [[-FontWeight] <string>] [[-FontStyle] <string>] [[-FontVariant] <string>] [[-FontFamily] <string>] [[-Alignment] <string>] [[-TextDecoration] <string>] [[-TextTransform] <string>] [[-Direction] <string>] [[-Display] <string>] [[-Opacity] <double>] [-LineBreak] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+The New-HTMLSpanStyle function generates an HTML <span> element with customizable styling options such as color, background color, font size, font weight, font style, alignment, text decoration, text transformation, and more.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLSpanStyle -Content { "Hello, World!" } -Color 'red' -FontSize '12px' -FontWeight 'bold' -Alignment 'center'
+Creates a <span> element with red text, font size of 12 pixels, bold weight, and centered alignment containing the text "Hello, World!".
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+New-HTMLSpanStyle -Content { "This is underlined text" } -Color 'blue' -TextDecoration 'underline'
+Creates a <span> element with blue text and underlined decoration containing the text "This is underlined text".
+```
 
 ## PARAMETERS
 
 ### -Alignment
-{{ Fill Alignment Description }}
+The alignment of the text within the <span> element.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: left, center, right, justify
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: left, center, right, justify
 
 Required: False
 Position: 9
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -BackGroundColor
-{{ Fill BackGroundColor Description }}
+The background color of the <span> element.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Color
-{{ Fill Color Description }}
+The color of the text.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Content
-{{ Fill Content Description }}
+The content to be placed within the <span> element.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Direction
-{{ Fill Direction Description }}
+The direction of the text.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: rtl
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: rtl
 
 Required: False
 Position: 12
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -FontFamily
-{{ Fill FontFamily Description }}
+### -Display
+The display style of the <span> element.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: none, inline, block, inline-block, contents, flex, grid, inline-flex, inline-grid, inline-table, list-item, run-in, table, table-caption, table-column-group, table-header-group, table-footer-group, table-row-group, table-cell, table-column, table-row
+
+Required: False
+Position: 13
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -FontFamily
+The font family to be used.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 8
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontSize
-{{ Fill FontSize Description }}
+The font size of the text.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontStyle
-{{ Fill FontStyle Description }}
+The style of the font.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, italic, oblique
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, italic, oblique
 
 Required: False
 Position: 6
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontVariant
-{{ Fill FontVariant Description }}
+The variant of the font.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, small-caps
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, small-caps
 
 Required: False
 Position: 7
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontWeight
-{{ Fill FontWeight Description }}
+The weight of the font.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LineBreak
-{{ Fill LineBreak Description }}
+Indicates whether to allow line breaks within the <span> element.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LineHeight
-{{ Fill LineHeight Description }}
+The height of each line of text.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -Opacity
+The opacity of the <span> element.
+
+```yaml
+Type: Double
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 14
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -TextDecoration
-{{ Fill TextDecoration Description }}
+The decoration to be applied to the text.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: none, line-through, overline, underline
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: none, line-through, overline, underline
 
 Required: False
 Position: 10
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TextTransform
-{{ Fill TextTransform Description }}
+The transformation to be applied to the text.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: uppercase, lowercase, capitalize
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: uppercase, lowercase, capitalize
 
 Required: False
 Position: 11
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -255,11 +294,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

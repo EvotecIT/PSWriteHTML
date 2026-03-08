@@ -1,32 +1,29 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLHorizontalLine
-
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates a horizontal line in HTML.
 
 ## SYNTAX
-
-```
+### __AllParameterSets
+```powershell
 New-HTMLHorizontalLine [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+The New-HTMLHorizontalLine function generates a horizontal line (<hr>) tag in HTML.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLHorizontalLine
+Generates a horizontal line in HTML.
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
@@ -35,11 +32,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

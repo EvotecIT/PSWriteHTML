@@ -1,124 +1,134 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLLogo
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new HTML logo with specified parameters.
 
 ## SYNTAX
-
-```
-New-HTMLLogo [[-LogoPath] <String>] [[-LeftLogoName] <String>] [[-RightLogoName] <String>]
- [[-LeftLogoString] <String>] [[-RightLogoString] <String>] [-HideLogos] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLLogo [[-LogoPath] <string>] [[-LeftLogoName] <string>] [[-RightLogoName] <string>] [[-LeftLogoString] <string>] [[-RightLogoString] <string>] [-HideLogos] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new HTML logo using the provided parameters. It allows customization of the left and right logo names, strings, and the option to hide logos.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLLogo -LogoPath "C:\Logos\logo.png" -LeftLogoName "CompanyA" -RightLogoName "CompanyB" -LeftLogoString "Company A Logo" -RightLogoString "Company B Logo"
 ```
 
-{{ Add example description here }}
+Creates a new HTML logo with custom left and right logo names and strings.
+
+### EXAMPLE 2
+```powershell
+New-HTMLLogo -LogoPath "C:\Logos\logo.png" -HideLogos
+```
+
+Creates a new HTML logo with logos hidden.
 
 ## PARAMETERS
 
 ### -HideLogos
-{{ Fill HideLogos Description }}
+Switch parameter to hide logos.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LeftLogoName
-{{ Fill LeftLogoName Description }}
+The name of the left logo. Default is "Sample".
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
-Default value: None
+Default value: Sample
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LeftLogoString
-{{ Fill LeftLogoString Description }}
+The string for the left logo.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LogoPath
-{{ Fill LogoPath Description }}
+The path to the logo.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -RightLogoName
-{{ Fill RightLogoName Description }}
+The name of the right logo. Default is "Alternate".
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
-Default value: None
+Default value: Alternate
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -RightLogoString
-{{ Fill RightLogoString Description }}
+The string for the right logo.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -126,11 +136,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

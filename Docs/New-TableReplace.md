@@ -1,63 +1,72 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-TableReplace
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Replaces values in a specified field of a table.
 
 ## SYNTAX
-
-```
-New-TableReplace [[-FieldName] <String>] [[-Replacements] <String[]>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-TableReplace [[-FieldName] <string>] [[-Replacements] <string[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function replaces values in a specified field of a table with the provided replacements.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-TableReplace -FieldName "Status" -Replacements @("Active", "Inactive")
 ```
 
-{{ Add example description here }}
+Description:
+Replaces values in the "Status" field with "Active" or "Inactive".
+
+### EXAMPLE 2
+```powershell
+New-TableReplace -FieldName "Priority" -Replacements @("High", "Medium", "Low")
+```
+
+Description:
+Replaces values in the "Priority" field with "High", "Medium", or "Low".
 
 ## PARAMETERS
 
 ### -FieldName
-{{ Fill FieldName Description }}
+The name of the field in the table where replacements will be made.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Replacements
-{{ Fill Replacements Description }}
+An array of strings containing the values to replace in the specified field.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -65,11 +74,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

@@ -1,48 +1,53 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # EmailAttachment
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates an email attachment object for header attachments.
 
 ## SYNTAX
-
-```
-EmailAttachment [[-FilePath] <String[]>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+EmailAttachment [[-FilePath] <string[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates an email attachment object specifically for header attachments. It takes an array of file paths and returns a custom object representing the attachment.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$Attachment = EmailAttachment -FilePath 'C:\Files\attachment1.txt', 'C:\Files\attachment2.pdf'
+Creates an email attachment object with two file paths for header attachments.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+$Files = 'C:\Files\attachment1.txt', 'C:\Files\attachment2.pdf'
+$Attachment = EmailAttachment -FilePath $Files
+Creates an email attachment object with multiple file paths for header attachments.
+```
 
 ## PARAMETERS
 
 ### -FilePath
-{{ Fill FilePath Description }}
+Specifies an array of file paths for the attachments.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -50,11 +55,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

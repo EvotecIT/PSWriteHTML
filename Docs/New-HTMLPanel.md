@@ -1,172 +1,208 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLPanel
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new HTML panel with customizable styling options.
 
 ## SYNTAX
-
-```
-New-HTMLPanel [[-Content] <ScriptBlock>] [-BackgroundColor <String>] [-Invisible] [-Width <String>]
- [-Margin <String>] [-AlignContentText <String>] [-BorderRadius <String>] [-AnchorName <String>]
- [-StyleSheetsConfiguration <IDictionary>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLPanel [[-Content] <scriptblock>] [-BackgroundColor <string>] [-Invisible] [-Width <string>] [-Height <Object>] [-Margin <string>] [-AlignContentText <string>] [-BorderRadius <string>] [-Density <string>] [-AnchorName <string>] [-StyleSheetsConfiguration <IDictionary>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+The New-HTMLPanel function creates a new HTML panel with various styling options such as background color, width, margin, alignment, and more.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLPanel -Content { "This is the content of the panel" } -BackgroundColor "lightblue" -Width "50%" -Margin "10px" -AlignContentText "center" -BorderRadius "5px" -AnchorName "myPanel" -StyleSheetsConfiguration @{ Panel = "customPanel" }
 ```
 
-{{ Add example description here }}
+Creates a new HTML panel with specified content, background color, width, margin, alignment, border radius, anchor name, and custom style sheet configuration.
 
 ## PARAMETERS
 
 ### -AlignContentText
-{{ Fill AlignContentText Description }}
+Specifies the alignment of the content within the panel.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: center, left, right, justify
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: center, left, right, justify
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -AnchorName
-{{ Fill AnchorName Description }}
+Specifies the anchor name of the panel.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -BackgroundColor
-{{ Fill BackgroundColor Description }}
+Specifies the background color of the HTML panel.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: BackgroundShade
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -BorderRadius
-{{ Fill BorderRadius Description }}
+Specifies the border radius of the panel.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: 0px, 5px, 10px, 15px, 20px, 25px
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 0px, 5px, 10px, 15px, 20px, 25px
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Content
-{{ Fill Content Description }}
+Specifies the content of the HTML panel as a ScriptBlock.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -Density
+Specifies the density of the panel. This will automatically enable responsive wrapping for the panel.
+The options are: Spacious, Comfortable, Compact, Dense, VeryDense.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Spacious, Comfortable, Compact, Dense, VeryDense
+
+Required: False
+Position: named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Height
+{{ Fill Height Description }}
+
+```yaml
+Type: Object
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -Invisible
-{{ Fill Invisible Description }}
+Indicates whether the panel should be invisible.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Margin
-{{ Fill Margin Description }}
+Specifies the margin of the panel.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -StyleSheetsConfiguration
-{{ Fill StyleSheetsConfiguration Description }}
+Specifies the style sheets configuration for the panel.
 
 ```yaml
 Type: IDictionary
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Width
-{{ Fill Width Description }}
+Specifies the width of the panel.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: flex-basis
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -174,11 +210,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

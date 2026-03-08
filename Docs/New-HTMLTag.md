@@ -1,124 +1,134 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLTag
-
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates a new HTML tag with specified attributes and content.
 
 ## SYNTAX
-
-```
-New-HTMLTag [[-Value] <ScriptBlock>] [-Tag] <String> [-Attributes <IDictionary>] [-SelfClosing] [-NoClosing]
- [-NewLine] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLTag [[-Value] <scriptblock>] [-Tag] <string> [-Attributes <IDictionary>] [-SelfClosing] [-NoClosing] [-NewLine] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+The New-HTMLTag function creates a new HTML tag with the specified tag name, attributes, and content. It supports self-closing tags, custom attributes, and new line formatting.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLTag -Tag "div" -Attributes @{ class = "container" } -Value { "Hello, World!" }
 ```
 
-{{ Add example description here }}
+Creates a <div> tag with the class attribute set to "container" and the content "Hello, World!".
+
+### EXAMPLE 2
+```powershell
+New-HTMLTag -Tag "img" -Attributes @{ src = "image.jpg"; alt = "Image" } -SelfClosing
+```
+
+Creates an <img> tag with the src and alt attributes set and is self-closing.
 
 ## PARAMETERS
 
 ### -Attributes
-{{Fill Attributes Description}}
+Specifies additional attributes for the HTML tag.
 
 ```yaml
 Type: IDictionary
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -NewLine
-{{ Fill NewLine Description }}
+Indicates whether a new line should be added after the HTML tag.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -NoClosing
-{{ Fill NoClosing Description }}
+Indicates whether the HTML tag should not have a closing tag.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SelfClosing
-{{Fill SelfClosing Description}}
+Indicates whether the HTML tag is self-closing.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Tag
-{{Fill Tag Description}}
+Specifies the name of the HTML tag to create.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: True
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Value
-{{Fill Value Description}}
+Specifies the content of the HTML tag as a script block.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: Content
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -126,11 +136,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

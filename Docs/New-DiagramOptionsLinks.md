@@ -1,467 +1,481 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-DiagramOptionsLinks
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new set of options for diagram edges in a diagram.
 
 ## SYNTAX
-
-```
-New-DiagramOptionsLinks [[-ArrowsToEnabled] <Boolean>] [[-ArrowsToScaleFactor] <Int32>]
- [[-ArrowsToType] <String>] [[-ArrowsMiddleEnabled] <Boolean>] [[-ArrowsMiddleScaleFactor] <Int32>]
- [[-ArrowsMiddleType] <String>] [[-ArrowsFromEnabled] <Boolean>] [[-ArrowsFromScaleFactor] <Int32>]
- [[-ArrowsFromType] <String>] [[-ArrowStrikethrough] <Boolean>] [[-Chosen] <Boolean>] [[-Color] <String>]
- [[-ColorHighlight] <String>] [[-ColorHover] <String>] [[-ColorInherit] <String>] [[-ColorOpacity] <Double>]
- [[-Dashes] <Boolean>] [[-Length] <String>] [[-FontColor] <String>] [[-FontSize] <Int32>]
- [[-FontName] <String>] [[-FontBackground] <String>] [[-FontStrokeWidth] <Int32>] [[-FontStrokeColor] <String>]
- [[-FontAlign] <String>] [[-FontMulti] <String>] [[-FontVAdjust] <Int32>] [[-WidthConstraint] <Int32>]
- [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-DiagramOptionsLinks [[-ArrowsToEnabled] <bool>] [[-ArrowsToScaleFactor] <int>] [[-ArrowsToType] <string>] [[-ArrowsMiddleEnabled] <bool>] [[-ArrowsMiddleScaleFactor] <int>] [[-ArrowsMiddleType] <string>] [[-ArrowsFromEnabled] <bool>] [[-ArrowsFromScaleFactor] <int>] [[-ArrowsFromType] <string>] [[-ArrowStrikethrough] <bool>] [[-Chosen] <bool>] [[-Color] <string>] [[-ColorHighlight] <string>] [[-ColorHover] <string>] [[-ColorInherit] <string>] [[-ColorOpacity] <double>] [[-Dashes] <bool>] [[-Length] <string>] [[-FontColor] <string>] [[-FontSize] <int>] [[-FontName] <string>] [[-FontBackground] <string>] [[-FontStrokeWidth] <int>] [[-FontStrokeColor] <string>] [[-FontAlign] <string>] [[-FontMulti] <string>] [[-FontVAdjust] <int>] [[-WidthConstraint] <int>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new set of options for diagram edges in a diagram. It allows customization of various properties such as arrows, colors, fonts, and constraints for diagram edges.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-DiagramOptionsLinks -ArrowsToEnabled $true -ArrowsToScaleFactor 2 -ArrowsToType 'arrow' -ArrowsMiddleEnabled $false -ArrowsMiddleScaleFactor 1 -ArrowsMiddleType 'bar' -ArrowsFromEnabled $true -ArrowsFromScaleFactor 2 -ArrowsFromType 'circle' -ArrowStrikethrough $false -Chosen $true -Color 'blue' -ColorHighlight 'yellow' -ColorHover 'green' -ColorInherit 'from' -ColorOpacity 0.8 -Dashes $false -Length '100px' -FontColor 'black' -FontSize 12 -FontName 'Arial' -FontBackground 'white' -FontStrokeWidth 1 -FontStrokeColor 'gray' -FontAlign 'center' -FontMulti 'true' -FontVAdjust 0 -WidthConstraint 150
 ```
 
-{{ Add example description here }}
+Description
+-----------
+Creates a new set of diagram edge options with specific configurations.
 
 ## PARAMETERS
 
-### -ArrowStrikethrough
-{{ Fill ArrowStrikethrough Description }}
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 9
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -ArrowsFromEnabled
-{{ Fill ArrowsFromEnabled Description }}
+Specifies whether arrows pointing from the edge are enabled.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 6
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ArrowsFromScaleFactor
-{{ Fill ArrowsFromScaleFactor Description }}
+Specifies the scale factor for arrows pointing from the edge.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 7
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ArrowsFromType
-{{ Fill ArrowsFromType Description }}
+Specifies the type of arrows pointing from the edge. Valid values are 'arrow', 'bar', 'circle'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: arrow, bar, circle
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: arrow, bar, circle
 
 Required: False
 Position: 8
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ArrowsMiddleEnabled
-{{ Fill ArrowsMiddleEnabled Description }}
+Specifies whether arrows in the middle of the edge are enabled.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ArrowsMiddleScaleFactor
-{{ Fill ArrowsMiddleScaleFactor Description }}
+Specifies the scale factor for arrows in the middle of the edge.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ArrowsMiddleType
-{{ Fill ArrowsMiddleType Description }}
+Specifies the type of arrows in the middle of the edge. Valid values are 'arrow', 'bar', 'circle'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: arrow, bar, circle
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: arrow, bar, circle
 
 Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ArrowsToEnabled
-{{ Fill ArrowsToEnabled Description }}
+Specifies whether arrows pointing to the edge are enabled.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ArrowsToScaleFactor
-{{ Fill ArrowsToScaleFactor Description }}
+Specifies the scale factor for arrows pointing to the edge.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ArrowsToType
-{{ Fill ArrowsToType Description }}
+Specifies the type of arrows pointing to the edge. Valid values are 'arrow', 'bar', 'circle'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: arrow, bar, circle
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: arrow, bar, circle
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -ArrowStrikethrough
+Specifies whether the arrow should have a strikethrough effect.
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 9
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -Chosen
-{{ Fill Chosen Description }}
+Specifies whether the edge is chosen.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 10
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Color
-{{ Fill Color Description }}
+Specifies the color of the edge.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 11
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColorHighlight
-{{ Fill ColorHighlight Description }}
+Specifies the color of the edge when highlighted.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 12
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColorHover
-{{ Fill ColorHover Description }}
+Specifies the color of the edge when hovered over.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 13
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColorInherit
-{{ Fill ColorInherit Description }}
+Specifies how the color of the edge should inherit. Valid values are 'true', 'false', 'from', 'to', 'both'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: true, false, from, to, both
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: true, false, from, to, both
 
 Required: False
 Position: 14
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColorOpacity
-{{ Fill ColorOpacity Description }}
+Specifies the opacity of the color of the edge. Range between 0 and 1.
 
 ```yaml
-Type: Double
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 15
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Dashes
-{{ Fill Dashes Description }}
+Specifies whether the edge should be dashed.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 16
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontAlign
-{{ Fill FontAlign Description }}
+Specifies the alignment of the font. Valid values are 'center', 'left'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: center, left
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: center, left
 
 Required: False
 Position: 24
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontBackground
-{{ Fill FontBackground Description }}
+Specifies the background color of the font on the edge.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 21
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontColor
-{{ Fill FontColor Description }}
+Specifies the color of the font on the edge.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 18
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontMulti
-{{ Fill FontMulti Description }}
+Specifies whether the font supports multiline. Valid values are 'false', 'true', 'markdown', 'html'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: false, true, markdown, html
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: false, true, markdown, html
 
 Required: False
 Position: 25
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontName
-{{ Fill FontName Description }}
+Specifies the font name for the edge.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 20
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontSize
-{{ Fill FontSize Description }}
+Specifies the font size in pixels.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 19
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontStrokeColor
-{{ Fill FontStrokeColor Description }}
+Specifies the stroke color of the font on the edge.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 23
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontStrokeWidth
-{{ Fill FontStrokeWidth Description }}
+Specifies the stroke width of the font in pixels.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 22
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontVAdjust
-{{ Fill FontVAdjust Description }}
+Specifies the vertical adjustment of the font.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 26
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Length
-{{ Fill Length Description }}
+Specifies the length of the edge.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 17
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -WidthConstraint
-{{ Fill WidthConstraint Description }}
+Specifies the width constraint of the edge.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 27
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -469,11 +483,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

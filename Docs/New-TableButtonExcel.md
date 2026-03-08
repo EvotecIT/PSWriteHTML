@@ -1,48 +1,65 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-TableButtonExcel
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new table button for exporting data to Excel with customizable options.
 
 ## SYNTAX
-
-```
-New-TableButtonExcel [[-Title] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-TableButtonExcel [[-Title] <string>] [[-ButtonName] <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new table button for exporting data to Excel with customizable options. It allows users to specify the button title and display text.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-TableButtonExcel -Title "Export to Excel" -ButtonName "Export"
 ```
 
-{{ Add example description here }}
+Description
+-----------
+Creates a new table button with the title "Export to Excel" and button name "Export".
 
 ## PARAMETERS
 
-### -Title
-{{ Fill Title Description }}
+### -ButtonName
+The text to be displayed on the button.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Title
+The title to be displayed when hovering over the button.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -50,11 +67,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

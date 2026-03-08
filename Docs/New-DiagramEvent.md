@@ -1,63 +1,79 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-DiagramEvent
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Allows to connect Diagrams with Tables using Events.
 
 ## SYNTAX
-
-```
-New-DiagramEvent [[-ID] <String>] [[-ColumnID] <Int32>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-DiagramEvent [[-ID] <string>] [[-ColumnID] <int>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Allows to connect Diagrams with Tables using Events.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$Processes = Get-Process | Select-Object -First 3 -Property Name, ProcessName, Id, FileVersion, WorkingSet
+$TableID = 'RandomID'
 ```
 
-{{ Add example description here }}
+New-HTML -TitleText 'My Title' -Online -FilePath $PSScriptRoot\Example30-LinkedProcesses.html -ShowHTML {
+    New-HTMLSection -Invisible {
+        New-HTMLPanel {
+            New-HTMLTable -DataTable $Processes -DataTableID $TableID
+        }
+        New-HTMLPanel {
+            New-HTMLDiagram {
+                New-DiagramEvent -ID $TableID -ColumnID 2
+                New-DiagramNode -Label 'Processes' -IconBrands delicious
+                foreach ($_ in $Processes) {
+                    New-DiagramNode -Label $_.ProcessName -Id $_.Id -To 'Processes'
+                }
+            }
+        }
+    }
+}
 
 ## PARAMETERS
 
 ### -ColumnID
-{{ Fill ColumnID Description }}
+Column Number of the table to connect with the diagram.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ID
-{{ Fill ID Description }}
+ID of the table to connect with the diagram.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -65,11 +81,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

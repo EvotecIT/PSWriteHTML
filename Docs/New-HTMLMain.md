@@ -1,109 +1,175 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLMain
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Defines the body HTML content. By default this is not required, but can be useful when header and footer are used to explicitly define the main content.
 
 ## SYNTAX
-
-```
-New-HTMLMain [[-HTMLContent] <ScriptBlock>] [[-BackgroundColor] <String>] [[-Color] <String>]
- [[-FontFamily] <String>] [[-FontSize] <Object>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLMain [[-HTMLContent] <scriptblock>] [[-BackgroundColor] <string>] [[-Color] <string>] [[-FontFamily] <string>] [[-FontSize] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Defines the body HTML content. By default this is not required, but can be useful when header and footer are used to explicitly define the main content.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTML -TitleText 'My title' -Online -FilePath $PSScriptRoot\Example40-Body.html -Show {
+    New-HTMLMain {
+        New-HTMLTabStyle -SlimTabs `
+            -BorderBottomStyleActive solid -BorderBottomColorActive LightSkyBlue -BackgroundColorActive none `
+            -TextColorActive Black -Align left -BorderRadius 0px -RemoveShadow -TextColor Grey -TextTransform capitalize #-FontSize 10pt
 ```
 
-{{ Add example description here }}
+New-HTMLSectionStyle -BorderRadius 0px -HeaderBackGroundColor Grey
+        New-HTMLTab -Name 'First Level Tab - Test 1' -IconBrands acquisitions-incorporated {
+            New-HTMLTab -Name '2nd Level Tab - Test 4/1' -IconBrands app-store {
+                New-HTMLSection -HeaderText 'Default Section Style' {
+                    New-HTMLTableStyle -Type Header -TextAlign right -TextColor Blue
+                    New-HTMLTableStyle -Type Row -TextAlign left -TextColor Grey
+                    New-HTMLTable -DataTable $Test1 {
+                        New-HTMLTableHeader -Names 'ID', 'HandleCount'
+                    } -Filtering #-HideFooter -FilteringLocation Both
+                } -CanCollapse
+            }
+        }
+        New-HTMLTab -Name 'Next' {
+
+        }
+    } -BackgroundColor Yellow -Color Red -FontSize 12px #-FontFamily 'Arial'
+}
+
+### EXAMPLE 2
+```powershell
+New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\Example34_01.html" {
+    New-HTMLHeader {
+        New-HTMLText -Text "Date of this report $(Get-Date)" -Color Blue -Alignment right
+    }
+    New-HTMLMain {
+        New-HTMLTab -TabName 'Test' {
+            New-HTMLSection -HeaderText '0 section' {
+                New-HTMLPanel {
+                    New-HTMLTable -DataTable $Processes -HideFooter
+                }
+                New-HTMLPanel {
+                    New-HTMLTable -DataTable $Processes -HideFooter
+                }
+                New-HTMLPanel {
+                    New-HTMLTable -DataTable $Processes -HideFooter -Simplify
+                }
+                New-HTMLPanel {
+                    New-HTMLTable -DataTable $Processes -HideFooter
+                }
+            }
+        }
+        New-HTMLTab -TabName 'Test5' {
+            New-HTMLSection -HeaderText '1 section' {
+                New-HTMLPanel {
+                    New-HTMLTable -DataTable $Processes -HideFooter
+                }
+                New-HTMLPanel {
+                    New-HTMLTable -DataTable $Processes -HideFooter
+                    # New-HTMLTable -DataTable $Processes -HideFooter
+                }
+                New-HTMLPanel {
+                    New-HTMLTable -DataTable $Processes -HideFooter
+                }
+            }
+        }
+    }
+    New-HTMLFooter {
+        New-HTMLText -Text "Date of this report $(Get-Date)" -Color Blue -Alignment right
+    }
+} -Online -ShowHTML
+```
 
 ## PARAMETERS
 
 ### -BackgroundColor
-{{ Fill BackgroundColor Description }}
+Define a background color of the body element. You can choose from 800 defined colors or provide your own hex color
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Color
-{{ Fill Color Description }}
+Choose a color of the body element. You can choose from 800 defined colors or provide your own hex color
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontFamily
-{{ Fill FontFamily Description }}
+Choose a FontFamily for the body content
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontSize
-{{ Fill FontSize Description }}
+Choose a FontSize for the body content
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HTMLContent
-{{ Fill HTMLContent Description }}
+Provides ability to specify one or more elements within HTML. Using New-HTMLMain without it, makes no larger sense, as the content will be empty.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -111,11 +177,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

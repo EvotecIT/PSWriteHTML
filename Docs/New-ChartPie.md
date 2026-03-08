@@ -1,78 +1,84 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-ChartPie
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new pie chart with customizable options.
 
 ## SYNTAX
-
-```
-New-ChartPie [[-Name] <String>] [[-Value] <Object>] [[-Color] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-ChartPie [[-Name] <string>] [[-Value] <Object>] [[-Color] <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new pie chart with the specified name, value, and color. It allows customization of the pie chart appearance.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-ChartPie -Name "Slice 1" -Value 30 -Color "red"
+Creates a new pie chart segment named "Slice 1" with a value of 30 and colored in red.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+New-ChartPie -Name "Slice 2" -Value 20 -Color "blue"
+Creates a new pie chart segment named "Slice 2" with a value of 20 and colored in blue.
+```
 
 ## PARAMETERS
 
 ### -Color
-{{ Fill Color Description }}
+Specifies the color of the pie chart segment.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Name
-{{ Fill Name Description }}
+Specifies the name of the pie chart.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Value
-{{ Fill Value Description }}
+Specifies the value of the pie chart segment.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -80,11 +86,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

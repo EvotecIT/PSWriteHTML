@@ -1,247 +1,262 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-ChartGrid
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new chart grid with customizable options.
 
 ## SYNTAX
-
-```
-New-ChartGrid [-Show] [[-BorderColor] <String>] [[-StrokeDash] <Int32>] [[-Position] <String>]
- [-xAxisLinesShow] [-yAxisLinesShow] [[-RowColors] <String[]>] [[-RowOpacity] <Double>]
- [[-ColumnColors] <String[]>] [[-ColumnOpacity] <Double>] [[-PaddingTop] <Int32>] [[-PaddingRight] <Int32>]
- [[-PaddingBottom] <Int32>] [[-PaddingLeft] <Int32>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-ChartGrid [[-BorderColor] <string>] [[-StrokeDash] <int>] [[-Position] <string>] [[-RowColors] <string[]>] [[-RowOpacity] <double>] [[-ColumnColors] <string[]>] [[-ColumnOpacity] <double>] [[-PaddingTop] <int>] [[-PaddingRight] <int>] [[-PaddingBottom] <int>] [[-PaddingLeft] <int>] [-Show] [-xAxisLinesShow] [-yAxisLinesShow] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new chart grid with the provided parameters. It allows customization of the grid visibility, colors, opacity, padding, and other styling options.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-ChartGrid -Show -BorderColor 'black' -StrokeDash 2 -Position 'front' -xAxisLinesShow -yAxisLinesShow -RowColors @('red', 'blue') -RowOpacity 0.7 -ColumnColors @('green', 'yellow') -ColumnOpacity 0.8 -PaddingTop 10 -PaddingRight 5 -PaddingBottom 15 -PaddingLeft 5
 ```
 
-{{ Add example description here }}
+Creates a new chart grid with specified options including visible grid, black border color, dashed border style, front position, visible x-axis and y-axis lines, red and blue row colors with 0.7 opacity, green and yellow column colors with 0.8 opacity, and padding values.
+
+### EXAMPLE 2
+```powershell
+New-ChartGrid -Show -BorderColor 'gray' -RowColors @('orange', 'purple') -ColumnColors @('pink', 'cyan') -PaddingTop 5 -PaddingRight 5 -PaddingBottom 5 -PaddingLeft 5
+```
+
+Creates a new chart grid with visible grid, gray border color, orange and purple row colors, pink and cyan column colors, and equal padding values.
 
 ## PARAMETERS
 
 ### -BorderColor
-{{ Fill BorderColor Description }}
+The color of the grid border.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColumnColors
-{{ Fill ColumnColors Description }}
+An array of colors for the columns in the grid.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColumnOpacity
-{{ Fill ColumnOpacity Description }}
+The opacity of the column colors. Valid range is 0 to 1. Default is 0.5.
 
 ```yaml
 Type: Double
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 6
-Default value: None
+Default value: 0.5
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PaddingBottom
-{{ Fill PaddingBottom Description }}
+The bottom padding of the grid.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 9
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PaddingLeft
-{{ Fill PaddingLeft Description }}
+The left padding of the grid.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 10
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PaddingRight
-{{ Fill PaddingRight Description }}
+The right padding of the grid.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 8
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PaddingTop
-{{ Fill PaddingTop Description }}
+The top padding of the grid.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 7
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Position
-{{ Fill Position Description }}
+The position of the grid. Accepted values are 'front', 'back', 'default'. Default is 'default'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: front, back, default
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: front, back, default
 
 Required: False
 Position: 2
-Default value: None
+Default value: default
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -RowColors
-{{ Fill RowColors Description }}
+An array of colors for the rows in the grid.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -RowOpacity
-{{ Fill RowOpacity Description }}
+The opacity of the row colors. Valid range is 0 to 1. Default is 0.5.
 
 ```yaml
 Type: Double
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
-Default value: None
+Default value: 0.5
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Show
-{{ Fill Show Description }}
+Indicates whether the grid is visible.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -StrokeDash
-{{ Fill StrokeDash Description }}
+The style of the grid border. Default is 0.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -xAxisLinesShow
-{{ Fill xAxisLinesShow Description }}
+Indicates whether the x-axis lines are visible.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -yAxisLinesShow
-{{ Fill yAxisLinesShow Description }}
+Indicates whether the y-axis lines are visible.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -249,11 +264,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

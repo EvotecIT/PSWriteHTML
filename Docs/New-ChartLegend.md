@@ -1,295 +1,303 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-ChartLegend
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new chart legend with customizable options.
 
 ## SYNTAX
-
-```
-New-ChartLegend [[-Names] <Array>] [[-Color] <String[]>] [-HideLegend] [[-LegendPosition] <String>]
- [[-HorizontalAlign] <String>] [-Floating] [-InverseOrder] [[-OffsetX] <Int32>] [[-OffsetY] <Int32>]
- [[-ItemMarginHorizontal] <Int32>] [[-ItemMarginVertical] <Int32>] [[-FontSize] <Object>]
- [[-FontFamily] <String>] [[-FontWeight] <String>] [-DisableOnItemClickToggleDataSeries]
- [-DisableOnItemHoverHighlightDataSeries] [-UseSeriesColors] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-ChartLegend [[-Names] <array>] [[-Color] <string[]>] [[-LegendPosition] <string>] [[-HorizontalAlign] <string>] [[-OffsetX] <int>] [[-OffsetY] <int>] [[-ItemMarginHorizontal] <int>] [[-ItemMarginVertical] <int>] [[-FontSize] <Object>] [[-FontFamily] <string>] [[-FontWeight] <string>] [-HideLegend] [-Floating] [-InverseOrder] [-DisableOnItemClickToggleDataSeries] [-DisableOnItemHoverHighlightDataSeries] [-UseSeriesColors] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+The New-ChartLegend function creates a new chart legend with various customization options such as position, alignment, font settings, and more.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-ChartLegend -Names @('A', 'B', 'C') -Color @('red', 'blue', 'green') -LegendPosition 'top' -HorizontalAlign 'center' -FontSize 12
 ```
 
-{{ Add example description here }}
+Creates a new chart legend with three items ('A', 'B', 'C') in red, blue, and green colors positioned at the top with center alignment and font size of 12.
 
 ## PARAMETERS
 
 ### -Color
-{{ Fill Color Description }}
+Specifies an array of colors for the legend items.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableOnItemClickToggleDataSeries
-{{ Fill DisableOnItemClickToggleDataSeries Description }}
+Indicates whether to disable toggling data series on legend item click.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DisableOnItemHoverHighlightDataSeries
-{{ Fill DisableOnItemHoverHighlightDataSeries Description }}
+Indicates whether to disable highlighting data series on legend item hover.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Floating
-{{ Fill Floating Description }}
+Indicates whether the legend should float.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontFamily
-{{ Fill FontFamily Description }}
+Specifies the font family of the legend labels.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 9
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontSize
-{{ Fill FontSize Description }}
+Specifies the font size of the legend labels.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 8
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontWeight
-{{ Fill FontWeight Description }}
+Specifies the font weight of the legend labels.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
 Position: 10
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HideLegend
-{{ Fill HideLegend Description }}
+Indicates whether to hide the legend.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HorizontalAlign
-{{ Fill HorizontalAlign Description }}
+Specifies the horizontal alignment of the legend labels (left, center, right).
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: left, center, right
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: left, center, right
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -InverseOrder
-{{ Fill InverseOrder Description }}
+Indicates whether to display legend items in reverse order.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ItemMarginHorizontal
-{{ Fill ItemMarginHorizontal Description }}
+Specifies the horizontal margin between legend items.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 6
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ItemMarginVertical
-{{ Fill ItemMarginVertical Description }}
+Specifies the vertical margin between legend items.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 7
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LegendPosition
-{{ Fill LegendPosition Description }}
+Specifies the position of the legend (top, left, right, bottom).
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: top, left, right, bottom
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: top, left, right, bottom
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Names
-{{ Fill Names Description }}
+Specifies an array of names for the legend items.
 
 ```yaml
 Type: Array
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -OffsetX
-{{ Fill OffsetX Description }}
+Specifies the horizontal offset of the legend.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -OffsetY
-{{ Fill OffsetY Description }}
+Specifies the vertical offset of the legend.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -UseSeriesColors
-{{ Fill UseSeriesColors Description }}
+Indicates whether to use series colors for legend items.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -297,11 +305,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

@@ -1,599 +1,904 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLGage
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new HTML gauge with customizable options.
 
 ## SYNTAX
-
-```
-New-HTMLGage [[-GageContent] <ScriptBlock>] [[-Type] <String>] [[-BackgroundGaugageColor] <String>]
- [-Value] <Decimal> [[-ValueSymbol] <String>] [[-ValueColor] <String>] [[-ValueFont] <String>]
- [[-MinValue] <Int32>] [[-MinText] <String>] [[-MaxValue] <Int32>] [[-MaxText] <String>] [-Reverse]
- [[-DecimalNumbers] <Int32>] [[-GaugageWidth] <Decimal>] [[-Label] <String>] [[-LabelColor] <String>]
- [-Counter] [-ShowInnerShadow] [-NoGradient] [[-ShadowOpacity] <Decimal>] [[-ShadowSize] <Int32>]
- [[-ShadowVerticalOffset] <Int32>] [-Pointer] [[-PointerTopLength] <Int32>] [[-PointerBottomLength] <Int32>]
- [[-PointerBottomWidth] <Int32>] [[-StrokeColor] <String>] [[-PointerStrokeWidth] <Int32>]
- [[-PointerStrokeLinecap] <Object>] [[-PointerColor] <String>] [-HideValue] [-HideMinMax] [-FormatNumber]
- [-DisplayRemaining] [-HumanFriendly] [[-HumanFriendlyDecimal] <Int32>] [[-SectorColors] <String[]>]
- [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLGage [[-GageContent] <scriptblock>] [[-Type] <string>] [[-BackgroundGaugageColor] <string>] [-Value] <decimal> [[-ValueSymbol] <string>] [[-ValueColor] <string>] [[-ValueFont] <string>] [[-MinValue] <int>] [[-MinText] <string>] [[-MaxValue] <int>] [[-MaxText] <string>] [[-DecimalNumbers] <int>] [[-GaugageWidth] <decimal>] [[-Label] <string>] [[-LabelColor] <string>] [[-ShadowOpacity] <decimal>] [[-ShadowSize] <int>] [[-ShadowVerticalOffset] <int>] [[-PointerTopLength] <int>] [[-PointerBottomLength] <int>] [[-PointerBottomWidth] <int>] [[-StrokeColor] <string>] [[-PointerStrokeWidth] <int>] [[-PointerStrokeLinecap] <Object>] [[-PointerColor] <string>] [[-HumanFriendlyDecimal] <int>] [[-SectorColors] <string[]>] [[-Width] <int>] [[-Height] <int>] [[-LevelColors] <string[]>] [[-StartAnimationTime] <int>] [[-StartAnimationType] <string>] [[-RefreshAnimationTime] <int>] [[-RefreshAnimationType] <string>] [[-DonutStartAngle] <int>] [[-ValueMinFontSize] <int>] [[-LabelMinFontSize] <int>] [[-MinLabelMinFontSize] <int>] [[-MaxLabelMinFontSize] <int>] [[-TargetLine] <decimal>] [[-TargetLineColor] <string>] [[-TargetLineWidth] <decimal>] [-Reverse] [-Counter] [-ShowInnerShadow] [-NoGradient] [-Pointer] [-HideValue] [-HideMinMax] [-FormatNumber] [-DisplayRemaining] [-HumanFriendly] [-UseAbsoluteValues] [-Differential] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new HTML gauge with various customizable options such as type, colors, fonts, values, and more.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLGage -Value 75 -Label "Progress" -Type "Donut" -MinValue 0 -MaxValue 100 -SectorColors @("red", "yellow", "green")
 ```
 
-{{ Add example description here }}
+Creates a new donut gauge with a value of 75, labeled as "Progress", with a range from 0 to 100, and sector colors red, yellow, and green.
+
+### EXAMPLE 2
+```powershell
+New-HTMLGage -Value 65 -Label "Performance" -MinValue 0 -MaxValue 100 -TargetLine 80 -TargetLineColor "red" -TargetLineWidth 3
+```
+
+Creates a gauge with a target line at 80 to show the goal.
 
 ## PARAMETERS
 
 ### -BackgroundGaugageColor
-{{ Fill BackgroundGaugageColor Description }}
+The background color of the gauge.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Counter
-{{ Fill Counter Description }}
+Indicates whether a counter should be displayed.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -DecimalNumbers
-{{ Fill DecimalNumbers Description }}
+The number of decimal places to display.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 11
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -Differential
+Indicates whether the gauge should fill from center rather than from min value.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -DisplayRemaining
-{{ Fill DisplayRemaining Description }}
+Indicates whether the remaining value should be displayed.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -DonutStartAngle
+Angle to start from when in donut mode (default: 90).
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 34
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FormatNumber
-{{ Fill FormatNumber Description }}
+Indicates whether the number should be formatted.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -GageContent
-{{ Fill GageContent Description }}
+The content of the gauge.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -GaugageWidth
-{{ Fill GaugageWidth Description }}
+The width of the gauge.
 
 ```yaml
 Type: Decimal
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 12
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Height
+The gauge height in pixels.
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 28
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HideMinMax
-{{ Fill HideMinMax Description }}
+Indicates whether the min/max values should be hidden.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HideValue
-{{ Fill HideValue Description }}
+Indicates whether the value should be hidden.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HumanFriendly
-{{ Fill HumanFriendly Description }}
+Indicates whether the value should be displayed in a human-friendly format.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HumanFriendlyDecimal
-{{ Fill HumanFriendlyDecimal Description }}
+The number of decimal places to display in human-friendly format.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 25
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Label
-{{ Fill Label Description }}
+The label to display on the gauge.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 13
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LabelColor
-{{ Fill LabelColor Description }}
+The color of the label.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 14
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -LabelMinFontSize
+Absolute minimum font size for the label (default: 10).
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 36
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -LevelColors
+An array of colors for default gradient sectors (e.g., @("green", "yellow", "red")).
+
+```yaml
+Type: String[]
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 29
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -MaxLabelMinFontSize
+Absolute minimum font size for the max label (default: 10).
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 38
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -MaxText
-{{ Fill MaxText Description }}
+The text to display for the maximum value.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 10
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -MaxValue
-{{ Fill MaxValue Description }}
+The maximum value of the gauge.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 9
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -MinLabelMinFontSize
+Absolute minimum font size for the min label (default: 10).
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 37
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -MinText
-{{ Fill MinText Description }}
+The text to display for the minimum value.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 8
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -MinValue
-{{ Fill MinValue Description }}
+The minimum value of the gauge.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 7
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -NoGradient
-{{ Fill NoGradient Description }}
+Indicates whether gradient should be disabled.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Pointer
-{{ Fill Pointer Description }}
+Indicates whether a pointer should be displayed.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PointerBottomLength
-{{ Fill PointerBottomLength Description }}
+The length of the bottom of the pointer.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 19
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PointerBottomWidth
-{{ Fill PointerBottomWidth Description }}
+The width of the bottom of the pointer.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 20
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PointerColor
-{{ Fill PointerColor Description }}
+The color of the pointer.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 24
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PointerStrokeLinecap
-{{ Fill PointerStrokeLinecap Description }}
+The linecap style of the pointer stroke. Valid values are 'none', 'square', 'round'.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
-Accepted values: none, square, round
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: none, square, round
 
 Required: False
 Position: 23
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PointerStrokeWidth
-{{ Fill PointerStrokeWidth Description }}
+The width of the pointer stroke.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 22
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PointerTopLength
-{{ Fill PointerTopLength Description }}
+The length of the top of the pointer.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 18
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -RefreshAnimationTime
+Length of refresh animation in milliseconds (default: 700).
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 32
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -RefreshAnimationType
+Type of refresh animation. Valid values are 'linear', '>', '<', '<>', 'bounce'.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: linear, >, <, <>, bounce
+
+Required: False
+Position: 33
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -Reverse
-{{ Fill Reverse Description }}
+Indicates whether the gauge should be displayed in reverse.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SectorColors
-{{ Fill SectorColors Description }}
+An array of colors to use for different sectors of the gauge.    .PARAMETER UseAbsoluteValues
+Indicates whether to use absolute values for custom sectors.
+By default, it uses percentage values.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 26
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ShadowOpacity
-{{ Fill ShadowOpacity Description }}
+The opacity of the shadow.
 
 ```yaml
-Type: Decimal
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 15
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ShadowSize
-{{ Fill ShadowSize Description }}
+The size of the shadow.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 16
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ShadowVerticalOffset
-{{ Fill ShadowVerticalOffset Description }}
+The vertical offset of the shadow.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 17
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ShowInnerShadow
-{{ Fill ShowInnerShadow Description }}
+Indicates whether an inner shadow should be displayed.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -StrokeColor
-{{ Fill StrokeColor Description }}
+### -StartAnimationTime
+Length of initial animation in milliseconds (default: 700).
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 30
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -StartAnimationType
+Type of initial animation. Valid values are 'linear', '>', '<', '<>', 'bounce'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: linear, >, <, <>, bounce
+
+Required: False
+Position: 31
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -StrokeColor
+The color of the stroke.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 21
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -TargetLine
+Value where target line will be displayed.
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 39
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -TargetLineColor
+Color of the target line (default: "#000000").
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 40
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -TargetLineWidth
+Width of the target line (default: 1.5).
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 41
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -Type
-{{ Fill Type Description }}
+Specifies the type of gauge to create. Valid values are 'Gage' and 'Donut'. Default is 'Gage'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: Gage, Donut
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Gage, Donut
 
 Required: False
 Position: 1
-Default value: None
+Default value: Gage
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -UseAbsoluteValues
+{{ Fill UseAbsoluteValues Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -Value
-{{ Fill Value Description }}
+The value to display on the gauge. This parameter is mandatory.
 
 ```yaml
 Type: Decimal
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: True
 Position: 3
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ValueColor
-{{ Fill ValueColor Description }}
+The color of the value displayed on the gauge.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ValueFont
-{{ Fill ValueFont Description }}
+The font of the value displayed on the gauge.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 6
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -ValueMinFontSize
+Absolute minimum font size for the value label (default: 16).
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 35
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -ValueSymbol
-{{ Fill ValueSymbol Description }}
+The symbol to display with the value.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -Width
+The gauge width in pixels.
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 27
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -601,11 +906,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

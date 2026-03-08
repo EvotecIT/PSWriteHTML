@@ -1,110 +1,116 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-TableRowGrouping
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new table row grouping object with specified attributes.
 
 ## SYNTAX
-
-```
-New-TableRowGrouping [[-Name] <String>] [[-ColumnID] <Int32>] [[-SortOrder] <String>] [[-Color] <String>]
- [[-BackgroundColor] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-TableRowGrouping [[-Name] <string>] [[-ColumnID] <int>] [[-SortOrder] <string>] [[-Color] <string>] [[-BackgroundColor] <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new table row grouping object with the provided attributes. It enables the feature for DataTablesRowGrouping in the HTML schema.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-TableRowGrouping -Name "Group A" -ColumnID 1 -SortOrder 'Ascending' -Color 'Red' -BackgroundColor 'LightGray'
+Creates a new table row grouping object for Group A, grouping by column ID 1 in ascending order with red text and light gray background.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+New-TableRowGrouping -Name "Group B" -ColumnID 2 -SortOrder 'Descending' -Color 'Blue' -BackgroundColor 'White'
+Creates a new table row grouping object for Group B, grouping by column ID 2 in descending order with blue text and white background.
+```
 
 ## PARAMETERS
 
 ### -BackgroundColor
-{{ Fill BackgroundColor Description }}
+Specifies the background color for the row grouping.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Color
-{{ Fill Color Description }}
+Specifies the color for the row grouping.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ColumnID
-{{ Fill ColumnID Description }}
+Specifies the ID of the column to group rows by. Default value is -1.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
-Default value: None
+Default value: -1
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Name
-{{ Fill Name Description }}
+Specifies the name of the row grouping.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: ColumnName
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SortOrder
-{{ Fill SortOrder Description }}
+Specifies the sort order for the grouped rows. Valid values are 'Ascending' or 'Descending'. Default is 'Ascending'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: Ascending, Descending
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Ascending, Descending
 
 Required: False
 Position: 2
-Default value: None
+Default value: Ascending
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -112,11 +118,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

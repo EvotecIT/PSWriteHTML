@@ -1,95 +1,100 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLHeading
-
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates a new HTML heading with customizable options.
 
 ## SYNTAX
-
-```
-New-HTMLHeading [[-Heading] <String>] [[-HeadingText] <String>] [-Underline] [[-Color] <String>]
- [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLHeading [[-Heading] <string>] [[-HeadingText] <string>] [[-Color] <string>] [-Underline] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+This function generates an HTML heading based on the provided parameters such as heading level, text content, underline option, and color.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLHeading -Heading 'h1' -HeadingText 'Main Title' -Underline -Color 'blue'
+Generates an HTML heading of level h1 with the text 'Main Title', underlined, and in blue color.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+New-HTMLHeading -Heading 'h3' -HeadingText 'Sub Title' -Color 'green'
+Generates an HTML heading of level h3 with the text 'Sub Title' in green color.
+```
 
 ## PARAMETERS
 
 ### -Color
-{{ Fill Color Description }}
+The color of the heading text.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Heading
-{{Fill Heading Description}}
+Specifies the level of the heading. Valid values are 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: h1, h2, h3, h4, h5, h6
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: h1, h2, h3, h4, h5, h6
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HeadingText
-{{Fill HeadingText Description}}
+The text content to display within the heading.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: Text
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Underline
-{{Fill Underline Description}}
+Indicates whether the heading should be underlined.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -97,11 +102,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

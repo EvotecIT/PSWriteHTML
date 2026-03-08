@@ -1,139 +1,141 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-ChartLine
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Add a line to a chart
 
 ## SYNTAX
-
-```
-New-ChartLine [[-Name] <String>] [[-Value] <Object>] [[-Color] <String>] [[-Curve] <Object>] [[-Width] <Int32>]
- [[-Cap] <String>] [[-Dash] <Int32>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-ChartLine [[-Name] <string>] [[-Value] <Object>] [[-Color] <string>] [[-Curve] <Object>] [[-Width] <int>] [[-Cap] <string>] [[-Dash] <int>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Add a line to a chart
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+An example
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
-### -Name
-{{ Fill Name Description }}
+### -Cap
+For setting the starting and ending points of stroke
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Value
-{{ Fill Value Description }}
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Color
-{{ Fill Color Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Curve
-{{ Fill Curve Description }}
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Width
-{{ Fill Width Description }}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: butt, square, round
 
 Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -Cap
-{{ Fill Cap Description }}
+### -Color
+Colors to fill the border for paths.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Curve
+Whether to draw smooth lines or straight lines
+
+```yaml
+Type: Object
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: straight, smooth, stepline
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Dash
+Creates dashes in borders of svg path. Higher number creates more space between dashes in the border.
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 6
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -Dash
-{{ Fill Dash Description }}
+### -Name
+Name of the line
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: 7
+Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -Value
+Values to display
+
+```yaml
+Type: Object
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Width
+Sets the width of border for svg path
+
+```yaml
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -141,11 +143,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

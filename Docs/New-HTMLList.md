@@ -1,269 +1,278 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLList
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates an HTML list with customizable styling options.
 
 ## SYNTAX
-
-```
-New-HTMLList [[-ListItems] <ScriptBlock>] [-Type <String>] [-Color <String>] [-BackGroundColor <String>]
- [-FontSize <Object>] [-FontWeight <String>] [-FontStyle <String>] [-FontVariant <String>]
- [-FontFamily <String>] [-Alignment <String>] [-TextDecoration <String>] [-TextTransform <String>]
- [-Direction <String>] [-LineBreak] [-Reversed] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLList [[-ListItems] <scriptblock>] [-Type <string>] [-Color <string>] [-BackGroundColor <string>] [-FontSize <Object>] [-FontWeight <string>] [-FontStyle <string>] [-FontVariant <string>] [-FontFamily <string>] [-Alignment <string>] [-TextDecoration <string>] [-TextTransform <string>] [-Direction <string>] [-LineBreak] [-Reversed] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+The New-HTMLList function generates an HTML list with various styling options such as color, font size, font weight, alignment, and more.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLList -ListItems { 'Item 1', 'Item 2', 'Item 3' } -Type Unordered -Color 'blue' -FontSize 12 -FontWeight 'bold' -Alignment 'center'
 ```
 
-{{ Add example description here }}
+Creates an unordered HTML list with three items ('Item 1', 'Item 2', 'Item 3') displayed in blue color, font size 12, bold font weight, and centered alignment.
+
+### EXAMPLE 2
+```powershell
+New-HTMLList -ListItems { 'Apple', 'Banana', 'Cherry' } -Type Ordered -FontFamily 'Arial' -TextDecoration 'underline' -Direction 'rtl'
+```
+
+Creates an ordered HTML list with three items ('Apple', 'Banana', 'Cherry') using Arial font family, underlined text decoration, and right-to-left text direction.
 
 ## PARAMETERS
 
 ### -Alignment
-{{ Fill Alignment Description }}
+Specifies the alignment of the text within the list. Valid values are 'left', 'center', 'right', and 'justify'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: left, center, right, justify
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: left, center, right, justify
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -BackGroundColor
-{{ Fill BackGroundColor Description }}
+Specifies the background color of the list.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Color
-{{ Fill Color Description }}
+Specifies the color of the text in the list.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Direction
-{{ Fill Direction Description }}
+Specifies the direction of the text. Valid value is 'rtl' (right-to-left).
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: rtl
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: rtl
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontFamily
-{{ Fill FontFamily Description }}
+Specifies the font family for the text in the list.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontSize
-{{ Fill FontSize Description }}
+Specifies the font size of the text in the list.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontStyle
-{{ Fill FontStyle Description }}
+Specifies the style of the font. Valid values are 'normal', 'italic', and 'oblique'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, italic, oblique
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, italic, oblique
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontVariant
-{{ Fill FontVariant Description }}
+Specifies the variant of the font. Valid values are 'normal' and 'small-caps'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, small-caps
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, small-caps
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontWeight
-{{ Fill FontWeight Description }}
+Specifies the weight of the font. Valid values include 'normal', 'bold', 'bolder', 'lighter', and numeric values from 100 to 900.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LineBreak
-{{ Fill LineBreak Description }}
+Indicates whether to include line breaks between list items.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ListItems
-{{ Fill ListItems Description }}
+Specifies the list items to be included in the HTML list.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Reversed
-{{ Fill Reversed Description }}
+Indicates whether the list should be displayed in reverse order.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TextDecoration
-{{ Fill TextDecoration Description }}
+Specifies the decoration of the text. Valid values are 'none', 'line-through', 'overline', and 'underline'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: none, line-through, overline, underline
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: none, line-through, overline, underline
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TextTransform
-{{ Fill TextTransform Description }}
+Specifies the transformation of the text. Valid values are 'uppercase', 'lowercase', and 'capitalize'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: uppercase, lowercase, capitalize
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: uppercase, lowercase, capitalize
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Type
-{{ Fill Type Description }}
+Specifies the type of list to create. Valid values are 'Unordered' (default) and 'Ordered'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: Unordered, Ordered
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Unordered, Ordered
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: Unordered
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -271,11 +280,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

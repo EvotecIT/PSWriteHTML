@@ -1,78 +1,78 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-GageSector
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new gauge sector with specified color, minimum value, and maximum value.
 
 ## SYNTAX
-
-```
-New-GageSector [[-Color] <String>] [[-Min] <Int32>] [[-Max] <Int32>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-GageSector [[-Color] <string>] [[-Min] <int>] [[-Max] <int>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new gauge sector with the provided color, minimum value, and maximum value. It is useful for visualizing data within a specific range.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$sector = New-GageSector -Color 'red' -Min 0 -Max 100
+Creates a new gauge sector with a red color, minimum value of 0, and maximum value of 100.
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -Color
-{{ Fill Color Description }}
+Specifies the color of the gauge sector.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Max
-{{ Fill Max Description }}
+Specifies the maximum value of the gauge sector.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Min
-{{ Fill Min Description }}
+Specifies the minimum value of the gauge sector.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -80,11 +80,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

@@ -1,156 +1,186 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # Add-HTMLScript
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Adds JavaScript content to the HTML body.
 
 ## SYNTAX
-
-```
-Add-HTMLScript [[-Placement] <String>] [[-Resource] <IDictionary>] [[-ResourceComment] <String>]
- [[-Link] <String[]>] [[-Content] <String[]>] [[-FilePath] <String[]>] [-AddComments] [-SkipTags]
- [<CommonParameters>]
+### __AllParameterSets
+```powershell
+Add-HTMLScript [[-Placement] <string>] [[-Resource] <IDictionary>] [[-ResourceComment] <string>] [[-Link] <string[]>] [[-Content] <string[]>] [[-FilePath] <string[]>] [[-ReplaceData] <IDictionary>] [-AddComments] [-SkipTags] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function adds JavaScript content to the HTML body by including JavaScript code from files, strings, or links. It allows customization of the placement of JavaScript content within the HTML document.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+Add-HTMLScript -Placement 'Header' -Resource 'MyScript' -ResourceComment 'Script for functionality X' -Link 'https://example.com/script.js'
+Adds an external JavaScript file 'script.js' to the header of the HTML document with a specified comment.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+Add-HTMLScript -Placement 'Footer' -Resource 'CustomScript' -ResourceComment 'Custom script for feature Y' -Content 'function myFunction() { // code here }'
+Adds custom JavaScript content to the footer of the HTML document with a specified comment.
+```
+
+### EXAMPLE 3
+```powershell
+Add-HTMLScript -Placement 'Inline' -Resource 'InlineScript' -ResourceComment 'Inline script for page Z' -FilePath 'C:\Scripts\inline.js' -ReplaceData @{ 'placeholder' = 'replacement' }
+Adds JavaScript code from a file 'inline.js' to be included inline in the HTML document with specified replacements.
+```
 
 ## PARAMETERS
 
 ### -AddComments
-{{ Fill AddComments Description }}
+Indicates whether to add comments around the JavaScript content. By default, comments are not added.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Content
-{{ Fill Content Description }}
+Specifies an array of JavaScript content as strings to be included.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FilePath
-{{ Fill FilePath Description }}
+Specifies an array of file paths containing JavaScript code to be included.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Link
-{{ Fill Link Description }}
+Specifies an array of URLs to external JavaScript files to be included.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Placement
-{{ Fill Placement Description }}
+Specifies where the JavaScript content should be placed in the HTML document. Valid values are 'Inline', 'Header', or 'Footer'. Default is 'Header'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: Inline, Header, Footer
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Inline, Header, Footer
 
 Required: False
 Position: 0
-Default value: None
+Default value: Header
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -Resource
-{{ Fill Resource Description }}
+### -ReplaceData
+Specifies a dictionary of key-value pairs to replace in the JavaScript code.
 
 ```yaml
 Type: IDictionary
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 6
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Resource
+Specifies the resource containing the JavaScript content.
+
+```yaml
+Type: IDictionary
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ResourceComment
-{{ Fill ResourceComment Description }}
+Specifies a comment to be included with the JavaScript content.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SkipTags
-{{ Fill SkipTags Description }}
+Indicates whether to skip adding script tags around the JavaScript content. By default, script tags are added.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -158,11 +188,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

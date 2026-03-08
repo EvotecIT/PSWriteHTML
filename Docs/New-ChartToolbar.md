@@ -1,155 +1,164 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-ChartToolbar
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new chart toolbar object with customizable options.
 
 ## SYNTAX
-
-```
-New-ChartToolbar [-Download] [-Selection] [-Zoom] [-ZoomIn] [-ZoomOut] [-Pan] [-Reset]
- [[-AutoSelected] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-ChartToolbar [[-AutoSelected] <string>] [-Download] [-Selection] [-Zoom] [-ZoomIn] [-ZoomOut] [-Pan] [-Reset] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function defines a chart toolbar object with various tools such as download, selection, zoom, zoom in, zoom out, pan, and reset. It allows customization of the toolbar appearance and behavior.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-ChartToolbar -Download -Selection -Zoom -ZoomIn -ZoomOut -Pan -Reset -AutoSelected 'zoom'
+Creates a new chart toolbar object with all tools enabled and the default tool set to zoom.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+New-ChartToolbar -Download -Zoom -ZoomOut -Pan -AutoSelected 'pan'
+Creates a new chart toolbar object with download, zoom, zoom out, and pan tools enabled, and the default tool set to pan.
+```
 
 ## PARAMETERS
 
 ### -AutoSelected
-{{ Fill AutoSelected Description }}
+Specifies the default tool to be auto-selected when the toolbar is loaded. Valid values are 'zoom', 'selection', or 'pan'. Default is 'zoom'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: zoom, selection, pan
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: zoom, selection, pan
 
 Required: False
 Position: 0
-Default value: None
+Default value: zoom
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Download
-{{ Fill Download Description }}
+Switch parameter to enable the download tool in the toolbar.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Pan
-{{ Fill Pan Description }}
+Switch parameter to enable the pan tool in the toolbar.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Reset
-{{ Fill Reset Description }}
+Switch parameter to enable the reset tool in the toolbar.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Selection
-{{ Fill Selection Description }}
+Switch parameter to enable the selection tool in the toolbar.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Zoom
-{{ Fill Zoom Description }}
+Switch parameter to enable the zoom tool in the toolbar.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ZoomIn
-{{ Fill ZoomIn Description }}
+Switch parameter to enable the zoom in tool in the toolbar.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ZoomOut
-{{ Fill ZoomOut Description }}
+Switch parameter to enable the zoom out tool in the toolbar.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -157,11 +166,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

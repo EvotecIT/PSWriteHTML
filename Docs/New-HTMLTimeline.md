@@ -1,48 +1,51 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLTimeline
-
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates a new HTML timeline with customizable content.
 
 ## SYNTAX
-
-```
-New-HTMLTimeline [[-Content] <ScriptBlock>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLTimeline [[-Content] <scriptblock>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+This function creates an HTML timeline with the specified content. The timeline can be used to display a sequence of events or steps in a visually appealing manner.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLTimeline -Content {
+    New-HTMLTag -Tag 'div' -Attributes @{ class = 'event' } -Value { "Event 1" }
+    New-HTMLTag -Tag 'div' -Attributes @{ class = 'event' } -Value { "Event 2" }
+    New-HTMLTag -Tag 'div' -Attributes @{ class = 'event' } -Value { "Event 3" }
+}
 ```
 
-{{ Add example description here }}
+Creates an HTML timeline with three events.
 
 ## PARAMETERS
 
 ### -Content
-{{Fill Content Description}}
+Specifies the content of the HTML timeline as a script block.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: TimeLineItems
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -50,11 +53,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

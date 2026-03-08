@@ -1,417 +1,438 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-ChartAxisY
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new Y-axis for a chart with customizable parameters.
 
 ## SYNTAX
-
-```
-New-ChartAxisY [-Show] [-ShowAlways] [[-TitleText] <String>] [[-TitleRotate] <String>]
- [[-TitleOffsetX] <Int32>] [[-TitleOffsetY] <Int32>] [[-TitleFontWeight] <String>] [[-TitleColor] <String>]
- [[-TitleFontSize] <Int32>] [[-TitleFontFamily] <String>] [[-MinValue] <Int32>] [[-MaxValue] <Int32>]
- [[-LabelMinWidth] <Int32>] [[-LabelMaxWidth] <Int32>] [[-LabelAlign] <String>] [[-LabelFontSize] <Object>]
- [[-LabelFontFamily] <String>] [[-LabelFontWeight] <String>] [[-LabelFontColor] <String[]>] [-Reversed]
- [-Opposite] [-Logarithmic] [-ForceNiceScale] [-Floating] [[-SeriesName] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-ChartAxisY [[-TitleText] <string>] [[-TitleRotate] <string>] [[-TitleOffsetX] <int>] [[-TitleOffsetY] <int>] [[-TitleFontWeight] <string>] [[-TitleColor] <string>] [[-TitleFontSize] <int>] [[-TitleFontFamily] <string>] [[-MinValue] <int>] [[-MaxValue] <int>] [[-LabelMinWidth] <int>] [[-LabelMaxWidth] <int>] [[-LabelAlign] <string>] [[-LabelFontSize] <Object>] [[-LabelFontFamily] <string>] [[-LabelFontWeight] <string>] [[-LabelFontColor] <string[]>] [[-SeriesName] <string>] [-Show] [-ShowAlways] [-Reversed] [-Opposite] [-Logarithmic] [-ForceNiceScale] [-Floating] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new Y-axis for a chart with the provided parameters. It allows customization of the axis visibility, title, labels, range, style, and other options.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-ChartAxisY -Show -TitleText 'Sales' -MinValue 0 -MaxValue 1000 -LabelAlign 'center'
 ```
 
-{{ Add example description here }}
+Creates a new Y-axis with the title 'Sales', range from 0 to 1000, and center-aligned labels.
+
+### EXAMPLE 2
+```powershell
+New-ChartAxisY -Show -ShowAlways -TitleText 'Temperature' -TitleColor 'red' -LabelAlign 'right'
+```
+
+Creates a new Y-axis with the title 'Temperature', always visible, red-colored title, and right-aligned labels.
 
 ## PARAMETERS
 
 ### -Floating
-{{ Fill Floating Description }}
+Indicates whether the Y-axis should be floating.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ForceNiceScale
-{{ Fill ForceNiceScale Description }}
+Indicates whether the Y-axis should have a nice scale.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LabelAlign
-{{ Fill LabelAlign Description }}
+The alignment of the Y-axis labels. Accepted values are 'left', 'center', or 'right'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: left, center, right
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: left, center, right
 
 Required: False
 Position: 12
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LabelFontColor
-{{ Fill LabelFontColor Description }}
+The color of the Y-axis labels.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 16
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LabelFontFamily
-{{ Fill LabelFontFamily Description }}
+The font family of the Y-axis labels.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 14
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LabelFontSize
-{{ Fill LabelFontSize Description }}
+The font size of the Y-axis labels.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 13
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LabelFontWeight
-{{ Fill LabelFontWeight Description }}
+The font weight of the Y-axis labels.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
 Position: 15
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LabelMaxWidth
-{{ Fill LabelMaxWidth Description }}
+The maximum width of the Y-axis labels.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 11
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -LabelMinWidth
-{{ Fill LabelMinWidth Description }}
+The minimum width of the Y-axis labels.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 10
-Default value: None
+Default value: -1
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Logarithmic
-{{ Fill Logarithmic Description }}
+Indicates whether the Y-axis should have a logarithmic scale.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -MaxValue
-{{ Fill MaxValue Description }}
+The maximum value of the Y-axis.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 9
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -MinValue
-{{ Fill MinValue Description }}
+The minimum value of the Y-axis.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 8
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Opposite
-{{ Fill Opposite Description }}
+Indicates whether the Y-axis should be positioned on the opposite side.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Reversed
-{{ Fill Reversed Description }}
+Indicates whether the Y-axis should be reversed.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SeriesName
-{{ Fill SeriesName Description }}
+The name of the series associated with the Y-axis.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 17
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Show
-{{ Fill Show Description }}
+Indicates whether the Y-axis should be displayed.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ShowAlways
-{{ Fill ShowAlways Description }}
+Indicates whether the Y-axis should always be visible.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleColor
-{{ Fill TitleColor Description }}
+The color of the Y-axis title.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: TitleStyleColor
+Possible values: 
 
 Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleFontFamily
-{{ Fill TitleFontFamily Description }}
+The font family of the Y-axis title.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: TitleStyleFontFamily
+Possible values: 
 
 Required: False
 Position: 7
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleFontSize
-{{ Fill TitleFontSize Description }}
+The font size of the Y-axis title.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: TitleStyleFontSize
+Possible values: 
 
 Required: False
 Position: 6
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleFontWeight
-{{ Fill TitleFontWeight Description }}
+The font weight of the Y-axis title.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleOffsetX
-{{ Fill TitleOffsetX Description }}
+The horizontal offset of the Y-axis title.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleOffsetY
-{{ Fill TitleOffsetY Description }}
+The vertical offset of the Y-axis title.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
-Default value: None
+Default value: 0
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleRotate
-{{ Fill TitleRotate Description }}
+The rotation angle of the Y-axis title. Accepted values are '90' or '270'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: 90, 270
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 90, 270
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleText
-{{ Fill TitleText Description }}
+The text to be displayed as the title of the Y-axis.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -419,11 +440,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

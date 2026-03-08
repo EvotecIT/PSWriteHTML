@@ -1,139 +1,158 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # EmailServer
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Defines the email server configuration for sending emails.
 
 ## SYNTAX
-
-```
-EmailServer [[-Server] <String>] [[-Port] <Int32>] [[-UserName] <String>] [[-Password] <String>]
- [-PasswordAsSecure] [-PasswordFromFile] [-SSL] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+EmailServer [[-Server] <string>] [[-Port] <int>] [[-UserName] <string>] [[-Password] <string>] [-PasswordAsSecure] [-PasswordFromFile] [-SSL] [-UseDefaultCredential] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function sets up the email server configuration including server address, port, authentication credentials, and SSL settings.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+EmailServer -Server "mail.example.com" -Port 587 -UserName "user@example.com" -Password "P@ssw0rd" -SSL
+Configures the email server with the specified server address, port, username, password, and SSL enabled.
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -Password
-{{ Fill Password Description }}
+Specifies the password for authentication with the email server.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PasswordAsSecure
-{{ Fill PasswordAsSecure Description }}
+Indicates that the password should be treated as a secure string.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PasswordFromFile
-{{ Fill PasswordFromFile Description }}
+Indicates that the password should be read from a file.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Port
-{{ Fill Port Description }}
+Specifies the port number of the email server. Default is 587.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
-Default value: None
+Default value: 587
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SSL
-{{ Fill SSL Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Server
-{{ Fill Server Description }}
+Specifies the address of the email server.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -SSL
+Indicates whether SSL should be used for the connection.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -UseDefaultCredential
+Specifies whether to use default credentials for authentication.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: UseDefaultCredentials
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -UserName
-{{ Fill UserName Description }}
+Specifies the username for authentication with the email server.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -141,11 +160,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

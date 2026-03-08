@@ -1,449 +1,472 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLChart
-
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates a new HTML chart with customizable settings.
 
 ## SYNTAX
-
-```
-New-HTMLChart [[-ChartSettings] <ScriptBlock>] [[-Title] <String>] [[-TitleAlignment] <String>]
- [[-TitleMargin] <Int32>] [[-TitleOffsetX] <Int32>] [[-TitleOffsetY] <Int32>] [[-TitleFloating] <Int32>]
- [[-TitleFontSize] <Object>] [[-TitleFontWeight] <String>] [[-TitleFontFamily] <String>]
- [[-TitleColor] <String>] [[-SubTitle] <String>] [[-SubTitleAlignment] <String>] [[-SubTitleMargin] <Int32>]
- [[-SubTitleOffsetX] <Int32>] [[-SubTitleOffsetY] <Int32>] [[-SubTitleFloating] <Int32>]
- [[-SubTitleFontSize] <Object>] [[-SubTitleFontWeight] <String>] [[-SubTitleFontFamily] <String>]
- [[-SubTitleColor] <String>] [[-Height] <Object>] [[-Width] <Object>] [-Gradient] [-Patterned] [[-Id] <String>]
- [[-Group] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLChart [[-ChartSettings] <scriptblock>] [[-Title] <string>] [[-TitleAlignment] <string>] [[-TitleMargin] <int>] [[-TitleOffsetX] <int>] [[-TitleOffsetY] <int>] [[-TitleFloating] <int>] [[-TitleFontSize] <Object>] [[-TitleFontWeight] <string>] [[-TitleFontFamily] <string>] [[-TitleColor] <string>] [[-SubTitle] <string>] [[-SubTitleAlignment] <string>] [[-SubTitleMargin] <int>] [[-SubTitleOffsetX] <int>] [[-SubTitleOffsetY] <int>] [[-SubTitleFloating] <int>] [[-SubTitleFontSize] <Object>] [[-SubTitleFontWeight] <string>] [[-SubTitleFontFamily] <string>] [[-SubTitleColor] <string>] [[-Height] <Object>] [[-Width] <Object>] [[-Id] <string>] [[-Group] <string>] [-Gradient] [-Patterned] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+This function creates a new HTML chart with customizable settings such as title, subtitle, dimensions, colors, and more.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLChart -Title "Sales Data" -ChartSettings {
+    // Chart configuration settings here
+}
 ```
 
-{{ Add example description here }}
+Creates a new HTML chart with the title "Sales Data" and custom chart settings.
+
+### EXAMPLE 2
+```powershell
+New-HTMLChart -Title "Sales Data" -SubTitle "Quarterly Sales" -Height 400 -Width 600 -Gradient -Id "SalesChart"
+```
+
+Creates a new HTML chart with the title "Sales Data", subtitle "Quarterly Sales", height of 400, width of 600, gradient colors, and specified ID.
 
 ## PARAMETERS
 
 ### -ChartSettings
-{{ Fill ChartSettings Description }}
+Specifies the settings for the chart. This should be a ScriptBlock containing the chart configuration.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Gradient
-{{ Fill Gradient Description }}
+Indicates whether to use gradient colors in the chart.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: GradientColors
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Group
-{{ Fill Group Description }}
+Specifies the group to which the chart belongs.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 24
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Height
-{{Fill Height Description}}
+Specifies the height of the chart. Default is 350.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 21
-Default value: None
+Default value: 350
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Id
-{{ Fill Id Description }}
+Specifies the ID of the chart. If not provided, a random ID will be generated.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 23
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Patterned
-{{ Fill Patterned Description }}
+Indicates whether to use patterned colors in the chart.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: PatternedColors
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SubTitle
-{{ Fill SubTitle Description }}
+Specifies the subtitle of the chart.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 11
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SubTitleAlignment
-{{ Fill SubTitleAlignment Description }}
+Specifies the alignment of the chart subtitle. Valid values are 'center', 'left', or 'right'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: center, left, right
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: center, left, right
 
 Required: False
 Position: 12
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SubTitleColor
-{{ Fill SubTitleColor Description }}
+Specifies the color of the chart subtitle.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 20
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SubTitleFloating
-{{ Fill SubTitleFloating Description }}
+Specifies whether the chart subtitle should float.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 16
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SubTitleFontFamily
-{{ Fill SubTitleFontFamily Description }}
+Specifies the font family of the chart subtitle.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 19
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SubTitleFontSize
-{{ Fill SubTitleFontSize Description }}
+Specifies the font size of the chart subtitle.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 17
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SubTitleFontWeight
-{{ Fill SubTitleFontWeight Description }}
+Specifies the font weight of the chart subtitle. Valid values are 'normal', 'bold', 'bolder', 'lighter', or numeric values from '100' to '900'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
 Position: 18
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SubTitleMargin
-{{ Fill SubTitleMargin Description }}
+Specifies the margin of the chart subtitle.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 13
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SubTitleOffsetX
-{{ Fill SubTitleOffsetX Description }}
+Specifies the horizontal offset of the chart subtitle.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 14
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SubTitleOffsetY
-{{ Fill SubTitleOffsetY Description }}
+Specifies the vertical offset of the chart subtitle.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 15
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Title
-{{ Fill Title Description }}
+Specifies the title of the chart.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleAlignment
-{{Fill TitleAlignment Description}}
+Specifies the alignment of the chart title. Valid values are 'center', 'left', or 'right'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: center, left, right
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: center, left, right
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleColor
-{{ Fill TitleColor Description }}
+Specifies the color of the chart title.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 10
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleFloating
-{{ Fill TitleFloating Description }}
+Specifies whether the chart title should float.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 6
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleFontFamily
-{{ Fill TitleFontFamily Description }}
+Specifies the font family of the chart title.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 9
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleFontSize
-{{ Fill TitleFontSize Description }}
+Specifies the font size of the chart title.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 7
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleFontWeight
-{{ Fill TitleFontWeight Description }}
+Specifies the font weight of the chart title. Valid values are 'normal', 'bold', 'bolder', 'lighter', or numeric values from '100' to '900'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
 Position: 8
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleMargin
-{{ Fill TitleMargin Description }}
+Specifies the margin of the chart title.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleOffsetX
-{{ Fill TitleOffsetX Description }}
+Specifies the horizontal offset of the chart title.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TitleOffsetY
-{{ Fill TitleOffsetY Description }}
+Specifies the vertical offset of the chart title.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: Nullable`1
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Width
-{{Fill Width Description}}
+Specifies the width of the chart.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 22
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -451,11 +474,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

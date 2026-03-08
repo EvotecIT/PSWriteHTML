@@ -1,58 +1,64 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLStatusItem
-
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-Icon <Object>] [-Percentage <string>] [-FontColor <string>] [<CommonParameters>]
+
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconHex <string>] [<CommonParameters>]
+
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconSolid <string>] [<CommonParameters>]
+
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconRegular <string>] [<CommonParameters>]
+
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconBrands <string>] [<CommonParameters>]
 
 ## SYNTAX
-
 ### Statusimo (Default)
-```
-New-HTMLStatusItem [-Name <String>] [-Status <String>] [-Icon <Object>] [-Percentage <String>]
- [-FontColor <String>] [<CommonParameters>]
+```powershell
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-Icon <Object>] [-Percentage <string>] [-FontColor <string>] [<CommonParameters>]
 ```
 
 ### Hex
-```
-New-HTMLStatusItem [-Name <String>] [-Status <String>] [-FontColor <String>] [-BackgroundColor <String>]
- [-IconHex <String>] [<CommonParameters>]
+```powershell
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconHex <string>] [<CommonParameters>]
 ```
 
 ### FontAwesomeSolid
-```
-New-HTMLStatusItem [-Name <String>] [-Status <String>] [-FontColor <String>] [-BackgroundColor <String>]
- [-IconSolid <String>] [<CommonParameters>]
+```powershell
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconSolid <string>] [<CommonParameters>]
 ```
 
 ### FontAwesomeRegular
-```
-New-HTMLStatusItem [-Name <String>] [-Status <String>] [-FontColor <String>] [-BackgroundColor <String>]
- [-IconRegular <String>] [<CommonParameters>]
+```powershell
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconRegular <string>] [<CommonParameters>]
 ```
 
 ### FontAwesomeBrands
-```
-New-HTMLStatusItem [-Name <String>] [-Status <String>] [-FontColor <String>] [-BackgroundColor <String>]
- [-IconBrands <String>] [<CommonParameters>]
+```powershell
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconBrands <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-Icon <Object>] [-Percentage <string>] [-FontColor <string>] [<CommonParameters>]
+
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconHex <string>] [<CommonParameters>]
+
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconSolid <string>] [<CommonParameters>]
+
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconRegular <string>] [<CommonParameters>]
+
+New-HTMLStatusItem [-Name <string>] [-Status <string>] [-FontColor <string>] [-BackgroundColor <string>] [-IconBrands <string>] [<CommonParameters>]
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLStatusItem -Name 'Name'
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
@@ -62,13 +68,14 @@ PS C:\> {{ Add example code here }}
 ```yaml
 Type: String
 Parameter Sets: Hex, FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
-Aliases:
+Aliases: None
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontColor
@@ -76,30 +83,31 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: Statusimo, Hex, FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
+Aliases: None
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Icon
-{{Fill Icon Description}}
+{{ Fill Icon Description }}
 
 ```yaml
 Type: Object
 Parameter Sets: Statusimo
-Aliases:
-Accepted values: Dead, Bad, Good
+Aliases: None
+Possible values: Dead, Bad, Good
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -IconBrands
@@ -108,13 +116,14 @@ Accept wildcard characters: False
 ```yaml
 Type: String
 Parameter Sets: FontAwesomeBrands
-Aliases:
+Aliases: None
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -IconHex
@@ -123,13 +132,14 @@ Accept wildcard characters: False
 ```yaml
 Type: String
 Parameter Sets: Hex
-Aliases:
+Aliases: None
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -IconRegular
@@ -138,13 +148,14 @@ Accept wildcard characters: False
 ```yaml
 Type: String
 Parameter Sets: FontAwesomeRegular
-Aliases:
+Aliases: None
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -IconSolid
@@ -153,13 +164,14 @@ Accept wildcard characters: False
 ```yaml
 Type: String
 Parameter Sets: FontAwesomeSolid
-Aliases:
+Aliases: None
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Name
@@ -167,30 +179,31 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Statusimo, Hex, FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
 Aliases: ServiceName
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Percentage
-{{Fill Percentage Description}}
+{{ Fill Percentage Description }}
 
 ```yaml
 Type: String
 Parameter Sets: Statusimo
-Aliases:
-Accepted values: 0%, 10%, 30%, 70%, 100%
+Aliases: None
+Possible values: 0%, 10%, 30%, 70%, 100%
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Status
@@ -198,14 +211,15 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Statusimo, Hex, FontAwesomeSolid, FontAwesomeRegular, FontAwesomeBrands
 Aliases: ServiceStatus
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -213,11 +227,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `System.Object`
 
 ## RELATED LINKS
+
+- None
+

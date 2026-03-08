@@ -1,137 +1,93 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLImage
-
 ## SYNOPSIS
-Short description
+Creates IMG tag with image link or image bundled inline
 
 ## SYNTAX
-
-```
-New-HTMLImage [[-Source] <String>] [[-UrlLink] <Uri>] [[-AlternativeText] <String>] [[-Class] <String>]
- [[-Target] <String>] [[-Width] <Object>] [[-Height] <Object>] [-Inline] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLImage [[-Source] <string>] [[-UrlLink] <uri>] [[-AlternativeText] <string>] [[-Class] <string>] [[-Target] <string>] [[-Width] <Object>] [[-Height] <Object>] [-Inline] [-DisableCache] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Long description
+Creates IMG tag with image link or image bundled inline
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
-New-HTMLImage -Source 'https://evotec.pl/image.png' -UrlLink 'https://evotc.pl/' -AlternativeText 'My other text' -Class 'otehr' -Width '100%'
+```powershell
+New-HTMLImage -Source 'https://evotec.pl/image.png' -UrlLink 'https://evotec.pl/' -AlternativeText 'My other text' -Class 'otehr' -Width '100%'
 ```
 
 ## PARAMETERS
 
-### -Source
-Parameter description
+### -AlternativeText
+Specifies an alternate text for the image, if the image for some reason cannot be displayed
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -UrlLink
-Parameter description
-
-```yaml
-Type: Uri
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AlternativeText
-Parameter description
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Class
-Parameter description
+Overwrites default CSS settings for links
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: 4
-Default value: Logo
+Position: 3
+Default value: logo
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -Target
-Parameter description
+### -DisableCache
+{{ Fill DisableCache Description }}
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: 5
-Default value: _blank
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
-### -Width
-Parameter description
+### -Height
+Height of an image (optional)
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 6
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Height
-Parameter description
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 7
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Inline
@@ -139,14 +95,86 @@ Inserts given Image URL/File directly into HTML
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -Source
+Link to an image or file path to an image
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Target
+The target attribute specifies where to open the linked document.
+
+- _blank	Opens the linked document in a new window or tab
+- _self	Opens the linked document in the same frame as it was clicked (this is default)
+- _parent	Opens the linked document in the parent frame
+- _top	Opens the linked document in the full body of the window
+
+Additionally framename can be given. Default is _blank
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 4
+Default value: _blank
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -UrlLink
+Specifies the URL of the page the link goes to when user clicks an image
+
+```yaml
+Type: Uri
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Width
+Width of an image (optional)
+
+```yaml
+Type: Object
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -154,9 +182,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+- `None`
+
 ## OUTPUTS
 
-## NOTES
-General notes
+- `None`
 
 ## RELATED LINKS
+
+- None
+

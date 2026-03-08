@@ -1,94 +1,123 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # New-HTMLContainer
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates a new HTML container element with customizable options.
 
 ## SYNTAX
-
-```
-New-HTMLContainer [[-HTML] <ScriptBlock>] [-Width <Object>] [-Margin <String>] [-AnchorName <String>]
- [<CommonParameters>]
+### __AllParameterSets
+```powershell
+New-HTMLContainer [[-HTML] <scriptblock>] [-Width <Object>] [-Margin <string>] [-Density <string>] [-AnchorName <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates a new HTML container element with the specified options such as content, width, margin, and anchor name.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-HTMLContainer -HTML {
+    // HTML content here
+} -Width '50%' -Margin '10px' -AnchorName 'myAnchor'
 ```
 
-{{ Add example description here }}
+Creates a new HTML container with custom HTML content, width of 50%, margin of 10px, and anchor name 'myAnchor'.
+
+### EXAMPLE 2
+```powershell
+New-HTMLContainer -HTML {
+    // More HTML content
+}
+```
+
+Creates a new HTML container with additional HTML content and default width and margin.
 
 ## PARAMETERS
 
 ### -AnchorName
-{{ Fill AnchorName Description }}
+Specifies the anchor name for the container. If not provided, a random anchor name will be generated.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -Density
+Specifies the density of the panel. This will automatically enable responsive wrapping for the panel.
+The options are: Spacious, Comfortable, Compact, Dense, VeryDense.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: Spacious, Comfortable, Compact, Dense, VeryDense
+
+Required: False
+Position: named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -HTML
-{{ Fill HTML Description }}
+Specifies the content to be placed inside the container as a ScriptBlock.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
+Parameter Sets: __AllParameterSets
 Aliases: Content
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Margin
-{{ Fill Margin Description }}
+Specifies the margin of the container.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Width
-{{ Fill Width Description }}
+Specifies the width of the container. Default is '100%'.
 
 ```yaml
 Type: Object
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: 100%
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -96,11 +125,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

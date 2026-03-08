@@ -1,48 +1,53 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # EmailCC
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Creates an email object for carbon copy (CC) recipients.
 
 ## SYNTAX
-
-```
-EmailCC [[-Addresses] <String[]>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+EmailCC [[-Addresses] <string[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function creates an email object specifically for carbon copy (CC) recipients. It takes an array of email addresses and returns a custom object representing the CC recipients.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$CCRecipients = EmailCC -Addresses 'cc1@example.com', 'cc2@example.com'
+Creates an email object with two CC recipients.
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```powershell
+$CCList = 'cc1@example.com', 'cc2@example.com'
+$CCRecipients = EmailCC -Addresses $CCList
+Creates an email object with multiple CC recipients.
+```
 
 ## PARAMETERS
 
 ### -Addresses
-{{ Fill Addresses Description }}
+Specifies an array of email addresses for the CC recipients.
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -50,11 +55,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

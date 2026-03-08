@@ -1,48 +1,81 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # Add-HTML
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Adds HTML content to the email body.
 
 ## SYNTAX
-
-```
-Add-HTML [[-HTML] <ScriptBlock>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+Add-HTML [[-HTML] <scriptblock>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function adds HTML content to the email body by executing the provided ScriptBlock containing the HTML code.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$HTMLContent = {
+    Set-Tag -HtmlObject @{
+        Tag = 'div'
+        Attributes = @{
+            'class' = 'container'
+        }
+        Value = 'Hello, World!'
+    }
+}
 ```
 
-{{ Add example description here }}
+Add-HTML -HTML $HTMLContent
+Adds a <div class="container">Hello, World!</div> to the email body.
+
+### EXAMPLE 2
+```powershell
+$HTMLContent = {
+    Set-Tag -HtmlObject @{
+        Tag = 'ul'
+        Attributes = @{
+            'id' = 'list'
+        }
+        Value = @(
+            @{
+                Tag = 'li'
+                Value = 'Item 1'
+            }
+            @{
+                Tag = 'li'
+                Value = 'Item 2'
+            }
+        )
+    }
+}
+```
+
+Add-HTML -HTML $HTMLContent
+Adds a list with items 'Item 1' and 'Item 2' to the email body.
 
 ## PARAMETERS
 
 ### -HTML
-{{ Fill HTML Description }}
+Specifies the ScriptBlock containing the HTML code to be added to the email body.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -50,11 +83,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

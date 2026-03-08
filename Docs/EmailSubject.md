@@ -1,48 +1,46 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # EmailSubject
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Defines the subject line for an email.
 
 ## SYNTAX
-
-```
-EmailSubject [[-Subject] <String>] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+EmailSubject [[-Subject] <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function sets the subject line for an email message.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+EmailSubject -Subject "Important Notification"
+Sets the subject line of the email to "Important Notification".
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -Subject
-{{ Fill Subject Description }}
+Specifies the subject line of the email.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -50,11 +48,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

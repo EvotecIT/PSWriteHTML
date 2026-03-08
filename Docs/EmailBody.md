@@ -1,223 +1,301 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # EmailBody
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Defines styling properties for an email body content.
 
 ## SYNTAX
-
-```
-EmailBody [[-EmailBody] <ScriptBlock>] [-Color <String>] [-BackGroundColor <String>] [-FontSize <Int32>]
- [-FontWeight <String>] [-FontStyle <String>] [-FontVariant <String>] [-FontFamily <String>]
- [-Alignment <String>] [-TextDecoration <String>] [-TextTransform <String>] [-Direction <String>]
- [<CommonParameters>]
+### __AllParameterSets
+```powershell
+EmailBody [[-EmailBody] <scriptblock>] [-Color <string>] [-BackGroundColor <string>] [-LineHeight <string>] [-FontSize <Object>] [-FontWeight <string>] [-FontStyle <string>] [-FontVariant <string>] [-FontFamily <string>] [-Alignment <string>] [-TextDecoration <string>] [-TextTransform <string>] [-Direction <string>] [-Online] [-Format] [-Minify] [-Parameter <IDictionary>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This function defines styling properties for an email body content such as color, background color, font size, font weight, font style, font family, alignment, text decoration, text transform, direction, and more.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+EmailBody -Alignment 'Value'
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -Alignment
-{{ Fill Alignment Description }}
+Specifies the alignment of the text in the email body. Valid values are 'left', 'center', 'right', or 'justify'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: left, center, right, justify
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: left, center, right, justify
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -BackGroundColor
-{{ Fill BackGroundColor Description }}
+Specifies the background color of the email body.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Color
-{{ Fill Color Description }}
+Specifies the color of the text in the email body.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Direction
-{{ Fill Direction Description }}
+Specifies the direction of the text in the email body. Valid value is 'rtl'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: rtl
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: rtl
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -EmailBody
-{{ Fill EmailBody Description }}
+Specifies the ScriptBlock containing the email body content.
 
 ```yaml
 Type: ScriptBlock
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontFamily
-{{ Fill FontFamily Description }}
+Specifies the font family of the text in the email body.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontSize
 {{ Fill FontSize Description }}
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
+Type: Object
+Parameter Sets: __AllParameterSets
 Aliases: Size
+Possible values: 
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontStyle
-{{ Fill FontStyle Description }}
+Specifies the style of the font in the email body. Valid values are 'normal', 'italic', or 'oblique'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, italic, oblique
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, italic, oblique
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontVariant
-{{ Fill FontVariant Description }}
+Specifies the variant of the font in the email body. Valid values are 'normal' or 'small-caps'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, small-caps
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, small-caps
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -FontWeight
-{{ Fill FontWeight Description }}
+Specifies the weight of the font in the email body. Valid values are 'normal', 'bold', 'bolder', 'lighter', or numeric values from 100 to 900.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
+```
+
+### -Format
+Switch parameter to format the email body content.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -LineHeight
+Specifies the line height of the text in the email body.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Minify
+Switch parameter to minify the email body content.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Online
+Switch parameter to indicate if the email body content is online.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Parameter
+Specifies additional parameters for styling the email body content.
+
+```yaml
+Type: IDictionary
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
 ```
 
 ### -TextDecoration
-{{ Fill TextDecoration Description }}
+Specifies the decoration of the text in the email body. Valid values are 'none', 'line-through', 'overline', or 'underline'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: none, line-through, overline, underline
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: none, line-through, overline, underline
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -TextTransform
-{{ Fill TextTransform Description }}
+Specifies the transformation of the text in the email body. Valid values are 'uppercase', 'lowercase', or 'capitalize'.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: uppercase, lowercase, capitalize
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: uppercase, lowercase, capitalize
 
 Required: False
-Position: Named
+Position: named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -225,11 +303,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+

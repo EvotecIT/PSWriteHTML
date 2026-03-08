@@ -1,78 +1,117 @@
 ---
 external help file: PSWriteHTML-help.xml
 Module Name: PSWriteHTML
-online version:
+online version: https://github.com/EvotecIT/PSWriteHTML
 schema: 2.0.0
 ---
-
 # ConvertTo-CascadingStyleSheets
-
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Converts a hashtable of CSS properties into Cascading Style Sheets (CSS) format.
 
 ## SYNTAX
-
-```
-ConvertTo-CascadingStyleSheets [[-Css] <IDictionary>] [[-Comment] <String>] [-WithTags] [<CommonParameters>]
+### __AllParameterSets
+```powershell
+ConvertTo-CascadingStyleSheets [[-Css] <IDictionary>] [[-Name] <string>] [[-Comment] <string>] [-WithTags] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+The ConvertTo-CascadingStyleSheets function takes a hashtable of CSS properties and converts them into a CSS stylesheet format. It organizes the properties into selectors and declarations, ready to be used in styling HTML elements.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$CssProperties = @{
+    'color' = 'blue'
+    'font-size' = '16px'
+    'font-family' = 'Arial'
+}
 ```
 
-{{ Add example description here }}
+ConvertTo-CascadingStyleSheets -Css $CssProperties -Name '.myClass' -Comment 'Custom styles for myClass'
+
+Converts the hashtable of CSS properties into a CSS stylesheet with the selector '.myClass' and a custom comment.
+
+### EXAMPLE 2
+```powershell
+$CssProperties = @{
+    'background-color' = 'lightblue'
+    'border' = @{
+        'style' = 'solid'
+        'width' = '1px'
+        'color' = 'black'
+    }
+}
+```
+
+ConvertTo-CascadingStyleSheets -Css $CssProperties -Name '#myDiv' -WithTags
+
+Converts the CSS properties into a CSS stylesheet with the selector '#myDiv' and includes CSS style tags.
 
 ## PARAMETERS
 
 ### -Comment
-{{ Fill Comment Description }}
+Specifies an optional comment to be included in the CSS stylesheet.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: True
+```
+
+### -Css
+Specifies the hashtable of CSS properties to be converted.
+
+```yaml
+Type: IDictionary
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
+
+Required: False
+Position: 0
+Default value: None
+Accept pipeline input: True (ByValue, ByPropertyName)
+Accept wildcard characters: True
+```
+
+### -Name
+Specifies the name of the CSS selector to be used in the stylesheet.
+
+```yaml
+Type: String
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Css
-{{ Fill Css Description }}
-
-```yaml
-Type: IDictionary
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -WithTags
-{{ Fill WithTags Description }}
+Indicates whether to include CSS style tags around the generated CSS content. Default is false.
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: __AllParameterSets
+Aliases: 
+Possible values: 
 
 Required: False
-Position: Named
-Default value: None
+Position: named
+Default value: False
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -80,11 +119,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### System.Collections.IDictionary
+- `None`
 
 ## OUTPUTS
 
-### System.Object
-## NOTES
+- `None`
 
 ## RELATED LINKS
+
+- None
+
