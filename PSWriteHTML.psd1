@@ -12,12 +12,12 @@
     PowerShellVersion    = '5.1'
     PrivateData          = @{
         PSData = @{
-            IconUri                  = 'https://evotec.xyz/wp-content/uploads/2018/12/PSWriteHTML.png'
-            ProjectUri               = 'https://github.com/EvotecIT/PSWriteHTML'
-            RequireLicenseAcceptance = $false
-            Tags                     = @('HTML', 'WWW', 'JavaScript', 'CSS', 'Reports', 'Reporting', 'Windows', 'MacOS', 'Linux')
+            IconUri                    = 'https://evotec.xyz/wp-content/uploads/2018/12/PSWriteHTML.png'
+            ProjectUri                 = 'https://github.com/EvotecIT/PSWriteHTML'
+            RequireLicenseAcceptance   = $false
+            Tags                       = @('HTML', 'WWW', 'JavaScript', 'CSS', 'Reports', 'Reporting', 'Windows', 'MacOS', 'Linux')
             ExternalModuleDependencies = @()
-}
+        }
     }
     RequiredModules      = @(@{
             Guid            = 'ee272aa8-baaa-4edf-9f45-b6d6f7d844fe'
