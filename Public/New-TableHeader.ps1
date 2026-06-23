@@ -49,6 +49,15 @@
     .PARAMETER Direction
     Specifies the text direction of the table header.
 
+    .PARAMETER BorderStyle
+    Specifies the CSS border style for matching header cells.
+
+    .PARAMETER BorderWidth
+    Specifies the CSS border width for matching header cells.
+
+    .PARAMETER BorderColor
+    Specifies the CSS border color for matching header cells.
+
     .PARAMETER AddRow
     Switch parameter to add an additional row to the table header.
 
@@ -74,7 +83,10 @@
         [ValidateSet('left', 'center', 'right', 'justify')][string] $Alignment,
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
-        [ValidateSet('rtl')][string] $Direction,
+        [ValidateSet('rtl', 'ltr')][string] $Direction,
+        [ValidateSet('none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset')][string] $BorderStyle,
+        [object] $BorderWidth,
+        [string] $BorderColor,
         [switch] $AddRow,
         [int] $ColumnCount,
         [ValidateSet(
@@ -128,6 +140,9 @@
         TextDecoration  = $TextDecoration
         TextTransform   = $TextTransform
         Direction       = $Direction
+        BorderStyle     = $BorderStyle
+        BorderWidth     = $BorderWidth
+        BorderColor     = $BorderColor
     }
     Remove-EmptyValue -Hashtable $Style
 

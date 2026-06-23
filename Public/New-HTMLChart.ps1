@@ -200,6 +200,7 @@
     $Colors = [System.Collections.Generic.List[string]]::new()
 
     $ChartAxisY = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
+    $ChartLabels = $null
 
     # Bar default definitions
     [bool] $BarHorizontal = $true
@@ -312,6 +313,18 @@
             if ($Setting.Color) {
                 $Colors.Add($Setting.Color)
             }
+        } elseif ($Setting.ObjectType -in @('Area', 'Scatter', 'Bubble', 'Heatmap', 'Radar')) {
+            $Type = $Setting.ObjectType
+
+            if ($Setting.series) {
+                $DataSeries.Add($Setting.series)
+            }
+            if ($Setting.stroke.count -gt 0) {
+                $LineStroke.Add($Setting.stroke)
+            }
+            if ($Setting.Color) {
+                $Colors.Add($Setting.Color)
+            }
         } elseif ($Setting.ObjectType -eq 'ChartAxisX') {
             $ChartAxisX = $Setting.ChartAxisX
         } elseif ($Setting.ObjectType -eq 'ChartGrid') {
@@ -327,6 +340,8 @@
             $DataLabel = $Setting.DataLabel
         } elseif ($Setting.ObjectType -eq 'ChartEvents') {
             $Events = $Setting.Event
+        } elseif ($Setting.ObjectType -eq 'ChartLabel') {
+            $ChartLabels = $Setting.Names
         } elseif ($Setting.ObjectType -eq 'RadialOptions') {
             $PlotOptions = $Setting.plotOptions
         } elseif ($Setting.ObjectType -eq 'Fill') {
@@ -418,10 +433,34 @@
             Design          = $Design
         }
         New-HTMLChartLine @SplatChartLine
+    } elseif ($Type -in @('Area', 'Scatter', 'Bubble', 'Heatmap', 'Radar')) {
+        $SplatChartSeries = @{
+            Type            = $Type.ToLower()
+            Chart           = $Chart
+            Series          = $DataSeries
+            Stroke          = $LineStroke
+            DataLabel       = $DataLabel
+            Legend          = $Legend
+            Markers         = $Markers
+            Colors          = $Colors
+            ChartAxisX      = $ChartAxisX
+            ChartAxisY      = $ChartAxisY
+            Theme           = $Theme
+            Toolbar         = $Toolbar
+            GridOptions     = $GridOptions
+            PatternedColors = $Patterned
+            GradientColors  = $Gradient
+            Events          = $Events
+            Title           = $TitleBlock
+            SubTitle        = $SubTitleBlock
+            Design          = $Design
+        }
+        New-HTMLChartSeries @SplatChartSeries
     } elseif ($Type -eq 'Pie' -or $Type -eq 'Donut') {
         $SplatChart = @{
             Data            = $DataSet
             DataNames       = $DataName
+            Labels          = $ChartLabels
             Colors          = $Colors
 
             # Every the same

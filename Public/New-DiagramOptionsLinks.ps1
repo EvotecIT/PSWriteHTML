@@ -118,6 +118,10 @@ function New-DiagramOptionsLinks {
         [nullable[double]] $ColorOpacity, # range between 0 and 1
         [nullable[bool]]  $Dashes,
         [string] $Length,
+        [nullable[double]] $Width,
+        [nullable[double]] $HoverWidth,
+        [nullable[double]] $SelectionWidth,
+        [nullable[double]] $Value,
         [string] $FontColor,
         [nullable[int]] $FontSize, #// px
         [string] $FontName,
@@ -127,7 +131,11 @@ function New-DiagramOptionsLinks {
         [ValidateSet('center', 'left')][string] $FontAlign,
         [ValidateSet('false', 'true', 'markdown', 'html')][string]$FontMulti,
         [nullable[int]] $FontVAdjust,
-        [nullable[int]] $WidthConstraint
+        [nullable[int]] $WidthConstraint,
+
+        [ValidateSet('dynamic', 'continuous', 'discrete', 'diagonalCross', 'straightCross', 'horizontal', 'vertical', 'curvedCW', 'curvedCCW', 'cubicBezier')][string] $SmoothType,
+        [ValidateSet('horizontal', 'vertical', 'none')][string] $SmoothForceDirection,
+        [nullable[double]] $SmoothRoundness
     )
     $Object = [PSCustomObject] @{
         Type     = 'DiagramOptionsEdges'
@@ -172,8 +180,26 @@ function New-DiagramOptionsLinks {
                     vadjust     = $FontVAdjust
                 }
                 dashes             = $Dashes
+                width              = $Width
+                hoverWidth         = $HoverWidth
+                selectionWidth     = $SelectionWidth
+                value              = $Value
                 widthConstraint    = $WidthConstraint
             }
+        }
+    }
+    if ($SmoothType -or $null -ne $SmoothRoundness -or $SmoothForceDirection) {
+        $Object.Settings.edges['smooth'] = [ordered] @{
+            enabled = $true
+        }
+        if ($SmoothType) {
+            $Object.Settings.edges.smooth['type'] = $SmoothType
+        }
+        if ($null -ne $SmoothRoundness) {
+            $Object.Settings.edges.smooth['roundness'] = $SmoothRoundness
+        }
+        if ($SmoothForceDirection) {
+            $Object.Settings.edges.smooth['forceDirection'] = $SmoothForceDirection
         }
     }
     Remove-EmptyValue -Hashtable $Object.Settings -Recursive -Rerun 2

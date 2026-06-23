@@ -24,6 +24,9 @@ function New-HTMLTab {
     .PARAMETER IconSolid
     The icon to be displayed for FontAwesomeSolid. Use tab completion to select from available options.
 
+    .PARAMETER Default
+    Makes this tab the initially selected tab.
+
     .EXAMPLE
     New-HTMLTab -HtmlData { Get-Process } -Heading "Processes" -Name "ProcessTab" -IconBrands "windows"
 
@@ -101,7 +104,10 @@ function New-HTMLTab {
         [parameter(ParameterSetName = "FontAwesomeRegular")]
         [parameter(ParameterSetName = "FontAwesomeSolid")][string] $IconColor,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform, # New-HTMLTab - Add text-transform
-        [string] $AnchorName
+        [string] $AnchorName,
+        [parameter(ParameterSetName = "FontAwesomeBrands")]
+        [parameter(ParameterSetName = "FontAwesomeRegular")]
+        [parameter(ParameterSetName = "FontAwesomeSolid")][switch] $Default
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTab - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -162,8 +168,14 @@ function New-HTMLTab {
         $Tab.StyleIcon = $StyleIcon
         $Tab.StyleText = $StyleText
         $Tab.Current = $true
+        $Tab.Default = $Default.IsPresent
 
-        if ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
+        if ($Default) {
+            foreach ($ExistingTab in $Script:HTMLSchema.TabsHeaders) {
+                $ExistingTab.Active = $false
+            }
+            $Tab.Active = $true
+        } elseif ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Active -eq $true }) {
             $Tab.Active = $false
         } else {
             $Tab.Active = $true
@@ -211,6 +223,32 @@ function New-HTMLTab {
             } else {
                 $HTML
             }
+            if ($Default) {
+                $TabIDJson = $Tab.ID | ConvertTo-Json -Compress
+                $PaneIDJson = "$($Tab.ID)-Content" | ConvertTo-Json -Compress
+                New-HTMLTag -Tag 'script' {
+                    @"
+document.addEventListener('DOMContentLoaded', function () {
+    var tabId = $TabIDJson;
+    var paneId = $PaneIDJson;
+    var tab = document.getElementById(tabId);
+    if (tab && tab.parentElement) {
+        Array.prototype.forEach.call(tab.parentElement.children, function (child) {
+            child.classList.remove('active');
+        });
+        tab.classList.add('active');
+    }
+    var pane = document.getElementById(paneId);
+    if (pane && pane.parentElement) {
+        Array.prototype.forEach.call(pane.parentElement.children, function (child) {
+            child.classList.remove('active');
+        });
+        pane.classList.add('active');
+    }
+});
+"@
+                }
+            }
         }
         $Script:HTMLSchema.TabsHeaders.Add($Tab)
         $Tab
@@ -227,6 +265,7 @@ function New-HTMLTab {
             Icon      = $Icon
             StyleIcon = $StyleIcon
             StyleText = $StyleText
+            Default   = $Default.IsPresent
             Content   = $TabExecutedCode
         }
     }

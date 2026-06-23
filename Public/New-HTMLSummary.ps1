@@ -36,12 +36,16 @@
     Enable-HTMLFeature -Feature MainFlex, AccordionSummary
 
     New-HTMLTag -Tag 'container' {
-        New-HTMLTag -Tag 'h2' {
-            $Title
-            New-HTMLTag -Tag 'span' {
-                $TitleRight
-            } -Attributes @{ 'class' = 'summary-end' }
-        } -Attributes @{ class = 'summary-title' }
+        if ($Title -or $TitleRight) {
+            New-HTMLTag -Tag 'h2' {
+                $Title
+                if ($TitleRight) {
+                    New-HTMLTag -Tag 'span' {
+                        $TitleRight
+                    } -Attributes @{ 'class' = 'summary-end' }
+                }
+            } -Attributes @{ class = 'summary-title' }
+        }
         & $SummaryItems
     }
 }

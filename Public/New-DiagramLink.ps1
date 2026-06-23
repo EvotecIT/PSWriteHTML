@@ -129,7 +129,8 @@
         [string[]] $To,
         [string] $Label,
         [switch] $ArrowsToEnabled,
-        [nullable[int]] $ArrowsToScaleFacto,
+        [Alias('ArrowsToScaleFacto')]
+        [nullable[int]] $ArrowsToScaleFactor,
         [ValidateSet('arrow', 'bar', 'circle')][string] $ArrowsToType,
         [switch] $ArrowsMiddleEnabled,
         [nullable[int]]$ArrowsMiddleScaleFactor,
@@ -146,6 +147,10 @@
         [nullable[double]] $ColorOpacity, # range between 0 and 1
         [switch] $Dashes,
         [string] $Length,
+        [nullable[double]] $Width,
+        [nullable[double]] $HoverWidth,
+        [nullable[double]] $SelectionWidth,
+        [nullable[double]] $Value,
         [string] $FontColor,
         [object] $FontSize,
         [string] $FontName,
@@ -208,6 +213,10 @@
                 vadjust     = $FontVAdjust
             }
             dashes             = if ($Dashes) { $Dashes.IsPresent } else { $null }
+            width              = $Width
+            hoverWidth         = $HoverWidth
+            selectionWidth     = $SelectionWidth
+            value              = $Value
             widthConstraint    = $WidthConstraint
         }
     }

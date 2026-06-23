@@ -63,10 +63,10 @@
     }
 
     if ($null -ne $OffsetX) {
-        $Object['DataLabel']['offsetX'] = $OffsetX
+        $Object.DataLabel['offsetX'] = $OffsetX
     }
-    if ($null -ne $OffsetX) {
-        $Object['DataLabel']['offsetX'] = $OffsetY
+    if ($null -ne $OffsetY) {
+        $Object.DataLabel['offsetY'] = $OffsetY
     }
     $Object.DataLabel.style = [ordered]@{}
     if ($FontSize) {
@@ -75,7 +75,7 @@
     if ($FontFamily) {
         $Object.DataLabel.style['fontFamily'] = $FontFamily
     }
-    if ($DataLabelsColor.Count -gt 0) {
+    if ($FontColor.Count -gt 0) {
         $Object.DataLabel.style['colors'] = @(ConvertFrom-Color -Color $FontColor)
     }
     Remove-EmptyValue -Hashtable $Object.DataLabel -Recursive

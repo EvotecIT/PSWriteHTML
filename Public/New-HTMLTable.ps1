@@ -424,6 +424,7 @@
     $TablePercentageBar = [System.Collections.Generic.List[PSCustomObject]]::new()
     $TableAlphabetSearch = [ordered]@{}
     $TableLanguage = [ordered]@{}
+    $TableFooterRows = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     # This will be used to store the colulmnDef option for the datatable
     $ColumnDefinitionList = [System.Collections.Generic.List[PSCustomObject]]::New()
@@ -534,6 +535,8 @@
                     $TableAlphabetSearch = $Parameters.Output
                 } elseif ($Parameters.Type -eq 'TableLanguage') {
                     $TableLanguage = $Parameters.Output
+                } elseif ($Parameters.Type -eq 'TableFooter') {
+                    $TableFooterRows.Add($Parameters.Output)
                 }
             }
         }
@@ -945,6 +948,15 @@
                     if (-not $Button.Title -and $Title) {
                         $Button.title = $Title
                     }
+                    if ($Button.extend -eq 'searchBuilder' -and $Button.text) {
+                        if (-not $Options.Contains('language') -or -not $Options['language']) {
+                            $Options['language'] = [ordered]@{}
+                        }
+                        if (-not $Options['language'].Contains('searchBuilder') -or -not $Options['language']['searchBuilder']) {
+                            $Options['language']['searchBuilder'] = [ordered]@{}
+                        }
+                        $Options['language']['searchBuilder']['button'] = $Button.text
+                    }
                     $Button
                 }
             } else {
@@ -1243,6 +1255,13 @@
     }
 
     # The table column options also adds to the columnDefs parameter
+    if ($RowGroupingColumnID -ne -1 -and $RowGrouping.HideColumn) {
+        $ColumnDefinitionList.Add([PSCustomObject]@{
+                targets    = $RowGroupingColumnID
+                visible    = $false
+                searchable = $true
+            })
+    }
     if ($TableColumnOptions.Count -gt 0) {
         foreach ($T in $TableColumnOptions) {
             $ColumnDefinitionList.Add($T)  # Corrected to use $T instead of $_
@@ -1467,8 +1486,8 @@
         $Table = $Table -replace '&lt;', '<' -replace '&gt;', '>' -replace '&amp;', '&' -replace '&nbsp;', ' ' -replace '&quot;', '"' -replace '&#39;', "'"
     }
     if (-not $DisableNewLine) {
-        # Finds new lines and adds HTML TAG BR
-        $Table = $Table -replace '(?m)\s+$', "<BR>"
+        # Finds new lines inside cell values and adds HTML TAG BR
+        $Table = $Table -replace "(`r`n|`n|`r)", '<br>'
     }
 
     if ($OtherHTML) {
@@ -1513,6 +1532,7 @@
         }
 
         New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
+            New-TableColumnGroup -HeaderNames $HeaderNames -TableColumnOptions $TableColumnOptions
             New-HTMLTag -Tag 'thead' {
                 if ($AddedHeader) {
                     $AddedHeader
@@ -1527,7 +1547,35 @@
             }
             if (-not $HideFooter) {
                 New-HTMLTag -Tag 'tfoot' {
-                    $Header
+                    if ($TableFooterRows.Count -gt 0) {
+                        if ($Filtering -and $FilteringLocation -in @('Bottom', 'Both')) {
+                            New-HTMLTag -Tag 'tr' -Attributes @{ class = 'pswritehtml-filter-row' } {
+                                foreach ($HeaderName in $HeaderNames) {
+                                    New-HTMLTag -Tag 'th' -Value { $HeaderName }
+                                }
+                            }
+                        }
+                        foreach ($Footer in $TableFooterRows) {
+                            New-HTMLTag -Tag 'tr' -Attributes @{ class = 'pswritehtml-static-footer-row' } {
+                                for ($FooterIndex = 0; $FooterIndex -lt $HeaderNames.Count; $FooterIndex++) {
+                                    $FooterValue = ''
+                                    if ($Footer.ValueByColumn) {
+                                        foreach ($Key in $Footer.ValueByColumn.Keys) {
+                                            if ($Key -ieq $HeaderNames[$FooterIndex]) {
+                                                $FooterValue = $Footer.ValueByColumn[$Key]
+                                                break
+                                            }
+                                        }
+                                    } elseif ($Footer.Values.Count -gt $FooterIndex) {
+                                        $FooterValue = $Footer.Values[$FooterIndex]
+                                    }
+                                    New-HTMLTag -Tag 'th' -Attributes @{ style = $Footer.Style } -Value { $FooterValue }
+                                }
+                            }
+                        }
+                    } else {
+                        $Header
+                    }
                 }
             }
         }

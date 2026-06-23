@@ -53,7 +53,7 @@ function Add-TableFiltering {
 
             $Output.FilteringTopCode = @"
                 // Setup - add a text input to each footer cell
-                `$('#$DataTableName tfoot th').each(function () {
+                `$('#$DataTableName tfoot tr:not(.pswritehtml-static-footer-row) th').each(function () {
                     var title = `$(this).text();
                     `$(this).html('<input type="text" placeholder="' + title + '" />');
                 });
@@ -80,7 +80,7 @@ function Add-TableFiltering {
                     `$(this).html('<input type="text" placeholder="' + title + '" />');
                 });
                 // Setup - add a text input to each footer cell
-                `$('#$DataTableName tfoot th').each(function () {
+                `$('#$DataTableName tfoot tr:not(.pswritehtml-static-footer-row) th').each(function () {
                     var title = `$(this).text();
                     `$(this).html('<input type="text" placeholder="' + title + '" />');
                 });

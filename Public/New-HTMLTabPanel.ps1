@@ -93,6 +93,13 @@
                 autoAdjustHeight = $false # this fights with Flex
                 theme            = $Theme.ToLower()
             }
+            $DefaultTab = $TabContent | Where-Object { $_.Default } | Select-Object -First 1
+            if ($DefaultTab) {
+                $DefaultIndex = [array]::IndexOf($TabContent, $DefaultTab)
+                if ($DefaultIndex -ge 0) {
+                    $SmartTab['selected'] = $DefaultIndex
+                }
+            }
             if ($TransitionAnimation) {
                 $SmartTab['transition'] = [ordered] @{}
                 $SmartTab['transition']['animation'] = $TransitionAnimation

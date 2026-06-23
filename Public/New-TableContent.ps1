@@ -54,6 +54,9 @@
     .PARAMETER WordBreak
     Provide new word break. When skipped the word break will not be changed. Options are: 'normal', 'break-all', 'keep-all', 'break-word'
 
+    .PARAMETER VerticalAlignment
+    Provide new vertical alignment. When skipped the vertical alignment will not be changed. Options are: 'baseline', 'sub', 'super', 'text-top', 'text-bottom', 'middle', 'top', 'bottom'
+
     .EXAMPLE
     New-HTML -TitleText "Example37 - Word Breaking" -FilePath "$PSScriptRoot\Example37.html" {
         New-HTMLSection -HeaderText "Word Break for whole table" -HeaderTextAlignment center -Content {
@@ -142,7 +145,8 @@
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl','ltr')][string] $Direction,
-        [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak
+        [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak,
+        [ValidateSet('baseline', 'sub', 'super', 'text-top', 'text-bottom', 'middle', 'top', 'bottom')][string] $VerticalAlignment
     )
     if ($WordBreak -eq '' -or $WordBreak -eq 'normal') {
         $WordBreakStyle = ''
@@ -163,6 +167,7 @@
         TextTransform   = $TextTransform
         Direction       = $Direction
         WordBreak       = $WordBreakStyle
+        VerticalAlignment = $VerticalAlignment
     }
     Remove-EmptyValue -Hashtable $Style
 

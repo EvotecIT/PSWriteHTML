@@ -37,13 +37,25 @@
     Specifies the text transformation. Valid values are 'uppercase', 'lowercase', 'capitalize'.
 
     .PARAMETER Direction
-    Specifies the text direction. Valid values are 'rtl'.
+    Specifies the text direction. Valid values are 'rtl', 'ltr'.
 
     .PARAMETER LineBreak
     Indicates whether to add a line break.
 
     .PARAMETER WordBreak
     Specifies the word break behavior. Valid values are 'normal', 'break-all', 'keep-all', 'break-word'.
+
+    .PARAMETER VerticalAlignment
+    Specifies the vertical alignment for table cells or inline content.
+
+    .PARAMETER BorderStyle
+    Specifies the CSS border style.
+
+    .PARAMETER BorderWidth
+    Specifies the CSS border width.
+
+    .PARAMETER BorderColor
+    Specifies the CSS border color.
 
     .EXAMPLE
     ConvertTo-HTMLStyle -Color 'red' -FontSize '12px' -FontWeight 'bold' -Alignment 'center'
@@ -62,9 +74,13 @@
         [ValidateSet('left', 'center', 'right', 'justify')][string]  $Alignment,
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string]  $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string]  $TextTransform,
-        [ValidateSet('rtl')][string] $Direction,
+        [ValidateSet('rtl', 'ltr')][string] $Direction,
         [switch] $LineBreak,
-        [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak
+        [ValidateSet('normal', 'break-all', 'keep-all', 'break-word')][string] $WordBreak,
+        [ValidateSet('baseline', 'sub', 'super', 'text-top', 'text-bottom', 'middle', 'top', 'bottom')][string] $VerticalAlignment,
+        [ValidateSet('none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset')][string] $BorderStyle,
+        [object] $BorderWidth,
+        [string] $BorderColor
     )
     $Style = @{
         'color'            = ConvertFrom-Color -Color $Color
@@ -77,7 +93,12 @@
         'text-align'       = $Alignment
         'text-decoration'  = $TextDecoration
         'text-transform'   = $TextTransform
+        'direction'        = $Direction
         'word-break'       = $WordBreak
+        'vertical-align'   = $VerticalAlignment
+        'border-style'     = $BorderStyle
+        'border-width'     = ConvertFrom-Size -Size $BorderWidth
+        'border-color'     = ConvertFrom-Color -Color $BorderColor
     }
     # Removes empty, not needed values from hashtable. It's much easier then using if/else to verify for null/empty string
     Remove-EmptyValue -Hashtable $Style

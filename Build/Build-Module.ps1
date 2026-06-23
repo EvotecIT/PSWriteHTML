@@ -71,11 +71,9 @@
     New-ConfigurationFormat -ApplyTo 'DefaultPSD1', 'OnMergePSD1' -PSD1Style 'Minimal'
     # configuration for documentation, at the same time it enables documentation processing
     $documentationConfiguration = @{
-        Enable        = $true
-        StartClean    = $true
-        UpdateWhenNew = $true
-        PathReadme    = 'Docs\Readme.md'
-        Path          = 'Docs'
+        Enable     = $true
+        PathReadme = 'Docs\Readme.md'
+        Path       = 'Docs'
     }
 
     if ((Get-Command New-ConfigurationDocumentation).Parameters.ContainsKey('SyncExternalHelpToProjectRoot')) {

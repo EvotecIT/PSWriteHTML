@@ -21,6 +21,9 @@
     .PARAMETER BackgroundColor
     Specifies the background color for the row grouping.
 
+    .PARAMETER HideGroupedColumn
+    Hides the grouped source column while keeping it available for grouping and searching.
+
     .EXAMPLE
     New-TableRowGrouping -Name "Group A" -ColumnID 1 -SortOrder 'Ascending' -Color 'Red' -BackgroundColor 'LightGray'
     Creates a new table row grouping object for Group A, grouping by column ID 1 in ascending order with red text and light gray background.
@@ -36,7 +39,8 @@
         [int] $ColumnID = -1,
         [ValidateSet('Ascending', 'Descending')][string] $SortOrder = 'Ascending',
         [string] $Color,
-        [string] $BackgroundColor
+        [string] $BackgroundColor,
+        [switch] $HideGroupedColumn
     )
     $Script:HTMLSchema.Features.DataTablesRowGrouping = $true
 
@@ -45,7 +49,8 @@
         Output = [ordered] @{
             Name       = $Name
             ColumnID   = $ColumnID
-            Sorting    = if ('Ascending') { 'asc' } else { 'desc' }
+            Sorting    = if ($SortOrder -eq 'Ascending') { 'asc' } else { 'desc' }
+            HideColumn = $HideGroupedColumn.IsPresent
             Attributes = @{
                 'color'            = ConvertFrom-Color -Color $Color
                 'background-color' = ConvertFrom-Color -Color $BackgroundColor

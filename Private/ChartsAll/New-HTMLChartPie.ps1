@@ -86,6 +86,7 @@
         [string[]] $DataLabelsColor,
         [Array] $Data,
         [Array] $DataNames,
+        [Array] $Labels,
 
         [System.Collections.IDictionary] $Title,
         [System.Collections.IDictionary] $SubTitle,
@@ -113,7 +114,11 @@
     if ($Legend) {
         $Options.legend = $Legend
     }
-    New-ChartInternalPie -Options $Options -Names $DataNames -Values $Data -Type $Type
+    if ($Labels.Count -gt 0) {
+        New-ChartInternalPie -Options $Options -Names $Labels -Values $Data -Type $Type
+    } else {
+        New-ChartInternalPie -Options $Options -Names $DataNames -Values $Data -Type $Type
+    }
     New-ChartInternalColors -Options $Options -Colors $Colors
     # Default for all charts
     if ($Design.fill.pattern) {
