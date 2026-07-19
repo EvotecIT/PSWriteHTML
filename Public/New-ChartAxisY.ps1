@@ -104,8 +104,8 @@
         [alias('TitleStyleColor')][string] $TitleColor,
         [alias('TitleStyleFontSize')][int] $TitleFontSize, # = 12,
         [alias('TitleStyleFontFamily')][string] $TitleFontFamily, # = 'Helvetica, Arial, sans-serif',
-        [int] $MinValue,
-        [int] $MaxValue,
+        [nullable[int]] $MinValue,
+        [nullable[int]] $MaxValue,
         [int] $LabelMinWidth = -1,
         [int] $LabelMaxWidth,
         [ValidateSet('left', 'center', 'right')][string] $LabelAlign,
@@ -143,10 +143,10 @@
     if ($Floating) {
         $Object.ChartAxisY.floating = $true
     }
-    if ($MinValue) {
+    if ($MinValue -ne $null) {
         $Object.ChartAxisY.min = $MinValue
     }
-    if ($MaxValue) {
+    if ($MaxValue -ne $null) {
         $Object.ChartAxisY.max = $MaxValue
     }
 
