@@ -143,10 +143,10 @@
     if ($Floating) {
         $Object.ChartAxisY.floating = $true
     }
-    if ($MinValue -ne $null) {
+    if ($null -ne $MinValue) {
         $Object.ChartAxisY.min = $MinValue
     }
-    if ($MaxValue -ne $null) {
+    if ($null -ne $MaxValue) {
         $Object.ChartAxisY.max = $MaxValue
     }
 
