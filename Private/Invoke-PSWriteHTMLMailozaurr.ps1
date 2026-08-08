@@ -74,7 +74,14 @@ function Invoke-PSWriteHTMLMailozaurr {
     if ($UseSmtpTransport) {
         $ExplicitSmtpAuthenticationParameter = $null
         $AdditionalUseDefaultCredentialsSpecified = $false
+        $AdditionalAsSecureStringSpecified = $false
         if ($AdditionalParameters) {
+            foreach ($Key in $AdditionalParameters.Keys) {
+                if ([string]::Equals([string] $Key, 'AsSecureString', [System.StringComparison]::OrdinalIgnoreCase)) {
+                    $AdditionalAsSecureStringSpecified = $true
+                    break
+                }
+            }
             foreach ($AuthenticationParameter in @('Credential', 'Password', 'UseDefaultCredentials')) {
                 foreach ($Key in $AdditionalParameters.Keys) {
                     if ([string]::Equals([string] $Key, $AuthenticationParameter, [System.StringComparison]::OrdinalIgnoreCase)) {
@@ -128,7 +135,9 @@ function Invoke-PSWriteHTMLMailozaurr {
         if ($EmailParameters.EnableSSL) {
             $Parameters['UseSsl'] = $true
         }
-        if ($EmailParameters.PasswordAsSecure -and $SmtpPasswordReplacementParameter -notin @('Credential', 'UseDefaultCredentials')) {
+        if ($EmailParameters.PasswordAsSecure -and
+            -not $AdditionalAsSecureStringSpecified -and
+            $SmtpPasswordReplacementParameter -notin @('Credential', 'Password', 'UseDefaultCredentials')) {
             $Parameters['AsSecureString'] = $true
         }
         if ($EmailParameters.DeliveryNotifications -and $EmailParameters.DeliveryNotifications -ne 'None') {

@@ -289,4 +289,32 @@ Describe 'Email content and transport contracts' {
         $result.BoundParameters | Should -Not -Contain 'username'
         $result.BoundParameters | Should -Not -Contain 'password'
     }
+
+    It 'does not apply the legacy secure-string flag to a plaintext password override' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ Password = 'replacement-password' } {
+            EmailServer -Server 'smtp.example.test' -UserName 'legacy-user@example.test' -Password 'legacy-password' -PasswordAsSecure
+            '<html><body>Plaintext replacement</body></html>'
+        }
+
+        $result.BoundParameters | Should -Contain 'Password'
+        $result.BoundParameters | Should -Not -Contain 'AsSecureString'
+    }
+
+    It 'honors an explicit secure-string flag with a replacement password' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ Password = 'replacement-password'; AsSecureString = $true } {
+            EmailServer -Server 'smtp.example.test' -UserName 'legacy-user@example.test' -Password 'legacy-password'
+            '<html><body>Secure replacement</body></html>'
+        }
+
+        $result.BoundParameters | Should -Contain 'Password'
+        $result.BoundParameters | Should -Contain 'AsSecureString'
+    }
 }
