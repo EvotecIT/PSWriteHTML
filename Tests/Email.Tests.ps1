@@ -1,0 +1,113 @@
+Describe 'Email content and transport contracts' {
+    BeforeAll {
+        . "$PSScriptRoot\..\Private\Invoke-PSWriteHTMLMailozaurr.ps1"
+        . "$PSScriptRoot\..\Public\Email.ps1"
+        . "$PSScriptRoot\..\Public\EmailServer.ps1"
+
+        function Stop-TimeLog {
+            '0 ms'
+        }
+
+        function Test-MailozaurrSender {
+            [CmdletBinding(SupportsShouldProcess, DefaultParameterSetName = 'Smtp')]
+            param(
+                [object] $From,
+                [object[]] $To,
+                [object[]] $Cc,
+                [object[]] $Bcc,
+                [string] $ReplyTo,
+                [Parameter(ParameterSetName = 'Smtp')][string] $Server,
+                [Parameter(ParameterSetName = 'Smtp')][string] $Username,
+                [Parameter(ParameterSetName = 'Smtp')][string] $Password,
+                [Parameter(ParameterSetName = 'Smtp')][int] $Port,
+                [string] $Subject,
+                [string] $Priority,
+                [string[]] $HTML,
+                [object[]] $Attachment,
+                [Parameter(ParameterSetName = 'Smtp')][switch] $UseSsl,
+                [Parameter(ParameterSetName = 'Smtp')][switch] $AsSecureString,
+                [Parameter(ParameterSetName = 'Smtp')][switch] $UseDefaultCredentials,
+                [Parameter(Mandatory, ParameterSetName = 'Graph')][switch] $Graph,
+                [Parameter(ParameterSetName = 'Graph')][pscredential] $Credential,
+                [string] $ProviderMarker
+            )
+
+            [pscustomobject] @{
+                ParameterSet   = $PSCmdlet.ParameterSetName
+                From           = $From
+                To             = $To
+                HTML           = $HTML -join ''
+                Attachment     = $Attachment
+                UseSsl         = $UseSsl.IsPresent
+                UseDefaultCredentials = $UseDefaultCredentials.IsPresent
+                ProviderMarker = $ProviderMarker
+            }
+        }
+
+        $script:TestMailozaurrSenderCommand = Get-Command Test-MailozaurrSender
+    }
+
+    BeforeEach {
+        $script:LegacySendCount = 0
+        function Send-Email {
+            $script:LegacySendCount++
+            throw 'The legacy sender must not be invoked by this test.'
+        }
+    }
+
+    It 'returns content without invoking any sender when OutputHTML is selected' {
+        $result = Email -OutputHTML -Suppress:$false {
+            '<html><body>Rendered only</body></html>'
+        }
+
+        $result | Should -Be '<html><body>Rendered only</body></html>'
+        $script:LegacySendCount | Should -Be 0
+    }
+
+    It 'maps the generated body and legacy headers to the optional Mailozaurr command' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -Server 'smtp.example.test' -SSL -MailozaurrParameters @{ ProviderMarker = 'runtime-adapter' } {
+            '<html><body>Mailozaurr body</body></html>'
+        }
+
+        $result.From | Should -Be 'sender@example.test'
+        $result.To | Should -Contain 'recipient@example.test'
+        $result.HTML | Should -Be '<html><body>Mailozaurr body</body></html>'
+        $result.UseSsl | Should -BeTrue
+        $result.ProviderMarker | Should -Be 'runtime-adapter'
+        $script:LegacySendCount | Should -Be 0
+    }
+
+    It 'does not leak SMTP-only defaults into a Graph Mailozaurr parameter set' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+        $credential = [pscredential]::new('graph-user@example.test', (ConvertTo-SecureString 'not-a-secret' -AsPlainText -Force))
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ Graph = $true; Credential = $credential } {
+            '<html><body>Graph body</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Graph'
+        $result.HTML | Should -Be '<html><body>Graph body</body></html>'
+        $script:LegacySendCount | Should -Be 0
+    }
+
+    It 'preserves legacy default-credential SMTP behavior' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' {
+            EmailServer -Server 'smtp.example.test' -UseDefaultCredential
+            '<html><body>Default credentials</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Smtp'
+        $result.UseDefaultCredentials | Should -BeTrue
+        $script:LegacySendCount | Should -Be 0
+    }
+}

@@ -1,4 +1,17 @@
-﻿Invoke-ModuleBuild -ModuleName 'PSWriteHTML' {
+﻿param(
+    [ValidateSet('Manifest', 'Build', 'Publish')]
+    [string] $ConfigurationGateMode = 'Build',
+
+    [bool] $SignModule = ($ConfigurationGateMode -eq 'Publish'),
+
+    [string] $PowerShellGalleryApiKeyPath = 'C:\Support\Important\PowerShellGalleryAPI.txt',
+
+    [string] $GitHubApiKeyPath = 'C:\Support\Important\GitHubAPI.txt'
+)
+
+Import-Module PSPublishModule -Force -ErrorAction Stop
+
+Build-Module -ModuleName 'PSWriteHTML' {
     # Usual defaults as per standard module
     $Manifest = [ordered] @{
         ModuleVersion        = '1.X.0'
@@ -27,6 +40,7 @@
         'Microsoft.PowerShell.Utility'
         # this is optional, and checked for existance in the source codes directly
         'PSParseHTML'
+        'Mailozaurr'
     ) -IgnoreFunctionName 'Select-Unique', 'Compare-TwoArrays', 'IsNumeric', 'IsOfType', 'Format-HTML', 'Optimize-HTML' # those functions are internal within private function
 
     $ConfigurationFormat = [ordered] @{
@@ -70,23 +84,13 @@
     # when creating PSD1 use special style without comments and with only required parameters
     New-ConfigurationFormat -ApplyTo 'DefaultPSD1', 'OnMergePSD1' -PSD1Style 'Minimal'
     # configuration for documentation, at the same time it enables documentation processing
-    $documentationConfiguration = @{
-        Enable     = $true
-        PathReadme = 'Docs\Readme.md'
-        Path       = 'Docs'
-    }
-
-    if ((Get-Command New-ConfigurationDocumentation).Parameters.ContainsKey('SyncExternalHelpToProjectRoot')) {
-        $documentationConfiguration.SyncExternalHelpToProjectRoot = $true
-    }
-
-    New-ConfigurationDocumentation @documentationConfiguration
+    New-ConfigurationDocumentation -Enable -PathReadme 'Docs\Readme.md' -Path 'Docs' -SyncExternalHelpToProjectRoot
 
     New-ConfigurationImportModule -ImportSelf
 
     $newConfigurationBuildSplat = @{
         Enable                            = $true
-        SignModule                        = $true
+        SignModule                        = $SignModule
         MergeModuleOnBuild                = $true
         MergeFunctionsFromApprovedModules = $true
         CertificateThumbprint             = '483292C9E317AA13B07BB7A96AE9D1A5ED9E7703'
@@ -100,7 +104,8 @@
     New-ConfigurationArtefact -Type Unpacked -Enable -Path "$PSScriptRoot\..\Artefacts\Unpacked" -AddRequiredModules
     New-ConfigurationArtefact -Type Packed -Enable -Path "$PSScriptRoot\..\Artefacts\Packed" -ArtefactName '<ModuleName>.v<ModuleVersion>.zip'
 
-    # options for publishing to github/psgallery
-    #New-ConfigurationPublish -Type PowerShellGallery -FilePath 'C:\Support\Important\PowerShellGalleryAPI.txt' -Enabled:$true
-    #New-ConfigurationPublish -Type GitHub -FilePath 'C:\Support\Important\GitHubAPI.txt' -UserName 'EvotecIT' -Enabled:$true #-GenerateReleaseNotes
+    New-ConfigurationPublish -Type PowerShellGallery -FilePath $PowerShellGalleryApiKeyPath -Enabled:$false -UseAsDependencyVersionSource
+    New-ConfigurationPublish -Type GitHub -FilePath $GitHubApiKeyPath -UserName 'EvotecIT' -RepositoryName 'PSWriteHTML' -Enabled:$false -GenerateReleaseNotes
+
+    New-ConfigurationGate -Mode $ConfigurationGateMode
 } -ExitCode
