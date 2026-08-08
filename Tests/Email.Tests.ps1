@@ -41,6 +41,7 @@ Describe 'Email content and transport contracts' {
                 UseSsl         = $UseSsl.IsPresent
                 UseDefaultCredentials = $UseDefaultCredentials.IsPresent
                 ProviderMarker = $ProviderMarker
+                BoundParameters = @($PSBoundParameters.Keys)
             }
         }
 
@@ -94,6 +95,45 @@ Describe 'Email content and transport contracts' {
         $result.ParameterSet | Should -Be 'Graph'
         $result.HTML | Should -Be '<html><body>Graph body</body></html>'
         $script:LegacySendCount | Should -Be 0
+    }
+
+    It 'omits disabled provider selectors from the Mailozaurr splat' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -Server 'smtp.example.test' -MailozaurrParameters @{ Graph = $false } {
+            '<html><body>SMTP body</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Smtp'
+        $result.BoundParameters | Should -Not -Contain 'Graph'
+    }
+
+    It 'ignores legacy PasswordFromFile when a non-SMTP provider is selected' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+        $credential = [pscredential]::new('graph-user@example.test', (ConvertTo-SecureString 'not-a-secret' -AsPlainText -Force))
+
+        $result = Email -UseMailozaurr -PasswordFromFile -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ Graph = $true; Credential = $credential } {
+            '<html><body>Graph body</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Graph'
+    }
+
+    It 'rejects an unrelated global Send-EmailMessage command' {
+        Mock Get-Command {
+            param($Name)
+            if ($Name -eq 'Mailozaurr\Send-EmailMessage') {
+                return $null
+            }
+            $script:TestMailozaurrSenderCommand
+        }
+
+        { Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' { 'body' } } |
+            Should -Throw '*requires the Mailozaurr module*'
     }
 
     It 'preserves legacy default-credential SMTP behavior' {

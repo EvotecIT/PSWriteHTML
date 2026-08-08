@@ -51,7 +51,12 @@ try {
 Write-Color 'Running tests...' -Color Yellow
 Write-Color
 
-$result = Invoke-Pester -Script $PSScriptRoot\Tests -Verbose -PassThru
+$InvokePesterCommand = Get-Command Invoke-Pester
+if ($InvokePesterCommand.Parameters.ContainsKey('Path')) {
+    $result = Invoke-Pester -Path $PSScriptRoot\Tests -Output Detailed -PassThru
+} else {
+    $result = Invoke-Pester -Script $PSScriptRoot\Tests -Verbose -PassThru
+}
 
 if ($result.FailedCount -gt 0) {
     throw "$($result.FailedCount) tests failed."

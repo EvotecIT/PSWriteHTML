@@ -14,14 +14,13 @@ function Invoke-PSWriteHTMLMailozaurr {
 
     $Command = Get-Command -Name 'Mailozaurr\Send-EmailMessage' -ErrorAction SilentlyContinue
     if (-not $Command) {
-        $Command = Get-Command -Name 'Send-EmailMessage' -ErrorAction SilentlyContinue
+        $Candidate = Get-Command -Name 'Send-EmailMessage' -ErrorAction SilentlyContinue
+        if ($Candidate -and ($Candidate.ModuleName -eq 'Mailozaurr' -or $Candidate.Source -eq 'Mailozaurr')) {
+            $Command = $Candidate
+        }
     }
     if (-not $Command) {
         throw "Email -UseMailozaurr requires the Mailozaurr module and its Send-EmailMessage command to be available."
-    }
-
-    if ($EmailParameters.PasswordFromFile) {
-        throw "Email -UseMailozaurr does not map the legacy -PasswordFromFile behavior. Pass Credential or provider authentication through -MailozaurrParameters."
     }
 
     $Parameters = [ordered] @{}
@@ -43,22 +42,25 @@ function Invoke-PSWriteHTMLMailozaurr {
 
     $UseSmtpTransport = $true
     $NonSmtpSelectors = @('Graph', 'MgGraphRequest', 'SendGrid', 'EmailProvider')
+    $IsSelectorEnabled = {
+        param($Value)
+
+        if ($Value -is [System.Management.Automation.SwitchParameter]) {
+            return $Value.IsPresent
+        }
+        if ($Value -is [bool]) {
+            return $Value
+        }
+        return $null -ne $Value
+    }
     if ($AdditionalParameters) {
         foreach ($Key in $AdditionalParameters.Keys) {
             $SelectorName = [string] $Key
             if ($NonSmtpSelectors -notcontains $SelectorName) {
                 continue
             }
-
             $SelectorValue = $AdditionalParameters[$Key]
-            $SelectorEnabled = if ($SelectorValue -is [System.Management.Automation.SwitchParameter]) {
-                $SelectorValue.IsPresent
-            } elseif ($SelectorValue -is [bool]) {
-                $SelectorValue
-            } else {
-                $null -ne $SelectorValue
-            }
-            if ($SelectorEnabled) {
+            if (& $IsSelectorEnabled $SelectorValue) {
                 $UseSmtpTransport = $false
                 break
             }
@@ -66,6 +68,10 @@ function Invoke-PSWriteHTMLMailozaurr {
     }
 
     if ($UseSmtpTransport) {
+        if ($EmailParameters.PasswordFromFile) {
+            throw "Email -UseMailozaurr does not map the legacy -PasswordFromFile behavior for SMTP. Pass Credential or provider authentication through -MailozaurrParameters."
+        }
+
         $SmtpMappings = [ordered] @{
             Server   = 'Server'
             Login    = 'Username'
@@ -98,6 +104,9 @@ function Invoke-PSWriteHTMLMailozaurr {
     }
     if ($AdditionalParameters) {
         foreach ($Key in $AdditionalParameters.Keys) {
+            if ($NonSmtpSelectors -contains [string] $Key -and -not (& $IsSelectorEnabled $AdditionalParameters[$Key])) {
+                continue
+            }
             $Parameters[$Key] = $AdditionalParameters[$Key]
         }
     }
