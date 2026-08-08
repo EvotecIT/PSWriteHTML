@@ -74,9 +74,14 @@ function Invoke-PSWriteHTMLMailozaurr {
         $HasExplicitSmtpAuthentication = $false
         if ($AdditionalParameters) {
             foreach ($AuthenticationParameter in @('Credential', 'Username', 'Password', 'UseDefaultCredentials', 'OAuth2')) {
-                if ($AdditionalParameters.Keys -contains $AuthenticationParameter -and
-                    (& $IsParameterEnabled $AdditionalParameters[$AuthenticationParameter])) {
-                    $HasExplicitSmtpAuthentication = $true
+                foreach ($Key in $AdditionalParameters.Keys) {
+                    if ([string]::Equals([string] $Key, $AuthenticationParameter, [System.StringComparison]::OrdinalIgnoreCase) -and
+                        (& $IsParameterEnabled $AdditionalParameters[$Key])) {
+                        $HasExplicitSmtpAuthentication = $true
+                        break
+                    }
+                }
+                if ($HasExplicitSmtpAuthentication) {
                     break
                 }
             }

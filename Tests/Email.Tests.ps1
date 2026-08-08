@@ -137,6 +137,22 @@ Describe 'Email content and transport contracts' {
         $result.BoundParameters | Should -Contain 'Credential'
     }
 
+    It 'finds explicit SMTP authentication in a case-sensitive dictionary by its actual key' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+        $credential = [pscredential]::new('smtp-user@example.test', (ConvertTo-SecureString 'not-a-secret' -AsPlainText -Force))
+        $parameters = [System.Collections.Generic.Dictionary[string, object]]::new([System.StringComparer]::Ordinal)
+        $parameters.Add('credential', $credential)
+
+        $result = Email -UseMailozaurr -PasswordFromFile -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -Server 'smtp.example.test' -MailozaurrParameters $parameters {
+            '<html><body>SMTP body</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Smtp'
+        $result.BoundParameters | Should -Contain 'credential'
+    }
+
     It 'rejects an unrelated global Send-EmailMessage command' {
         Mock Get-Command {
             param($Name)
