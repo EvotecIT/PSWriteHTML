@@ -42,6 +42,7 @@ function Invoke-PSWriteHTMLMailozaurr {
 
     $UseSmtpTransport = $true
     $NonSmtpSelectors = @('Graph', 'MgGraphRequest', 'SendGrid', 'EmailProvider')
+    $SmtpAuthenticationParameters = @('Credential', 'Username', 'Password', 'UseDefaultCredentials', 'OAuth2')
     $IsParameterEnabled = {
         param($Value)
 
@@ -71,20 +72,35 @@ function Invoke-PSWriteHTMLMailozaurr {
     }
 
     if ($UseSmtpTransport) {
-        $SmtpPasswordReplacementParameter = if ($EmailParameters.UseDefaultCredentials) { 'UseDefaultCredentials' } else { $null }
+        $ExplicitSmtpAuthenticationParameter = $null
+        $AdditionalUseDefaultCredentialsSpecified = $false
         if ($AdditionalParameters) {
             foreach ($AuthenticationParameter in @('Credential', 'Password', 'UseDefaultCredentials')) {
                 foreach ($Key in $AdditionalParameters.Keys) {
-                    if ([string]::Equals([string] $Key, $AuthenticationParameter, [System.StringComparison]::OrdinalIgnoreCase) -and
-                        (& $IsParameterEnabled $AdditionalParameters[$Key])) {
-                        $SmtpPasswordReplacementParameter = $AuthenticationParameter
-                        break
+                    if ([string]::Equals([string] $Key, $AuthenticationParameter, [System.StringComparison]::OrdinalIgnoreCase)) {
+                        if ($AuthenticationParameter -eq 'UseDefaultCredentials') {
+                            $AdditionalUseDefaultCredentialsSpecified = $true
+                        }
+                        if (& $IsParameterEnabled $AdditionalParameters[$Key]) {
+                            $ExplicitSmtpAuthenticationParameter = $AuthenticationParameter
+                            break
+                        }
                     }
                 }
-                if ($SmtpPasswordReplacementParameter) {
+                if ($ExplicitSmtpAuthenticationParameter) {
                     break
                 }
             }
+        }
+        $LegacyDefaultCredentialsEffective = ([bool] $EmailParameters.UseDefaultCredentials) -and
+            -not $AdditionalUseDefaultCredentialsSpecified -and
+            -not $ExplicitSmtpAuthenticationParameter
+        $SmtpPasswordReplacementParameter = if ($ExplicitSmtpAuthenticationParameter) {
+            $ExplicitSmtpAuthenticationParameter
+        } elseif ($LegacyDefaultCredentialsEffective) {
+            'UseDefaultCredentials'
+        } else {
+            $null
         }
         if ($EmailParameters.PasswordFromFile -and -not $SmtpPasswordReplacementParameter) {
             throw "Email -UseMailozaurr does not map the legacy -PasswordFromFile behavior for SMTP. Pass Credential or provider authentication through -MailozaurrParameters."
@@ -97,9 +113,8 @@ function Invoke-PSWriteHTMLMailozaurr {
             Port     = 'Port'
         }
         foreach ($SourceName in $SmtpMappings.Keys) {
-            if ($EmailParameters.PasswordFromFile -and
-                ($SourceName -eq 'Password' -or
-                 ($SourceName -eq 'Login' -and $SmtpPasswordReplacementParameter -in @('Credential', 'UseDefaultCredentials')))) {
+            if (($SourceName -eq 'Password' -and ($EmailParameters.PasswordFromFile -or $SmtpPasswordReplacementParameter)) -or
+                ($SourceName -eq 'Login' -and $SmtpPasswordReplacementParameter -in @('Credential', 'UseDefaultCredentials'))) {
                 continue
             }
             $Value = $EmailParameters[$SourceName]
@@ -107,13 +122,13 @@ function Invoke-PSWriteHTMLMailozaurr {
                 $Parameters[$SmtpMappings[$SourceName]] = $Value
             }
         }
-        if ($EmailParameters.UseDefaultCredentials) {
+        if ($LegacyDefaultCredentialsEffective) {
             $Parameters['UseDefaultCredentials'] = $true
         }
         if ($EmailParameters.EnableSSL) {
             $Parameters['UseSsl'] = $true
         }
-        if ($EmailParameters.PasswordAsSecure) {
+        if ($EmailParameters.PasswordAsSecure -and $SmtpPasswordReplacementParameter -notin @('Credential', 'UseDefaultCredentials')) {
             $Parameters['AsSecureString'] = $true
         }
         if ($EmailParameters.DeliveryNotifications -and $EmailParameters.DeliveryNotifications -ne 'None') {
@@ -128,6 +143,9 @@ function Invoke-PSWriteHTMLMailozaurr {
     if ($AdditionalParameters) {
         foreach ($Key in $AdditionalParameters.Keys) {
             if ($NonSmtpSelectors -contains [string] $Key -and -not (& $IsParameterEnabled $AdditionalParameters[$Key])) {
+                continue
+            }
+            if ($SmtpAuthenticationParameters -contains [string] $Key -and -not (& $IsParameterEnabled $AdditionalParameters[$Key])) {
                 continue
             }
             $Parameters[$Key] = $AdditionalParameters[$Key]

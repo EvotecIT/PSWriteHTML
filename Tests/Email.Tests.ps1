@@ -209,4 +209,84 @@ Describe 'Email content and transport contracts' {
         $result.UseDefaultCredentials | Should -BeTrue
         $script:LegacySendCount | Should -Be 0
     }
+
+    It 'lets an explicit credential replace legacy default authentication' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+        $credential = [pscredential]::new('smtp-user@example.test', (ConvertTo-SecureString 'not-a-secret' -AsPlainText -Force))
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ Credential = $credential } {
+            EmailServer -Server 'smtp.example.test' -UserName 'legacy-user@example.test' -Password 'legacy-password' -PasswordAsSecure -UseDefaultCredential
+            '<html><body>Explicit credentials</body></html>'
+        }
+
+        $result.BoundParameters | Should -Contain 'Credential'
+        $result.BoundParameters | Should -Not -Contain 'UseDefaultCredentials'
+        $result.BoundParameters | Should -Not -Contain 'Username'
+        $result.BoundParameters | Should -Not -Contain 'Password'
+        $result.BoundParameters | Should -Not -Contain 'AsSecureString'
+    }
+
+    It 'lets explicit username and password replace legacy default authentication' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ Username = 'smtp-user@example.test'; Password = 'explicit-password' } {
+            EmailServer -Server 'smtp.example.test' -UseDefaultCredential
+            '<html><body>Explicit password</body></html>'
+        }
+
+        $result.BoundParameters | Should -Contain 'Username'
+        $result.BoundParameters | Should -Contain 'Password'
+        $result.BoundParameters | Should -Not -Contain 'UseDefaultCredentials'
+    }
+
+    It 'omits a disabled default-credential selector and suppresses the legacy value' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ UseDefaultCredentials = $false } {
+            EmailServer -Server 'smtp.example.test' -UseDefaultCredential
+            '<html><body>Anonymous SMTP</body></html>'
+        }
+
+        $result.BoundParameters | Should -Not -Contain 'UseDefaultCredentials'
+    }
+
+    It 'omits an inactive null credential without replacing legacy authentication' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ Credential = $null } {
+            EmailServer -Server 'smtp.example.test' -UserName 'legacy-user@example.test' -Password 'legacy-password'
+            '<html><body>Legacy credentials</body></html>'
+        }
+
+        $result.BoundParameters | Should -Not -Contain 'Credential'
+        $result.BoundParameters | Should -Contain 'Username'
+        $result.BoundParameters | Should -Contain 'Password'
+    }
+
+    It 'omits inactive authentication values from a case-sensitive parameter dictionary' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+        $parameters = [System.Collections.Generic.Dictionary[string, object]]::new([System.StringComparer]::Ordinal)
+        $parameters['credential'] = $null
+        $parameters['username'] = '   '
+        $parameters['password'] = ''
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters $parameters {
+            EmailServer -Server 'smtp.example.test'
+            '<html><body>Anonymous SMTP</body></html>'
+        }
+
+        $result.BoundParameters | Should -Not -Contain 'credential'
+        $result.BoundParameters | Should -Not -Contain 'username'
+        $result.BoundParameters | Should -Not -Contain 'password'
+    }
 }
