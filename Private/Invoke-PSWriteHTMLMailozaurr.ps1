@@ -42,7 +42,7 @@ function Invoke-PSWriteHTMLMailozaurr {
 
     $UseSmtpTransport = $true
     $NonSmtpSelectors = @('Graph', 'MgGraphRequest', 'SendGrid', 'EmailProvider')
-    $IsSelectorEnabled = {
+    $IsParameterEnabled = {
         param($Value)
 
         if ($Value -is [System.Management.Automation.SwitchParameter]) {
@@ -50,6 +50,9 @@ function Invoke-PSWriteHTMLMailozaurr {
         }
         if ($Value -is [bool]) {
             return $Value
+        }
+        if ($Value -is [string]) {
+            return -not [string]::IsNullOrWhiteSpace($Value)
         }
         return $null -ne $Value
     }
@@ -60,7 +63,7 @@ function Invoke-PSWriteHTMLMailozaurr {
                 continue
             }
             $SelectorValue = $AdditionalParameters[$Key]
-            if (& $IsSelectorEnabled $SelectorValue) {
+            if (& $IsParameterEnabled $SelectorValue) {
                 $UseSmtpTransport = $false
                 break
             }
@@ -68,7 +71,17 @@ function Invoke-PSWriteHTMLMailozaurr {
     }
 
     if ($UseSmtpTransport) {
-        if ($EmailParameters.PasswordFromFile) {
+        $HasExplicitSmtpAuthentication = $false
+        if ($AdditionalParameters) {
+            foreach ($AuthenticationParameter in @('Credential', 'Username', 'Password', 'UseDefaultCredentials', 'OAuth2')) {
+                if ($AdditionalParameters.Keys -contains $AuthenticationParameter -and
+                    (& $IsParameterEnabled $AdditionalParameters[$AuthenticationParameter])) {
+                    $HasExplicitSmtpAuthentication = $true
+                    break
+                }
+            }
+        }
+        if ($EmailParameters.PasswordFromFile -and -not $HasExplicitSmtpAuthentication) {
             throw "Email -UseMailozaurr does not map the legacy -PasswordFromFile behavior for SMTP. Pass Credential or provider authentication through -MailozaurrParameters."
         }
 
@@ -104,7 +117,7 @@ function Invoke-PSWriteHTMLMailozaurr {
     }
     if ($AdditionalParameters) {
         foreach ($Key in $AdditionalParameters.Keys) {
-            if ($NonSmtpSelectors -contains [string] $Key -and -not (& $IsSelectorEnabled $AdditionalParameters[$Key])) {
+            if ($NonSmtpSelectors -contains [string] $Key -and -not (& $IsParameterEnabled $AdditionalParameters[$Key])) {
                 continue
             }
             $Parameters[$Key] = $AdditionalParameters[$Key]

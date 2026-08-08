@@ -28,7 +28,7 @@ Describe 'Email content and transport contracts' {
                 [Parameter(ParameterSetName = 'Smtp')][switch] $AsSecureString,
                 [Parameter(ParameterSetName = 'Smtp')][switch] $UseDefaultCredentials,
                 [Parameter(Mandatory, ParameterSetName = 'Graph')][switch] $Graph,
-                [Parameter(ParameterSetName = 'Graph')][pscredential] $Credential,
+                [pscredential] $Credential,
                 [string] $ProviderMarker
             )
 
@@ -121,6 +121,20 @@ Describe 'Email content and transport contracts' {
         }
 
         $result.ParameterSet | Should -Be 'Graph'
+    }
+
+    It 'allows explicit SMTP authentication to replace legacy PasswordFromFile' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+        $credential = [pscredential]::new('smtp-user@example.test', (ConvertTo-SecureString 'not-a-secret' -AsPlainText -Force))
+
+        $result = Email -UseMailozaurr -PasswordFromFile -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -Server 'smtp.example.test' -MailozaurrParameters @{ Credential = $credential } {
+            '<html><body>SMTP body</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Smtp'
+        $result.BoundParameters | Should -Contain 'Credential'
     }
 
     It 'rejects an unrelated global Send-EmailMessage command' {
