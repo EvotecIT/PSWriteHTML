@@ -56,13 +56,20 @@ Describe 'Email content and transport contracts' {
         }
     }
 
-    It 'returns content without invoking any sender when OutputHTML is selected' {
-        $result = Email -OutputHTML -Suppress:$false {
-            '<html><body>Rendered only</body></html>'
+    It 'returns content and preserves the legacy send when OutputHTML is selected' {
+        Mock Send-Email {
+            $script:LegacySendCount++
+            'sent'
         }
 
-        $result | Should -Be '<html><body>Rendered only</body></html>'
-        $script:LegacySendCount | Should -Be 0
+        $result = Email -OutputHTML -Suppress:$false {
+            '<html><body>Rendered and sent</body></html>'
+        }
+
+        $result | Should -HaveCount 2
+        $result[0] | Should -Be '<html><body>Rendered and sent</body></html>'
+        $result[1] | Should -Be 'sent'
+        $script:LegacySendCount | Should -Be 1
     }
 
     It 'maps the generated body and legacy headers to the optional Mailozaurr command' {
@@ -129,12 +136,34 @@ Describe 'Email content and transport contracts' {
         }
         $credential = [pscredential]::new('smtp-user@example.test', (ConvertTo-SecureString 'not-a-secret' -AsPlainText -Force))
 
-        $result = Email -UseMailozaurr -PasswordFromFile -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -Server 'smtp.example.test' -MailozaurrParameters @{ Credential = $credential } {
+        $result = Email -UseMailozaurr -Username 'legacy-user@example.test' -Password 'C:\secrets\smtp-password.txt' -PasswordFromFile -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -Server 'smtp.example.test' -MailozaurrParameters @{ Credential = $credential } {
             '<html><body>SMTP body</body></html>'
         }
 
         $result.ParameterSet | Should -Be 'Smtp'
         $result.BoundParameters | Should -Contain 'Credential'
+        $result.BoundParameters | Should -Not -Contain 'Username'
+        $result.BoundParameters | Should -Not -Contain 'Password'
+    }
+
+    It 'rejects Username alone as a replacement for legacy PasswordFromFile' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        { Email -UseMailozaurr -Password 'C:\secrets\smtp-password.txt' -PasswordFromFile -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -Server 'smtp.example.test' -MailozaurrParameters @{ Username = 'smtp-user@example.test' } {
+            '<html><body>SMTP body</body></html>'
+        } } | Should -Throw '*does not map the legacy -PasswordFromFile behavior*'
+    }
+
+    It 'rejects OAuth2 without the credential that supplies its token' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        { Email -UseMailozaurr -Password 'C:\secrets\smtp-password.txt' -PasswordFromFile -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -Server 'smtp.example.test' -MailozaurrParameters @{ OAuth2 = $true } {
+            '<html><body>SMTP body</body></html>'
+        } } | Should -Throw '*does not map the legacy -PasswordFromFile behavior*'
     }
 
     It 'finds explicit SMTP authentication in a case-sensitive dictionary by its actual key' {

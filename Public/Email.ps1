@@ -206,10 +206,6 @@ function Email {
     if ($OutputHTML) {
         # If outputhtml is set it allows to return Body of HTML for using it in different scenarios
         $Body
-        $EndTime = Stop-TimeLog -Time $StartTime -Option OneLiner
-        Write-Verbose "Email - Time to render: $EndTime"
-        $Script:EmailSchema = $null
-        return
     }
     if ($AttachSelf) {
         if ($AttachSelfName) {

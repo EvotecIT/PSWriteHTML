@@ -71,22 +71,22 @@ function Invoke-PSWriteHTMLMailozaurr {
     }
 
     if ($UseSmtpTransport) {
-        $HasExplicitSmtpAuthentication = $false
+        $SmtpPasswordReplacementParameter = if ($EmailParameters.UseDefaultCredentials) { 'UseDefaultCredentials' } else { $null }
         if ($AdditionalParameters) {
-            foreach ($AuthenticationParameter in @('Credential', 'Username', 'Password', 'UseDefaultCredentials', 'OAuth2')) {
+            foreach ($AuthenticationParameter in @('Credential', 'Password', 'UseDefaultCredentials')) {
                 foreach ($Key in $AdditionalParameters.Keys) {
                     if ([string]::Equals([string] $Key, $AuthenticationParameter, [System.StringComparison]::OrdinalIgnoreCase) -and
                         (& $IsParameterEnabled $AdditionalParameters[$Key])) {
-                        $HasExplicitSmtpAuthentication = $true
+                        $SmtpPasswordReplacementParameter = $AuthenticationParameter
                         break
                     }
                 }
-                if ($HasExplicitSmtpAuthentication) {
+                if ($SmtpPasswordReplacementParameter) {
                     break
                 }
             }
         }
-        if ($EmailParameters.PasswordFromFile -and -not $HasExplicitSmtpAuthentication) {
+        if ($EmailParameters.PasswordFromFile -and -not $SmtpPasswordReplacementParameter) {
             throw "Email -UseMailozaurr does not map the legacy -PasswordFromFile behavior for SMTP. Pass Credential or provider authentication through -MailozaurrParameters."
         }
 
@@ -97,6 +97,11 @@ function Invoke-PSWriteHTMLMailozaurr {
             Port     = 'Port'
         }
         foreach ($SourceName in $SmtpMappings.Keys) {
+            if ($EmailParameters.PasswordFromFile -and
+                ($SourceName -eq 'Password' -or
+                 ($SourceName -eq 'Login' -and $SmtpPasswordReplacementParameter -in @('Credential', 'UseDefaultCredentials')))) {
+                continue
+            }
             $Value = $EmailParameters[$SourceName]
             if ($null -ne $Value -and -not ($Value -is [string] -and [string]::IsNullOrWhiteSpace($Value))) {
                 $Parameters[$SmtpMappings[$SourceName]] = $Value
