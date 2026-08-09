@@ -42,7 +42,8 @@ function Invoke-PSWriteHTMLMailozaurr {
 
     $UseSmtpTransport = $true
     $NonSmtpSelectors = @('Graph', 'MgGraphRequest', 'SendGrid', 'EmailProvider')
-    $SmtpAuthenticationParameters = @('Credential', 'Username', 'Password', 'UseDefaultCredentials', 'OAuth2')
+    $SmtpAuthenticationParameters = @('Credential', 'Username', 'Password', 'UseDefaultCredentials', 'OAuth2', 'AsSecureString')
+    $SmtpOnlyParameters = @('Username', 'Password', 'UseDefaultCredentials', 'OAuth2', 'AsSecureString')
     $IsParameterEnabled = {
         param($Value)
 
@@ -78,15 +79,21 @@ function Invoke-PSWriteHTMLMailozaurr {
         if ($AdditionalParameters) {
             foreach ($Key in $AdditionalParameters.Keys) {
                 if ([string]::Equals([string] $Key, 'AsSecureString', [System.StringComparison]::OrdinalIgnoreCase)) {
-                    $AdditionalAsSecureStringSpecified = $true
-                    break
+                    $Value = $AdditionalParameters[$Key]
+                    if ($Value -is [bool] -or $Value -is [System.Management.Automation.SwitchParameter]) {
+                        $AdditionalAsSecureStringSpecified = $true
+                        break
+                    }
                 }
             }
             foreach ($AuthenticationParameter in @('Credential', 'Password', 'UseDefaultCredentials')) {
                 foreach ($Key in $AdditionalParameters.Keys) {
                     if ([string]::Equals([string] $Key, $AuthenticationParameter, [System.StringComparison]::OrdinalIgnoreCase)) {
                         if ($AuthenticationParameter -eq 'UseDefaultCredentials') {
-                            $AdditionalUseDefaultCredentialsSpecified = $true
+                            $Value = $AdditionalParameters[$Key]
+                            if ($Value -is [bool] -or $Value -is [System.Management.Automation.SwitchParameter]) {
+                                $AdditionalUseDefaultCredentialsSpecified = $true
+                            }
                         }
                         if (& $IsParameterEnabled $AdditionalParameters[$Key]) {
                             $ExplicitSmtpAuthenticationParameter = $AuthenticationParameter
@@ -151,6 +158,16 @@ function Invoke-PSWriteHTMLMailozaurr {
     }
     if ($AdditionalParameters) {
         foreach ($Key in $AdditionalParameters.Keys) {
+            if ($SmtpOnlyParameters -contains [string] $Key -and -not $UseSmtpTransport) {
+                continue
+            }
+            if ([string]::Equals([string] $Key, 'AsSecureString', [System.StringComparison]::OrdinalIgnoreCase)) {
+                $Value = $AdditionalParameters[$Key]
+                $IsBooleanSwitchValue = $Value -is [bool] -or $Value -is [System.Management.Automation.SwitchParameter]
+                if (-not $IsBooleanSwitchValue -or -not (& $IsParameterEnabled $Value)) {
+                    continue
+                }
+            }
             if ($NonSmtpSelectors -contains [string] $Key -and -not (& $IsParameterEnabled $AdditionalParameters[$Key])) {
                 continue
             }

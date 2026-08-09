@@ -317,4 +317,70 @@ Describe 'Email content and transport contracts' {
         $result.BoundParameters | Should -Contain 'Password'
         $result.BoundParameters | Should -Contain 'AsSecureString'
     }
+
+    It 'omits a disabled secure-string switch from non-SMTP providers' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ Graph = $true; AsSecureString = $false } {
+            '<html><body>Graph body</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Graph'
+        $result.BoundParameters | Should -Not -Contain 'AsSecureString'
+    }
+
+    It 'treats a null secure-string switch as unspecified legacy authentication' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ AsSecureString = $null } {
+            EmailServer -Server 'smtp.example.test' -UserName 'legacy-user@example.test' -Password 'legacy-password' -PasswordAsSecure
+            '<html><body>Legacy secure password</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Smtp'
+        $result.BoundParameters | Should -Contain 'AsSecureString'
+    }
+
+    It 'omits SMTP-only authentication values from non-SMTP providers while retaining shared credentials' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+        $credential = [pscredential]::new('graph-user@example.test', (ConvertTo-SecureString 'not-a-secret' -AsPlainText -Force))
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{
+            Graph = $true
+            Credential = $credential
+            Username = 'stale-smtp-user'
+            Password = 'stale-smtp-password'
+            UseDefaultCredentials = $true
+            OAuth2 = $true
+            AsSecureString = $true
+        } {
+            '<html><body>Graph authentication</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Graph'
+        $result.BoundParameters | Should -Contain 'Credential'
+        foreach ($parameter in 'Username', 'Password', 'UseDefaultCredentials', 'OAuth2', 'AsSecureString') {
+            $result.BoundParameters | Should -Not -Contain $parameter
+        }
+    }
+
+    It 'treats a null default-credential switch as unspecified legacy authentication' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{ UseDefaultCredentials = $null } {
+            EmailServer -Server 'smtp.example.test' -UseDefaultCredential
+            '<html><body>Legacy default credentials</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Smtp'
+        $result.BoundParameters | Should -Contain 'UseDefaultCredentials'
+    }
 }
