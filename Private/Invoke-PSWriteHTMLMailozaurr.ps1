@@ -43,7 +43,17 @@ function Invoke-PSWriteHTMLMailozaurr {
     $UseSmtpTransport = $true
     $NonSmtpSelectors = @('Graph', 'MgGraphRequest', 'SendGrid', 'EmailProvider')
     $SmtpAuthenticationParameters = @('Credential', 'Username', 'Password', 'UseDefaultCredentials', 'OAuth2', 'AsSecureString')
-    $SmtpOnlyParameters = @('Username', 'Password', 'UseDefaultCredentials', 'OAuth2', 'AsSecureString')
+    $SmtpOnlyParameters = @(
+        'Server', 'SmtpServer', 'Port', 'Encoding',
+        'DeliveryNotificationOption', 'DeliveryStatusNotificationType',
+        'Username', 'Password', 'AuthenticationMechanism', 'SecureSocketOptions', 'UseSsl',
+        'SkipCertificateRevocation', 'SkipCertificateValidation', 'SkipCertificateValidatation',
+        'Timeout', 'MimeMessagePath', 'LocalDomain', 'UseDefaultCredentials',
+        'SignOrEncrypt', 'CertificatePath', 'CertificatePassword',
+        'CertificatePasswordAsSecureString', 'CertificateThumbprint', 'Certificate',
+        'PublicKeyPath', 'PrivateKeyPath', 'PrivateKeyPassword',
+        'PrivateKeyPasswordAsSecureString', 'OAuth2', 'oAuth', 'AsSecureString'
+    )
     $IsParameterEnabled = {
         param($Value)
 

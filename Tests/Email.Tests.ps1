@@ -370,6 +370,71 @@ Describe 'Email content and transport contracts' {
         }
     }
 
+    It 'omits the complete SMTP transport surface from non-SMTP providers' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+        $credential = [pscredential]::new('graph-user@example.test', (ConvertTo-SecureString 'not-a-secret' -AsPlainText -Force))
+        $smtpOnly = @{
+            Server = 'smtp.example.test'
+            Port = 465
+            Encoding = 'UTF8'
+            DeliveryNotificationOption = 'OnFailure'
+            DeliveryStatusNotificationType = 'Full'
+            AuthenticationMechanism = 'Plain'
+            SecureSocketOptions = 'SslOnConnect'
+            UseSsl = $true
+            SkipCertificateRevocation = $true
+            SkipCertificateValidation = $true
+            Timeout = 45000
+            MimeMessagePath = 'message.eml'
+            LocalDomain = 'example.test'
+            SignOrEncrypt = 'Sign'
+            CertificatePath = 'certificate.pfx'
+            CertificatePassword = 'not-a-secret'
+            CertificatePasswordAsSecureString = $true
+            CertificateThumbprint = '00'
+            Certificate = [pscustomobject]@{ Subject = 'CN=Test' }
+            PublicKeyPath = 'public.asc'
+            PrivateKeyPath = 'private.asc'
+            PrivateKeyPassword = 'not-a-secret'
+            PrivateKeyPasswordAsSecureString = $true
+        }
+        $parameters = @{ Graph = $true; Credential = $credential }
+        foreach ($entry in $smtpOnly.GetEnumerator()) {
+            $parameters[$entry.Key] = $entry.Value
+        }
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters $parameters {
+            '<html><body>Graph transport filtering</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Graph'
+        $result.BoundParameters | Should -Contain 'Credential'
+        foreach ($parameter in $smtpOnly.Keys) {
+            $result.BoundParameters | Should -Not -Contain $parameter
+        }
+    }
+
+    It 'omits the SMTP OAuth alias from non-SMTP providers' {
+        Mock Get-Command {
+            $script:TestMailozaurrSenderCommand
+        }
+        $credential = [pscredential]::new('graph-user@example.test', (ConvertTo-SecureString 'not-a-secret' -AsPlainText -Force))
+
+        $result = Email -UseMailozaurr -Suppress:$false -From 'sender@example.test' -To 'recipient@example.test' -MailozaurrParameters @{
+            Graph = $true
+            Credential = $credential
+            oAuth = $true
+        } {
+            '<html><body>Graph OAuth alias filtering</body></html>'
+        }
+
+        $result.ParameterSet | Should -Be 'Graph'
+        $result.BoundParameters | Should -Contain 'Credential'
+        $result.BoundParameters | Should -Not -Contain 'oAuth'
+    }
+
     It 'treats a null default-credential switch as unspecified legacy authentication' {
         Mock Get-Command {
             $script:TestMailozaurrSenderCommand
