@@ -51,8 +51,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add PSWriteHTML.psd1
-          git commit -m "chore: regenerate psd1" || echo "No changes to commit"
-          git push origin HEAD:$Env:HEAD_BRANCH
+          git diff --cached --quiet
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "No PSD1 changes to commit."
+          } elseif ($LASTEXITCODE -eq 1) {
+            git commit -m "chore: regenerate psd1"
+            git push origin HEAD:$Env:HEAD_BRANCH
+          } else {
+            throw "Unable to inspect staged PSD1 changes (git exit code $LASTEXITCODE)."
+          }
         shell: pwsh
 
       - name: Upload refreshed manifest
