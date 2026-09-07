@@ -94,12 +94,12 @@ New-HTML {
     # This adds more pages with different content
     New-HTMLPage -Name 'Page2' {
         New-HTMLSection -Invisible {
-            New-HTMLFrame -SourcePath "C:\Support\GitHub\PSWriteHTML\Examples\Example-Maps\Example-Maps.html"
+            New-HTMLFrame -SourcePath "$PSScriptRoot/../Example-Maps/Example-Maps.html"
         } -Height 93vh
     }
     New-HTMLPage -Name 'Page3' {
         New-HTMLSection {
-            New-HTMLFrame -SourcePath "C:\Support\GitHub\PSWriteHTML\Examples\Example-InlineOtherHTMLFile.ps1\GroupMembership-CriticalGroups_2021-05-20_002030.html"
+            New-HTMLFrame -SourcePath "$PSScriptRoot/../Example-InlineOtherHTMLFile.ps1/GroupMembership-CriticalGroups_2021-05-20_002030.html"
         } -HeaderText 'Test' -Height 100vh
     }
 } -ShowHTML -Online -FilePath $PSScriptRoot\Example41-Navigation01.html

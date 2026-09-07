@@ -21,4 +21,4 @@ $DataTable3 = @(
 
     }
 )
-$DataTable3 | Out-HtmlView -FilePath C:\Support\GitHub\PSWriteHTML\Examples\Example-Table\Example7_02_DataStoreJava.html -Online -DataStore JavaScript
+$DataTable3 | Out-HtmlView -FilePath "$PSScriptRoot/Example7_02_DataStoreJava.html" -Online -DataStore JavaScript
