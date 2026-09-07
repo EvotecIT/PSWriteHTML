@@ -2,13 +2,13 @@
 
 New-HTML {
     New-HTMLSection {
-        New-HTMLFrame -SourcePath (Join-Path -Path $PSScriptRoot -ChildPath 'GPOZaurr.html') -Scrolling Auto
+        New-HTMLFrame -SourcePath "$PSScriptRoot/GPOZaurr.html" -Scrolling Auto
     } -HeaderText 'Test'
     New-HTMLSection {
-        New-HTMLFrame -SourcePath (Join-Path -Path $PSScriptRoot -ChildPath 'GPOZaurr.html') -Scrolling Auto -Height 1500px
+        New-HTMLFrame -SourcePath "$PSScriptRoot/GPOZaurr.html" -Scrolling Auto -Height 1500px
     } -HeaderText 'Test'
     New-HTMLSection {
-        New-HTMLFrame -SourcePath (Join-Path -Path (Split-Path -Parent $PSScriptRoot) -ChildPath 'Example-Maps/Example-Maps.html')
+        New-HTMLFrame -SourcePath "$PSScriptRoot/../Example-Maps/Example-Maps.html"
     } -HeaderText 'Test' -Height 100vh
 } -Online -TitleText 'Test Inline' -ShowHTML -FilePath "$PSScriptRoot\Example-InlineHTML01.html" -AddComment
 
@@ -42,4 +42,4 @@ function Set-HTMLInline {
     }
 }
 
-Set-HTMLInline -FilePath (Join-Path -Path $PSScriptRoot -ChildPath 'GPOZaurr.html') -Search 'iframeResizer.contentWindow.min.js' -Replace '<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/davidjbradshaw/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>'
+Set-HTMLInline -FilePath "$PSScriptRoot/GPOZaurr.html" -Search 'iframeResizer.contentWindow.min.js' -Replace '<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/davidjbradshaw/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>'

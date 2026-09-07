@@ -1,4 +1,4 @@
-Import-Module (Join-Path -Path $PSScriptRoot -ChildPath '../../PSWriteHTML.psd1') -Force
+Import-Module "$PSScriptRoot/../../PSWriteHTML.psd1" -Force
 
 $Process = Get-Process | Select-Object -First 20
 $ProcessesLimited = $Process | Select-Object -Property Id, Name, PriorityClass, ProductVersion, Company, Path, Description
