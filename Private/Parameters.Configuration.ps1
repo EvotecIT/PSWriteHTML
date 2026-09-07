@@ -2201,5 +2201,3 @@
 # 'JSXSS'
 # 'Mermaid'
 # )
-# Import-Module "C:\Support\GitHub\PSWriteHTML.Helper\PSWriteHTML.Helper.psd1" -Force
-# Save-HTMLResource -Configuration $Configuration -Keys $Keys -PathToSave 'C:\Support\GitHub\PSWriteHTML\Resources\CSS' -Verbose

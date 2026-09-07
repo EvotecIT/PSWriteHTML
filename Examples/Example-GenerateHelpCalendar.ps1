@@ -1,6 +1,6 @@
 ﻿Import-Module .\PSWriteHTML.psd1 -Force
 
-$Files = Get-ChildItem -Path 'C:\Support\GitHub\PSWriteHTML\Examples' -Filter *.html -Recurse
+$Files = Get-ChildItem -Path $PSScriptRoot -Filter *.html -Recurse
 
 New-HTML -TitleText 'This is a test' -FilePath "$PSScriptRoot\ShowMeCalendar.html" {
     New-HTMLSection -Invisible {
