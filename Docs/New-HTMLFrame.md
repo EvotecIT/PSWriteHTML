@@ -29,7 +29,7 @@ New-HTML {
         New-HTMLFrame -SourcePath (Join-Path -Path $PSScriptRoot -ChildPath 'GPOZaurr.html') -Scrolling Auto -Height 1500px
     } -HeaderText 'Test'
     New-HTMLSection {
-        New-HTMLFrame -SourcePath (Join-Path -Path $PSScriptRoot -ChildPath 'Example-Maps/Example-Maps.html')
+        New-HTMLFrame -SourcePath (Join-Path -Path (Split-Path -Parent $PSScriptRoot) -ChildPath 'Example-Maps/Example-Maps.html')
     } -HeaderText 'Test' -Height 100vh
 } -Online -TitleText 'Test Inline' -ShowHTML -FilePath "$PSScriptRoot\Example-InlineHTML01.html" -AddComment
 ```
