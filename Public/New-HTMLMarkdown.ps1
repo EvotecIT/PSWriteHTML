@@ -132,9 +132,10 @@
     }
 
     $JoinedContent = [string]::Join("`n", [string[]]$Content) + "`n"
+    $ImageMap = @{}
     if ($EmbedImages -and ($FilePath -or $ImageBase)) {
         if (-not $ImageBase) { $ImageBase = Split-Path -Parent (Convert-Path -LiteralPath $FilePath) }
-        $JoinedContent = Resolve-HTMLMarkdownImages -Content $JoinedContent -ImageBase $ImageBase
+        $ImageMap = Get-HTMLMarkdownImageMap -Content $JoinedContent -ImageBase $ImageBase
     }
     if ($EnableTOC) {
         $JoinedContent = $JoinedContent.Replace('[TOC]', '[toc]')
@@ -199,6 +200,8 @@
     $IdJSON = ConvertTo-HTMLScriptJson -InputObject $Id -Compress
     $OptionsJSON = $Options | ConvertTo-HTMLScriptJson
     $OptionsJSON = $OptionsJSON -replace '"tocReplaceMe"', 'showdownToc()'
+    $ImageMapJSON = ConvertTo-HTMLScriptJson -InputObject $ImageMap -Compress
+    $ImagesVariable = "images$TextVariable"
 
     New-HTMLPanel -Invisible {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'markdown-body'; id = $Id } {}
@@ -218,6 +221,11 @@
             }
             if ($MarkdownFlavor) {
                 "$ConverterVariable.setFlavor('$MarkdownFlavor');"
+            }
+            if ($ImageMap.Count -gt 0) {
+                "var $ImagesVariable = $ImageMapJSON;"
+                # Let Showdown identify actual images before replacing URLs.
+                "$VariableOutput.querySelectorAll('img').forEach(function (image) { var source = image.getAttribute('src'); if (Object.prototype.hasOwnProperty.call($ImagesVariable, source)) { image.src = $ImagesVariable[source]; } });"
             }
         } -NewLine
         $Script

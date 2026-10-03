@@ -36,29 +36,36 @@
 "@
     }
     $Output.FilteringBottomCode = @"
-        var filterInputs = `$('#$DataTableName thead .pswritehtml-filter-row input, #$DataTableName tfoot tr:not(.pswritehtml-static-footer-row) input');
+        function bindColumnFilters(currentTable) {
+        var filterInputs = `$(currentTable.table().header()).find('.pswritehtml-filter-row input')
+            .add(`$(currentTable.table().footer()).find('tr:not(.pswritehtml-static-footer-row) input'));
         filterInputs.each(function () {
             var input = this;
-            table.columns().every(function () {
+            currentTable.columns().every(function () {
                 if (`$(this.header()).text() === input.placeholder) { `$(input).data('pswh-header', this.header()); }
             });
-        }).on('keyup change', function () {
+        }).off('.pswhFilters').on('keyup.pswhFilters change.pswhFilters', function () {
             var header = `$(this).data('pswh-header');
             if (!header) { return; }
-            var column = table.column(header);
+            var column = currentTable.column(header);
             if (column.search() !== this.value) { column.search(this.value, $RegEx, $Smart).draw(); }
-        }).on('click', function (event) { event.stopPropagation(); });
+        }).on('click.pswhFilters', function (event) { event.stopPropagation(); });
         function syncColumnFilters() {
             filterInputs.each(function () {
                 var header = `$(this).data('pswh-header');
                 if (!header) { return; }
-                var column = table.column(header);
+                var column = currentTable.column(header);
                 `$(this).val(column.search());
                 `$(this).closest('th').toggle(column.visible() && `$(header).css('display') !== 'none');
             });
         }
-        table.on('draw.dt responsive-resize.dt column-visibility.dt column-reorder.dt', syncColumnFilters);
+        currentTable.off('.pswhFilterSync').on('draw.dt.pswhFilterSync responsive-resize.dt.pswhFilterSync column-visibility.dt.pswhFilterSync column-reorder.dt.pswhFilterSync', syncColumnFilters);
         syncColumnFilters();
+        }
+        bindColumnFilters(table);
+        `$('#$DataTableName').on('init.dt.pswhFilters', function (event, settings) {
+            if (settings.nTable.id === '$DataTableName') { bindColumnFilters(new `$.fn.dataTable.Api(settings)); }
+        });
 "@
     return $Output
 }

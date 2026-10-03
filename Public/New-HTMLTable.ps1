@@ -1306,8 +1306,11 @@
             @"
             `$(document).ready(function () {
                 $SortingFormatDateTime
+                var visibilityObserver;
                 function initializeTable() {
                     if (`$.fn.dataTable.isDataTable('#$DataTableID') || !`$('#$DataTableID').is(':visible')) { return; }
+                    if (visibilityObserver) { visibilityObserver.disconnect(); }
+                    `$(window).off('resize', initializeTable);
                     $RowGroupingTop
                     $FilteringTopCode
                     var table = `$('#$DataTableID').DataTable($Options);
@@ -1316,6 +1319,17 @@
                     $TableEventsCode
                 }
                 initializeTable();
+                // Other containers reveal their contents through ancestor styles
+                // or classes, independently of tab events.
+                if (!`$.fn.dataTable.isDataTable('#$DataTableID') && typeof MutationObserver !== 'undefined') {
+                    visibilityObserver = new MutationObserver(initializeTable);
+                    var ancestor = document.getElementById('$DataTableID').parentElement;
+                    while (ancestor) {
+                        visibilityObserver.observe(ancestor, {attributes: true, attributeFilter: ['style', 'class', 'hidden']});
+                        ancestor = ancestor.parentElement;
+                    }
+                    `$(window).on('resize', initializeTable);
+                }
                 document.addEventListener('pswh:tab:shown', initializeTable);
                 `$(document).on('click', '[data-tabs] > *', function () { setTimeout(initializeTable, 0); });
                 `$(document).on('showTab', function () { setTimeout(initializeTable, 0); });

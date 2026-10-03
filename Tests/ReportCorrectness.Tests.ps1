@@ -108,10 +108,13 @@ Describe 'Portable content and column presentation' {
         'private text' | Set-Content -LiteralPath (Join-Path $Source 'secret.txt')
         [IO.File]::WriteAllBytes((Join-Path $Source 'pixel.png'), [Convert]::FromBase64String('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+j/XcAAAAASUVORK5CYII='))
         $Content = "![text](secret.txt)`n[ordinary link][download]`n[download]: pixel.png`n![image][photo]`n[photo]: pixel.png"
+        $Content += "`n" + '```markdown' + "`n" + '![literal](pixel.png)' + "`n" + '```' + "`n" + '`![inline](pixel.png)`'
         $Html = New-HTML -Online { New-HTMLMarkdown -Content $Content -ImageBase $Source }
         $Html | Should -Match '\[download\]: pixel.png'
         $Html | Should -Match 'secret.txt'
-        $Html | Should -Match '\[photo\]: data:image/png;base64,'
+        $Html | Should -Match 'data:image/png;base64,'
+        $Match = [regex]::Match($Html, 'let text\w+ = (.+);')
+        ($Match.Groups[1].Value | ConvertFrom-Json) | Should -Be ($Content + "`n")
     }
 
     It 'styles merged titles and column names independently' {
