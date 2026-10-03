@@ -67,6 +67,27 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 - 🔗 [Creating Office 365 Migration Diagram with PowerShell](https://evotec.xyz/creating-office-365-migration-diagram-with-powershell/)
 - 🔗 [Advanced HTML reporting using PowerShell](https://evotec.xyz/advanced-html-reporting-using-powershell/)
 
+## Table exports and portable Markdown
+
+Use `-ExportScope Filtered` to export every matching row even when some rows are selected. `All` exports the complete table, `Selected` exports selected matching rows, and the default `Automatic` retains DataTables' selection and filtering behavior.
+
+```powershell
+New-HTML -FilePath './report.html' {
+    New-HTMLTable -DataTable $Rows -Filtering -FilteringLocation Top -ExportScope Filtered {
+        New-TableButtonExcel -TextColumns 'AccountNumber', 'EmployeeId'
+        New-TableButtonCSV
+    }
+}
+```
+
+Excel exports keep numeric values with more than 15 significant digits as text. `-TextColumns` also preserves shorter identifiers as text while other numeric columns remain available for calculations. CSV exports quote fields and prefix formula-like text with an apostrophe; ordinary negative numbers retain their values. Use `New-TableButtonCSV -RawData` when a programmatic consumer needs the original formula-like text.
+
+Each `New-TableRowGrouping` adds a grouping level in declaration order. Inline table conditions can use helper properties excluded from the displayed table with `-ExcludeProperty`. `New-TableHeader -TitleAlignment center -NamesAlignment right` sets merged-title and column-name alignment independently. `-SearchPaneColumns` limits enabled search panes to named columns.
+
+`New-HTMLMarkdown -FilePath './notes/readme.md'` embeds relative local images from the Markdown source directory so the HTML can be moved to another folder. `-ImageBase` supplies a directory for content provided directly, and `-EmbedImages $false` retains relative references. Embedding stays within the specified source directory and skips symbolic links.
+
+For smaller reports, select only the buttons needed with `-Buttons csvHtml5`, or use `-HideButtons`. Offline reports embed the assets required by those capabilities.
+
 ## Changelog
 
 `PSWriteHTML` undergoes changes that hopefully will make it more versalite, consistent and better.

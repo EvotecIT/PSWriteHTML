@@ -198,7 +198,7 @@
     }
 
     Remove-EmptyValue -Hashtable $Options
-    $OptionsJSON = $Options | ConvertTo-JsonLiteral
+    $OptionsJSON = $Options | ConvertTo-JsonLiteral | Protect-HTMLScriptData
 
     # We cheat and replace the string with proper element id
     if ($HTML) {

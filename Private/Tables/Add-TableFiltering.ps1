@@ -1,144 +1,64 @@
-function Add-TableFiltering {
+﻿function Add-TableFiltering {
     <#
     .SYNOPSIS
-    Adds filtering functionality to a DataTable.
-
-    .DESCRIPTION
-    This function adds filtering functionality to a DataTable by allowing users to search for specific data within the table.
-
-    .PARAMETER Filtering
-    Specifies whether filtering functionality should be enabled.
-
-    .PARAMETER FilteringLocation
-    Specifies the location of the filtering input box. Valid values are 'Top', 'Bottom', or 'Both'.
-
-    .PARAMETER DataTableName
-    Specifies the name of the DataTable to which filtering will be applied.
-
-    .PARAMETER SearchRegularExpression
-    Indicates whether the search should be treated as a regular expression.
-
-    .EXAMPLE
-    Add-TableFiltering -Filtering $true -FilteringLocation 'Bottom' -DataTableName 'myTable'
-
-    Adds filtering functionality to the DataTable named 'myTable' at the bottom of the table.
-
-    .EXAMPLE
-    Add-TableFiltering -Filtering $true -FilteringLocation 'Both' -DataTableName 'myTable' -SearchRegularExpression
-
-    Adds filtering functionality to the DataTable named 'myTable' at both the top and bottom of the table, treating the search as a regular expression.
-
+    Adds column filters without replacing semantic column titles.
     #>
     [CmdletBinding()]
     param(
         [bool] $Filtering,
-        [ValidateSet('Top', 'Bottom', 'Both')][string]$FilteringLocation = 'Bottom',
+        [ValidateSet('Top', 'Bottom', 'Both')][string] $FilteringLocation = 'Bottom',
         [string] $DataTableName,
-        [alias('RegularExpression')][switch]$SearchRegularExpression
+        [string[]] $HeaderNames,
+        [alias('RegularExpression')][switch] $SearchRegularExpression
     )
-
-    if ($SearchRegularExpression.IsPresent) {
-        [string]$JSDataTableRegEx = 'true'
-        [string]$JSDataTableSmart = 'false'
-    } else {
-        [string]$JSDataTableRegEx = 'false'
-        [string]$JSDataTableSmart = 'true'
+    $Output = @{ FilteringTopCode = ''; FilteringBottomCode = '' }
+    if (-not $Filtering) { return $Output }
+    $RegEx = $SearchRegularExpression.IsPresent.ToString().ToLowerInvariant()
+    $Smart = (-not $SearchRegularExpression.IsPresent).ToString().ToLowerInvariant()
+    if ($FilteringLocation -in 'Top', 'Both') {
+        $Titles = ConvertTo-HTMLScriptJson -InputObject @($HeaderNames | ForEach-Object { [Net.WebUtility]::HtmlDecode($_) }) -Compress
+        $Output.FilteringTopCode += @"
+        var filterRow = `$('<tr/>', {'class': 'pswritehtml-filter-row'});
+        $Titles.forEach(function (title, index) {
+            filterRow.append(`$('<th/>').append(`$('<input/>', {
+                type: 'text', placeholder: title, 'aria-label': 'Search ' + title, 'data-column': index
+            })));
+        });
+        filterRow.prependTo('#$DataTableName thead');
+"@
     }
-    
-    $Output = @{}
-    if ($Filtering) {
-        # https://datatables.net/examples/api/multi_filter.html
-
-        if ($FilteringLocation -eq 'Bottom') {
-
-            $Output.FilteringTopCode = @"
-                // Setup - add a text input to each footer cell
-                `$('#$DataTableName tfoot tr:not(.pswritehtml-static-footer-row) th').each(function () {
-                    var title = `$(this).text();
-                    `$(this).html('<input type="text" placeholder="' + title + '" />');
-                });
+    if ($FilteringLocation -in 'Bottom', 'Both') {
+        $Output.FilteringTopCode += @"
+        `$('#$DataTableName tfoot tr:not(.pswritehtml-static-footer-row) th').each(function () {
+            var title = `$(this).text();
+            `$(this).empty().append(`$('<input/>', {type: 'text', placeholder: title, 'aria-label': 'Search ' + title}));
+        });
 "@
-            $Output.FilteringBottomCode = @"
-                // Apply the search for footer cells
-                table.columns().every(function () {
-                    var that = this;
-
-                    `$('input', this.footer()).on('keyup change', function () {
-                        if (that.search() !== this.value) {
-                            that.search(this.value, $JSDataTableRegEx, $JSDataTableSmart).draw();
-                        }
-                    });
-                });
-"@
-
-        } elseif ($FilteringLocation -eq 'Both') {
-
-            $Output.FilteringTopCode = @"
-                // Setup - add a text input to each header cell
-                `$('#$DataTableName thead th').each(function () {
-                    var title = `$(this).text();
-                    `$(this).html('<input type="text" placeholder="' + title + '" />');
-                });
-                // Setup - add a text input to each footer cell
-                `$('#$DataTableName tfoot tr:not(.pswritehtml-static-footer-row) th').each(function () {
-                    var title = `$(this).text();
-                    `$(this).html('<input type="text" placeholder="' + title + '" />');
-                });
-"@
-            $Output.FilteringBottomCode = @"
-                // Apply the search for header cells
-                table.columns().eq(0).each(function (colIdx) {
-                    `$('input', table.column(colIdx).header()).on('keyup change', function () {
-                        table
-                            .column(colIdx)
-                            .search(this.value)
-                            .draw();
-                    });
-
-                    `$('input', table.column(colIdx).header()).on('click', function (e) {
-                        e.stopPropagation();
-                    });
-                });
-                // Apply the search for footer cells
-                table.columns().every(function () {
-                    var that = this;
-
-                    `$('input', this.footer()).on('keyup change', function () {
-                        if (that.search() !== this.value) {
-                            that.search(this.value, $JSDataTableRegEx, $JSDataTableSmart).draw();
-                        }
-                    });
-                });
-"@
-
-        } else {
-            # top headers
-            $Output.FilteringTopCode = @"
-                // Setup - add a text input to each header cell
-                `$('#$DataTableName thead th').each(function () {
-                    var title = `$(this).text();
-                    `$(this).html('<input type="text" placeholder="' + title + '" />');
-                });
-"@
-
-            $Output.FilteringBottomCode = @"
-                // Apply the search for header cells
-                table.columns().eq(0).each(function (colIdx) {
-                    `$('input', table.column(colIdx).header()).on('keyup change', function () {
-                        table
-                            .column(colIdx)
-                            .search(this.value)
-                            .draw();
-                    });
-
-                    `$('input', table.column(colIdx).header()).on('click', function (e) {
-                        e.stopPropagation();
-                    });
-                });
-"@
+    }
+    $Output.FilteringBottomCode = @"
+        var filterInputs = `$('#$DataTableName thead .pswritehtml-filter-row input, #$DataTableName tfoot tr:not(.pswritehtml-static-footer-row) input');
+        filterInputs.each(function () {
+            var input = this;
+            table.columns().every(function () {
+                if (`$(this.header()).text() === input.placeholder) { `$(input).data('pswh-header', this.header()); }
+            });
+        }).on('keyup change', function () {
+            var header = `$(this).data('pswh-header');
+            if (!header) { return; }
+            var column = table.column(header);
+            if (column.search() !== this.value) { column.search(this.value, $RegEx, $Smart).draw(); }
+        }).on('click', function (event) { event.stopPropagation(); });
+        function syncColumnFilters() {
+            filterInputs.each(function () {
+                var header = `$(this).data('pswh-header');
+                if (!header) { return; }
+                var column = table.column(header);
+                `$(this).val(column.search());
+                `$(this).closest('th').toggle(column.visible() && `$(header).css('display') !== 'none');
+            });
         }
-    } else {
-        $Output.FilteringTopCode = $Output.FilteringBottomCode = '' # assign multiple same values trick
-    }
+        table.on('draw.dt responsive-resize.dt column-visibility.dt column-reorder.dt', syncColumnFilters);
+        syncColumnFilters();
+"@
     return $Output
 }

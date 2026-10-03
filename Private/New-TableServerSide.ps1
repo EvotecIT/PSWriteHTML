@@ -38,11 +38,12 @@
             data = $DataTable
         }
 
-        $Data | ConvertTo-JsonLiteral -Depth 1 `
+        $Json = $Data | ConvertTo-JsonLiteral -Depth 1 `
             -NumberAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].NumberAsString `
             -BoolAsString:$Script:HTMLSchema['TableOptions']['DataStoreOptions'].BoolAsString `
-            -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat | Out-File -FilePath $FilePath
-        $Options['ajax'] = -join ('data', '\', "$DataTableID.json")
+            -DateTimeFormat $Script:HTMLSchema['TableOptions']['DataStoreOptions'].DateTimeFormat
+        [System.IO.File]::WriteAllText($FilePath, $Json, [System.Text.UTF8Encoding]::new($false))
+        $Options['ajax'] = "data/$DataTableID.json"
     } else {
         # there is possibility for array without column names, not sure if it's worth the time
     }

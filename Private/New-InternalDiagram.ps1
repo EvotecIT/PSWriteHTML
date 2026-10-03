@@ -1,4 +1,4 @@
-function New-InternalDiagram {
+﻿function New-InternalDiagram {
     <#
     .SYNOPSIS
     Creates a new internal diagram with specified nodes, edges, events, options, dimensions, and styling.
@@ -188,7 +188,7 @@ function New-InternalDiagram {
         " }; "
 
         if ($Options) {
-            $ConvertedOptions = $Options | ConvertTo-Json -Depth 5 | ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
+            $ConvertedOptions = $Options | ConvertTo-HTMLScriptJson -Depth 20
             "var options = $ConvertedOptions; "
         } else {
             "var options = { }; "

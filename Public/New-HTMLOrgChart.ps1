@@ -155,7 +155,7 @@
             $OrgChart['zoomoutLimit'] = $ZoomOutLimit
         }
     }
-    $JsonOrgChart = $OrgChart | ConvertTo-Json -Depth 100
+    $JsonOrgChart = $OrgChart | ConvertTo-HTMLScriptJson -Depth 100
 
     New-HTMLTag -Tag 'script' {
         "`$(function () {"

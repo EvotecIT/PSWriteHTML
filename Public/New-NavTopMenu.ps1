@@ -128,8 +128,11 @@
         # tracking for New-HTMLNavLink to know when it's being executed as part of TopMenu
         $Script:GlobalSchema['TopMenu'] = $true
         $MenuExecuted = & $MenuItem
+        $HeadingTag = if ($Href -or $InternalPageID) { 'a' } else { 'span' }
+        $HeadingAttributes = @{ class = 'dropdown-heading' }
+        if ($Href) { $HeadingAttributes.href = $Href } elseif ($InternalPageID) { $HeadingAttributes.href = '#' + $InternalPageID.TrimStart('#') }
         $Menu = New-HTMLTag -Tag 'li' {
-            New-HTMLTag -Tag 'span' -Attributes @{class = 'dropdown-heading' } {
+            New-HTMLTag -Tag $HeadingTag -Attributes $HeadingAttributes {
                 New-HTMLTag -Tag 'span' -Attributes @{ style = @{ "padding-right" = "5px" } } {
                     #New-HTMLFontIcon -IconSolid address-book
                     New-InternalNavIcon -IconBrands $IconBrands -IconRegular $IconRegular -IconSolid $IconSolid -IconMaterial $IconMaterial -Spinning:$Spinning.IsPresent -SpinningReverse:$SpinningReverse.IsPresent -IconColor $IconColor -Bordered:$Bordered.IsPresent -BorderedCircle:$BorderedCircle.IsPresent -PullLeft:$PullLeft.IsPresent -PullRight:$PullRight.IsPresent -Rotate $Rotate -FlipVertical:$FlipVertical.IsPresent -FlipHorizontal:$FlipHorizontal.IsPresent

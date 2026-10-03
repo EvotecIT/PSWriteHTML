@@ -1,62 +1,38 @@
 ﻿function Convert-TableRowGrouping {
     <#
     .SYNOPSIS
-    Converts a specified row grouping column in a table to a collapsible row group.
-
-    .DESCRIPTION
-    This function converts a specified row grouping column in a table to a collapsible row group. It adds a rowGroup property to the options object with the necessary configuration for the 'row group' plugin.
-
-    .PARAMETER Options
-    The options object containing the table configuration.
-
-    .PARAMETER RowGroupingColumnID
-    The ID of the column to be used for row grouping.
-
-    .EXAMPLE
-    Convert-TableRowGrouping -Options $options -RowGroupingColumnID 2
-    Converts the table to have a collapsible row group using column 2 for grouping.
-
-    .EXAMPLE
-    Convert-TableRowGrouping -Options $options -RowGroupingColumnID 0
-    Converts the table to have a collapsible row group using column 0 for grouping.
+    Configures ordered grouping levels with collapse state scoped to the complete group path.
     #>
     [CmdletBinding()]
     param(
         [string] $Options,
-        [int] $RowGroupingColumnID
+        [int[]] $RowGroupingColumnID,
+        [string[]] $HeaderNames,
+        [string] $DataStore
     )
-    if ($RowGroupingColumnID -gt -1) {
-
-        $TextToReplace = @"
-        rowGroup: {
-            // Uses the 'row group' plugin
-            dataSrc: $RowGroupingColumnID,
-            startRender: function (rows, group) {
-                var collapsed = !!collapsedGroups[group];
-
-                rows.nodes().each(function (r) {
-                    r.style.display = collapsed ? 'none' : '';
-                });
-
-                var toggleClass = collapsed ? 'fa-plus-square' : 'fa-minus-square';
-
-                // Add group name to <tr>
-                return `$('<tr/>')
-                    .append('<td colspan="' + rows.columns()[0].length + '">' + '<span class="fa fa-fw ' + toggleClass + ' toggler"/> ' + group + ' (' + rows.count() + ')</td>')
-                    .attr('data-name', group)
-                    .toggleClass('collapsed', collapsed);
-            },
-        },
+    $Keys = @(foreach ($Index in $RowGroupingColumnID) { if ($DataStore -eq 'HTML') { $Index } else { $HeaderNames[$Index] } })
+    $Columns = ConvertTo-HTMLScriptJson -InputObject $Keys -Compress
+    $DataSources = ConvertTo-HTMLScriptJson -InputObject @(foreach ($Key in $Keys) { if ($Key -is [string]) { $Key.Replace('.', '\.') } else { $Key } }) -Compress
+    $Renderer = @"
+    "rowGroup": {dataSrc: $DataSources, startRender: function (rows, group, level) {
+        var columns = $Columns;
+        var first = rows.data()[0];
+        var path = columns.slice(0, level + 1).map(function (column) { return first[column]; });
+        var key = JSON.stringify(path);
+        var parentCollapsed = path.some(function (value, index) {
+            return index < level && !!collapsedGroups[JSON.stringify(path.slice(0, index + 1))];
+        });
+        var collapsed = !!collapsedGroups[key];
+        rows.nodes().each(function (row) { row.style.display = parentCollapsed || collapsed ? 'none' : ''; });
+        if (parentCollapsed) { return null; }
+        var count = rows.columns().visible().toArray().filter(function (visible) { return visible; }).length;
+        var toggle = `$('<button/>', {type: 'button', 'aria-expanded': !collapsed})
+            .css({background: 'none', border: 'none', color: 'inherit', font: 'inherit', cursor: 'pointer'})
+            .append(`$('<span/>', {'aria-hidden': 'true'}).text(collapsed ? '+' : '\u2212'))
+            .append(document.createTextNode(' ' + `$('<div/>').html(group).text() + ' (' + rows.count() + ')'));
+        return `$('<tr/>').append(`$('<td/>', {colspan: count}).append(toggle))
+            .attr('data-group-key', key).toggleClass('collapsed', collapsed);
+    }}
 "@
-    } else {
-        $TextToReplace = ''
-    }
-    if ($PSEdition -eq 'Desktop') {
-        $TextToFind = '"rowGroup":  "",'
-    } else {
-        $TextToFind = '"rowGroup": "",'
-    }
-    # $TextToFind = '"rowGroup":"",' # this is a workaround for ConvertTo-JsonLiteral
-    $Options = $Options -Replace ($TextToFind, $TextToReplace)
-    $Options
+    [regex]::Replace($Options, '"rowGroup"\s*:\s*""', [System.Text.RegularExpressions.MatchEvaluator]{ param($Match) $Renderer })
 }

@@ -174,10 +174,12 @@
     )
     $RowHoverSelected = @(
         'table.dataTable.hover tbody tr.odd:hover.selected, table.dataTable.display tbody tr.odd:hover.selected'
+        'table.dataTable.hover tbody tr.even:hover.selected, table.dataTable.display tbody tr.even:hover.selected'
         'table.dataTable.hover tbody tr:hover.selected, table.dataTable.display tbody tr:hover.selected'
         'table.dataTable.display tbody tr:hover.selected>.sorting_1, table.dataTable.order-column.hover tbody tr:hover.selected>.sorting_1'
         'table.dataTable.display tbody tr:hover.selected>.sorting_2, table.dataTable.order-column.hover tbody tr:hover.selected>.sorting_2'
         'table.dataTable.display tbody tr:hover.selected>.sorting_3, table.dataTable.order-column.hover tbody tr:hover.selected>.sorting_3'
+        'table.dataTable.display tbody tr.odd:hover.selected>td, table.dataTable.display tbody tr.even:hover.selected>td, table.dataTable.hover tbody tr.odd:hover.selected>td, table.dataTable.hover tbody tr.even:hover.selected>td'
     )
 
     $TableStyle = [ordered] @{
@@ -207,6 +209,7 @@
     }
     if ($BackgroundColor) {
         $TableStyle['background-color'] = "$(ConvertFrom-Color -Color $BackgroundColor) !important"
+        if ($Type -eq 'RowHoverSelected') { $TableStyle['box-shadow'] = 'none !important' }
     }
     if ($BorderTopColor) {
         $TableStyle['border-top-color'] = "$(ConvertFrom-Color -Color $BorderTopColor) !important"

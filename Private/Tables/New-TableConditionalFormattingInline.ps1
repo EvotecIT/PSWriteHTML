@@ -79,7 +79,9 @@
         }
     } elseif ($ConditionalFormatting.Type -eq 'date') {
         try {
-            if ($ConditionalFormatting.DateTimeFormat) {
+            if ($RowData[$ColumnCount] -is [DateTime]) {
+                $SideLeft = $RowData[$ColumnCount]
+            } elseif ($ConditionalFormatting.DateTimeFormat) {
                 $SideLeft = [DateTime]::ParseExact($RowData[$ColumnCount], $ConditionalFormatting.DateTimeFormat, $null)
             } else {
                 $SideLeft = [DateTime]::Parse($RowData[$ColumnCount])
