@@ -127,4 +127,21 @@ Describe 'Portable content and column presentation' {
         $Html | Should -Match '<th style="text-align:right">Name</th>'
         $Html | Should -Match '<th style="text-align:right">Value</th>'
     }
+
+    It 'embeds image references whose URLs differ only by case' {
+        $Source = Join-Path $TestDrive 'case-images'
+        $null = New-Item -ItemType Directory -Path $Source
+        $Bytes = [Convert]::FromBase64String('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+j/XcAAAAASUVORK5CYII=')
+        [IO.File]::WriteAllBytes((Join-Path $Source 'pixel.png'), $Bytes)
+        [IO.File]::WriteAllBytes((Join-Path $Source 'Pixel.png'), [byte[]]@($Bytes + 0))
+        $Html = New-HTML -Online { New-HTMLMarkdown -Content '![one](pixel.png) ![two](Pixel.png)' -ImageBase $Source }
+        $Map = [regex]::Match($Html, 'var imagestext\w+ = (.+);').Groups[1].Value
+        $Map.Contains('"pixel.png":"data:image/png;base64,') | Should -BeTrue
+        $Map.Contains('"Pixel.png":"data:image/png;base64,') | Should -BeTrue
+        # Linux has distinct files; Windows resolves both URLs to the same file.
+        foreach ($Name in 'pixel.png', 'Pixel.png') {
+            $Encoded = [Convert]::ToBase64String([IO.File]::ReadAllBytes((Join-Path $Source $Name)))
+            $Map.Contains('"' + $Name + '":"data:image/png;base64,' + $Encoded + '"') | Should -BeTrue
+        }
+    }
 }

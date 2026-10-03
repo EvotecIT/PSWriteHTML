@@ -14,7 +14,7 @@
     # Collect candidate URLs without rewriting Markdown; Showdown identifies
     # rendered images separately from code samples and escaped syntax.
     $Pattern = '(?<Prefix>!\[[^\]]*\]\(\s*|(?m:^\s*\[[^\]]+\]:\s*))(?<Path><[^>]+>|(?:[^()\s]|\((?<Depth>)|\)(?<-Depth>))+)(?(Depth)(?!))'
-    $Images = @{}
+    $Images = [System.Collections.Generic.Dictionary[string, string]]::new([StringComparer]::Ordinal)
     foreach ($Match in [regex]::Matches($Content, $Pattern)) {
         if (-not $Match.Groups['Prefix'].Value.StartsWith('!')) {
             $Reference = [regex]::Match($Match.Groups['Prefix'].Value, '\[([^\]]+)\]').Groups[1].Value
