@@ -1,15 +1,16 @@
 // PSWriteHTML policy around the pinned DataTables Buttons implementation.
 function pswhConfigureExport(config, scope) {
+    scope = String(scope || 'Automatic').toLowerCase();
     var textColumns = config.pswhTextColumns || [];
     var rawCsv = !!config.pswhRawData;
     delete config.pswhTextColumns;
     delete config.pswhRawData;
     var options = config.exportOptions = config.exportOptions || {};
     var modifier = options.modifier = options.modifier || {};
-    if (scope === 'All' || scope === 'Filtered') {
+    if (scope === 'all' || scope === 'filtered') {
         modifier.selected = null;
-        modifier.search = scope === 'All' ? 'none' : 'applied';
-    } else if (scope === 'Selected') {
+        modifier.search = scope === 'all' ? 'none' : 'applied';
+    } else if (scope === 'selected') {
         modifier.selected = true;
         modifier.search = 'applied';
     }
