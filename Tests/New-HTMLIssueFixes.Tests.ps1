@@ -3,6 +3,20 @@ BeforeAll {
 }
 
 Describe 'Issue-oriented HTML fixes' {
+    It 'renders section controls without inline event handlers for nonce-based viewers' {
+        $FilePath = Join-Path $TestDrive 'section-events.html'
+        New-HTML -FilePath $FilePath {
+            New-HTMLSection -HeaderText 'Closed section' -CanCollapse -Collapsed { New-HTMLText -Text 'Closed content' }
+            New-HTMLSection -HeaderText 'Open section' -CanCollapse { New-HTMLText -Text 'Open content' }
+        }
+        $content = Get-Content -LiteralPath $FilePath -Raw
+        $content | Should -Match 'data-pswritehtml-section-action="show"'
+        $content | Should -Match 'data-pswritehtml-section-action="hide"'
+        $content | Should -Not -Match 'onclick="(?:show|hide)\('
+        $content | Should -Match 'Closed content'
+        $content | Should -Match 'Open content'
+    }
+
     It 'renders table cell alignment, header borders, custom footer, column widths, row grouping hide, and SearchBuilder button language' {
         $FilePath = Join-Path $TestDrive 'table-issue-fixes.html'
         $Data = @(
