@@ -1385,7 +1385,7 @@
                 Comment      = 'Hide Section Code'
                 Internal     = $true
                 HeaderAlways = [ordered] @{
-                    JS        = "$PSScriptRoot\..\Resources\JS\hideSection.js"
+                    JS        = "$PSScriptRoot\..\Resources\JS\HideSection.js"
                     CssInline = [ordered] @{
                         '.sectionHide' = @{ # fixes problem with hiding section that are collapsing left/right
                             'width'     = 'auto'
