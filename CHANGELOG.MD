@@ -1,4 +1,4 @@
-## Changelog
+﻿## Changelog
 
 `PSWriteHTML` undergoes changes that hopefully will make it more versalite, consistent and better.
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
