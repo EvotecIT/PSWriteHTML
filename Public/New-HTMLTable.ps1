@@ -193,7 +193,7 @@
     Enables regular expression search.
 
     .PARAMETER WordBreak
-    Enables word breaking in the table.
+    Wraps cell text using the selected word-breaking style, including the first column.
 
     .PARAMETER AutoSize
     Automatically sizes the table.
@@ -1527,7 +1527,10 @@
 
         if ($WordBreak -ne 'normal') {
             New-HTMLTag -Tag 'style' {
-                ConvertTo-LimitedCSS -ClassName 'td' -ID $TableAttributes.id -Attributes @{ 'word-break' = $WordBreak } -Group
+                ConvertTo-LimitedCSS -ClassName 'td' -ID $TableAttributes.id -Attributes @{
+                    'word-break' = $WordBreak
+                    'white-space' = 'normal'
+                }
             }
         }
 

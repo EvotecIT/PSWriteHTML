@@ -3,6 +3,18 @@ BeforeAll {
 }
 
 Describe 'Issue-oriented HTML fixes' {
+    It 'emits usable wrapping CSS for long values in the first table column' {
+        $filePath = Join-Path $TestDrive 'word-break.html'
+        New-HTML -FilePath $filePath -Online {
+            New-HTMLTable -DataTable @([pscustomobject] @{ Device = 'LongDeviceNameWithoutSpaces'; State = 'Review' }) -DataTableID 'wrapTable' -WordBreak break-word
+        }
+        $content = Get-Content -LiteralPath $filePath -Raw
+        $content | Should -Not -Match '<style>\s*<style>'
+        $rule = [regex]::Match($content, '(?s)#wrapTable td\s*\{([^}]+)\}').Groups[1].Value
+        $rule | Should -Match 'word-break:\s*break-word'
+        $rule | Should -Match 'white-space:\s*normal'
+    }
+
     It 'renders section controls without inline event handlers for nonce-based viewers (Online=<Online>)' -TestCases @(@{ Online = $false }, @{ Online = $true }) {
         param($Online)
         $FilePath = Join-Path $TestDrive 'section-events.html'
