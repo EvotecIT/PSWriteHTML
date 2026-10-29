@@ -135,12 +135,8 @@ jobs:
           name: psd1
           path: .
 
-      - name: Install PowerShell
-        run: |
-          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list
-          sudo apt-get update
-          sudo apt-get install -y powershell
+      - name: Verify runner PowerShell
+        run: pwsh --version
 
       - name: Install PowerShell modules
         run: |
