@@ -4,6 +4,11 @@
 Unfortunetly some code is very old, some code doesn't serve it's purpose anymore, and requires heavy changes that may have an impact on already deployed code.
 Please make sure to read changes before updating, as we're undergoing some breaking changes.
 
+## Unreleased
+
+- Keep section Show/Hide controls working in embedded reports with nonce-based script policies, for Online and offline reports.
+- Apply table word breaking through valid CSS and allow the first column to wrap when WordBreak is selected.
+
 ## 1.36.0
 ### What's new
 - Improvements to null handlings in New-HTMLTable

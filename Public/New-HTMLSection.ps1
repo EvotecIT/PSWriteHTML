@@ -29,6 +29,7 @@ function New-HTMLSection {
 
     .PARAMETER CanCollapse
     Indicates whether the section can be collapsed.
+    Show and Hide controls use script event listeners so they work in nonce-based embedded reports.
 
     .PARAMETER IsHidden
     Indicates whether the section is initially hidden.
@@ -316,8 +317,8 @@ function New-HTMLSection {
                 New-HTMLTag -Tag 'div' -Attributes @{ class = $StyleSheetsConfiguration.SectionText } {
                     New-HTMLAnchor -Name $HeaderText -Text "$HeaderText " -Style $HeaderStyle
                     "&nbsp;" # this adds hard space
-                    New-HTMLAnchor -Id "show_$AnchorName" -Href 'javascript:void(0)' -OnClick "show('$AnchorName'); " -Style $ShowStyle -Text '(Show)'
-                    New-HTMLAnchor -Id "hide_$AnchorName" -Href 'javascript:void(0)' -OnClick "hide('$AnchorName'); " -Style $HideStyle -Text '(Hide)'
+                    New-HTMLTag -Tag 'a' -Attributes @{ id = "show_$AnchorName"; href = 'javascript:void(0)'; 'data-pswritehtml-section' = $AnchorName; 'data-pswritehtml-section-action' = 'show'; 'aria-controls' = $AnchorName; style = $ShowStyle } { '(Show)' }
+                    New-HTMLTag -Tag 'a' -Attributes @{ id = "hide_$AnchorName"; href = 'javascript:void(0)'; 'data-pswritehtml-section' = $AnchorName; 'data-pswritehtml-section-action' = 'hide'; 'aria-controls' = $AnchorName; style = $HideStyle } { '(Hide)' }
                 }
             }
             New-HTMLTag -Tag 'div' -Attributes @{ name = $AnchorName; class = $ClassName; id = $AnchorName; style = $HiddenDivStyle } -Value {

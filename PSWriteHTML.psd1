@@ -22,8 +22,7 @@
     RequiredModules      = @(@{
             Guid            = 'ee272aa8-baaa-4edf-9f45-b6d6f7d844fe'
             ModuleName      = 'PSSharedGoods'
-            ModuleVersion   = '0.0.312'
+            ModuleVersion   = '0.0.313'
         })
     RootModule           = 'PSWriteHTML.psm1'
-    ScriptsToProcess     = @()
 }

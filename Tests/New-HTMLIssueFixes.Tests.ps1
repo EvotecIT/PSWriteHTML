@@ -3,6 +3,35 @@ BeforeAll {
 }
 
 Describe 'Issue-oriented HTML fixes' {
+    It 'emits usable wrapping CSS for long values in the first table column' {
+        $filePath = Join-Path $TestDrive 'word-break.html'
+        New-HTML -FilePath $filePath -Online {
+            New-HTMLTable -DataTable @([pscustomobject] @{ Device = 'LongDeviceNameWithoutSpaces'; State = 'Review' }) -DataTableID 'wrapTable' -WordBreak break-word
+        }
+        $content = Get-Content -LiteralPath $filePath -Raw
+        $content | Should -Not -Match '<style>\s*<style>'
+        $rule = [regex]::Match($content, '(?s)#wrapTable td\s*\{([^}]+)\}').Groups[1].Value
+        $rule | Should -Match 'word-break:\s*break-word'
+        $rule | Should -Match 'white-space:\s*normal'
+    }
+
+    It 'renders section controls without inline event handlers for nonce-based viewers (Online=<Online>)' -TestCases @(@{ Online = $false }, @{ Online = $true }) {
+        param($Online)
+        $FilePath = Join-Path $TestDrive 'section-events.html'
+        New-HTML -FilePath $FilePath -Online:$Online {
+            New-HTMLSection -HeaderText 'Closed section' -CanCollapse -Collapsed { New-HTMLText -Text 'Closed content' }
+            New-HTMLSection -HeaderText 'Open section' -CanCollapse { New-HTMLText -Text 'Open content' }
+        }
+        $content = Get-Content -LiteralPath $FilePath -Raw
+        $content | Should -Match 'data-pswritehtml-section-action="show"'
+        $content | Should -Match 'data-pswritehtml-section-action="hide"'
+        $content | Should -Not -Match 'onclick="(?:show|hide)\('
+        $content | Should -Match 'document.addEventListener\(''click'''
+        $content | Should -Not -Match 'src="[^"]*/hideSection.min.js'
+        $content | Should -Match 'Closed content'
+        $content | Should -Match 'Open content'
+    }
+
     It 'renders table cell alignment, header borders, custom footer, column widths, row grouping hide, and SearchBuilder button language' {
         $FilePath = Join-Path $TestDrive 'table-issue-fixes.html'
         $Data = @(
