@@ -75,6 +75,34 @@ Describe 'Report data and script boundaries' {
 }
 
 Describe 'Portable content and column presentation' {
+    It 'does not bundle images referenced only in literal Markdown: <Case>' -TestCases @(
+        @{ Case = 'backtick fence'; Markdown = "``````text`n![private](private.png)`n``````" }
+        @{ Case = 'tilde fence'; Markdown = "~~~text`n![private](private.png)`n~~~" }
+        @{ Case = 'long fence with a shorter inner fence'; Markdown = "````````text`n```````n![private](private.png)`n````````" }
+        @{ Case = 'inline code'; Markdown = '`![private](private.png)`' }
+        @{ Case = 'multi-backtick inline code'; Markdown = '``![private](private.png) ` sample``' }
+        @{ Case = 'escaped image'; Markdown = '\![private](private.png)' }
+        @{ Case = 'three escapes'; Markdown = '\\\![private](private.png)' }
+        @{ Case = 'indented code'; Markdown = '    ![private](private.png)' }
+        @{ Case = 'quoted code fence'; Markdown = "> ~~~`n> ![private](private.png)`n> ~~~" }
+        @{ Case = 'list code fence'; Markdown = "- ~~~text`n`n  ![private](private.png)`n  ~~~" }
+        @{ Case = 'ordered list code fence'; Markdown = "1. ~~~text`n`n   ![private](private.png)`n   ~~~" }
+        @{ Case = 'quoted list code fence'; Markdown = "> - ~~~text`n>`n>   ![private](private.png)`n>   ~~~" }
+        @{ Case = 'HTML comment'; Markdown = '<!-- ![private](private.png) -->' }
+        @{ Case = 'HTML preformatted block'; Markdown = '<pre>![private](private.png)</pre>' }
+        @{ Case = 'reference in code only'; Markdown = "``![private][hidden]```n[hidden]: private.png" }
+    ) {
+        param($Case, $Markdown)
+        $Source = Join-Path $TestDrive 'literal-images'
+        $null = New-Item -ItemType Directory -Path $Source -Force
+        $Pixel = [Convert]::FromBase64String('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+j/XcAAAAASUVORK5CYII=')
+        [IO.File]::WriteAllBytes((Join-Path $Source 'visible.png'), $Pixel)
+        [IO.File]::WriteAllBytes((Join-Path $Source 'private.png'), [byte[]]@($Pixel + 17))
+        $Html = New-HTML -Online { New-HTMLMarkdown -Content ($Markdown + "`n`n![visible](visible.png)") -ImageBase $Source }
+        $Html | Should -Not -Match ([regex]::Escape([Convert]::ToBase64String([byte[]]@($Pixel + 17))))
+        $Html | Should -Match ([regex]::Escape([Convert]::ToBase64String($Pixel)))
+    }
+
     It 'parses parenthesized labels and nested URL parentheses without modifying the input array' {
         $Text = @('[Label (RODCs)](https://example.com/a_(b_(c)))', '[Other](https://example.com/)')
         $Html = New-HTML -Online { New-HTMLText -Text $Text }

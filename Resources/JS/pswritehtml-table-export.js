@@ -29,7 +29,6 @@ function pswhConfigureExport(config, scope) {
         var text = element.textContent;
         // Keep ordinary negative numbers numeric; expressions still receive protection.
         if (config.extend === 'csvHtml5') { text = safeCsv(text); }
-        if (config.extend === 'excelHtml5' && /^-?\d+,\d+$/.test(text)) { text = text.replace(',', '.'); }
         return text;
     };
     if (config.extend === 'csvHtml5') {
@@ -45,9 +44,23 @@ function pswhConfigureExport(config, scope) {
     }
     if (config.extend === 'excelHtml5') {
         var exportData;
+        var originalValues;
+        function isTextColumn(header) {
+            return textColumns.some(function (name) {
+                return String(name).toLowerCase() === String(header).toLowerCase();
+            });
+        }
         var originalData = options.customizeData;
         options.customizeData = function (data) {
             if (originalData) { originalData(data); }
+            originalValues = data.body.map(function (row) { return row.slice(); });
+            data.body.forEach(function (row) {
+                row.forEach(function (value, column) {
+                    if (!isTextColumn(data.header[column]) && /^-?\d+,\d+$/.test(String(value))) {
+                        row[column] = String(value).replace(',', '.');
+                    }
+                });
+            });
             exportData = data;
         };
         var originalCustomize = config.customize;
@@ -60,26 +73,27 @@ function pswhConfigureExport(config, scope) {
                     var worksheetRow = sheet.querySelector('row[r="' + (firstRow + index) + '"]');
                     if (!worksheetRow) { return; }
                     row.forEach(function (value, column) {
-                        var explicitText = textColumns.some(function (name) {
-                            return String(name).toLowerCase() === String(exportData.header[column]).toLowerCase();
-                        });
-                        var numeric = String(value).trim();
-                        var coefficient = numeric.split(/[eE]/)[0].replace(/^[+-]/, '').replace('.', '').replace(/^0+/, '');
-                        var preciseNumber = /^[+-]?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?$/.test(numeric) && coefficient.length > 15;
-                        if (!explicitText && !preciseNumber) { return; }
                         var cells = worksheetRow.querySelectorAll('c');
                         // Empty cells may be omitted by Buttons: use Excel column letters.
                         var letter = '', number = column + 1;
                         while (number > 0) { number--; letter = String.fromCharCode(65 + number % 26) + letter; number = Math.floor(number / 26); }
                         var cell = Array.prototype.find.call(cells, function (candidate) { return candidate.getAttribute('r') === letter + (firstRow + index); });
                         if (!cell) { return; }
+                        // Inspect the pinned exporter's numeric result, including its currency,
+                        // grouped-number, percentage and parenthesized-number formats.
+                        var numericValue = cell.querySelector('v');
+                        var original = originalValues[index][column];
+                        var coefficient = String(original).split(/[eE]/)[0].replace(/\D/g, '').replace(/^0+/, '');
+                        var numericCell = cell.getAttribute('t') === 'n' || !cell.hasAttribute('t');
+                        var preciseNumber = numericCell && numericValue && coefficient.length > 15;
+                        if (!isTextColumn(exportData.header[column]) && !preciseNumber) { return; }
                         while (cell.firstChild) { cell.removeChild(cell.firstChild); }
                         cell.setAttribute('t', 'inlineStr');
                         cell.removeAttribute('s');
                         var inline = sheet.createElementNS(cell.namespaceURI, 'is');
                         var text = sheet.createElementNS(cell.namespaceURI, 't');
                         text.setAttribute('xml:space', 'preserve');
-                        text.textContent = value == null ? '' : String(value);
+                        text.textContent = original == null ? '' : String(original);
                         inline.appendChild(text);
                         cell.appendChild(inline);
                     });

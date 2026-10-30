@@ -8,11 +8,12 @@
     $BasePath = [IO.Path]::GetFullPath((Convert-Path -LiteralPath $ImageBase))
     $Prefix = $BasePath.TrimEnd([IO.Path]::DirectorySeparatorChar, [IO.Path]::AltDirectorySeparatorChar) + [IO.Path]::DirectorySeparatorChar
     $Comparison = if ([IO.Path]::DirectorySeparatorChar -eq '\') { [StringComparison]::OrdinalIgnoreCase } else { [StringComparison]::Ordinal }
+    $Content = Remove-HTMLMarkdownLiteralContent -Content $Content
     $ImageReferences = @(foreach ($Reference in [regex]::Matches($Content, '!\[(?<Label>[^\]]*)\](?:\[(?<Reference>[^\]]*)\])?(?!\()')) {
         if ($Reference.Groups['Reference'].Value) { $Reference.Groups['Reference'].Value } else { $Reference.Groups['Label'].Value }
     })
-    # Collect candidate URLs without rewriting Markdown; Showdown identifies
-    # rendered images separately from code samples and escaped syntax.
+    # Discover candidates after excluding literal contexts; the original Markdown
+    # remains unchanged for the browser-side Showdown renderer.
     $Pattern = '(?<Prefix>!\[[^\]]*\]\(\s*|(?m:^\s*\[[^\]]+\]:\s*))(?<Path><[^>]+>|(?:[^()\s]|\((?<Depth>)|\)(?<-Depth>))+)(?(Depth)(?!))'
     $Images = [System.Collections.Generic.Dictionary[string, string]]::new([StringComparer]::Ordinal)
     foreach ($Match in [regex]::Matches($Content, $Pattern)) {
