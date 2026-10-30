@@ -1,4 +1,4 @@
-function New-HTMLDiagram {
+﻿function New-HTMLDiagram {
     <#
     .SYNOPSIS
     Creates a new HTML diagram with customizable options.
@@ -167,10 +167,10 @@ function New-HTMLDiagram {
         foreach ($R in $Replace.Keys) {
             $NodeJson = $NodeJson.Replace($R, $Replace[$R])
         }
-        $NodeJson
+        Protect-HTMLScriptData -Json $NodeJson
     }
     [Array] $Edges = foreach ($_ in $DataEdges) {
-        $_ | ConvertTo-JsonLiteral -Depth 5 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' } #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
+        $_ | ConvertTo-JsonLiteral -Depth 5 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' } | Protect-HTMLScriptData
     }
 
     $Options = @{

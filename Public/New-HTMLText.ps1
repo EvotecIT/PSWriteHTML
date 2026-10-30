@@ -1,4 +1,4 @@
-function New-HTMLText {
+﻿function New-HTMLText {
     <#
     .SYNOPSIS
     This function provides ability to add new text to the HTML file.
@@ -275,47 +275,7 @@ function New-HTMLText {
 
         $newSpanTextSplat.LineBreak = $LineBreak
         New-HTMLSpanStyle @newSpanTextSplat {
-            $FindMe = [regex]::Matches($Text[$i], "\[[^\]]+\]\(\S+\)")
-            if ($FindMe) {
-                foreach ($find in $FindMe) {
-                    $LinkName = ([regex]::Match($Find.value, "[^\[]+(?=\])")).Value
-                    $LinkURL = ([regex]::Match($Find.value, "(?<=\().+(?=\))")).Value
-                    $Link = New-HTMLAnchor -HrefLink $LinkURL -Text $LinkName
-                    $Text[$i] = $Text[$i].Replace($find.value, $Link)
-                }
-                $Text[$i]
-            } else {
-                # Default
-                $Text[$i]
-            }
-            # Replaces code above -> JustinWGrote made it -> complains go to him
-            #$markdownRegex = '\[(?<title>[^\]]+)\]\((?<uri>https?.+?)\)[\s\r\n$]'
-            #$Text[$i] -replace $markdownRegex, '<a href="$2">$1</a>'
-
-            <#
-            if ($Text[$i] -match "\[[^\]]+\]\([^)]+\)") {
-                # Covers markdown LINK  "[somestring](https://evotec.xyz)"
-
-                $RegexBrackets1 = [regex] '\[[^\]]+\]\([^)]+\)'
-
-                $RegexBrackets1 = [regex] "\[([^\[]*)\]" # catch 'sometstring'
-                $RegexBrackets2 = [regex] "\(([^\[]*)\)" # catch link
-                $RegexBrackets3 = [regex] "\[([^\[]*)\)" # catch both somestring and link
-                $Text1 = $RegexBrackets1.match($Text[$i]).Groups[1].value
-                #$Text2 = $RegexBrackets2.match($Text[$i]).Groups[1].value
-                $Text3 = $RegexBrackets3.match($Text[$i]).Groups[0].value
-                if ($Text1 -ne '' -and $Text2 -ne '') {
-                    $Link = New-HTMLAnchor -HrefLink $Text2 -Text $Text1
-                    $Text[$i].Replace($Text3, $Link)
-                }
-            } else {
-                # Default
-                $Text[$i]
-                # if ($NewLine[$i]) {
-                #    '<br>'
-                #}
-            }
-            #>
+            ConvertFrom-HTMLTextLink -Text $Text[$i]
         }
     }
 

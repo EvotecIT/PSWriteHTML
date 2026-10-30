@@ -127,7 +127,7 @@
                 }
             }
             Remove-EmptyValue -Hashtable $SmartTab
-            $SmartTabConfiguration = $SmartTab | ConvertTo-Json -Depth 2
+            $SmartTabConfiguration = $SmartTab | ConvertTo-HTMLScriptJson -Depth 2
 
             New-HTMLTag -Tag 'script' {
                 @"

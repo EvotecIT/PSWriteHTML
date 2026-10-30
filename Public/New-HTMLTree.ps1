@@ -174,7 +174,7 @@
 
     $FancyTree['activate'] = "templateToReplace"
 
-    $FancyTreeJSON = $FancyTree | ConvertTo-Json -Depth 100 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
+    $FancyTreeJSON = $FancyTree | ConvertTo-HTMLScriptJson -Depth 100 #| ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
 
     $FancyTreeJSON = $FancyTreeJSON -replace '"templateToReplace"', $Activation
 

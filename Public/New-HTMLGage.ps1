@@ -418,7 +418,7 @@
     $Script = New-HTMLTag -Tag 'script' -Value {
         # Convert Dictionary to JSON and return chart within SCRIPT tag
         # Make sure to return with additional empty string
-        $JSON = $Gage | ConvertTo-Json -Depth 5 | ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
+        $JSON = $Gage | ConvertTo-HTMLScriptJson -Depth 20
         "document.addEventListener(`"DOMContentLoaded`", function (event) {"
         "var g1 = new JustGage( $JSON );"
         "});"

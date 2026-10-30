@@ -40,6 +40,12 @@
     .PARAMETER Alignment
     Specifies the alignment of the table header.
 
+    .PARAMETER TitleAlignment
+    Overrides alignment for a merged or full-row title.
+
+    .PARAMETER NamesAlignment
+    Aligns the individual column names independently of a merged title.
+
     .PARAMETER TextDecoration
     Specifies the text decoration of the table header.
 
@@ -81,6 +87,8 @@
         [ValidateSet('normal', 'small-caps')][string] $FontVariant,
         [string] $FontFamily,
         [ValidateSet('left', 'center', 'right', 'justify')][string] $Alignment,
+        [ValidateSet('left', 'center', 'right', 'justify')][string] $TitleAlignment,
+        [ValidateSet('left', 'center', 'right', 'justify')][string] $NamesAlignment,
         [ValidateSet('none', 'line-through', 'overline', 'underline')][string] $TextDecoration,
         [ValidateSet('uppercase', 'lowercase', 'capitalize')][string] $TextTransform,
         [ValidateSet('rtl', 'ltr')][string] $Direction,
@@ -145,6 +153,8 @@
         BorderColor     = $BorderColor
     }
     Remove-EmptyValue -Hashtable $Style
+    if ($Title -and $TitleAlignment) { $Style.Alignment = $TitleAlignment }
+    elseif (-not $Title -and $NamesAlignment) { $Style.Alignment = $NamesAlignment }
 
     if (($AddRow -and $Title) -or ($Title -and -not $Names)) {
         $Type = 'TableHeaderFullRow'
@@ -166,6 +176,7 @@
             ResponsiveOperations = $ResponsiveOperations
             Title                = $Title
             Style                = ConvertTo-HTMLStyle @Style
+            NamesStyle           = if ($NamesAlignment) { @{ 'text-align' = $NamesAlignment } } else { @{} }
             ColumnCount          = $ColumnCount
         }
     }

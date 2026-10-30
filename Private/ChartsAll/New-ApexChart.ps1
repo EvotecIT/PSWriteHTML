@@ -1,4 +1,4 @@
-function New-ApexChart {
+﻿function New-ApexChart {
     <#
     .SYNOPSIS
     Creates a new ApexChart with the specified options and events.
@@ -53,19 +53,19 @@ function New-ApexChart {
         # Convert Dictionary to JSON and return chart within SCRIPT tag
         # Make sure to return with additional empty string
         Remove-EmptyValue -Hashtable $Options -Recursive -Rerun 2
-        $JSON = $Options | ConvertTo-JsonLiteral -Depth 5 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
-        # replaces stuff for TImeLineCharts
-        $JSON = $JSON.Replace('"new Date(', 'new Date(').Replace(').getTime()"', ').getTime()')
+        $JSON = $Options | ConvertTo-HTMLScriptJson -Depth 20
 
         # We replace Events on JSON because there's no other way that I can think of
         if ($Options.chart.events) {
-            $JSON = $JSON -replace ('"events":"EventsReplaceMe"', $Events)
+            $JSON = [regex]::Replace($JSON, '"events"\s*:\s*"EventsReplaceMe"', { $Events })
         }
 
-        $JSON = $JSON | ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
-
         "var options = $JSON"
-        "var chart = new ApexCharts(document.querySelector('#$ID'),
+        # Timeline producers return date expressions as data. Parse their date
+        # argument without evaluating text or unescaping the whole JSON object.
+        'if (options.chart.type === "rangeBar") { options.series.forEach(function (series) { series.data.forEach(function (point) { if (Array.isArray(point.y)) { point.y = point.y.map(function (value) { var match = typeof value === "string" && /^new Date\(''([\s\S]*)''\)\.getTime\(\)$/.exec(value); return match ? new Date(match[1]).getTime() : value; }); } }); }); }'
+        $IDJson = ConvertTo-HTMLScriptJson -InputObject $Options.chart.id -Compress
+        "var chart = new ApexCharts(document.getElementById($IDJson),
             options
         );"
         "chart.render();"

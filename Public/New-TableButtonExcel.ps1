@@ -12,6 +12,9 @@
     .PARAMETER ButtonName
     The text to be displayed on the button.
 
+    .PARAMETER TextColumns
+    Column names to export as text, including short numeric identifiers. Numeric values beyond 15 significant digits are automatically exported as text.
+
     .EXAMPLE
     New-TableButtonExcel -Title "Export to Excel" -ButtonName "Export"
 
@@ -24,13 +27,15 @@
     [CmdletBinding()]
     param(
         [string] $Title,
-        [string] $ButtonName
+        [string] $ButtonName,
+        [string[]] $TextColumns
     )
     $Script:HTMLSchema.Features.DataTablesButtons = $true
     $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
     $Script:HTMLSchema.Features.DataTablesButtonsExcel = $true
     $Output = @{}
     $Output['extend'] = 'excelHtml5'
+    $Output['pswhTextColumns'] = @($TextColumns)
     if ($ButtonName) {
         $Output['text'] = $ButtonName
     }

@@ -27,6 +27,9 @@
     .PARAMETER FieldBoundary
     The character used to enclose fields in the CSV file. Default value is '"'.
 
+    .PARAMETER RawData
+    Preserves formula-like text for programmatic consumers. By default, CSV export prefixes spreadsheet formulas with an apostrophe. Negative numeric values are preserved.
+
     .EXAMPLE
     New-TableButtonCSV -Title "Export to CSV" -FileName "data" -FieldSeparator "," -FieldBoundary "'"
 
@@ -44,7 +47,8 @@
         [string] $FileName,
         [switch] $DisableBOM,
         [string] $FieldSeparator = ';',
-        [string] $FieldBoundary = '"'
+        [string] $FieldBoundary = '"',
+        [switch] $RawData
     )
     if (-not $Script:HTMLSchema['TableSimplify']) {
         $Script:HTMLSchema.Features.DataTablesButtons = $true
@@ -65,6 +69,7 @@
         fieldSeparator = $FieldSeparator
         fieldBoundary  = $FieldBoundary
         bom            = -not $DisableBOM.IsPresent
+        pswhRawData    = $RawData.IsPresent
     }
     if ($FileName) {
         $Output['filename'] = $FileName

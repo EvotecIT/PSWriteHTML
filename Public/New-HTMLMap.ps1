@@ -130,7 +130,7 @@
 
     Remove-EmptyValue -Hashtable $Options -Recursive -Rerun 2
 
-    $OptionsJSON = $Options | ConvertTo-JsonLiteral -Depth 5 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
+    $OptionsJSON = $Options | ConvertTo-JsonLiteral -Depth 5 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' } | Protect-HTMLScriptData
 
     New-HTMLTag -Tag 'script' {
         "`$(function () { `$(`".$AnchorName`").mapael($OptionsJSON); });"

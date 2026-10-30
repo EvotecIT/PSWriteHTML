@@ -69,6 +69,12 @@
     .PARAMETER Encoding
     Specifies the encoding for reading the Markdown content file. Default is 'UTF8'.
 
+    .PARAMETER ImageBase
+    Base directory for relative image files. Defaults to the Markdown file's directory. Files outside this directory and symbolic links are not embedded.
+
+    .PARAMETER EmbedImages
+    Embeds local images when reading a file or using ImageBase. Defaults to true. Set to false to retain relative image references.
+
     .EXAMPLE
     New-HTMLMarkdown -FilePath "C:\Markdown\example.md" -EnableStrikethrough -EnableEmoji -EnableTOC
 
@@ -103,7 +109,9 @@
         [switch] $EnableBackslashEscapes,
         [switch] $SanitezeHTML,
         [switch] $EnableTOC,
-        [string] $Encoding = 'UTF8'
+        [string] $Encoding = 'UTF8',
+        [string] $ImageBase,
+        [bool] $EmbedImages = $true
     )
 
     $Script:HTMLSchema.Features.MarkdownShowdown = $true
@@ -123,12 +131,12 @@
         $Id = "MarkdownContainer$(Get-RandomStringName -Size 8)"
     }
 
-    #$CodeBlock = $false
-    $Var = foreach ($C in $Content) {
-        $Value = $C.Replace("'", "\'")
-        $Value + "\n"
+    $JoinedContent = [string]::Join("`n", [string[]]$Content) + "`n"
+    $ImageMap = @{}
+    if ($EmbedImages -and ($FilePath -or $ImageBase)) {
+        if (-not $ImageBase) { $ImageBase = Split-Path -Parent (Convert-Path -LiteralPath $FilePath) }
+        $ImageMap = Get-HTMLMarkdownImageMap -Content $JoinedContent -ImageBase $ImageBase
     }
-    $JoinedContent = $Var -join ''
     if ($EnableTOC) {
         $JoinedContent = $JoinedContent.Replace('[TOC]', '[toc]')
         $JoinedContent = $JoinedContent.Replace('[toc]', '<p>[toc]</p>')
@@ -188,15 +196,19 @@
         $Options['extensions'] = @('tocReplaceMe')
     }
 
-    $OptionsJSON = $Options | ConvertTo-Json
+    $ContentJSON = ConvertTo-HTMLScriptJson -InputObject $JoinedContent -Compress
+    $IdJSON = ConvertTo-HTMLScriptJson -InputObject $Id -Compress
+    $OptionsJSON = $Options | ConvertTo-HTMLScriptJson
     $OptionsJSON = $OptionsJSON -replace '"tocReplaceMe"', 'showdownToc()'
+    $ImageMapJSON = ConvertTo-HTMLScriptJson -InputObject $ImageMap -Compress
+    $ImagesVariable = "images$TextVariable"
 
     New-HTMLPanel -Invisible {
         New-HTMLTag -Tag 'div' -Attributes @{ class = 'markdown-body'; id = $Id } {}
 
         $Script = New-HTMLTag -Tag 'script' -Value {
-            "let $TextVariable = '$JoinedContent';"
-            "const $VariableOutput = document.getElementById(`"$Id`");"
+            "let $TextVariable = $ContentJSON;"
+            "const $VariableOutput = document.getElementById($IdJSON);"
             "var $ConverterVariable = new showdown.Converter($OptionsJSON),"
             "$HtmlVariable = $ConverterVariable.makeHtml($TextVariable);"
 
@@ -209,6 +221,11 @@
             }
             if ($MarkdownFlavor) {
                 "$ConverterVariable.setFlavor('$MarkdownFlavor');"
+            }
+            if ($ImageMap.Count -gt 0) {
+                "var $ImagesVariable = $ImageMapJSON;"
+                # Let Showdown identify actual images before replacing URLs.
+                "$VariableOutput.querySelectorAll('img').forEach(function (image) { var source = image.getAttribute('src'); if (Object.prototype.hasOwnProperty.call($ImagesVariable, source)) { image.src = $ImagesVariable[source]; } });"
             }
         } -NewLine
         $Script

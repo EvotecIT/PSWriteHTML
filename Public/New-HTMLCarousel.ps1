@@ -198,7 +198,7 @@
     }
 
     Remove-EmptyValue -Hashtable $Options
-    $Carousel = $Options | ConvertTo-JsonLiteral -Depth 1 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
+    $Carousel = $Options | ConvertTo-JsonLiteral -Depth 1 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' } | Protect-HTMLScriptData
 
     New-HTMLTag -Tag 'div' -Attributes @{ ID = $CarouselID; class = "carousel" } {
         if ($Slide) {

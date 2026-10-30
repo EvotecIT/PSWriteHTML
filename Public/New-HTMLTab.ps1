@@ -1,4 +1,4 @@
-function New-HTMLTab {
+﻿function New-HTMLTab {
     <#
     .SYNOPSIS
     Creates a new HTML tab with customizable content and icons.
@@ -193,6 +193,7 @@ function New-HTMLTab {
 
 
         $Script:HTMLSchema.Features.Tabbis = $true
+        $Script:HTMLSchema.CustomFooterJS['PSWriteHTMLTabNavigation'] = [IO.File]::ReadAllText((Join-Path $MyInvocation.MyCommand.Module.ModuleBase 'Resources/JS/tabbisNavigation.js'))
         $Script:HTMLSchema.Features.RedrawObjects = $true
         #New-HTMLTag -Tag 'div' -Attributes @{ id = $Tab.ID; class = $Class } {
         New-HTMLTag -Tag 'div' -Attributes @{ id = "$($Tab.ID)-Content"; class = $Class } {
@@ -224,8 +225,8 @@ function New-HTMLTab {
                 $HTML
             }
             if ($Default) {
-                $TabIDJson = $Tab.ID | ConvertTo-Json -Compress
-                $PaneIDJson = "$($Tab.ID)-Content" | ConvertTo-Json -Compress
+                $TabIDJson = $Tab.ID | ConvertTo-HTMLScriptJson -Compress
+                $PaneIDJson = "$($Tab.ID)-Content" | ConvertTo-HTMLScriptJson -Compress
                 New-HTMLTag -Tag 'script' {
                     @"
 document.addEventListener('DOMContentLoaded', function () {

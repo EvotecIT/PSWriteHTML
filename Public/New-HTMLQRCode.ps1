@@ -1,4 +1,4 @@
-function New-HTMLQRCode {
+﻿function New-HTMLQRCode {
     <#
     .SYNOPSIS
     Creates an HTML QR code with specified parameters.
@@ -81,7 +81,7 @@ function New-HTMLQRCode {
         titleColor = ConvertFrom-Color -Color $TitleColor
     }
     Remove-EmptyValue -Hashtable $Options -Recursive
-    $OptionsJson = $Options | ConvertTo-Json
+    $OptionsJson = $Options | ConvertTo-HTMLScriptJson
 
     # Since we want to allow use of QR code in tables or other places we push it to footer instead of inline
     $ScriptBottom = New-HTMLTag -Tag 'script' -Value {

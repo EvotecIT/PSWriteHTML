@@ -204,6 +204,12 @@
     .PARAMETER SearchPane
     Enables search pane in the table.
 
+    .PARAMETER SearchPaneColumns
+    Column names to include in search panes when SearchPane or its button is enabled.
+
+    .PARAMETER ExportScope
+    Controls rows exported by table buttons. Automatic keeps DataTables selection and filtering behavior. All exports every row, Filtered exports matching rows regardless of selection, and Selected exports only selected matching rows.
+
     .PARAMETER SearchPaneLocation
     Specifies the location of the search pane.
 
@@ -345,6 +351,8 @@
         [switch] $AutoSize,
         [switch] $DisableAutoWidthOptimization,
         [switch] $SearchPane,
+        [string[]] $SearchPaneColumns,
+        [ValidateSet('Automatic', 'All', 'Filtered', 'Selected')][string] $ExportScope = 'Automatic',
         [ValidateSet('top', 'bottom')][string] $SearchPaneLocation = 'top',
         [switch] $SearchBuilder,
         [ValidateSet('top', 'bottom')][string] $SearchBuilderLocation = 'top',
@@ -428,7 +436,7 @@
 
     # This will be used to store the colulmnDef option for the datatable
     $ColumnDefinitionList = [System.Collections.Generic.List[PSCustomObject]]::New()
-    $RowGrouping = @{ }
+    $RowGrouping = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
 
     # This adds support for table of data provided as an array of arrays
     # Useful if you have Hashtable with nested arrays and you do $Hashtable.Values
@@ -505,6 +513,9 @@
                     $ConditionalFormatting.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableHeaderMerge') {
                     $HeaderRows.Add($Parameters.Output)
+                    if ($Parameters.Output.NamesStyle.Count -gt 0) {
+                        $HeaderStyle.Add([PSCustomObject]@{ Names = $Parameters.Output.Names; Style = $Parameters.Output.NamesStyle })
+                    }
                 } elseif ($Parameters.Type -eq 'TableHeaderStyle') {
                     $HeaderStyle.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableHeaderFullRow') {
@@ -524,7 +535,7 @@
                 } elseif ($Parameters.Type -eq 'TableReplaceCompare') {
                     $ReplaceCompare.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableRowGrouping') {
-                    $RowGrouping = $Parameters.Output
+                    $RowGrouping.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableColumnOption') {
                     $TableColumnOptions.Add($Parameters.Output)
                 } elseif ($Parameters.Type -eq 'TableEvent') {
@@ -623,6 +634,9 @@
             [Array] $DataTable = $TextWhenNoData
         }
     }
+
+    # Keep helper fields available to inline conditions before projecting visible columns.
+    $ConditionSourceRows = if (-not $Transpose -and $DataTable[0] -isnot [System.Collections.IDictionary]) { @($DataTable) } else { $null }
 
     # we don't do anything for dictionaries, as dictionaries are displayed in two columns approach
     if ($DataTable[0] -isnot [System.Collections.IDictionary]) {
@@ -856,7 +870,7 @@
         [Array] $Table = $DataTable | ForEach-Object { [PSCustomObject]@{ 'Name' = $_ } }
         $ObjectProperties = 'Name'
     } else {
-        [Array] $Table = $DataTable
+        [Array] $Table = $DataTable | Select-Object -Property *
         $ObjectProperties = $DataTable[0].PSObject.Properties.Name
     }
 
@@ -889,7 +903,7 @@
         # It basically goes thru every single row and checks if values to add styles or inline conditional formatting
         # It's heavier then JS, so use when nessecary
         if ($ContentRows.Capacity -gt 0 -or $ContentStyle.Count -gt 0 -or $ContentTop.Count -gt 0 -or $ConditionalFormattingInline.Count -gt 0) {
-            $Table = Add-TableContent -ContentRows $ContentRows -ContentStyle $ContentStyle -ContentTop $ContentTop -ContentFormattingInline $ConditionalFormattingInline -Table $Table -HeaderNames $HeaderNames
+            $Table = Add-TableContent -ContentRows $ContentRows -ContentStyle $ContentStyle -ContentTop $ContentTop -ContentFormattingInline $ConditionalFormattingInline -Table $Table -HeaderNames $HeaderNames -SourceRows $ConditionSourceRows
         }
         $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
     } elseif ($DataStore -eq 'AjaxJSON') {
@@ -940,133 +954,7 @@
         }
     }
 
-    if (-not $Script:HTMLSchema['TableSimplify'] -and -not $HideButtons) {
-        $Script:HTMLSchema.Features.DataTablesButtons = $true
-        $Options['buttons'] = @(
-            if ($CustomButtons) {
-                foreach ($Button in $CustomButtons) {
-                    if (-not $Button.Title -and $Title) {
-                        $Button.title = $Title
-                    }
-                    if ($Button.extend -eq 'searchBuilder' -and $Button.text) {
-                        if (-not $Options.Contains('language') -or -not $Options['language']) {
-                            $Options['language'] = [ordered]@{}
-                        }
-                        if (-not $Options['language'].Contains('searchBuilder') -or -not $Options['language']['searchBuilder']) {
-                            $Options['language']['searchBuilder'] = [ordered]@{}
-                        }
-                        $Options['language']['searchBuilder']['button'] = $Button.text
-                    }
-                    $Button
-                }
-            } else {
-                foreach ($button in $Buttons) {
-                    if ($button -eq 'pdfHtml5') {
-                        $ButtonOutput = [ordered] @{
-                            extend      = 'pdfHtml5'
-                            pageSize    = 'A3'
-                            orientation = 'landscape'
-                            title       = $Title
-                        }
-                        $Script:HTMLSchema.Features.DataTablesButtonsPDF = $true
-                    } elseif ($button -eq 'pageLength') {
-                        if (-not $DisablePaging -and -not $ScrollY) {
-                            $ButtonOutput = @{
-                                extend = $button
-                            }
-                        } else {
-                            $ButtonOutput = $null
-                        }
-                    } elseif ($button -eq 'excelHtml5') {
-                        $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
-                        $Script:HTMLSchema.Features.DataTablesButtonsExcel = $true
-                        $ButtonOutput = [ordered] @{
-                            extend        = $button
-                            title         = $Title
-                            exportOptions = @{
-                                #columns = 'visible'
-                                format = "findExportOptions"
-                            }
-                        }
-                    } elseif ($button -eq 'copyHtml5') {
-                        $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
-                        $ButtonOutput = [ordered] @{
-                            extend = $button
-                            title  = $Title
-                        }
-                    } elseif ($button -eq 'csvHtml5') {
-                        $Script:HTMLSchema.Features.DataTablesButtonsHTML5 = $true
-                        $ButtonOutput = [ordered] @{
-                            extend         = $button
-                            title          = $Title
-                            text           = 'CSV'
-                            charset        = 'utf-8'
-                            extension      = '.csv'
-                            fieldSeparator = ';'
-                            fieldBoundary  = ''
-                            #filename       = 'export'
-                            bom            = $true
-                        }
-                    } elseif ($button -eq 'searchPanes') {
-                        $Script:HTMLSchema.Features.DataTablesSearchPanes = $true
-                        $ButtonOutput = [ordered] @{
-                            extend = $button
-                            title  = $Title
-                        }
-                    } elseif ($button -eq 'print') {
-                        $Script:HTMLSchema.Features.DataTablesButtonsPrint = $true
-                        $ButtonOutput = [ordered] @{
-                            extend = $button
-                            title  = $Title
-                        }
-                    } elseif ($button -eq 'searchBuilder') {
-                        $Script:HTMLSchema.Features.DataTablesDateTime = $true
-                        $Script:HTMLSchema.Features.DataTablesSearchBuilder = $true
-                        $ButtonOutput = [ordered] @{
-                            extend = $button
-                            title  = $Title
-                            #config = @{
-                            #depthLimit = 2
-                            #}
-                        }
-                    } elseif ($button -eq 'columnVisibility') {
-                        $Script:HTMLSchema.Features.DataTablesButtonsColVis = $true
-                        $Script:HTMLSchema.Features.DataTablesButtonsColVis = $true
-                        $ButtonOutput = [ordered] @{
-                            extend           = 'colvis'
-                            title            = $Title
-                            collectionLayout = 'dropdown columns'
-                            collectionTitle  = 'Visibility control'
-                        }
-                    } elseif ($button -eq 'toggleView') {
-                        # Set initial button text based on starting mode
-                        if ($ToggleViewDefaultViewMode -eq 'scrollx') {
-                            $ButtonText = 'Switch to Responsive'
-                        } else {
-                            $ButtonText = 'Switch to ScrollX'
-                        }
-                        $ButtonOutput = [ordered] @{
-                            extend          = 'toggleView'
-                            title           = $Title
-                            text            = $ButtonText
-                            defaultViewMode = $ToggleViewDefaultViewMode
-                        }
-                    } else {
-                        $ButtonOutput = [ordered] @{
-                            extend = $button
-                            title  = $Title
-                        }
-                    }
-                    if ($ButtonOutput) {
-                        Remove-EmptyValue -Hashtable $ButtonOutput
-                        $ButtonOutput
-                    }
-                }
-            }
-        )
-    } else {
-        $Options['buttons'] = @()
-    }
+    Set-TableButtons -Options $Options -CustomButtons $CustomButtons -Buttons $Buttons -Title $Title -HideButtons:$HideButtons -DisablePaging:$DisablePaging -ScrollY:([bool]$ScrollY) -ToggleViewDefaultViewMode $ToggleViewDefaultViewMode
     if ($ScrollX) {
         $Options.'scrollX' = $true
         # We don't disable responsive table if toggleView is requested
@@ -1159,20 +1047,22 @@
         }
     }
 
-    [int] $RowGroupingColumnID = -1
+    $RowGroupingColumns = [System.Collections.Generic.List[int]]::new()
     if ($RowGrouping.Count -gt 0) {
-        if ($RowGrouping.Name) {
-            $RowGroupingColumnID = ($HeaderNames).ToLower().IndexOf($RowGrouping.Name.ToLower())
-        } else {
-            $RowGroupingColumnID = $RowGrouping.ColumnID
-        }
-        if ($RowGroupingColumnID -ne -1) {
-            $ColumnsOrder = , @($RowGroupingColumnID, $RowGrouping.Sorting)
-            if ($DefaultSortColumn.Count -gt 0 -or $DefaultSortIndex.Count -gt 0) {
-                Write-Warning 'New-HTMLTable - Row grouping sorting overwrites default sorting.'
+        $ColumnsOrder = @(foreach ($Grouping in $RowGrouping) {
+            $ColumnID = if ($Grouping.Name) { [array]::IndexOf($HeaderNames.ToLower(), $Grouping.Name.ToLower()) } else { $Grouping.ColumnID }
+            if ($ColumnID -ge 0 -and $ColumnID -lt $HeaderNames.Count) {
+                $RowGroupingColumns.Add($ColumnID)
+                if ($Grouping.HideColumn) {
+                    $ColumnDefinitionList.Add([PSCustomObject]@{ targets = $ColumnID; visible = $false; searchable = $true })
+                }
+                , @($ColumnID, $Grouping.Sorting)
+            } else {
+                Write-Warning "New-HTMLTable - Row grouping skipped. Column '$($Grouping.Name)'/$ColumnID not found."
             }
-        } else {
-            Write-Warning 'New-HTMLTable - Row grouping disabled. Column name/id not found.'
+        })
+        if ($DefaultSortColumn.Count -gt 0 -or $DefaultSortIndex.Count -gt 0) {
+            Write-Warning 'New-HTMLTable - Row grouping sorting overwrites default sorting.'
         }
     } else {
         $SortingTranslate = [ordered] @{
@@ -1255,13 +1145,6 @@
     }
 
     # The table column options also adds to the columnDefs parameter
-    if ($RowGroupingColumnID -ne -1 -and $RowGrouping.HideColumn) {
-        $ColumnDefinitionList.Add([PSCustomObject]@{
-                targets    = $RowGroupingColumnID
-                visible    = $false
-                searchable = $true
-            })
-    }
     if ($TableColumnOptions.Count -gt 0) {
         foreach ($T in $TableColumnOptions) {
             $ColumnDefinitionList.Add($T)  # Corrected to use $T instead of $_
@@ -1297,7 +1180,15 @@
     }
 
 
-    $Options = $Options | ConvertTo-Json -Depth 8 #ConvertTo-JsonLiteral -Depth 6 -AdvancedReplace @{ '.' = '\.'; '$' = '\$' }
+    if ($SearchPaneColumns) {
+        $Options.searchPanes = @{ columns = @(foreach ($Name in $SearchPaneColumns) {
+            $Index = [array]::IndexOf($HeaderNames.ToUpper(), $Name.ToUpper())
+            if ($Index -ge 0) { $Index } else { Write-Warning "New-HTMLTable - Search pane column '$Name' not found." }
+        }) }
+    }
+    $ExportReplacements = Get-TableExportScript -Options $Options -ExportScope $ExportScope
+    $Options = $Options | ConvertTo-HTMLScriptJson -Depth 8
+    foreach ($Marker in $ExportReplacements.Keys) { $Options = $Options.Replace('"' + $Marker + '"', $ExportReplacements[$Marker]) }
 
     # cleans up $Options for ImmediatelyShowHiddenDetails
     # Since it's JavaScript inside we're basically removing double quotes from JSON in favor of no quotes at all
@@ -1312,16 +1203,6 @@
     )
     # we need to cleanup $Options for columnDefs/render, remove \r\n
     #$Options = $Options -replace '\\r\\n', '\r\n' #-replace "\\`"",'"'
-
-    #
-    $ExportExcelOptions = @'
-    {
-        body: function (data, row, column, node) {
-            data = $('<p>' + data + '</p>').text(); return $.isNumeric(data.replace(',', '.')) ? data.replace(',', '.') : data;
-        }
-    }
-'@
-    $Options = $Options.Replace('"findExportOptions"', $ExportExcelOptions)
 
     if ($DataStore -eq 'JavaScript') {
         # Since we only want first level of data from DataTable we need to do it via string replacement.
@@ -1351,6 +1232,7 @@
                     # So we need to escape them here, so they don't break the JavaScript code
                     $DataToInsert = $DataToInsert -replace "<", "&lt;" -replace ">", "&gt;"
                 }
+                $DataToInsert = Protect-HTMLScriptData -Json $DataToInsert
                 if ($DataToInsert.StartsWith('[')) {
                     $Script:HTMLSchema.CustomFooterJS[$DataStoreID] = "var $DataStoreID = $DataToInsert;"
                 } else {
@@ -1377,6 +1259,7 @@
                 # So we need to escape them here, so they don't break the JavaScript code
                 $DataToInsert = $DataToInsert -replace "<", "&lt;" -replace ">", "&gt;"
             }
+            $DataToInsert = Protect-HTMLScriptData -Json $DataToInsert
             if ($DataToInsert.StartsWith('[')) {
                 $Options = $Options.Replace('"markerForDataReplacement"', $DataToInsert)
             } else {
@@ -1393,19 +1276,10 @@
     #     $Options = New-TableConditionalFormatting -Options $Options -ConditionalFormatting $ConditionalFormatting -Header $HeaderNames -DataStore $DataStore
     # }
     # Process Row Grouping. Ugly JS building
-    if ($RowGroupingColumnID -ne -1) {
-        $Options = Convert-TableRowGrouping -Options $Options -RowGroupingColumnID $RowGroupingColumnID
+    if ($RowGroupingColumns.Count -gt 0) {
+        $Options = Convert-TableRowGrouping -Options $Options -RowGroupingColumnID $RowGroupingColumns.ToArray() -HeaderNames $HeaderNames -DataStore $DataStore
         $RowGroupingTop = Add-TableRowGrouping -DataTableName $DataTableID -Top -Settings $RowGrouping
         $RowGroupingBottom = Add-TableRowGrouping -DataTableName $DataTableID -Bottom -Settings $RowGrouping
-    }
-
-    [Array] $Tabs = ($Script:HTMLSchema.TabsHeaders | Where-Object { $_.Current -eq $true })
-    if ($Tabs.Count -eq 0) {
-        # There are no tabs in use, pretend there is only one Active Tab
-        $Tab = @{ Active = $true }
-    } else {
-        # Get First Tab
-        $Tab = $Tabs[0]
     }
 
     # return data
@@ -1419,62 +1293,49 @@
 
         # Enable Custom Date fromat sorting
         $SortingFormatDateTime = Add-CustomFormatForDatetimeSorting -DateTimeSortingFormat $DateTimeSortingFormat
-        $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation -DataTableName $DataTableID -SearchRegularExpression:$SearchRegularExpression
+        $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation -DataTableName $DataTableID -HeaderNames $HeaderNames -SearchRegularExpression:$SearchRegularExpression
         $FilteringTopCode = $FilteringOutput.FilteringTopCode
         $FilteringBottomCode = $FilteringOutput.FilteringBottomCode
-        $LoadSavedState = Add-TableState -DataTableName $DataTableID -Filtering $Filtering -FilteringLocation $FilteringLocation -SavedState (-not $DisableStateSave)
         if ($TableEvents.Count -gt 0) {
             $TableEventsCode = Add-TableEvent -Events $TableEvents -HeaderNames $HeaderNames -DataStore $DataStore
             # this adds required JS script to escape regex when needed
             $Script:HTMLSchema.Features.EscapeRegex = $true
         }
 
-        if ($Tab.Active -eq $true) {
-            New-HTMLTag -Tag 'script' {
-                @"
-                `$(document).ready(function() {
-                    $SortingFormatDateTime
+        New-HTMLTag -Tag 'script' {
+            @"
+            `$(document).ready(function () {
+                $SortingFormatDateTime
+                var visibilityObserver;
+                function initializeTable() {
+                    if (`$.fn.dataTable.isDataTable('#$DataTableID') || !`$('#$DataTableID').is(':visible')) { return; }
+                    if (visibilityObserver) { visibilityObserver.disconnect(); }
+                    `$(window).off('resize', initializeTable);
                     $RowGroupingTop
-                    $LoadSavedState
                     $FilteringTopCode
-                    //  Table code
-                    var table = `$('#$DataTableID').DataTable(
-                        $($Options)
-                    );
+                    var table = `$('#$DataTableID').DataTable($Options);
                     $FilteringBottomCode
                     $RowGroupingBottom
                     $TableEventsCode
-                });
-"@
-                if ($FixedHeader -or $FixedFooter) {
-                    "dataTablesFixedTracker['$DataTableID'] = true;"
                 }
-            }
-        } else {
-            [string] $TabName = $Tab.Id
-            New-HTMLTag -Tag 'script' {
-                @"
-                    `$(document).ready(function() {
-                        $SortingFormatDateTime
-                        $RowGroupingTop
-                        `$('.tabs').on('click', 'a', function (event) {
-                            if (`$(event.currentTarget).attr("data-id") == "$TabName" && !$.fn.dataTable.isDataTable("#$DataTableID")) {
-                                $LoadSavedState
-                                $FilteringTopCode
-                                //  Table code
-                                var table = `$('#$DataTableID').DataTable(
-                                    $($Options)
-                                );
-                                $FilteringBottomCode
-                            };
-                        });
-                        $RowGroupingBottom
-                    });
-"@
-                if ($FixedHeader -or $FixedFooter) {
-                    "dataTablesFixedTracker['$DataTableID'] = true;"
+                initializeTable();
+                // Other containers reveal their contents through ancestor styles
+                // or classes, independently of tab events.
+                if (!`$.fn.dataTable.isDataTable('#$DataTableID') && typeof MutationObserver !== 'undefined') {
+                    visibilityObserver = new MutationObserver(initializeTable);
+                    var ancestor = document.getElementById('$DataTableID').parentElement;
+                    while (ancestor) {
+                        visibilityObserver.observe(ancestor, {attributes: true, attributeFilter: ['style', 'class', 'hidden']});
+                        ancestor = ancestor.parentElement;
+                    }
+                    `$(window).on('resize', initializeTable);
                 }
-            }
+                document.addEventListener('pswh:tab:shown', initializeTable);
+                `$(document).on('click', '[data-tabs] > *', function () { setTimeout(initializeTable, 0); });
+                `$(document).on('showTab', function () { setTimeout(initializeTable, 0); });
+            });
+"@
+            if ($FixedHeader -or $FixedFooter) { "dataTablesFixedTracker['$DataTableID'] = true;" }
         }
     } else {
         $TableAttributes = @{ class = 'simplify' }
@@ -1507,10 +1368,10 @@
         $AfterTable = ''
     }
 
-    if ($RowGrouping.Attributes.Count -gt 0) {
-        $RowGroupingCSS = ConvertTo-LimitedCSS -ID $DataTableID -ClassName 'tr.dtrg-group td' -Attributes $RowGrouping.Attributes -Group
-    } else {
-        $RowGroupingCSS = ''
+    $RowGroupingCSS = for ($Level = 0; $Level -lt $RowGrouping.Count; $Level++) {
+        if ($RowGrouping[$Level].Attributes.Count -gt 0) {
+            ConvertTo-LimitedCSS -ID $DataTableID -ClassName "tr.dtrg-level-$Level td" -Attributes $RowGrouping[$Level].Attributes -Group
+        }
     }
 
     if ($Simplify) {
