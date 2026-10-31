@@ -2,7 +2,7 @@
 Module Name: PSWriteHTML
 Module Guid: a7bdf640-f5cb-4acf-9de0-365b322d245c
 Download Help Link: https://github.com/EvotecIT/PSWriteHTML
-Help Version: 1.41.0
+Help Version: 1.43.0
 Locale: en-US
 ---
 # PSWriteHTML Module
