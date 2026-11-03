@@ -88,6 +88,12 @@ Each `New-TableRowGrouping` adds a grouping level in declaration order. Inline t
 
 For smaller reports, select only the buttons needed with `-Buttons csvHtml5`, or use `-HideButtons`. Offline reports embed the assets required by those capabilities.
 
+## Top navigation on smaller screens
+
+`New-HTMLNavTop` keeps the horizontal menu while its groups and logo fit. When the available width shrinks, the navigation button opens a scrollable drawer containing every group. Long dropdowns and nested menus stay inside the viewport, including when a report is embedded in a frame. Enter or Space opens a focused menu heading; Escape closes it.
+
+Existing menu definitions use this behavior automatically. Regenerate existing HTML reports to include the updated navigation assets.
+
 ## Changelog
 
 `PSWriteHTML` undergoes changes that hopefully will make it more versalite, consistent and better.
