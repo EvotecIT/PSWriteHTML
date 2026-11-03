@@ -6,6 +6,7 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 ## Unreleased
 
+- Keep all top navigation menus reachable on smaller screens and embedded reports, with an automatic drawer and scrollable dropdowns.
 - Keep section Show/Hide controls working in embedded reports with nonce-based script policies, for Online and offline reports.
 - Apply table word breaking through valid CSS and allow the first column to wrap when WordBreak is selected.
 
