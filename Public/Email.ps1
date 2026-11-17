@@ -33,6 +33,9 @@ function Email {
     .PARAMETER AttachSelfName
     Specifies the name of the attached email.
 
+    .PARAMETER Attachment
+    Paths to files attached alongside any EmailAttachment commands and the report added by AttachSelf. EmailAttachment and Attachments are aliases for this parameter.
+
     .PARAMETER Server
     Specifies the SMTP server for sending the email.
 
@@ -64,7 +67,7 @@ function Email {
     [Obsolete] Deprecated parameter. Encoding is set to UTF8 to prevent errors.
 
     .PARAMETER FilePath
-    Specifies the file path for attachments.
+    Saves the generated email body to this file. Use Attachment to attach existing files.
 
     .PARAMETER Suppress
     Switch parameter to suppress sending the email.
@@ -84,6 +87,15 @@ function Email {
     .PARAMETER WhatIf
     Switch parameter to show what would happen without actually sending the email.
 
+    .EXAMPLE
+    Email -From 'sender@example.com' -To 'recipient@example.com' -Server 'smtp.example.com' -Attachment './report.csv' -WhatIf {
+        EmailBody { EmailText -Text 'The report is attached.' }
+    }
+    Prepares an email with an existing report attached and previews sending it.
+
+    .OUTPUTS
+    Returns the generated body when OutputHTML is set, and transport output when Suppress is false.
+
     #>
     [CmdLetBinding()]
     param(
@@ -96,6 +108,7 @@ function Email {
         [string] $Subject,
         [alias('SelfAttach')][switch] $AttachSelf,
         [string] $AttachSelfName,
+        [alias('EmailAttachment', 'Attachments')][string[]] $Attachment,
         [string] $Server,
         [string] $Username,
         [int] $Port = 587,
@@ -143,6 +156,9 @@ function Email {
         DeliveryNotifications = $DeliveryNotifications
     }
     $Attachments = [System.Collections.Generic.List[string]]::new()
+    foreach ($AttachmentPath in $Attachment) {
+        $Attachments.Add($AttachmentPath)
+    }
 
     [Array] $EmailParameters = Invoke-Command -ScriptBlock $Email
 
@@ -177,8 +193,8 @@ function Email {
                 $ServerParameters.UseDefaultCredentials = $Parameter.UseDefaultCredentials
             }
             HeaderAttachment {
-                foreach ($Attachment in  $Parameter.FilePath) {
-                    $Attachments.Add($Attachment)
+                foreach ($AttachmentPath in $Parameter.FilePath) {
+                    $Attachments.Add($AttachmentPath)
                 }
             }
             HeaderOptions {
