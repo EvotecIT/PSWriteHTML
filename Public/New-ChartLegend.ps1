@@ -62,6 +62,13 @@
 
     Creates a new chart legend with three items ('A', 'B', 'C') in red, blue, and green colors positioned at the top with center alignment and font size of 12.
 
+    .EXAMPLE
+    New-ChartLegend -LegendPosition right -ItemMarginVertical 12
+    Sets vertical legend-item spacing without changing horizontal spacing.
+
+    .OUTPUTS
+    PSCustomObject containing legend settings for New-HTMLChart.
+
     #>
     [alias('ChartLegend')]
     [CmdletBinding()]
@@ -113,7 +120,7 @@
     if ($OffsetY -ne $null) {
         $Object.legend.offsetY = $OffsetY
     }
-    if ($ItemMarginHorizontal -ne $null -or $ItemMarginHorizontal -ne $null) {
+    if ($ItemMarginHorizontal -ne $null -or $ItemMarginVertical -ne $null) {
         $Object.legend.itemMargin = @{}
         if ($ItemMarginHorizontal -ne $null) {
             $Object.legend.itemMargin.horizontal = $ItemMarginHorizontal

@@ -10,7 +10,7 @@
     Specifies the ScriptBlock containing the content of the column.
 
     .PARAMETER Width
-    Specifies the width of the column.
+    Sets the preferred column width using numbers, pixel strings or percentages. Width is emitted as inline CSS and a matching HTML attribute where supported; other CSS lengths remain CSS-only. Table content and email-client layout rules can affect the final rendered width.
 
     .PARAMETER Alignment
     Specifies the alignment of the content within the column. Valid values are 'left', 'center', 'right', or 'justify'.
@@ -65,6 +65,18 @@
 
     .PARAMETER BorderRightWidthSize
     Specifies the width of the right border.
+
+    .EXAMPLE
+    EmailBody {
+        EmailLayout -Width 800 {
+            EmailLayoutColumn -Width 200 { EmailText -Text 'Summary' }
+            EmailLayoutColumn -Width 600 { EmailText -Text 'Details' }
+        }
+    }
+    Generates columns with preferred widths of 200 and 600 pixels.
+
+    .OUTPUTS
+    String containing a table cell and its content for EmailLayout.
     #>
     [cmdletBinding()]
     param(
@@ -92,6 +104,7 @@
 
     if ($ColumnLayout) {
         $Output = & $ColumnLayout
+        $ColumnWidth = ConvertTo-EmailLayoutWidth -Width $Width
 
         $Style = @{
             'padding'             = ConvertFrom-Size -Size $Padding
@@ -99,7 +112,8 @@
             'padding-right'       = ConvertFrom-Size -Size $PaddingRight
             'padding-bottom'      = ConvertFrom-Size -Size $PaddingBottom
             'padding-left'        = ConvertFrom-Size -Size $PaddingLeft
-            'max-width'           = ConvertFrom-Size -Size $Width
+            'width'               = $ColumnWidth.Css
+            'max-width'           = $ColumnWidth.Css
             "text-align"          = $Alignment
             'border-top-width'    = $BorderTopWidthSize
             'border-bottom-width' = $BorderBottomWidthSize
@@ -114,7 +128,7 @@
             'border-left-style'   = $BorderLeftStyle
             'border-right-style'  = $BorderRightStyle
         }
-        New-HTMLTag -Tag 'td' -Attributes @{ class = 'layoutTableColumn'; width = $HTMLWidth; align = $Alignment; style = $Style } {
+        New-HTMLTag -Tag 'td' -Attributes @{ class = 'layoutTableColumn'; width = $ColumnWidth.Html; align = $Alignment; style = $Style } {
             $Output
         }
     }

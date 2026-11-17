@@ -6,6 +6,9 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 ## Unreleased
 
+- Allow EmailLayout -Width to set the outer email table width while preserving the full-width default.
+- Write EmailLayoutColumn widths to both inline CSS and supported HTML width attributes.
+- Honor New-ChartLegend -ItemMarginVertical when no horizontal margin is supplied, including zero.
 - Preserve zero, negative, fractional and large X-axis bounds, including timeline limits at or before the Unix epoch.
 - Accept existing file attachments directly on Email with Attachment, EmailAttachment or Attachments, alongside nested and self attachments.
 - Allow New-TableRowGrouping -Collapsed to start groups collapsed while retaining independent state across filtering and redraws.
