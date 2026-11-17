@@ -4,7 +4,7 @@
     Apply new style for HTML Table
 
     .DESCRIPTION
-    Apply new style for HTML Table. Currently only works with DataTables (javascript). It doesn't affect CSS only tables (emails, etc). Keep in mind this affects all tables, not just one.
+    Applies a document-wide style to tables. Header, footer, content and row styles also apply to email and simplified tables. Button, selected-row and hover styles apply to interactive tables.
 
     .PARAMETER Type
     Choose type to apply style on. You can choose from: 'Content', 'Table', 'Header', 'Row', 'Footer', 'RowOdd', 'RowEven', 'RowSelected', 'RowSelectedEven', 'RowSelectedOdd', 'RowHover', 'RowHoverSelected', 'Button'. Content is duplicate to Row.
@@ -192,16 +192,16 @@
         'font-family'         = $FontFamily
         'text-decoration'     = $TextDecoration
 
-        'border-top-width'    = ConvertFrom-Size -TextSize $BorderTopWidth
+        'border-top-width'    = ConvertFrom-Size -TextSize $BorderTopWidthSize
         'border-top-style'    = $BorderTopStyle
 
-        'border-bottom-width' = ConvertFrom-Size -TextSize $BorderBottomWidth
+        'border-bottom-width' = ConvertFrom-Size -TextSize $BorderBottomWidthSize
         'border-bottom-style' = $BorderBottomStyle
 
-        'border-left-width'   = ConvertFrom-Size -TextSize $BorderLeftWidth
+        'border-left-width'   = ConvertFrom-Size -TextSize $BorderLeftWidthSize
         'border-left-style'   = $BorderLeftStyle
 
-        'border-right-width'  = ConvertFrom-Size -TextSize $BorderRightWidth
+        'border-right-width'  = ConvertFrom-Size -TextSize $BorderRightWidthSize
         'border-right-style'  = $BorderRightStyle
     }
     if ($TextColor) {
@@ -222,6 +222,41 @@
     }
     if ($BorderRightColor) {
         $TableStyle['border-right-color'] = "$(ConvertFrom-Color -Color $BorderRightColor) !important"
+    }
+
+    # Email and simplified tables don't get the classes added by DataTables.
+    $PlainTableSelectors = switch ($Type) {
+        'Header'  { 'thead > tr > th, thead > tr > td' }
+        'Footer'  { 'tfoot > tr > th, tfoot > tr > td' }
+        'Content' { 'tbody > tr > td' }
+        'Row'     { 'tbody > tr > td' }
+        'RowOdd'  { 'tbody > tr:nth-child(odd) > td' }
+        'RowEven' { 'tbody > tr:nth-child(even) > td' }
+        'Table'   { 'thead > tr > th, thead > tr > td, tbody > tr > td, tfoot > tr > th, tfoot > tr > td' }
+    }
+    if ($PlainTableSelectors) {
+        $PlainStyle = @{}
+        foreach ($Key in $TableStyle.Keys) {
+            if ($null -ne $TableStyle[$Key]) {
+                $PlainStyle[$Key] = $TableStyle[$Key] -replace ' !important$'
+            }
+        }
+        $TableFeatures = @{ 'table.simplify' = 'DataTablesSimplify' }
+        if ($Script:HTMLSchema['Email']) {
+            $TableFeatures['table.dataTables'] = 'DataTablesEmail'
+        }
+        foreach ($TableSelector in $TableFeatures.Keys) {
+            $PlainCss = Get-ConfigurationCss -Feature $TableFeatures[$TableSelector] -Type 'HeaderAlways'
+            foreach ($Selector in $PlainTableSelectors -split ', ') {
+                $Name = "$TableSelector > $Selector"
+                if (-not $PlainCss.ContainsKey($Name)) {
+                    $PlainCss[$Name] = @{}
+                }
+                foreach ($Key in $PlainStyle.Keys) {
+                    $PlainCss[$Name][$Key] = $PlainStyle[$Key]
+                }
+            }
+        }
     }
 
     # this will add configuration for all Tables as it already exists

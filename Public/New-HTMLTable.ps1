@@ -899,11 +899,18 @@
             $Header = $Header.Replace('*', $ObjectProperties)
             $HeaderNames = $ObjectProperties
         }
+        $ColumnWidths = Get-TableColumnWidths -ColumnCount $HeaderNames.Count -TableColumnOptions $TableColumnOptions
+        $EmailColumnWidths = @{}
+        if ($Script:HTMLSchema['Email']) {
+            foreach ($Index in $ColumnWidths.Keys) {
+                $EmailColumnWidths[$Index] = ConvertTo-EmailLayoutWidth -Width $ColumnWidths[$Index]
+            }
+        }
         # This modifies Table content.
         # It basically goes thru every single row and checks if values to add styles or inline conditional formatting
         # It's heavier then JS, so use when nessecary
-        if ($ContentRows.Capacity -gt 0 -or $ContentStyle.Count -gt 0 -or $ContentTop.Count -gt 0 -or $ConditionalFormattingInline.Count -gt 0) {
-            $Table = Add-TableContent -ContentRows $ContentRows -ContentStyle $ContentStyle -ContentTop $ContentTop -ContentFormattingInline $ConditionalFormattingInline -Table $Table -HeaderNames $HeaderNames -SourceRows $ConditionSourceRows
+        if ($ContentRows.Capacity -gt 0 -or $ContentStyle.Count -gt 0 -or $ContentTop.Count -gt 0 -or $ConditionalFormattingInline.Count -gt 0 -or $EmailColumnWidths.Count -gt 0) {
+            $Table = Add-TableContent -ContentRows $ContentRows -ContentStyle $ContentStyle -ContentTop $ContentTop -ContentFormattingInline $ConditionalFormattingInline -Table $Table -HeaderNames $HeaderNames -SourceRows $ConditionSourceRows -ColumnWidths $EmailColumnWidths
         }
         $Table = $Table | Select-Object -Skip 1 # this gets actuall table content
     } elseif ($DataStore -eq 'AjaxJSON') {
@@ -934,6 +941,9 @@
         # We need to wait and insert it after it's converted to JSON
     }
 
+    if ($DataStore -ne 'HTML') {
+        $ColumnWidths = Get-TableColumnWidths -ColumnCount $HeaderNames.Count -TableColumnOptions $TableColumnOptions
+    }
     # This modifies header adding styles, header rows, or doing some fancy stuff
     $AddedHeader = Add-TableHeader -HeaderRows $HeaderRows -HeaderNames $HeaderNames -HeaderStyle $HeaderStyle -HeaderTop $HeaderTop -HeaderResponsiveOperations $HeaderResponsiveOperations
 
@@ -1398,7 +1408,7 @@
         }
 
         New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
-            New-TableColumnGroup -HeaderNames $HeaderNames -TableColumnOptions $TableColumnOptions
+            New-TableColumnGroup -ColumnCount $HeaderNames.Count -Widths $ColumnWidths
             New-HTMLTag -Tag 'thead' {
                 if ($AddedHeader) {
                     $AddedHeader
