@@ -237,7 +237,7 @@
     if ($PlainTableSelectors) {
         $PlainStyle = @{}
         foreach ($Key in $TableStyle.Keys) {
-            if ($null -ne $TableStyle[$Key]) {
+            if ($null -ne $TableStyle[$Key] -and $TableStyle[$Key] -ne '') {
                 $PlainStyle[$Key] = $TableStyle[$Key] -replace ' !important$'
             }
         }

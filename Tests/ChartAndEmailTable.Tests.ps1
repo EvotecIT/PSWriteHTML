@@ -60,7 +60,7 @@ Describe 'Chart and email report options' {
     It 'emits scoped header and content rules for email data tables' {
         $Rows = [pscustomobject]@{ Name = 'Alpha'; State = 'Ready' }
         $Html = EmailBody {
-            New-HTMLTableStyle -Type Header -TextColor '#fafbfc' -BackgroundColor '#151922'
+            New-HTMLTableStyle -Type Header -TextColor '#fafbfc' -BackgroundColor '#151922' -FontFamily Calibri
             New-HTMLTableStyle -Type Header -FontSize 18
             New-HTMLTableStyle -Type Content -TextColor '#1155aa'
             EmailTable -Table $Rows
@@ -71,6 +71,7 @@ Describe 'Chart and email report options' {
         $HeaderRule | Should -Match 'color:\s*#fafbfc'
         $HeaderRule | Should -Match 'background-color:\s*#151922'
         $HeaderRule | Should -Match 'font-size:\s*18px'
+        $HeaderRule | Should -Match 'font-family:\s*Calibri'
         $Html | Should -Match 'table\.dataTables > tbody > tr > td\s*\{[^}]*color:\s*#1155aa'
     }
 
