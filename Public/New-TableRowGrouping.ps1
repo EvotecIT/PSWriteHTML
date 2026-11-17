@@ -24,6 +24,9 @@
     .PARAMETER HideGroupedColumn
     Hides the grouped source column while keeping it available for grouping and searching.
 
+    .PARAMETER Collapsed
+    Starts groups at this grouping level collapsed. Each group can be expanded or collapsed independently in the report.
+
     .EXAMPLE
     New-TableRowGrouping -Name "Group A" -ColumnID 1 -SortOrder 'Ascending' -Color 'Red' -BackgroundColor 'LightGray'
     Creates a new table row grouping object for Group A, grouping by column ID 1 in ascending order with red text and light gray background.
@@ -31,6 +34,17 @@
     .EXAMPLE
     New-TableRowGrouping -Name "Group B" -ColumnID 2 -SortOrder 'Descending' -Color 'Blue' -BackgroundColor 'White'
     Creates a new table row grouping object for Group B, grouping by column ID 2 in descending order with blue text and white background.
+
+    .EXAMPLE
+    New-HTML {
+        New-HTMLTable -DataTable $Rows {
+            New-TableRowGrouping -Name 'Team' -Collapsed
+        }
+    }
+    Starts each Team group collapsed when the table is first rendered.
+
+    .OUTPUTS
+    PSCustomObject containing grouping settings for New-HTMLTable. Interactive grouping requires JavaScript and is not supported in email tables.
     #>
     [alias('TableRowGrouping', 'EmailTableRowGrouping', 'New-HTMLTableRowGrouping')]
     [CmdletBinding()]
@@ -40,7 +54,8 @@
         [ValidateSet('Ascending', 'Descending')][string] $SortOrder = 'Ascending',
         [string] $Color,
         [string] $BackgroundColor,
-        [switch] $HideGroupedColumn
+        [switch] $HideGroupedColumn,
+        [switch] $Collapsed
     )
     $Script:HTMLSchema.Features.DataTablesRowGrouping = $true
 
@@ -51,6 +66,7 @@
             ColumnID   = $ColumnID
             Sorting    = if ($SortOrder -eq 'Ascending') { 'asc' } else { 'desc' }
             HideColumn = $HideGroupedColumn.IsPresent
+            Collapsed  = $Collapsed.IsPresent
             Attributes = @{
                 'color'            = ConvertFrom-Color -Color $Color
                 'background-color' = ConvertFrom-Color -Color $BackgroundColor

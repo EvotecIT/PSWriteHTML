@@ -16,10 +16,10 @@
     The type of the X-axis data. Accepted values are 'datetime', 'category', or 'numeric'. Default is 'category'.
 
     .PARAMETER MinValue
-    The minimum value of the X-axis.
+    The minimum value of the X-axis. Numeric bounds retain zero, negative and fractional values. DateTime values are converted to Unix milliseconds. Omit this parameter for automatic scaling.
 
     .PARAMETER MaxValue
-    The maximum value of the X-axis.
+    The maximum value of the X-axis. Numeric bounds retain zero, negative and fractional values. DateTime values are converted to Unix milliseconds. Omit this parameter for automatic scaling.
 
     .PARAMETER TimeZoneOffset
     The timezone offset to adjust the X-axis values.
@@ -33,6 +33,9 @@
     New-ChartAxisX -Names @('2020-01-01', '2020-02-01', '2020-03-01') -TitleText 'Dates' -Type 'datetime' -MinValue (Get-Date '2020-01-01') -MaxValue (Get-Date '2020-03-01') -TimeZoneOffset '+02:00'
 
     Creates a new X-axis with datetime values, title 'Dates', and timezone offset of +2 hours.
+
+    .OUTPUTS
+    PSCustomObject containing X-axis settings for New-HTMLChart.
     #>
     [alias('ChartCategory', 'ChartAxisX', 'New-ChartCategory')]
     [CmdletBinding()]
@@ -65,10 +68,6 @@
             if ($MaxValue -is [System.DateTime]) {
                 $MaxValue = [int64]([System.DateTimeOffset]$MaxValue).ToUnixTimeMilliseconds() + $offsetMilliseconds
             }
-        }
-        Default {
-            $MinValue = [int]$MinValue
-            $MaxValue = [int]$MaxValue
         }
     }
     [PSCustomObject] @{

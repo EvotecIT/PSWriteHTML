@@ -51,6 +51,7 @@ Describe 'Email content and transport contracts' {
     BeforeEach {
         $script:LegacySendCount = 0
         function Send-Email {
+            param($EmailParameters, $Body, $Attachment, [switch] $WhatIf)
             $script:LegacySendCount++
             throw 'The legacy sender must not be invoked by this test.'
         }
@@ -87,6 +88,33 @@ Describe 'Email content and transport contracts' {
         $result.UseSsl | Should -BeTrue
         $result.ProviderMarker | Should -Be 'runtime-adapter'
         $script:LegacySendCount | Should -Be 0
+    }
+
+    It 'combines direct, nested and self attachments through <Transport>' -TestCases @(
+        @{ Transport = 'legacy'; UseMailozaurr = $false }
+        @{ Transport = 'Mailozaurr'; UseMailozaurr = $true }
+    ) {
+        param($Transport, $UseMailozaurr)
+
+        Mock Get-Command { $script:TestMailozaurrSenderCommand }
+        Mock Send-Email {
+            [pscustomobject]@{ Attachment = @($Attachment) }
+        }
+        function Save-HTML {
+            param($FilePath, $HTML, $Suppress)
+            'self.html'
+        }
+
+        $Result = Email -EmailAttachment 'first.csv', 'second.txt' -AttachSelf -UseMailozaurr:$UseMailozaurr -Suppress:$false {
+            [pscustomobject]@{ Type = 'HeaderAttachment'; FilePath = @('nested.pdf') }
+            [ordered]@{ Body = '<p>Body</p>'; AttachSelfBody = '<p>Attached body</p>' }
+        }
+
+        @($Result.Attachment) | Should -HaveCount 4
+        $Result.Attachment[0] | Should -Be 'first.csv'
+        $Result.Attachment[1] | Should -Be 'second.txt'
+        $Result.Attachment[2] | Should -Be 'nested.pdf'
+        $Result.Attachment[3] | Should -Be 'self.html'
     }
 
     It 'does not leak SMTP-only defaults into a Graph Mailozaurr parameter set' {

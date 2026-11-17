@@ -1048,11 +1048,13 @@
     }
 
     $RowGroupingColumns = [System.Collections.Generic.List[int]]::new()
+    $RowGroupingCollapsed = [System.Collections.Generic.List[bool]]::new()
     if ($RowGrouping.Count -gt 0) {
         $ColumnsOrder = @(foreach ($Grouping in $RowGrouping) {
             $ColumnID = if ($Grouping.Name) { [array]::IndexOf($HeaderNames.ToLower(), $Grouping.Name.ToLower()) } else { $Grouping.ColumnID }
             if ($ColumnID -ge 0 -and $ColumnID -lt $HeaderNames.Count) {
                 $RowGroupingColumns.Add($ColumnID)
+                $RowGroupingCollapsed.Add([bool]$Grouping.Collapsed)
                 if ($Grouping.HideColumn) {
                     $ColumnDefinitionList.Add([PSCustomObject]@{ targets = $ColumnID; visible = $false; searchable = $true })
                 }
@@ -1277,7 +1279,7 @@
     # }
     # Process Row Grouping. Ugly JS building
     if ($RowGroupingColumns.Count -gt 0) {
-        $Options = Convert-TableRowGrouping -Options $Options -RowGroupingColumnID $RowGroupingColumns.ToArray() -HeaderNames $HeaderNames -DataStore $DataStore
+        $Options = Convert-TableRowGrouping -Options $Options -RowGroupingColumnID $RowGroupingColumns.ToArray() -HeaderNames $HeaderNames -DataStore $DataStore -Collapsed $RowGroupingCollapsed.ToArray()
         $RowGroupingTop = Add-TableRowGrouping -DataTableName $DataTableID -Top -Settings $RowGrouping
         $RowGroupingBottom = Add-TableRowGrouping -DataTableName $DataTableID -Bottom -Settings $RowGrouping
     }

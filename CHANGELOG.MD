@@ -6,6 +6,9 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 ## Unreleased
 
+- Preserve zero, negative, fractional and large X-axis bounds, including timeline limits at or before the Unix epoch.
+- Accept existing file attachments directly on Email with Attachment, EmailAttachment or Attachments, alongside nested and self attachments.
+- Allow New-TableRowGrouping -Collapsed to start groups collapsed while retaining independent state across filtering and redraws.
 - Keep section Show/Hide controls working in embedded reports with nonce-based script policies, for Online and offline reports.
 - Apply table word breaking through valid CSS and allow the first column to wrap when WordBreak is selected.
 
