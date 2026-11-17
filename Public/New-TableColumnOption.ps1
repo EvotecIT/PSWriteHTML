@@ -13,6 +13,9 @@ function New-TableColumnOption {
         If you use 2 or more New-TableColumnOption, the first cmdlet takes priority over the second cmdlet if they specify the same targets or overriding property values
         With this in mind, you should almost always specify -AllColumns last, since that will take priority over any commands issued later
 
+    .PARAMETER Width
+        Sets the column width, for example '220px' or '25%'. In EmailBody with the HTML data store, the width is also written on the table cells.
+
     .EXAMPLE
         New-TableColumnOption -ColumnIndex (0..4) -Width 50
         The first 5 columns with have a width defined as 50, this may not be exact.

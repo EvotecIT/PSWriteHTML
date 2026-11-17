@@ -109,7 +109,31 @@ function New-HTMLChartLine {
     }
 
     $Options.series = $DataSeries
-    $Options.stroke = New-ChartInternalStroke -Stroke $Stroke
+    if ($DataSeries.type -contains 'column') {
+        $Options.stroke = New-ChartInternalStroke -Stroke $Stroke
+        # ApexCharts indexes stroke widths by series, including columns.
+        $Options.stroke.width = @(for ($Index = 0; $Index -lt $DataSeries.Count; $Index++) {
+            if ($DataSeries[$Index].type -eq 'column') {
+                0
+            } elseif ($null -ne $Stroke[$Index].width) {
+                $Stroke[$Index].width
+            } else {
+                2 # ApexCharts' default line width
+            }
+        })
+        if ($Options.stroke.curve) {
+            $Options.stroke.curve = @(foreach ($SeriesStroke in $Stroke) {
+                if ($SeriesStroke.curve) { $SeriesStroke.curve } else { 'smooth' }
+            })
+        }
+        if ($Options.stroke.dashArray) {
+            $Options.stroke.dashArray = @(foreach ($SeriesStroke in $Stroke) {
+                if ($SeriesStroke.dashArray) { $SeriesStroke.dashArray } else { 0 }
+            })
+        }
+    } else {
+        $Options.stroke = New-ChartInternalStroke -Stroke @($Stroke.Where({ $_.Count -gt 0 }))
+    }
     # if stroke colors are defined we can either push them to stroke only or globally
     # if we push them to stroke only we don't get proper colors for the legend
     # but if we push them to both we could in theory have different colors for strokes and legend if need arises in the future.

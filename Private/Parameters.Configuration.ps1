@@ -1329,7 +1329,8 @@
             DataTablesSimplify          = @{
                 Comment      = 'DataTables (not really) - Simplified'
                 HeaderAlways = @{
-                    Css = "$PSScriptRoot\..\Resources\CSS\datatables.simplify.css"
+                    Css       = "$PSScriptRoot\..\Resources\CSS\datatables.simplify.css"
+                    CssInline = @{ }
                 }
                 Default      = $true
                 Email        = $true

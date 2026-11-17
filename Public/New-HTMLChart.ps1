@@ -6,6 +6,12 @@
     .DESCRIPTION
     This function creates a new HTML chart with customizable settings such as title, subtitle, dimensions, colors, and more.
 
+    .PARAMETER TextColor
+    Sets the default chart text color. Title, legend and axis color options can override it.
+
+    .PARAMETER BackgroundColor
+    Sets the chart background color. The chart uses ApexCharts' default transparent background when omitted.
+
     .PARAMETER ChartSettings
     Specifies the settings for the chart. This should be a ScriptBlock containing the chart configuration.
 
@@ -99,6 +105,12 @@
 
     Creates a new HTML chart with the title "Sales Data", subtitle "Quarterly Sales", height of 400, width of 600, gradient colors, and specified ID.
 
+    .EXAMPLE
+    New-HTMLChart -Title 'Tickets' -TextColor '#fafbfc' -BackgroundColor '#151922' {
+        New-ChartAxisX -Names Monday, Tuesday
+        New-ChartLine -Name 'Opened' -Value 3, 5
+    }
+
     #>
     [alias('Chart')]
     [CmdletBinding()]
@@ -131,7 +143,9 @@
         [alias('GradientColors')][switch] $Gradient,
         [alias('PatternedColors')][switch] $Patterned,
         [string] $Id,
-        [string] $Group
+        [string] $Group,
+        [string] $TextColor,
+        [string] $BackgroundColor
     )
     $Theme = $null
     $Events = $null
@@ -146,6 +160,12 @@
         group  = $Group
         height = ConvertFrom-Size -Size $Height
         width  = ConvertFrom-Size -Size $Width
+    }
+    if ($TextColor) {
+        $Chart.foreColor = ConvertFrom-Color -Color $TextColor
+    }
+    if ($BackgroundColor) {
+        $Chart.background = ConvertFrom-Color -Color $BackgroundColor
     }
 
     # Lets build Title Block
@@ -223,6 +243,7 @@
             $DataSet.Add($Setting.Value)
             $DataName.Add($Setting.Name)
             $DataSeries.Add($Setting.series)
+            $LineStroke.Add($null)
 
             if ($Setting.Color) {
                 $Setting.Color | ForEach-Object {
@@ -306,8 +327,6 @@
 
             if ($Setting.series) {
                 $DataSeries.Add($Setting.series)
-            }
-            if ($Setting.stroke.count -gt 0) {
                 $LineStroke.Add($setting.stroke)
             }
             if ($Setting.Color) {
@@ -318,8 +337,6 @@
 
             if ($Setting.series) {
                 $DataSeries.Add($Setting.series)
-            }
-            if ($Setting.stroke.count -gt 0) {
                 $LineStroke.Add($Setting.stroke)
             }
             if ($Setting.Color) {
@@ -438,7 +455,7 @@
             Type            = $Type.ToLower()
             Chart           = $Chart
             Series          = $DataSeries
-            Stroke          = $LineStroke
+            Stroke          = @($LineStroke.Where({ $_.Count -gt 0 }))
             DataLabel       = $DataLabel
             Legend          = $Legend
             Markers         = $Markers
@@ -547,3 +564,5 @@
 
 Register-ArgumentCompleter -CommandName New-HTMLChart -ParameterName TitleColor -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLChart -ParameterName SubTitleColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLChart -ParameterName TextColor -ScriptBlock $Script:ScriptBlockColors
+Register-ArgumentCompleter -CommandName New-HTMLChart -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors

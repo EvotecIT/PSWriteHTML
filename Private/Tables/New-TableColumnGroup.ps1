@@ -5,14 +5,34 @@ function New-TableColumnGroup {
     #>
     [CmdletBinding()]
     param(
-        [string[]] $HeaderNames,
-        [System.Collections.Generic.List[PSCustomObject]] $TableColumnOptions
+        [int] $ColumnCount,
+        [hashtable] $Widths
     )
 
-    if (-not $HeaderNames -or $TableColumnOptions.Count -eq 0) {
+    if ($Widths.Count -eq 0) {
         return
     }
+    New-HTMLTag -Tag 'colgroup' {
+        for ($Index = 0; $Index -lt $ColumnCount; $Index++) {
+            $Style = @{}
+            if ($Widths.ContainsKey($Index)) {
+                $Style.width = ConvertFrom-Size -Size $Widths[$Index]
+            }
+            New-HTMLTag -Tag 'col' -Attributes @{ style = $Style }
+        }
+    }
+}
 
+function Get-TableColumnWidths {
+    <#
+    .SYNOPSIS
+    Resolves width options by zero-based column index. The first match wins.
+    #>
+    [CmdletBinding()]
+    param(
+        [int] $ColumnCount,
+        [System.Collections.Generic.List[PSCustomObject]] $TableColumnOptions
+    )
     $Widths = @{}
     foreach ($Option in $TableColumnOptions) {
         if (-not $Option.width) {
@@ -20,7 +40,7 @@ function New-TableColumnGroup {
         }
 
         if ($Option.targets -eq '_all') {
-            for ($Index = 0; $Index -lt $HeaderNames.Count; $Index++) {
+            for ($Index = 0; $Index -lt $ColumnCount; $Index++) {
                 if (-not $Widths.ContainsKey($Index)) {
                     $Widths[$Index] = $Option.width
                 }
@@ -29,23 +49,11 @@ function New-TableColumnGroup {
         }
 
         foreach ($Target in @($Option.targets)) {
-            if ($Target -is [int] -and $Target -ge 0 -and $Target -lt $HeaderNames.Count -and -not $Widths.ContainsKey($Target)) {
+            if ($Target -is [int] -and $Target -ge 0 -and $Target -lt $ColumnCount -and -not $Widths.ContainsKey($Target)) {
                 $Widths[$Target] = $Option.width
             }
         }
     }
 
-    if ($Widths.Count -eq 0) {
-        return
-    }
-
-    New-HTMLTag -Tag 'colgroup' {
-        for ($Index = 0; $Index -lt $HeaderNames.Count; $Index++) {
-            $Style = @{}
-            if ($Widths.ContainsKey($Index)) {
-                $Style.width = ConvertFrom-Size -Size $Widths[$Index]
-            }
-            New-HTMLTag -Tag 'col' -Attributes @{ style = $Style }
-        }
-    }
+    $Widths
 }
