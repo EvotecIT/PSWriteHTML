@@ -1,0 +1,18 @@
+@media print {
+    .pswritehtml-apex-chart {
+        min-width: 0;
+        min-height: 0 !important;
+        break-inside: avoid;
+    }
+
+    .pswritehtml-apex-chart > .apexcharts-canvas {
+        max-width: 100%;
+        height: auto !important;
+    }
+
+    .pswritehtml-apex-chart > .apexcharts-canvas > svg.apexcharts-svg[viewBox] {
+        display: block;
+        max-width: 100%;
+        height: auto !important;
+    }
+}

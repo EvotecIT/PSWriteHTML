@@ -6,6 +6,7 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 ## Unreleased
 
+- Scale charts to the available page width when printing so the right edge is not clipped.
 - Keep bar labels aligned with their bars when a chart also contains lines.
 - Set the default chart text and background colors with New-HTMLChart -TextColor and -BackgroundColor.
 - Apply table styles to email and simplified tables, and write email column widths directly on cells as well as columns.
