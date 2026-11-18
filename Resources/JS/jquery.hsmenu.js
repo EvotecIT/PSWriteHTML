@@ -265,13 +265,31 @@
 
             // Nested Dropdowns
 
-            $(".its-parent").click(function () {
+            var $parents = $hsNav.find(".nav-links .its-parent");
+            $parents.attr({ role: "button", tabindex: "0", "aria-expanded": "false" });
+            $parents.on("click keydown", function (event) {
+                if (event.type === "keydown" && event.key !== "Enter" && event.key !== " ") {
+                    return;
+                }
+                event.preventDefault();
+                var $parent = $(this);
+                var open = $parent.attr("aria-expanded") !== "true";
+                $parent.attr("aria-expanded", String(open)).toggleClass("downed", open);
+                $parent.siblings(".its-children").stop(true, true)[open ? "slideDown" : "slideUp"]();
+            });
 
-                $(this).siblings(".its-children").slideToggle();
-
-                $(this).toggleClass("downed");
-
-
+            var current = window.location;
+            $hsNav.find(".nav-links").each(function () {
+                var $match = $(this).find("a[href]").filter(function () {
+                    var href = this.getAttribute("href").trim();
+                    return href && href[0] !== "#" &&
+                        this.protocol === current.protocol && this.host === current.host &&
+                        this.pathname === current.pathname && this.search === current.search &&
+                        !this.hash;
+                }).first();
+                $match.attr("aria-current", "page");
+                $match.parents(".its-children").show()
+                    .siblings(".its-parent").attr("aria-expanded", "true").addClass("downed");
             });
 
             function $div() {

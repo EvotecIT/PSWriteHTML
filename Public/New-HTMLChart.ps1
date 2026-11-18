@@ -353,6 +353,7 @@
             $DataSetChartTimeLine.Add($Setting.TimeLine)
         } elseif ($Setting.ObjectType -eq 'ChartToolTip') {
             $ChartToolTip = $Setting.ChartToolTip
+            $ChartToolTipSeriesTitle = $Setting.SeriesTitle
         } elseif ($Setting.ObjectType -eq 'DataLabel') {
             $DataLabel = $Setting.DataLabel
         } elseif ($Setting.ObjectType -eq 'ChartEvents') {
@@ -544,6 +545,7 @@
             ChartAxisX      = $ChartAxisX
             ChartAxisY      = $ChartAxisY
             ChartToolTip    = $ChartToolTip
+            SeriesTitle     = $ChartToolTipSeriesTitle
 
             # Every the same
             Legend          = $Legend

@@ -45,6 +45,9 @@
     .PARAMETER ChartToolTip
     Specifies the tooltip settings for the chart.
 
+    .PARAMETER SeriesTitle
+    The timeline series title displayed in the tooltip.
+
     .PARAMETER DataLabel
     Specifies the data label settings for the chart.
 
@@ -131,6 +134,7 @@
         [Array] $ChartAxisY,
 
         [System.Collections.IDictionary] $ChartToolTip,
+        [string] $SeriesTitle,
         [System.Collections.IDictionary] $DataLabel,
         [Object] $Events,
         [System.Collections.IDictionary] $Design
@@ -169,7 +173,7 @@
         $Options.dataLabels = $DataLabel
     }
 
-    New-ChartInternalTimeLine -Options $Options -Color $Color -Data $Data
+    New-ChartInternalTimeLine -Options $Options -Color $Color -Data $Data -SeriesName ([Net.WebUtility]::HtmlEncode($SeriesTitle))
 
     # Default for all charts
     if ($Design.fill.pattern) {
