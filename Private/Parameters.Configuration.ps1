@@ -1293,6 +1293,10 @@
                             'margin-top'    = '10px !important'
                             'margin-bottom' = '10px !important'
                         }
+                        'div.dt-button-collection:has(.dtsp-panesContainer)' = @{
+                            'max-width' = 'min(900px, 100%)'
+                            'box-sizing' = 'border-box'
+                        }
                     }
                 }
                 Default      = $true

@@ -15,6 +15,9 @@
     .PARAMETER Data
     An array of data points to be plotted on the line chart.
 
+    .PARAMETER SeriesName
+    The HTML-encoded name for the timeline series and tooltip.
+
     .PARAMETER Min
     The minimum value for the y-axis.
 
@@ -39,6 +42,7 @@
         [System.Collections.IDictionary] $Options,
         [string] $Color,
         [Array] $Data,
+        [string] $SeriesName,
         [Int64] $Min,
         [Int64] $Max
     )
@@ -62,6 +66,7 @@
     }
     $Options.series = @(
         @{
+            name = $SeriesName
             data = @(
                 foreach ($Value in $Data) {
                     $Value

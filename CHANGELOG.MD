@@ -6,6 +6,10 @@ Please make sure to read changes before updating, as we're undergoing some break
 
 ## Unreleased
 
+- Add a responsive, script-free SVG gauge with `New-HTMLGauge`.
+- Expand the current page's branch in sidebar navigation and mark the active link.
+- Cap the Search Panes popup width on wide reports.
+- Support an optional image background and a title in timeline tooltips.
 - Scale charts to the available page width when printing so the right edge is not clipped.
 - Keep bar labels aligned with their bars when a chart also contains lines.
 - Set the default chart text and background colors with New-HTMLChart -TextColor and -BackgroundColor.

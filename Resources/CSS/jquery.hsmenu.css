@@ -466,6 +466,10 @@ button.search-submit:disabled {
     color: rgba(255, 255, 255, 0.9);
 }
 
+.hs-navigation:not(.open) .nav-links {
+    visibility: hidden;
+}
+
 .nav-links .its-parent, .nav-links li a {
     display: block;
     padding: 10px;
@@ -475,6 +479,11 @@ button.search-submit:disabled {
 
 .nav-links .its-parent:hover, .nav-links li a:hover {
     background: rgba(0, 0, 0, 0.2);
+}
+
+.nav-links a[aria-current="page"] {
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 .nav-links .icon {

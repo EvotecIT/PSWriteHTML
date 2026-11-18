@@ -37,6 +37,9 @@ function New-HTMLImage {
     .PARAMETER Inline
     Inserts given Image URL/File directly into HTML
 
+    .PARAMETER BackgroundColor
+    Sets the image wrapper background. Use Transparent to let the surrounding background show through. Email clients may adjust colors in dark mode.
+
     .EXAMPLE
     New-HTMLImage -Source 'https://evotec.pl/image.png' -UrlLink 'https://evotec.pl/' -AlternativeText 'My other text' -Class 'otehr' -Width '100%'
 
@@ -54,7 +57,8 @@ function New-HTMLImage {
         [object] $Width,
         [object] $Height,
         [switch] $Inline,
-        [Parameter(DontShow)][switch] $DisableCache
+        [Parameter(DontShow)][switch] $DisableCache,
+        [string] $BackgroundColor
     )
     $Script:HTMLSchema.Features.DefaultImage = $true
 
@@ -65,7 +69,14 @@ function New-HTMLImage {
         $BinaryImage = Convert-Image -Image $Source -Cache:(-not $DisableCache)
     }
 
-    New-HTMLTag -Tag 'div' -Attributes @{ class = $Class.ToLower() } {
+    $Wrapper = @{ class = $Class.ToLower() }
+    if ($BackgroundColor) {
+        $Color = if ($BackgroundColor -eq 'Transparent') { 'transparent' } else { ConvertFrom-Color -Color $BackgroundColor }
+        if ($Color -match '^[#\w.,()% +\-]+$') {
+            $Wrapper.style = @{ 'background-color' = [Net.WebUtility]::HtmlEncode($Color) }
+        }
+    }
+    New-HTMLTag -Tag 'div' -Attributes $Wrapper {
         $AAttributes = [ordered]@{
             'target' = $Target
             'href'   = $UrlLink.AbsoluteUri
@@ -91,6 +102,7 @@ function New-HTMLImage {
     }
 }
 
+Register-ArgumentCompleter -CommandName New-HTMLImage -ParameterName BackgroundColor -ScriptBlock $Script:ScriptBlockColors
 Register-ArgumentCompleter -CommandName New-HTMLImage -ParameterName Target -ScriptBlock {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameters)
     @('_blank', '_self', '_parent', '_top') | Where-Object { $_ -like "*$wordToComplete*" }
