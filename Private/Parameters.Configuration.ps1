@@ -571,6 +571,10 @@
                         "$PSScriptRoot\..\Resources\JS\apexcharts.min.js"
                     )
                 }
+                HeaderAlways = @{
+                    Css = "$PSScriptRoot\..\Resources\CSS\apexchartsPrint.css"
+                    Js  = "$PSScriptRoot\..\Resources\JS\apexchartsPrint.js"
+                }
                 Default = $true
                 Email   = $false
             }
