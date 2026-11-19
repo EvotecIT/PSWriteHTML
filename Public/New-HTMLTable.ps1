@@ -142,7 +142,9 @@
     Fixes the header of the table.
 
     .PARAMETER FixedFooter
-    Fixes the footer of the table.
+    Fixes the footer of the table. With ScrollX, a horizontal scrollbar follows
+    the footer while the table's own scrollbar is below the viewport. Tables
+    with their own vertical scrolling use their native scrollbar.
 
     .PARAMETER ResponsivePriorityOrder
     The priority order for responsiveness.
@@ -161,6 +163,10 @@
 
     .PARAMETER ImmediatelyShowHiddenDetails
     Shows hidden details immediately.
+
+    .PARAMETER ResponsiveDetailsModal
+    Opens hidden column details in a modal instead of expanding the row.
+    Requires responsive table mode and takes precedence over ImmediatelyShowHiddenDetails.
 
     .PARAMETER HideShowButton
     Displays a button to show/hide details.
@@ -279,6 +285,18 @@
     )
     New-HTMLTable -DataTable $data -Title 'User Information' -Buttons @('copyHtml5', 'excelHtml5') -PagingStyle 'full_numbers' -PagingOptions @(10, 25, 50) -DefaultSortColumn @('Name') -DefaultSortOrder @('Ascending')
 
+    .EXAMPLE
+    New-HTMLTable -DataTable $Servers -ResponsiveDetailsModal {
+        New-TableHeader -Names 'Notes' -ResponsiveOperations none
+    }
+
+    Opens the hidden Notes column in a modal when the reader activates a row's details control.
+
+    .EXAMPLE
+    New-HTMLTable -DataTable $Inventory -ScrollX -FixedFooter -DisablePaging
+
+    Keeps horizontal scrolling reachable while reading a long, wide inventory table.
+
     .NOTES
     This function is designed to create customizable HTML tables for various data representation needs.
     #>
@@ -373,7 +391,8 @@
         [string] $PrettifyObjectSeparator = ", ",
         [string] $PrettifyObjectDateTimeFormat,
         [int] $FlattenDepth,
-        [object] $Width
+        [object] $Width,
+        [switch] $ResponsiveDetailsModal
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -1007,6 +1026,11 @@
             header = $FixedHeader.IsPresent
             footer = $FixedFooter.IsPresent
         }
+        if ($FixedFooter -and -not ($ScrollY -or $EnableScroller) -and
+            ($ScrollX -or (-not $HideButtons -and $Buttons -contains 'toggleView'))) {
+            $Script:HTMLSchema.Features.DataTablesFooterScrollbar = $true
+            $Options['pswhFooterScrollbar'] = $true
+        }
     }
 
     # this was due to: https://github.com/DataTables/DataTablesSrc/issues/143
@@ -1016,7 +1040,9 @@
         # Build responsive configuration
         $ResponsiveConfig = @{ }
         $ResponsiveConfig['details'] = @{ }
-        if ($ImmediatelyShowHiddenDetails) {
+        if ($ResponsiveDetailsModal) {
+            $ResponsiveConfig['details']['display'] = '$.fn.dataTable.Responsive.display.modal()'
+        } elseif ($ImmediatelyShowHiddenDetails) {
             $ResponsiveConfig['details']['display'] = '$.fn.dataTable.Responsive.display.childRowImmediate'
         }
         if ($HideShowButton) {
@@ -1202,11 +1228,8 @@
     $Options = $Options | ConvertTo-HTMLScriptJson -Depth 8
     foreach ($Marker in $ExportReplacements.Keys) { $Options = $Options.Replace('"' + $Marker + '"', $ExportReplacements[$Marker]) }
 
-    # cleans up $Options for ImmediatelyShowHiddenDetails
-    # Since it's JavaScript inside we're basically removing double quotes from JSON in favor of no quotes at all
-    # Before: "display": "$.fn.dataTable.Responsive.display.childRowImmediate"
-    # After: "display": $.fn.dataTable.Responsive.display.childRowImmediate
-    $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.childRowImmediate)"', '$1'
+    # Emit the supported Responsive display callbacks as JavaScript expressions.
+    $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.(?:childRowImmediate|modal\(\)))"', '$1'
     # $Options = $Options -replace '"(\$\.fn\.dataTable\.render\.percentBar\(.+\))"', '$1'
     $Options = [regex]::Replace(
         $Options,
