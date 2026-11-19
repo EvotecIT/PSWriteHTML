@@ -140,3 +140,7 @@ Email -AttachSelf -AttachSelfName 'My report' {
 ```
 
 ![Example 3](https://evotec.xyz/wp-content/uploads/2019/04/img_5cafbfe051735.png)
+
+### Chart in the email body
+
+[Example-EmailChartImage.ps1](Example-EmailChartImage.ps1) uses the optional [ImagePlayground](https://www.powershellgallery.com/packages/ImagePlayground) module to render a bar chart as a PNG without a browser. `EmailImage -Inline` embeds the PNG in the body. The script saves the chart and a local HTML preview in `-OutputDirectory` and sends no mail.
