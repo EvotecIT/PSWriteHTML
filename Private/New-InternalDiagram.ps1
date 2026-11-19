@@ -12,6 +12,9 @@
     .PARAMETER Edges
     Specifies the collection of edges connecting the nodes.
 
+    .PARAMETER Groups
+    Named, non-overlapping groups of diagram nodes.
+
     .PARAMETER Events
     Specifies the events associated with the diagram.
 
@@ -58,6 +61,7 @@
     param(
         [System.Collections.IList] $Nodes,
         [System.Collections.IList] $Edges,
+        [System.Collections.IList] $Groups,
         [System.Collections.IList] $Events,
         [System.Collections.IDictionary] $Options,
         [object] $Height,
@@ -87,8 +91,9 @@
     if (-not $DisableLoader) {
         $Script:HTMLSchema.Features.VisNetworkLoadingBar = $true
     }
-    # Vis network clustering allows to cluster more than 1 node, there's no code to enable it yet
-    #$Script:HTMLSchema.Features.VisNetworkClustering = $true
+    if ($Groups.Count -gt 0) {
+        $Script:HTMLSchema.Features.VisNetworkGroups = $true
+    }
     if ($EnableFiltering -or $UseFilteringButton) {
         $Script:HTMLSchema.Features.VisNetworkFind = $true
     }
@@ -103,6 +108,10 @@
     if ($BackgroundImage) {
         $Style['background'] = "url('$BackgroundImage')"
         $Style['background-size'] = $BackgroundSize
+    }
+    if ($Groups.Count -gt 0) {
+        $GroupPanelWidth = $Style.width
+        $Style.width = '100%'
     }
 
     $AttributesOutside = [ordered] @{
@@ -171,16 +180,9 @@
     }
 
     $Script = New-HTMLTag -Tag 'script' -Value {
-        # Convert Dictionary to JSON and return chart within SCRIPT tag
-        # Make sure to return with additional empty string
-
-        '// create an array with nodes'
+        '(function () {'
         "var nodes = new vis.DataSet([$ConvertedNodes]); "
-
-        '// create an array with edges'
         "var edges = new vis.DataSet([$ConvertedEdges]); "
-
-        '// create a network'
         "var container = document.getElementById('$ID'); "
         "var data = { "
         "   nodes: nodes, "
@@ -195,17 +197,33 @@
         }
         $DisableLoaderString = (-not $DisableLoader).ToString().ToLower()
         $IconsAvailableString = $IconsAvailable.IsPresent.ToString().ToLower()
-        "var network = loadDiagramWithFonts(container, data, options, '$ID', $DisableLoaderString , $IconsAvailableString);"
+        "loadDiagramWithFonts(container, data, options, '$ID', $DisableLoaderString, $IconsAvailableString, function (network) {"
         "diagramTracker['$ID'] = network;"
         "$PreparedEvents"
 
-        if ($EnableFiltering -or $UseFilteringButton) {
-            $SearchByTyping = if ($UseFilteringButton) { "false" } else { "true" }
-            "setupSearch(nodes, edges, 'searchInput$ID', 'searchButton$ID', $SearchByTyping, $MinimumFilteringChars); // Enables typing search only"
+        $BeforeFilter = 'null'
+        if ($Groups.Count -gt 0) {
+            $GroupsJson = ConvertTo-HTMLScriptJson -InputObject @($Groups) -Compress
+            "var expandGroups = setupDiagramGroups(network, nodes, edges, container, $GroupsJson, options.edges);"
+            $BeforeFilter = 'expandGroups'
         }
 
+        if ($EnableFiltering -or $UseFilteringButton) {
+            $SearchByTyping = if ($UseFilteringButton) { "false" } else { "true" }
+            "setupSearch(nodes, edges, 'searchInput$ID', 'searchButton$ID', $SearchByTyping, $MinimumFilteringChars, $BeforeFilter);"
+        }
+
+        '});'
+        '})();'
     } -NewLine
 
-    $Div
+    if ($Groups.Count -gt 0) {
+        New-HTMLTag -Tag 'div' -Attributes @{ class = 'diagramGroupPanel'; style = @{ width = $GroupPanelWidth } } -Value {
+            New-HTMLTag -Tag 'div' -Attributes @{ id = "$ID-groups"; class = 'diagramGroupControls'; role = 'group'; 'aria-label' = 'Diagram groups' }
+            $Div
+        }
+    } else {
+        $Div
+    }
     $Script:HTMLSchema.Diagrams.Add($Script)
 }

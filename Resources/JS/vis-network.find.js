@@ -24,13 +24,16 @@ function updateVisibility(searchQuery, nodes, edges) {
     });
 }
 
-function setupSearch(nodes, edges, inputId, buttonId = null, enableTypingSearch = true, minChars = 3) {
+function setupSearch(nodes, edges, inputId, buttonId = null, enableTypingSearch = true, minChars = 3, beforeFilter = null) {
     const inputElement = document.getElementById(inputId);
     const updateVisibilityIfNeeded = (searchQuery) => {
         // Check if the search query has changed significantly since last update
         if (searchQuery !== lastSearchQuery[inputId]) {
             // Only update visibility if searchQuery length is at least minChars or if clearing the search
             if (searchQuery.length >= minChars || searchQuery.length === 0) {
+                if (beforeFilter) {
+                    beforeFilter();
+                }
                 updateVisibility(searchQuery.toLowerCase(), nodes, edges);
             }
             lastSearchQuery[inputId] = searchQuery; // Update the last search query
