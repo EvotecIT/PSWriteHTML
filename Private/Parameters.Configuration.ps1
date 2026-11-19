@@ -1967,20 +1967,29 @@
                 Default = $true
                 Email   = $false
             }
+            VisNetworkGroups            = @{
+                Comment      = 'VIS Network Diagram Groups'
+                HeaderAlways = @{
+                    Js  = "$PSScriptRoot\..\Resources\JS\vis-network.groups.js"
+                    Css = "$PSScriptRoot\..\Resources\CSS\vis-network.groups.css"
+                }
+                Default      = $true
+                Email        = $false
+            }
             VisNetworkLoad              = [ordered] @{
-                Comment = 'VIS Network Load'
-                Header  = @{
-                    JSLink = "$($ConfigurationURL)/JS/vis-network.loadingbar.min.js"
+                Comment      = 'VIS Network Load'
+                HeaderAlways = @{
                     JS     = "$PSScriptRoot\..\Resources\JS\vis-network.loadingbar.js"
                 }
-                Default = $true
-                Email   = $false
+                Default      = $true
+                Email        = $false
             }
             VisNetworkFind              = [ordered] @{
                 Comment = 'VIS Network Find'
+                HeaderAlways = @{
+                    JS = "$PSScriptRoot\..\Resources\JS\vis-network.find.js"
+                }
                 Header  = @{
-                    JSLink  = "$($ConfigurationURL)/JS/vis-network.find.min.js"
-                    JS      = "$PSScriptRoot\..\Resources\JS\vis-network.find.js"
                     Css     = "$PSScriptRoot\..\Resources\CSS\vis-network.find.css"
                     CssLink = "$($ConfigurationURL)/CSS/vis-network.find.min.css"
                 }

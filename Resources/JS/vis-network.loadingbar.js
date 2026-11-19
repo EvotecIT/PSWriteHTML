@@ -1,36 +1,21 @@
-﻿function loadDiagramWithFonts(container, data, options, id, loader, fonts) {
-    var network;
-    if (fonts == true) {
-        if (document.fonts) {
-            // Decent browsers: Make sure the fonts are loaded.
-            document.fonts
-                .load('normal normal 900 24px/1 "Font Awesome 5 Free"')
-                .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
-                .then(
-                    document.fonts
-                        .load('normal normal 900 24px/1 "Font Awesome 5 Brands"')
-                        .catch(console.error.bind(console, "Failed to load Font Awesome 5."))
-                        .then(
-                            network = loadDiagram(container, data, options, id, loader)
-                        )
-                        .catch(
-                            console.error.bind(console, "Failed to render the network with Font Awesome 5.")
-                        )
-                ).catch(
-                    console.error.bind(console, "Failed to render the network with Font Awesome 5.")
-                );
-        } else {
-            // IE: Let's just hope the fonts are loaded (they're probably not, hence the timeout).
-            network = window.addEventListener("load", function () {
-                setTimeout(function () {
-                    loadDiagram(container, data, options, id, loader);
-                }, 500);
-            });
-        }
-    } else {
-        network = loadDiagram(container, data, options, id, loader);
+function loadDiagramWithFonts(container, data, options, id, loader, fonts, onLoad) {
+    function load() {
+        onLoad(loadDiagram(container, data, options, id, loader));
     }
-    return network;
+
+    if (!fonts) {
+        load();
+    } else if (document.fonts) {
+        Promise.all([
+            document.fonts.load('normal normal 900 24px/1 "Font Awesome 5 Free"'),
+            document.fonts.load('normal normal 900 24px/1 "Font Awesome 5 Brands"')
+        ]).catch(function (error) {
+            console.warn("Failed to load diagram icon fonts.", error);
+        }).then(load);
+    } else {
+        // Allow the fonts to load on browsers without the Font Loading API.
+        setTimeout(load, 500);
+    }
 }
 
 function loadDiagram(container, data, options, id, loader) {

@@ -1,0 +1,30 @@
+.diagramGroupPanel {
+    min-width: 0;
+}
+
+.diagramGroupControls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-block: 0.4rem;
+}
+
+.diagramGroupControls button {
+    padding: 0.35rem 0.7rem;
+    border: 1px solid #597491;
+    border-radius: 0.25rem;
+    background: #fff;
+    color: #24374b;
+    font: inherit;
+    cursor: pointer;
+}
+
+.diagramGroupControls button:hover,
+.diagramGroupControls button[aria-expanded="false"] {
+    background: #e8eff7;
+}
+
+.diagramGroupControls button:focus-visible {
+    outline: 2px solid #24374b;
+    outline-offset: 2px;
+}

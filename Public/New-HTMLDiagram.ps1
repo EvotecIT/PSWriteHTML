@@ -6,6 +6,8 @@
     .DESCRIPTION
     This function creates a new HTML diagram with customizable options such as diagram data, height, width, image bundling, background image, background size, auto-resize, loading bar, filtering, and more.
 
+    Use New-DiagramGroup to group existing nodes and give readers controls to collapse and expand them.
+
     .PARAMETER Diagram
     Specifies the diagram data to be displayed. This should be a ScriptBlock containing the diagram configuration.
 
@@ -53,6 +55,24 @@
 
     Creates a new HTML diagram with additional configuration settings and default options for height and width.
 
+    .EXAMPLE
+    New-HTMLDiagram -Height 500 {
+        New-DiagramNode -Id 'app' -Label 'Application' -X -150 -Y -60
+        New-DiagramNode -Id 'db' -Label 'Database' -X -150 -Y 60
+        New-DiagramNode -Id 'proxy' -Label 'Reverse proxy' -X 150 -Y -60
+        New-DiagramNode -Id 'web' -Label 'Web server' -X 150 -Y 60
+        New-DiagramGroup -Name 'Internal Network' -NodeId 'app', 'db'
+        New-DiagramGroup -Name 'DMZ' -NodeId 'proxy', 'web'
+        New-DiagramLink -From 'app' -To 'db'
+        New-DiagramLink -From 'proxy' -To 'web'
+        New-DiagramLink -From 'proxy' -To 'app' -ArrowsToEnabled
+        New-DiagramOptionsPhysics -Enabled $false
+    }
+
+    Shows two network groups with a directed link from the DMZ to the internal network.
+
+    .OUTPUTS
+    System.String
     #>
     [alias('Diagram', 'New-Diagram')]
     [CmdletBinding()]
@@ -79,6 +99,7 @@
     $DataEdges = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
     $DataNodes = [ordered] @{ }
     $DataEvents = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
+    $DataGroups = [System.Collections.Generic.List[System.Collections.IDictionary]]::new()
 
     [Array] $Settings = & $Diagram
     foreach ($Node in $Settings) {
@@ -120,6 +141,8 @@
             $DataEdges.Add($Node.Edges)
         } elseif ($Node.Type -eq 'DiagramEvent') {
             $DataEvents.Add($Node.Settings)
+        } elseif ($Node.Type -eq 'DiagramGroup') {
+            $DataGroups.Add($Node.Settings)
         }
     }
     <#
@@ -216,6 +239,7 @@
     $newInternalDiagramSplat = @{
         Nodes                 = $Nodes
         Edges                 = $Edges
+        Groups                = @(Resolve-DiagramGroups -Groups $DataGroups -Nodes $DataNodes)
         Options               = $Options
         Width                 = $Width
         Height                = $Height
