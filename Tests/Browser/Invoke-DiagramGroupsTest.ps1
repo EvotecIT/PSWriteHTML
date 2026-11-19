@@ -36,13 +36,27 @@ $null = New-HTML -FilePath (Join-Path $ReportDirectory 'diagram-groups.html') -F
         New-DiagramLink -From 'App' -To 'Db' -Label 'sql'
         New-DiagramLink -From 'Proxy' -To 'Web' -Label 'http'
         New-DiagramLink -From 'App' -To 'Proxy' -Label 'outbound' -ArrowsToEnabled
+        New-DiagramLink -From 'App' -To 'App' -Label 'internal loop' -ArrowsToEnabled
         New-DiagramLink -From 'Web' -To 'Db' -Label 'inbound' -ArrowsToEnabled
         New-DiagramLink -From 'Internet' -To 'Proxy' -Label 'https' -ArrowsToEnabled
     }
     New-HTMLDiagram -Height 400 {
+        New-DiagramOptionsManipulation -InitiallyActive $true -DeleteNode $true
         New-DiagramNode -Id 'Other' -Label 'Other server' -IconSolid 'server'
         New-DiagramGroup -Name 'DMZ' -NodeId 'Other' -Collapsed
         New-DiagramOptionsPhysics -Enabled $false
+    }
+    New-HTMLDiagram -Height 400 {
+        New-DiagramOptionsLayout -HierarchicalEnabled $true
+        New-DiagramOptionsPhysics -Enabled $false
+        New-DiagramNode -Id 'Left' -Label 'Left' -Level 0
+        New-DiagramNode -Id 'Right' -Label 'Right' -Level 1
+        New-DiagramGroup -Name 'Left group' -NodeId 'Left' -Collapsed
+        New-DiagramGroup -Name 'Right group' -NodeId 'Right' -Collapsed
+        foreach ($Index in 1..105) {
+            New-DiagramLink -From 'Left' -To 'Right' -Label "Route $Index" -ArrowsToEnabled
+        }
+        New-DiagramLink -From 'Left' -To 'Right' -Label 'Return route' -ArrowsMiddleEnabled -ArrowsMiddleScaleFactor -1
     }
 }
 
@@ -64,8 +78,7 @@ function Assert-DiagramView {
             if (labels === "inbound / outbound") {
                 const endpoints = [displayId(edge.fromId), displayId(edge.toId)].sort();
                 const bidirectional = edge.options.arrows.from.enabled && edge.options.arrows.to.enabled;
-                const baseCount = network.getBaseEdges(id).length;
-                return endpoints.join(bidirectional ? "<>" : ">") + ":" + labels + ":" + baseCount;
+                return endpoints.join(bidirectional ? "<>" : ">") + ":" + labels;
             }
             return displayId(edge.fromId) + ">" + displayId(edge.toId) + ":" + labels;
         }).sort().join("|")
@@ -84,9 +97,15 @@ if ($Browser -eq 'Edge') {
     $Options.Browser = 'Chromium'
     $Options.BrowserChannel = 'msedge'
 }
-$Session = Start-HtmlBrowserSession -Url ([uri]::new($BaseUri, 'diagram-groups.html')).AbsoluteUri @Options
+$Session = Start-HtmlBrowserSession -Url 'about:blank' @Options
 try {
     $Session.Page.SetDefaultTimeout(15000)
+    $null = $Session.Page.AddInitScriptAsync(@'
+window.diagramPageErrors = [];
+window.addEventListener("error", event => window.diagramPageErrors.push(event.message));
+window.addEventListener("unhandledrejection", event => window.diagramPageErrors.push(String(event.reason)));
+'@, $null).GetAwaiter().GetResult()
+    $null = $Session.Page.GotoAsync(([uri]::new($BaseUri, 'diagram-groups.html')).AbsoluteUri).GetAwaiter().GetResult()
     $GroupButtons = $Session.Page.Locator('.diagramGroupControls button')
     $Internal = $GroupButtons.Nth(0)
     $DMZ = $GroupButtons.Nth(1)
@@ -98,7 +117,7 @@ try {
     }
 
     $ExpandedNodes = 'App', 'Db', 'Proxy', 'Web', 'Internet'
-    $ExpandedLinks = 'App>Db:sql', 'Proxy>Web:http', 'App>Proxy:outbound', 'Web>Db:inbound', 'Internet>Proxy:https'
+    $ExpandedLinks = 'App>Db:sql', 'Proxy>Web:http', 'App>Proxy:outbound', 'App>App:internal loop', 'Web>Db:inbound', 'Internet>Proxy:https'
     Assert-DiagramView -NodeNames $ExpandedNodes -Links $ExpandedLinks
     if ($Capture) {
         $null = Save-HtmlBrowserScreenshot -Session $Session -OutFile (Join-Path $ReportDirectory 'expanded.png') -Selector '.diagramGroupPanel:first-of-type'
@@ -111,14 +130,14 @@ try {
     Assert-DiagramView -NodeNames 'Internal Network', 'Proxy', 'Web', 'Internet' -Links 'Proxy>Web:http', 'Internal Network>Proxy:outbound', 'Web>Internal Network:inbound', 'Internet>Proxy:https'
 
     $null = $DMZ.ClickAsync().GetAwaiter().GetResult()
-    Assert-DiagramView -NodeNames 'Internal Network', 'DMZ', 'Internet' -Links 'DMZ<>Internal Network:inbound / outbound:2', 'Internet>DMZ:https'
+    Assert-DiagramView -NodeNames 'Internal Network', 'DMZ', 'Internet' -Links 'DMZ<>Internal Network:inbound / outbound', 'Internet>DMZ:https'
     if ($Capture) {
         $null = Save-HtmlBrowserScreenshot -Session $Session -OutFile (Join-Path $ReportDirectory 'collapsed.png') -Selector '.diagramGroupPanel:first-of-type'
     }
 
     # Open the first group before the second to exercise a link between two clusters.
     $null = $Internal.ClickAsync().GetAwaiter().GetResult()
-    Assert-DiagramView -NodeNames 'App', 'Db', 'DMZ', 'Internet' -Links 'App>Db:sql', 'App>DMZ:outbound', 'DMZ>Db:inbound', 'Internet>DMZ:https'
+    Assert-DiagramView -NodeNames 'App', 'Db', 'DMZ', 'Internet' -Links 'App>Db:sql', 'App>App:internal loop', 'App>DMZ:outbound', 'DMZ>Db:inbound', 'Internet>DMZ:https'
     $null = $DMZ.PressAsync('Space').GetAwaiter().GetResult()
     Assert-DiagramView -NodeNames $ExpandedNodes -Links $ExpandedLinks
 
@@ -132,9 +151,53 @@ try {
     if ($OtherDMZ.TextContentAsync().GetAwaiter().GetResult() -ne 'Expand DMZ') {
         throw 'Toggling the first diagram affected the second diagram.'
     }
+    $null = Invoke-HtmlBrowserScript -Session $Session -Script @'
+() => {
+    const network = Object.values(diagramTracker).find(item => item.body.data.nodes.get("Other"));
+    network.selectNodes(network.body.nodeIndices);
+    network.emit("select", network.getSelection());
+}
+'@
+    $DeleteSelected = $Session.Page.Locator('.vis-manipulation .vis-delete')
+    $null = $DeleteSelected.WaitForAsync().GetAwaiter().GetResult()
     $null = $OtherDMZ.ClickAsync().GetAwaiter().GetResult()
     if ($OtherDMZ.TextContentAsync().GetAwaiter().GetResult() -ne 'Collapse DMZ') {
         throw 'The second diagram did not expand.'
+    }
+    $null = $Session.Page.WaitForFunctionAsync(@'
+() => {
+    const network = Object.values(diagramTracker).find(item => item.body.data.nodes.get("Other"));
+    return network.getSelectedNodes().length === 0 && !document.querySelector(".vis-manipulation .vis-delete");
+}
+'@).GetAwaiter().GetResult()
+
+    $null = $GroupButtons.Nth(4).WaitForAsync().GetAwaiter().GetResult()
+    $LargeCluster = Invoke-HtmlBrowserScript -Session $Session -Script @'
+() => {
+    const network = Object.values(diagramTracker).find(item => item.body.data.nodes.get("Left"));
+    const [edgeId] = network.body.edgeIndices;
+    const edge = network.body.edges[edgeId];
+    return network.body.edgeIndices.length === 1 && edge.options.label === "106 links" &&
+        edge.options.arrows.from.enabled && edge.options.arrows.to.enabled;
+}
+'@
+    if (-not $LargeCluster) {
+        throw 'The collapsed hierarchical diagram failed to represent all 106 directed links.'
+    }
+    $null = $GroupButtons.Nth(3).ClickAsync().GetAwaiter().GetResult()
+    $null = $GroupButtons.Nth(4).ClickAsync().GetAwaiter().GetResult()
+    $null = $Session.Page.WaitForFunctionAsync(@'
+() => {
+    const network = Object.values(diagramTracker).find(item => item.body.data.nodes.get("Left"));
+    return network.body.nodeIndices.length === 2 && network.body.edgeIndices.length === 106;
+}
+'@).GetAwaiter().GetResult()
+
+    $PageErrors = Invoke-HtmlBrowserScript -Session $Session -Script '() => window.diagramPageErrors.join("\n")'
+    $ClusterErrors = Get-HtmlBrowserConsoleLog -Session $Session -Severity Error |
+        Where-Object Text -eq 'Node does not exist.'
+    if ($PageErrors -or $ClusterErrors) {
+        throw "Diagram initialization or interaction logged errors. $PageErrors $($ClusterErrors.Text -join ' ')"
     }
     "PASS: $Browser restored every directed link and kept both diagrams independent."
 } finally {

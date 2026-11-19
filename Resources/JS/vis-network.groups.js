@@ -14,14 +14,23 @@ function setupDiagramGroups(network, nodes, edges, container, definitions, edgeD
     });
 
     function updateButton(group) {
-        const expanded = !network.isCluster(group.id);
+        const expanded = !isDiagramGroupCollapsed(network, group);
         group.button.setAttribute("aria-expanded", String(expanded));
         group.button.textContent = (expanded ? "Collapse " : "Expand ") + group.name;
     }
 
     function collapse(group) {
+        clearDiagramGroupSelection(network);
         network.cluster({
             joinCondition: node => group.nodeIds.has(node.id) && !node.hidden,
+            processProperties: function (cluster, members) {
+                const levels = members.map(node => node.level).filter(Number.isFinite);
+                if (levels.length > 0) {
+                    // Explicit hierarchical layouts also need a level for the folded node.
+                    cluster.level = levels.reduce((minimum, level) => Math.min(minimum, level));
+                }
+                return cluster;
+            },
             clusterNodeProperties: {
                 id: group.id,
                 label: group.name,
@@ -35,7 +44,8 @@ function setupDiagramGroups(network, nodes, edges, container, definitions, edgeD
     }
 
     function expand(group) {
-        if (network.isCluster(group.id)) {
+        if (isDiagramGroupCollapsed(network, group)) {
+            clearDiagramGroupSelection(network);
             network.openCluster(group.id, {
                 releaseFunction: (clusterPosition, memberPositions) => memberPositions
             });
@@ -48,7 +58,7 @@ function setupDiagramGroups(network, nodes, edges, container, definitions, edgeD
         context.font = "bold 14px sans-serif";
         context.textBaseline = "top";
         for (const group of groups) {
-            if (network.isCluster(group.id)) {
+            if (isDiagramGroupCollapsed(network, group)) {
                 continue;
             }
             const bounds = expandedDiagramGroupBounds(network, nodes, group.nodeIds);
@@ -72,7 +82,7 @@ function setupDiagramGroups(network, nodes, edges, container, definitions, edgeD
 
     groups.forEach(function (group, index) {
         group.button.addEventListener("click", function () {
-            if (network.isCluster(group.id)) {
+            if (isDiagramGroupCollapsed(network, group)) {
                 expand(group);
             } else {
                 collapse(group);
@@ -94,37 +104,93 @@ function setupDiagramGroups(network, nodes, edges, container, definitions, edgeD
     };
 }
 
+function isDiagramGroupCollapsed(network, group) {
+    // An expanded group has no cluster node, and isCluster logs errors for missing IDs.
+    return network.findNode(group.id).length > 0 && network.isCluster(group.id);
+}
+
+function clearDiagramGroupSelection(network) {
+    const selection = network.getSelection();
+    if (selection.nodes.length || selection.edges.length) {
+        network.unselectAll();
+        // Programmatic unselection does not refresh the manipulation toolbar.
+        network.emit("select", network.getSelection());
+    }
+}
+
 function describeDiagramGroupLinks(network, edges, groups, edgeDefaults) {
     const clusteredEdges = new Set();
     for (const group of groups) {
-        if (network.isCluster(group.id)) {
+        if (isDiagramGroupCollapsed(network, group)) {
             network.getConnectedEdges(group.id).forEach(id => clusteredEdges.add(id));
         }
     }
-    for (const id of clusteredEdges) {
-        const baseEdges = network.getBaseEdges(id).map(edgeId => edges.get(edgeId)).filter(Boolean);
-        if (baseEdges.length < 2) {
-            continue;
-        }
 
+    const baseIdsByClusterEdge = new Map([...clusteredEdges].map(id => [id, new Set(network.getBaseEdges(id))]));
+    if (baseIdsByClusterEdge.size === 0) {
+        return;
+    }
+    // getBaseEdges bounds its traversal, so recover any additional links from the source.
+    for (const baseId of edges.getIds()) {
+        const [clusteredId] = network.getClusteredEdges(baseId);
+        baseIdsByClusterEdge.get(clusteredId)?.add(baseId);
+    }
+
+    for (const [id, baseIds] of baseIdsByClusterEdge) {
+        const baseEdges = edges.get([...baseIds]);
         // Vis-network combines parallel and opposite-direction links into one edge.
         // Describe all the underlying links without changing the original edges.
-        const [, to] = network.getConnectedNodes(id);
-        const visibleEdges = baseEdges.filter(edge => !edge.hidden);
-        const labels = visibleEdges.map(edge => edge.label).filter(Boolean);
+        const [from, to] = network.getConnectedNodes(id);
+        if (network.findNode(from)[0] !== from || network.findNode(to)[0] !== to) {
+            continue;
+        }
+        const labels = [];
+        let visibleCount = 0;
         let arrowFrom = false;
         let arrowTo = false;
-        for (const edge of visibleEdges) {
-            const sameDirection = network.findNode(edge.to)[0] === to;
-            const fromEnabled = edge.arrows?.from?.enabled ?? edgeDefaults?.arrows?.from?.enabled;
-            const toEnabled = edge.arrows?.to?.enabled ?? edgeDefaults?.arrows?.to?.enabled;
-            arrowFrom = arrowFrom || Boolean(sameDirection ? fromEnabled : toEnabled);
-            arrowTo = arrowTo || Boolean(sameDirection ? toEnabled : fromEnabled);
+        for (const edge of baseEdges) {
+            const source = network.findNode(edge.from)[0];
+            const target = network.findNode(edge.to)[0];
+            const sameDirection = source === from && target === to;
+            const reverseDirection = source === to && target === from;
+            if (edge.hidden || source === target || (!sameDirection && !reverseDirection)) {
+                continue;
+            }
+            visibleCount++;
+            if (edge.label) {
+                labels.push(edge.label);
+            }
+            for (const position of ["from", "middle", "to"]) {
+                const local = edge.arrows?.[position];
+                const defaults = edgeDefaults?.arrows?.[position];
+                if (local?.enabled ?? defaults?.enabled) {
+                    const flipped = (local?.scaleFactor ?? defaults?.scaleFactor ?? 1) < 0;
+                    const alongLink = (position !== "from") !== flipped;
+                    if (alongLink === sameDirection) {
+                        arrowTo = true;
+                    } else {
+                        arrowFrom = true;
+                    }
+                }
+            }
         }
+        if (visibleCount === 0) {
+            // Opening a neighboring group can leave a replacement for an internal self-loop.
+            network.clustering.updateEdge(id, { hidden: true });
+            continue;
+        }
+        if (baseEdges.length === 1) {
+            continue;
+        }
+        const showCount = visibleCount > 3 || (visibleCount > 1 && labels.length !== visibleCount);
         network.clustering.updateEdge(id, {
-            label: labels.join(" / ") || (visibleEdges.length > 1 ? visibleEdges.length + " links" : ""),
-            hidden: visibleEdges.length === 0,
-            arrows: { from: { enabled: arrowFrom }, to: { enabled: arrowTo } }
+            label: showCount ? visibleCount + " links" : labels.join(" / "),
+            hidden: false,
+            arrows: {
+                from: { enabled: arrowFrom, type: "arrow", scaleFactor: 1 },
+                middle: { enabled: false },
+                to: { enabled: arrowTo, type: "arrow", scaleFactor: 1 }
+            }
         });
     }
 }

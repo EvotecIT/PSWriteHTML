@@ -210,7 +210,8 @@
 
         if ($EnableFiltering -or $UseFilteringButton) {
             $SearchByTyping = if ($UseFilteringButton) { "false" } else { "true" }
-            "setupSearch(nodes, edges, 'searchInput$ID', 'searchButton$ID', $SearchByTyping, $MinimumFilteringChars, $BeforeFilter);"
+            $SearchButton = if ($UseFilteringButton) { "'searchButton$ID'" } else { 'null' }
+            "setupSearch(nodes, edges, 'searchInput$ID', $SearchButton, $SearchByTyping, $MinimumFilteringChars, $BeforeFilter);"
         }
 
         '});'
