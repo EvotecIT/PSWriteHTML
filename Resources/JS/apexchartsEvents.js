@@ -58,12 +58,12 @@ function chartEventDataPointClick(tableid, columnid, config, dataPointIndex, ser
             highlightValue = escapeRegExp(highlightValue);
         }
 
-        // if value is the same we clicked on before, we clear the search, if not we continue
-        if (dataTablesChartsEvents[tableid] != undefined) {
-            if (dataTablesChartsEvents[tableid].highlightValue == highlightValue) {
-                dataTablesSearchClear(tableid, columnid);
-                return true;
-            }
+        // Different slices can have the same value, even on charts linked to the same table.
+        var previous = dataTablesChartsEvents[tableid];
+        if (previous && previous.columnid === columnid && previous.chartPoint &&
+            previous.chartPoint.chart === config && previous.chartPoint.index === dataPointIndex) {
+            dataTablesSearchClear(tableid, columnid);
+            return true;
         }
     } else {
         // if it's not pie chart we need to quit, as we deal with other charts in click events until this bug in ApexCharts is fixed
@@ -74,7 +74,7 @@ function chartEventDataPointClick(tableid, columnid, config, dataPointIndex, ser
 
     console.log('data click, type:' + config.chart.type + ' columnValue:' + columnValue + ' highlight:' + highlightValue);
     if (columnValue != '') {
-        dataTablesFindMatch(table, tableid, columnid, columnValue, highlightValue)
+        dataTablesFindMatch(table, tableid, columnid, columnValue, highlightValue, { chart: config, index: dataPointIndex });
     } else {
         dataTablesSearchClear(tableid, columnid);
     }
@@ -112,13 +112,14 @@ function chartEventMarkerClick(tableid, columnid, config, dataPointIndex, series
         }
     }
 }
-function dataTablesFindMatch(table, tableid, columnid, columnValue, highlightValue) {
+function dataTablesFindMatch(table, tableid, columnid, columnValue, highlightValue, chartPoint) {
     $('#' + tableid + ' td').removeClass('highlight');
-    if (highlightValue) {
-        dataTablesChartsEvents[tableid] = { columnid: columnid, columnValue: columnValue, highlightValue: highlightValue };
-    } else {
-        dataTablesChartsEvents[tableid] = { columnid: columnid, columnValue: columnValue, highlightValue: undefined };
-    }
+    dataTablesChartsEvents[tableid] = {
+        columnid: columnid,
+        columnValue: columnValue,
+        highlightValue: highlightValue || undefined,
+        chartPoint: chartPoint
+    };
     table.draw(); // Run the search plugin
 }
 function dataTablesSearchClear(tableid, columnid) {
