@@ -1041,7 +1041,8 @@
         $ResponsiveConfig = @{ }
         $ResponsiveConfig['details'] = @{ }
         if ($ResponsiveDetailsModal) {
-            $ResponsiveConfig['details']['display'] = '$.fn.dataTable.Responsive.display.modal()'
+            $Script:HTMLSchema.Features.DataTablesResponsiveModal = $true
+            $ResponsiveConfig['details']['display'] = 'pswhResponsiveModal()'
         } elseif ($ImmediatelyShowHiddenDetails) {
             $ResponsiveConfig['details']['display'] = '$.fn.dataTable.Responsive.display.childRowImmediate'
         }
@@ -1229,7 +1230,7 @@
     foreach ($Marker in $ExportReplacements.Keys) { $Options = $Options.Replace('"' + $Marker + '"', $ExportReplacements[$Marker]) }
 
     # Emit the supported Responsive display callbacks as JavaScript expressions.
-    $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.(?:childRowImmediate|modal\(\)))"', '$1'
+    $Options = $Options -replace '"(\$\.fn\.dataTable\.Responsive\.display\.childRowImmediate|pswhResponsiveModal\(\))"', '$1'
     # $Options = $Options -replace '"(\$\.fn\.dataTable\.render\.percentBar\(.+\))"', '$1'
     $Options = [regex]::Replace(
         $Options,

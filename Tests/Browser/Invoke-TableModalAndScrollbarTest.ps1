@@ -29,6 +29,13 @@ $null = New-HTML -FilePath (Join-Path $ReportDirectory 'row-details.html') -FavI
     New-HTMLTable -DataTable $Details -DataTableID modalDetails -ResponsiveDetailsModal {
         New-TableHeader -Names Details -ResponsiveOperations none
     }
+    $OtherDetails = @(
+        [pscustomobject]@{ Name = 'WS01'; Details = 'Primary workstation' }
+        [pscustomobject]@{ Name = 'WS02'; Details = 'Secondary workstation' }
+    )
+    New-HTMLTable -DataTable $OtherDetails -DataTableID otherModalDetails -ResponsiveDetailsModal {
+        New-TableHeader -Names Details -ResponsiveOperations none
+    }
     New-HTMLTable -DataTable $Details -DataTableID inlineDetails {
         New-TableHeader -Names Details -ResponsiveOperations none
     }
@@ -59,11 +66,25 @@ try {
     $ModalControl = $Session.Page.Locator('#modalDetails tbody td.dtr-control').Nth(1)
     $null = $ModalControl.PressAsync('Enter').GetAwaiter().GetResult()
     $null = $Session.Page.Locator('.dtr-modal-content:has-text("Secondary directory server")').WaitForAsync().GetAwaiter().GetResult()
+    $null = Invoke-HtmlBrowserScript -Session $Session -Script '() => { $("#otherModalDetails").DataTable().draw(false); }'
+    $ModalText = $Session.Page.Locator('.dtr-modal-content').TextContentAsync().GetAwaiter().GetResult()
+    if ($ModalText -notlike '*Secondary directory server*') {
+        throw "Redrawing another table replaced the open modal's contents with '$ModalText'."
+    }
+    $null = Invoke-HtmlBrowserScript -Session $Session -Script '() => { $("#modalDetails").one("responsive-display.dt", () => requestAnimationFrame(() => { window.modalResized = true; })); }'
+    $null = $Session.Page.SetViewportSizeAsync(620, 650).GetAwaiter().GetResult()
+    $null = $Session.Page.WaitForFunctionAsync('() => window.modalResized').GetAwaiter().GetResult()
+    $null = $Session.Page.Locator('.dtr-modal-content:has-text("Secondary directory server")').WaitForAsync().GetAwaiter().GetResult()
     $null = $Session.Page.Keyboard.PressAsync('Escape').GetAwaiter().GetResult()
-    $null = $Session.Page.WaitForFunctionAsync('() => !document.querySelector(".dtr-modal")').GetAwaiter().GetResult()
+    $null = $Session.Page.WaitForFunctionAsync('() => !document.querySelector(".dtr-modal-content")').GetAwaiter().GetResult()
+    $null = $Session.Page.Locator('#otherModalDetails tbody td.dtr-control').First.ClickAsync().GetAwaiter().GetResult()
+    $null = $Session.Page.Locator('.dtr-modal-content:has-text("Primary workstation")').WaitForAsync().GetAwaiter().GetResult()
+    $null = $Session.Page.GetByRole('button', @{ Name = 'Close'; Exact = $true }).ClickAsync().GetAwaiter().GetResult()
+    $null = $Session.Page.WaitForFunctionAsync('() => !document.querySelector(".dtr-modal-content")').GetAwaiter().GetResult()
     $null = $Session.Page.Locator('#inlineDetails tbody td.dtr-control').First.ClickAsync().GetAwaiter().GetResult()
     $null = $Session.Page.Locator('#inlineDetails .dtr-details:has-text("Primary directory server")').WaitForAsync().GetAwaiter().GetResult()
 
+    $null = $Session.Page.SetViewportSizeAsync(720, 650).GetAwaiter().GetResult()
     $null = $Session.Page.GotoAsync(([uri]::new($BaseUri, 'wide.html')).AbsoluteUri).GetAwaiter().GetResult()
     $null = $Session.Page.WaitForFunctionAsync('() => { const body = document.querySelector(".dataTables_scrollBody"); const rail = document.querySelector(".pswh-footer-scrollbar"); return body && rail?.hidden && body.scrollWidth > body.clientWidth && body.getBoundingClientRect().bottom <= innerHeight; }').GetAwaiter().GetResult()
     $null = Invoke-HtmlBrowserScript -Session $Session -Script '() => window.scrollTo(0, 200)'
