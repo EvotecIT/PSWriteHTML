@@ -1079,6 +1079,24 @@
                 Default = $true
                 Email   = $false
             }
+            DataTablesFooterScrollbar   = @{
+                Comment      = 'DataTables Fixed Footer Scrollbar'
+                HeaderAlways = @{
+                    Js  = "$PSScriptRoot\..\Resources\JS\dataTables.footerScrollbar.js"
+                    Css = "$PSScriptRoot\..\Resources\CSS\dataTables.footerScrollbar.css"
+                }
+                Default      = $true
+                Email        = $false
+            }
+            DataTablesResponsiveModal   = @{
+                Comment      = 'DataTables Responsive Details Modal'
+                HeaderAlways = @{
+                    Js  = "$PSScriptRoot\..\Resources\JS\dataTables.responsiveModal.js"
+                    Css = "$PSScriptRoot\..\Resources\CSS\dataTables.responsiveModal.css"
+                }
+                Default      = $true
+                Email        = $false
+            }
             DataTablesResponsive        = @{
                 Comment = 'DataTables Responsive Features'
                 Header  = @{

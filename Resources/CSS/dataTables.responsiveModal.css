@@ -1,0 +1,17 @@
+.pswh-responsive-modal {
+    box-sizing: border-box;
+    max-width: min(36rem, calc(100% - 2rem));
+    max-height: calc(100% - 2rem);
+    padding: 1rem;
+    border: 1px solid #aaa;
+    border-radius: 0.4rem;
+    overflow: auto;
+    overflow-wrap: anywhere;
+}
+.pswh-responsive-modal::backdrop {
+    background: rgb(0 0 0 / 45%);
+}
+.pswh-responsive-modal > button {
+    display: block;
+    margin-inline-start: auto;
+}

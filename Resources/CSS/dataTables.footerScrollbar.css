@@ -1,0 +1,12 @@
+.pswh-footer-scrollbar {
+    position: fixed;
+    z-index: 3;
+    overflow: auto hidden;
+    overscroll-behavior-inline: contain;
+    min-height: 1rem;
+    background: Canvas;
+}
+
+.pswh-footer-scrollbar > div {
+    height: 1px;
+}
